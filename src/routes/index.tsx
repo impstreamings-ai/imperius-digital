@@ -64,7 +64,7 @@ export const Route = createFileRoute("/")({
 
 const WA = "https://wa.me/5515981023792";
 const IG = "https://instagram.com/imperiusdigital.br";
-const DEMO = "https://theblackcrown.lovable.app";
+const DEMO = "https://blackcrown-by-imperius.lovable.app/";
 
 function Landing() {
   return (
