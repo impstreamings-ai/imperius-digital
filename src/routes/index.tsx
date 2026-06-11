@@ -155,26 +155,32 @@ function Solution() {
 
 function SocialProof() {
   const items = [
-    "Clientes costumam confiar mais.",
-    "O contato se torna mais simples.",
-    "A empresa transmite mais autoridade.",
-    "A marca parece mais profissional.",
-    "O atendimento ganha mais agilidade.",
-    "A percepção de valor aumenta.",
+    { t: "Mais credibilidade", i: ShieldCheck },
+    { t: "Mais autoridade", i: Award },
+    { t: "Melhor experiência mobile", i: Sparkles },
+    { t: "Contato facilitado", i: MessageCircle },
+    { t: "Marca mais profissional", i: LayoutTemplate },
+    { t: "Maior percepção de valor", i: Zap },
   ];
   return (
-    <section className="py-20 sm:py-24">
+    <section id="beneficios" className="py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <SectionTitle
-          eyebrow="Benefícios percebidos"
-          title="Benefícios percebidos após a modernização digital."
+          eyebrow="Presença digital"
+          title="O que uma presença digital profissional transmite"
+          sub="Empresas bem apresentadas costumam gerar mais confiança, transmitir mais autoridade e facilitar o contato com novos clientes."
         />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto">
-          {items.map((t) => (
-            <div key={t} className="card-premium rounded-2xl p-6 sm:p-7 hover:border-primary/40 transition">
-              <Quote className="h-5 w-5 text-primary mb-3 opacity-70" />
-              <p className="text-sm sm:text-base text-foreground/90 leading-relaxed">{t}</p>
+          {items.map((it) => (
+            <div key={it.t} className="card-premium hover-lift rounded-2xl p-6 sm:p-7 flex items-start gap-4">
+              <div className="h-11 w-11 shrink-0 rounded-xl flex items-center justify-center ring-1 ring-primary/40 bg-primary/10">
+                <it.i className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <div className="text-sm uppercase tracking-[0.18em] text-primary/80 font-semibold mb-1">✓</div>
+                <p className="text-base font-heading font-semibold text-foreground/95 leading-snug">{it.t}</p>
+              </div>
             </div>
           ))}
         </div>
