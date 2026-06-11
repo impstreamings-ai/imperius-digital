@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import logoAsset from "@/assets/imperius-logo-official.png.asset.json";
+import logoAsset from "@/assets/imperius-logo.png.asset.json";
 import blackCrownPreview from "@/assets/blackcrown-preview-v2.png.asset.json";
 
 
@@ -54,7 +54,7 @@ export const Route = createFileRoute("/")({
     links: [
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap",
       },
       { rel: "icon", href: logoAsset.url },
     ],
@@ -86,6 +86,7 @@ function Landing() {
       <About />
       <DemoOffer />
       <FinalCTA />
+      <NextUp />
       <Footer />
     </div>
   );
@@ -140,7 +141,7 @@ function Solution() {
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-5xl mx-auto">
           {items.map((t) => (
-            <div key={t} className="card-premium rounded-2xl p-5 sm:p-6 flex items-center gap-4 hover:border-primary/40 transition">
+            <div key={t} className="card-premium hover-lift rounded-2xl p-5 sm:p-6 flex items-center gap-4">
               <div className="h-10 w-10 shrink-0 rounded-xl flex items-center justify-center ring-1 ring-primary/40 bg-primary/10">
                 <Check className="h-5 w-5 text-primary" />
               </div>
@@ -155,26 +156,32 @@ function Solution() {
 
 function SocialProof() {
   const items = [
-    "Clientes costumam confiar mais.",
-    "O contato se torna mais simples.",
-    "A empresa transmite mais autoridade.",
-    "A marca parece mais profissional.",
-    "O atendimento ganha mais agilidade.",
-    "A percepção de valor aumenta.",
+    { t: "Mais credibilidade", i: ShieldCheck },
+    { t: "Mais autoridade", i: Award },
+    { t: "Melhor experiência mobile", i: Sparkles },
+    { t: "Contato facilitado", i: MessageCircle },
+    { t: "Marca mais profissional", i: LayoutTemplate },
+    { t: "Maior percepção de valor", i: Zap },
   ];
   return (
-    <section className="py-20 sm:py-24">
+    <section id="beneficios" className="py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <SectionTitle
-          eyebrow="Benefícios percebidos"
-          title="Benefícios percebidos após a modernização digital."
+          eyebrow="Presença digital"
+          title="O que uma presença digital profissional transmite"
+          sub="Empresas bem apresentadas costumam gerar mais confiança, transmitir mais autoridade e facilitar o contato com novos clientes."
         />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto">
-          {items.map((t) => (
-            <div key={t} className="card-premium rounded-2xl p-6 sm:p-7 hover:border-primary/40 transition">
-              <Quote className="h-5 w-5 text-primary mb-3 opacity-70" />
-              <p className="text-sm sm:text-base text-foreground/90 leading-relaxed">{t}</p>
+          {items.map((it) => (
+            <div key={it.t} className="card-premium hover-lift rounded-2xl p-6 sm:p-7 flex items-start gap-4">
+              <div className="h-11 w-11 shrink-0 rounded-xl flex items-center justify-center ring-1 ring-primary/40 bg-primary/10">
+                <it.i className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <div className="text-sm uppercase tracking-[0.18em] text-primary/80 font-semibold mb-1">✓</div>
+                <p className="text-base font-heading font-semibold text-foreground/95 leading-snug">{it.t}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -193,7 +200,7 @@ function Scarcity() {
             <div className="inline-flex items-center justify-center h-14 w-14 rounded-2xl ring-1 ring-primary/40 mb-5" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.7), oklch(0.12 0.02 245 / 0.7))" }}>
               <Clock className="h-6 w-6 text-primary" />
             </div>
-            <h2 className="font-display text-2xl sm:text-4xl font-bold text-gradient leading-tight">Atendimento limitado.</h2>
+            <h2 className="font-heading text-2xl sm:text-4xl font-bold text-gradient leading-tight">Atendimento limitado.</h2>
             <p className="mt-5 text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               Trabalhamos com poucos projetos simultaneamente para garantir qualidade, acompanhamento próximo e atenção aos detalhes em cada entrega.
             </p>
@@ -217,7 +224,7 @@ function Guarantee() {
             <div className="inline-flex items-center justify-center h-14 w-14 rounded-2xl ring-1 ring-primary/40 mb-5" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.7), oklch(0.12 0.02 245 / 0.7))" }}>
               <Award className="h-6 w-6 text-primary" />
             </div>
-            <h2 className="font-display text-2xl sm:text-4xl font-bold text-gradient leading-tight">Demonstração sem compromisso.</h2>
+            <h2 className="font-heading text-2xl sm:text-4xl font-bold text-gradient leading-tight">Demonstração sem compromisso.</h2>
             <p className="mt-5 text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               Antes de qualquer contratação você pode conhecer uma demonstração personalizada para entender o potencial do projeto.
             </p>
@@ -243,12 +250,12 @@ function Outcomes() {
         <SectionTitle eyebrow="Resultados" title="O que muda após a implementação." />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {items.map((b) => (
-            <div key={b.t} className="card-premium rounded-2xl p-6 sm:p-7 flex items-start gap-5 hover:border-primary/40 transition h-full">
+            <div key={b.t} className="card-premium hover-lift rounded-2xl p-6 sm:p-7 flex items-start gap-5 h-full">
               <div className="h-12 w-12 shrink-0 rounded-xl flex items-center justify-center ring-1 ring-primary/30" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.6), oklch(0.15 0.03 245 / 0.4))" }}>
                 <b.i className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h3 className="font-display font-semibold text-base sm:text-lg">{b.t}</h3>
+                <h3 className="font-heading font-semibold text-base sm:text-lg">{b.t}</h3>
                 <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">{b.d}</p>
               </div>
             </div>
@@ -341,7 +348,7 @@ function SectionTitle({ eyebrow, title, sub }: { eyebrow?: string; title: string
       {eyebrow && (
         <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4">{eyebrow}</div>
       )}
-      <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight">{title}</h2>
+      <h2 className="font-heading text-2xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight">{title}</h2>
       {sub && <p className="mt-5 text-muted-foreground text-base sm:text-lg">{sub}</p>}
     </div>
   );
@@ -362,12 +369,12 @@ function Benefits() {
         <SectionTitle eyebrow="O que você ganha" title="Resultados antes de tecnologia." />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {items.map((b) => (
-            <div key={b.t} className="card-premium rounded-2xl p-6 sm:p-7 flex items-start gap-5 hover:border-primary/40 transition">
+            <div key={b.t} className="card-premium hover-lift rounded-2xl p-6 sm:p-7 flex items-start gap-5">
               <div className="h-12 w-12 shrink-0 rounded-xl flex items-center justify-center ring-1 ring-primary/30" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.6), oklch(0.15 0.03 245 / 0.4))" }}>
                 <b.i className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h3 className="font-display font-semibold text-base sm:text-lg">{b.t}</h3>
+                <h3 className="font-heading font-semibold text-base sm:text-lg">{b.t}</h3>
                 <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">{b.d}</p>
               </div>
             </div>
@@ -379,18 +386,11 @@ function Benefits() {
 }
 
 function Demo() {
-  const demonstra = [
-    "Presença digital profissional",
-    "Agendamento pelo WhatsApp",
-    "Catálogo de serviços organizado",
-    "Experiência mobile premium",
-    "Página pensada para conversão",
-  ];
-  const badges = [
-    "Projeto Demonstrativo",
-    "Landing Page Premium",
-    "WhatsApp Integrado",
-    "Mobile First",
+  const features = [
+    "WhatsApp integrado",
+    "Estrutura focada em conversão",
+    "Design premium",
+    "Totalmente responsiva",
   ];
   return (
     <section id="demonstracao" className="py-20 sm:py-24 relative">
@@ -398,23 +398,22 @@ function Demo() {
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-3">Case Demonstrativo</div>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight">
-            Black Crown Barbershop
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight tracking-tight">
+            BLACK CROWN BARBERSHOP
           </h2>
           <p className="mt-5 text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Projeto demonstrativo criado pela Imperius Soluções Digitais para mostrar como uma barbearia pode transmitir mais autoridade, facilitar agendamentos pelo WhatsApp e gerar mais oportunidades com uma presença digital profissional.
+            Landing page demonstrativa desenvolvida pela Imperius.
           </p>
         </div>
 
         <div className="relative max-w-6xl mx-auto">
-          <div className="absolute -inset-6 sm:-inset-12 rounded-3xl blur-3xl opacity-60 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.25 250 / 0.5), transparent 70%)" }} />
+          <div className="absolute -inset-6 sm:-inset-12 rounded-3xl blur-3xl opacity-60 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.25 250 / 0.45), transparent 70%)" }} />
 
-          {/* Preview visual estático */}
           <a
             href={DEMO}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative group block card-premium rounded-2xl sm:rounded-3xl overflow-hidden glow-ring mb-6 sm:mb-8 border border-primary/30 hover:border-primary/60 transition"
+            className="relative group block card-premium rounded-2xl sm:rounded-3xl overflow-hidden glow-ring mb-8 sm:mb-10 border border-primary/30 hover:border-primary/60 transition"
           >
             <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-border/40 bg-background/70">
               <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
@@ -432,50 +431,25 @@ function Demo() {
             </div>
           </a>
 
-          {/* Badges */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10">
-            {badges.map((b) => (
-              <span
-                key={b}
-                className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1.5 text-[11px] sm:text-xs uppercase tracking-[0.18em] font-semibold text-foreground/90"
-              >
-                <Sparkles className="h-3 w-3 text-primary" /> {b}
-              </span>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-10 max-w-4xl mx-auto">
+            {features.map((f) => (
+              <div key={f} className="card-premium hover-lift rounded-xl p-4 flex items-center gap-3">
+                <div className="h-8 w-8 shrink-0 rounded-lg flex items-center justify-center ring-1 ring-primary/40 bg-primary/10">
+                  <Check className="h-4 w-4 text-primary" />
+                </div>
+                <span className="text-sm font-medium leading-tight">{f}</span>
+              </div>
             ))}
           </div>
 
-          {/* O que este case demonstra */}
-          <div className="card-premium rounded-2xl p-6 sm:p-8 mb-8 sm:mb-10 max-w-3xl mx-auto">
-            <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4 text-center">O que este case demonstra</div>
-            <ul className="grid sm:grid-cols-2 gap-2.5 text-sm sm:text-base text-foreground/90">
-              {demonstra.map((d) => (
-                <li key={d} className="flex items-start gap-3">
-                  <Check className="h-4 w-4 mt-0.5 shrink-0 text-primary" /> {d}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
-            <a
-              href={DEMO}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-md bg-primary text-primary-foreground font-semibold tracking-wide hover:bg-primary/90 transition"
-            >
-              VER CASE AO VIVO <ExternalLink className="h-4 w-4" />
-            </a>
-            <a
-              href={WA}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-md border border-primary/40 bg-background/40 text-foreground font-semibold tracking-wide hover:bg-primary/10 hover:border-primary/70 transition"
-            >
-              <MessageCircle className="h-4 w-4" /> QUERO UMA DEMONSTRAÇÃO PARA MINHA EMPRESA
+          <div className="flex justify-center">
+            <a href={DEMO} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-12 px-8">
+                Ver demonstração completa <ExternalLink className="ml-2 h-4 w-4" />
+              </Button>
             </a>
           </div>
         </div>
-
       </div>
     </section>
   );
@@ -499,11 +473,11 @@ function Results() {
         />
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 max-w-5xl mx-auto">
           {items.map((it) => (
-            <div key={it.t} className="card-premium rounded-2xl p-6 sm:p-7 text-center hover:border-primary/40 transition">
+            <div key={it.t} className="card-premium hover-lift rounded-2xl p-6 sm:p-7 text-center">
               <div className="mx-auto h-11 w-11 rounded-xl flex items-center justify-center mb-4 ring-1 ring-primary/40 bg-primary/10">
                 <it.icon className="h-5 w-5 text-primary" />
               </div>
-              <div className="font-display text-3xl sm:text-4xl font-bold text-gradient mb-2">{it.n}</div>
+              <div className="font-heading text-3xl sm:text-4xl font-bold text-gradient mb-2">{it.n}</div>
               <div className="text-xs sm:text-sm text-foreground/90 leading-relaxed">{it.t}</div>
             </div>
           ))}
@@ -534,12 +508,12 @@ function WhyImperius() {
         <SectionTitle eyebrow="Diferenciais" title="Por que escolher a Imperius?" />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
           {items.map((it) => (
-            <div key={it.t} className="card-premium rounded-2xl p-6 flex items-start gap-4 hover:border-primary/40 transition">
+            <div key={it.t} className="card-premium hover-lift rounded-2xl p-6 flex items-start gap-4">
               <div className="h-9 w-9 shrink-0 rounded-lg flex items-center justify-center ring-1 ring-primary/40 bg-primary/10">
                 <Check className="h-4 w-4 text-primary" />
               </div>
               <div>
-                <div className="text-sm font-display font-semibold">{it.t}</div>
+                <div className="text-sm font-heading font-semibold">{it.t}</div>
                 <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{it.d}</p>
               </div>
             </div>
@@ -565,11 +539,11 @@ function Services() {
         <SectionTitle eyebrow="Soluções" title="Soluções para fortalecer sua presença digital." />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {items.map((it) => (
-            <div key={it.title} className="card-premium rounded-2xl p-6 sm:p-7 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1">
+            <div key={it.title} className="card-premium hover-lift rounded-2xl p-6 sm:p-7">
               <div className="h-12 w-12 rounded-xl flex items-center justify-center mb-5 ring-1 ring-primary/30" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.6), oklch(0.18 0.05 245 / 0.3))" }}>
                 <it.icon className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="font-display font-semibold text-base sm:text-lg mb-2">{it.title}</h3>
+              <h3 className="font-heading font-semibold text-base sm:text-lg mb-2">{it.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{it.desc}</p>
             </div>
           ))}
@@ -581,10 +555,10 @@ function Services() {
 
 function Process() {
   const steps = [
-    { i: Search, t: "Diagnóstico", d: "Entendemos seu negócio, objetivos e contexto." },
-    { i: ClipboardList, t: "Planejamento", d: "Definimos escopo, conteúdo e estratégia." },
-    { i: Code2, t: "Desenvolvimento", d: "Construção com tecnologia e design premium." },
-    { i: Rocket, t: "Publicação", d: "Seu projeto no ar, pronto para gerar resultado." },
+    { n: "1", i: MessageCircle, t: "Conversamos", d: "Entendemos seu negócio e objetivos." },
+    { n: "2", i: LayoutTemplate, t: "Criamos a demonstração", d: "Montamos uma versão personalizada para você visualizar." },
+    { n: "3", i: ClipboardList, t: "Ajustamos juntos", d: "Refinamos detalhes até ficar perfeito." },
+    { n: "4", i: Rocket, t: "Publicamos", d: "Seu projeto entra no ar pronto para gerar resultado." },
   ];
   return (
     <section id="processo" className="py-20 sm:py-24">
@@ -593,11 +567,12 @@ function Process() {
         <div className="relative grid sm:grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6">
           <div className="hidden md:block absolute top-9 left-[12.5%] right-[12.5%] h-px" style={{ background: "linear-gradient(90deg, transparent, oklch(0.72 0.22 250 / 0.5), transparent)" }} />
           {steps.map((s) => (
-            <div key={s.t} className="relative card-premium rounded-2xl p-6 sm:p-7">
+            <div key={s.t} className="relative card-premium hover-lift rounded-2xl p-6 sm:p-7">
+              <div className="absolute -top-3 -right-3 h-8 w-8 rounded-full ring-1 ring-primary/40 bg-background flex items-center justify-center font-heading font-bold text-xs text-primary">{s.n}</div>
               <div className="h-14 w-14 rounded-2xl flex items-center justify-center ring-1 ring-primary/40 mb-5" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.7), oklch(0.12 0.02 245 / 0.7))" }}>
                 <s.i className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="font-display font-semibold text-base sm:text-lg mb-2">{s.t}</h3>
+              <h3 className="font-heading font-semibold text-base sm:text-lg mb-2">{s.t}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{s.d}</p>
             </div>
           ))}
@@ -621,12 +596,12 @@ function Audience() {
       <div className="mx-auto max-w-7xl px-6">
         <SectionTitle
           eyebrow="Para quem"
-          title="Ideal para"
-          sub="Negócios que desejam fortalecer sua presença digital com profissionalismo."
+          title="Negócios que dependem de credibilidade e contato rápido"
+          sub="Empresas locais que precisam transmitir profissionalismo e responder com agilidade aos seus clientes."
         />
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 max-w-6xl mx-auto">
           {items.map((it) => (
-            <div key={it.t} className="card-premium rounded-2xl p-5 sm:p-6 flex flex-col items-center justify-center text-center gap-3 hover:border-primary/40 transition h-full min-h-[140px]">
+            <div key={it.t} className="card-premium hover-lift rounded-2xl p-5 sm:p-6 flex flex-col items-center justify-center text-center gap-3 h-full min-h-[140px]">
 
               <div className="h-12 w-12 rounded-xl flex items-center justify-center ring-1 ring-primary/30" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.6), oklch(0.15 0.03 245 / 0.4))" }}>
                 <it.i className="h-6 w-6 text-primary" />
@@ -677,7 +652,7 @@ function About() {
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="text-center mb-10">
           <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-3">Sobre a Imperius</div>
-          <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight">
+          <h2 className="font-heading text-2xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight">
             Autoridade digital ao alcance de qualquer negócio.
           </h2>
         </div>
@@ -741,7 +716,7 @@ function DemoOffer() {
               <div className="h-12 w-12 shrink-0 rounded-xl flex items-center justify-center ring-1 ring-primary/30" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.6), oklch(0.15 0.03 245 / 0.4))" }}>
                 <b.i className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="font-display font-semibold text-base sm:text-lg leading-tight">{b.t}</h3>
+              <h3 className="font-heading font-semibold text-base sm:text-lg leading-tight">{b.t}</h3>
             </div>
           ))}
         </div>
@@ -758,7 +733,7 @@ function FinalCTA() {
           <div className="absolute inset-0 bg-grid opacity-60 pointer-events-none" />
           <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[400px] h-[400px] rounded-full blur-3xl" style={{ background: "radial-gradient(circle, oklch(0.55 0.25 250 / 0.4), transparent 70%)" }} />
           <div className="relative">
-            <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight tracking-tight">
+            <h2 className="font-heading text-2xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight tracking-tight">
               Sua empresa merece transmitir o valor real do seu trabalho.
             </h2>
             <p className="mt-5 sm:mt-6 text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
@@ -781,6 +756,35 @@ function FinalCTA() {
               <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Atendimento personalizado</li>
               <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Demonstração exclusiva</li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function NextUp() {
+  return (
+    <section className="py-20 sm:py-24">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        <div className="relative overflow-hidden card-premium rounded-3xl p-10 sm:p-14 lg:p-16 text-center glow-ring">
+          <div className="absolute inset-0 bg-grid opacity-50 pointer-events-none" />
+          <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[520px] h-[520px] rounded-full blur-3xl" style={{ background: "radial-gradient(circle, oklch(0.55 0.25 250 / 0.4), transparent 70%)" }} />
+          <div className="relative">
+            <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4">Próximo case</div>
+            <h2 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-bold text-gradient leading-[1.05] tracking-tight">
+              Sua empresa pode ser a próxima.
+            </h2>
+            <p className="mt-6 text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+              Receba uma demonstração personalizada criada para o seu negócio.
+            </p>
+            <div className="mt-9 flex justify-center">
+              <a href={WA} target="_blank" rel="noreferrer">
+                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-12 px-8">
+                  Quero minha demonstração <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
       </div>
