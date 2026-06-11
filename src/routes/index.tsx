@@ -81,6 +81,7 @@ function Landing() {
       <Scarcity />
       <Guarantee />
       <About />
+      <DemoOffer />
       <FinalCTA />
       <Footer />
     </div>
