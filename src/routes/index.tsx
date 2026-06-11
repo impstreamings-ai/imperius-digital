@@ -600,7 +600,7 @@ function Audience() {
         />
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 max-w-6xl mx-auto">
           {items.map((it) => (
-            <div key={it.t} className="card-premium rounded-2xl p-5 sm:p-6 flex flex-col items-center justify-center text-center gap-3 hover:border-primary/40 transition h-full min-h-[140px]">
+            <div key={it.t} className="card-premium hover-lift rounded-2xl p-5 sm:p-6 flex flex-col items-center justify-center text-center gap-3 h-full min-h-[140px]">
 
               <div className="h-12 w-12 rounded-xl flex items-center justify-center ring-1 ring-primary/30" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.6), oklch(0.15 0.03 245 / 0.4))" }}>
                 <it.i className="h-6 w-6 text-primary" />
