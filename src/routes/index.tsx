@@ -385,18 +385,11 @@ function Benefits() {
 }
 
 function Demo() {
-  const demonstra = [
-    "Presença digital profissional",
-    "Agendamento pelo WhatsApp",
-    "Catálogo de serviços organizado",
-    "Experiência mobile premium",
-    "Página pensada para conversão",
-  ];
-  const badges = [
-    "Projeto Demonstrativo",
-    "Landing Page Premium",
-    "WhatsApp Integrado",
-    "Mobile First",
+  const features = [
+    "WhatsApp integrado",
+    "Estrutura focada em conversão",
+    "Design premium",
+    "Totalmente responsiva",
   ];
   return (
     <section id="demonstracao" className="py-20 sm:py-24 relative">
@@ -404,23 +397,22 @@ function Demo() {
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-3">Case Demonstrativo</div>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight">
-            Black Crown Barbershop
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight tracking-tight">
+            BLACK CROWN BARBERSHOP
           </h2>
           <p className="mt-5 text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Projeto demonstrativo criado pela Imperius Soluções Digitais para mostrar como uma barbearia pode transmitir mais autoridade, facilitar agendamentos pelo WhatsApp e gerar mais oportunidades com uma presença digital profissional.
+            Landing page demonstrativa desenvolvida pela Imperius.
           </p>
         </div>
 
         <div className="relative max-w-6xl mx-auto">
-          <div className="absolute -inset-6 sm:-inset-12 rounded-3xl blur-3xl opacity-60 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.25 250 / 0.5), transparent 70%)" }} />
+          <div className="absolute -inset-6 sm:-inset-12 rounded-3xl blur-3xl opacity-60 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.25 250 / 0.45), transparent 70%)" }} />
 
-          {/* Preview visual estático */}
           <a
             href={DEMO}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative group block card-premium rounded-2xl sm:rounded-3xl overflow-hidden glow-ring mb-6 sm:mb-8 border border-primary/30 hover:border-primary/60 transition"
+            className="relative group block card-premium rounded-2xl sm:rounded-3xl overflow-hidden glow-ring mb-8 sm:mb-10 border border-primary/30 hover:border-primary/60 transition"
           >
             <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-border/40 bg-background/70">
               <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
@@ -438,50 +430,25 @@ function Demo() {
             </div>
           </a>
 
-          {/* Badges */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10">
-            {badges.map((b) => (
-              <span
-                key={b}
-                className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1.5 text-[11px] sm:text-xs uppercase tracking-[0.18em] font-semibold text-foreground/90"
-              >
-                <Sparkles className="h-3 w-3 text-primary" /> {b}
-              </span>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-10 max-w-4xl mx-auto">
+            {features.map((f) => (
+              <div key={f} className="card-premium hover-lift rounded-xl p-4 flex items-center gap-3">
+                <div className="h-8 w-8 shrink-0 rounded-lg flex items-center justify-center ring-1 ring-primary/40 bg-primary/10">
+                  <Check className="h-4 w-4 text-primary" />
+                </div>
+                <span className="text-sm font-medium leading-tight">{f}</span>
+              </div>
             ))}
           </div>
 
-          {/* O que este case demonstra */}
-          <div className="card-premium rounded-2xl p-6 sm:p-8 mb-8 sm:mb-10 max-w-3xl mx-auto">
-            <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4 text-center">O que este case demonstra</div>
-            <ul className="grid sm:grid-cols-2 gap-2.5 text-sm sm:text-base text-foreground/90">
-              {demonstra.map((d) => (
-                <li key={d} className="flex items-start gap-3">
-                  <Check className="h-4 w-4 mt-0.5 shrink-0 text-primary" /> {d}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
-            <a
-              href={DEMO}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-md bg-primary text-primary-foreground font-semibold tracking-wide hover:bg-primary/90 transition"
-            >
-              VER CASE AO VIVO <ExternalLink className="h-4 w-4" />
-            </a>
-            <a
-              href={WA}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-md border border-primary/40 bg-background/40 text-foreground font-semibold tracking-wide hover:bg-primary/10 hover:border-primary/70 transition"
-            >
-              <MessageCircle className="h-4 w-4" /> QUERO UMA DEMONSTRAÇÃO PARA MINHA EMPRESA
+          <div className="flex justify-center">
+            <a href={DEMO} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-12 px-8">
+                Ver demonstração completa <ExternalLink className="ml-2 h-4 w-4" />
+              </Button>
             </a>
           </div>
         </div>
-
       </div>
     </section>
   );
