@@ -287,13 +287,12 @@ function Hero() {
             Soluções Digitais Premium
           </div>
           <h1 className="font-display text-[2rem] sm:text-[2.75rem] lg:text-5xl xl:text-[3.5rem] font-bold leading-[1.1] tracking-tight">
-            <span className="text-gradient">Sua empresa merece uma presença digital que transmite </span>
-            <span className="text-neon">confiança</span>
-            <span className="text-gradient"> e gera </span>
-            <span className="text-neon">oportunidades.</span>
+            <span className="text-gradient">Sua empresa merece gerar </span>
+            <span className="text-neon">mais oportunidades</span>
+            <span className="text-gradient"> todos os dias.</span>
           </h1>
           <p className="mt-7 max-w-xl text-muted-foreground text-base sm:text-lg leading-relaxed">
-            Landing pages, automação e inteligência artificial para empresas que desejam crescer com mais profissionalismo.
+            Criamos landing pages, automação e soluções com inteligência artificial para empresas que desejam transmitir mais autoridade, facilitar o contato e gerar mais oportunidades de negócio.
           </p>
           <div className="mt-9 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
             <a href={WA} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
@@ -303,13 +302,16 @@ function Hero() {
             </a>
             <a href={DEMO} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
               <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 px-7 border-border bg-card/40 backdrop-blur hover:bg-card/80 font-semibold tracking-wide">
-                Ver demonstração
+                VER PROJETO DEMONSTRATIVO
               </Button>
             </a>
           </div>
-          <p className="mt-5 text-xs sm:text-[13px] text-muted-foreground/80 max-w-md leading-relaxed">
-            Atendemos poucos projetos simultaneamente para garantir qualidade em cada entrega.
-          </p>
+          <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-xs sm:text-[13px] text-muted-foreground/80 max-w-md leading-relaxed">
+            <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Demonstração personalizada</li>
+            <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Sem compromisso</li>
+            <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Atendimento próximo</li>
+          </ul>
+
         </div>
 
         <div className="relative hidden lg:block">
