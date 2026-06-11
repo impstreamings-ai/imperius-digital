@@ -566,7 +566,8 @@ function Process() {
         <div className="relative grid sm:grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6">
           <div className="hidden md:block absolute top-9 left-[12.5%] right-[12.5%] h-px" style={{ background: "linear-gradient(90deg, transparent, oklch(0.72 0.22 250 / 0.5), transparent)" }} />
           {steps.map((s) => (
-            <div key={s.t} className="relative card-premium rounded-2xl p-6 sm:p-7">
+            <div key={s.t} className="relative card-premium hover-lift rounded-2xl p-6 sm:p-7">
+              <div className="absolute -top-3 -right-3 h-8 w-8 rounded-full ring-1 ring-primary/40 bg-background flex items-center justify-center font-heading font-bold text-xs text-primary">{s.n}</div>
               <div className="h-14 w-14 rounded-2xl flex items-center justify-center ring-1 ring-primary/40 mb-5" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.7), oklch(0.12 0.02 245 / 0.7))" }}>
                 <s.i className="h-6 w-6 text-primary" />
               </div>
