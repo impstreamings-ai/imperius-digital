@@ -86,6 +86,7 @@ function Landing() {
       <About />
       <DemoOffer />
       <FinalCTA />
+      <NextUp />
       <Footer />
     </div>
   );
