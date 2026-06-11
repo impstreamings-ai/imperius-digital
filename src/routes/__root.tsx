@@ -77,14 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "IMPERIUS | Landing Pages, Automação e IA" },
+      { name: "description", content: "Transforme sua presença digital com landing pages profissionais, automação e IA para gerar mais contatos e oportunidades." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "IMPERIUS | Landing Pages, Automação e IA" },
+      { property: "og:description", content: "Transforme sua presença digital com landing pages profissionais, automação e IA para gerar mais contatos e oportunidades." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "IMPERIUS | Landing Pages, Automação e IA" },
+      { name: "twitter:description", content: "Transforme sua presença digital com landing pages profissionais, automação e IA para gerar mais contatos e oportunidades." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/OcyNTqxMWMeMSL6WKtCopesHPVV2/social-images/social-1781121634206-artesocvial.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/OcyNTqxMWMeMSL6WKtCopesHPVV2/social-images/social-1781121634206-artesocvial.webp" },
     ],
     links: [
       {
