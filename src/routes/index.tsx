@@ -649,7 +649,7 @@ function FinalCTA() {
               Sua empresa merece transmitir o valor real do seu trabalho.
             </h2>
             <p className="mt-5 sm:mt-6 text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
-              Solicite uma demonstração personalizada e descubra como sua presença digital pode transmitir mais confiança, gerar mais contatos e fortalecer sua marca.
+              Solicite uma demonstração personalizada e descubra como uma presença digital profissional pode gerar mais contatos, fortalecer sua marca e facilitar novas oportunidades.
             </p>
             <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
               <a href={WA} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
@@ -663,6 +663,11 @@ function FinalCTA() {
                 </Button>
               </a>
             </div>
+            <ul className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs sm:text-[13px] text-muted-foreground/80">
+              <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Sem compromisso</li>
+              <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Atendimento personalizado</li>
+              <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Demonstração exclusiva</li>
+            </ul>
           </div>
         </div>
       </div>
