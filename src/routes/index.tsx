@@ -408,24 +408,28 @@ function Demo() {
         <div className="relative max-w-6xl mx-auto">
           <div className="absolute -inset-6 sm:-inset-12 rounded-3xl blur-3xl opacity-60 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.25 250 / 0.5), transparent 70%)" }} />
 
-          {/* Preview funcional ao vivo */}
-          <div className="relative card-premium rounded-2xl sm:rounded-3xl overflow-hidden glow-ring mb-8 sm:mb-10">
+          {/* Preview visual estático */}
+          <a
+            href={DEMO}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative group block card-premium rounded-2xl sm:rounded-3xl overflow-hidden glow-ring mb-8 sm:mb-10 border border-primary/30 hover:border-primary/60 transition"
+          >
             <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-border/40 bg-background/70">
               <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
               <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
               <span className="h-2.5 w-2.5 rounded-full bg-primary/70" />
               <span className="ml-3 text-[10px] uppercase tracking-[0.2em] text-muted-foreground truncate">theblackcrown.lovable.app</span>
             </div>
-            <div className="relative w-full bg-background" style={{ height: "650px", maxHeight: "650px" }}>
-              <iframe
-                src={DEMO}
-                title="Preview ao vivo — Black Crown Barbershop"
-                loading="lazy"
-                className="w-full h-full border-0"
-                sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+            <div className="relative w-full overflow-hidden bg-background h-[420px] sm:h-[560px] lg:h-[650px]">
+              <img
+                src={blackCrownPreview}
+                alt="Preview — Black Crown Barbershop"
+                className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent pointer-events-none" />
             </div>
-          </div>
+          </a>
 
           <div className="grid md:grid-cols-2 gap-4 sm:gap-5 mb-8 sm:mb-10">
             <div className="card-premium rounded-2xl p-6 sm:p-7">
@@ -446,7 +450,7 @@ function Demo() {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+          <div className="flex justify-center">
             <a
               href={DEMO}
               target="_blank"
@@ -454,14 +458,6 @@ function Demo() {
               className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-md bg-primary text-primary-foreground font-semibold tracking-wide hover:bg-primary/90 transition"
             >
               VER SITE FUNCIONANDO <ExternalLink className="h-4 w-4" />
-            </a>
-            <a
-              href={DEMO}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-md border border-primary/40 bg-background/60 text-primary font-semibold tracking-wide hover:bg-primary/10 transition"
-            >
-              VER DEMONSTRAÇÃO COMPLETA <ExternalLink className="h-4 w-4" />
             </a>
           </div>
         </div>
