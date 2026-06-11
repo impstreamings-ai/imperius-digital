@@ -378,61 +378,50 @@ function Benefits() {
 
 function Demo() {
   const objetivos = [
-    "Modernizar presença digital",
-    "Facilitar contato",
-    "Melhorar percepção de valor",
-    "Destacar diferenciais",
+    "Mais agendamentos",
+    "Mais presença digital",
+    "Mais percepção de valor",
+    "Facilidade de contato",
   ];
   const tecnologias = [
-    "Landing Page",
-    "Design Mobile First",
+    "Landing Page Premium",
     "WhatsApp Integrado",
+    "Mobile First",
     "Otimização de Conversão",
   ];
   return (
     <section id="demonstracao" className="py-20 sm:py-24 relative">
       <div className="absolute inset-0 bg-grid opacity-50 pointer-events-none" />
       <div className="relative mx-auto max-w-7xl px-6">
-        <SectionTitle
-          eyebrow="Case demonstrativo"
-          title="Case Demonstrativo: Black Crown Barbershop"
-          sub="Projeto criado pela Imperius para demonstrar o potencial de modernização digital de pequenos negócios — unindo design estratégico, experiência mobile e clareza de comunicação."
-        />
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-3">Case Demonstrativo</div>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight">
+            Black Crown Barbershop
+          </h2>
+          <p className="mt-5 text-base sm:text-lg text-muted-foreground leading-relaxed">
+            Projeto criado pela Imperius para demonstrar como design estratégico, experiência mobile e integração digital podem aumentar a percepção de valor de um negócio local.
+          </p>
+        </div>
 
         <div className="relative max-w-6xl mx-auto">
           <div className="absolute -inset-6 sm:-inset-12 rounded-3xl blur-3xl opacity-60 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.25 250 / 0.5), transparent 70%)" }} />
 
-          <div className="relative grid md:grid-cols-[1.6fr_1fr] gap-5 sm:gap-6 mb-8 sm:mb-10 items-stretch">
-            {/* Desktop preview */}
-            <div className="card-premium rounded-2xl sm:rounded-3xl overflow-hidden glow-ring">
-              <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-border/40 bg-background/60">
-                <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
-                <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
-                <span className="h-2.5 w-2.5 rounded-full bg-primary/70" />
-                <span className="ml-3 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Desktop</span>
-              </div>
-              <div className="relative aspect-[16/10] overflow-hidden">
-                <img
-                  src={blackCrownAsset.url}
-                  alt="Black Crown Barbershop — versão desktop"
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
+          {/* Preview funcional ao vivo */}
+          <div className="relative card-premium rounded-2xl sm:rounded-3xl overflow-hidden glow-ring mb-8 sm:mb-10">
+            <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-border/40 bg-background/70">
+              <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
+              <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
+              <span className="h-2.5 w-2.5 rounded-full bg-primary/70" />
+              <span className="ml-3 text-[10px] uppercase tracking-[0.2em] text-muted-foreground truncate">theblackcrown.lovable.app</span>
             </div>
-
-            {/* Mobile preview */}
-            <div className="card-premium rounded-2xl sm:rounded-3xl overflow-hidden glow-ring flex flex-col">
-              <div className="flex items-center justify-center px-4 py-2.5 border-b border-border/40 bg-background/60">
-                <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Mobile</span>
-              </div>
-              <div className="relative flex-1 min-h-[320px] sm:min-h-[420px] overflow-hidden">
-                <img
-                  src={blackCrownAsset.url}
-                  alt="Black Crown Barbershop — versão mobile"
-                  className="w-full h-full object-cover object-top"
-                  style={{ objectPosition: "left top" }}
-                />
-              </div>
+            <div className="relative w-full bg-background" style={{ height: "650px", maxHeight: "650px" }}>
+              <iframe
+                src={DEMO}
+                title="Preview ao vivo — Black Crown Barbershop"
+                loading="lazy"
+                className="w-full h-full border-0"
+                sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+              />
             </div>
           </div>
 
@@ -455,8 +444,21 @@ function Demo() {
             </div>
           </div>
 
-          <div className="text-center">
-            <a href={DEMO} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-md bg-primary text-primary-foreground font-semibold tracking-wide hover:bg-primary/90 transition">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <a
+              href={DEMO}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-md bg-primary text-primary-foreground font-semibold tracking-wide hover:bg-primary/90 transition"
+            >
+              VER SITE FUNCIONANDO <ExternalLink className="h-4 w-4" />
+            </a>
+            <a
+              href={DEMO}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-md border border-primary/40 bg-background/60 text-primary font-semibold tracking-wide hover:bg-primary/10 transition"
+            >
               VER DEMONSTRAÇÃO COMPLETA <ExternalLink className="h-4 w-4" />
             </a>
           </div>
