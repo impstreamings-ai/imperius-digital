@@ -595,8 +595,8 @@ function Audience() {
       <div className="mx-auto max-w-7xl px-6">
         <SectionTitle
           eyebrow="Para quem"
-          title="Ideal para"
-          sub="Negócios que desejam fortalecer sua presença digital com profissionalismo."
+          title="Negócios que dependem de credibilidade e contato rápido"
+          sub="Empresas locais que precisam transmitir profissionalismo e responder com agilidade aos seus clientes."
         />
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 max-w-6xl mx-auto">
           {items.map((it) => (
