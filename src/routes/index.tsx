@@ -119,13 +119,14 @@ function Problem() {
 
 function Solution() {
   const items = [
-    "Mais confiança",
-    "Mais autoridade",
-    "Mais facilidade de contato",
-    "Mais profissionalismo",
-    "Mais oportunidades",
-    "Mais presença digital",
+    "Mais contatos",
+    "Mais pedidos de orçamento",
+    "Mais facilidade de atendimento",
+    "Mais valor percebido",
+    "Mais autoridade digital",
+    "Mais oportunidades de negócio",
   ];
+
   return (
     <section className="py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-6">
