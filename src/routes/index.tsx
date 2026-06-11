@@ -658,15 +658,49 @@ function Included() {
 
 function About() {
   return (
-    <section id="sobre" className="py-20 sm:py-24">
-      <div className="mx-auto max-w-4xl px-6 text-center">
-        <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4">Sobre a Imperius</div>
-        <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight">
-          Presença digital que transmite mais confiança e facilita novos contatos.
-        </h2>
-        <p className="mt-7 text-base sm:text-lg text-muted-foreground leading-relaxed">
-          Criamos soluções digitais que ajudam empresas a se apresentarem de forma mais profissional, fortalecerem sua marca e facilitarem o contato com clientes.
-        </p>
+    <section id="sobre" className="py-20 sm:py-24 relative">
+      <div className="absolute inset-0 bg-grid opacity-40 pointer-events-none" />
+      <div className="relative mx-auto max-w-6xl px-6">
+        <div className="text-center mb-10">
+          <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-3">Sobre a Imperius</div>
+          <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight">
+            Autoridade digital ao alcance de qualquer negócio.
+          </h2>
+        </div>
+
+        <div className="relative">
+          <div className="absolute -inset-6 sm:-inset-10 rounded-3xl blur-3xl opacity-60 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.25 250 / 0.45), transparent 70%)" }} />
+          <div className="relative card-premium rounded-3xl p-8 sm:p-12 lg:p-14 glow-ring overflow-hidden">
+            <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
+            <div className="relative grid md:grid-cols-[auto_1fr] gap-8 sm:gap-10 items-center">
+              {/* Avatar / imagem institucional */}
+              <div className="mx-auto md:mx-0">
+                <div className="relative h-32 w-32 sm:h-40 sm:w-40 rounded-2xl overflow-hidden ring-1 ring-primary/40 bg-background/60 flex items-center justify-center" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.7), oklch(0.15 0.03 245 / 0.5))" }}>
+                  <img src={logoAsset.url} alt="Imperius" className="h-20 w-20 sm:h-24 sm:w-24 object-contain" />
+                  <div className="absolute -inset-1 rounded-2xl pointer-events-none" style={{ boxShadow: "inset 0 0 40px oklch(0.55 0.25 250 / 0.35)" }} />
+                </div>
+                <div className="mt-3 text-center">
+                  <div className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">Imperius</div>
+                  <div className="text-[11px] text-muted-foreground">Soluções Digitais</div>
+                </div>
+              </div>
+
+              <div className="space-y-5 text-foreground/90">
+                <p className="text-base sm:text-lg leading-relaxed">
+                  A Imperius nasceu para ajudar pequenos negócios a transmitirem a mesma autoridade digital das grandes marcas.
+                </p>
+                <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
+                  Acreditamos que uma boa apresentação, tecnologia acessível e comunicação clara podem transformar a percepção de qualquer empresa.
+                </p>
+                <div className="flex flex-wrap gap-2 pt-2">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-[11px] uppercase tracking-[0.15em] text-primary"><Sparkles className="h-3 w-3" /> Design estratégico</span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-[11px] uppercase tracking-[0.15em] text-primary"><ShieldCheck className="h-3 w-3" /> Tecnologia acessível</span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-[11px] uppercase tracking-[0.15em] text-primary"><MessageCircle className="h-3 w-3" /> Comunicação clara</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
