@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import logoAsset from "@/assets/imperius-logo-official.png.asset.json";
-import blackCrownAsset from "@/assets/blackcrown-preview.png.asset.json";
+
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
