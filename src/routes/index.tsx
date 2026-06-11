@@ -443,6 +443,7 @@ function WhyImperius() {
     { t: "Visual profissional", d: "Estética que reforça a autoridade da sua marca." },
     { t: "Atendimento próximo", d: "Acompanhamento direto, sem intermediários." },
     { t: "Experiência mobile impecável", d: "Performance e clareza em qualquer dispositivo." },
+    { t: "Demonstração antes da contratação", d: "Você pode visualizar uma demonstração personalizada antes de tomar qualquer decisão." },
   ];
   return (
     <section className="py-20 sm:py-24">
