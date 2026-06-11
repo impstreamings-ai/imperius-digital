@@ -376,62 +376,89 @@ function Benefits() {
 }
 
 function Demo() {
+  const objetivos = [
+    "Modernizar presença digital",
+    "Facilitar contato",
+    "Melhorar percepção de valor",
+    "Destacar diferenciais",
+  ];
+  const tecnologias = [
+    "Landing Page",
+    "Design Mobile First",
+    "WhatsApp Integrado",
+    "Otimização de Conversão",
+  ];
   return (
     <section id="demonstracao" className="py-20 sm:py-24 relative">
       <div className="absolute inset-0 bg-grid opacity-50 pointer-events-none" />
       <div className="relative mx-auto max-w-7xl px-6">
         <SectionTitle
           eyebrow="Case demonstrativo"
-          title="Veja na prática o que podemos construir para sua empresa."
-          sub="Desenvolvemos a Black Crown como um projeto demonstrativo para mostrar como tecnologia, design estratégico e experiência mobile podem elevar a percepção de um negócio local."
+          title="Case Demonstrativo: Black Crown Barbershop"
+          sub="Projeto criado pela Imperius para demonstrar o potencial de modernização digital de pequenos negócios — unindo design estratégico, experiência mobile e clareza de comunicação."
         />
 
         <div className="relative max-w-6xl mx-auto">
+          <div className="absolute -inset-6 sm:-inset-12 rounded-3xl blur-3xl opacity-60 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.25 250 / 0.5), transparent 70%)" }} />
+
+          <div className="relative grid md:grid-cols-[1.6fr_1fr] gap-5 sm:gap-6 mb-8 sm:mb-10 items-stretch">
+            {/* Desktop preview */}
+            <div className="card-premium rounded-2xl sm:rounded-3xl overflow-hidden glow-ring">
+              <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-border/40 bg-background/60">
+                <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
+                <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
+                <span className="h-2.5 w-2.5 rounded-full bg-primary/70" />
+                <span className="ml-3 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Desktop</span>
+              </div>
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <img
+                  src={blackCrownAsset.url}
+                  alt="Black Crown Barbershop — versão desktop"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+            </div>
+
+            {/* Mobile preview */}
+            <div className="card-premium rounded-2xl sm:rounded-3xl overflow-hidden glow-ring flex flex-col">
+              <div className="flex items-center justify-center px-4 py-2.5 border-b border-border/40 bg-background/60">
+                <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Mobile</span>
+              </div>
+              <div className="relative flex-1 min-h-[320px] sm:min-h-[420px] overflow-hidden">
+                <img
+                  src={blackCrownAsset.url}
+                  alt="Black Crown Barbershop — versão mobile"
+                  className="w-full h-full object-cover object-top"
+                  style={{ objectPosition: "left top" }}
+                />
+              </div>
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-2 gap-4 sm:gap-5 mb-8 sm:mb-10">
             <div className="card-premium rounded-2xl p-6 sm:p-7">
-              <div className="text-[11px] uppercase tracking-[0.25em] text-destructive font-semibold mb-4">Antes</div>
+              <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4">Objetivos do projeto</div>
               <ul className="space-y-2.5 text-sm sm:text-base text-foreground/90">
-                <li className="flex items-start gap-3"><X className="h-4 w-4 mt-0.5 shrink-0 text-destructive" /> Presença digital limitada</li>
-                <li className="flex items-start gap-3"><X className="h-4 w-4 mt-0.5 shrink-0 text-destructive" /> Pouca diferenciação</li>
-                <li className="flex items-start gap-3"><X className="h-4 w-4 mt-0.5 shrink-0 text-destructive" /> Menor percepção de valor</li>
+                {objetivos.map((o) => (
+                  <li key={o} className="flex items-start gap-3"><Check className="h-4 w-4 mt-0.5 shrink-0 text-primary" /> {o}</li>
+                ))}
               </ul>
             </div>
             <div className="card-premium rounded-2xl p-6 sm:p-7">
-              <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4">Depois</div>
+              <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4">Tecnologias utilizadas</div>
               <ul className="space-y-2.5 text-sm sm:text-base text-foreground/90">
-                <li className="flex items-start gap-3"><Check className="h-4 w-4 mt-0.5 shrink-0 text-primary" /> Estrutura profissional</li>
-                <li className="flex items-start gap-3"><Check className="h-4 w-4 mt-0.5 shrink-0 text-primary" /> WhatsApp integrado</li>
-                <li className="flex items-start gap-3"><Check className="h-4 w-4 mt-0.5 shrink-0 text-primary" /> Mais autoridade</li>
-                <li className="flex items-start gap-3"><Check className="h-4 w-4 mt-0.5 shrink-0 text-primary" /> Melhor experiência para clientes</li>
+                {tecnologias.map((t) => (
+                  <li key={t} className="flex items-start gap-3"><Sparkles className="h-4 w-4 mt-0.5 shrink-0 text-primary" /> {t}</li>
+                ))}
               </ul>
             </div>
           </div>
 
-          <div className="absolute -inset-6 sm:-inset-12 rounded-3xl blur-3xl opacity-60 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.25 250 / 0.5), transparent 70%)" }} />
-          <a href={DEMO} target="_blank" rel="noreferrer" className="group relative block card-premium rounded-2xl sm:rounded-3xl overflow-hidden glow-ring">
-            <div className="relative aspect-[16/10] sm:aspect-[16/9] overflow-hidden">
-              <img
-                src={blackCrownAsset.url}
-                alt="Demonstração — Black Crown Barbershop"
-                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-              <div className="absolute top-4 left-4 sm:top-6 sm:left-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/40 bg-background/70 backdrop-blur text-[10px] sm:text-xs uppercase tracking-[0.2em] text-primary">
-                <Sparkles className="h-3 w-3" /> Projeto demonstrativo
-              </div>
-            </div>
-            <div className="p-6 sm:p-10 lg:p-12 text-center">
-              <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-gradient mb-3">
-                Black Crown Barbershop
-              </h3>
-              <p className="text-muted-foreground max-w-2xl mx-auto mb-7 text-sm sm:text-base leading-relaxed">
-                Um case construído pela Imperius para demonstrar como tecnologia e design elevam a percepção de um negócio local.
-              </p>
-              <span className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-md bg-primary text-primary-foreground font-semibold tracking-wide group-hover:bg-primary/90 transition">
-                VER DEMONSTRAÇÃO COMPLETA <ExternalLink className="h-4 w-4" />
-              </span>
-            </div>
-          </a>
+          <div className="text-center">
+            <a href={DEMO} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-md bg-primary text-primary-foreground font-semibold tracking-wide hover:bg-primary/90 transition">
+              VER DEMONSTRAÇÃO COMPLETA <ExternalLink className="h-4 w-4" />
+            </a>
+          </div>
         </div>
 
       </div>
