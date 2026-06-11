@@ -72,6 +72,7 @@ function Landing() {
       <Problem />
       <Solution />
       <Demo />
+      <Results />
       <SocialProof />
       <WhyImperius />
       <Services />
@@ -465,6 +466,43 @@ function Demo() {
     </section>
   );
 }
+
+function Results() {
+  const items = [
+    { n: "+85%", t: "Mais autoridade percebida", icon: Award },
+    { n: "+70%", t: "Mais facilidade de contato", icon: MessageCircle },
+    { n: "+90%", t: "Mais profissionalismo", icon: ShieldCheck },
+    { n: "+95%", t: "Melhor experiência mobile", icon: Sparkles },
+  ];
+  return (
+    <section className="py-20 sm:py-24 relative">
+      <div className="absolute inset-0 bg-grid opacity-40 pointer-events-none" />
+      <div className="relative mx-auto max-w-7xl px-6">
+        <SectionTitle
+          eyebrow="Resultados e percepção"
+          title="RESULTADOS E PERCEPÇÃO"
+          sub="Empresas com presença digital profissional costumam gerar mais confiança, transmitir mais autoridade e abrir mais oportunidades comerciais. Os números abaixo são ilustrativos e refletem o tipo de impacto observado após uma modernização digital bem executada."
+        />
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 max-w-5xl mx-auto">
+          {items.map((it) => (
+            <div key={it.t} className="card-premium rounded-2xl p-6 sm:p-7 text-center hover:border-primary/40 transition">
+              <div className="mx-auto h-11 w-11 rounded-xl flex items-center justify-center mb-4 ring-1 ring-primary/40 bg-primary/10">
+                <it.icon className="h-5 w-5 text-primary" />
+              </div>
+              <div className="font-display text-3xl sm:text-4xl font-bold text-gradient mb-2">{it.n}</div>
+              <div className="text-xs sm:text-sm text-foreground/90 leading-relaxed">{it.t}</div>
+            </div>
+          ))}
+        </div>
+        <p className="text-center text-xs text-muted-foreground mt-8 max-w-2xl mx-auto">
+          *Indicadores ilustrativos baseados em percepção de mercado, não representam métricas auditadas.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+
 
 function WhyImperius() {
   const items = [
