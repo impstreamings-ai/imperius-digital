@@ -763,6 +763,35 @@ function FinalCTA() {
   );
 }
 
+function NextUp() {
+  return (
+    <section className="py-20 sm:py-24">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        <div className="relative overflow-hidden card-premium rounded-3xl p-10 sm:p-14 lg:p-16 text-center glow-ring">
+          <div className="absolute inset-0 bg-grid opacity-50 pointer-events-none" />
+          <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[520px] h-[520px] rounded-full blur-3xl" style={{ background: "radial-gradient(circle, oklch(0.55 0.25 250 / 0.4), transparent 70%)" }} />
+          <div className="relative">
+            <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4">Próximo case</div>
+            <h2 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-bold text-gradient leading-[1.05] tracking-tight">
+              Sua empresa pode ser a próxima.
+            </h2>
+            <p className="mt-6 text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+              Receba uma demonstração personalizada criada para o seu negócio.
+            </p>
+            <div className="mt-9 flex justify-center">
+              <a href={WA} target="_blank" rel="noreferrer">
+                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-12 px-8">
+                  Quero minha demonstração <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer className="relative border-t border-border/40 mt-10 overflow-hidden">
