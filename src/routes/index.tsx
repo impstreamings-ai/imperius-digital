@@ -141,7 +141,7 @@ function Solution() {
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-5xl mx-auto">
           {items.map((t) => (
-            <div key={t} className="card-premium rounded-2xl p-5 sm:p-6 flex items-center gap-4 hover:border-primary/40 transition">
+            <div key={t} className="card-premium hover-lift rounded-2xl p-5 sm:p-6 flex items-center gap-4">
               <div className="h-10 w-10 shrink-0 rounded-xl flex items-center justify-center ring-1 ring-primary/40 bg-primary/10">
                 <Check className="h-5 w-5 text-primary" />
               </div>
@@ -250,7 +250,7 @@ function Outcomes() {
         <SectionTitle eyebrow="Resultados" title="O que muda após a implementação." />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {items.map((b) => (
-            <div key={b.t} className="card-premium rounded-2xl p-6 sm:p-7 flex items-start gap-5 hover:border-primary/40 transition h-full">
+            <div key={b.t} className="card-premium hover-lift rounded-2xl p-6 sm:p-7 flex items-start gap-5 h-full">
               <div className="h-12 w-12 shrink-0 rounded-xl flex items-center justify-center ring-1 ring-primary/30" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.6), oklch(0.15 0.03 245 / 0.4))" }}>
                 <b.i className="h-6 w-6 text-primary" />
               </div>
@@ -369,7 +369,7 @@ function Benefits() {
         <SectionTitle eyebrow="O que você ganha" title="Resultados antes de tecnologia." />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {items.map((b) => (
-            <div key={b.t} className="card-premium rounded-2xl p-6 sm:p-7 flex items-start gap-5 hover:border-primary/40 transition">
+            <div key={b.t} className="card-premium hover-lift rounded-2xl p-6 sm:p-7 flex items-start gap-5">
               <div className="h-12 w-12 shrink-0 rounded-xl flex items-center justify-center ring-1 ring-primary/30" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.6), oklch(0.15 0.03 245 / 0.4))" }}>
                 <b.i className="h-6 w-6 text-primary" />
               </div>
@@ -473,7 +473,7 @@ function Results() {
         />
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 max-w-5xl mx-auto">
           {items.map((it) => (
-            <div key={it.t} className="card-premium rounded-2xl p-6 sm:p-7 text-center hover:border-primary/40 transition">
+            <div key={it.t} className="card-premium hover-lift rounded-2xl p-6 sm:p-7 text-center">
               <div className="mx-auto h-11 w-11 rounded-xl flex items-center justify-center mb-4 ring-1 ring-primary/40 bg-primary/10">
                 <it.icon className="h-5 w-5 text-primary" />
               </div>
@@ -508,7 +508,7 @@ function WhyImperius() {
         <SectionTitle eyebrow="Diferenciais" title="Por que escolher a Imperius?" />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
           {items.map((it) => (
-            <div key={it.t} className="card-premium rounded-2xl p-6 flex items-start gap-4 hover:border-primary/40 transition">
+            <div key={it.t} className="card-premium hover-lift rounded-2xl p-6 flex items-start gap-4">
               <div className="h-9 w-9 shrink-0 rounded-lg flex items-center justify-center ring-1 ring-primary/40 bg-primary/10">
                 <Check className="h-4 w-4 text-primary" />
               </div>
@@ -539,7 +539,7 @@ function Services() {
         <SectionTitle eyebrow="Soluções" title="Soluções para fortalecer sua presença digital." />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {items.map((it) => (
-            <div key={it.title} className="card-premium rounded-2xl p-6 sm:p-7 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1">
+            <div key={it.title} className="card-premium hover-lift rounded-2xl p-6 sm:p-7">
               <div className="h-12 w-12 rounded-xl flex items-center justify-center mb-5 ring-1 ring-primary/30" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.6), oklch(0.18 0.05 245 / 0.3))" }}>
                 <it.icon className="h-6 w-6 text-primary" />
               </div>
