@@ -151,20 +151,21 @@ function Solution() {
 
 function SocialProof() {
   const items = [
-    "Clientes confiam mais.",
-    "Contato fica mais fácil.",
-    "A marca parece maior.",
-    "A empresa transmite mais profissionalismo.",
-    "A comunicação fica mais clara.",
-    "Mais pessoas demonstram interesse.",
+    "Clientes costumam confiar mais.",
+    "O contato se torna mais simples.",
+    "A empresa transmite mais autoridade.",
+    "A marca parece mais profissional.",
+    "O atendimento ganha mais agilidade.",
+    "A percepção de valor aumenta.",
   ];
   return (
     <section className="py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <SectionTitle
-          eyebrow="Prova social"
-          title="O que empresários costumam perceber após melhorar sua presença digital."
+          eyebrow="Benefícios percebidos"
+          title="Benefícios percebidos após a modernização digital."
         />
+
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto">
           {items.map((t) => (
             <div key={t} className="card-premium rounded-2xl p-6 sm:p-7 hover:border-primary/40 transition">
