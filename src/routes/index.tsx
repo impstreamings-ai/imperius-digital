@@ -379,17 +379,18 @@ function Benefits() {
 }
 
 function Demo() {
-  const objetivos = [
-    "Mais agendamentos",
-    "Mais presença digital",
-    "Mais percepção de valor",
-    "Facilidade de contato",
+  const demonstra = [
+    "Presença digital profissional",
+    "Agendamento pelo WhatsApp",
+    "Catálogo de serviços organizado",
+    "Experiência mobile premium",
+    "Página pensada para conversão",
   ];
-  const tecnologias = [
+  const badges = [
+    "Projeto Demonstrativo",
     "Landing Page Premium",
     "WhatsApp Integrado",
     "Mobile First",
-    "Otimização de Conversão",
   ];
   return (
     <section id="demonstracao" className="py-20 sm:py-24 relative">
@@ -401,7 +402,7 @@ function Demo() {
             Black Crown Barbershop
           </h2>
           <p className="mt-5 text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Projeto criado pela Imperius para demonstrar como design estratégico, experiência mobile e integração digital podem aumentar a percepção de valor de um negócio local.
+            Projeto demonstrativo criado pela Imperius Soluções Digitais para mostrar como uma barbearia pode transmitir mais autoridade, facilitar agendamentos pelo WhatsApp e gerar mais oportunidades com uma presença digital profissional.
           </p>
         </div>
 
@@ -413,51 +414,64 @@ function Demo() {
             href={DEMO}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative group block card-premium rounded-2xl sm:rounded-3xl overflow-hidden glow-ring mb-8 sm:mb-10 border border-primary/30 hover:border-primary/60 transition"
+            className="relative group block card-premium rounded-2xl sm:rounded-3xl overflow-hidden glow-ring mb-6 sm:mb-8 border border-primary/30 hover:border-primary/60 transition"
           >
             <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-border/40 bg-background/70">
               <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
               <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
               <span className="h-2.5 w-2.5 rounded-full bg-primary/70" />
-              <span className="ml-3 text-[10px] uppercase tracking-[0.2em] text-muted-foreground truncate">theblackcrown.lovable.app</span>
+              <span className="ml-3 text-[10px] uppercase tracking-[0.2em] text-muted-foreground truncate">blackcrown-by-imperius.lovable.app</span>
             </div>
             <div className="relative w-full overflow-hidden bg-background h-[420px] sm:h-[560px] lg:h-[650px]">
               <img
-                src={blackCrownPreview}
+                src={blackCrownPreview.url}
                 alt="Preview — Black Crown Barbershop"
                 className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent pointer-events-none" />
             </div>
           </a>
 
-          <div className="grid md:grid-cols-2 gap-4 sm:gap-5 mb-8 sm:mb-10">
-            <div className="card-premium rounded-2xl p-6 sm:p-7">
-              <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4">Objetivos do projeto</div>
-              <ul className="space-y-2.5 text-sm sm:text-base text-foreground/90">
-                {objetivos.map((o) => (
-                  <li key={o} className="flex items-start gap-3"><Check className="h-4 w-4 mt-0.5 shrink-0 text-primary" /> {o}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="card-premium rounded-2xl p-6 sm:p-7">
-              <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4">Tecnologias utilizadas</div>
-              <ul className="space-y-2.5 text-sm sm:text-base text-foreground/90">
-                {tecnologias.map((t) => (
-                  <li key={t} className="flex items-start gap-3"><Sparkles className="h-4 w-4 mt-0.5 shrink-0 text-primary" /> {t}</li>
-                ))}
-              </ul>
-            </div>
+          {/* Badges */}
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10">
+            {badges.map((b) => (
+              <span
+                key={b}
+                className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1.5 text-[11px] sm:text-xs uppercase tracking-[0.18em] font-semibold text-foreground/90"
+              >
+                <Sparkles className="h-3 w-3 text-primary" /> {b}
+              </span>
+            ))}
           </div>
 
-          <div className="flex justify-center">
+          {/* O que este case demonstra */}
+          <div className="card-premium rounded-2xl p-6 sm:p-8 mb-8 sm:mb-10 max-w-3xl mx-auto">
+            <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4 text-center">O que este case demonstra</div>
+            <ul className="grid sm:grid-cols-2 gap-2.5 text-sm sm:text-base text-foreground/90">
+              {demonstra.map((d) => (
+                <li key={d} className="flex items-start gap-3">
+                  <Check className="h-4 w-4 mt-0.5 shrink-0 text-primary" /> {d}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
             <a
               href={DEMO}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-md bg-primary text-primary-foreground font-semibold tracking-wide hover:bg-primary/90 transition"
             >
-              VER SITE FUNCIONANDO <ExternalLink className="h-4 w-4" />
+              VER CASE AO VIVO <ExternalLink className="h-4 w-4" />
+            </a>
+            <a
+              href={WA}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-md border border-primary/40 bg-background/40 text-foreground font-semibold tracking-wide hover:bg-primary/10 hover:border-primary/70 transition"
+            >
+              <MessageCircle className="h-4 w-4" /> QUERO UMA DEMONSTRAÇÃO PARA MINHA EMPRESA
             </a>
           </div>
         </div>
