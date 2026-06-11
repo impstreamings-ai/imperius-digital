@@ -604,6 +604,36 @@ function About() {
   );
 }
 
+function DemoOffer() {
+  const items = [
+    { t: "Análise inicial do negócio", i: ClipboardList },
+    { t: "Sugestões de melhoria digital", i: Sparkles },
+    { t: "Estrutura personalizada", i: LayoutTemplate },
+    { t: "Apresentação sem compromisso", i: ShieldCheck },
+  ];
+  return (
+    <section className="py-20 sm:py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <SectionTitle
+          eyebrow="Demonstração gratuita"
+          title="O que você recebe na demonstração gratuita."
+          sub="Uma forma simples de visualizar o potencial do seu projeto antes de qualquer contratação."
+        />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 max-w-6xl mx-auto">
+          {items.map((b) => (
+            <div key={b.t} className="card-premium rounded-2xl p-6 sm:p-7 flex flex-col items-start gap-4 hover:border-primary/40 transition h-full">
+              <div className="h-12 w-12 shrink-0 rounded-xl flex items-center justify-center ring-1 ring-primary/30" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.6), oklch(0.15 0.03 245 / 0.4))" }}>
+                <b.i className="h-6 w-6 text-primary" />
+              </div>
+              <h3 className="font-display font-semibold text-base sm:text-lg leading-tight">{b.t}</h3>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FinalCTA() {
   return (
     <section className="py-20 sm:py-24">
