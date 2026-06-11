@@ -192,7 +192,10 @@ function Scarcity() {
             </div>
             <h2 className="font-display text-2xl sm:text-4xl font-bold text-gradient leading-tight">Atendimento limitado.</h2>
             <p className="mt-5 text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-              Trabalhamos com poucos projetos simultaneamente para garantir qualidade, atenção e acompanhamento próximo em cada entrega.
+              Trabalhamos com poucos projetos simultaneamente para garantir qualidade, acompanhamento próximo e atenção aos detalhes em cada entrega.
+            </p>
+            <p className="mt-4 text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+              Por isso mantemos uma quantidade limitada de novos projetos em andamento.
             </p>
           </div>
         </div>
