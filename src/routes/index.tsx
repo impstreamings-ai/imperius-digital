@@ -376,11 +376,31 @@ function Demo() {
       <div className="relative mx-auto max-w-7xl px-6">
         <SectionTitle
           eyebrow="Case demonstrativo"
-          title="Veja um exemplo real do que podemos construir."
-          sub="Criamos a Black Crown como demonstração prática para mostrar como tecnologia, design e estratégia podem elevar a percepção de um negócio local."
+          title="Veja na prática o que podemos construir para sua empresa."
+          sub="Desenvolvemos a Black Crown como um projeto demonstrativo para mostrar como tecnologia, design estratégico e experiência mobile podem elevar a percepção de um negócio local."
         />
 
         <div className="relative max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-5 mb-8 sm:mb-10">
+            <div className="card-premium rounded-2xl p-6 sm:p-7">
+              <div className="text-[11px] uppercase tracking-[0.25em] text-destructive font-semibold mb-4">Antes</div>
+              <ul className="space-y-2.5 text-sm sm:text-base text-foreground/90">
+                <li className="flex items-start gap-3"><X className="h-4 w-4 mt-0.5 shrink-0 text-destructive" /> Presença digital limitada</li>
+                <li className="flex items-start gap-3"><X className="h-4 w-4 mt-0.5 shrink-0 text-destructive" /> Pouca diferenciação</li>
+                <li className="flex items-start gap-3"><X className="h-4 w-4 mt-0.5 shrink-0 text-destructive" /> Menor percepção de valor</li>
+              </ul>
+            </div>
+            <div className="card-premium rounded-2xl p-6 sm:p-7">
+              <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4">Depois</div>
+              <ul className="space-y-2.5 text-sm sm:text-base text-foreground/90">
+                <li className="flex items-start gap-3"><Check className="h-4 w-4 mt-0.5 shrink-0 text-primary" /> Estrutura profissional</li>
+                <li className="flex items-start gap-3"><Check className="h-4 w-4 mt-0.5 shrink-0 text-primary" /> WhatsApp integrado</li>
+                <li className="flex items-start gap-3"><Check className="h-4 w-4 mt-0.5 shrink-0 text-primary" /> Mais autoridade</li>
+                <li className="flex items-start gap-3"><Check className="h-4 w-4 mt-0.5 shrink-0 text-primary" /> Melhor experiência para clientes</li>
+              </ul>
+            </div>
+          </div>
+
           <div className="absolute -inset-6 sm:-inset-12 rounded-3xl blur-3xl opacity-60 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.25 250 / 0.5), transparent 70%)" }} />
           <a href={DEMO} target="_blank" rel="noreferrer" className="group relative block card-premium rounded-2xl sm:rounded-3xl overflow-hidden glow-ring">
             <div className="relative aspect-[16/10] sm:aspect-[16/9] overflow-hidden">
@@ -407,6 +427,7 @@ function Demo() {
             </div>
           </a>
         </div>
+
       </div>
     </section>
   );
