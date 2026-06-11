@@ -193,7 +193,7 @@ function Scarcity() {
             <div className="inline-flex items-center justify-center h-14 w-14 rounded-2xl ring-1 ring-primary/40 mb-5" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.7), oklch(0.12 0.02 245 / 0.7))" }}>
               <Clock className="h-6 w-6 text-primary" />
             </div>
-            <h2 className="font-display text-2xl sm:text-4xl font-bold text-gradient leading-tight">Atendimento limitado.</h2>
+            <h2 className="font-heading text-2xl sm:text-4xl font-bold text-gradient leading-tight">Atendimento limitado.</h2>
             <p className="mt-5 text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               Trabalhamos com poucos projetos simultaneamente para garantir qualidade, acompanhamento próximo e atenção aos detalhes em cada entrega.
             </p>
@@ -217,7 +217,7 @@ function Guarantee() {
             <div className="inline-flex items-center justify-center h-14 w-14 rounded-2xl ring-1 ring-primary/40 mb-5" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.7), oklch(0.12 0.02 245 / 0.7))" }}>
               <Award className="h-6 w-6 text-primary" />
             </div>
-            <h2 className="font-display text-2xl sm:text-4xl font-bold text-gradient leading-tight">Demonstração sem compromisso.</h2>
+            <h2 className="font-heading text-2xl sm:text-4xl font-bold text-gradient leading-tight">Demonstração sem compromisso.</h2>
             <p className="mt-5 text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               Antes de qualquer contratação você pode conhecer uma demonstração personalizada para entender o potencial do projeto.
             </p>
@@ -248,7 +248,7 @@ function Outcomes() {
                 <b.i className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h3 className="font-display font-semibold text-base sm:text-lg">{b.t}</h3>
+                <h3 className="font-heading font-semibold text-base sm:text-lg">{b.t}</h3>
                 <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">{b.d}</p>
               </div>
             </div>
@@ -341,7 +341,7 @@ function SectionTitle({ eyebrow, title, sub }: { eyebrow?: string; title: string
       {eyebrow && (
         <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4">{eyebrow}</div>
       )}
-      <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight">{title}</h2>
+      <h2 className="font-heading text-2xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight">{title}</h2>
       {sub && <p className="mt-5 text-muted-foreground text-base sm:text-lg">{sub}</p>}
     </div>
   );
@@ -367,7 +367,7 @@ function Benefits() {
                 <b.i className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h3 className="font-display font-semibold text-base sm:text-lg">{b.t}</h3>
+                <h3 className="font-heading font-semibold text-base sm:text-lg">{b.t}</h3>
                 <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">{b.d}</p>
               </div>
             </div>
@@ -398,7 +398,7 @@ function Demo() {
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-3">Case Demonstrativo</div>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight">
             Black Crown Barbershop
           </h2>
           <p className="mt-5 text-base sm:text-lg text-muted-foreground leading-relaxed">
@@ -503,7 +503,7 @@ function Results() {
               <div className="mx-auto h-11 w-11 rounded-xl flex items-center justify-center mb-4 ring-1 ring-primary/40 bg-primary/10">
                 <it.icon className="h-5 w-5 text-primary" />
               </div>
-              <div className="font-display text-3xl sm:text-4xl font-bold text-gradient mb-2">{it.n}</div>
+              <div className="font-heading text-3xl sm:text-4xl font-bold text-gradient mb-2">{it.n}</div>
               <div className="text-xs sm:text-sm text-foreground/90 leading-relaxed">{it.t}</div>
             </div>
           ))}
@@ -539,7 +539,7 @@ function WhyImperius() {
                 <Check className="h-4 w-4 text-primary" />
               </div>
               <div>
-                <div className="text-sm font-display font-semibold">{it.t}</div>
+                <div className="text-sm font-heading font-semibold">{it.t}</div>
                 <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{it.d}</p>
               </div>
             </div>
@@ -569,7 +569,7 @@ function Services() {
               <div className="h-12 w-12 rounded-xl flex items-center justify-center mb-5 ring-1 ring-primary/30" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.6), oklch(0.18 0.05 245 / 0.3))" }}>
                 <it.icon className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="font-display font-semibold text-base sm:text-lg mb-2">{it.title}</h3>
+              <h3 className="font-heading font-semibold text-base sm:text-lg mb-2">{it.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{it.desc}</p>
             </div>
           ))}
@@ -597,7 +597,7 @@ function Process() {
               <div className="h-14 w-14 rounded-2xl flex items-center justify-center ring-1 ring-primary/40 mb-5" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.7), oklch(0.12 0.02 245 / 0.7))" }}>
                 <s.i className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="font-display font-semibold text-base sm:text-lg mb-2">{s.t}</h3>
+              <h3 className="font-heading font-semibold text-base sm:text-lg mb-2">{s.t}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{s.d}</p>
             </div>
           ))}
@@ -677,7 +677,7 @@ function About() {
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="text-center mb-10">
           <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-3">Sobre a Imperius</div>
-          <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight">
+          <h2 className="font-heading text-2xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight">
             Autoridade digital ao alcance de qualquer negócio.
           </h2>
         </div>
@@ -741,7 +741,7 @@ function DemoOffer() {
               <div className="h-12 w-12 shrink-0 rounded-xl flex items-center justify-center ring-1 ring-primary/30" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.6), oklch(0.15 0.03 245 / 0.4))" }}>
                 <b.i className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="font-display font-semibold text-base sm:text-lg leading-tight">{b.t}</h3>
+              <h3 className="font-heading font-semibold text-base sm:text-lg leading-tight">{b.t}</h3>
             </div>
           ))}
         </div>
@@ -758,7 +758,7 @@ function FinalCTA() {
           <div className="absolute inset-0 bg-grid opacity-60 pointer-events-none" />
           <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[400px] h-[400px] rounded-full blur-3xl" style={{ background: "radial-gradient(circle, oklch(0.55 0.25 250 / 0.4), transparent 70%)" }} />
           <div className="relative">
-            <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight tracking-tight">
+            <h2 className="font-heading text-2xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight tracking-tight">
               Sua empresa merece transmitir o valor real do seu trabalho.
             </h2>
             <p className="mt-5 sm:mt-6 text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
