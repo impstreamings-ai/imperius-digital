@@ -554,10 +554,10 @@ function Services() {
 
 function Process() {
   const steps = [
-    { i: Search, t: "Diagnóstico", d: "Entendemos seu negócio, objetivos e contexto." },
-    { i: ClipboardList, t: "Planejamento", d: "Definimos escopo, conteúdo e estratégia." },
-    { i: Code2, t: "Desenvolvimento", d: "Construção com tecnologia e design premium." },
-    { i: Rocket, t: "Publicação", d: "Seu projeto no ar, pronto para gerar resultado." },
+    { n: "1", i: MessageCircle, t: "Conversamos", d: "Entendemos seu negócio e objetivos." },
+    { n: "2", i: LayoutTemplate, t: "Criamos a demonstração", d: "Montamos uma versão personalizada para você visualizar." },
+    { n: "3", i: ClipboardList, t: "Ajustamos juntos", d: "Refinamos detalhes até ficar perfeito." },
+    { n: "4", i: Rocket, t: "Publicamos", d: "Seu projeto entra no ar pronto para gerar resultado." },
   ];
   return (
     <section id="processo" className="py-20 sm:py-24">
