@@ -92,7 +92,8 @@ function Nav() {
         </nav>
         <a href={WA} target="_blank" rel="noreferrer" className="shrink-0">
           <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.72_0.22_250/0.7)]">
-            Quero uma demonstração
+            <span className="sm:hidden">Demonstração</span>
+            <span className="hidden sm:inline">Quero uma demonstração</span>
           </Button>
         </a>
       </div>
