@@ -432,7 +432,7 @@ function Demo() {
           </div>
 
           <div className="flex justify-center">
-            <a href={DEMO} target="_blank" rel="noopener noreferrer">
+            <a href={DEMO} target="_blank" rel="noopener noreferrer" onClick={() => track("demo_click", { location: "demo_cta" })}>
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-13 px-8 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]">
                 Ver Demonstração <ExternalLink className="ml-2 h-4 w-4" />
               </Button>
