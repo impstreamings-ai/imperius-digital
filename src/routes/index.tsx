@@ -158,81 +158,133 @@ function SectionTitle({ eyebrow, title, sub, display = false }: { eyebrow?: stri
 }
 
 function BrandCommandCenter() {
+  const rings = [
+    { size: 78, dur: "32s", dir: "normal", opacity: 0.22 },
+    { size: 62, dur: "24s", dir: "reverse", opacity: 0.3 },
+    { size: 48, dur: "18s", dir: "normal", opacity: 0.4 },
+  ];
+  const particles = Array.from({ length: 14 }).map((_, i) => ({
+    top: `${(i * 53) % 100}%`,
+    left: `${(i * 37 + 11) % 100}%`,
+    delay: `${(i % 7) * 0.6}s`,
+    size: 2 + (i % 3),
+  }));
   return (
-    <div className="relative w-full max-w-[680px] mx-auto aspect-[16/11]">
-      {/* Cinematic ambient glow */}
+    <div className="relative w-full max-w-[640px] mx-auto aspect-square">
+      {/* Ambient cinematic glow */}
       <div
-        className="absolute inset-0 blur-3xl opacity-70 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse at 50% 45%, oklch(0.55 0.25 250 / 0.45), transparent 65%)" }}
+        className="absolute inset-0 blur-3xl opacity-80 pointer-events-none"
+        style={{ background: "radial-gradient(circle at 50% 50%, oklch(0.6 0.25 250 / 0.55), transparent 60%)" }}
       />
       <div
-        className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[70%] h-12 rounded-[50%] blur-2xl opacity-60 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, oklch(0.72 0.24 250 / 0.4), transparent 70%)" }}
+        className="absolute -bottom-12 left-1/2 -translate-x-1/2 w-[70%] h-16 rounded-[50%] blur-2xl opacity-60 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse, oklch(0.72 0.24 250 / 0.45), transparent 70%)" }}
       />
 
-      {/* Notebook — centered */}
-      <div className="absolute left-1/2 -translate-x-1/2 top-[4%] w-[96%] z-10">
-        <div className="relative rounded-[14px] p-[6px] bg-gradient-to-b from-[oklch(0.32_0.01_245)] to-[oklch(0.14_0.01_245)] shadow-[0_30px_80px_-20px_oklch(0_0_0/0.9),0_0_40px_-10px_oklch(0.6_0.25_250/0.4)] ring-1 ring-white/5">
-          <div className="rounded-[8px] overflow-hidden aspect-[16/10] relative" style={{ background: "radial-gradient(ellipse at 50% 40%, oklch(0.22 0.08 250 / 0.9), oklch(0.08 0.01 240) 70%)" }}>
-            {/* Holographic grid */}
-            <div
-              className="absolute inset-0 opacity-[0.18] pointer-events-none"
-              style={{
-                backgroundImage:
-                  "linear-gradient(oklch(0.72 0.22 250 / 0.5) 1px, transparent 1px), linear-gradient(90deg, oklch(0.72 0.22 250 / 0.5) 1px, transparent 1px)",
-                backgroundSize: "32px 32px",
-                maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
-              }}
+      {/* Concentric holographic rings */}
+      {rings.map((r, i) => (
+        <div
+          key={i}
+          className="absolute left-1/2 top-1/2 rounded-full border pointer-events-none"
+          style={{
+            width: `${r.size}%`,
+            height: `${r.size}%`,
+            marginLeft: `-${r.size / 2}%`,
+            marginTop: `-${r.size / 2}%`,
+            borderColor: `oklch(0.72 0.22 250 / ${r.opacity})`,
+            borderStyle: i === 1 ? "dashed" : "solid",
+            animation: `imperius-spin ${r.dur} linear infinite ${r.dir}`,
+            boxShadow: `inset 0 0 40px -10px oklch(0.72 0.22 250 / 0.25)`,
+          }}
+        >
+          {/* Orbit nodes */}
+          <span
+            className="absolute w-1.5 h-1.5 rounded-full bg-[oklch(0.85_0.18_240)]"
+            style={{ top: "-3px", left: "50%", transform: "translateX(-50%)", boxShadow: "0 0 10px oklch(0.72 0.24 250 / 0.9)" }}
+          />
+          {i === 1 && (
+            <span
+              className="absolute w-1 h-1 rounded-full bg-[oklch(0.85_0.18_240)]"
+              style={{ bottom: "-2px", left: "30%", boxShadow: "0 0 8px oklch(0.72 0.24 250 / 0.8)" }}
             />
-            {/* Top status bar */}
-            <div className="absolute top-0 inset-x-0 h-7 flex items-center px-3 gap-1.5 border-b border-white/5 bg-black/30">
-              <span className="w-2 h-2 rounded-full bg-[oklch(0.65_0.18_25)]" />
-              <span className="w-2 h-2 rounded-full bg-[oklch(0.78_0.15_85)]" />
-              <span className="w-2 h-2 rounded-full bg-[oklch(0.7_0.18_150)]" />
-              <span className="ml-3 text-[9px] uppercase tracking-[0.25em] text-muted-foreground font-mono">imperius.solucoes.digitais</span>
-              <span className="ml-auto text-[9px] uppercase tracking-[0.2em] text-[oklch(0.72_0.22_250)] font-mono flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[oklch(0.72_0.22_250)] animate-pulse-glow" />
-                online
-              </span>
-            </div>
-
-            {/* Center brand */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center px-6 pt-7">
-              <div className="relative">
-                <div className="absolute inset-0 blur-2xl opacity-70" style={{ background: "radial-gradient(circle, oklch(0.72 0.24 250 / 0.55), transparent 70%)" }} />
-                <img
-                  src={logoAsset.url}
-                  alt="Imperius"
-                  className="relative h-14 sm:h-20 w-auto object-contain drop-shadow-[0_0_20px_oklch(0.72_0.24_250/0.5)]"
-                  loading="eager"
-                  decoding="async"
-                />
-              </div>
-              <div className="mt-4 text-center">
-                <div className="font-display text-base sm:text-xl tracking-[0.35em] text-foreground/95">IMPERIUS</div>
-                <div className="mt-1 text-[9px] sm:text-[10px] uppercase tracking-[0.45em] text-[oklch(0.72_0.22_250)] font-mono">Soluções Digitais</div>
-              </div>
-              <div className="mt-5 flex items-center gap-2 sm:gap-3 flex-wrap justify-center">
-                {["Landing Pages", "Automação", "Inteligência Artificial"].map((t) => (
-                  <span
-                    key={t}
-                    className="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] font-mono px-2.5 py-1 rounded-full border border-[oklch(0.72_0.22_250/0.35)] bg-[oklch(0.72_0.22_250/0.08)] text-foreground/85"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Subtle scanline / sheen */}
-            <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(120deg, oklch(1 0 0 / 0.06) 0%, transparent 35%, transparent 70%, oklch(0.72 0.24 250 / 0.08) 100%)" }} />
-            <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: "linear-gradient(90deg, transparent, oklch(0.72 0.24 250 / 0.7), transparent)" }} />
-          </div>
+          )}
         </div>
-        {/* notebook base */}
-        <div className="relative h-[14px] -mt-px">
-          <div className="absolute inset-x-[-4%] top-0 h-[10px] rounded-b-[14px] bg-gradient-to-b from-[oklch(0.28_0.01_245)] to-[oklch(0.16_0.01_245)] shadow-[0_8px_20px_-6px_oklch(0_0_0/0.8)]" />
-          <div className="absolute left-1/2 -translate-x-1/2 top-[2px] h-[3px] w-16 rounded-b-md bg-[oklch(0.1_0.005_240)]" />
+      ))}
+
+      {/* Crosshair corner accents */}
+      {[
+        { t: "8%", l: "8%", r: "auto", b: "auto", rot: 0 },
+        { t: "8%", l: "auto", r: "8%", b: "auto", rot: 90 },
+        { t: "auto", l: "8%", r: "auto", b: "8%", rot: 270 },
+        { t: "auto", l: "auto", r: "8%", b: "8%", rot: 180 },
+      ].map((c, i) => (
+        <div
+          key={i}
+          className="absolute w-7 h-7 pointer-events-none opacity-50"
+          style={{ top: c.t, left: c.l, right: c.r, bottom: c.b, transform: `rotate(${c.rot}deg)` }}
+        >
+          <span className="absolute top-0 left-0 w-full h-px bg-[oklch(0.72_0.22_250/0.7)]" />
+          <span className="absolute top-0 left-0 h-full w-px bg-[oklch(0.72_0.22_250/0.7)]" />
+        </div>
+      ))}
+
+      {/* Particles */}
+      {particles.map((p, i) => (
+        <span
+          key={i}
+          className="absolute rounded-full bg-[oklch(0.85_0.15_240)] pointer-events-none"
+          style={{
+            top: p.top,
+            left: p.left,
+            width: p.size,
+            height: p.size,
+            opacity: 0.35,
+            boxShadow: "0 0 8px oklch(0.72 0.24 250 / 0.7)",
+            animation: `imperius-float 6s ease-in-out infinite`,
+            animationDelay: p.delay,
+          }}
+        />
+      ))}
+
+      {/* Central logo emblem */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center">
+        {/* Inner halo plate */}
+        <div
+          className="absolute w-[44%] h-[44%] rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle at 50% 45%, oklch(0.28 0.12 250 / 0.7), oklch(0.1 0.02 240 / 0.2) 70%, transparent 75%)",
+            boxShadow:
+              "inset 0 0 60px oklch(0.72 0.22 250 / 0.35), 0 0 80px -10px oklch(0.6 0.25 250 / 0.5)",
+          }}
+        />
+        <div className="relative flex flex-col items-center">
+          <div className="relative">
+            <div
+              className="absolute inset-0 blur-2xl opacity-80"
+              style={{ background: "radial-gradient(circle, oklch(0.72 0.24 250 / 0.7), transparent 70%)" }}
+            />
+            <img
+              src={logoAsset.url}
+              alt="Imperius"
+              className="relative h-28 sm:h-40 md:h-48 w-auto object-contain drop-shadow-[0_0_30px_oklch(0.72_0.24_250/0.6)]"
+              style={{ animation: "imperius-breathe 6s ease-in-out infinite" }}
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+          <div className="mt-6 text-center">
+            <div className="font-display text-lg sm:text-2xl tracking-[0.45em] text-foreground/95">
+              IMPERIUS
+            </div>
+            <div className="mt-2 inline-flex items-center gap-2">
+              <span className="h-px w-6 bg-[oklch(0.72_0.22_250/0.6)]" />
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.5em] text-[oklch(0.78_0.15_240)] font-mono">
+                Soluções Digitais
+              </span>
+              <span className="h-px w-6 bg-[oklch(0.72_0.22_250/0.6)]" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
