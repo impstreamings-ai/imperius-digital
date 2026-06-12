@@ -333,7 +333,7 @@ function Hero() {
         <div className="relative hidden lg:block">
           <div className="absolute -inset-10 rounded-full blur-3xl opacity-60" style={{ background: "radial-gradient(circle, oklch(0.55 0.25 250 / 0.5), transparent 70%)" }} />
           <div className="relative card-premium rounded-2xl p-10 flex items-center justify-center aspect-square">
-            <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="w-full h-full object-contain" loading="eager" decoding="async" />
+            <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="max-w-[70%] max-h-[70%] w-auto h-auto object-contain" loading="eager" decoding="async" />
             <div className="absolute inset-0 rounded-2xl ring-1 ring-primary/30 pointer-events-none" />
           </div>
         </div>
