@@ -76,8 +76,7 @@ function Landing() {
       <Solution />
       <Demo />
       <Results />
-      <SocialProof />
-      <WhyImperius />
+      <Benefits />
       <Services />
       <Process />
       <Audience />
