@@ -361,26 +361,29 @@ function SectionTitle({ eyebrow, title, sub }: { eyebrow?: string; title: string
 
 function Benefits() {
   const items = [
-    { i: ShieldCheck, t: "Mais credibilidade", d: "Transmita seriedade desde o primeiro clique." },
-    { i: Sparkles, t: "Imagem mais profissional", d: "Uma marca alinhada ao padrão do seu trabalho." },
-    { i: MessageCircle, t: "Contato facilitado", d: "Clientes a um toque do seu WhatsApp." },
-    { i: LayoutTemplate, t: "Apresentação à altura", d: "Sua marca exposta com clareza e elegância." },
-    { i: Zap, t: "Mais oportunidades", d: "Mais visibilidade, mais conversas, mais negócios." },
-    { i: Cpu, t: "Confiança do cliente", d: "Tecnologia que reforça sua autoridade no mercado." },
+    { i: Award, t: "Autoridade", d: "Sua marca posicionada como referência logo no primeiro contato." },
+    { i: ShieldCheck, t: "Credibilidade", d: "Uma presença digital sólida que transmite confiança imediata." },
+    { i: MessageCircle, t: "Facilidade de contato", d: "WhatsApp integrado e canais diretos para o cliente decidir agora." },
+    { i: Sparkles, t: "Profissionalismo", d: "Design, conteúdo e tecnologia no padrão das grandes marcas." },
+    { i: Zap, t: "Conversão", d: "Estrutura pensada para transformar visitas em oportunidades reais." },
   ];
   return (
-    <section id="beneficios" className="py-20 sm:py-24">
+    <section id="beneficios" className="py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <SectionTitle eyebrow="O que você ganha" title="Resultados antes de tecnologia." />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <SectionTitle
+          eyebrow="Por que a Imperius"
+          title="Cinco pilares que sustentam uma presença digital de alto nível."
+          sub="Tudo o que entregamos é orientado pelos princípios que mais influenciam a decisão do seu cliente."
+        />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto">
           {items.map((b) => (
-            <div key={b.t} className="card-premium hover-lift rounded-2xl p-6 sm:p-7 flex items-start gap-5">
+            <div key={b.t} className="card-premium hover-lift rounded-2xl p-7 sm:p-8 flex items-start gap-5 h-full">
               <div className="h-12 w-12 shrink-0 rounded-xl flex items-center justify-center ring-1 ring-primary/30" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.6), oklch(0.15 0.03 245 / 0.4))" }}>
                 <b.i className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h3 className="font-heading font-semibold text-base sm:text-lg">{b.t}</h3>
-                <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">{b.d}</p>
+                <h3 className="font-heading font-semibold text-lg sm:text-xl tracking-tight">{b.t}</h3>
+                <p className="text-sm sm:text-[15px] text-muted-foreground mt-2 leading-relaxed">{b.d}</p>
               </div>
             </div>
           ))}
