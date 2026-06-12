@@ -173,15 +173,60 @@ function BrandCommandCenter() {
       {/* Notebook — centered */}
       <div className="absolute left-1/2 -translate-x-1/2 top-[4%] w-[96%] z-10">
         <div className="relative rounded-[14px] p-[6px] bg-gradient-to-b from-[oklch(0.32_0.01_245)] to-[oklch(0.14_0.01_245)] shadow-[0_30px_80px_-20px_oklch(0_0_0/0.9),0_0_40px_-10px_oklch(0.6_0.25_250/0.4)] ring-1 ring-white/5">
-          <div className="rounded-[8px] overflow-hidden bg-black aspect-[16/10] relative">
-            <img
-              src={blackCrownPreview.url}
-              alt="Página Black Crown desenvolvida pela Imperius"
-              className="absolute inset-0 w-full h-full object-cover object-top"
-              loading="eager"
-              decoding="async"
+          <div className="rounded-[8px] overflow-hidden aspect-[16/10] relative" style={{ background: "radial-gradient(ellipse at 50% 40%, oklch(0.22 0.08 250 / 0.9), oklch(0.08 0.01 240) 70%)" }}>
+            {/* Holographic grid */}
+            <div
+              className="absolute inset-0 opacity-[0.18] pointer-events-none"
+              style={{
+                backgroundImage:
+                  "linear-gradient(oklch(0.72 0.22 250 / 0.5) 1px, transparent 1px), linear-gradient(90deg, oklch(0.72 0.22 250 / 0.5) 1px, transparent 1px)",
+                backgroundSize: "32px 32px",
+                maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+              }}
             />
-            <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(120deg, oklch(1 0 0 / 0.05) 0%, transparent 35%, transparent 70%, oklch(0.72 0.24 250 / 0.06) 100%)" }} />
+            {/* Top status bar */}
+            <div className="absolute top-0 inset-x-0 h-7 flex items-center px-3 gap-1.5 border-b border-white/5 bg-black/30">
+              <span className="w-2 h-2 rounded-full bg-[oklch(0.65_0.18_25)]" />
+              <span className="w-2 h-2 rounded-full bg-[oklch(0.78_0.15_85)]" />
+              <span className="w-2 h-2 rounded-full bg-[oklch(0.7_0.18_150)]" />
+              <span className="ml-3 text-[9px] uppercase tracking-[0.25em] text-muted-foreground font-mono">imperius.solucoes.digitais</span>
+              <span className="ml-auto text-[9px] uppercase tracking-[0.2em] text-[oklch(0.72_0.22_250)] font-mono flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[oklch(0.72_0.22_250)] animate-pulse-glow" />
+                online
+              </span>
+            </div>
+
+            {/* Center brand */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center px-6 pt-7">
+              <div className="relative">
+                <div className="absolute inset-0 blur-2xl opacity-70" style={{ background: "radial-gradient(circle, oklch(0.72 0.24 250 / 0.55), transparent 70%)" }} />
+                <img
+                  src={logoAsset.url}
+                  alt="Imperius"
+                  className="relative h-14 sm:h-20 w-auto object-contain drop-shadow-[0_0_20px_oklch(0.72_0.24_250/0.5)]"
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <div className="font-display text-base sm:text-xl tracking-[0.35em] text-foreground/95">IMPERIUS</div>
+                <div className="mt-1 text-[9px] sm:text-[10px] uppercase tracking-[0.45em] text-[oklch(0.72_0.22_250)] font-mono">Soluções Digitais</div>
+              </div>
+              <div className="mt-5 flex items-center gap-2 sm:gap-3 flex-wrap justify-center">
+                {["Landing Pages", "Automação", "Inteligência Artificial"].map((t) => (
+                  <span
+                    key={t}
+                    className="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] font-mono px-2.5 py-1 rounded-full border border-[oklch(0.72_0.22_250/0.35)] bg-[oklch(0.72_0.22_250/0.08)] text-foreground/85"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Subtle scanline / sheen */}
+            <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(120deg, oklch(1 0 0 / 0.06) 0%, transparent 35%, transparent 70%, oklch(0.72 0.24 250 / 0.08) 100%)" }} />
+            <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: "linear-gradient(90deg, transparent, oklch(0.72 0.24 250 / 0.7), transparent)" }} />
           </div>
         </div>
         {/* notebook base */}
