@@ -782,14 +782,14 @@ function Footer() {
         <div className="grid md:grid-cols-4 gap-10">
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-5">
-              <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[48px] w-auto object-contain" loading="lazy" decoding="async" />
+              <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[44px] w-auto object-contain" loading="lazy" decoding="async" />
               <div>
-                <div className="font-display font-bold tracking-[0.2em] text-sm">IMPERIUS</div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Soluções Digitais</div>
+                <div className="font-display font-bold tracking-[0.2em] text-sm">IMPERIUS™</div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Design • Automação • IA</div>
               </div>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Tecnologia, presença digital e credibilidade para empresas que querem crescer.
+              Soluções digitais premium para empresas que querem transmitir autoridade e gerar mais oportunidades.
             </p>
           </div>
 
