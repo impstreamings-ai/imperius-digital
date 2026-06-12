@@ -531,17 +531,12 @@ function FinalCTA() {
               Sua empresa transmite a imagem que merece?
             </h2>
             <p className="mt-6 text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-sans">
-              Solicite sua demonstração personalizada. Sem compromisso.
+              Criamos soluções digitais para negócios que desejam transmitir mais autoridade, facilitar o contato e gerar mais oportunidades.
             </p>
-            <div className="mt-9 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
+            <div className="mt-9 flex justify-center">
               <a href={WA} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
                 <Button size="lg" className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide h-13 px-8 text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]">
                   QUERO MINHA DEMONSTRAÇÃO <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </a>
-              <a href={DEMO} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto h-13 px-8 border-border bg-card/40 backdrop-blur hover:bg-card/80 font-semibold tracking-wide transition-all duration-300 hover:-translate-y-0.5">
-                  Ver Projeto Demonstrativo
                 </Button>
               </a>
             </div>
