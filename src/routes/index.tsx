@@ -141,6 +141,7 @@ function Hero() {
               target="_blank"
               rel="noreferrer"
               className="text-sm text-muted-foreground hover:text-foreground underline underline-offset-4 decoration-border hover:decoration-primary transition-colors font-sans inline-flex items-center gap-1.5"
+              onClick={() => track("demo_click", { location: "hero" })}
             >
               ou veja um exemplo real <ExternalLink className="h-3.5 w-3.5" />
             </a>
