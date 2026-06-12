@@ -377,6 +377,7 @@ function Demo() {
             target="_blank"
             rel="noopener noreferrer"
             className="relative group block card-premium rounded-2xl sm:rounded-3xl overflow-hidden glow-ring mb-12 border border-primary/30 hover:border-primary/60 transition-all duration-500"
+            onClick={() => track("demo_click", { location: "demo_preview" })}
           >
             <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-border/40 bg-background/70">
               <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
