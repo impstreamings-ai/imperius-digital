@@ -113,7 +113,7 @@ function Hero() {
             <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
             Soluções Digitais Premium
           </div>
-          <h1 className="font-display text-[2.25rem] sm:text-[2.75rem] lg:text-[3.5rem] xl:text-[4rem] font-bold leading-[1.02] tracking-tight">
+          <h1 className="font-display text-[1.875rem] sm:text-[2.75rem] lg:text-[3.5rem] xl:text-[4rem] font-bold leading-[1.05] tracking-tight">
             <span className="block text-gradient">Mais autoridade.</span>
             <span className="block text-gradient">Mais contatos.</span>
             <span className="block text-neon">Mais oportunidades.</span>
