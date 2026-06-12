@@ -159,20 +159,20 @@ function SectionTitle({ eyebrow, title, sub, display = false }: { eyebrow?: stri
 
 function BrandCommandCenter() {
   return (
-    <div className="relative w-full max-w-[620px] mx-auto aspect-[5/4]">
+    <div className="relative w-full max-w-[680px] mx-auto aspect-[16/11]">
       {/* Cinematic ambient glow */}
       <div
-        className="absolute inset-0 blur-3xl opacity-80 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse at 55% 45%, oklch(0.55 0.25 250 / 0.55), transparent 65%)" }}
+        className="absolute inset-0 blur-3xl opacity-70 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse at 50% 45%, oklch(0.55 0.25 250 / 0.45), transparent 65%)" }}
       />
       <div
-        className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[80%] h-12 rounded-[50%] blur-2xl opacity-70 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, oklch(0.72 0.24 250 / 0.45), transparent 70%)" }}
+        className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[70%] h-12 rounded-[50%] blur-2xl opacity-60 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse, oklch(0.72 0.24 250 / 0.4), transparent 70%)" }}
       />
 
-      {/* Notebook */}
-      <div className="absolute left-0 top-[6%] w-[88%] z-10">
-        <div className="relative rounded-[14px] p-[6px] bg-gradient-to-b from-[oklch(0.32_0.01_245)] to-[oklch(0.14_0.01_245)] shadow-[0_30px_80px_-20px_oklch(0_0_0/0.9),0_0_40px_-10px_oklch(0.6_0.25_250/0.45)] ring-1 ring-white/5">
+      {/* Notebook — centered */}
+      <div className="absolute left-1/2 -translate-x-1/2 top-[4%] w-[96%] z-10">
+        <div className="relative rounded-[14px] p-[6px] bg-gradient-to-b from-[oklch(0.32_0.01_245)] to-[oklch(0.14_0.01_245)] shadow-[0_30px_80px_-20px_oklch(0_0_0/0.9),0_0_40px_-10px_oklch(0.6_0.25_250/0.4)] ring-1 ring-white/5">
           <div className="rounded-[8px] overflow-hidden bg-black aspect-[16/10] relative">
             <img
               src={blackCrownPreview.url}
@@ -181,8 +181,7 @@ function BrandCommandCenter() {
               loading="eager"
               decoding="async"
             />
-            {/* screen sheen */}
-            <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(120deg, oklch(1 0 0 / 0.06) 0%, transparent 35%, transparent 70%, oklch(0.72 0.24 250 / 0.08) 100%)" }} />
+            <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(120deg, oklch(1 0 0 / 0.05) 0%, transparent 35%, transparent 70%, oklch(0.72 0.24 250 / 0.06) 100%)" }} />
           </div>
         </div>
         {/* notebook base */}
@@ -191,44 +190,10 @@ function BrandCommandCenter() {
           <div className="absolute left-1/2 -translate-x-1/2 top-[2px] h-[3px] w-16 rounded-b-md bg-[oklch(0.1_0.005_240)]" />
         </div>
       </div>
-
-      {/* Smartphone with WhatsApp */}
-      <div className="absolute right-[2%] bottom-[2%] w-[30%] max-w-[180px] z-20">
-        <div className="relative rounded-[28px] p-[5px] bg-gradient-to-b from-[oklch(0.3_0.01_245)] to-[oklch(0.12_0.01_245)] shadow-[0_30px_60px_-15px_oklch(0_0_0/0.9),0_0_30px_-8px_oklch(0.6_0.25_250/0.55)] ring-1 ring-white/10">
-          <div className="rounded-[22px] overflow-hidden bg-[oklch(0.08_0.005_150)] aspect-[9/19] relative">
-            {/* notch */}
-            <div className="absolute top-1.5 left-1/2 -translate-x-1/2 h-[14px] w-[40%] rounded-full bg-black z-10" />
-            {/* WhatsApp header */}
-            <div className="absolute top-0 inset-x-0 pt-6 pb-2 px-2.5 bg-[oklch(0.22_0.04_165)] flex items-center gap-1.5">
-              <div className="h-5 w-5 rounded-full bg-[oklch(0.55_0.18_150)] flex items-center justify-center text-[9px] font-bold text-white">B</div>
-              <div className="flex-1 min-w-0">
-                <div className="text-[8px] font-semibold text-white truncate leading-tight">Black Crown</div>
-                <div className="text-[6px] text-white/70 leading-tight">online agora</div>
-              </div>
-            </div>
-            {/* WhatsApp body */}
-            <div className="absolute inset-x-0 top-[58px] bottom-[28px] px-2 py-2 space-y-1.5 overflow-hidden" style={{ background: "linear-gradient(180deg, oklch(0.15 0.01 150), oklch(0.12 0.005 150))" }}>
-              <div className="max-w-[80%] ml-auto rounded-lg rounded-tr-sm bg-[oklch(0.45_0.12_155)] px-1.5 py-1 text-[7px] text-white leading-tight shadow">
-                Olá! Quero agendar um horário 💈
-              </div>
-              <div className="max-w-[80%] rounded-lg rounded-tl-sm bg-[oklch(0.22_0.01_245)] px-1.5 py-1 text-[7px] text-white leading-tight shadow">
-                Claro! Temos horários hoje às 15h e 17h. Qual prefere?
-              </div>
-              <div className="max-w-[60%] ml-auto rounded-lg rounded-tr-sm bg-[oklch(0.45_0.12_155)] px-1.5 py-1 text-[7px] text-white leading-tight shadow">
-                17h, perfeito ✓
-              </div>
-            </div>
-            {/* input bar */}
-            <div className="absolute bottom-0 inset-x-0 h-[24px] bg-[oklch(0.18_0.01_245)] flex items-center px-2 gap-1">
-              <div className="flex-1 h-3 rounded-full bg-[oklch(0.25_0.01_245)]" />
-              <div className="h-4 w-4 rounded-full bg-[oklch(0.55_0.18_150)]" />
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
+
 
 function Process() {
   const steps = [
