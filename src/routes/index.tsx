@@ -27,6 +27,9 @@ import {
   Target,
   Wrench,
 } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
+
+const track = (name: string, params: Record<string, unknown> = {}) => trackEvent(name, params);
 
 export const Route = createFileRoute("/")({
   head: () => ({
