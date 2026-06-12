@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import logoAsset from "@/assets/imperius-logo-official.png.asset.json";
 import blackCrownPreview from "@/assets/blackcrown-preview-v2.png.asset.json";
+import heroMockup from "@/assets/hero-mockup.png.asset.json";
 
 
 import { Button } from "@/components/ui/button";
@@ -75,8 +76,7 @@ function Landing() {
       <Solution />
       <Demo />
       <Results />
-      <SocialProof />
-      <WhyImperius />
+      <Benefits />
       <Services />
       <Process />
       <Audience />
@@ -292,49 +292,54 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
+    <section id="top" className="relative min-h-screen flex items-center pt-28 pb-20 sm:pb-24 overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
       <div className="absolute inset-0 bg-grid pointer-events-none" />
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full blur-3xl animate-pulse-glow" style={{ background: "radial-gradient(circle, oklch(0.5 0.25 250 / 0.35), transparent 70%)" }} />
 
-      <div className="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center w-full">
+      <div className="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-[1.05fr_1fr] gap-14 lg:gap-20 items-center w-full">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border/60 bg-card/40 backdrop-blur text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-7">
             <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
             Soluções Digitais Premium
           </div>
-          <h1 className="font-display text-[2rem] sm:text-[2.75rem] lg:text-5xl xl:text-[3.5rem] font-bold leading-[1.1] tracking-tight">
-            <span className="text-gradient">Sua empresa merece gerar </span>
-            <span className="text-neon">mais oportunidades</span>
-            <span className="text-gradient"> todos os dias.</span>
+          <h1 className="font-display text-[2.1rem] sm:text-[2.75rem] lg:text-[3.25rem] xl:text-[3.75rem] font-bold leading-[1.05] tracking-tight">
+            <span className="text-gradient">Mais autoridade. Mais contatos. </span>
+            <span className="text-neon">Mais oportunidades.</span>
           </h1>
           <p className="mt-7 max-w-xl text-muted-foreground text-base sm:text-lg leading-relaxed">
-            Criamos landing pages, automação e soluções com inteligência artificial para empresas que desejam transmitir mais autoridade, facilitar o contato e gerar mais oportunidades de negócio.
+            Landing pages, automações e soluções digitais criadas para empresas que desejam transmitir profissionalismo e gerar mais oportunidades de negócio.
           </p>
-          <div className="mt-9 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+          <div className="mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
             <a href={WA} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
-              <Button size="lg" className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-12 px-7 text-[13px] sm:text-sm">
+              <Button size="lg" className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-12 px-7 text-[13px] sm:text-sm transition-transform duration-300 hover:-translate-y-0.5">
                 QUERO UMA DEMONSTRAÇÃO GRATUITA <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </a>
             <a href={DEMO} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 px-7 border-border bg-card/40 backdrop-blur hover:bg-card/80 font-semibold tracking-wide">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 px-7 border-border bg-card/40 backdrop-blur hover:bg-card/80 font-semibold tracking-wide transition-transform duration-300 hover:-translate-y-0.5">
                 VER PROJETO DEMONSTRATIVO
               </Button>
             </a>
           </div>
-          <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-xs sm:text-[13px] text-muted-foreground/80 max-w-md leading-relaxed">
+          <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs sm:text-[13px] text-muted-foreground/80 max-w-md leading-relaxed">
             <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Demonstração personalizada</li>
             <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Sem compromisso</li>
             <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Atendimento próximo</li>
           </ul>
-
         </div>
 
-        <div className="relative hidden lg:block">
-          <div className="absolute -inset-10 rounded-full blur-3xl opacity-60" style={{ background: "radial-gradient(circle, oklch(0.55 0.25 250 / 0.5), transparent 70%)" }} />
-          <div className="relative card-premium rounded-2xl p-10 flex items-center justify-center aspect-square">
-            <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="w-full h-full object-contain" loading="eager" decoding="async" />
-            <div className="absolute inset-0 rounded-2xl ring-1 ring-primary/30 pointer-events-none" />
+        <div className="relative">
+          <div className="absolute -inset-10 sm:-inset-16 rounded-full blur-3xl opacity-70 pointer-events-none" style={{ background: "radial-gradient(circle, oklch(0.55 0.25 250 / 0.45), transparent 70%)" }} />
+          <div className="relative">
+            <img
+              src={heroMockup.url}
+              alt="Mockup premium — notebook e smartphone exibindo interfaces SaaS criadas pela Imperius"
+              width={1280}
+              height={1024}
+              className="relative w-full h-auto object-contain drop-shadow-[0_30px_60px_oklch(0.5_0.25_250/0.35)]"
+              loading="eager"
+              decoding="async"
+            />
           </div>
         </div>
       </div>
@@ -356,26 +361,29 @@ function SectionTitle({ eyebrow, title, sub }: { eyebrow?: string; title: string
 
 function Benefits() {
   const items = [
-    { i: ShieldCheck, t: "Mais credibilidade", d: "Transmita seriedade desde o primeiro clique." },
-    { i: Sparkles, t: "Imagem mais profissional", d: "Uma marca alinhada ao padrão do seu trabalho." },
-    { i: MessageCircle, t: "Contato facilitado", d: "Clientes a um toque do seu WhatsApp." },
-    { i: LayoutTemplate, t: "Apresentação à altura", d: "Sua marca exposta com clareza e elegância." },
-    { i: Zap, t: "Mais oportunidades", d: "Mais visibilidade, mais conversas, mais negócios." },
-    { i: Cpu, t: "Confiança do cliente", d: "Tecnologia que reforça sua autoridade no mercado." },
+    { i: Award, t: "Autoridade", d: "Sua marca posicionada como referência logo no primeiro contato." },
+    { i: ShieldCheck, t: "Credibilidade", d: "Uma presença digital sólida que transmite confiança imediata." },
+    { i: MessageCircle, t: "Facilidade de contato", d: "WhatsApp integrado e canais diretos para o cliente decidir agora." },
+    { i: Sparkles, t: "Profissionalismo", d: "Design, conteúdo e tecnologia no padrão das grandes marcas." },
+    { i: Zap, t: "Conversão", d: "Estrutura pensada para transformar visitas em oportunidades reais." },
   ];
   return (
-    <section id="beneficios" className="py-20 sm:py-24">
+    <section id="beneficios" className="py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <SectionTitle eyebrow="O que você ganha" title="Resultados antes de tecnologia." />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <SectionTitle
+          eyebrow="Por que a Imperius"
+          title="Cinco pilares que sustentam uma presença digital de alto nível."
+          sub="Tudo o que entregamos é orientado pelos princípios que mais influenciam a decisão do seu cliente."
+        />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto">
           {items.map((b) => (
-            <div key={b.t} className="card-premium hover-lift rounded-2xl p-6 sm:p-7 flex items-start gap-5">
+            <div key={b.t} className="card-premium hover-lift rounded-2xl p-7 sm:p-8 flex items-start gap-5 h-full">
               <div className="h-12 w-12 shrink-0 rounded-xl flex items-center justify-center ring-1 ring-primary/30" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.6), oklch(0.15 0.03 245 / 0.4))" }}>
                 <b.i className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h3 className="font-heading font-semibold text-base sm:text-lg">{b.t}</h3>
-                <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">{b.d}</p>
+                <h3 className="font-heading font-semibold text-lg sm:text-xl tracking-tight">{b.t}</h3>
+                <p className="text-sm sm:text-[15px] text-muted-foreground mt-2 leading-relaxed">{b.d}</p>
               </div>
             </div>
           ))}
@@ -387,22 +395,22 @@ function Benefits() {
 
 function Demo() {
   const features = [
-    "WhatsApp integrado",
-    "Estrutura focada em conversão",
-    "Design premium",
-    "Totalmente responsiva",
+    "Landing Page Premium",
+    "WhatsApp Integrado",
+    "Google Maps",
+    "Design Responsivo",
   ];
   return (
-    <section id="demonstracao" className="py-20 sm:py-24 relative">
+    <section id="demonstracao" className="py-24 sm:py-32 relative">
       <div className="absolute inset-0 bg-grid opacity-50 pointer-events-none" />
       <div className="relative mx-auto max-w-7xl px-6">
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-3">Case Demonstrativo</div>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight tracking-tight">
-            BLACK CROWN BARBERSHOP
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4">Projeto Demonstrativo</div>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight tracking-tight">
+            Black Crown Barbershop
           </h2>
           <p className="mt-5 text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Landing page demonstrativa desenvolvida pela Imperius.
+            Um exemplo real do padrão Imperius — landing page premium criada para gerar autoridade e converter visitantes em clientes.
           </p>
         </div>
 
@@ -413,7 +421,7 @@ function Demo() {
             href={DEMO}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative group block card-premium rounded-2xl sm:rounded-3xl overflow-hidden glow-ring mb-8 sm:mb-10 border border-primary/30 hover:border-primary/60 transition"
+            className="relative group block card-premium rounded-2xl sm:rounded-3xl overflow-hidden glow-ring mb-10 sm:mb-12 border border-primary/30 hover:border-primary/60 transition"
           >
             <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-border/40 bg-background/70">
               <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
@@ -431,9 +439,9 @@ function Demo() {
             </div>
           </a>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-10 max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-10 sm:mb-12 max-w-4xl mx-auto">
             {features.map((f) => (
-              <div key={f} className="card-premium hover-lift rounded-xl p-4 flex items-center gap-3">
+              <div key={f} className="card-premium hover-lift rounded-xl p-4 flex items-center gap-3 h-full">
                 <div className="h-8 w-8 shrink-0 rounded-lg flex items-center justify-center ring-1 ring-primary/40 bg-primary/10">
                   <Check className="h-4 w-4 text-primary" />
                 </div>
@@ -444,8 +452,8 @@ function Demo() {
 
           <div className="flex justify-center">
             <a href={DEMO} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-12 px-8">
-                Ver demonstração completa <ExternalLink className="ml-2 h-4 w-4" />
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-12 px-8 transition-transform duration-300 hover:-translate-y-0.5">
+                Ver Projeto Completo <ExternalLink className="ml-2 h-4 w-4" />
               </Button>
             </a>
           </div>
@@ -647,47 +655,21 @@ function Included() {
 
 function About() {
   return (
-    <section id="sobre" className="py-20 sm:py-24 relative">
+    <section id="sobre" className="py-24 sm:py-32 relative">
       <div className="absolute inset-0 bg-grid opacity-40 pointer-events-none" />
-      <div className="relative mx-auto max-w-6xl px-6">
-        <div className="text-center mb-12 sm:mb-16 max-w-4xl mx-auto">
-          <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4">Sobre a Imperius</div>
-          <h2 className="font-heading text-2xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight tracking-tight">
-            Sua presença digital influencia a decisão do cliente antes mesmo do primeiro contato.
-          </h2>
-        </div>
-
-        <div className="relative">
-          <div className="absolute -inset-6 sm:-inset-10 rounded-3xl blur-3xl opacity-40 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.25 250 / 0.35), transparent 70%)" }} />
-          <div className="relative card-premium rounded-3xl p-8 sm:p-12 lg:p-16 glow-ring overflow-hidden">
-            <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
-            <div className="relative grid md:grid-cols-[180px_1fr] lg:grid-cols-[200px_1fr] gap-10 sm:gap-12 lg:gap-16 items-center">
-              {/* Avatar / imagem institucional — discreto */}
-              <div className="mx-auto md:mx-0">
-                <div className="relative h-28 w-32 sm:h-32 sm:w-40 rounded-2xl overflow-hidden ring-1 ring-primary/25 bg-background/40 flex items-center justify-center p-4" style={{ background: "linear-gradient(135deg, oklch(0.22 0.08 250 / 0.55), oklch(0.15 0.03 245 / 0.4))" }}>
-                  <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[80px] sm:h-[96px] w-auto max-w-full object-contain opacity-95" />
-                </div>
-                <div className="mt-3 text-center">
-                  <div className="text-[10px] uppercase tracking-[0.25em] text-primary/80 font-semibold">Imperius</div>
-                  <div className="text-[10px] text-muted-foreground">Soluções Digitais</div>
-                </div>
-              </div>
-
-              <div className="space-y-6 text-foreground/95">
-                <p className="text-lg sm:text-xl lg:text-2xl leading-relaxed font-medium tracking-tight">
-                  Criamos landing pages, automações e soluções digitais que fortalecem a autoridade da sua marca, facilitam o contato com clientes e transformam visitantes em oportunidades reais de negócio.
-                </p>
-                <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
-                  Design estratégico, tecnologia acessível e comunicação clara trabalham juntos para transmitir mais confiança, profissionalismo e valor percebido.
-                </p>
-                <div className="flex flex-wrap gap-2 pt-3">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-[11px] uppercase tracking-[0.15em] text-primary"><Sparkles className="h-3 w-3" /> Design estratégico</span>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-[11px] uppercase tracking-[0.15em] text-primary"><ShieldCheck className="h-3 w-3" /> Tecnologia acessível</span>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-[11px] uppercase tracking-[0.15em] text-primary"><MessageCircle className="h-3 w-3" /> Comunicação clara</span>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[420px] rounded-full blur-3xl opacity-40 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.25 250 / 0.35), transparent 70%)" }} />
+      <div className="relative mx-auto max-w-4xl px-6 text-center">
+        <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-5">Sobre a Imperius</div>
+        <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-[1.1] tracking-tight">
+          Uma presença digital forte transmite confiança antes mesmo do primeiro contato.
+        </h2>
+        <p className="mt-8 text-base sm:text-lg lg:text-xl text-foreground/85 leading-relaxed max-w-3xl mx-auto">
+          A Imperius desenvolve soluções digitais focadas em autoridade, credibilidade e geração de oportunidades para empresas que desejam crescer.
+        </p>
+        <div className="mt-10 flex flex-wrap justify-center gap-2.5">
+          <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 text-[11px] uppercase tracking-[0.18em] text-primary"><Sparkles className="h-3 w-3" /> Design estratégico</span>
+          <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 text-[11px] uppercase tracking-[0.18em] text-primary"><ShieldCheck className="h-3 w-3" /> Tecnologia acessível</span>
+          <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 text-[11px] uppercase tracking-[0.18em] text-primary"><MessageCircle className="h-3 w-3" /> Comunicação clara</span>
         </div>
       </div>
     </section>
@@ -800,14 +782,14 @@ function Footer() {
         <div className="grid md:grid-cols-4 gap-10">
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-5">
-              <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[48px] w-auto object-contain" loading="lazy" decoding="async" />
+              <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[44px] w-auto object-contain" loading="lazy" decoding="async" />
               <div>
-                <div className="font-display font-bold tracking-[0.2em] text-sm">IMPERIUS</div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Soluções Digitais</div>
+                <div className="font-display font-bold tracking-[0.2em] text-sm">IMPERIUS™</div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Design • Automação • IA</div>
               </div>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Tecnologia, presença digital e credibilidade para empresas que querem crescer.
+              Soluções digitais premium para empresas que querem transmitir autoridade e gerar mais oportunidades.
             </p>
           </div>
 
@@ -846,8 +828,8 @@ function Footer() {
         </div>
 
         <div className="mt-12 pt-6 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
-          <span>© {new Date().getFullYear()} Imperius Soluções Digitais. Todos os direitos reservados.</span>
-          <span className="tracking-[0.2em] uppercase">Tecnologia · Automação · IA</span>
+          <span>© {new Date().getFullYear()} Imperius™ — Todos os direitos reservados.</span>
+          <span className="tracking-[0.2em] uppercase">Design • Automação • Inteligência Artificial</span>
         </div>
       </div>
     </footer>
