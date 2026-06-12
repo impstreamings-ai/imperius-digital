@@ -159,73 +159,72 @@ function SectionTitle({ eyebrow, title, sub, display = false }: { eyebrow?: stri
 
 function BrandCommandCenter() {
   return (
-    <div className="relative aspect-square w-full max-w-[560px] mx-auto">
+    <div className="relative w-full max-w-[620px] mx-auto aspect-[5/4]">
+      {/* Cinematic ambient glow */}
       <div
-        className="absolute inset-0 rounded-full blur-3xl opacity-80 pointer-events-none"
-        style={{ background: "radial-gradient(circle at 50% 50%, oklch(0.55 0.25 250 / 0.55), transparent 65%)" }}
+        className="absolute inset-0 blur-3xl opacity-80 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse at 55% 45%, oklch(0.55 0.25 250 / 0.55), transparent 65%)" }}
+      />
+      <div
+        className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[80%] h-12 rounded-[50%] blur-2xl opacity-70 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse, oklch(0.72 0.24 250 / 0.45), transparent 70%)" }}
       />
 
-      <div className="absolute inset-[6%] rounded-full border border-primary/20" />
-      <div className="absolute inset-[14%] rounded-full border border-primary/15" />
-      <div className="absolute inset-[24%] rounded-full border border-primary/10" />
-
-      <svg className="absolute inset-0 w-full h-full animate-[spin_40s_linear_infinite] opacity-60" viewBox="0 0 200 200" fill="none" aria-hidden="true">
-        <circle cx="100" cy="100" r="92" stroke="oklch(0.72 0.22 250 / 0.45)" strokeWidth="0.4" strokeDasharray="2 4" />
-        <circle cx="100" cy="8" r="1.6" fill="oklch(0.88 0.12 235)" />
-        <circle cx="8" cy="100" r="1.2" fill="oklch(0.72 0.22 250)" />
-        <circle cx="192" cy="100" r="1.2" fill="oklch(0.72 0.22 250)" />
-      </svg>
-      <svg className="absolute inset-[10%] w-[80%] h-[80%] animate-[spin_60s_linear_infinite_reverse] opacity-50" viewBox="0 0 200 200" fill="none" aria-hidden="true">
-        <circle cx="100" cy="100" r="92" stroke="oklch(0.85 0.1 235 / 0.35)" strokeWidth="0.3" strokeDasharray="1 6" />
-        <circle cx="100" cy="192" r="1.4" fill="oklch(0.85 0.1 235)" />
-      </svg>
-
-      {[
-        "top-2 left-2 border-l border-t",
-        "top-2 right-2 border-r border-t",
-        "bottom-2 left-2 border-l border-b",
-        "bottom-2 right-2 border-r border-b",
-      ].map((pos, i) => (
-        <div key={i} className={`absolute ${pos} h-6 w-6 border-primary/50`} />
-      ))}
-
-      <div className="absolute top-4 left-1/2 -translate-x-1/2 text-[9px] tracking-[0.4em] text-primary/70 font-mono uppercase">
-        Imperius · Sys Online
-      </div>
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[9px] tracking-[0.4em] text-muted-foreground/70 font-mono uppercase">
-        v.01 — Command Core
-      </div>
-      <div className="absolute left-3 top-1/2 -translate-y-1/2 -rotate-90 origin-center text-[9px] tracking-[0.4em] text-muted-foreground/60 font-mono uppercase">
-        Authority · Trust · Conversion
-      </div>
-
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="relative">
-          <div
-            className="absolute -inset-10 rounded-full blur-2xl"
-            style={{ background: "radial-gradient(circle, oklch(0.72 0.24 250 / 0.55), transparent 70%)" }}
-          />
-          <div className="relative h-44 w-44 sm:h-52 sm:w-52 rounded-full flex items-center justify-center backdrop-blur-xl border border-primary/30 shadow-[0_0_60px_-10px_oklch(0.6_0.25_250/0.7)] card-premium">
-            <div className="absolute inset-2 rounded-full border border-primary/15" />
+      {/* Notebook */}
+      <div className="absolute left-0 top-[6%] w-[88%] z-10">
+        <div className="relative rounded-[14px] p-[6px] bg-gradient-to-b from-[oklch(0.32_0.01_245)] to-[oklch(0.14_0.01_245)] shadow-[0_30px_80px_-20px_oklch(0_0_0/0.9),0_0_40px_-10px_oklch(0.6_0.25_250/0.45)] ring-1 ring-white/5">
+          <div className="rounded-[8px] overflow-hidden bg-black aspect-[16/10] relative">
             <img
-              src={logoAsset.url}
-              alt="Imperius — identidade oficial"
-              className="relative h-24 sm:h-28 w-auto object-contain drop-shadow-[0_0_24px_oklch(0.72_0.24_250/0.6)]"
+              src={blackCrownPreview.url}
+              alt="Página Black Crown desenvolvida pela Imperius"
+              className="absolute inset-0 w-full h-full object-cover object-top"
               loading="eager"
               decoding="async"
             />
+            {/* screen sheen */}
+            <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(120deg, oklch(1 0 0 / 0.06) 0%, transparent 35%, transparent 70%, oklch(0.72 0.24 250 / 0.08) 100%)" }} />
           </div>
+        </div>
+        {/* notebook base */}
+        <div className="relative h-[14px] -mt-px">
+          <div className="absolute inset-x-[-4%] top-0 h-[10px] rounded-b-[14px] bg-gradient-to-b from-[oklch(0.28_0.01_245)] to-[oklch(0.16_0.01_245)] shadow-[0_8px_20px_-6px_oklch(0_0_0/0.8)]" />
+          <div className="absolute left-1/2 -translate-x-1/2 top-[2px] h-[3px] w-16 rounded-b-md bg-[oklch(0.1_0.005_240)]" />
         </div>
       </div>
 
-      <div className="absolute top-[14%] right-[6%] px-2.5 py-1 rounded-md bg-card/60 backdrop-blur border border-primary/25 text-[10px] font-mono text-foreground/80 shadow-[0_0_20px_-6px_oklch(0.6_0.25_250/0.6)]">
-        <span className="text-primary">●</span> Autoridade <span className="text-primary/80">ativa</span>
-      </div>
-      <div className="absolute bottom-[18%] left-[2%] px-2.5 py-1 rounded-md bg-card/60 backdrop-blur border border-primary/25 text-[10px] font-mono text-foreground/80 shadow-[0_0_20px_-6px_oklch(0.6_0.25_250/0.6)]">
-        <span className="text-accent">●</span> Conversão online
-      </div>
-      <div className="absolute top-[42%] right-[-2%] px-2.5 py-1 rounded-md bg-card/60 backdrop-blur border border-primary/25 text-[10px] font-mono text-foreground/80 shadow-[0_0_20px_-6px_oklch(0.6_0.25_250/0.6)]">
-        <span className="text-primary">▲</span> Lead capturado
+      {/* Smartphone with WhatsApp */}
+      <div className="absolute right-[2%] bottom-[2%] w-[30%] max-w-[180px] z-20">
+        <div className="relative rounded-[28px] p-[5px] bg-gradient-to-b from-[oklch(0.3_0.01_245)] to-[oklch(0.12_0.01_245)] shadow-[0_30px_60px_-15px_oklch(0_0_0/0.9),0_0_30px_-8px_oklch(0.6_0.25_250/0.55)] ring-1 ring-white/10">
+          <div className="rounded-[22px] overflow-hidden bg-[oklch(0.08_0.005_150)] aspect-[9/19] relative">
+            {/* notch */}
+            <div className="absolute top-1.5 left-1/2 -translate-x-1/2 h-[14px] w-[40%] rounded-full bg-black z-10" />
+            {/* WhatsApp header */}
+            <div className="absolute top-0 inset-x-0 pt-6 pb-2 px-2.5 bg-[oklch(0.22_0.04_165)] flex items-center gap-1.5">
+              <div className="h-5 w-5 rounded-full bg-[oklch(0.55_0.18_150)] flex items-center justify-center text-[9px] font-bold text-white">B</div>
+              <div className="flex-1 min-w-0">
+                <div className="text-[8px] font-semibold text-white truncate leading-tight">Black Crown</div>
+                <div className="text-[6px] text-white/70 leading-tight">online agora</div>
+              </div>
+            </div>
+            {/* WhatsApp body */}
+            <div className="absolute inset-x-0 top-[58px] bottom-[28px] px-2 py-2 space-y-1.5 overflow-hidden" style={{ background: "linear-gradient(180deg, oklch(0.15 0.01 150), oklch(0.12 0.005 150))" }}>
+              <div className="max-w-[80%] ml-auto rounded-lg rounded-tr-sm bg-[oklch(0.45_0.12_155)] px-1.5 py-1 text-[7px] text-white leading-tight shadow">
+                Olá! Quero agendar um horário 💈
+              </div>
+              <div className="max-w-[80%] rounded-lg rounded-tl-sm bg-[oklch(0.22_0.01_245)] px-1.5 py-1 text-[7px] text-white leading-tight shadow">
+                Claro! Temos horários hoje às 15h e 17h. Qual prefere?
+              </div>
+              <div className="max-w-[60%] ml-auto rounded-lg rounded-tr-sm bg-[oklch(0.45_0.12_155)] px-1.5 py-1 text-[7px] text-white leading-tight shadow">
+                17h, perfeito ✓
+              </div>
+            </div>
+            {/* input bar */}
+            <div className="absolute bottom-0 inset-x-0 h-[24px] bg-[oklch(0.18_0.01_245)] flex items-center px-2 gap-1">
+              <div className="flex-1 h-3 rounded-full bg-[oklch(0.25_0.01_245)]" />
+              <div className="h-4 w-4 rounded-full bg-[oklch(0.55_0.18_150)]" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
