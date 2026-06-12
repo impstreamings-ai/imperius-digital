@@ -67,7 +67,7 @@ function Landing() {
       <Solution />
       <Services />
       <Demo />
-      <Results />
+      
       <Benefits />
       <About />
       <FinalCTA />
@@ -262,10 +262,7 @@ function Solution() {
   const items = [
     { t: "Mais contatos qualificados", d: "Visitantes que chegam preparados para fechar negócio." },
     { t: "Mais pedidos de orçamento", d: "Estrutura que conduz o visitante até a ação." },
-    { t: "Mais facilidade de atendimento", d: "Canais diretos, sem fricção entre cliente e empresa." },
     { t: "Mais valor percebido", d: "Sua marca comparada às referências do setor." },
-    { t: "Mais autoridade digital", d: "Presença que comunica solidez no primeiro segundo." },
-    { t: "Mais oportunidades reais", d: "Visitas que se transformam em negócios fechados." },
   ];
 
   return (
@@ -533,7 +530,7 @@ function FinalCTA() {
               Sua empresa transmite a imagem que merece?
             </h2>
             <p className="mt-6 text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-sans">
-              Criamos soluções digitais para empresas que desejam transmitir mais autoridade, facilitar o contato e gerar mais oportunidades.
+              Solicite sua demonstração personalizada. Sem compromisso.
             </p>
             <div className="mt-9 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
               <a href={WA} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
