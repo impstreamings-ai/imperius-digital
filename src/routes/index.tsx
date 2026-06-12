@@ -384,6 +384,8 @@ function Demo() {
               <img
                 src={blackCrownPreview.url}
                 alt="Preview — Black Crown Barbershop"
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 w-full h-full object-contain sm:object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent pointer-events-none" />
