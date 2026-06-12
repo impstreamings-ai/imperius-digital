@@ -59,7 +59,7 @@ const DEMO = "https://blackcrown-by-imperius.lovable.app/";
 
 function Landing() {
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans">
+    <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
       <Nav />
       <Hero />
       <Process />
@@ -92,7 +92,8 @@ function Nav() {
         </nav>
         <a href={WA} target="_blank" rel="noreferrer" className="shrink-0">
           <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.72_0.22_250/0.7)]">
-            Quero uma demonstração
+            <span className="sm:hidden">Demonstração</span>
+            <span className="hidden sm:inline">Quero uma demonstração</span>
           </Button>
         </a>
       </div>
@@ -102,7 +103,7 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative min-h-screen flex items-center pt-28 pb-10 sm:pb-14 overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
+    <section id="top" className="relative lg:min-h-screen flex items-center pt-28 pb-10 sm:pb-14 overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
       <div className="absolute inset-0 bg-grid pointer-events-none" />
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full blur-3xl animate-pulse-glow" style={{ background: "radial-gradient(circle, oklch(0.5 0.25 250 / 0.35), transparent 70%)" }} />
 
@@ -112,7 +113,7 @@ function Hero() {
             <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
             Soluções Digitais Premium
           </div>
-          <h1 className="font-display text-[2.25rem] sm:text-[2.75rem] lg:text-[3.5rem] xl:text-[4rem] font-bold leading-[1.02] tracking-tight">
+          <h1 className="font-display text-[1.875rem] sm:text-[2.75rem] lg:text-[3.5rem] xl:text-[4rem] font-bold leading-[1.05] tracking-tight">
             <span className="block text-gradient">Mais autoridade.</span>
             <span className="block text-gradient">Mais contatos.</span>
             <span className="block text-neon">Mais oportunidades.</span>
