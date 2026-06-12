@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import logoAsset from "@/assets/imperius-logo.png.asset.json";
+import logoAsset from "@/assets/imperius-logo-clean.png.asset.json";
 import blackCrownPreview from "@/assets/blackcrown-preview-v2.png.asset.json";
 
 
@@ -271,7 +271,7 @@ function Nav() {
     <header className="fixed top-0 inset-x-0 z-50 border-b border-border/40 backdrop-blur-xl bg-background/70">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2.5 min-w-0">
-          <img src={logoAsset.url} alt="Imperius" className="h-10 w-auto max-w-[160px] object-contain shrink-0" loading="eager" decoding="async" />
+          <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[40px] w-auto object-contain shrink-0" loading="eager" decoding="async" />
           <span className="font-display font-bold tracking-[0.2em] text-sm truncate">IMPERIUS</span>
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
@@ -665,7 +665,7 @@ function About() {
               {/* Avatar / imagem institucional */}
               <div className="mx-auto md:mx-0">
                 <div className="relative h-36 w-44 sm:h-44 sm:w-56 rounded-2xl overflow-hidden ring-1 ring-primary/40 bg-background/60 flex items-center justify-center p-5" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.7), oklch(0.15 0.03 245 / 0.5))" }}>
-                  <img src={logoAsset.url} alt="Imperius" className="max-w-[160px] max-h-[110px] w-auto h-auto object-contain" />
+                  <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[140px] w-auto max-w-[220px] object-contain" />
                   <div className="absolute -inset-1 rounded-2xl pointer-events-none" style={{ boxShadow: "inset 0 0 40px oklch(0.55 0.25 250 / 0.35)" }} />
                 </div>
                 <div className="mt-3 text-center">
@@ -801,7 +801,7 @@ function Footer() {
         <div className="grid md:grid-cols-4 gap-10">
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-5">
-              <img src={logoAsset.url} alt="Imperius" className="h-11 w-auto max-w-[150px] object-contain" loading="lazy" decoding="async" />
+              <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[48px] w-auto object-contain" loading="lazy" decoding="async" />
               <div>
                 <div className="font-display font-bold tracking-[0.2em] text-sm">IMPERIUS</div>
                 <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Soluções Digitais</div>
