@@ -27,6 +27,9 @@ import {
   Target,
   Wrench,
 } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
+
+const track = (name: string, params: Record<string, unknown> = {}) => trackEvent(name, params);
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -96,7 +99,7 @@ function Nav() {
           <a href="#demonstracao" className="hover:text-foreground transition-colors">Demonstração</a>
           <a href="#sobre" className="hover:text-foreground transition-colors">Sobre</a>
         </nav>
-        <a href={WA} target="_blank" rel="noreferrer" className="shrink-0">
+        <a href={WA} target="_blank" rel="noreferrer" className="shrink-0" onClick={() => track("whatsapp_click", { location: "nav" })}>
           <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.72_0.22_250/0.7)]">
             <span className="sm:hidden">Demonstração</span>
             <span className="hidden sm:inline">Quero uma demonstração</span>
@@ -128,7 +131,7 @@ function Hero() {
             Landing pages, automações e soluções digitais criadas para empresas que desejam transmitir profissionalismo e gerar mais oportunidades de negócio.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row sm:items-center flex-wrap gap-3 sm:gap-5">
-            <a href={WA} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
+            <a href={WA} target="_blank" rel="noreferrer" className="w-full sm:w-auto" onClick={() => track("hero_cta_click", { destination: "whatsapp" })}>
               <Button size="lg" className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-13 px-8 text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]">
                 QUERO UMA DEMONSTRAÇÃO GRATUITA <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -138,6 +141,7 @@ function Hero() {
               target="_blank"
               rel="noreferrer"
               className="text-sm text-muted-foreground hover:text-foreground underline underline-offset-4 decoration-border hover:decoration-primary transition-colors font-sans inline-flex items-center gap-1.5"
+              onClick={() => track("demo_click", { location: "hero" })}
             >
               ou veja um exemplo real <ExternalLink className="h-3.5 w-3.5" />
             </a>
@@ -373,6 +377,7 @@ function Demo() {
             target="_blank"
             rel="noopener noreferrer"
             className="relative group block card-premium rounded-2xl sm:rounded-3xl overflow-hidden glow-ring mb-12 border border-primary/30 hover:border-primary/60 transition-all duration-500"
+            onClick={() => track("demo_click", { location: "demo_preview" })}
           >
             <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-border/40 bg-background/70">
               <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
@@ -427,7 +432,7 @@ function Demo() {
           </div>
 
           <div className="flex justify-center">
-            <a href={DEMO} target="_blank" rel="noopener noreferrer">
+            <a href={DEMO} target="_blank" rel="noopener noreferrer" onClick={() => track("demo_click", { location: "demo_cta" })}>
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-13 px-8 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]">
                 Ver Demonstração <ExternalLink className="ml-2 h-4 w-4" />
               </Button>
@@ -600,7 +605,7 @@ function FinalCTA() {
               Criamos soluções digitais para negócios que desejam transmitir mais autoridade, facilitar o contato e gerar mais oportunidades.
             </p>
             <div className="mt-9 flex justify-center">
-              <a href={WA} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
+              <a href={WA} target="_blank" rel="noreferrer" className="w-full sm:w-auto" onClick={() => { track("final_cta_click", { destination: "whatsapp" }); track("whatsapp_click", { location: "final_cta" }); }}>
                 <Button size="lg" className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide h-13 px-8 text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]">
                   QUERO MINHA DEMONSTRAÇÃO <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -650,10 +655,10 @@ function Footer() {
 
           <div>
             <div className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4 font-sans">Contato</div>
-            <a href={WA} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors mb-3 font-sans">
+            <a href={WA} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors mb-3 font-sans" onClick={() => track("whatsapp_click", { location: "footer" })}>
               <Phone className="h-4 w-4 shrink-0" /> +55 15 98102-3792
             </a>
-            <a href={WA} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors mb-3 font-sans">
+            <a href={WA} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors mb-3 font-sans" onClick={() => track("whatsapp_click", { location: "footer" })}>
               <MessageCircle className="h-4 w-4 shrink-0" /> Atendimento via WhatsApp
             </a>
             <a href={IG} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors font-sans">
@@ -664,7 +669,7 @@ function Footer() {
           <div>
             <div className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4 font-sans">Comece agora</div>
             <p className="text-sm text-muted-foreground mb-4 font-sans">Solicite uma apresentação personalizada.</p>
-            <a href={WA} target="_blank" rel="noreferrer">
+            <a href={WA} target="_blank" rel="noreferrer" onClick={() => track("whatsapp_click", { location: "footer_cta" })}>
               <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold w-full sm:w-auto transition-all duration-300 hover:-translate-y-0.5">
                 Falar com a Imperius <ArrowRight className="ml-2 h-3.5 w-3.5" />
               </Button>

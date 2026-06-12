@@ -108,6 +108,15 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="pt-BR">
       <head>
         <HeadContent />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-24VYN8CDZ1"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js', new Date());gtag('config', 'G-24VYN8CDZ1', { send_page_view: true });`,
+          }}
+        />
       </head>
       <body>
         {children}
@@ -119,6 +128,19 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
+
+  useEffect(() => {
+    const unsub = router.subscribe("onResolved", ({ toLocation }) => {
+      if (typeof window === "undefined" || !window.gtag) return;
+      window.gtag("event", "page_view", {
+        page_path: toLocation.pathname + (toLocation.searchStr ?? ""),
+        page_location: window.location.href,
+        page_title: document.title,
+      });
+    });
+    return () => unsub();
+  }, [router]);
 
   return (
     <QueryClientProvider client={queryClient}>
