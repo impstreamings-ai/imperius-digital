@@ -828,8 +828,8 @@ function Footer() {
         </div>
 
         <div className="mt-12 pt-6 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
-          <span>© {new Date().getFullYear()} Imperius Soluções Digitais. Todos os direitos reservados.</span>
-          <span className="tracking-[0.2em] uppercase">Tecnologia · Automação · IA</span>
+          <span>© {new Date().getFullYear()} Imperius™ — Todos os direitos reservados.</span>
+          <span className="tracking-[0.2em] uppercase">Design • Automação • Inteligência Artificial</span>
         </div>
       </div>
     </footer>
