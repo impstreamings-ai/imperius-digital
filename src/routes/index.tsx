@@ -22,6 +22,10 @@ import {
   TrendingUp,
   Smartphone,
   Eye,
+  Handshake,
+  MonitorPlay,
+  Target,
+  Wrench,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -496,28 +500,57 @@ function Benefits() {
 }
 
 function About() {
+  const reasons = [
+    {
+      i: Handshake,
+      t: "Atendimento próximo",
+      d: "Cada projeto é tratado de forma personalizada, considerando a realidade e os objetivos de cada empresa.",
+    },
+    {
+      i: MonitorPlay,
+      t: "Demonstração personalizada",
+      d: "Antes de qualquer decisão, mostramos na prática como sua empresa pode evoluir digitalmente.",
+    },
+    {
+      i: Target,
+      t: "Foco em resultado",
+      d: "Cada elemento é pensado para melhorar a percepção da marca e facilitar o contato com novos clientes.",
+    },
+    {
+      i: Wrench,
+      t: "Soluções sob medida",
+      d: "Não utilizamos fórmulas prontas. Cada projeto é adaptado às necessidades do negócio.",
+    },
+  ];
   return (
     <section id="sobre" className="py-24 sm:py-28 relative">
       <div className="absolute inset-0 bg-grid opacity-40 pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[420px] rounded-full blur-3xl opacity-40 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.25 250 / 0.35), transparent 70%)" }} />
-      <div className="relative mx-auto max-w-4xl px-6 text-center">
-        <div className="text-[11px] uppercase tracking-[0.28em] text-primary font-semibold mb-5 font-sans">Sobre a Imperius</div>
-        <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-[1.1] tracking-tight">
-          Tecnologia, autoridade e resultado em uma única marca.
-        </h2>
-        <p className="mt-8 text-base sm:text-lg lg:text-xl text-foreground/85 leading-relaxed max-w-2xl mx-auto font-sans">
-          A Imperius desenvolve soluções digitais que fortalecem a presença das empresas, geram autoridade e abrem novas oportunidades de negócio.
-        </p>
-        <div className="mt-10 flex flex-wrap justify-center gap-2.5">
-          <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 text-[11px] uppercase tracking-[0.18em] text-primary font-semibold font-sans"><Award className="h-3 w-3" /> Autoridade</span>
-          <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 text-[11px] uppercase tracking-[0.18em] text-primary font-semibold font-sans"><ShieldCheck className="h-3 w-3" /> Credibilidade</span>
-          <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 text-[11px] uppercase tracking-[0.18em] text-primary font-semibold font-sans"><Sparkles className="h-3 w-3" /> Tecnologia</span>
-          <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 text-[11px] uppercase tracking-[0.18em] text-primary font-semibold font-sans"><TrendingUp className="h-3 w-3" /> Resultado</span>
+      <div className="relative mx-auto max-w-7xl px-6">
+        <SectionTitle
+          display
+          eyebrow="Por que escolher a Imperius"
+          title="Por que empresas escolhem a Imperius."
+          sub="Mais do que criar páginas bonitas, desenvolvemos soluções digitais pensadas para facilitar o contato, transmitir profissionalismo e gerar oportunidades reais para o seu negócio."
+        />
+        <div className="grid sm:grid-cols-2 gap-5 sm:gap-6 max-w-5xl mx-auto">
+          {reasons.map((r) => (
+            <div key={r.t} className="card-premium hover-lift rounded-2xl p-6 sm:p-7 flex items-start gap-5 h-full transition-all duration-300 hover:border-primary/50">
+              <div className="h-12 w-12 shrink-0 rounded-xl flex items-center justify-center ring-1 ring-primary/30" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.6), oklch(0.15 0.03 245 / 0.4))" }}>
+                <r.i className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-heading font-semibold text-base sm:text-lg tracking-tight">{r.t}</h3>
+                <p className="text-sm sm:text-[15px] text-muted-foreground mt-2 leading-relaxed font-sans">{r.d}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
+
 
 function FinalCTA() {
   return (
