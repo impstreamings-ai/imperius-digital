@@ -205,11 +205,11 @@ function BrandCommandCenter() {
 
 function Process() {
   const steps = [
-    { n: "01", i: MessageCircle, t: "Conversamos", d: "Entendemos seu negócio, seus clientes e seus objetivos." },
-    { n: "02", i: LayoutTemplate, t: "Criamos a demonstração", d: "Montamos uma versão personalizada para você visualizar antes de qualquer decisão." },
+    { n: "01", i: MessageCircle, t: "Conversamos sobre sua empresa", d: "Entendemos seu negócio, seus clientes e seus objetivos." },
+    { n: "02", i: LayoutTemplate, t: "Criamos uma demonstração personalizada", d: "Montamos uma versão sob medida para você visualizar antes de qualquer decisão." },
     { n: "03", i: ClipboardList, t: "Você aprova", d: "Ajustamos cada detalhe até o resultado refletir a sua marca." },
     { n: "04", i: Rocket, t: "Publicamos", d: "Seu projeto entra no ar pronto para gerar oportunidades." },
-    { n: "05", i: TrendingUp, t: "Sua marca cresce", d: "Sua empresa transmite mais autoridade e gera mais contatos qualificados." },
+    { n: "05", i: TrendingUp, t: "Mais autoridade e oportunidades", d: "Sua empresa transmite mais autoridade e gera mais oportunidades de negócio." },
   ];
   return (
     <section id="processo" className="py-24 sm:py-28">
