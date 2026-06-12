@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import logoAsset from "@/assets/imperius-logo-official.png.asset.json";
 import blackCrownPreview from "@/assets/blackcrown-preview-v2.png.asset.json";
-import heroMockup from "@/assets/hero-mockup.png.asset.json";
+
 
 
 import { Button } from "@/components/ui/button";
@@ -328,20 +328,7 @@ function Hero() {
           </ul>
         </div>
 
-        <div className="relative">
-          <div className="absolute -inset-10 sm:-inset-16 rounded-full blur-3xl opacity-70 pointer-events-none" style={{ background: "radial-gradient(circle, oklch(0.55 0.25 250 / 0.45), transparent 70%)" }} />
-          <div className="relative">
-            <img
-              src={heroMockup.url}
-              alt="Mockup premium — notebook e smartphone exibindo interfaces SaaS criadas pela Imperius"
-              width={1280}
-              height={1024}
-              className="relative w-full h-auto object-contain drop-shadow-[0_30px_60px_oklch(0.5_0.25_250/0.35)]"
-              loading="eager"
-              decoding="async"
-            />
-          </div>
-        </div>
+        <BrandCommandCenter />
       </div>
     </section>
   );
@@ -355,6 +342,89 @@ function SectionTitle({ eyebrow, title, sub }: { eyebrow?: string; title: string
       )}
       <h2 className="font-heading text-2xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight">{title}</h2>
       {sub && <p className="mt-5 text-muted-foreground text-base sm:text-lg">{sub}</p>}
+    </div>
+  );
+}
+
+function BrandCommandCenter() {
+  return (
+    <div className="relative aspect-square w-full max-w-[560px] mx-auto">
+      {/* Ambient glow */}
+      <div
+        className="absolute inset-0 rounded-full blur-3xl opacity-80 pointer-events-none"
+        style={{ background: "radial-gradient(circle at 50% 50%, oklch(0.55 0.25 250 / 0.55), transparent 65%)" }}
+      />
+
+      {/* Orbital rings */}
+      <div className="absolute inset-[6%] rounded-full border border-primary/20" />
+      <div className="absolute inset-[14%] rounded-full border border-primary/15" />
+      <div className="absolute inset-[24%] rounded-full border border-primary/10" />
+
+      {/* Rotating dashed ring */}
+      <svg className="absolute inset-0 w-full h-full animate-[spin_40s_linear_infinite] opacity-60" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+        <circle cx="100" cy="100" r="92" stroke="oklch(0.72 0.22 250 / 0.45)" strokeWidth="0.4" strokeDasharray="2 4" />
+        <circle cx="100" cy="8" r="1.6" fill="oklch(0.88 0.12 235)" />
+        <circle cx="8" cy="100" r="1.2" fill="oklch(0.72 0.22 250)" />
+        <circle cx="192" cy="100" r="1.2" fill="oklch(0.72 0.22 250)" />
+      </svg>
+      <svg className="absolute inset-[10%] w-[80%] h-[80%] animate-[spin_60s_linear_infinite_reverse] opacity-50" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+        <circle cx="100" cy="100" r="92" stroke="oklch(0.85 0.1 235 / 0.35)" strokeWidth="0.3" strokeDasharray="1 6" />
+        <circle cx="100" cy="192" r="1.4" fill="oklch(0.85 0.1 235)" />
+      </svg>
+
+      {/* Corner HUD markers */}
+      {[
+        "top-2 left-2 border-l border-t",
+        "top-2 right-2 border-r border-t",
+        "bottom-2 left-2 border-l border-b",
+        "bottom-2 right-2 border-r border-b",
+      ].map((pos, i) => (
+        <div key={i} className={`absolute ${pos} h-6 w-6 border-primary/50`} />
+      ))}
+
+      {/* Micro telemetry labels */}
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 text-[9px] tracking-[0.4em] text-primary/70 font-mono uppercase">
+        Imperius · Sys Online
+      </div>
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[9px] tracking-[0.4em] text-muted-foreground/70 font-mono uppercase">
+        v.01 — Command Core
+      </div>
+      <div className="absolute left-3 top-1/2 -translate-y-1/2 -rotate-90 origin-center text-[9px] tracking-[0.4em] text-muted-foreground/60 font-mono uppercase">
+        Authority · Trust · Conversion
+      </div>
+
+      {/* Central logo platform */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="relative">
+          {/* Inner halo */}
+          <div
+            className="absolute -inset-10 rounded-full blur-2xl"
+            style={{ background: "radial-gradient(circle, oklch(0.72 0.24 250 / 0.55), transparent 70%)" }}
+          />
+          {/* Glass disc */}
+          <div className="relative h-44 w-44 sm:h-52 sm:w-52 rounded-full flex items-center justify-center backdrop-blur-xl border border-primary/30 shadow-[0_0_60px_-10px_oklch(0.6_0.25_250/0.7)] card-premium">
+            <div className="absolute inset-2 rounded-full border border-primary/15" />
+            <img
+              src={logoAsset.url}
+              alt="Imperius — identidade oficial"
+              className="relative h-24 sm:h-28 w-auto object-contain drop-shadow-[0_0_24px_oklch(0.72_0.24_250/0.6)]"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Floating data chips */}
+      <div className="absolute top-[14%] right-[6%] px-2.5 py-1 rounded-md bg-card/60 backdrop-blur border border-primary/25 text-[10px] font-mono text-foreground/80 shadow-[0_0_20px_-6px_oklch(0.6_0.25_250/0.6)]">
+        <span className="text-primary">●</span> Autoridade <span className="text-primary/80">+38%</span>
+      </div>
+      <div className="absolute bottom-[18%] left-[2%] px-2.5 py-1 rounded-md bg-card/60 backdrop-blur border border-primary/25 text-[10px] font-mono text-foreground/80 shadow-[0_0_20px_-6px_oklch(0.6_0.25_250/0.6)]">
+        <span className="text-accent">●</span> Conversão ativa
+      </div>
+      <div className="absolute top-[42%] right-[-2%] px-2.5 py-1 rounded-md bg-card/60 backdrop-blur border border-primary/25 text-[10px] font-mono text-foreground/80 shadow-[0_0_20px_-6px_oklch(0.6_0.25_250/0.6)]">
+        <span className="text-primary">▲</span> Lead capturado
+      </div>
     </div>
   );
 }
