@@ -801,7 +801,7 @@ function Footer() {
         <div className="grid md:grid-cols-4 gap-10">
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-5">
-              <img src={logoAsset.url} alt="Imperius" className="h-12 w-12 object-contain" loading="lazy" decoding="async" />
+              <img src={logoAsset.url} alt="Imperius" className="h-11 w-auto max-w-[150px] object-contain" loading="lazy" decoding="async" />
               <div>
                 <div className="font-display font-bold tracking-[0.2em] text-sm">IMPERIUS</div>
                 <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Soluções Digitais</div>
