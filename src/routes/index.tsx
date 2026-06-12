@@ -530,7 +530,7 @@ function FinalCTA() {
               Sua empresa transmite a imagem que merece?
             </h2>
             <p className="mt-6 text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-sans">
-              Criamos soluções digitais para empresas que desejam transmitir mais autoridade, facilitar o contato e gerar mais oportunidades.
+              Solicite sua demonstração personalizada. Sem compromisso.
             </p>
             <div className="mt-9 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
               <a href={WA} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
