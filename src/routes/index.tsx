@@ -131,7 +131,7 @@ function Hero() {
             Landing pages, automações e soluções digitais criadas para empresas que desejam transmitir profissionalismo e gerar mais oportunidades de negócio.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row sm:items-center flex-wrap gap-3 sm:gap-5">
-            <a href={WA} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
+            <a href={WA} target="_blank" rel="noreferrer" className="w-full sm:w-auto" onClick={() => track("hero_cta_click", { destination: "whatsapp" })}>
               <Button size="lg" className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-13 px-8 text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]">
                 QUERO UMA DEMONSTRAÇÃO GRATUITA <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
