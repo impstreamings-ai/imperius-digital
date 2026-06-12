@@ -72,21 +72,15 @@ function Landing() {
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
       <Hero />
+      <Process />
       <Problem />
       <Solution />
+      <Services />
       <Demo />
       <Results />
       <Benefits />
-      <Services />
-      <Process />
-      <Audience />
-      <Included />
-      <Scarcity />
-      <Guarantee />
       <About />
-      <DemoOffer />
       <FinalCTA />
-      <NextUp />
       <Footer />
     </div>
   );
