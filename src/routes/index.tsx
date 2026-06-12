@@ -67,7 +67,7 @@ function Landing() {
       <Solution />
       <Services />
       <Demo />
-      <Results />
+      
       <Benefits />
       <About />
       <FinalCTA />
