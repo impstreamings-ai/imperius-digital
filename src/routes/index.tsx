@@ -395,22 +395,22 @@ function Benefits() {
 
 function Demo() {
   const features = [
-    "WhatsApp integrado",
-    "Estrutura focada em conversão",
-    "Design premium",
-    "Totalmente responsiva",
+    "Landing Page Premium",
+    "WhatsApp Integrado",
+    "Google Maps",
+    "Design Responsivo",
   ];
   return (
-    <section id="demonstracao" className="py-20 sm:py-24 relative">
+    <section id="demonstracao" className="py-24 sm:py-32 relative">
       <div className="absolute inset-0 bg-grid opacity-50 pointer-events-none" />
       <div className="relative mx-auto max-w-7xl px-6">
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-3">Case Demonstrativo</div>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight tracking-tight">
-            BLACK CROWN BARBERSHOP
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4">Projeto Demonstrativo</div>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight tracking-tight">
+            Black Crown Barbershop
           </h2>
           <p className="mt-5 text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Landing page demonstrativa desenvolvida pela Imperius.
+            Um exemplo real do padrão Imperius — landing page premium criada para gerar autoridade e converter visitantes em clientes.
           </p>
         </div>
 
@@ -421,7 +421,7 @@ function Demo() {
             href={DEMO}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative group block card-premium rounded-2xl sm:rounded-3xl overflow-hidden glow-ring mb-8 sm:mb-10 border border-primary/30 hover:border-primary/60 transition"
+            className="relative group block card-premium rounded-2xl sm:rounded-3xl overflow-hidden glow-ring mb-10 sm:mb-12 border border-primary/30 hover:border-primary/60 transition"
           >
             <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-border/40 bg-background/70">
               <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
@@ -439,9 +439,9 @@ function Demo() {
             </div>
           </a>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-10 max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-10 sm:mb-12 max-w-4xl mx-auto">
             {features.map((f) => (
-              <div key={f} className="card-premium hover-lift rounded-xl p-4 flex items-center gap-3">
+              <div key={f} className="card-premium hover-lift rounded-xl p-4 flex items-center gap-3 h-full">
                 <div className="h-8 w-8 shrink-0 rounded-lg flex items-center justify-center ring-1 ring-primary/40 bg-primary/10">
                   <Check className="h-4 w-4 text-primary" />
                 </div>
@@ -452,8 +452,8 @@ function Demo() {
 
           <div className="flex justify-center">
             <a href={DEMO} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-12 px-8">
-                Ver demonstração completa <ExternalLink className="ml-2 h-4 w-4" />
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-12 px-8 transition-transform duration-300 hover:-translate-y-0.5">
+                Ver Projeto Completo <ExternalLink className="ml-2 h-4 w-4" />
               </Button>
             </a>
           </div>
