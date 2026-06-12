@@ -669,7 +669,7 @@ function Footer() {
           <div>
             <div className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4 font-sans">Comece agora</div>
             <p className="text-sm text-muted-foreground mb-4 font-sans">Solicite uma apresentação personalizada.</p>
-            <a href={WA} target="_blank" rel="noreferrer">
+            <a href={WA} target="_blank" rel="noreferrer" onClick={() => track("whatsapp_click", { location: "footer_cta" })}>
               <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold w-full sm:w-auto transition-all duration-300 hover:-translate-y-0.5">
                 Falar com a Imperius <ArrowRight className="ml-2 h-3.5 w-3.5" />
               </Button>
