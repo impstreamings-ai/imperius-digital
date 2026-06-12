@@ -128,6 +128,19 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
+
+  useEffect(() => {
+    const unsub = router.subscribe("onResolved", ({ toLocation }) => {
+      if (typeof window === "undefined" || !window.gtag) return;
+      window.gtag("event", "page_view", {
+        page_path: toLocation.pathname + (toLocation.searchStr ?? ""),
+        page_location: window.location.href,
+        page_title: document.title,
+      });
+    });
+    return () => unsub();
+  }, [router]);
 
   return (
     <QueryClientProvider client={queryClient}>
