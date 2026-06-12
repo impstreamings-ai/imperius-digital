@@ -328,20 +328,7 @@ function Hero() {
           </ul>
         </div>
 
-        <div className="relative">
-          <div className="absolute -inset-10 sm:-inset-16 rounded-full blur-3xl opacity-70 pointer-events-none" style={{ background: "radial-gradient(circle, oklch(0.55 0.25 250 / 0.45), transparent 70%)" }} />
-          <div className="relative">
-            <img
-              src={heroMockup.url}
-              alt="Mockup premium — notebook e smartphone exibindo interfaces SaaS criadas pela Imperius"
-              width={1280}
-              height={1024}
-              className="relative w-full h-auto object-contain drop-shadow-[0_30px_60px_oklch(0.5_0.25_250/0.35)]"
-              loading="eager"
-              decoding="async"
-            />
-          </div>
-        </div>
+        <BrandCommandCenter />
       </div>
     </section>
   );
