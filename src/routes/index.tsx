@@ -103,7 +103,7 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative min-h-screen flex items-center pt-28 pb-10 sm:pb-14 overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
+    <section id="top" className="relative lg:min-h-screen flex items-center pt-28 pb-10 sm:pb-14 overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
       <div className="absolute inset-0 bg-grid pointer-events-none" />
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full blur-3xl animate-pulse-glow" style={{ background: "radial-gradient(circle, oklch(0.5 0.25 250 / 0.35), transparent 70%)" }} />
 
