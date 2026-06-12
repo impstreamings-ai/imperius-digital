@@ -75,6 +75,7 @@ function Landing() {
       
       <Benefits />
       <About />
+      <FAQ />
       <FinalCTA />
       <Footer />
     </div>
