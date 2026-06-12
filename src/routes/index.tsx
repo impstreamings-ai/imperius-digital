@@ -102,7 +102,7 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative min-h-screen flex items-center pt-28 pb-20 sm:pb-24 overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
+    <section id="top" className="relative min-h-screen flex items-center pt-28 pb-10 sm:pb-14 overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
       <div className="absolute inset-0 bg-grid pointer-events-none" />
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full blur-3xl animate-pulse-glow" style={{ background: "radial-gradient(circle, oklch(0.5 0.25 250 / 0.35), transparent 70%)" }} />
 
@@ -159,47 +159,44 @@ function SectionTitle({ eyebrow, title, sub, display = false }: { eyebrow?: stri
 
 function BrandCommandCenter() {
   return (
-    <div className="relative w-full max-w-[620px] mx-auto aspect-square">
-      {/* Ambient blue glow behind the panel */}
+    <div className="relative w-full max-w-[460px] mx-auto px-4 py-6 sm:py-8 text-center">
+      {/* Soft ambient blue glow */}
       <div
-        className="absolute -inset-10 blur-3xl opacity-70 pointer-events-none"
-        style={{ background: "radial-gradient(circle at 50% 50%, oklch(0.6 0.25 250 / 0.45), transparent 65%)" }}
+        className="absolute inset-0 blur-3xl opacity-60 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse at 50% 50%, oklch(0.6 0.25 250 / 0.28), transparent 70%)" }}
       />
 
-      {/* Premium framed panel */}
-      <div
-        className="relative h-full w-full rounded-[28px] p-4 sm:p-6"
-        style={{
-          background:
-            "linear-gradient(180deg, oklch(0.16 0.02 245 / 0.85), oklch(0.1 0.01 240 / 0.85))",
-          border: "1px solid oklch(0.55 0.18 250 / 0.45)",
-          boxShadow:
-            "0 0 0 1px oklch(0.72 0.22 250 / 0.15), 0 30px 80px -20px oklch(0 0 0 / 0.8), inset 0 1px 0 oklch(1 0 0 / 0.05)",
-        }}
-      >
-        <div
-          className="relative h-full w-full rounded-[18px] overflow-hidden flex items-center justify-center"
-          style={{
-            background:
-              "radial-gradient(ellipse at 50% 45%, oklch(0.18 0.06 250 / 0.9), oklch(0.06 0.005 240) 75%)",
-          }}
-        >
+      <div className="relative flex flex-col items-center gap-4">
+        <div className="text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-primary font-semibold font-sans">
+          Imperius Soluções Digitais
+        </div>
+
+        <div className="relative">
+          <div
+            className="absolute inset-0 blur-2xl opacity-70 pointer-events-none"
+            style={{ background: "radial-gradient(circle, oklch(0.6 0.25 250 / 0.55), transparent 65%)" }}
+          />
           <img
             src={logoAsset.url}
             alt="Imperius — Soluções Digitais"
-            className="relative w-[88%] h-[88%] object-contain drop-shadow-[0_0_40px_oklch(0.6_0.25_250/0.45)]"
+            className="relative h-20 sm:h-24 w-auto object-contain drop-shadow-[0_0_30px_oklch(0.6_0.25_250/0.5)]"
             loading="eager"
             decoding="async"
           />
-          {/* Subtle inner sheen */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background:
-                "linear-gradient(135deg, oklch(1 0 0 / 0.04) 0%, transparent 35%, transparent 65%, oklch(0.72 0.24 250 / 0.06) 100%)",
-            }}
-          />
         </div>
+
+        <div className="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-muted-foreground font-sans">
+          Landing Pages <span className="text-primary/70">•</span> Automação <span className="text-primary/70">•</span> Inteligência Artificial
+        </div>
+
+        <div
+          className="h-px w-32 sm:w-40"
+          style={{ background: "linear-gradient(90deg, transparent, oklch(0.72 0.22 250 / 0.5), transparent)" }}
+        />
+
+        <p className="max-w-sm text-sm text-muted-foreground/90 font-sans leading-relaxed">
+          Criamos estruturas digitais que ajudam empresas a transmitir mais profissionalismo, facilitar o contato e gerar mais oportunidades de negócio.
+        </p>
       </div>
     </div>
   );
