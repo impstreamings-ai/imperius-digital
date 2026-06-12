@@ -380,11 +380,11 @@ function Demo() {
               <span className="h-2.5 w-2.5 rounded-full bg-primary/70" />
               <span className="ml-3 text-[10px] uppercase tracking-[0.2em] text-muted-foreground truncate font-mono">blackcrown-by-imperius.lovable.app</span>
             </div>
-            <div className="relative w-full overflow-hidden bg-background h-[420px] sm:h-[560px] lg:h-[640px]">
+            <div className="relative w-full overflow-hidden bg-background h-[260px] sm:h-[560px] lg:h-[640px]">
               <img
                 src={blackCrownPreview.url}
                 alt="Preview — Black Crown Barbershop"
-                className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                className="absolute inset-0 w-full h-full object-contain sm:object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
