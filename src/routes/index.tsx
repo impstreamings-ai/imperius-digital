@@ -559,6 +559,29 @@ function About() {
   );
 }
 
+function FAQ() {
+  return (
+    <section id="faq" className="py-20 sm:py-24">
+      <div className="mx-auto max-w-3xl px-6">
+        <div className="text-center mb-10 sm:mb-12">
+          <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4 font-sans">Dúvidas frequentes</div>
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-gradient leading-tight tracking-tight">
+            Antes de pedir sua demonstração.
+          </h2>
+        </div>
+        <div className="card-premium rounded-2xl p-6 sm:p-7 border border-primary/15">
+          <h3 className="font-heading font-semibold text-base sm:text-lg tracking-tight">
+            Preciso já ter um site?
+          </h3>
+          <p className="mt-3 text-sm sm:text-[15px] text-muted-foreground leading-relaxed font-sans">
+            Não. Podemos criar sua demonstração mesmo que sua empresa ainda não tenha site ou presença digital estruturada.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 
 function FinalCTA() {
   return (
