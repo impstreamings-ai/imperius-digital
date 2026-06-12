@@ -31,9 +31,9 @@
   --color-neon: var(--neon);
   --color-ice: var(--ice);
   --color-titanium: var(--titanium);
-  --font-display: "Orbitron", "Inter", sans-serif;
-  --font-heading: "Space Grotesk", "Inter", system-ui, sans-serif;
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Orbitron", "Manrope", sans-serif;
+  --font-heading: "Manrope", "Inter", system-ui, sans-serif;
+  --font-sans: "Manrope", "Inter", system-ui, sans-serif;
 }
 
 :root {
