@@ -664,8 +664,8 @@ function About() {
             <div className="relative grid md:grid-cols-[auto_1fr] gap-8 sm:gap-10 items-center">
               {/* Avatar / imagem institucional */}
               <div className="mx-auto md:mx-0">
-                <div className="relative h-32 w-32 sm:h-40 sm:w-40 rounded-2xl overflow-hidden ring-1 ring-primary/40 bg-background/60 flex items-center justify-center" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.7), oklch(0.15 0.03 245 / 0.5))" }}>
-                  <img src={logoAsset.url} alt="Imperius" className="h-20 w-20 sm:h-24 sm:w-24 object-contain" />
+                <div className="relative h-36 w-44 sm:h-44 sm:w-56 rounded-2xl overflow-hidden ring-1 ring-primary/40 bg-background/60 flex items-center justify-center p-5" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.7), oklch(0.15 0.03 245 / 0.5))" }}>
+                  <img src={logoAsset.url} alt="Imperius" className="max-w-[160px] max-h-[110px] w-auto h-auto object-contain" />
                   <div className="absolute -inset-1 rounded-2xl pointer-events-none" style={{ boxShadow: "inset 0 0 40px oklch(0.55 0.25 250 / 0.35)" }} />
                 </div>
                 <div className="mt-3 text-center">
