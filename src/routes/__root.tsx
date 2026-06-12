@@ -83,7 +83,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "IMPERIUS | Landing Pages, Automação e IA" },
       { property: "og:description", content: "Transforme sua presença digital com landing pages profissionais, automação e IA para gerar mais contatos e oportunidades." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "IMPERIUS | Landing Pages, Automação e IA" },
       { name: "twitter:description", content: "Transforme sua presença digital com landing pages profissionais, automação e IA para gerar mais contatos e oportunidades." },
@@ -105,7 +105,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>
