@@ -271,7 +271,7 @@ function Nav() {
     <header className="fixed top-0 inset-x-0 z-50 border-b border-border/40 backdrop-blur-xl bg-background/70">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2.5 min-w-0">
-          <img src={logoAsset.url} alt="Imperius" className="h-11 w-11 object-contain shrink-0" loading="eager" decoding="async" />
+          <img src={logoAsset.url} alt="Imperius" className="h-10 w-auto max-w-[160px] object-contain shrink-0" loading="eager" decoding="async" />
           <span className="font-display font-bold tracking-[0.2em] text-sm truncate">IMPERIUS</span>
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
