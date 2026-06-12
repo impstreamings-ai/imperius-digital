@@ -650,38 +650,37 @@ function About() {
     <section id="sobre" className="py-20 sm:py-24 relative">
       <div className="absolute inset-0 bg-grid opacity-40 pointer-events-none" />
       <div className="relative mx-auto max-w-6xl px-6">
-        <div className="text-center mb-10">
-          <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-3">Sobre a Imperius</div>
-          <h2 className="font-heading text-2xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight">
-            Autoridade digital ao alcance de qualquer negócio.
+        <div className="text-center mb-12 sm:mb-16 max-w-4xl mx-auto">
+          <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4">Sobre a Imperius</div>
+          <h2 className="font-heading text-2xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight tracking-tight">
+            Sua presença digital influencia a decisão do cliente antes mesmo do primeiro contato.
           </h2>
         </div>
 
         <div className="relative">
-          <div className="absolute -inset-6 sm:-inset-10 rounded-3xl blur-3xl opacity-60 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.25 250 / 0.45), transparent 70%)" }} />
-          <div className="relative card-premium rounded-3xl p-8 sm:p-12 lg:p-14 glow-ring overflow-hidden">
-            <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
-            <div className="relative grid md:grid-cols-[auto_1fr] gap-8 sm:gap-10 items-center">
-              {/* Avatar / imagem institucional */}
+          <div className="absolute -inset-6 sm:-inset-10 rounded-3xl blur-3xl opacity-40 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.25 250 / 0.35), transparent 70%)" }} />
+          <div className="relative card-premium rounded-3xl p-8 sm:p-12 lg:p-16 glow-ring overflow-hidden">
+            <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
+            <div className="relative grid md:grid-cols-[180px_1fr] lg:grid-cols-[200px_1fr] gap-10 sm:gap-12 lg:gap-16 items-center">
+              {/* Avatar / imagem institucional — discreto */}
               <div className="mx-auto md:mx-0">
-                <div className="relative h-36 w-44 sm:h-44 sm:w-56 rounded-2xl overflow-hidden ring-1 ring-primary/40 bg-background/60 flex items-center justify-center p-5" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.7), oklch(0.15 0.03 245 / 0.5))" }}>
-                  <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[140px] w-auto max-w-[220px] object-contain" />
-                  <div className="absolute -inset-1 rounded-2xl pointer-events-none" style={{ boxShadow: "inset 0 0 40px oklch(0.55 0.25 250 / 0.35)" }} />
+                <div className="relative h-28 w-32 sm:h-32 sm:w-40 rounded-2xl overflow-hidden ring-1 ring-primary/25 bg-background/40 flex items-center justify-center p-4" style={{ background: "linear-gradient(135deg, oklch(0.22 0.08 250 / 0.55), oklch(0.15 0.03 245 / 0.4))" }}>
+                  <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[80px] sm:h-[96px] w-auto max-w-full object-contain opacity-95" />
                 </div>
                 <div className="mt-3 text-center">
-                  <div className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">Imperius</div>
-                  <div className="text-[11px] text-muted-foreground">Soluções Digitais</div>
+                  <div className="text-[10px] uppercase tracking-[0.25em] text-primary/80 font-semibold">Imperius</div>
+                  <div className="text-[10px] text-muted-foreground">Soluções Digitais</div>
                 </div>
               </div>
 
-              <div className="space-y-5 text-foreground/90">
-                <p className="text-base sm:text-lg leading-relaxed">
-                  A Imperius nasceu para ajudar pequenos negócios a transmitirem a mesma autoridade digital das grandes marcas.
+              <div className="space-y-6 text-foreground/95">
+                <p className="text-lg sm:text-xl lg:text-2xl leading-relaxed font-medium tracking-tight">
+                  Criamos landing pages, automações e soluções digitais que fortalecem a autoridade da sua marca, facilitam o contato com clientes e transformam visitantes em oportunidades reais de negócio.
                 </p>
                 <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
-                  Acreditamos que uma boa apresentação, tecnologia acessível e comunicação clara podem transformar a percepção de qualquer empresa.
+                  Design estratégico, tecnologia acessível e comunicação clara trabalham juntos para transmitir mais confiança, profissionalismo e valor percebido.
                 </p>
-                <div className="flex flex-wrap gap-2 pt-2">
+                <div className="flex flex-wrap gap-2 pt-3">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-[11px] uppercase tracking-[0.15em] text-primary"><Sparkles className="h-3 w-3" /> Design estratégico</span>
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-[11px] uppercase tracking-[0.15em] text-primary"><ShieldCheck className="h-3 w-3" /> Tecnologia acessível</span>
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-[11px] uppercase tracking-[0.15em] text-primary"><MessageCircle className="h-3 w-3" /> Comunicação clara</span>
