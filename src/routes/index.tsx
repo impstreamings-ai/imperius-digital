@@ -22,6 +22,10 @@ import {
   TrendingUp,
   Smartphone,
   Eye,
+  Handshake,
+  MonitorPlay,
+  Target,
+  Wrench,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
