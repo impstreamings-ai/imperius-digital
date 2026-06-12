@@ -292,49 +292,54 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
+    <section id="top" className="relative min-h-screen flex items-center pt-28 pb-20 sm:pb-24 overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
       <div className="absolute inset-0 bg-grid pointer-events-none" />
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full blur-3xl animate-pulse-glow" style={{ background: "radial-gradient(circle, oklch(0.5 0.25 250 / 0.35), transparent 70%)" }} />
 
-      <div className="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center w-full">
+      <div className="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-[1.05fr_1fr] gap-14 lg:gap-20 items-center w-full">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border/60 bg-card/40 backdrop-blur text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-7">
             <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
             Soluções Digitais Premium
           </div>
-          <h1 className="font-display text-[2rem] sm:text-[2.75rem] lg:text-5xl xl:text-[3.5rem] font-bold leading-[1.1] tracking-tight">
-            <span className="text-gradient">Sua empresa merece gerar </span>
-            <span className="text-neon">mais oportunidades</span>
-            <span className="text-gradient"> todos os dias.</span>
+          <h1 className="font-display text-[2.1rem] sm:text-[2.75rem] lg:text-[3.25rem] xl:text-[3.75rem] font-bold leading-[1.05] tracking-tight">
+            <span className="text-gradient">Mais autoridade. Mais contatos. </span>
+            <span className="text-neon">Mais oportunidades.</span>
           </h1>
           <p className="mt-7 max-w-xl text-muted-foreground text-base sm:text-lg leading-relaxed">
-            Criamos landing pages, automação e soluções com inteligência artificial para empresas que desejam transmitir mais autoridade, facilitar o contato e gerar mais oportunidades de negócio.
+            Landing pages, automações e soluções digitais criadas para empresas que desejam transmitir profissionalismo e gerar mais oportunidades de negócio.
           </p>
-          <div className="mt-9 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+          <div className="mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
             <a href={WA} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
-              <Button size="lg" className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-12 px-7 text-[13px] sm:text-sm">
+              <Button size="lg" className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-12 px-7 text-[13px] sm:text-sm transition-transform duration-300 hover:-translate-y-0.5">
                 QUERO UMA DEMONSTRAÇÃO GRATUITA <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </a>
             <a href={DEMO} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 px-7 border-border bg-card/40 backdrop-blur hover:bg-card/80 font-semibold tracking-wide">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 px-7 border-border bg-card/40 backdrop-blur hover:bg-card/80 font-semibold tracking-wide transition-transform duration-300 hover:-translate-y-0.5">
                 VER PROJETO DEMONSTRATIVO
               </Button>
             </a>
           </div>
-          <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-xs sm:text-[13px] text-muted-foreground/80 max-w-md leading-relaxed">
+          <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs sm:text-[13px] text-muted-foreground/80 max-w-md leading-relaxed">
             <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Demonstração personalizada</li>
             <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Sem compromisso</li>
             <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Atendimento próximo</li>
           </ul>
-
         </div>
 
-        <div className="relative hidden lg:block">
-          <div className="absolute -inset-10 rounded-full blur-3xl opacity-60" style={{ background: "radial-gradient(circle, oklch(0.55 0.25 250 / 0.5), transparent 70%)" }} />
-          <div className="relative card-premium rounded-2xl p-10 flex items-center justify-center aspect-square">
-            <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="w-full h-full object-contain" loading="eager" decoding="async" />
-            <div className="absolute inset-0 rounded-2xl ring-1 ring-primary/30 pointer-events-none" />
+        <div className="relative">
+          <div className="absolute -inset-10 sm:-inset-16 rounded-full blur-3xl opacity-70 pointer-events-none" style={{ background: "radial-gradient(circle, oklch(0.55 0.25 250 / 0.45), transparent 70%)" }} />
+          <div className="relative">
+            <img
+              src={heroMockup.url}
+              alt="Mockup premium — notebook e smartphone exibindo interfaces SaaS criadas pela Imperius"
+              width={1280}
+              height={1024}
+              className="relative w-full h-auto object-contain drop-shadow-[0_30px_60px_oklch(0.5_0.25_250/0.35)]"
+              loading="eager"
+              decoding="async"
+            />
           </div>
         </div>
       </div>
