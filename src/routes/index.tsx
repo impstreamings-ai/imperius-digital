@@ -126,19 +126,25 @@ function Hero() {
           <p className="mt-8 max-w-xl text-muted-foreground text-base sm:text-lg leading-relaxed font-sans">
             Landing pages, automações e soluções digitais criadas para empresas que desejam transmitir profissionalismo e gerar mais oportunidades de negócio.
           </p>
-          <div className="mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+          <div className="mt-10 flex flex-col sm:flex-row sm:items-center flex-wrap gap-3 sm:gap-5">
             <a href={WA} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
               <Button size="lg" className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-13 px-8 text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]">
                 QUERO UMA DEMONSTRAÇÃO GRATUITA <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </a>
-            <a href={DEMO} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto h-13 px-7 border-border bg-card/40 backdrop-blur hover:bg-card/80 font-semibold tracking-wide transition-all duration-300 hover:-translate-y-0.5">
-                Ver Projeto Demonstrativo
-              </Button>
+            <a
+              href={DEMO}
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm text-muted-foreground hover:text-foreground underline underline-offset-4 decoration-border hover:decoration-primary transition-colors font-sans inline-flex items-center gap-1.5"
+            >
+              ou veja um exemplo real <ExternalLink className="h-3.5 w-3.5" />
             </a>
           </div>
-          <ul className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-xs sm:text-[13px] text-muted-foreground/80 max-w-md leading-relaxed font-sans">
+          <p className="mt-4 text-xs sm:text-[13px] text-muted-foreground/90 font-sans max-w-md leading-relaxed">
+            Receba uma prévia personalizada da sua presença digital, sem compromisso.
+          </p>
+          <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-xs sm:text-[13px] text-muted-foreground/80 max-w-md leading-relaxed font-sans">
             <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Demonstração personalizada</li>
             <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Sem compromisso</li>
             <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Atendimento próximo</li>
