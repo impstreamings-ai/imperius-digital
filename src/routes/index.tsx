@@ -262,10 +262,7 @@ function Solution() {
   const items = [
     { t: "Mais contatos qualificados", d: "Visitantes que chegam preparados para fechar negócio." },
     { t: "Mais pedidos de orçamento", d: "Estrutura que conduz o visitante até a ação." },
-    { t: "Mais facilidade de atendimento", d: "Canais diretos, sem fricção entre cliente e empresa." },
     { t: "Mais valor percebido", d: "Sua marca comparada às referências do setor." },
-    { t: "Mais autoridade digital", d: "Presença que comunica solidez no primeiro segundo." },
-    { t: "Mais oportunidades reais", d: "Visitas que se transformam em negócios fechados." },
   ];
 
   return (
