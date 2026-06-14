@@ -180,12 +180,7 @@ function PortfolioPage() {
     <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
       <Nav />
       <Hero />
-      <Solutions />
-      <Intro />
       <Demos />
-      <Process />
-      <Personalization />
-      <PreCTA />
       <FinalCTA />
       <Footer />
     </div>
@@ -317,14 +312,11 @@ function Nav() {
           </span>
         </Link>
         <nav className="hidden md:flex items-center gap-9 text-[13px] text-muted-foreground font-medium">
-          <a href="#solucoes" className="hover:text-foreground transition-colors">
-            Soluções
-          </a>
+          <Link to="/" className="hover:text-foreground transition-colors">
+            Home
+          </Link>
           <a href="#demonstracoes" className="hover:text-foreground transition-colors">
-            Demonstrações
-          </a>
-          <a href="#processo" className="hover:text-foreground transition-colors">
-            Processo
+            Projetos
           </a>
         </nav>
         <a
@@ -351,7 +343,7 @@ function Nav() {
 
 function Hero() {
   return (
-    <section className="relative pt-36 sm:pt-44 pb-20 sm:pb-28">
+    <section className="relative pt-32 sm:pt-36 pb-10 sm:pb-12">
       <div className="absolute inset-0 bg-grid opacity-15 pointer-events-none" />
       <div
         className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] rounded-full blur-3xl opacity-20 pointer-events-none"
@@ -361,19 +353,34 @@ function Hero() {
         }}
       />
       <div className="relative mx-auto max-w-5xl px-6 text-center">
-        <div className="text-[10.5px] uppercase tracking-[0.32em] text-primary/90 font-semibold mb-6 font-sans inline-flex items-center gap-2.5">
+        <div className="text-[10.5px] uppercase tracking-[0.32em] text-primary/90 font-semibold mb-5 font-sans inline-flex items-center gap-2.5">
           <span className="h-px w-8 bg-primary/70" />
           Portfólio Oficial · Imperius
           <span className="h-px w-8 bg-primary/70" />
         </div>
-        <h1 className="font-display font-semibold text-[2.1rem] sm:text-[3rem] lg:text-[3.6rem] leading-[1.04] tracking-[-0.03em] text-foreground">
+        <h1 className="font-display font-semibold text-[2rem] sm:text-[2.7rem] lg:text-[3.2rem] leading-[1.04] tracking-[-0.03em] text-foreground">
           Portfólio <span className="text-neon">Imperius</span>
         </h1>
-        <p className="mt-6 text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed font-sans max-w-2xl mx-auto">
-          Projetos demonstrativos e soluções desenvolvidas para apresentar
-          diferentes possibilidades de websites, automação, CRM e inteligência
-          artificial.
+        <p className="mt-5 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans max-w-2xl mx-auto">
+          Projetos demonstrativos navegáveis e soluções proprietárias
+          desenvolvidas pela Imperius.
         </p>
+        <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-center">
+          {[
+            { n: "8", l: "projetos" },
+            { n: "5", l: "segmentos" },
+            { n: "3", l: "produtos proprietários" },
+          ].map((m) => (
+            <li key={m.l} className="flex flex-col items-center">
+              <span className="font-display font-semibold text-[1.6rem] sm:text-[1.9rem] leading-none text-foreground tracking-[-0.02em]">
+                {m.n}
+              </span>
+              <span className="mt-1.5 text-[10.5px] uppercase tracking-[0.22em] text-muted-foreground/80 font-medium">
+                {m.l}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
@@ -477,15 +484,9 @@ function SolutionCard({ solution }: { solution: Solution }) {
 
 function Demos() {
   return (
-    <section id="demonstracoes" className="py-20 sm:py-24 relative">
+    <section id="demonstracoes" className="pt-8 sm:pt-10 pb-20 sm:pb-24 relative">
       <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" />
       <div className="relative mx-auto max-w-7xl px-6">
-        <SectionHeader
-          label="Demonstrações de nicho"
-          count={DEMOS.length}
-          title="Sites navegáveis,"
-          highlight="prontos para explorar."
-        />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {DEMOS.map((d) => (
             <DemoCard key={d.title} demo={d} />
