@@ -803,17 +803,17 @@ function MiniCalendar({
 function Testimonials() {
   const tts = [
     {
-      n: "Carolina M.",
+      n: "Cliente 01",
       r: "Aniversário de casamento",
-      t: "Comemoramos nove anos no Imperial. Cada prato, cada vinho, cada minuto — perfeitos. É o nosso lugar.",
+      t: "Comemoramos nossa data no Imperial. Cada prato, cada vinho, cada minuto — perfeitos. É o nosso lugar.",
     },
     {
-      n: "Rafael T.",
-      r: "Cliente há 4 anos",
-      t: "Não existe restaurante em São Paulo com essa combinação de cozinha, serviço e atmosfera. O Bruno é um dos grandes chefs do país.",
+      n: "Cliente 02",
+      r: "Cliente recorrente",
+      t: "Combinação rara de cozinha, serviço e atmosfera. A equipe é diferenciada do começo ao fim.",
     },
     {
-      n: "Família Ribeiro",
+      n: "Cliente 03",
       r: "Jantar de domingo",
       t: "Atendimento impecável, mesmo com a casa cheia. As crianças se sentem em casa, os pais relaxam. Voltamos sempre.",
     },
