@@ -106,6 +106,7 @@ function Nav() {
           <a href="#vitrine" className="hover:text-foreground transition-colors">Vitrine</a>
           <a href="#servicos" className="hover:text-foreground transition-colors">Soluções</a>
           <a href="#processo" className="hover:text-foreground transition-colors">Processo</a>
+          <Link to="/portfolio" className="hover:text-foreground transition-colors">Portfólio</Link>
           <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
         </nav>
         <a href={WA} target="_blank" rel="noreferrer" className="shrink-0" onClick={() => track("whatsapp_click", { location: "nav" })}>
