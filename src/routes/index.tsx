@@ -160,49 +160,6 @@ function SectionTitle({ eyebrow, title, sub, display = false }: { eyebrow?: stri
   );
 }
 
-function BrandCommandCenter() {
-  return (
-    <div className="relative w-full max-w-[460px] mx-auto px-4 py-6 sm:py-8 text-center">
-      <div
-        className="absolute inset-0 blur-3xl opacity-60 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse at 50% 50%, oklch(0.6 0.25 250 / 0.28), transparent 70%)" }}
-      />
-
-      <div className="relative flex flex-col items-center gap-4">
-        <div className="text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-primary font-semibold font-sans">
-          Imperius Soluções Digitais
-        </div>
-
-        <div className="relative">
-          <div
-            className="absolute inset-0 blur-2xl opacity-70 pointer-events-none"
-            style={{ background: "radial-gradient(circle, oklch(0.6 0.25 250 / 0.55), transparent 65%)" }}
-          />
-          <img
-            src={logoAsset.url}
-            alt="Imperius — Soluções Digitais"
-            className="relative h-20 sm:h-24 w-auto object-contain drop-shadow-[0_0_30px_oklch(0.6_0.25_250/0.5)]"
-            loading="eager"
-            decoding="async"
-          />
-        </div>
-
-        <div className="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-muted-foreground font-sans">
-          Landing Pages <span className="text-primary/70">•</span> Automação <span className="text-primary/70">•</span> Inteligência Artificial
-        </div>
-
-        <div
-          className="h-px w-32 sm:w-40"
-          style={{ background: "linear-gradient(90deg, transparent, oklch(0.72 0.22 250 / 0.5), transparent)" }}
-        />
-
-        <p className="max-w-sm text-sm text-muted-foreground/90 font-sans leading-relaxed">
-          Criamos estruturas digitais que ajudam empresas a transmitir mais profissionalismo, facilitar o contato e gerar mais oportunidades de negócio.
-        </p>
-      </div>
-    </div>
-  );
-}
 
 function ProblemaSolucao() {
   return (
