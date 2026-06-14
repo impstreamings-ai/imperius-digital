@@ -750,17 +750,17 @@ function Process() {
 function Testimonials() {
   const tts = [
     {
-      n: "Família Carvalho",
-      r: "Cobertura · Itaim",
+      n: "Cliente 01",
+      r: "Cobertura · região premium",
       t: "Encontraram exatamente o que procurávamos em menos de 30 dias. Negociação impecável e zero dor de cabeça com documentação.",
     },
     {
-      n: "Eduardo R.",
+      n: "Cliente 02",
       r: "Investidor",
-      t: "Trabalho com a Prime há 6 anos. Já comprei e vendi 4 imóveis com eles. Conhecimento de mercado e seriedade que poucas têm.",
+      t: "Trabalho com a equipe há anos e já fiz várias operações. Conhecimento de mercado e seriedade que poucas têm.",
     },
     {
-      n: "Marina P.",
+      n: "Cliente 03",
       r: "Primeira compra premium",
       t: "Era a primeira vez que entrava em alto padrão. A equipe me orientou em tudo — do financiamento à escolha do condomínio. Confiei e acertei.",
     },
