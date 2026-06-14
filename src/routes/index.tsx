@@ -899,8 +899,8 @@ function Demonstracoes() {
                 <span className="text-neon">não mockups.</span>
               </h2>
               <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans max-w-xl">
-                Cada card abre uma demonstração funcional construída pela Imperius
-                para um nicho real. Explore o fluxo e veja o acabamento antes do briefing.
+                Cada card abre um site real, navegável de ponta a ponta. Clique, role,
+                simule um agendamento — é exatamente o que seu cliente final veria.
               </p>
             </div>
             <div className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium inline-flex items-center gap-2 lg:justify-end">
