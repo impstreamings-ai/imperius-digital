@@ -177,7 +177,7 @@ function Hero() {
               </a>
             </div>
             <p className="mt-8 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
-              Demonstração personalizada · Sem compromisso · Resposta no mesmo dia útil
+              Demonstração funcional em poucos dias · Sem proposta antes da entrega · Atendimento direto com a equipe
             </p>
           </div>
 
