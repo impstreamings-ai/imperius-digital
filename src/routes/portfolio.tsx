@@ -640,7 +640,7 @@ function Process() {
 
 function FinalCTA() {
   return (
-    <section className="py-24 sm:py-32 relative">
+    <section className="pt-14 sm:pt-20 pb-24 sm:pb-28 relative">
       <div
         className="absolute inset-0 opacity-30 pointer-events-none"
         style={{
