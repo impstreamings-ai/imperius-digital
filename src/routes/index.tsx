@@ -51,7 +51,7 @@ export const Route = createFileRoute("/")({
     links: [
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap",
       },
       { rel: "icon", href: logoAsset.url },
     ],
@@ -87,7 +87,7 @@ function Nav() {
         <a href="#top" className="flex items-center gap-3 min-w-0">
           <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[36px] w-auto object-contain shrink-0" loading="eager" decoding="async" />
           <span className="hidden sm:flex flex-col leading-tight min-w-0">
-            <span className="font-display font-bold tracking-[0.22em] text-[12px] truncate">IMPERIUS</span>
+            <span className="font-heading font-semibold tracking-[0.2em] text-[12px] truncate">IMPERIUS</span>
             <span className="text-[9.5px] uppercase tracking-[0.28em] text-muted-foreground/80 font-medium truncate">Estúdio digital</span>
           </span>
         </a>
@@ -112,28 +112,29 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative lg:min-h-[88vh] flex items-center pt-32 pb-16 sm:pb-20 overflow-hidden"
+      className="relative lg:min-h-[86vh] flex items-center pt-32 pb-20 sm:pb-24 overflow-hidden"
       style={{ background: "var(--gradient-hero)" }}
     >
-      <div className="absolute inset-0 bg-grid pointer-events-none" />
+      <div className="absolute inset-0 bg-grid pointer-events-none opacity-60" />
       <div
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[640px] h-[640px] rounded-full blur-3xl animate-pulse-glow"
-        style={{ background: "radial-gradient(circle, oklch(0.5 0.25 250 / 0.32), transparent 70%)" }}
+        className="absolute top-[38%] left-1/2 -translate-x-1/2 w-[560px] h-[560px] rounded-full blur-3xl opacity-70"
+        style={{ background: "radial-gradient(circle, oklch(0.5 0.25 250 / 0.22), transparent 70%)" }}
       />
 
       <div className="relative mx-auto max-w-5xl px-6 w-full">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2.5 text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-sans font-medium mb-8">
             <span className="h-px w-8 bg-primary/70" />
-            Imperius™ · Sorocaba/SP
+            Imperius · Estúdio digital · Sorocaba/SP
           </div>
-          <h1 className="font-display text-[2.1rem] sm:text-[3.1rem] lg:text-[3.9rem] xl:text-[4.4rem] font-bold leading-[1.02] tracking-[-0.02em] text-foreground">
-            Soluções digitais para empresas que precisam{" "}
-            <span className="text-neon">transmitir autoridade</span>.
+          <h1 className="font-display text-[2.4rem] sm:text-[3.6rem] lg:text-[4.6rem] xl:text-[5.2rem] font-normal leading-[1.02] tracking-[-0.01em] text-foreground">
+            Presença digital, automação e sistemas comerciais para empresas que precisam{" "}
+            <span className="italic text-neon">parecer maiores</span>{" "}
+            e vender melhor.
           </h1>
-          <p className="mt-7 max-w-xl text-muted-foreground text-base sm:text-[17px] leading-relaxed font-sans">
-            Websites, automação com IA e sistemas comerciais sob medida — construídos
-            para gerar oportunidades reais, não apenas impressões bonitas.
+          <p className="mt-8 max-w-xl text-muted-foreground text-base sm:text-[17px] leading-relaxed font-sans">
+            Construímos sites, fluxos com IA e operações comerciais sob medida —
+            pensados para gerar oportunidades reais, não apenas impressões bonitas.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
             <a
@@ -145,7 +146,7 @@ function Hero() {
             >
               <Button
                 size="lg"
-                className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]"
+                className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_36px_-8px_oklch(0.72_0.22_250/0.7)]"
               >
                 Solicitar demonstração <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -197,9 +198,9 @@ function SectionTitle({
         </div>
       )}
       <h2
-        className={`${display ? "font-display" : "font-heading"} ${
+        className={`${display ? "font-display font-normal" : "font-heading font-bold"} ${
           gradient ? "text-gradient" : "text-foreground"
-        } text-[1.75rem] sm:text-[2.4rem] lg:text-[3rem] font-bold leading-[1.08] tracking-[-0.02em]`}
+        } text-[1.9rem] sm:text-[2.6rem] lg:text-[3.2rem] leading-[1.05] tracking-[-0.015em]`}
       >
         {title}
       </h2>
@@ -273,7 +274,7 @@ function Services() {
               key={it.title}
               className="group grid grid-cols-[auto_1fr] sm:grid-cols-[3rem_auto_1fr] items-start gap-x-5 sm:gap-x-8 gap-y-2 py-7 sm:py-8 transition-colors hover:bg-card/30"
             >
-              <span className="hidden sm:block font-display text-[12px] text-muted-foreground/70 tracking-[0.2em] pt-1.5">
+              <span className="hidden sm:block font-heading font-semibold text-[12px] text-muted-foreground/70 tracking-[0.22em] pt-1.5">
                 {it.n}
               </span>
               <div className="h-11 w-11 rounded-lg flex items-center justify-center ring-1 ring-primary/25 group-hover:ring-primary/60 transition" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.5), oklch(0.18 0.05 245 / 0.25))" }}>
@@ -296,11 +297,13 @@ function Services() {
 }
 
 type DemoStatus = "Ativo" | "Em desenvolvimento" | "Em breve";
+type DemoKind = "Produto Imperius" | "Demonstração de nicho" | "Projeto externo";
 type DemoCard = {
   icon: typeof Scissors;
   title: string;
   desc: string;
   status: DemoStatus;
+  kind: DemoKind;
   href?: string;
   to?: string;
   external?: boolean;
@@ -318,14 +321,14 @@ import imperialCover from "@/assets/imperial-hero.jpg.asset.json";
 
 function Demonstracoes() {
   const cards: DemoCard[] = [
-    { icon: Scissors, title: "Black Crown Barbershop", desc: "Website para Barbearia", status: "Ativo", href: BLACK_CROWN_URL, external: true, cover: blackCrownCover.url },
-    { icon: Bot, title: "Imperius Automation", desc: "IA + WhatsApp Automatizado", status: "Ativo", to: "/automation", cover: automationCover.url },
-    { icon: Users, title: "Imperius CRM", desc: "CRM Comercial Inteligente", status: "Ativo", to: "/crm", cover: crmCover.url },
-    { icon: Calendar, title: "Imperius Scheduling", desc: "Sistema de Agendamento Inteligente", status: "Ativo", to: "/scheduling", cover: schedulingCover.url },
-    { icon: Stethoscope, title: "Clínica Vitalis", desc: "Website + agendamento para Clínica", status: "Ativo", to: "/vitalis", cover: vitalisCover.url },
-    { icon: Sparkles, title: "Studio Bella Estética", desc: "Centro de estética premium em São Paulo", status: "Ativo", to: "/studio-bella", cover: bellaCover.url },
-    { icon: Building2, title: "Prime Imóveis", desc: "Portal premium para imobiliária de alto padrão", status: "Ativo", to: "/prime-imoveis", cover: primeCover.url },
-    { icon: UtensilsCrossed, title: "Restaurante Imperial", desc: "Reservas e cardápio para gastronomia premium", status: "Ativo", to: "/restaurante-imperial", cover: imperialCover.url },
+    { icon: Bot, title: "Imperius Automation", desc: "IA + WhatsApp automatizado", status: "Ativo", kind: "Produto Imperius", to: "/automation", cover: automationCover.url },
+    { icon: Users, title: "Imperius CRM", desc: "CRM comercial inteligente", status: "Ativo", kind: "Produto Imperius", to: "/crm", cover: crmCover.url },
+    { icon: Calendar, title: "Imperius Scheduling", desc: "Sistema de agendamento inteligente", status: "Ativo", kind: "Produto Imperius", to: "/scheduling", cover: schedulingCover.url },
+    { icon: Scissors, title: "Black Crown Barbershop", desc: "Website para barbearia premium", status: "Ativo", kind: "Projeto externo", href: BLACK_CROWN_URL, external: true, cover: blackCrownCover.url },
+    { icon: Stethoscope, title: "Clínica Vitalis", desc: "Website e agendamento para clínica", status: "Ativo", kind: "Demonstração de nicho", to: "/vitalis", cover: vitalisCover.url },
+    { icon: Sparkles, title: "Studio Bella Estética", desc: "Centro de estética premium em São Paulo", status: "Ativo", kind: "Demonstração de nicho", to: "/studio-bella", cover: bellaCover.url },
+    { icon: Building2, title: "Prime Imóveis", desc: "Portal para imobiliária de alto padrão", status: "Ativo", kind: "Demonstração de nicho", to: "/prime-imoveis", cover: primeCover.url },
+    { icon: UtensilsCrossed, title: "Restaurante Imperial", desc: "Reservas e cardápio para gastronomia premium", status: "Ativo", kind: "Demonstração de nicho", to: "/restaurante-imperial", cover: imperialCover.url },
   ];
 
 
@@ -340,20 +343,25 @@ function Demonstracoes() {
               <span className="h-px w-8 bg-primary/70" />
               Vitrine · {cards.length.toString().padStart(2, "0")} projetos
             </div>
-            <h2 className="font-display text-[2rem] sm:text-[2.8rem] lg:text-[3.4rem] font-bold leading-[1.05] tracking-[-0.02em] text-foreground">
-              Projetos navegáveis,
-              <span className="block text-neon">não mockups.</span>
+            <h2 className="font-display font-normal text-[2.2rem] sm:text-[3rem] lg:text-[3.6rem] leading-[1.05] tracking-[-0.015em] text-foreground">
+              Projetos navegáveis,{" "}
+              <span className="italic text-neon">não mockups.</span>
             </h2>
             <p className="mt-5 text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed font-sans max-w-xl">
-              Cada card abaixo abre uma demonstração funcional — desenvolvida pela Imperius
+              Cada card abaixo abre uma demonstração funcional — construída pela Imperius
               para um nicho real. Clique, explore o fluxo e veja o nível de acabamento
-              entregue antes mesmo do briefing.
+              antes mesmo do briefing.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11.5px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium lg:justify-end">
-            <span>Produtos Imperius · 03</span>
-            <span className="h-1 w-1 rounded-full bg-border" />
-            <span>Nichos verticais · 05</span>
+            <span className="inline-flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+              Produtos · 03
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-muted-foreground/50" />
+              Verticais · 05
+            </span>
           </div>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
@@ -368,54 +376,68 @@ function Demonstracoes() {
 
 function StatusBadge({ status }: { status: DemoStatus }) {
   const styles: Record<DemoStatus, string> = {
-    "Ativo": "border-primary/50 text-primary bg-primary/10 shadow-[0_0_18px_-6px_oklch(0.72_0.22_250/0.8)]",
-    "Em desenvolvimento": "border-border/70 text-muted-foreground bg-card/60",
-    "Em breve": "border-border/60 text-muted-foreground/80 bg-card/40",
+    "Ativo": "border-primary/40 text-primary bg-background/70",
+    "Em desenvolvimento": "border-border/70 text-muted-foreground bg-background/70",
+    "Em breve": "border-border/60 text-muted-foreground/80 bg-background/70",
   };
   return (
-    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[10px] uppercase tracking-[0.18em] font-semibold font-sans ${styles[status]}`}>
+    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border backdrop-blur-md text-[10px] uppercase tracking-[0.18em] font-semibold font-sans ${styles[status]}`}>
       {status === "Ativo" && <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />}
       {status}
     </span>
   );
 }
 
+function KindTag({ kind }: { kind: DemoKind }) {
+  const isProduct = kind === "Produto Imperius";
+  return (
+    <span
+      className={`inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.22em] font-sans font-medium ${
+        isProduct ? "text-primary/90" : "text-muted-foreground/80"
+      }`}
+    >
+      <span className={`h-1 w-1 rounded-full ${isProduct ? "bg-primary" : "bg-muted-foreground/60"}`} />
+      {kind}
+    </span>
+  );
+}
+
 function DemoCardItem({ card }: { card: DemoCard }) {
   const isActive = card.status === "Ativo";
-  const hasCover = !!card.cover;
   const inner = (
     <>
-      {hasCover && (
-        <div className="relative -mx-6 sm:-mx-7 -mt-6 sm:-mt-7 mb-5 overflow-hidden rounded-t-2xl aspect-[16/10] border-b border-primary/20 bg-card">
+      {card.cover && (
+        <div className="relative overflow-hidden aspect-[16/10] bg-card">
           <img
             src={card.cover}
             alt={`Capa da demonstração ${card.title}`}
             loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+            className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent pointer-events-none" />
           <div className="absolute top-3 right-3"><StatusBadge status={card.status} /></div>
         </div>
       )}
-      <div className="flex items-start justify-between gap-3 mb-5">
-        <div className="h-12 w-12 rounded-xl flex items-center justify-center ring-1 ring-primary/30 group-hover:ring-primary/60 transition" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.6), oklch(0.18 0.05 245 / 0.3))" }}>
-          <card.icon className="h-6 w-6 text-primary" />
-        </div>
-        {!hasCover && <StatusBadge status={card.status} />}
+      <div className="px-5 sm:px-6 pt-4 pb-5 sm:pb-6">
+        <KindTag kind={card.kind} />
+        <h3 className="mt-2 font-heading font-semibold text-[16px] sm:text-[17px] tracking-[-0.01em] text-foreground">
+          {card.title}
+        </h3>
+        <p className="mt-1 text-[13.5px] text-muted-foreground leading-relaxed font-sans">
+          {card.desc}
+        </p>
+        {isActive && (
+          <div className="mt-4 inline-flex items-center gap-1.5 text-[12px] text-primary/90 font-semibold font-sans">
+            Ver demonstração {card.external ? <ExternalLink className="h-3.5 w-3.5" /> : <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />}
+          </div>
+        )}
       </div>
-      <h3 className="font-heading font-semibold text-base sm:text-lg tracking-tight">{card.title}</h3>
-      <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed font-sans">{card.desc}</p>
-      {isActive && (
-        <div className="mt-5 inline-flex items-center gap-1.5 text-xs text-primary/90 font-semibold font-sans">
-          Ver demonstração {card.external ? <ExternalLink className="h-3.5 w-3.5" /> : <ArrowRight className="h-3.5 w-3.5" />}
-        </div>
-      )}
     </>
   );
 
-  const baseCls = "card-premium rounded-2xl p-6 sm:p-7 h-full transition-all duration-300 border overflow-hidden";
-  const activeCls = "hover-lift group cursor-pointer border-primary/30 hover:border-primary/60 hover:shadow-[0_0_40px_-12px_oklch(0.72_0.22_250/0.7)]";
-  const inactiveCls = "border-border/40 opacity-80 cursor-default";
+  const baseCls = "card-editorial rounded-xl overflow-hidden h-full flex flex-col";
+  const activeCls = "card-editorial-hover group cursor-pointer";
+  const inactiveCls = "opacity-80 cursor-default";
 
   if (isActive && card.to) {
     return (
@@ -469,7 +491,7 @@ function Process() {
               key={s.t}
               className="grid grid-cols-[3rem_auto_1fr] sm:grid-cols-[4rem_auto_1fr] items-start gap-x-5 sm:gap-x-8 py-7 sm:py-8"
             >
-              <span className="font-display text-[13px] sm:text-[14px] text-primary tracking-[0.2em] pt-2 font-semibold">
+              <span className="font-heading text-[13px] sm:text-[14px] text-primary tracking-[0.22em] pt-2 font-semibold">
                 {s.n}
               </span>
               <div className="h-10 w-10 rounded-lg flex items-center justify-center ring-1 ring-primary/30 shrink-0" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.55), oklch(0.18 0.05 245 / 0.25))" }}>
@@ -552,9 +574,10 @@ function FinalCTA() {
           <span className="h-px w-8 bg-primary/70" />
           Próximo passo
         </div>
-        <h2 className="font-display text-[2rem] sm:text-[2.8rem] lg:text-[3.4rem] font-bold leading-[1.05] tracking-[-0.02em] text-foreground">
-          Pronto para ver sua empresa
-          <span className="block text-neon">na medida que ela merece?</span>
+        <h2 className="font-display font-normal text-[2.2rem] sm:text-[3rem] lg:text-[3.6rem] leading-[1.05] tracking-[-0.015em] text-foreground">
+          Veja como a Imperius{" "}
+          <span className="italic text-neon">poderia apresentar</span>{" "}
+          o seu negócio.
         </h2>
         <p className="mt-6 text-muted-foreground text-[15px] sm:text-[17px] max-w-2xl mx-auto leading-relaxed font-sans">
           Receba uma demonstração construída especificamente para o seu negócio — sem
@@ -598,7 +621,7 @@ function Footer() {
             <div className="flex items-center gap-3 mb-5">
               <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[44px] w-auto object-contain" loading="lazy" decoding="async" />
               <div>
-                <div className="font-display font-bold tracking-[0.2em] text-sm">IMPERIUS™</div>
+                <div className="font-heading font-bold tracking-[0.2em] text-sm">IMPERIUS</div>
                 <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-sans font-medium">Design • Automação • IA</div>
               </div>
             </div>
