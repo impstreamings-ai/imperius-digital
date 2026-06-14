@@ -492,13 +492,16 @@ function DemoCard({ demo }: { demo: Demo }) {
         <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent" />
         <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-border/70 bg-background/70 backdrop-blur-md text-[10px] uppercase tracking-[0.18em] font-semibold text-muted-foreground">
           <Icon className="h-3 w-3" />
-          Demonstração
+          Projeto demonstrativo
         </div>
         <div className="absolute bottom-3 left-3 right-3 text-[11px] font-mono text-muted-foreground/90 truncate">
           {demo.domain}
         </div>
       </div>
       <div className="p-5 sm:p-6 flex-1 flex flex-col">
+        <div className="text-[10.5px] uppercase tracking-[0.22em] text-primary/90 font-semibold mb-2 font-sans">
+          {demo.segment}
+        </div>
         <h3 className="font-display font-semibold text-[1.15rem] tracking-[-0.015em] text-foreground">
           {demo.title}
         </h3>
