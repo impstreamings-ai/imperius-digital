@@ -127,9 +127,9 @@ function Hero() {
             <span className="h-px w-8 bg-primary/70" />
             Imperius · Estúdio digital · Sorocaba/SP
           </div>
-          <h1 className="font-display text-[2.4rem] sm:text-[3.6rem] lg:text-[4.6rem] xl:text-[5.2rem] font-normal leading-[1.02] tracking-[-0.01em] text-foreground">
+          <h1 className="font-display text-[2.1rem] sm:text-[3.1rem] lg:text-[3.9rem] xl:text-[4.3rem] font-semibold leading-[1.04] tracking-[-0.028em] text-foreground">
             Presença digital, automação e sistemas comerciais para empresas que precisam{" "}
-            <span className="italic text-neon">parecer maiores</span>{" "}
+            <span className="text-neon">parecer maiores</span>{" "}
             e vender melhor.
           </h1>
           <p className="mt-8 max-w-xl text-muted-foreground text-base sm:text-[17px] leading-relaxed font-sans">
