@@ -365,17 +365,17 @@ function Hero() {
           Projetos demonstrativos navegáveis e soluções proprietárias
           desenvolvidas pela Imperius.
         </p>
-        <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-center">
+        <ul className="mt-10 grid grid-cols-3 max-w-2xl mx-auto gap-x-6 sm:gap-x-10 text-center">
           {[
-            { n: "8", l: "projetos" },
-            { n: "5", l: "segmentos" },
-            { n: "3", l: "produtos proprietários" },
+            { n: "8", l: "soluções disponíveis" },
+            { n: "5", l: "demonstrações de nicho" },
+            { n: "3", l: "produtos Imperius" },
           ].map((m) => (
-            <li key={m.l} className="flex flex-col items-center">
+            <li key={m.l} className="flex flex-col items-center min-w-0">
               <span className="font-display font-semibold text-[1.6rem] sm:text-[1.9rem] leading-none text-foreground tracking-[-0.02em]">
                 {m.n}
               </span>
-              <span className="mt-1.5 text-[10.5px] uppercase tracking-[0.22em] text-muted-foreground/80 font-medium">
+              <span className="mt-2 text-[10px] sm:text-[10.5px] uppercase tracking-[0.22em] text-muted-foreground/80 font-medium leading-tight">
                 {m.l}
               </span>
             </li>
