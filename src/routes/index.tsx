@@ -87,7 +87,7 @@ function Nav() {
         <a href="#top" className="flex items-center gap-3 min-w-0">
           <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[36px] w-auto object-contain shrink-0" loading="eager" decoding="async" />
           <span className="hidden sm:flex flex-col leading-tight min-w-0">
-            <span className="font-display font-bold tracking-[0.22em] text-[12px] truncate">IMPERIUS</span>
+            <span className="font-heading font-semibold tracking-[0.2em] text-[12px] truncate">IMPERIUS</span>
             <span className="text-[9.5px] uppercase tracking-[0.28em] text-muted-foreground/80 font-medium truncate">Estúdio digital</span>
           </span>
         </a>
