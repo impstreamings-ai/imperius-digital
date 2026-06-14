@@ -574,9 +574,9 @@ function FinalCTA() {
           <span className="h-px w-8 bg-primary/70" />
           Próximo passo
         </div>
-        <h2 className="font-display font-normal text-[2.2rem] sm:text-[3rem] lg:text-[3.6rem] leading-[1.05] tracking-[-0.015em] text-foreground">
+        <h2 className="font-display font-semibold text-[2rem] sm:text-[2.7rem] lg:text-[3.1rem] leading-[1.05] tracking-[-0.028em] text-foreground">
           Veja como a Imperius{" "}
-          <span className="italic text-neon">poderia apresentar</span>{" "}
+          <span className="text-neon">poderia apresentar</span>{" "}
           o seu negócio.
         </h2>
         <p className="mt-6 text-muted-foreground text-[15px] sm:text-[17px] max-w-2xl mx-auto leading-relaxed font-sans">
