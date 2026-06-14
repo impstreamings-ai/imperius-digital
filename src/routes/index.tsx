@@ -619,6 +619,71 @@ function Manifesto() {
   );
 }
 
+function Capacidades() {
+  const items = [
+    { icon: Globe, label: "Websites profissionais", meta: "Landing pages e institucionais" },
+    { icon: Bot, label: "Automação inteligente", meta: "WhatsApp · Formulários · IA" },
+    { icon: Users, label: "CRM comercial", meta: "Pipeline e oportunidades" },
+    { icon: Calendar, label: "Agendamento digital", meta: "Reservas e confirmações" },
+    { icon: Zap, label: "Integrações", meta: "APIs, webhooks e canais" },
+    { icon: Sparkles, label: "IA aplicada", meta: "Assistentes treinados no negócio" },
+  ];
+  return (
+    <section aria-labelledby="capacidades-title" className="relative py-20 sm:py-24 border-t border-border/30">
+      <div
+        className="absolute inset-x-0 top-0 h-px"
+        style={{ background: "linear-gradient(90deg, transparent, oklch(0.72 0.22 250 / 0.45), transparent)" }}
+        aria-hidden
+      />
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-10 sm:mb-12 grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-12 lg:items-end">
+          <div className="max-w-2xl">
+            <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
+              <span className="h-px w-8 bg-primary/70" />
+              Capacidade técnica
+            </div>
+            <h2
+              id="capacidades-title"
+              className="font-display font-semibold text-[1.7rem] sm:text-[2.1rem] lg:text-[2.35rem] leading-[1.08] tracking-[-0.025em] text-foreground"
+            >
+              Domínios que a Imperius desenvolve internamente.
+            </h2>
+            <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans max-w-xl">
+              Cada frente abaixo é parte do que entregamos em projeto e demonstração —
+              construído pela própria equipe, sem revenda e sem dependência de terceiros.
+            </p>
+          </div>
+          <div className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium inline-flex items-center gap-2 lg:justify-end">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+            Engenharia própria
+          </div>
+        </div>
+
+        <ul className="grid grid-cols-2 lg:grid-cols-6 border-y border-border/40 divide-x divide-border/40">
+          {items.map((it) => (
+            <li
+              key={it.label}
+              className="group p-5 sm:p-6 flex flex-col gap-3 min-w-0 transition-colors hover:bg-card/40"
+            >
+              <div className="h-9 w-9 rounded-md border border-primary/25 bg-primary/10 grid place-items-center">
+                <it.icon className="h-[18px] w-[18px] text-primary" />
+              </div>
+              <div className="min-w-0">
+                <div className="font-heading font-semibold text-[13.5px] sm:text-[14px] tracking-[-0.005em] text-foreground leading-snug">
+                  {it.label}
+                </div>
+                <div className="mt-1 text-[10.5px] uppercase tracking-[0.18em] text-muted-foreground/75 font-sans font-medium truncate">
+                  {it.meta}
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 function SobreImperius() {
   const pillars = [
     {
