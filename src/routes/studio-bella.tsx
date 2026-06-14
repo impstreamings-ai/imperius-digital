@@ -527,19 +527,19 @@ function Team() {
 function Testimonials() {
   const tts = [
     {
-      n: "Marina S.",
-      r: "Cliente há 3 anos",
-      t: "A Bella entendeu o que eu queria sem que eu precisasse explicar. Resultado discreto, elegante, exatamente como pedi.",
+      n: "Cliente 01",
+      r: "Cliente recorrente",
+      t: "Entenderam o que eu queria sem que eu precisasse explicar. Resultado discreto, elegante, exatamente como pedi.",
     },
     {
-      n: "Camille R.",
+      n: "Cliente 02",
       r: "Harmonização facial",
       t: "Saí me sentindo a melhor versão de mim. Atendimento impecável, ambiente de outro nível.",
     },
     {
-      n: "Patrícia L.",
+      n: "Cliente 03",
       r: "Programa anual",
-      t: "É o único lugar em São Paulo em que confio o meu rosto. A equipe da Camila é cirúrgica e humana ao mesmo tempo.",
+      t: "É o único lugar em que confio o meu rosto. A equipe é cirúrgica e humana ao mesmo tempo.",
     },
   ];
   return (
