@@ -180,12 +180,7 @@ function PortfolioPage() {
     <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
       <Nav />
       <Hero />
-      <Solutions />
-      <Intro />
       <Demos />
-      <Process />
-      <Personalization />
-      <PreCTA />
       <FinalCTA />
       <Footer />
     </div>
