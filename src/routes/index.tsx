@@ -491,7 +491,7 @@ function Process() {
               key={s.t}
               className="grid grid-cols-[3rem_auto_1fr] sm:grid-cols-[4rem_auto_1fr] items-start gap-x-5 sm:gap-x-8 py-7 sm:py-8"
             >
-              <span className="font-display text-[13px] sm:text-[14px] text-primary tracking-[0.2em] pt-2 font-semibold">
+              <span className="font-heading text-[13px] sm:text-[14px] text-primary tracking-[0.22em] pt-2 font-semibold">
                 {s.n}
               </span>
               <div className="h-10 w-10 rounded-lg flex items-center justify-center ring-1 ring-primary/30 shrink-0" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.55), oklch(0.18 0.05 245 / 0.25))" }}>
