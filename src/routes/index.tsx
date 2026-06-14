@@ -177,7 +177,7 @@ function Hero() {
               </a>
             </div>
             <p className="mt-8 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
-              Demonstração personalizada · Sem compromisso · Resposta no mesmo dia útil
+              Demonstração funcional em poucos dias · Sem proposta antes da entrega · Atendimento direto com a equipe
             </p>
           </div>
 
@@ -1263,11 +1263,11 @@ function FAQ() {
   const items = [
     {
       q: "Preciso já ter um site?",
-      a: "Não. Podemos criar sua demonstração mesmo que sua empresa ainda não tenha presença digital estruturada.",
+      a: "Não. Construímos a demonstração do zero, mesmo que a sua empresa ainda não tenha presença digital estruturada.",
     },
     {
       q: "Quanto tempo leva para entregar?",
-      a: "A demonstração personalizada é entregue em poucos dias. O projeto completo depende do escopo combinado.",
+      a: "A demonstração personalizada fica pronta em poucos dias úteis. O projeto completo é dimensionado em conjunto, conforme escopo e integrações.",
     },
     {
       q: "A demonstração tem custo?",
