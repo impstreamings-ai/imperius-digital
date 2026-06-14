@@ -1273,6 +1273,10 @@ function FAQ() {
       q: "A demonstração tem custo?",
       a: "Não. A demonstração inicial é cortesia da Imperius, sem compromisso comercial.",
     },
+    {
+      q: "Com quem eu falo?",
+      a: "Diretamente com a equipe que desenvolve o projeto. Sem atendimento terceirizado, sem chatbot intermediário — o mesmo time conduz da conversa inicial à publicação.",
+    },
   ];
   return (
     <section id="faq" className="py-24 sm:py-28 border-t border-border/30">
