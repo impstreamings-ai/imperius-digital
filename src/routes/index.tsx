@@ -1335,7 +1335,7 @@ function FinalCTA() {
             className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2"
             onClick={() => track("final_cta_click", { destination: "email" })}
           >
-            <Mail className="h-4 w-4" /> Receber proposta por e-mail
+            <Mail className="h-4 w-4" /> Solicitar análise do meu negócio
           </a>
         </div>
         <p className="mt-8 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
