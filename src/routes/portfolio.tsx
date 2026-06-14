@@ -174,12 +174,96 @@ function PortfolioPage() {
     <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
       <Nav />
       <Hero />
+      <Intro />
       <Solutions />
       <Demos />
       <Process />
+      <Personalization />
       <FinalCTA />
       <Footer />
     </div>
+  );
+}
+
+/* ----------------------------- INTRO ----------------------------- */
+
+function Intro() {
+  return (
+    <section className="relative pb-4">
+      <div className="relative mx-auto max-w-4xl px-6">
+        <div className="rounded-2xl border border-border/60 bg-card/40 backdrop-blur-sm p-7 sm:p-9">
+          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/80 font-semibold mb-4 font-sans inline-flex items-center gap-2.5">
+            <span className="h-px w-8 bg-muted-foreground/50" />
+            Nota institucional
+          </div>
+          <p className="text-foreground/90 text-[15px] sm:text-[16.5px] leading-relaxed">
+            As demonstrações apresentadas a seguir foram desenvolvidas para
+            ilustrar diferentes aplicações de websites, automações e sistemas
+            comerciais.
+          </p>
+          <p className="mt-3 text-muted-foreground text-[14px] sm:text-[15.5px] leading-relaxed">
+            Cada projeto representa uma possibilidade de implementação que pode
+            ser adaptada para diferentes segmentos, identidades e operações.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ----------------------------- PERSONALIZATION ----------------------------- */
+
+const PERSONALIZE = [
+  { i: LayoutTemplate, t: "Layout", d: "Estrutura visual ajustada ao posicionamento da marca." },
+  { i: Palette, t: "Cores", d: "Paleta calibrada para a identidade do cliente." },
+  { i: Type, t: "Textos", d: "Conteúdo editorial alinhado ao tom da operação." },
+  { i: Briefcase, t: "Serviços", d: "Catálogo, etapas e regras adaptadas ao negócio." },
+  { i: Plug, t: "Integrações", d: "Conexões com ferramentas que o cliente já usa." },
+  { i: GitBranch, t: "Fluxos", d: "Jornadas de atendimento desenhadas por cenário." },
+  { i: BotIcon, t: "Automações", d: "Comportamentos de IA configurados por operação." },
+];
+
+function Personalization() {
+  return (
+    <section className="py-20 sm:py-24 relative">
+      <div className="relative mx-auto max-w-7xl px-6">
+        <div className="mb-10 sm:mb-12 max-w-2xl">
+          <div className="text-[10.5px] uppercase tracking-[0.32em] text-primary/90 font-semibold mb-5 font-sans inline-flex items-center gap-2.5">
+            <span className="h-px w-8 bg-primary/70" />
+            Flexibilidade Imperius
+          </div>
+          <h2 className="font-display font-semibold text-[1.7rem] sm:text-[2.2rem] lg:text-[2.55rem] leading-[1.08] tracking-[-0.028em] text-foreground">
+            Cada camada é{" "}
+            <span className="text-neon">adaptada à sua operação.</span>
+          </h2>
+          <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed max-w-xl">
+            Nada aqui é template fechado. Os projetos partem de uma base
+            premium e são moldados para refletir o jeito do cliente trabalhar.
+          </p>
+        </div>
+        <ul className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          {PERSONALIZE.map((p) => {
+            const Icon = p.i;
+            return (
+              <li
+                key={p.t}
+                className="rounded-2xl border border-border/60 bg-card/40 backdrop-blur-sm p-5 sm:p-6"
+              >
+                <span className="h-10 w-10 rounded-xl border border-primary/30 bg-background/60 grid place-items-center mb-4">
+                  <Icon className="h-5 w-5 text-primary" strokeWidth={1.5} />
+                </span>
+                <h3 className="font-display font-semibold text-[1.02rem] tracking-[-0.012em] text-foreground">
+                  {p.t}
+                </h3>
+                <p className="mt-1.5 text-[12.5px] leading-relaxed text-muted-foreground">
+                  {p.d}
+                </p>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </section>
   );
 }
 
