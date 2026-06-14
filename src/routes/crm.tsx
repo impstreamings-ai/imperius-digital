@@ -290,7 +290,7 @@ function HeroVisual() {
               <span className="text-[9px] text-muted-foreground">agora</span>
             </div>
             <p className="text-[11px] text-muted-foreground mt-0.5 leading-snug">
-              <span className="text-foreground/80 font-medium">Lucas R.</span> ·
+              <span className="text-foreground/80 font-medium">Cliente 05</span> ·
               WhatsApp · Interesse: <span className="text-primary">Plano Premium</span>
             </p>
           </div>
