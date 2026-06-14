@@ -13,7 +13,6 @@ import {
   Phone,
   Mail,
   Clock,
-  Star,
   Quote,
   Send,
   MessageCircle,
@@ -649,9 +648,8 @@ function Team() {
                   width={900}
                   height={1120}
                 />
-                <div className="absolute top-3 left-3 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/95 backdrop-blur text-[11px] font-semibold ring-1" style={{ color: GOLD, ["--tw-ring-color" as string]: "rgba(184,148,90,0.3)" }}>
-                  <Star className="h-3 w-3 fill-current" />
-                  {p.rating.toFixed(1)}
+                <div className="absolute top-3 left-3 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/95 backdrop-blur text-[10.5px] font-semibold ring-1 uppercase tracking-[0.14em]" style={{ color: NAVY_DEEP, ["--tw-ring-color" as string]: "rgba(14,30,58,0.18)" }}>
+                  Exemplo demonstrativo
                 </div>
               </div>
               <div className="p-5 sm:p-6">
