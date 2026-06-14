@@ -948,19 +948,19 @@ function FinalCTA() {
                   <span className="h-9 w-9 rounded-md grid place-items-center shrink-0" style={{ background: NAVY }}>
                     <Phone className="h-4 w-4 text-white" />
                   </span>
-                  <span><span className="text-[12px] block" style={{ color: TITANIUM }}>Telefone / WhatsApp</span>(15) 9810-2379</span>
+                  <span><span className="text-[12px] block" style={{ color: TITANIUM }}>Telefone / WhatsApp</span>(XX) XXXXX-XXXX</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="h-9 w-9 rounded-md grid place-items-center shrink-0" style={{ background: NAVY }}>
                     <Mail className="h-4 w-4 text-white" />
                   </span>
-                  <span><span className="text-[12px] block" style={{ color: TITANIUM }}>E-mail</span>contato@primeimoveis.com.br</span>
+                  <span><span className="text-[12px] block" style={{ color: TITANIUM }}>E-mail</span>contato@suaimobiliaria.com.br</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="h-9 w-9 rounded-md grid place-items-center shrink-0" style={{ background: NAVY }}>
                     <MapPin className="h-4 w-4 text-white" />
                   </span>
-                  <span><span className="text-[12px] block" style={{ color: TITANIUM }}>Endereço</span>Av. Brigadeiro Faria Lima, 3.144 · 12º andar</span>
+                  <span><span className="text-[12px] block" style={{ color: TITANIUM }}>Endereço</span>Endereço personalizável</span>
                 </li>
               </ul>
             </div>
