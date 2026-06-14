@@ -12,7 +12,7 @@ import {
   MapPin,
   Phone,
   Mail,
-  Star,
+  // Star removed (transparency audit)
   Quote,
   Send,
   MessageCircle,
@@ -858,11 +858,9 @@ function Testimonials() {
                   <div className="text-sm font-semibold" style={{ color: GRAPHITE }}>{t.n}</div>
                   <div className="text-[12px]" style={{ color: MUTED }}>{t.r}</div>
                 </div>
-                <div className="flex items-center gap-0.5" style={{ color: EMBER }}>
-                  {[0, 1, 2, 3, 4].map((i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-current" />
-                  ))}
-                </div>
+                <span className="text-[10px] uppercase tracking-[0.18em] font-semibold px-2 py-0.5 rounded-full" style={{ color: BURGUNDY, background: "rgba(108,28,40,0.08)" }}>
+                  Comentário ilustrativo
+                </span>
               </figcaption>
             </figure>
           ))}
