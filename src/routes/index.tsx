@@ -447,33 +447,45 @@ function DemoCardItem({ card }: { card: DemoCard }) {
 
 function Process() {
   const steps = [
-    { n: "01", i: MessageCircle, t: "Conversamos sobre sua empresa", d: "Entendemos seu negócio e seus objetivos." },
-    { n: "02", i: LayoutTemplate, t: "Criamos uma demonstração personalizada", d: "Uma versão sob medida para você visualizar antes de decidir." },
-    { n: "03", i: ClipboardList, t: "Você aprova", d: "Ajustamos cada detalhe até refletir a sua marca." },
-    { n: "04", i: Rocket, t: "Publicamos", d: "Seu projeto entra no ar pronto para gerar oportunidades." },
-    { n: "05", i: TrendingUp, t: "Mais oportunidades", d: "Sua empresa passa a transmitir mais autoridade." },
+    { n: "01", i: MessageCircle, t: "Diagnóstico", d: "Conversa direta para entender contexto, posicionamento e gargalos atuais." },
+    { n: "02", i: LayoutTemplate, t: "Demonstração sob medida", d: "Construímos uma prévia funcional do seu projeto antes de qualquer fechamento." },
+    { n: "03", i: ClipboardList, t: "Refinamento", d: "Iterações até cada detalhe refletir a sua marca e seu padrão de operação." },
+    { n: "04", i: Rocket, t: "Publicação", d: "Deploy, configuração de domínio, integrações e monitoramento ativo." },
+    { n: "05", i: TrendingUp, t: "Operação contínua", d: "Acompanhamento de performance e evoluções planejadas com o seu time." },
   ];
   return (
-    <section id="processo" className="py-24 sm:py-28">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="processo" className="py-24 sm:py-32">
+      <div className="mx-auto max-w-6xl px-6">
         <SectionTitle
           display
-          eyebrow="Como funciona"
-          title="Processo simples. Resultado profissional."
+          align="left"
+          eyebrow="Processo"
+          title="Do briefing à operação, em cinco passos."
+          sub="Sem propostas genéricas. Você acompanha a construção em cada etapa."
         />
-        <div className="relative grid sm:grid-cols-2 lg:grid-cols-5 gap-5 sm:gap-6">
-          <div className="hidden lg:block absolute top-10 left-[10%] right-[10%] h-px" style={{ background: "linear-gradient(90deg, transparent, oklch(0.72 0.22 250 / 0.5), transparent)" }} />
+        <ol className="mt-4 divide-y divide-border/40 border-y border-border/40">
           {steps.map((s) => (
-            <div key={s.t} className="relative card-premium hover-lift rounded-2xl p-6 transition-all duration-300">
-              <div className="absolute -top-3 -right-3 h-9 w-9 rounded-full ring-1 ring-primary/40 bg-background flex items-center justify-center font-display font-bold text-[11px] text-primary">{s.n}</div>
-              <div className="h-12 w-12 rounded-xl flex items-center justify-center ring-1 ring-primary/40 mb-5" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.7), oklch(0.12 0.02 245 / 0.7))" }}>
-                <s.i className="h-5 w-5 text-primary" />
+            <li
+              key={s.t}
+              className="grid grid-cols-[3rem_auto_1fr] sm:grid-cols-[4rem_auto_1fr] items-start gap-x-5 sm:gap-x-8 py-7 sm:py-8"
+            >
+              <span className="font-display text-[13px] sm:text-[14px] text-primary tracking-[0.2em] pt-2 font-semibold">
+                {s.n}
+              </span>
+              <div className="h-10 w-10 rounded-lg flex items-center justify-center ring-1 ring-primary/30 shrink-0" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.55), oklch(0.18 0.05 245 / 0.25))" }}>
+                <s.i className="h-[18px] w-[18px] text-primary" />
               </div>
-              <h3 className="font-heading font-semibold text-base mb-2 tracking-tight">{s.t}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed font-sans">{s.d}</p>
-            </div>
+              <div className="min-w-0">
+                <h3 className="font-heading font-semibold text-[17px] sm:text-[19px] tracking-[-0.01em] text-foreground">
+                  {s.t}
+                </h3>
+                <p className="mt-1.5 text-[14px] sm:text-[15px] text-muted-foreground leading-relaxed font-sans max-w-2xl">
+                  {s.d}
+                </p>
+              </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );
@@ -495,24 +507,32 @@ function FAQ() {
     },
   ];
   return (
-    <section id="faq" className="py-20 sm:py-24">
+    <section id="faq" className="py-24 sm:py-28 border-t border-border/30">
       <div className="mx-auto max-w-3xl px-6">
-        <div className="text-center mb-10 sm:mb-12">
-          <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4 font-sans">Dúvidas frequentes</div>
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-gradient leading-tight tracking-tight">
+        <div className="mb-12">
+          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
+            <span className="h-px w-8 bg-primary/70" />
+            FAQ
+          </div>
+          <h2 className="font-heading text-[1.75rem] sm:text-[2.2rem] lg:text-[2.6rem] font-bold leading-[1.1] tracking-[-0.02em] text-foreground">
             Antes de pedir sua demonstração.
           </h2>
         </div>
-        <div className="space-y-4">
+        <div className="divide-y divide-border/40 border-y border-border/40">
           {items.map((it) => (
-            <div key={it.q} className="card-premium rounded-2xl p-6 sm:p-7 border border-primary/15">
-              <h3 className="font-heading font-semibold text-base sm:text-lg tracking-tight">
-                {it.q}
-              </h3>
-              <p className="mt-3 text-sm sm:text-[15px] text-muted-foreground leading-relaxed font-sans">
+            <details key={it.q} className="group py-6 sm:py-7">
+              <summary className="flex items-start justify-between gap-6 cursor-pointer list-none">
+                <h3 className="font-heading font-semibold text-[16px] sm:text-[18px] tracking-[-0.01em] text-foreground">
+                  {it.q}
+                </h3>
+                <span className="mt-1 shrink-0 h-7 w-7 rounded-full border border-border/60 grid place-items-center text-muted-foreground group-open:bg-primary/10 group-open:text-primary group-open:border-primary/50 transition-colors">
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-open:rotate-90" />
+                </span>
+              </summary>
+              <p className="mt-4 text-[14.5px] sm:text-[15px] text-muted-foreground leading-relaxed font-sans max-w-2xl">
                 {it.a}
               </p>
-            </div>
+            </details>
           ))}
         </div>
       </div>
