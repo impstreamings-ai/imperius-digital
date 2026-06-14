@@ -115,10 +115,10 @@ function Hero() {
       className="relative lg:min-h-[86vh] flex items-center pt-32 pb-20 sm:pb-24 overflow-hidden"
       style={{ background: "var(--gradient-hero)" }}
     >
-      <div className="absolute inset-0 bg-grid pointer-events-none opacity-60" />
+      <div className="absolute inset-0 bg-grid pointer-events-none opacity-30" />
       <div
-        className="absolute top-[38%] left-1/2 -translate-x-1/2 w-[560px] h-[560px] rounded-full blur-3xl opacity-70"
-        style={{ background: "radial-gradient(circle, oklch(0.5 0.25 250 / 0.22), transparent 70%)" }}
+        className="absolute top-[42%] left-1/2 -translate-x-1/2 w-[520px] h-[520px] rounded-full blur-3xl opacity-40"
+        style={{ background: "radial-gradient(circle, oklch(0.5 0.22 250 / 0.18), transparent 70%)" }}
       />
 
       <div className="relative mx-auto max-w-5xl px-6 w-full">
