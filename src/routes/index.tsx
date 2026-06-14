@@ -1305,12 +1305,12 @@ function FinalCTA() {
         </div>
         <h2 className="font-display font-semibold text-[2rem] sm:text-[2.7rem] lg:text-[3.1rem] leading-[1.05] tracking-[-0.028em] text-foreground">
           Veja como a Imperius{" "}
-          <span className="text-neon">poderia apresentar</span>{" "}
+          <span className="text-neon">apresenta</span>{" "}
           o seu negócio.
         </h2>
         <p className="mt-6 text-muted-foreground text-[15px] sm:text-[17px] max-w-2xl mx-auto leading-relaxed font-sans">
-          Receba uma demonstração construída especificamente para o seu negócio — sem
-          briefing engessado, sem orçamento antes da entrega.
+          Você recebe uma demonstração construída especificamente para a sua empresa —
+          escopo definido em conjunto, projeto funcional antes de qualquer contrato.
         </p>
         <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
           <a
