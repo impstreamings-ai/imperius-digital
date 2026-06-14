@@ -1140,15 +1140,27 @@ function ProductPreview({ kind }: { kind: NonNullable<DemoCard["preview"]> }) {
   );
 }
 
-function DemoCardItem({ card }: { card: DemoCard }) {
+function DemoCardItem({ card, featured = false, compact = false }: { card: DemoCard; featured?: boolean; compact?: boolean }) {
   const isActive = card.status === "Ativo";
+  const accentRing = featured
+    ? "ring-1 ring-emerald-400/20 shadow-[0_24px_60px_-30px_oklch(0.7_0.18_155/0.35)]"
+    : "";
+  const previewAspect = featured
+    ? "aspect-[16/10] lg:aspect-[16/9]"
+    : compact
+      ? "aspect-[16/8]"
+      : "aspect-[16/10]";
   const inner = (
     <>
       {(card.cover || card.preview) && (
         <div className="relative overflow-hidden bg-[oklch(0.09_0.005_240)] border-b border-border/50">
           {card.preview ? (
-            <div className="relative aspect-[16/10] bg-card">
+            <div className={`relative ${previewAspect} bg-card`}>
               <ProductPreview kind={card.preview} />
+              <span className="absolute bottom-2 left-2 z-10 inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-background/80 backdrop-blur-md px-2 py-0.5 text-[8.5px] uppercase tracking-[0.22em] font-semibold font-sans text-muted-foreground/85">
+                <span className="h-1 w-1 rounded-full bg-muted-foreground/60" />
+                Demonstração visual
+              </span>
             </div>
           ) : (
             <>
@@ -1176,6 +1188,12 @@ function DemoCardItem({ card }: { card: DemoCard }) {
             </>
           )}
           <div className="absolute top-2 right-2"><StatusBadge status={card.status} /></div>
+          {featured && (
+            <span className="absolute top-2 left-2 inline-flex items-center gap-1.5 rounded-full border border-emerald-400/40 bg-background/85 backdrop-blur-md px-2.5 py-1 text-[9px] uppercase tracking-[0.22em] font-semibold font-sans text-emerald-300">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse-glow" />
+              Produto principal
+            </span>
+          )}
         </div>
       )}
       <div className="px-5 sm:px-6 pt-4 pb-5 sm:pb-6">
