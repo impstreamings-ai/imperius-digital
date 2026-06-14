@@ -312,14 +312,11 @@ function Nav() {
           </span>
         </Link>
         <nav className="hidden md:flex items-center gap-9 text-[13px] text-muted-foreground font-medium">
-          <a href="#solucoes" className="hover:text-foreground transition-colors">
-            Soluções
-          </a>
+          <Link to="/" className="hover:text-foreground transition-colors">
+            Home
+          </Link>
           <a href="#demonstracoes" className="hover:text-foreground transition-colors">
-            Demonstrações
-          </a>
-          <a href="#processo" className="hover:text-foreground transition-colors">
-            Processo
+            Projetos
           </a>
         </nav>
         <a
