@@ -189,7 +189,7 @@ function Hero() {
               <Button
                 size="lg"
                 variant="outline"
-                className="w-full sm:w-auto h-12 px-7 text-sm font-semibold border-slate-300 text-slate-700 hover:text-sky-700 hover:border-sky-300 hover:bg-sky-50 transition-colors"
+                className="w-full sm:w-auto h-12 px-7 text-sm font-semibold bg-white border-slate-300 text-slate-700 hover:text-sky-700 hover:border-sky-300 hover:bg-sky-50 transition-colors"
               >
                 Ver especialidades
               </Button>
