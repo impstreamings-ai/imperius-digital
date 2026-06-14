@@ -1155,7 +1155,7 @@ function FinalCTA() {
           Receba uma demonstração construída especificamente para o seu negócio — sem
           briefing engessado, sem orçamento antes da entrega.
         </p>
-        <div className="mt-10 flex justify-center">
+        <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
           <a
             href={WA}
             target="_blank"
@@ -1172,6 +1172,13 @@ function FinalCTA() {
             >
               Solicitar demonstração <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
+          </a>
+          <a
+            href={PROPOSAL_MAILTO}
+            className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2"
+            onClick={() => track("final_cta_click", { destination: "email" })}
+          >
+            <Mail className="h-4 w-4" /> Receber proposta por e-mail
           </a>
         </div>
         <p className="mt-8 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
