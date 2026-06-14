@@ -672,7 +672,7 @@ function Booking() {
                 Resumo
               </div>
               <p className="text-[12.5px] text-stone-700 leading-snug">
-                <span className="font-semibold text-stone-900">Avaliação facial</span> · com Dra. Camila · Sáb 14/06 ·{" "}
+                <span className="font-semibold text-stone-900">Avaliação facial</span> · com a profissional escolhida · Sáb 14/06 ·{" "}
                 <span className="font-semibold" style={{ color: "#9B5C8A" }}>15:30</span>
               </p>
               <div className="mt-3 flex items-center justify-between gap-2 text-[10px] text-stone-500">
