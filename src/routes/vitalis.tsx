@@ -528,7 +528,7 @@ function BookingFlow() {
                 Resumo
               </div>
               <p className="text-[12px] text-slate-700 leading-snug">
-                <span className="font-semibold text-slate-900">Dra. Marina Costa</span> · Cardiologia · Qua 12/06 ·{" "}
+                <span className="font-semibold text-slate-900">Especialista em Cardiologia</span> · Cardiologia · Qua 12/06 ·{" "}
                 <span className="text-sky-700 font-semibold">14:00</span>
               </p>
               <div className="mt-3 flex items-center justify-between gap-2 text-[10px] text-slate-500">
