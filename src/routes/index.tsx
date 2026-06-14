@@ -542,32 +542,46 @@ function FAQ() {
 
 function FinalCTA() {
   return (
-    <section className="py-24 sm:py-28">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <div className="relative overflow-hidden card-premium rounded-3xl p-8 sm:p-12 lg:p-16 text-center glow-ring">
-          <div className="absolute inset-0 bg-grid opacity-60 pointer-events-none" />
-          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[480px] h-[480px] rounded-full blur-3xl" style={{ background: "radial-gradient(circle, oklch(0.55 0.25 250 / 0.45), transparent 70%)" }} />
-          <div className="relative">
-            <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-[1.1] tracking-tight">
-              Sua empresa transmite a imagem que merece?
-            </h2>
-            <p className="mt-6 text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-sans">
-              Criamos soluções digitais para negócios que desejam transmitir mais autoridade, facilitar o contato e gerar mais oportunidades.
-            </p>
-            <div className="mt-9 flex justify-center">
-              <a href={WA} target="_blank" rel="noreferrer" className="w-full sm:w-auto" onClick={() => { track("final_cta_click", { destination: "whatsapp" }); track("whatsapp_click", { location: "final_cta" }); }}>
-                <Button size="lg" className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide h-13 px-8 text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]">
-                  QUERO MINHA DEMONSTRAÇÃO <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </a>
-            </div>
-            <ul className="mt-7 flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs sm:text-[13px] text-muted-foreground/80 font-sans">
-              <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Sem compromisso</li>
-              <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Atendimento personalizado</li>
-              <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Demonstração exclusiva</li>
-            </ul>
-          </div>
+    <section className="relative py-28 sm:py-36 border-t border-border/30 overflow-hidden">
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[820px] h-[420px] rounded-full blur-3xl opacity-30 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse, oklch(0.55 0.25 250 / 0.4), transparent 70%)" }}
+      />
+      <div className="relative mx-auto max-w-4xl px-6 text-center">
+        <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-6 font-sans inline-flex items-center gap-2.5">
+          <span className="h-px w-8 bg-primary/70" />
+          Próximo passo
         </div>
+        <h2 className="font-display text-[2rem] sm:text-[2.8rem] lg:text-[3.4rem] font-bold leading-[1.05] tracking-[-0.02em] text-foreground">
+          Pronto para ver sua empresa
+          <span className="block text-neon">na medida que ela merece?</span>
+        </h2>
+        <p className="mt-6 text-muted-foreground text-[15px] sm:text-[17px] max-w-2xl mx-auto leading-relaxed font-sans">
+          Receba uma demonstração construída especificamente para o seu negócio — sem
+          briefing engessado, sem orçamento antes da entrega.
+        </p>
+        <div className="mt-10 flex justify-center">
+          <a
+            href={WA}
+            target="_blank"
+            rel="noreferrer"
+            className="w-full sm:w-auto"
+            onClick={() => {
+              track("final_cta_click", { destination: "whatsapp" });
+              track("whatsapp_click", { location: "final_cta" });
+            }}
+          >
+            <Button
+              size="lg"
+              className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]"
+            >
+              Solicitar demonstração <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </a>
+        </div>
+        <p className="mt-8 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
+          Sem compromisso · Resposta no mesmo dia útil · Atendimento direto com a equipe
+        </p>
       </div>
     </section>
   );
@@ -599,7 +613,7 @@ function Footer() {
               <li><a href="#servicos" className="hover:text-foreground transition-colors">Landing Pages</a></li>
               <li><a href="#servicos" className="hover:text-foreground transition-colors">Automação</a></li>
               <li><a href="#servicos" className="hover:text-foreground transition-colors">Inteligência Artificial</a></li>
-              <li><a href="#demonstracoes" className="hover:text-foreground transition-colors">Demonstrações</a></li>
+              <li><a href="#vitrine" className="hover:text-foreground transition-colors">Vitrine de projetos</a></li>
             </ul>
           </div>
 
