@@ -376,54 +376,68 @@ function Demonstracoes() {
 
 function StatusBadge({ status }: { status: DemoStatus }) {
   const styles: Record<DemoStatus, string> = {
-    "Ativo": "border-primary/50 text-primary bg-primary/10 shadow-[0_0_18px_-6px_oklch(0.72_0.22_250/0.8)]",
-    "Em desenvolvimento": "border-border/70 text-muted-foreground bg-card/60",
-    "Em breve": "border-border/60 text-muted-foreground/80 bg-card/40",
+    "Ativo": "border-primary/40 text-primary bg-background/70",
+    "Em desenvolvimento": "border-border/70 text-muted-foreground bg-background/70",
+    "Em breve": "border-border/60 text-muted-foreground/80 bg-background/70",
   };
   return (
-    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[10px] uppercase tracking-[0.18em] font-semibold font-sans ${styles[status]}`}>
+    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border backdrop-blur-md text-[10px] uppercase tracking-[0.18em] font-semibold font-sans ${styles[status]}`}>
       {status === "Ativo" && <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />}
       {status}
     </span>
   );
 }
 
+function KindTag({ kind }: { kind: DemoKind }) {
+  const isProduct = kind === "Produto Imperius";
+  return (
+    <span
+      className={`inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.22em] font-sans font-medium ${
+        isProduct ? "text-primary/90" : "text-muted-foreground/80"
+      }`}
+    >
+      <span className={`h-1 w-1 rounded-full ${isProduct ? "bg-primary" : "bg-muted-foreground/60"}`} />
+      {kind}
+    </span>
+  );
+}
+
 function DemoCardItem({ card }: { card: DemoCard }) {
   const isActive = card.status === "Ativo";
-  const hasCover = !!card.cover;
   const inner = (
     <>
-      {hasCover && (
-        <div className="relative -mx-6 sm:-mx-7 -mt-6 sm:-mt-7 mb-5 overflow-hidden rounded-t-2xl aspect-[16/10] border-b border-primary/20 bg-card">
+      {card.cover && (
+        <div className="relative overflow-hidden aspect-[16/10] bg-card">
           <img
             src={card.cover}
             alt={`Capa da demonstração ${card.title}`}
             loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+            className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent pointer-events-none" />
           <div className="absolute top-3 right-3"><StatusBadge status={card.status} /></div>
         </div>
       )}
-      <div className="flex items-start justify-between gap-3 mb-5">
-        <div className="h-12 w-12 rounded-xl flex items-center justify-center ring-1 ring-primary/30 group-hover:ring-primary/60 transition" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.6), oklch(0.18 0.05 245 / 0.3))" }}>
-          <card.icon className="h-6 w-6 text-primary" />
-        </div>
-        {!hasCover && <StatusBadge status={card.status} />}
+      <div className="px-5 sm:px-6 pt-4 pb-5 sm:pb-6">
+        <KindTag kind={card.kind} />
+        <h3 className="mt-2 font-heading font-semibold text-[16px] sm:text-[17px] tracking-[-0.01em] text-foreground">
+          {card.title}
+        </h3>
+        <p className="mt-1 text-[13.5px] text-muted-foreground leading-relaxed font-sans">
+          {card.desc}
+        </p>
+        {isActive && (
+          <div className="mt-4 inline-flex items-center gap-1.5 text-[12px] text-primary/90 font-semibold font-sans">
+            Ver demonstração {card.external ? <ExternalLink className="h-3.5 w-3.5" /> : <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />}
+          </div>
+        )}
       </div>
-      <h3 className="font-heading font-semibold text-base sm:text-lg tracking-tight">{card.title}</h3>
-      <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed font-sans">{card.desc}</p>
-      {isActive && (
-        <div className="mt-5 inline-flex items-center gap-1.5 text-xs text-primary/90 font-semibold font-sans">
-          Ver demonstração {card.external ? <ExternalLink className="h-3.5 w-3.5" /> : <ArrowRight className="h-3.5 w-3.5" />}
-        </div>
-      )}
     </>
   );
 
-  const baseCls = "card-premium rounded-2xl p-6 sm:p-7 h-full transition-all duration-300 border overflow-hidden";
-  const activeCls = "hover-lift group cursor-pointer border-primary/30 hover:border-primary/60 hover:shadow-[0_0_40px_-12px_oklch(0.72_0.22_250/0.7)]";
-  const inactiveCls = "border-border/40 opacity-80 cursor-default";
+  const baseCls = "card-editorial rounded-xl overflow-hidden h-full flex flex-col";
+  const activeCls = "card-editorial-hover group cursor-pointer";
+  const inactiveCls = "opacity-80 cursor-default";
 
   if (isActive && card.to) {
     return (
