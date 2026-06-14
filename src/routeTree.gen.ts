@@ -13,6 +13,7 @@ import { Route as VitalisRouteImport } from './routes/vitalis'
 import { Route as StudioBellaRouteImport } from './routes/studio-bella'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SchedulingRouteImport } from './routes/scheduling'
+import { Route as RestauranteImperialRouteImport } from './routes/restaurante-imperial'
 import { Route as PrimeImoveisRouteImport } from './routes/prime-imoveis'
 import { Route as CrmRouteImport } from './routes/crm'
 import { Route as AutomationRouteImport } from './routes/automation'
@@ -36,6 +37,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const SchedulingRoute = SchedulingRouteImport.update({
   id: '/scheduling',
   path: '/scheduling',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RestauranteImperialRoute = RestauranteImperialRouteImport.update({
+  id: '/restaurante-imperial',
+  path: '/restaurante-imperial',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrimeImoveisRoute = PrimeImoveisRouteImport.update({
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/automation': typeof AutomationRoute
   '/crm': typeof CrmRoute
   '/prime-imoveis': typeof PrimeImoveisRoute
+  '/restaurante-imperial': typeof RestauranteImperialRoute
   '/scheduling': typeof SchedulingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/studio-bella': typeof StudioBellaRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/automation': typeof AutomationRoute
   '/crm': typeof CrmRoute
   '/prime-imoveis': typeof PrimeImoveisRoute
+  '/restaurante-imperial': typeof RestauranteImperialRoute
   '/scheduling': typeof SchedulingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/studio-bella': typeof StudioBellaRoute
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/automation': typeof AutomationRoute
   '/crm': typeof CrmRoute
   '/prime-imoveis': typeof PrimeImoveisRoute
+  '/restaurante-imperial': typeof RestauranteImperialRoute
   '/scheduling': typeof SchedulingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/studio-bella': typeof StudioBellaRoute
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/automation'
     | '/crm'
     | '/prime-imoveis'
+    | '/restaurante-imperial'
     | '/scheduling'
     | '/sitemap.xml'
     | '/studio-bella'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/automation'
     | '/crm'
     | '/prime-imoveis'
+    | '/restaurante-imperial'
     | '/scheduling'
     | '/sitemap.xml'
     | '/studio-bella'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/automation'
     | '/crm'
     | '/prime-imoveis'
+    | '/restaurante-imperial'
     | '/scheduling'
     | '/sitemap.xml'
     | '/studio-bella'
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   AutomationRoute: typeof AutomationRoute
   CrmRoute: typeof CrmRoute
   PrimeImoveisRoute: typeof PrimeImoveisRoute
+  RestauranteImperialRoute: typeof RestauranteImperialRoute
   SchedulingRoute: typeof SchedulingRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StudioBellaRoute: typeof StudioBellaRoute
@@ -162,6 +175,13 @@ declare module '@tanstack/react-router' {
       path: '/scheduling'
       fullPath: '/scheduling'
       preLoaderRoute: typeof SchedulingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/restaurante-imperial': {
+      id: '/restaurante-imperial'
+      path: '/restaurante-imperial'
+      fullPath: '/restaurante-imperial'
+      preLoaderRoute: typeof RestauranteImperialRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/prime-imoveis': {
@@ -200,6 +220,7 @@ const rootRouteChildren: RootRouteChildren = {
   AutomationRoute: AutomationRoute,
   CrmRoute: CrmRoute,
   PrimeImoveisRoute: PrimeImoveisRoute,
+  RestauranteImperialRoute: RestauranteImperialRoute,
   SchedulingRoute: SchedulingRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   StudioBellaRoute: StudioBellaRoute,
