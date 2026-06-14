@@ -230,13 +230,13 @@ type DemoCard = {
 };
 
 import blackCrownCover from "@/assets/black-crown-cover.png.asset.json";
-import automationCover from "@/assets/imperius-automation-cover.png.asset.json";
-import crmCover from "@/assets/imperius-crm-cover.png.asset.json";
-import schedulingCover from "@/assets/imperius-scheduling-cover.png.asset.json";
-import vitalisCover from "@/assets/vitalis-cover.jpg.asset.json";
-import bellaCover from "@/assets/studio-bella-cover.jpg.asset.json";
-import primeCover from "@/assets/prime-cover.jpg.asset.json";
-import imperialCover from "@/assets/imperial-cover.jpg.asset.json";
+import automationCover from "@/assets/automation-thumb.jpg.asset.json";
+import crmCover from "@/assets/crm-thumb.jpg.asset.json";
+import schedulingCover from "@/assets/scheduling-thumb.jpg.asset.json";
+import vitalisCover from "@/assets/vitalis-hero.jpg.asset.json";
+import bellaCover from "@/assets/studio-bella-hero.jpg.asset.json";
+import primeCover from "@/assets/prime-hero.jpg.asset.json";
+import imperialCover from "@/assets/imperial-hero.jpg.asset.json";
 
 function Demonstracoes() {
   const cards: DemoCard[] = [
