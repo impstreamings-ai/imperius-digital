@@ -68,7 +68,7 @@ const WA_MESSAGE = "Olá! Quero uma demonstração personalizada da Imperius par
 const WA = `https://wa.me/5515981023792?text=${encodeURIComponent(WA_MESSAGE)}`;
 const IG = "https://instagram.com/imperiusdigital.br";
 const BLACK_CROWN_URL = "https://blackcrown-by-imperius.lovable.app/";
-const PROPOSAL_EMAIL = "contato@imperiusdigital.com.br";
+const PROPOSAL_EMAIL = "imperiusuniverse@gmail.com";
 const PROPOSAL_MAILTO = `mailto:${PROPOSAL_EMAIL}?subject=${encodeURIComponent("Proposta Imperius — apresentação personalizada")}&body=${encodeURIComponent("Olá, equipe Imperius.\n\nGostaria de receber uma proposta personalizada.\n\nEmpresa:\nSegmento:\nObjetivo principal:\n\nObrigado.")}`;
 
 function Landing() {
