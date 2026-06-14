@@ -144,8 +144,8 @@ function Hero() {
               <span className="text-neon">presença digital em oportunidade real</span>.
             </h1>
             <p className="mt-7 max-w-xl text-muted-foreground text-base sm:text-[17px] leading-relaxed font-sans">
-              Construímos sites, fluxos com IA e operações comerciais sob medida —
-              pensados para gerar contatos qualificados e organizar o que sua equipe faz com eles.
+              Projetamos sites, fluxos com IA e sistemas comerciais sob medida —
+              para gerar contatos qualificados e estruturar o ciclo comercial do primeiro toque ao fechamento.
             </p>
             <div className="mt-9 flex flex-col sm:flex-row sm:items-center gap-4">
               <a
@@ -577,12 +577,12 @@ function Manifesto() {
           </div>
           <div>
             <p className="font-heading text-[1.4rem] sm:text-[1.8rem] lg:text-[2.1rem] leading-[1.25] tracking-[-0.015em] text-foreground/95">
-              Acreditamos que a primeira impressão digital de uma empresa{" "}
+              A primeira impressão digital de uma empresa{" "}
               <span className="text-foreground/55">
-                deveria refletir a mesma sofisticação que ela exige no mundo real.
+                deve refletir a mesma sofisticação que ela exige no mundo real.
               </span>{" "}
-              Por isso construímos cada site, automação e sistema como um produto —
-              não como um template.
+              Por isso desenvolvemos cada site, automação e sistema como produto —
+              não como template.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-[12px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium">
               <span>Design sob medida</span>
@@ -723,8 +723,8 @@ function SobreImperius() {
               Websites, automação, CRM e IA para negócios que precisam operar com método.
             </h2>
             <p className="mt-5 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans">
-              Estúdio digital especializado em sistemas comerciais para negócios locais.
-              Transformamos processos manuais em operações mais organizadas, profissionais e eficientes.
+              Estúdio digital especializado em sistemas comerciais para empresas que dependem do digital para vender.
+              Estruturamos rotinas manuais em operações comerciais mensuráveis, organizadas e prontas para escalar.
             </p>
           </div>
           <ul className="grid sm:grid-cols-2 gap-y-8 gap-x-10 sm:border-l sm:border-border/40 sm:pl-10">
@@ -1254,7 +1254,7 @@ function FAQ() {
     },
     {
       q: "A demonstração tem custo?",
-      a: "Não. A demonstração inicial é gratuita e sem compromisso.",
+      a: "Não. A demonstração inicial é cortesia da Imperius, sem compromisso comercial.",
     },
   ];
   return (
@@ -1305,12 +1305,12 @@ function FinalCTA() {
         </div>
         <h2 className="font-display font-semibold text-[2rem] sm:text-[2.7rem] lg:text-[3.1rem] leading-[1.05] tracking-[-0.028em] text-foreground">
           Veja como a Imperius{" "}
-          <span className="text-neon">poderia apresentar</span>{" "}
+          <span className="text-neon">apresenta</span>{" "}
           o seu negócio.
         </h2>
         <p className="mt-6 text-muted-foreground text-[15px] sm:text-[17px] max-w-2xl mx-auto leading-relaxed font-sans">
-          Receba uma demonstração construída especificamente para o seu negócio — sem
-          briefing engessado, sem orçamento antes da entrega.
+          Você recebe uma demonstração construída especificamente para a sua empresa —
+          escopo definido em conjunto, projeto funcional antes de qualquer contrato.
         </p>
         <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
           <a
