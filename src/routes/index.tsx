@@ -566,8 +566,8 @@ function FinalCTA() {
   return (
     <section className="relative py-28 sm:py-36 border-t border-border/30 overflow-hidden">
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[820px] h-[420px] rounded-full blur-3xl opacity-30 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, oklch(0.55 0.25 250 / 0.4), transparent 70%)" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[820px] h-[420px] rounded-full blur-3xl opacity-18 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse, oklch(0.55 0.22 250 / 0.22), transparent 70%)" }}
       />
       <div className="relative mx-auto max-w-4xl px-6 text-center">
         <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-6 font-sans inline-flex items-center gap-2.5">
