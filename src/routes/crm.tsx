@@ -14,7 +14,6 @@ import {
   BellRing,
   TrendingUp,
   Target,
-  Sparkles,
   Scissors,
   Stethoscope,
   Building2,
@@ -25,10 +24,10 @@ import {
   Zap,
   ShieldCheck,
   Instagram,
-  Globe,
   CircleDollarSign,
   Flame,
 } from "lucide-react";
+
 import { trackEvent } from "@/lib/analytics";
 
 const track = (name: string, params: Record<string, unknown> = {}) =>
