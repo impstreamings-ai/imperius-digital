@@ -242,9 +242,9 @@ function HeroVisual() {
         {/* Mini pipeline */}
         <div className="grid grid-cols-3 gap-2">
           {[
-            { col: "Novos", count: 4, sample: "Mariana S.", tag: "Quente" },
-            { col: "Contato", count: 3, sample: "João P.", tag: "Morno" },
-            { col: "Proposta", count: 2, sample: "Carla M.", tag: "Quente" },
+            { col: "Novos", count: 4, sample: "Cliente 01", tag: "Quente" },
+            { col: "Contato", count: 3, sample: "Cliente 02", tag: "Morno" },
+            { col: "Proposta", count: 2, sample: "Cliente 03", tag: "Quente" },
           ].map((c) => (
             <div
               key={c.col}
