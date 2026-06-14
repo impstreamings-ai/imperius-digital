@@ -144,18 +144,24 @@ function Hero() {
         className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full blur-3xl animate-pulse-glow pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, oklch(0.5 0.25 250 / 0.35), transparent 70%)",
+            "radial-gradient(circle, oklch(0.78 0.16 215 / 0.32), transparent 70%)",
         }}
       />
 
       <div className="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-[1.05fr_1fr] gap-14 lg:gap-20 items-center w-full">
         <div>
-          <div className="inline-flex items-center gap-2.5 pl-1.5 pr-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/10 backdrop-blur mb-7 font-sans">
-            <span className="grid h-6 w-6 place-items-center rounded-full bg-primary/20 ring-1 ring-primary/40 shadow-[0_0_18px_-2px_oklch(0.72_0.22_250/0.6)]">
-              <TrendingUp className="h-3.5 w-3.5 text-primary" />
+          <div
+            className="inline-flex items-center gap-2.5 pl-1.5 pr-3.5 py-1.5 rounded-full border backdrop-blur mb-7 font-sans"
+            style={{ borderColor: "oklch(0.78 0.16 215 / 0.4)", background: "oklch(0.78 0.16 215 / 0.10)" }}
+          >
+            <span
+              className="grid h-6 w-6 place-items-center rounded-full"
+              style={{ background: "oklch(0.78 0.16 215 / 0.22)", boxShadow: "0 0 18px -2px oklch(0.78 0.16 215 / 0.65)", outline: "1px solid oklch(0.78 0.16 215 / 0.5)" }}
+            >
+              <TrendingUp className="h-3.5 w-3.5" style={{ color: "oklch(0.82 0.14 210)" }} />
             </span>
             <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">
-              Imperius CRM<span className="text-primary">™</span>
+              Imperius CRM<span style={{ color: "oklch(0.82 0.14 210)" }}>™</span>
             </span>
             <span className="hidden sm:block h-3 w-px bg-border/80" />
             <span className="hidden sm:block text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Pipeline & Vendas</span>
