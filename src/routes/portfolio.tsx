@@ -486,10 +486,10 @@ function SolutionCard({ solution }: { solution: Solution }) {
 
 function Demos() {
   return (
-    <section id="demonstracoes" className="pt-8 sm:pt-10 pb-20 sm:pb-24 relative">
+    <section id="demonstracoes" className="pt-8 sm:pt-10 pb-12 sm:pb-16 relative">
       <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" />
       <div className="relative mx-auto max-w-7xl px-6">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <div className="grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-6 [&>*]:lg:col-span-2 [&>*:nth-child(4)]:lg:col-start-2">
           {DEMOS.map((d) => (
             <DemoCard key={d.title} demo={d} />
           ))}
@@ -501,6 +501,7 @@ function Demos() {
 
 function DemoCard({ demo }: { demo: Demo }) {
   const Icon = demo.icon;
+  const featured = !!demo.featured;
   const inner = (
     <>
       <div className="relative aspect-[16/10] overflow-hidden bg-[oklch(0.11_0.006_245)]">
@@ -513,9 +514,17 @@ function DemoCard({ demo }: { demo: Demo }) {
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent" />
-        <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-border/70 bg-background/70 backdrop-blur-md text-[10px] uppercase tracking-[0.18em] font-semibold text-muted-foreground">
-          <Icon className="h-3 w-3" />
-          Projeto demonstrativo
+        <div className="absolute top-3 left-3 flex flex-wrap items-center gap-1.5">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-border/70 bg-background/70 backdrop-blur-md text-[10px] uppercase tracking-[0.18em] font-semibold text-muted-foreground">
+            <Icon className="h-3 w-3" />
+            Projeto demonstrativo
+          </span>
+          {featured && (
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-primary/40 bg-background/70 backdrop-blur-md text-[10px] uppercase tracking-[0.18em] font-semibold text-primary">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+              Projeto em destaque
+            </span>
+          )}
         </div>
         <div className="absolute bottom-3 left-3 right-3 text-[11px] font-mono text-muted-foreground/90 truncate">
           {demo.domain}
@@ -543,8 +552,12 @@ function DemoCard({ demo }: { demo: Demo }) {
     </>
   );
 
-  const className =
-    "group relative rounded-2xl border border-border/60 bg-card/40 backdrop-blur-sm overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_20px_60px_-30px_oklch(0.55_0.22_250/0.6)]";
+  const baseCls =
+    "group relative rounded-2xl border bg-card/40 backdrop-blur-sm overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-0.5";
+  const featuredCls = featured
+    ? "border-primary/35 ring-1 ring-primary/20 shadow-[0_24px_70px_-30px_oklch(0.55_0.22_250/0.55)] hover:border-primary/55 hover:shadow-[0_28px_80px_-26px_oklch(0.55_0.22_250/0.75)]"
+    : "border-border/60 hover:border-primary/40 hover:shadow-[0_20px_60px_-30px_oklch(0.55_0.22_250/0.6)]";
+  const className = `${baseCls} ${featuredCls}`;
 
   if (demo.external && demo.href) {
     return (
@@ -554,7 +567,7 @@ function DemoCard({ demo }: { demo: Demo }) {
         rel="noreferrer"
         className={className}
         onClick={() =>
-          track("portfolio_card_click", { kind: "demo", href: demo.href })
+          track("portfolio_card_click", { kind: "demo", href: demo.href, featured })
         }
       >
         {inner}
@@ -567,7 +580,7 @@ function DemoCard({ demo }: { demo: Demo }) {
       to={demo.to!}
       className={className}
       onClick={() =>
-        track("portfolio_card_click", { kind: "demo", to: demo.to })
+        track("portfolio_card_click", { kind: "demo", to: demo.to, featured })
       }
     >
       {inner}
