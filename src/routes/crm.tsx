@@ -585,15 +585,15 @@ function LeadProfile() {
     <ModuleShell label="Lead Profile" tag="Ficha do contato" icon={Users}>
       <div className="flex items-center gap-3 pb-3 mb-3 border-b border-border/50">
         <div className="h-12 w-12 rounded-full bg-primary/15 ring-1 ring-primary/40 flex items-center justify-center text-base font-semibold text-primary">
-          M
+          C
         </div>
         <div className="min-w-0">
-          <div className="text-sm font-semibold truncate">Mariana Silveira</div>
+          <div className="text-sm font-semibold truncate">Cliente exemplo</div>
           <div className="text-[11px] text-muted-foreground truncate">Lead #2840 · há 2 min</div>
         </div>
       </div>
       <div className="space-y-2">
-        <ProfileLine icon={Phone} label="Telefone" value="(15) 99102-4421" />
+        <ProfileLine icon={Phone} label="Telefone" value="(XX) XXXXX-XXXX" />
         <ProfileLine icon={Instagram} label="Origem" value="Instagram Ads" />
         <ProfileLine icon={Target} label="Interesse" value="Plano Premium" highlight />
         <ProfileLine icon={Flame} label="Status" value="Aguardando contato" />
