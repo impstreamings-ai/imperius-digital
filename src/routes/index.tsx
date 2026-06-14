@@ -1213,7 +1213,7 @@ function DemoCardItem({ card, featured = false, compact = false }: { card: DemoC
     </>
   );
 
-  const baseCls = "card-editorial rounded-xl overflow-hidden h-full flex flex-col";
+  const baseCls = `card-editorial rounded-xl overflow-hidden h-full flex flex-col ${accentRing}`;
   const activeCls = "card-editorial-hover group cursor-pointer";
   const inactiveCls = "opacity-80 cursor-default";
 
