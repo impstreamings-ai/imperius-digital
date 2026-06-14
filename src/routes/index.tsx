@@ -556,52 +556,15 @@ function Ecossistema() {
           </ol>
         </div>
 
-        {/* Modules inventory */}
-        <div className="mt-16 sm:mt-20 pt-10 border-t border-border/40">
-          <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/80 font-medium font-sans mb-2">
-                Produtos proprietários
-              </div>
-              <h3 className="font-heading font-semibold text-[18px] sm:text-[20px] tracking-[-0.01em] text-foreground">
-                Os três módulos que sustentam o fluxo.
-              </h3>
-            </div>
-            <div className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground/70 font-sans font-medium">
-              Cada um navegável
-            </div>
-          </div>
-          <div className="grid sm:grid-cols-3 gap-3 sm:gap-4">
-            {[
-              { tag: "Atendimento", title: "Automation", desc: "IA + WhatsApp em tempo real.", cover: automationEcoCover.url, to: "/automation", icon: Bot },
-              { tag: "Comercial", title: "CRM", desc: "Pipeline e indicadores comerciais.", cover: crmEcoCover.url, to: "/crm", icon: Users },
-              { tag: "Operação", title: "Scheduling", desc: "Agenda integrada à operação.", cover: schedulingEcoCover.url, to: "/scheduling", icon: Calendar },
-            ].map((m) => (
-              <Link
-                key={m.title}
-                to={m.to}
-                onClick={() => track("ecossistema_click", { module: m.title })}
-                className="group relative rounded-xl overflow-hidden border border-border/50 bg-[oklch(0.1_0.005_245)] hover:border-primary/40 transition-all duration-300 hover:-translate-y-0.5"
-              >
-                <div className="relative aspect-[16/9] overflow-hidden">
-                  <img
-                    src={m.cover}
-                    alt={`Imperius ${m.title}`}
-                    loading="lazy"
-                    className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.08_0.004_240)] via-transparent to-transparent" />
-                </div>
-                <div className="px-4 py-3.5 flex items-center justify-between gap-3">
-                  <div className="min-w-0">
-                    <div className="text-[9.5px] uppercase tracking-[0.22em] font-sans font-medium text-muted-foreground/70">{m.tag}</div>
-                    <div className="font-heading font-semibold text-[14.5px] tracking-[-0.01em] text-foreground truncate">Imperius {m.title}</div>
-                  </div>
-                  <ArrowRight className="h-4 w-4 text-primary/80 shrink-0 transition-transform group-hover:translate-x-0.5" />
-                </div>
-              </Link>
-            ))}
-          </div>
+        {/* Subline (lightweight, non-duplicative) */}
+        <div className="mt-12 sm:mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.22em] text-muted-foreground/70 font-sans font-medium">
+          <span>Mesmo contato</span>
+          <span className="h-1 w-1 rounded-full bg-border" />
+          <span>Mesmo histórico</span>
+          <span className="h-1 w-1 rounded-full bg-border" />
+          <span>Mesmos indicadores</span>
+          <span className="h-1 w-1 rounded-full bg-border" />
+          <span className="text-foreground/80">Veja cada produto na vitrine abaixo</span>
         </div>
       </div>
     </section>
