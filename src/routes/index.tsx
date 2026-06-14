@@ -589,6 +589,27 @@ function Manifesto() {
               <span className="h-1 w-1 rounded-full bg-border" />
               <span>Operação contínua</span>
             </div>
+            {/* Identidade empresarial — institucional mínimo */}
+            <dl className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4 border-t border-border/40 pt-8">
+              <div>
+                <dt className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground/70 font-sans font-semibold">Quem é</dt>
+                <dd className="mt-2 text-[13.5px] text-foreground/90 font-sans leading-relaxed">
+                  Estúdio digital brasileiro especializado em sites, automação e sistemas comerciais.
+                </dd>
+              </div>
+              <div>
+                <dt className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground/70 font-sans font-semibold">O que faz</dt>
+                <dd className="mt-2 text-[13.5px] text-foreground/90 font-sans leading-relaxed">
+                  Projeta presença digital e desenvolve software comercial sob medida — entregue, publicado e operado.
+                </dd>
+              </div>
+              <div>
+                <dt className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground/70 font-sans font-semibold">Como trabalha</dt>
+                <dd className="mt-2 text-[13.5px] text-foreground/90 font-sans leading-relaxed">
+                  Equipe enxuta, atendimento direto e demonstração funcional antes de qualquer proposta.
+                </dd>
+              </div>
+            </dl>
           </div>
         </div>
       </div>
