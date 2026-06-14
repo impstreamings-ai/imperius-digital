@@ -352,9 +352,6 @@ function SectionTitle({
   );
 }
 
-import automationEcoCover from "@/assets/automation-thumb.jpg.asset.json";
-import crmEcoCover from "@/assets/crm-thumb.jpg.asset.json";
-import schedulingEcoCover from "@/assets/scheduling-thumb.jpg.asset.json";
 
 function Ecossistema() {
   const flow = [
