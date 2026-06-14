@@ -112,28 +112,29 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative lg:min-h-[88vh] flex items-center pt-32 pb-16 sm:pb-20 overflow-hidden"
+      className="relative lg:min-h-[86vh] flex items-center pt-32 pb-20 sm:pb-24 overflow-hidden"
       style={{ background: "var(--gradient-hero)" }}
     >
-      <div className="absolute inset-0 bg-grid pointer-events-none" />
+      <div className="absolute inset-0 bg-grid pointer-events-none opacity-60" />
       <div
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[640px] h-[640px] rounded-full blur-3xl animate-pulse-glow"
-        style={{ background: "radial-gradient(circle, oklch(0.5 0.25 250 / 0.32), transparent 70%)" }}
+        className="absolute top-[38%] left-1/2 -translate-x-1/2 w-[560px] h-[560px] rounded-full blur-3xl opacity-70"
+        style={{ background: "radial-gradient(circle, oklch(0.5 0.25 250 / 0.22), transparent 70%)" }}
       />
 
       <div className="relative mx-auto max-w-5xl px-6 w-full">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2.5 text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-sans font-medium mb-8">
             <span className="h-px w-8 bg-primary/70" />
-            Imperius™ · Sorocaba/SP
+            Imperius · Estúdio digital · Sorocaba/SP
           </div>
-          <h1 className="font-display text-[2.1rem] sm:text-[3.1rem] lg:text-[3.9rem] xl:text-[4.4rem] font-bold leading-[1.02] tracking-[-0.02em] text-foreground">
-            Soluções digitais para empresas que precisam{" "}
-            <span className="text-neon">transmitir autoridade</span>.
+          <h1 className="font-display text-[2.4rem] sm:text-[3.6rem] lg:text-[4.6rem] xl:text-[5.2rem] font-normal leading-[1.02] tracking-[-0.01em] text-foreground">
+            Presença digital, automação e sistemas comerciais para empresas que precisam{" "}
+            <span className="italic text-neon">parecer maiores</span>{" "}
+            e vender melhor.
           </h1>
-          <p className="mt-7 max-w-xl text-muted-foreground text-base sm:text-[17px] leading-relaxed font-sans">
-            Websites, automação com IA e sistemas comerciais sob medida — construídos
-            para gerar oportunidades reais, não apenas impressões bonitas.
+          <p className="mt-8 max-w-xl text-muted-foreground text-base sm:text-[17px] leading-relaxed font-sans">
+            Construímos sites, fluxos com IA e operações comerciais sob medida —
+            pensados para gerar oportunidades reais, não apenas impressões bonitas.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
             <a
@@ -145,7 +146,7 @@ function Hero() {
             >
               <Button
                 size="lg"
-                className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]"
+                className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_36px_-8px_oklch(0.72_0.22_250/0.7)]"
               >
                 Solicitar demonstração <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
