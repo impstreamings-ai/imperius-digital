@@ -882,7 +882,7 @@ function Demonstracoes() {
         <div className="flex items-center gap-4" aria-hidden>
           <span className="h-px flex-1 bg-border/50" />
           <span className="text-[10px] uppercase tracking-[0.32em] text-muted-foreground/70 font-sans font-medium">
-            Demonstrações por nicho
+            Sites navegáveis por nicho
           </span>
           <span className="h-px flex-1 bg-border/50" />
         </div>
