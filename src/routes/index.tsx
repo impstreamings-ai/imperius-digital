@@ -1254,7 +1254,7 @@ function FAQ() {
     },
     {
       q: "A demonstração tem custo?",
-      a: "Não. A demonstração inicial é gratuita e sem compromisso.",
+      a: "Não. A demonstração inicial é cortesia da Imperius, sem compromisso comercial.",
     },
   ];
   return (
