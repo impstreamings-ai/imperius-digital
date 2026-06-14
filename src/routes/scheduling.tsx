@@ -50,9 +50,18 @@ export const Route = createFileRoute("/scheduling")({
         content:
           "Calendário, reservas, WhatsApp e dashboard conectados. Demonstração premium do Imperius Scheduling™.",
       },
+      { property: "og:type", content: "product" },
+      { property: "og:url", content: "https://imperius-digital.lovable.app/scheduling" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Imperius Scheduling™ | Agendamento Inteligente" },
+      {
+        name: "twitter:description",
+        content:
+          "Calendário, reservas, WhatsApp e dashboard conectados. Demonstração premium do Imperius Scheduling™.",
+      },
     ],
     links: [
+      { rel: "canonical", href: "https://imperius-digital.lovable.app/scheduling" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap",

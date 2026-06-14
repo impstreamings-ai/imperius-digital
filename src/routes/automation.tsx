@@ -50,9 +50,12 @@ export const Route = createFileRoute("/automation")({
         content:
           "Automatize respostas, capture leads e organize contatos com IA. Demonstração premium do Imperius Automation™.",
       },
+      { property: "og:url", content: "https://imperius-digital.lovable.app/automation" },
+      { property: "og:type", content: "product" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "canonical", href: "https://imperius-digital.lovable.app/automation" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap",
