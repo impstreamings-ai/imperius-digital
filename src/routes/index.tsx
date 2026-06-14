@@ -750,7 +750,7 @@ function StatusBadge({ status }: { status: DemoStatus }) {
 }
 
 function KindTag({ kind }: { kind: DemoKind }) {
-  const isProduct = kind === "Produto Imperius";
+  const isProduct = IMPERIUS_KINDS.has(kind);
   return (
     <span
       className={`inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.22em] font-sans font-medium ${
@@ -763,19 +763,203 @@ function KindTag({ kind }: { kind: DemoKind }) {
   );
 }
 
+function ProductPreview({ kind }: { kind: NonNullable<DemoCard["preview"]> }) {
+  if (kind === "automation") {
+    return (
+      <div className="absolute inset-0 grid grid-cols-[34%_1fr] bg-[oklch(0.11_0.006_245)]">
+        {/* Conversation list */}
+        <div className="border-r border-border/40 bg-[oklch(0.09_0.005_245)] flex flex-col">
+          <div className="px-3 py-2.5 border-b border-border/40 flex items-center gap-1.5">
+            <MessageCircle className="h-3 w-3 text-emerald-400/80" />
+            <span className="text-[9px] font-semibold font-sans text-foreground/90">WhatsApp</span>
+            <span className="ml-auto text-[8px] font-sans text-emerald-400/80">12</span>
+          </div>
+          {[
+            { n: "Mariana R.", m: "Quero saber sobre…", t: "agora", a: true },
+            { n: "João S.", m: "Bom dia, é poss…", t: "09:42", a: false },
+            { n: "Ana C.", m: "Obrigada!", t: "09:18", a: false },
+            { n: "Pedro M.", m: "Vou pensar", t: "ontem", a: false },
+          ].map((c) => (
+            <div key={c.n} className={`px-3 py-2 border-b border-border/20 ${c.a ? "bg-primary/10" : ""}`}>
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-[9.5px] font-semibold font-sans text-foreground truncate">{c.n}</span>
+                <span className="text-[7.5px] font-sans text-muted-foreground/70 shrink-0">{c.t}</span>
+              </div>
+              <div className="text-[8.5px] font-sans text-muted-foreground/80 truncate mt-0.5">{c.m}</div>
+            </div>
+          ))}
+        </div>
+        {/* Conversation */}
+        <div className="flex flex-col bg-[oklch(0.08_0.004_245)]">
+          <div className="px-3 py-2 border-b border-border/40 flex items-center gap-2">
+            <div className="h-5 w-5 rounded-full bg-primary/20 grid place-items-center text-[8px] font-bold text-primary">MR</div>
+            <div className="min-w-0">
+              <div className="text-[9.5px] font-semibold font-sans text-foreground truncate">Mariana Ribeiro</div>
+              <div className="text-[7.5px] font-sans text-muted-foreground/70">+55 15 99812-4471</div>
+            </div>
+            <span className="ml-auto text-[7.5px] font-sans font-semibold uppercase tracking-wider text-primary border border-primary/40 rounded-full px-1.5 py-0.5">Lead quente</span>
+          </div>
+          <div className="flex-1 p-2.5 space-y-1.5 overflow-hidden">
+            <div className="max-w-[78%] rounded-md rounded-tl-sm bg-[#1f2c33] px-2 py-1 text-[8.5px] text-foreground/90 font-sans">
+              Olá! Quero saber sobre o apartamento da Vila Mariana.
+            </div>
+            <div className="ml-auto max-w-[80%] rounded-md rounded-tr-sm bg-[#005c4b]/85 px-2 py-1 text-[8.5px] text-white/95 font-sans">
+              Claro, Mariana! Para qual faixa de orçamento?
+              <span className="ml-1 text-[7px] font-semibold uppercase tracking-wider text-emerald-300/90">IA</span>
+            </div>
+            <div className="max-w-[55%] rounded-md rounded-tl-sm bg-[#1f2c33] px-2 py-1 text-[8.5px] text-foreground/90 font-sans">
+              Até R$ 850 mil.
+            </div>
+            <div className="ml-auto max-w-[82%] rounded-md rounded-tr-sm bg-[#005c4b]/85 px-2 py-1 text-[8.5px] text-white/95 font-sans">
+              Perfeito. Encaminhei para o consultor Lucas. Ele responde em instantes.
+              <span className="ml-1 text-[7px] font-semibold uppercase tracking-wider text-emerald-300/90">IA</span>
+            </div>
+            <div className="inline-flex items-center gap-1 rounded-full bg-primary/15 border border-primary/30 px-1.5 py-0.5 text-[7.5px] font-semibold font-sans text-primary uppercase tracking-wider">
+              <span className="h-1 w-1 rounded-full bg-primary animate-pulse-glow" />
+              Encaminhado · CRM
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "crm") {
+    const cols = [
+      { t: "Novo lead", n: 14, cards: [{ n: "Mariana R.", c: "Imobiliária Vila", v: "R$ 12.500", tag: "Quente", hot: true }, { n: "João S.", c: "Petfield", v: "R$ 8.300", tag: "Morno", hot: false }] },
+      { t: "Em contato", n: 9, cards: [{ n: "Ana C.", c: "Studio Belle", v: "R$ 18.900", tag: "Quente", hot: true }, { n: "Pedro M.", c: "Lumière", v: "R$ 6.200", tag: "Morno", hot: false }] },
+      { t: "Proposta", n: 5, cards: [{ n: "Letícia V.", c: "Vitalis", v: "R$ 34.000", tag: "Quente", hot: true }] },
+      { t: "Fechado", n: 12, cards: [{ n: "Rafael T.", c: "Imperial", v: "R$ 22.800", tag: "Ganho", hot: true }] },
+    ];
+    return (
+      <div className="absolute inset-0 bg-[oklch(0.09_0.005_245)] flex flex-col">
+        {/* KPI strip */}
+        <div className="grid grid-cols-4 border-b border-border/40 divide-x divide-border/30">
+          {[
+            { l: "Pipeline", v: "R$ 380K" },
+            { l: "Oport.", v: "142" },
+            { l: "Conv.", v: "28%" },
+            { l: "Hoje", v: "+12" },
+          ].map((k) => (
+            <div key={k.l} className="px-2 py-1.5">
+              <div className="text-[7.5px] font-sans uppercase tracking-wider text-muted-foreground/70">{k.l}</div>
+              <div className="text-[11px] font-heading font-semibold text-foreground tabular-nums">{k.v}</div>
+            </div>
+          ))}
+        </div>
+        {/* Kanban */}
+        <div className="flex-1 grid grid-cols-4 gap-1.5 p-2 overflow-hidden">
+          {cols.map((col) => (
+            <div key={col.t} className="flex flex-col min-w-0">
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-[8px] font-semibold font-sans uppercase tracking-wider text-foreground/85 truncate">{col.t}</span>
+                <span className="text-[7.5px] font-sans text-muted-foreground/70 tabular-nums">{col.n}</span>
+              </div>
+              <div className="space-y-1.5">
+                {col.cards.map((c, i) => (
+                  <div key={i} className="rounded border border-border/50 bg-[oklch(0.11_0.006_245)] p-1.5">
+                    <div className="flex items-center gap-1 mb-0.5">
+                      <div className="h-3 w-3 rounded-full bg-primary/30 grid place-items-center text-[6px] font-bold text-primary shrink-0">
+                        {c.n.split(" ").map((x) => x[0]).join("").slice(0,2)}
+                      </div>
+                      <span className="text-[8px] font-semibold font-sans text-foreground truncate">{c.n}</span>
+                    </div>
+                    <div className="text-[7px] font-sans text-muted-foreground/80 truncate">{c.c}</div>
+                    <div className="mt-1 flex items-center justify-between gap-1">
+                      <span className="text-[8px] font-semibold font-sans text-foreground/90 tabular-nums">{c.v}</span>
+                      <span className={`text-[6.5px] font-semibold font-sans uppercase tracking-wider px-1 py-px rounded ${c.hot ? "bg-primary/20 text-primary" : "bg-muted/40 text-muted-foreground/80"}`}>{c.tag}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  // scheduling
+  const days = ["Seg 18", "Ter 19", "Qua 20", "Qui 21", "Sex 22"];
+  const slots = [
+    { d: 0, top: 8, h: 16, label: "09:00 · Mariana R.", tone: "primary" as const },
+    { d: 1, top: 28, h: 18, label: "10:30 · João S.", tone: "muted" as const },
+    { d: 2, top: 50, h: 20, label: "14:00 · Ana C.", tone: "primary" as const },
+    { d: 3, top: 14, h: 16, label: "09:30 · Pedro M.", tone: "muted" as const },
+    { d: 3, top: 56, h: 14, label: "15:00 · Lucas T.", tone: "primary" as const },
+    { d: 4, top: 38, h: 18, label: "13:00 · Letícia V.", tone: "primary" as const },
+  ];
+  return (
+    <div className="absolute inset-0 bg-[oklch(0.09_0.005_245)] flex flex-col">
+      <div className="flex items-center justify-between border-b border-border/40 px-3 py-2">
+        <div className="flex items-center gap-1.5">
+          <Calendar className="h-3 w-3 text-primary" />
+          <span className="text-[9.5px] font-semibold font-sans text-foreground">Novembro · Semana 47</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="text-[7.5px] font-sans uppercase tracking-wider text-muted-foreground/70">Semana</span>
+          <span className="text-[7.5px] font-semibold font-sans uppercase tracking-wider text-primary border border-primary/40 rounded px-1 py-px">Confirmar</span>
+        </div>
+      </div>
+      <div className="grid grid-cols-[28px_repeat(5,1fr)] flex-1 overflow-hidden">
+        <div className="flex flex-col text-[7px] font-sans text-muted-foreground/60 pr-1 pt-1 border-r border-border/30">
+          {["09", "11", "13", "15", "17"].map((h) => (
+            <div key={h} className="flex-1 flex items-start justify-end pr-0.5">{h}h</div>
+          ))}
+        </div>
+        {days.map((d, idx) => (
+          <div key={d} className="relative border-r border-border/30 last:border-r-0">
+            <div className="text-[8px] font-semibold font-sans text-foreground/85 px-1.5 py-1 border-b border-border/30 truncate">
+              {d}
+            </div>
+            <div className="absolute inset-0 top-[18px]">
+              {slots.filter((s) => s.d === idx).map((s, i) => (
+                <div
+                  key={i}
+                  className={`absolute left-1 right-1 rounded-sm px-1 py-0.5 text-[7px] font-semibold font-sans truncate ${
+                    s.tone === "primary"
+                      ? "bg-primary/20 border border-primary/50 text-primary"
+                      : "bg-[oklch(0.18_0.01_245)] border border-border/50 text-foreground/80"
+                  }`}
+                  style={{ top: `${s.top}%`, height: `${s.h}%` }}
+                >
+                  {s.label}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="border-t border-border/40 px-3 py-1.5 flex items-center justify-between">
+        <span className="text-[8px] font-sans text-muted-foreground/80">
+          <span className="font-semibold text-foreground/90 tabular-nums">6</span> agendados ·{" "}
+          <span className="font-semibold text-emerald-400/90">4 confirmados</span>
+        </span>
+        <span className="text-[7.5px] font-sans uppercase tracking-wider text-muted-foreground/70">Equipe · 3</span>
+      </div>
+    </div>
+  );
+}
+
 function DemoCardItem({ card }: { card: DemoCard }) {
   const isActive = card.status === "Ativo";
   const inner = (
     <>
-      {card.cover && (
+      {(card.cover || card.preview) && (
         <div className="relative overflow-hidden aspect-[16/10] bg-card">
-          <img
-            src={card.cover}
-            alt={`Capa da demonstração ${card.title}`}
-            loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent pointer-events-none" />
+          {card.preview ? (
+            <ProductPreview kind={card.preview} />
+          ) : (
+            <>
+              <img
+                src={card.cover}
+                alt={`Capa da demonstração ${card.title}`}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent pointer-events-none" />
+            </>
+          )}
           <div className="absolute top-3 right-3"><StatusBadge status={card.status} /></div>
         </div>
       )}
