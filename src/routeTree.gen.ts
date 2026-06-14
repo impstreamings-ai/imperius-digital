@@ -15,6 +15,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SchedulingRouteImport } from './routes/scheduling'
 import { Route as RestauranteImperialRouteImport } from './routes/restaurante-imperial'
 import { Route as PrimeImoveisRouteImport } from './routes/prime-imoveis'
+import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as CrmRouteImport } from './routes/crm'
 import { Route as AutomationRouteImport } from './routes/automation'
 import { Route as IndexRouteImport } from './routes/index'
@@ -49,6 +50,11 @@ const PrimeImoveisRoute = PrimeImoveisRouteImport.update({
   path: '/prime-imoveis',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioRoute = PortfolioRouteImport.update({
+  id: '/portfolio',
+  path: '/portfolio',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CrmRoute = CrmRouteImport.update({
   id: '/crm',
   path: '/crm',
@@ -69,6 +75,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/automation': typeof AutomationRoute
   '/crm': typeof CrmRoute
+  '/portfolio': typeof PortfolioRoute
   '/prime-imoveis': typeof PrimeImoveisRoute
   '/restaurante-imperial': typeof RestauranteImperialRoute
   '/scheduling': typeof SchedulingRoute
@@ -80,6 +87,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/automation': typeof AutomationRoute
   '/crm': typeof CrmRoute
+  '/portfolio': typeof PortfolioRoute
   '/prime-imoveis': typeof PrimeImoveisRoute
   '/restaurante-imperial': typeof RestauranteImperialRoute
   '/scheduling': typeof SchedulingRoute
@@ -92,6 +100,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/automation': typeof AutomationRoute
   '/crm': typeof CrmRoute
+  '/portfolio': typeof PortfolioRoute
   '/prime-imoveis': typeof PrimeImoveisRoute
   '/restaurante-imperial': typeof RestauranteImperialRoute
   '/scheduling': typeof SchedulingRoute
@@ -105,6 +114,7 @@ export interface FileRouteTypes {
     | '/'
     | '/automation'
     | '/crm'
+    | '/portfolio'
     | '/prime-imoveis'
     | '/restaurante-imperial'
     | '/scheduling'
@@ -116,6 +126,7 @@ export interface FileRouteTypes {
     | '/'
     | '/automation'
     | '/crm'
+    | '/portfolio'
     | '/prime-imoveis'
     | '/restaurante-imperial'
     | '/scheduling'
@@ -127,6 +138,7 @@ export interface FileRouteTypes {
     | '/'
     | '/automation'
     | '/crm'
+    | '/portfolio'
     | '/prime-imoveis'
     | '/restaurante-imperial'
     | '/scheduling'
@@ -139,6 +151,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AutomationRoute: typeof AutomationRoute
   CrmRoute: typeof CrmRoute
+  PortfolioRoute: typeof PortfolioRoute
   PrimeImoveisRoute: typeof PrimeImoveisRoute
   RestauranteImperialRoute: typeof RestauranteImperialRoute
   SchedulingRoute: typeof SchedulingRoute
@@ -191,6 +204,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrimeImoveisRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio': {
+      id: '/portfolio'
+      path: '/portfolio'
+      fullPath: '/portfolio'
+      preLoaderRoute: typeof PortfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/crm': {
       id: '/crm'
       path: '/crm'
@@ -219,6 +239,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AutomationRoute: AutomationRoute,
   CrmRoute: CrmRoute,
+  PortfolioRoute: PortfolioRoute,
   PrimeImoveisRoute: PrimeImoveisRoute,
   RestauranteImperialRoute: RestauranteImperialRoute,
   SchedulingRoute: SchedulingRoute,
