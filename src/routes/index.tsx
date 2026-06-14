@@ -214,6 +214,115 @@ function SectionTitle({
   );
 }
 
+import automationEcoCover from "@/assets/automation-thumb.jpg.asset.json";
+import crmEcoCover from "@/assets/crm-thumb.jpg.asset.json";
+import schedulingEcoCover from "@/assets/scheduling-thumb.jpg.asset.json";
+
+function Ecossistema() {
+  const modules = [
+    {
+      n: "01",
+      tag: "Atendimento",
+      title: "Automation",
+      desc: "IA conversacional no WhatsApp — qualifica, responde e encaminha em tempo real.",
+      cover: automationEcoCover.url,
+      to: "/automation",
+    },
+    {
+      n: "02",
+      tag: "Comercial",
+      title: "CRM",
+      desc: "Pipeline visual e indicadores que mostram exatamente onde o time precisa agir.",
+      cover: crmEcoCover.url,
+      to: "/crm",
+    },
+    {
+      n: "03",
+      tag: "Operação",
+      title: "Scheduling",
+      desc: "Agendamento inteligente integrado ao atendimento e à agenda do time.",
+      cover: schedulingEcoCover.url,
+      to: "/scheduling",
+    },
+  ] as const;
+
+  return (
+    <section className="relative py-24 sm:py-32 border-y border-border/30 bg-[oklch(0.08_0.004_240)]">
+      <div className="relative mx-auto max-w-7xl px-6">
+        <div className="mb-12 sm:mb-16 grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 lg:items-end">
+          <div className="max-w-2xl">
+            <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
+              <span className="h-px w-8 bg-primary/60" />
+              Ecossistema Imperius
+            </div>
+            <h2 className="font-display font-semibold text-[1.9rem] sm:text-[2.5rem] lg:text-[2.9rem] leading-[1.05] tracking-[-0.028em] text-foreground">
+              Três módulos. Uma única operação comercial.
+            </h2>
+            <p className="mt-5 text-muted-foreground text-[15px] sm:text-[16.5px] leading-relaxed font-sans max-w-xl">
+              Cada produto Imperius funciona sozinho — mas foi desenhado para conversar
+              com os outros. Atendimento, vendas e agenda compartilham o mesmo histórico,
+              os mesmos contatos e as mesmas métricas.
+            </p>
+          </div>
+          <div className="text-[11.5px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium inline-flex items-center gap-3 lg:justify-end">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+            Plataforma integrada
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-px bg-border/40 border border-border/40 rounded-xl overflow-hidden">
+          {modules.map((m) => (
+            <Link
+              key={m.title}
+              to={m.to}
+              onClick={() => track("ecossistema_click", { module: m.title })}
+              className="group relative flex flex-col bg-[oklch(0.1_0.005_240)] hover:bg-[oklch(0.12_0.008_245)] transition-colors"
+            >
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <img
+                  src={m.cover}
+                  alt={`Imperius ${m.title}`}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.08_0.004_240)] via-[oklch(0.08_0.004_240/0.2)] to-transparent" />
+                <span className="absolute top-3 left-3 text-[10px] uppercase tracking-[0.22em] font-semibold font-sans text-muted-foreground/90 bg-background/70 backdrop-blur-md border border-border/50 rounded-full px-2.5 py-1">
+                  {m.tag}
+                </span>
+              </div>
+              <div className="px-5 sm:px-6 pt-5 pb-6 flex-1 flex flex-col">
+                <div className="flex items-baseline justify-between gap-3 mb-2">
+                  <h3 className="font-heading font-semibold text-[18px] sm:text-[20px] tracking-[-0.015em] text-foreground">
+                    Imperius {m.title}
+                  </h3>
+                  <span className="font-heading text-[11px] tracking-[0.24em] text-muted-foreground/60 font-semibold">
+                    {m.n}
+                  </span>
+                </div>
+                <p className="text-[13.5px] text-muted-foreground leading-relaxed font-sans">
+                  {m.desc}
+                </p>
+                <div className="mt-5 inline-flex items-center gap-1.5 text-[12px] text-primary/90 font-semibold font-sans">
+                  Abrir demonstração
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11.5px] uppercase tracking-[0.22em] text-muted-foreground/70 font-sans font-medium">
+          <span>Mesma base de contatos</span>
+          <span className="h-1 w-1 rounded-full bg-border" />
+          <span>Mesmo histórico</span>
+          <span className="h-1 w-1 rounded-full bg-border" />
+          <span>Mesmos indicadores</span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 
 function Manifesto() {
   return (
