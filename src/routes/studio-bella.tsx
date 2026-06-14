@@ -442,24 +442,24 @@ type Pro = { name: string; role: string; reg: string; photo: string; rating: num
 function Team() {
   const team: Pro[] = [
     {
-      name: "Dra. Camila Bellini",
-      role: "Diretora Clínica",
-      reg: "CRBM 27.401",
+      name: "Diretora Clínica",
+      role: "Harmonização facial",
+      reg: "Registro XX.XXX",
       photo: pro2.url,
       rating: 5.0,
       spec: "Harmonização facial",
     },
     {
-      name: "Letícia Andrade",
-      role: "Esteticista Sênior",
+      name: "Esteticista Sênior",
+      role: "Estética avançada",
       reg: "Especialista facial",
       photo: pro1.url,
       rating: 4.9,
       spec: "Estética avançada",
     },
     {
-      name: "Júlia Moraes",
-      role: "Dermato-funcional",
+      name: "Dermato-funcional",
+      role: "Laser & corporal",
       reg: "Especialista corporal",
       photo: pro3.url,
       rating: 4.9,
