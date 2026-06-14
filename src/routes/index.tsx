@@ -144,8 +144,8 @@ function Hero() {
               <span className="text-neon">presença digital em oportunidade real</span>.
             </h1>
             <p className="mt-7 max-w-xl text-muted-foreground text-base sm:text-[17px] leading-relaxed font-sans">
-              Construímos sites, fluxos com IA e operações comerciais sob medida —
-              pensados para gerar contatos qualificados e organizar o que sua equipe faz com eles.
+              Projetamos sites, fluxos com IA e sistemas comerciais sob medida —
+              para gerar contatos qualificados e estruturar o ciclo comercial do primeiro toque ao fechamento.
             </p>
             <div className="mt-9 flex flex-col sm:flex-row sm:items-center gap-4">
               <a
