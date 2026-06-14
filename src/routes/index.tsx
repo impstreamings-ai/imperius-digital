@@ -1131,21 +1131,37 @@ function DemoCardItem({ card }: { card: DemoCard }) {
   const inner = (
     <>
       {(card.cover || card.preview) && (
-        <div className="relative overflow-hidden aspect-[16/10] bg-card">
+        <div className="relative overflow-hidden bg-[oklch(0.09_0.005_240)] border-b border-border/50">
           {card.preview ? (
-            <ProductPreview kind={card.preview} />
+            <div className="relative aspect-[16/10] bg-card">
+              <ProductPreview kind={card.preview} />
+            </div>
           ) : (
             <>
-              <img
-                src={card.cover}
-                alt={`Capa da demonstração ${card.title}`}
-                loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent pointer-events-none" />
+              <div className="flex items-center gap-1.5 px-3 py-2 border-b border-border/50 bg-[oklch(0.08_0.004_240)]">
+                <span className="h-2 w-2 rounded-full bg-red-400/70" />
+                <span className="h-2 w-2 rounded-full bg-yellow-400/70" />
+                <span className="h-2 w-2 rounded-full bg-emerald-400/70" />
+                <span className="ml-2 flex-1 truncate rounded-md bg-[oklch(0.12_0.005_245)] px-2 py-0.5 text-[9.5px] font-sans text-muted-foreground/80">
+                  {card.domain ?? "imperiusdigital.com.br"}
+                </span>
+                <span className="hidden sm:inline-flex items-center gap-1 text-[8.5px] uppercase tracking-[0.22em] text-primary/90 font-semibold font-sans shrink-0">
+                  <span className="h-1 w-1 rounded-full bg-primary animate-pulse-glow" />
+                  Ao vivo
+                </span>
+              </div>
+              <div className="relative aspect-[16/10] bg-card">
+                <img
+                  src={card.cover}
+                  alt={`Capa da demonstração ${card.title}`}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent pointer-events-none" />
+              </div>
             </>
           )}
-          <div className="absolute top-3 right-3"><StatusBadge status={card.status} /></div>
+          <div className="absolute top-2 right-2"><StatusBadge status={card.status} /></div>
         </div>
       )}
       <div className="px-5 sm:px-6 pt-4 pb-5 sm:pb-6">
