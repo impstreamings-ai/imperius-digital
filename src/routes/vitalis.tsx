@@ -459,9 +459,9 @@ function BookingFlow() {
           <StepCard step="01" tag="Profissional" icon={Stethoscope}>
             <div className="space-y-2">
               {[
-                { n: "Dra. Marina Costa", s: "Cardiologia", active: true, photo: doc1Asset.url },
-                { n: "Dr. Felipe Andrade", s: "Clínica Geral", photo: doc2Asset.url },
-                { n: "Dra. Helena Vargas", s: "Dermatologia", photo: doc3Asset.url },
+                { n: "Especialista em Cardiologia", s: "Cardiologia", active: true, photo: doc1Asset.url },
+                { n: "Especialista em Clínica Geral", s: "Clínica Geral", photo: doc2Asset.url },
+                { n: "Especialista em Dermatologia", s: "Dermatologia", photo: doc3Asset.url },
               ].map((d) => (
                 <div
                   key={d.n}
