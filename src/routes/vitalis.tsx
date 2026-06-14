@@ -156,9 +156,15 @@ function Hero() {
 
       <div className="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-[1.05fr_1fr] gap-14 lg:gap-20 items-center w-full">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border/60 bg-card/40 backdrop-blur text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-7 font-sans font-medium">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-            Clínica Vitalis<span className="text-primary">™</span>
+          <div className="inline-flex items-center gap-2.5 pl-1.5 pr-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/10 backdrop-blur mb-7 font-sans">
+            <span className="grid h-6 w-6 place-items-center rounded-full bg-primary/20 ring-1 ring-primary/40 shadow-[0_0_18px_-2px_oklch(0.72_0.22_250/0.6)]">
+              <HeartPulse className="h-3.5 w-3.5 text-primary" />
+            </span>
+            <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">
+              Clínica Vitalis<span className="text-primary">™</span>
+            </span>
+            <span className="hidden sm:block h-3 w-px bg-border/80" />
+            <span className="hidden sm:block text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Saúde & Agendamento</span>
           </div>
           <h1 className="font-display text-[2rem] sm:text-[2.75rem] lg:text-[3.5rem] xl:text-[4rem] font-bold leading-[1.05] tracking-tight">
             <span className="block text-gradient">Mais consultas. Menos ligações.</span>
