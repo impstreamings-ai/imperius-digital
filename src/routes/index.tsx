@@ -224,17 +224,21 @@ type DemoCard = {
   href?: string;
   to?: string;
   external?: boolean;
+  cover?: string;
 };
+
+import blackCrownCover from "@/assets/black-crown-cover.png.asset.json";
 
 function Demonstracoes() {
   const cards: DemoCard[] = [
-    { icon: Scissors, title: "Black Crown Barbershop", desc: "Website para Barbearia", status: "Ativo", href: BLACK_CROWN_URL, external: true },
+    { icon: Scissors, title: "Black Crown Barbershop", desc: "Website para Barbearia", status: "Ativo", href: BLACK_CROWN_URL, external: true, cover: blackCrownCover.url },
     { icon: Bot, title: "Imperius Automation", desc: "IA + WhatsApp Automatizado", status: "Ativo", to: "/automation" },
     { icon: Users, title: "CRM Comercial", desc: "Gestão de Leads", status: "Em desenvolvimento" },
     { icon: Calendar, title: "Sistema de Agendamento", desc: "Reservas e Horários", status: "Em desenvolvimento" },
     { icon: Stethoscope, title: "Clínica Vitalis", desc: "Website para Clínica", status: "Em breve" },
     { icon: Sparkles, title: "Studio Bella Estética", desc: "Website para Estética", status: "Em breve" },
   ];
+
 
   return (
     <section id="demonstracoes" className="py-24 sm:py-28 relative">
