@@ -93,6 +93,7 @@ type Demo = {
   to?: string;
   href?: string;
   external?: boolean;
+  featured?: boolean;
 };
 
 const SOLUTIONS: Solution[] = [
