@@ -7,7 +7,7 @@ import {
   ArrowRight,
   Bot,
   MessageCircle,
-  Check,
+  
   Zap,
   Instagram,
   Phone,
