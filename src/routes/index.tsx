@@ -816,6 +816,7 @@ type DemoCard = {
   to?: string;
   external?: boolean;
   cover?: string;
+  domain?: string;
   /** Optional custom preview node (used for Imperius products to render a realistic mini-UI instead of a generic image). */
   preview?: "automation" | "crm" | "scheduling";
 };
@@ -833,11 +834,11 @@ function Demonstracoes() {
     { icon: Bot, title: "Imperius Automation", desc: "WhatsApp Business com IA que qualifica e encaminha leads em tempo real.", status: "Ativo", kind: "Atendimento", to: "/automation", preview: "automation" },
     { icon: Users, title: "Imperius CRM", desc: "Pipeline comercial com etapas, oportunidades e indicadores do time.", status: "Ativo", kind: "Comercial", to: "/crm", preview: "crm" },
     { icon: Calendar, title: "Imperius Scheduling", desc: "Agenda, confirmações e reservas integradas ao atendimento.", status: "Ativo", kind: "Operação", to: "/scheduling", preview: "scheduling" },
-    { icon: Scissors, title: "Black Crown Barbershop", desc: "Barbearia premium com agendamento e identidade visual cinematográfica. Abra e navegue como um cliente real.", status: "Ativo", kind: "Projeto externo", href: BLACK_CROWN_URL, external: true, cover: blackCrownCover.url },
-    { icon: Stethoscope, title: "Clínica Vitalis", desc: "Site clínico com agendamento, especialidades e tom de confiança — pronto para captar pacientes.", status: "Ativo", kind: "Demonstração de nicho", to: "/vitalis", cover: vitalisCover.url },
-    { icon: Sparkles, title: "Studio Bella Estética", desc: "Estética de alto padrão com vitrine de procedimentos e reserva direta. Veja o fluxo completo.", status: "Ativo", kind: "Demonstração de nicho", to: "/studio-bella", cover: bellaCover.url },
-    { icon: Building2, title: "Prime Imóveis", desc: "Portal imobiliário com busca, ficha de imóvel e captação de leads qualificados em segundos.", status: "Ativo", kind: "Demonstração de nicho", to: "/prime-imoveis", cover: primeCover.url },
-    { icon: UtensilsCrossed, title: "Restaurante Imperial", desc: "Reservas, cardápio e identidade gastronômica premium — explore como um cliente reservaria hoje.", status: "Ativo", kind: "Demonstração de nicho", to: "/restaurante-imperial", cover: imperialCover.url },
+    { icon: Scissors, title: "Black Crown Barbershop", desc: "Barbearia premium com agendamento e identidade visual cinematográfica. Abra e navegue como um cliente real.", status: "Ativo", kind: "Projeto externo", href: BLACK_CROWN_URL, external: true, cover: blackCrownCover.url, domain: "blackcrown-by-imperius.lovable.app" },
+    { icon: Stethoscope, title: "Clínica Vitalis", desc: "Site clínico com agendamento, especialidades e tom de confiança — pronto para captar pacientes.", status: "Ativo", kind: "Demonstração de nicho", to: "/vitalis", cover: vitalisCover.url, domain: "vitalis.imperiusdigital.com.br" },
+    { icon: Sparkles, title: "Studio Bella Estética", desc: "Estética de alto padrão com vitrine de procedimentos e reserva direta. Veja o fluxo completo.", status: "Ativo", kind: "Demonstração de nicho", to: "/studio-bella", cover: bellaCover.url, domain: "studiobella.imperiusdigital.com.br" },
+    { icon: Building2, title: "Prime Imóveis", desc: "Portal imobiliário com busca, ficha de imóvel e captação de leads qualificados em segundos.", status: "Ativo", kind: "Demonstração de nicho", to: "/prime-imoveis", cover: primeCover.url, domain: "primeimoveis.imperiusdigital.com.br" },
+    { icon: UtensilsCrossed, title: "Restaurante Imperial", desc: "Reservas, cardápio e identidade gastronômica premium — explore como um cliente reservaria hoje.", status: "Ativo", kind: "Demonstração de nicho", to: "/restaurante-imperial", cover: imperialCover.url, domain: "imperial.imperiusdigital.com.br" },
   ];
 
 
@@ -1130,21 +1131,37 @@ function DemoCardItem({ card }: { card: DemoCard }) {
   const inner = (
     <>
       {(card.cover || card.preview) && (
-        <div className="relative overflow-hidden aspect-[16/10] bg-card">
+        <div className="relative overflow-hidden bg-[oklch(0.09_0.005_240)] border-b border-border/50">
           {card.preview ? (
-            <ProductPreview kind={card.preview} />
+            <div className="relative aspect-[16/10] bg-card">
+              <ProductPreview kind={card.preview} />
+            </div>
           ) : (
             <>
-              <img
-                src={card.cover}
-                alt={`Capa da demonstração ${card.title}`}
-                loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent pointer-events-none" />
+              <div className="flex items-center gap-1.5 px-3 py-2 border-b border-border/50 bg-[oklch(0.08_0.004_240)]">
+                <span className="h-2 w-2 rounded-full bg-red-400/70" />
+                <span className="h-2 w-2 rounded-full bg-yellow-400/70" />
+                <span className="h-2 w-2 rounded-full bg-emerald-400/70" />
+                <span className="ml-2 flex-1 truncate rounded-md bg-[oklch(0.12_0.005_245)] px-2 py-0.5 text-[9.5px] font-sans text-muted-foreground/80">
+                  {card.domain ?? "imperiusdigital.com.br"}
+                </span>
+                <span className="hidden sm:inline-flex items-center gap-1 text-[8.5px] uppercase tracking-[0.22em] text-primary/90 font-semibold font-sans shrink-0">
+                  <span className="h-1 w-1 rounded-full bg-primary animate-pulse-glow" />
+                  Ao vivo
+                </span>
+              </div>
+              <div className="relative aspect-[16/10] bg-card">
+                <img
+                  src={card.cover}
+                  alt={`Capa da demonstração ${card.title}`}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent pointer-events-none" />
+              </div>
             </>
           )}
-          <div className="absolute top-3 right-3"><StatusBadge status={card.status} /></div>
+          <div className="absolute top-2 right-2"><StatusBadge status={card.status} /></div>
         </div>
       )}
       <div className="px-5 sm:px-6 pt-4 pb-5 sm:pb-6">
