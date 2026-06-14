@@ -120,6 +120,7 @@ const DEMOS: Demo[] = [
   {
     icon: Scissors,
     title: "Black Crown Barbershop",
+    segment: "Barbearia premium",
     desc: "Barbearia premium com agendamento e identidade visual cinematográfica.",
     cover: blackCrownCover.url,
     domain: "blackcrown-by-imperius.lovable.app",
@@ -129,6 +130,7 @@ const DEMOS: Demo[] = [
   {
     icon: Stethoscope,
     title: "Clínica Vitalis",
+    segment: "Saúde · Clínica",
     desc: "Site clínico com agendamento, especialidades e tom de confiança.",
     cover: vitalisCover.url,
     domain: "vitalis.imperiusdigital.com.br",
@@ -137,6 +139,7 @@ const DEMOS: Demo[] = [
   {
     icon: Sparkles,
     title: "Studio Bella Estética",
+    segment: "Estética · Alto padrão",
     desc: "Estética de alto padrão com vitrine de procedimentos e reserva direta.",
     cover: bellaCover.url,
     domain: "studiobella.imperiusdigital.com.br",
@@ -145,6 +148,7 @@ const DEMOS: Demo[] = [
   {
     icon: Building2,
     title: "Prime Imóveis",
+    segment: "Imobiliário",
     desc: "Portal imobiliário com busca, ficha de imóvel e captação de leads.",
     cover: primeCover.url,
     domain: "primeimoveis.imperiusdigital.com.br",
@@ -153,6 +157,7 @@ const DEMOS: Demo[] = [
   {
     icon: UtensilsCrossed,
     title: "Restaurante Imperial",
+    segment: "Gastronomia",
     desc: "Reservas, cardápio e identidade gastronômica premium.",
     cover: imperialCover.url,
     domain: "imperial.imperiusdigital.com.br",
