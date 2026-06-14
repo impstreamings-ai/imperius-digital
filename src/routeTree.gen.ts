@@ -9,21 +9,21 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as VitalisRouteImport } from './routes/vitalis'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SchedulingRouteImport } from './routes/scheduling'
 import { Route as CrmRouteImport } from './routes/crm'
 import { Route as AutomationRouteImport } from './routes/automation'
 import { Route as IndexRouteImport } from './routes/index'
 
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const VitalisRoute = VitalisRouteImport.update({
   id: '/vitalis',
   path: '/vitalis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SchedulingRoute = SchedulingRouteImport.update({
@@ -52,16 +52,16 @@ export interface FileRoutesByFullPath {
   '/automation': typeof AutomationRoute
   '/crm': typeof CrmRoute
   '/scheduling': typeof SchedulingRoute
-  '/vitalis': typeof VitalisRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/vitalis': typeof VitalisRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/automation': typeof AutomationRoute
   '/crm': typeof CrmRoute
   '/scheduling': typeof SchedulingRoute
-  '/vitalis': typeof VitalisRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/vitalis': typeof VitalisRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -69,15 +69,28 @@ export interface FileRoutesById {
   '/automation': typeof AutomationRoute
   '/crm': typeof CrmRoute
   '/scheduling': typeof SchedulingRoute
-  '/vitalis': typeof VitalisRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/vitalis': typeof VitalisRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/automation' | '/crm' | '/scheduling' | '/vitalis' | '/sitemap.xml'
+  fullPaths:
+    | '/'
+    | '/automation'
+    | '/crm'
+    | '/scheduling'
+    | '/sitemap.xml'
+    | '/vitalis'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/automation' | '/crm' | '/scheduling' | '/vitalis' | '/sitemap.xml'
-  id: '__root__' | '/' | '/automation' | '/crm' | '/scheduling' | '/vitalis' | '/sitemap.xml'
+  to: '/' | '/automation' | '/crm' | '/scheduling' | '/sitemap.xml' | '/vitalis'
+  id:
+    | '__root__'
+    | '/'
+    | '/automation'
+    | '/crm'
+    | '/scheduling'
+    | '/sitemap.xml'
+    | '/vitalis'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -85,24 +98,24 @@ export interface RootRouteChildren {
   AutomationRoute: typeof AutomationRoute
   CrmRoute: typeof CrmRoute
   SchedulingRoute: typeof SchedulingRoute
-  VitalisRoute: typeof VitalisRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  VitalisRoute: typeof VitalisRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/vitalis': {
       id: '/vitalis'
       path: '/vitalis'
       fullPath: '/vitalis'
       preLoaderRoute: typeof VitalisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/scheduling': {
@@ -141,8 +154,8 @@ const rootRouteChildren: RootRouteChildren = {
   AutomationRoute: AutomationRoute,
   CrmRoute: CrmRoute,
   SchedulingRoute: SchedulingRoute,
-  VitalisRoute: VitalisRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  VitalisRoute: VitalisRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
