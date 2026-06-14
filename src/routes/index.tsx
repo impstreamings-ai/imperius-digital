@@ -1273,6 +1273,10 @@ function FAQ() {
       q: "A demonstração tem custo?",
       a: "Não. A demonstração inicial é cortesia da Imperius, sem compromisso comercial.",
     },
+    {
+      q: "Com quem eu falo?",
+      a: "Diretamente com a equipe que desenvolve o projeto. Sem atendimento terceirizado, sem chatbot intermediário — o mesmo time conduz da conversa inicial à publicação.",
+    },
   ];
   return (
     <section id="faq" className="py-24 sm:py-28 border-t border-border/30">
@@ -1394,12 +1398,15 @@ function Footer() {
           </div>
 
           <div>
-            <div className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4 font-sans">Contato</div>
+            <div className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4 font-sans">Contato direto</div>
+            <a href={WA} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors mb-3 font-sans" onClick={() => track("whatsapp_click", { location: "footer" })}>
+              <MessageCircle className="h-4 w-4 shrink-0" /> WhatsApp com a equipe
+            </a>
             <a href={WA} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors mb-3 font-sans" onClick={() => track("whatsapp_click", { location: "footer" })}>
               <Phone className="h-4 w-4 shrink-0" /> +55 15 98102-3792
             </a>
-            <a href={WA} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors mb-3 font-sans" onClick={() => track("whatsapp_click", { location: "footer" })}>
-              <MessageCircle className="h-4 w-4 shrink-0" /> Atendimento via WhatsApp
+            <a href={PROPOSAL_MAILTO} className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors mb-3 font-sans" onClick={() => track("footer_email_click")}>
+              <Mail className="h-4 w-4 shrink-0" /> {PROPOSAL_EMAIL}
             </a>
             <a href={IG} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors font-sans">
               <Instagram className="h-4 w-4 shrink-0" /> @imperiusdigital.br
