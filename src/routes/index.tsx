@@ -80,6 +80,7 @@ function Landing() {
       <Ecossistema />
       <Manifesto />
       <Demonstracoes />
+      <SobreImperius />
       <Services />
       <Process />
       <FAQ />
@@ -611,6 +612,75 @@ function Manifesto() {
               </div>
             </dl>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SobreImperius() {
+  const pillars = [
+    {
+      icon: LayoutTemplate,
+      title: "Soluções sob medida",
+      desc: "Cada site, sistema ou fluxo é desenhado para o contexto real do negócio — sem template, sem revenda.",
+    },
+    {
+      icon: Bot,
+      title: "Automação inteligente",
+      desc: "IA aplicada a WhatsApp, formulários e CRM para qualificar contatos e responder em segundos.",
+    },
+    {
+      icon: ClipboardList,
+      title: "Processos organizados",
+      desc: "Pipeline, agenda e indicadores consolidados em uma única operação comercial.",
+    },
+    {
+      icon: Rocket,
+      title: "Implementação rápida",
+      desc: "Demonstração funcional em poucos dias, publicação em domínio próprio e operação acompanhada.",
+    },
+  ];
+  return (
+    <section id="sobre" aria-labelledby="sobre-title" className="relative py-24 sm:py-28 border-y border-border/30 bg-[oklch(0.07_0.004_240)]/60">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid lg:grid-cols-[minmax(0,360px)_1fr] gap-10 lg:gap-16">
+          <div>
+            <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
+              <span className="h-px w-8 bg-primary/70" />
+              Sobre a Imperius
+            </div>
+            <h2
+              id="sobre-title"
+              className="font-display font-semibold text-[1.7rem] sm:text-[2.1rem] lg:text-[2.35rem] leading-[1.08] tracking-[-0.025em] text-foreground"
+            >
+              Websites, automação, CRM e IA para negócios que precisam operar com método.
+            </h2>
+            <p className="mt-5 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans">
+              Estúdio digital especializado em sistemas comerciais para negócios locais.
+              Transformamos processos manuais em operações mais organizadas, profissionais e eficientes.
+            </p>
+          </div>
+          <ul className="grid sm:grid-cols-2 gap-y-8 gap-x-10 sm:border-l sm:border-border/40 sm:pl-10">
+            {pillars.map((p, i) => (
+              <li key={p.title} className="min-w-0">
+                <div className="flex items-center gap-3 mb-2.5">
+                  <div className="h-9 w-9 rounded-md border border-primary/25 bg-primary/10 grid place-items-center shrink-0">
+                    <p.icon className="h-[18px] w-[18px] text-primary" />
+                  </div>
+                  <span className="font-heading text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/70 font-semibold tabular-nums">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <h3 className="font-heading font-semibold text-[15.5px] sm:text-[16px] tracking-[-0.01em] text-foreground">
+                  {p.title}
+                </h3>
+                <p className="mt-1.5 text-[13.5px] text-muted-foreground leading-relaxed font-sans">
+                  {p.desc}
+                </p>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
