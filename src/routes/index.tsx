@@ -230,13 +230,14 @@ type DemoCard = {
 import blackCrownCover from "@/assets/black-crown-cover.png.asset.json";
 import automationCover from "@/assets/imperius-automation-cover.png.asset.json";
 import crmCover from "@/assets/imperius-crm-cover.png.asset.json";
+import schedulingCover from "@/assets/imperius-scheduling-cover.png.asset.json";
 
 function Demonstracoes() {
   const cards: DemoCard[] = [
     { icon: Scissors, title: "Black Crown Barbershop", desc: "Website para Barbearia", status: "Ativo", href: BLACK_CROWN_URL, external: true, cover: blackCrownCover.url },
     { icon: Bot, title: "Imperius Automation", desc: "IA + WhatsApp Automatizado", status: "Ativo", to: "/automation", cover: automationCover.url },
     { icon: Users, title: "Imperius CRM", desc: "CRM Comercial Inteligente", status: "Ativo", to: "/crm", cover: crmCover.url },
-    { icon: Calendar, title: "Sistema de Agendamento", desc: "Reservas e Horários", status: "Em desenvolvimento" },
+    { icon: Calendar, title: "Imperius Scheduling", desc: "Sistema de Agendamento Inteligente", status: "Ativo", to: "/scheduling", cover: schedulingCover.url },
     { icon: Stethoscope, title: "Clínica Vitalis", desc: "Website para Clínica", status: "Em breve" },
     { icon: Sparkles, title: "Studio Bella Estética", desc: "Website para Estética", status: "Em breve" },
   ];
