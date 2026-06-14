@@ -297,11 +297,13 @@ function Services() {
 }
 
 type DemoStatus = "Ativo" | "Em desenvolvimento" | "Em breve";
+type DemoKind = "Produto Imperius" | "Demonstração de nicho" | "Projeto externo";
 type DemoCard = {
   icon: typeof Scissors;
   title: string;
   desc: string;
   status: DemoStatus;
+  kind: DemoKind;
   href?: string;
   to?: string;
   external?: boolean;
@@ -319,14 +321,14 @@ import imperialCover from "@/assets/imperial-hero.jpg.asset.json";
 
 function Demonstracoes() {
   const cards: DemoCard[] = [
-    { icon: Scissors, title: "Black Crown Barbershop", desc: "Website para Barbearia", status: "Ativo", href: BLACK_CROWN_URL, external: true, cover: blackCrownCover.url },
-    { icon: Bot, title: "Imperius Automation", desc: "IA + WhatsApp Automatizado", status: "Ativo", to: "/automation", cover: automationCover.url },
-    { icon: Users, title: "Imperius CRM", desc: "CRM Comercial Inteligente", status: "Ativo", to: "/crm", cover: crmCover.url },
-    { icon: Calendar, title: "Imperius Scheduling", desc: "Sistema de Agendamento Inteligente", status: "Ativo", to: "/scheduling", cover: schedulingCover.url },
-    { icon: Stethoscope, title: "Clínica Vitalis", desc: "Website + agendamento para Clínica", status: "Ativo", to: "/vitalis", cover: vitalisCover.url },
-    { icon: Sparkles, title: "Studio Bella Estética", desc: "Centro de estética premium em São Paulo", status: "Ativo", to: "/studio-bella", cover: bellaCover.url },
-    { icon: Building2, title: "Prime Imóveis", desc: "Portal premium para imobiliária de alto padrão", status: "Ativo", to: "/prime-imoveis", cover: primeCover.url },
-    { icon: UtensilsCrossed, title: "Restaurante Imperial", desc: "Reservas e cardápio para gastronomia premium", status: "Ativo", to: "/restaurante-imperial", cover: imperialCover.url },
+    { icon: Bot, title: "Imperius Automation", desc: "IA + WhatsApp automatizado", status: "Ativo", kind: "Produto Imperius", to: "/automation", cover: automationCover.url },
+    { icon: Users, title: "Imperius CRM", desc: "CRM comercial inteligente", status: "Ativo", kind: "Produto Imperius", to: "/crm", cover: crmCover.url },
+    { icon: Calendar, title: "Imperius Scheduling", desc: "Sistema de agendamento inteligente", status: "Ativo", kind: "Produto Imperius", to: "/scheduling", cover: schedulingCover.url },
+    { icon: Scissors, title: "Black Crown Barbershop", desc: "Website para barbearia premium", status: "Ativo", kind: "Projeto externo", href: BLACK_CROWN_URL, external: true, cover: blackCrownCover.url },
+    { icon: Stethoscope, title: "Clínica Vitalis", desc: "Website e agendamento para clínica", status: "Ativo", kind: "Demonstração de nicho", to: "/vitalis", cover: vitalisCover.url },
+    { icon: Sparkles, title: "Studio Bella Estética", desc: "Centro de estética premium em São Paulo", status: "Ativo", kind: "Demonstração de nicho", to: "/studio-bella", cover: bellaCover.url },
+    { icon: Building2, title: "Prime Imóveis", desc: "Portal para imobiliária de alto padrão", status: "Ativo", kind: "Demonstração de nicho", to: "/prime-imoveis", cover: primeCover.url },
+    { icon: UtensilsCrossed, title: "Restaurante Imperial", desc: "Reservas e cardápio para gastronomia premium", status: "Ativo", kind: "Demonstração de nicho", to: "/restaurante-imperial", cover: imperialCover.url },
   ];
 
 
