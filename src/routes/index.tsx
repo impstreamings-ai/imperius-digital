@@ -343,9 +343,9 @@ function Demonstracoes() {
               <span className="h-px w-8 bg-primary/70" />
               Vitrine · {cards.length.toString().padStart(2, "0")} projetos
             </div>
-            <h2 className="font-display font-normal text-[2.2rem] sm:text-[3rem] lg:text-[3.6rem] leading-[1.05] tracking-[-0.015em] text-foreground">
+            <h2 className="font-display font-semibold text-[2rem] sm:text-[2.7rem] lg:text-[3.1rem] leading-[1.05] tracking-[-0.028em] text-foreground">
               Projetos navegáveis,{" "}
-              <span className="italic text-neon">não mockups.</span>
+              <span className="text-neon">não mockups.</span>
             </h2>
             <p className="mt-5 text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed font-sans max-w-xl">
               Cada card abaixo abre uma demonstração funcional — construída pela Imperius
