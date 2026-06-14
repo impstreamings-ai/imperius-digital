@@ -127,6 +127,7 @@ const DEMOS: Demo[] = [
     domain: "blackcrown-by-imperius.lovable.app",
     href: BLACK_CROWN_URL,
     external: true,
+    featured: true,
   },
   {
     icon: Stethoscope,
