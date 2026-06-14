@@ -231,6 +231,7 @@ import blackCrownCover from "@/assets/black-crown-cover.png.asset.json";
 import automationCover from "@/assets/imperius-automation-cover.png.asset.json";
 import crmCover from "@/assets/imperius-crm-cover.png.asset.json";
 import schedulingCover from "@/assets/imperius-scheduling-cover.png.asset.json";
+import vitalisCover from "@/assets/vitalis-cover.png.asset.json";
 
 function Demonstracoes() {
   const cards: DemoCard[] = [
@@ -238,7 +239,7 @@ function Demonstracoes() {
     { icon: Bot, title: "Imperius Automation", desc: "IA + WhatsApp Automatizado", status: "Ativo", to: "/automation", cover: automationCover.url },
     { icon: Users, title: "Imperius CRM", desc: "CRM Comercial Inteligente", status: "Ativo", to: "/crm", cover: crmCover.url },
     { icon: Calendar, title: "Imperius Scheduling", desc: "Sistema de Agendamento Inteligente", status: "Ativo", to: "/scheduling", cover: schedulingCover.url },
-    { icon: Stethoscope, title: "Clínica Vitalis", desc: "Website para Clínica", status: "Em breve" },
+    { icon: Stethoscope, title: "Clínica Vitalis", desc: "Website + agendamento para Clínica", status: "Ativo", to: "/vitalis", cover: vitalisCover.url },
     { icon: Sparkles, title: "Studio Bella Estética", desc: "Website para Estética", status: "Em breve" },
   ];
 
