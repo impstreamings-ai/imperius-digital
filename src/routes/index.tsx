@@ -143,9 +143,9 @@ function Hero() {
             </h1>
             <p className="mt-7 max-w-xl text-muted-foreground text-base sm:text-[17px] leading-relaxed font-sans">
               Construímos sites, fluxos com IA e operações comerciais sob medida —
-              pensados para gerar oportunidades reais, não apenas impressões bonitas.
+              pensados para gerar contatos qualificados e organizar o que sua equipe faz com eles.
             </p>
-            <div className="mt-9 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+            <div className="mt-9 flex flex-col sm:flex-row sm:items-center gap-4">
               <a
                 href={WA}
                 target="_blank"
@@ -161,21 +161,137 @@ function Hero() {
                 </Button>
               </a>
               <a
-                href="#vitrine"
-                className="text-[13.5px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2 group"
-                onClick={() => track("demo_click", { location: "hero" })}
+                href={PROPOSAL_MAILTO}
+                className="w-full sm:w-auto"
+                onClick={() => track("hero_cta_click", { destination: "email" })}
               >
-                <span className="h-px w-6 bg-border group-hover:bg-primary transition-colors" />
-                Explorar a vitrine de projetos
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full sm:w-auto border-border/70 bg-background/30 hover:bg-background/60 hover:border-primary/50 text-foreground/90 font-medium rounded-full h-12 px-6 text-[13.5px] transition-all duration-300"
+                >
+                  <Mail className="mr-2 h-4 w-4 text-muted-foreground" /> Receber proposta por e-mail
+                </Button>
               </a>
             </div>
-            <p className="mt-10 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
+            <p className="mt-8 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
               Demonstração personalizada · Sem compromisso · Resposta no mesmo dia útil
             </p>
           </div>
 
           <HeroVisual />
         </div>
+      </div>
+    </section>
+  );
+}
+
+function HeroVisual() {
+  return (
+    <div className="relative w-full max-w-[600px] mx-auto lg:ml-auto lg:mr-0" aria-hidden>
+      {/* Main browser frame — Black Crown live project */}
+      <a
+        href={BLACK_CROWN_URL}
+        target="_blank"
+        rel="noreferrer"
+        onClick={() => track("hero_visual_click", { project: "black_crown" })}
+        className="relative block rounded-[14px] overflow-hidden border border-border/60 bg-[oklch(0.09_0.005_240)] shadow-[0_40px_120px_-30px_oklch(0_0_0/0.8),0_0_0_1px_oklch(1_0_0/0.04)_inset] transition-transform duration-500 hover:-translate-y-1"
+      >
+        <div className="flex items-center gap-1.5 px-3 py-2 border-b border-border/50 bg-[oklch(0.08_0.004_240)]">
+          <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
+          <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
+          <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
+          <span className="ml-3 flex-1 truncate rounded-md bg-[oklch(0.12_0.005_245)] px-2.5 py-1 text-[10.5px] font-sans text-muted-foreground/80">
+            blackcrown-by-imperius.lovable.app
+          </span>
+          <span className="hidden sm:inline-flex items-center gap-1 text-[9.5px] uppercase tracking-[0.22em] text-primary font-semibold font-sans">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+            Ao vivo
+          </span>
+        </div>
+        <div className="relative aspect-[16/10] bg-card">
+          <img
+            src={blackCrownHeroCover.url}
+            alt="Projeto Black Crown desenvolvido pela Imperius"
+            loading="eager"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover object-top"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent pointer-events-none" />
+        </div>
+      </a>
+
+      {/* Floating mini-frame: Vitalis */}
+      <div className="hidden sm:block absolute -bottom-10 -left-8 w-[58%] rounded-[12px] overflow-hidden border border-border/60 bg-[oklch(0.09_0.005_240)] shadow-[0_30px_80px_-30px_oklch(0_0_0/0.85),0_0_0_1px_oklch(1_0_0/0.04)_inset] rotate-[-3deg]">
+        <div className="flex items-center gap-1 px-2 py-1.5 border-b border-border/50 bg-[oklch(0.08_0.004_240)]">
+          <span className="h-1.5 w-1.5 rounded-full bg-red-400/70" />
+          <span className="h-1.5 w-1.5 rounded-full bg-yellow-400/70" />
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/70" />
+          <span className="ml-2 truncate text-[8.5px] font-sans text-muted-foreground/80">
+            vitalis · clínica
+          </span>
+        </div>
+        <div className="relative aspect-[16/10] bg-card">
+          <img
+            src={vitalisHeroCover.url}
+            alt=""
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover object-top"
+          />
+        </div>
+      </div>
+
+      {/* Floating chip: lead qualificado */}
+      <div className="hidden sm:flex absolute -top-4 -right-2 sm:-right-6 items-center gap-2.5 rounded-full border border-border/60 bg-background/85 backdrop-blur-md px-3 py-2 shadow-[0_12px_30px_-12px_oklch(0_0_0/0.7)]">
+        <span className="h-2 w-2 rounded-full bg-primary animate-pulse-glow shadow-[0_0_10px_oklch(0.72_0.22_250/0.9)]" />
+        <span className="text-[11px] font-sans font-medium text-foreground/90">Lead qualificado</span>
+        <span className="text-[9.5px] font-sans text-muted-foreground/70 tabular-nums">09:42</span>
+      </div>
+
+      {/* Floating chip: CRM */}
+      <div className="hidden md:flex absolute bottom-6 -right-4 items-center gap-2 rounded-xl border border-border/60 bg-background/85 backdrop-blur-md px-3 py-2 shadow-[0_16px_36px_-14px_oklch(0_0_0/0.7)] rotate-[3deg]">
+        <div className="h-7 w-7 rounded-md bg-primary/15 border border-primary/30 grid place-items-center">
+          <Users className="h-3.5 w-3.5 text-primary" />
+        </div>
+        <div className="leading-tight">
+          <div className="text-[10.5px] font-heading font-semibold text-foreground">Pipeline · R$ 380K</div>
+          <div className="text-[9px] uppercase tracking-[0.18em] text-muted-foreground/80 font-sans">+12 hoje</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function TrustStrip() {
+  const items = [
+    { icon: LayoutTemplate, label: "Projetos demonstrativos", value: "8 ao vivo" },
+    { icon: Briefcase, label: "Verticais atendidas", value: "Imobiliário · Estética · Saúde · Gastronomia · Serviços" },
+    { icon: Shield, label: "Atendimento", value: "Direto com a equipe — sem terceirização" },
+    { icon: CheckCircle2, label: "Cada projeto", value: "Desenvolvido sob medida pela Imperius" },
+  ];
+  return (
+    <section
+      aria-label="Confiança"
+      className="relative border-y border-border/40 bg-[oklch(0.07_0.004_240)]/70 backdrop-blur-sm"
+    >
+      <div className="mx-auto max-w-7xl px-6 py-7 sm:py-8">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-5">
+          {items.map((it) => (
+            <li key={it.label} className="flex items-start gap-3 min-w-0">
+              <div className="mt-0.5 h-8 w-8 shrink-0 rounded-md grid place-items-center border border-primary/25 bg-primary/10">
+                <it.icon className="h-4 w-4 text-primary" />
+              </div>
+              <div className="min-w-0">
+                <div className="text-[9.5px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium">
+                  {it.label}
+                </div>
+                <div className="mt-0.5 text-[13px] sm:text-[13.5px] text-foreground/90 font-sans font-medium leading-snug">
+                  {it.value}
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
