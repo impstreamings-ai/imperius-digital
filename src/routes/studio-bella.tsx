@@ -288,22 +288,27 @@ function Hero() {
 /* ----------------------------- TRUST ----------------------------- */
 function TrustStrip() {
   const items = [
-    { n: "+8 anos", l: "cuidando da sua beleza" },
-    { n: "+12.000", l: "clientes satisfeitas" },
-    { n: "+25", l: "protocolos exclusivos" },
-    { n: "4,9★", l: "avaliação Google" },
+    { n: "Protocolos", l: "personalizados" },
+    { n: "Profissionais", l: "especializados" },
+    { n: "Ambiente", l: "acolhedor" },
+    { n: "Agenda online", l: "via WhatsApp" },
   ];
   return (
     <section className="border-y" style={{ borderColor: "#EADFE6", background: "#F4E9EF" }}>
-      <div className="mx-auto max-w-7xl px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
-        {items.map((it) => (
-          <div key={it.l} className="text-center md:text-left">
-            <div className="text-[1.9rem] sm:text-[2.2rem] text-stone-900 font-medium tracking-tight leading-none" style={SERIF}>
-              {it.n}
+      <div className="mx-auto max-w-7xl px-6 py-8">
+        <div className="text-[10px] uppercase tracking-[0.22em] text-stone-400 mb-4 text-center md:text-left">
+          Exemplo ilustrativo · conteúdo personalizável
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {items.map((it) => (
+            <div key={it.l} className="text-center md:text-left">
+              <div className="text-[1.9rem] sm:text-[2.2rem] text-stone-900 font-medium tracking-tight leading-none" style={SERIF}>
+                {it.n}
+              </div>
+              <div className="text-[11px] text-stone-500 uppercase tracking-[0.2em] mt-2">{it.l}</div>
             </div>
-            <div className="text-[11px] text-stone-500 uppercase tracking-[0.2em] mt-2">{it.l}</div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
