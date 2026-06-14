@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import logoAsset from "@/assets/imperius-logo-official.png.asset.json";
+import blackCrownHeroCover from "@/assets/black-crown-cover.png.asset.json";
+import vitalisHeroCover from "@/assets/vitalis-hero.jpg.asset.json";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -25,6 +27,9 @@ import {
   Briefcase,
   Building2,
   UtensilsCrossed,
+  Mail,
+  Shield,
+  CheckCircle2,
 } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
@@ -63,12 +68,15 @@ const WA_MESSAGE = "Olá! Quero uma demonstração personalizada da Imperius par
 const WA = `https://wa.me/5515981023792?text=${encodeURIComponent(WA_MESSAGE)}`;
 const IG = "https://instagram.com/imperiusdigital.br";
 const BLACK_CROWN_URL = "https://blackcrown-by-imperius.lovable.app/";
+const PROPOSAL_EMAIL = "contato@imperiusdigital.com.br";
+const PROPOSAL_MAILTO = `mailto:${PROPOSAL_EMAIL}?subject=${encodeURIComponent("Proposta Imperius — apresentação personalizada")}&body=${encodeURIComponent("Olá, equipe Imperius.\n\nGostaria de receber uma proposta personalizada.\n\nEmpresa:\nSegmento:\nObjetivo principal:\n\nObrigado.")}`;
 
 function Landing() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
       <Nav />
       <Hero />
+      <TrustStrip />
       <Ecossistema />
       <Manifesto />
       <Demonstracoes />
@@ -130,15 +138,14 @@ function Hero() {
               Imperius · Plataforma proprietária
             </div>
             <h1 className="font-display text-[2rem] sm:text-[2.9rem] lg:text-[3.4rem] xl:text-[3.9rem] font-semibold leading-[1.04] tracking-[-0.028em] text-foreground">
-              Presença digital, automação e sistemas comerciais para empresas que precisam{" "}
-              <span className="text-neon">parecer maiores</span>{" "}
-              e vender melhor.
+              Sites, automação e sistemas comerciais que transformam{" "}
+              <span className="text-neon">presença digital em oportunidade real</span>.
             </h1>
             <p className="mt-7 max-w-xl text-muted-foreground text-base sm:text-[17px] leading-relaxed font-sans">
               Construímos sites, fluxos com IA e operações comerciais sob medida —
-              pensados para gerar oportunidades reais, não apenas impressões bonitas.
+              pensados para gerar contatos qualificados e organizar o que sua equipe faz com eles.
             </p>
-            <div className="mt-9 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+            <div className="mt-9 flex flex-col sm:flex-row sm:items-center gap-4">
               <a
                 href={WA}
                 target="_blank"
@@ -154,15 +161,20 @@ function Hero() {
                 </Button>
               </a>
               <a
-                href="#vitrine"
-                className="text-[13.5px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2 group"
-                onClick={() => track("demo_click", { location: "hero" })}
+                href={PROPOSAL_MAILTO}
+                className="w-full sm:w-auto"
+                onClick={() => track("hero_cta_click", { destination: "email" })}
               >
-                <span className="h-px w-6 bg-border group-hover:bg-primary transition-colors" />
-                Explorar a vitrine de projetos
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full sm:w-auto border-border/70 bg-background/30 hover:bg-background/60 hover:border-primary/50 text-foreground/90 font-medium rounded-full h-12 px-6 text-[13.5px] transition-all duration-300"
+                >
+                  <Mail className="mr-2 h-4 w-4 text-muted-foreground" /> Receber proposta por e-mail
+                </Button>
               </a>
             </div>
-            <p className="mt-10 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
+            <p className="mt-8 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
               Demonstração personalizada · Sem compromisso · Resposta no mesmo dia útil
             </p>
           </div>
@@ -176,136 +188,115 @@ function Hero() {
 
 function HeroVisual() {
   return (
-    <div className="relative w-full max-w-[560px] mx-auto lg:ml-auto lg:mr-0" aria-hidden>
-      {/* Frame */}
-      <div className="relative aspect-square rounded-[28px] overflow-hidden border border-border/50 bg-[oklch(0.09_0.005_240)]/60 backdrop-blur-xl shadow-[0_40px_120px_-40px_oklch(0_0_0/0.8),0_0_0_1px_oklch(1_0_0/0.03)_inset]">
-        {/* Ambient layers */}
-        <div className="absolute inset-0 bg-grid opacity-30" />
-        <div
-          className="absolute -top-24 -right-24 w-72 h-72 rounded-full blur-3xl opacity-60"
-          style={{ background: "radial-gradient(circle, oklch(0.55 0.2 250 / 0.4), transparent 70%)" }}
-        />
-        <div
-          className="absolute -bottom-32 -left-20 w-72 h-72 rounded-full blur-3xl opacity-40"
-          style={{ background: "radial-gradient(circle, oklch(0.5 0.18 245 / 0.3), transparent 70%)" }}
-        />
-
-        {/* SVG connections */}
-        <svg viewBox="0 0 400 400" className="absolute inset-0 h-full w-full" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="heroLineGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0.05" />
-              <stop offset="50%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0.55" />
-              <stop offset="100%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0.05" />
-            </linearGradient>
-            <radialGradient id="heroCoreGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0.35" />
-              <stop offset="100%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0" />
-            </radialGradient>
-          </defs>
-          <circle cx="200" cy="200" r="120" fill="url(#heroCoreGlow)" />
-          {/* concentric rings */}
-          <circle cx="200" cy="200" r="78" fill="none" stroke="oklch(0.4 0.05 245 / 0.4)" strokeWidth="0.8" />
-          <circle cx="200" cy="200" r="130" fill="none" stroke="oklch(0.35 0.04 245 / 0.3)" strokeWidth="0.8" strokeDasharray="2 6" />
-          {/* connectors center → satellites */}
-          <line x1="200" y1="200" x2="200" y2="62" stroke="url(#heroLineGrad)" strokeWidth="1" strokeDasharray="3 5" />
-          <line x1="200" y1="200" x2="338" y2="260" stroke="url(#heroLineGrad)" strokeWidth="1" strokeDasharray="3 5" />
-          <line x1="200" y1="200" x2="62" y2="260" stroke="url(#heroLineGrad)" strokeWidth="1" strokeDasharray="3 5" />
-        </svg>
-
-        {/* Core */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div className="relative h-[124px] w-[124px] sm:h-[140px] sm:w-[140px] rounded-2xl border border-primary/40 bg-[oklch(0.12_0.01_245)]/85 backdrop-blur-xl flex flex-col items-center justify-center gap-1.5 shadow-[0_20px_50px_-20px_oklch(0.55_0.25_250/0.55),inset_0_1px_0_oklch(1_0_0/0.06)]">
-            <img
-              src={logoAsset.url}
-              alt=""
-              className="h-[40px] w-auto object-contain opacity-95"
-              loading="eager"
-              decoding="async"
-            />
-            <div className="text-[9px] uppercase tracking-[0.32em] text-muted-foreground/90 font-sans font-semibold">
-              Imperius Core
-            </div>
-            <span className="absolute -top-1 -right-1 h-2.5 w-2.5 rounded-full bg-primary animate-pulse-glow shadow-[0_0_12px_oklch(0.72_0.22_250/0.9)]" />
-          </div>
+    <div className="relative w-full max-w-[600px] mx-auto lg:ml-auto lg:mr-0" aria-hidden>
+      {/* Main browser frame — Black Crown live project */}
+      <a
+        href={BLACK_CROWN_URL}
+        target="_blank"
+        rel="noreferrer"
+        onClick={() => track("hero_visual_click", { project: "black_crown" })}
+        className="relative block rounded-[14px] overflow-hidden border border-border/60 bg-[oklch(0.09_0.005_240)] shadow-[0_40px_120px_-30px_oklch(0_0_0/0.8),0_0_0_1px_oklch(1_0_0/0.04)_inset] transition-transform duration-500 hover:-translate-y-1"
+      >
+        <div className="flex items-center gap-1.5 px-3 py-2 border-b border-border/50 bg-[oklch(0.08_0.004_240)]">
+          <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
+          <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
+          <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
+          <span className="ml-3 flex-1 truncate rounded-md bg-[oklch(0.12_0.005_245)] px-2.5 py-1 text-[10.5px] font-sans text-muted-foreground/80">
+            blackcrown-by-imperius.lovable.app
+          </span>
+          <span className="hidden sm:inline-flex items-center gap-1 text-[9.5px] uppercase tracking-[0.22em] text-primary font-semibold font-sans">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+            Ao vivo
+          </span>
         </div>
-
-        {/* Satellite: Automation (top) */}
-        <SatelliteCard
-          className="absolute top-[5%] left-1/2 -translate-x-1/2"
-          icon={Bot}
-          label="Automation"
-          meta="IA · WhatsApp"
-        />
-        {/* Satellite: CRM (bottom-right) */}
-        <SatelliteCard
-          className="absolute bottom-[10%] right-[4%]"
-          icon={Users}
-          label="CRM"
-          meta="Pipeline comercial"
-        />
-        {/* Satellite: Scheduling (bottom-left) */}
-        <SatelliteCard
-          className="absolute bottom-[10%] left-[4%]"
-          icon={Calendar}
-          label="Scheduling"
-          meta="Agenda integrada"
-        />
-
-        {/* Floating event chips */}
-        <div className="absolute top-[24%] left-[4%] hidden sm:flex items-center gap-2.5 rounded-full border border-border/60 bg-background/70 backdrop-blur-md px-3 py-1.5 shadow-[0_8px_24px_-12px_oklch(0_0_0/0.6)]">
-          <MessageCircle className="h-3.5 w-3.5 text-primary" />
-          <span className="text-[10.5px] font-sans text-foreground/85">Mensagem recebida</span>
-          <span className="text-[9.5px] font-sans text-muted-foreground/70 tabular-nums">09:42</span>
+        <div className="relative aspect-[16/10] bg-card">
+          <img
+            src={blackCrownHeroCover.url}
+            alt="Projeto Black Crown desenvolvido pela Imperius"
+            loading="eager"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover object-top"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent pointer-events-none" />
         </div>
-        <div className="absolute top-[42%] right-[3%] hidden sm:flex items-center gap-2.5 rounded-full border border-border/60 bg-background/70 backdrop-blur-md px-3 py-1.5 shadow-[0_8px_24px_-12px_oklch(0_0_0/0.6)]">
-          <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-          <span className="text-[10.5px] font-sans text-foreground/85">Lead qualificado</span>
+      </a>
+
+      {/* Floating mini-frame: Vitalis */}
+      <div className="hidden sm:block absolute -bottom-10 -left-8 w-[58%] rounded-[12px] overflow-hidden border border-border/60 bg-[oklch(0.09_0.005_240)] shadow-[0_30px_80px_-30px_oklch(0_0_0/0.85),0_0_0_1px_oklch(1_0_0/0.04)_inset] rotate-[-3deg]">
+        <div className="flex items-center gap-1 px-2 py-1.5 border-b border-border/50 bg-[oklch(0.08_0.004_240)]">
+          <span className="h-1.5 w-1.5 rounded-full bg-red-400/70" />
+          <span className="h-1.5 w-1.5 rounded-full bg-yellow-400/70" />
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/70" />
+          <span className="ml-2 truncate text-[8.5px] font-sans text-muted-foreground/80">
+            vitalis · clínica
+          </span>
+        </div>
+        <div className="relative aspect-[16/10] bg-card">
+          <img
+            src={vitalisHeroCover.url}
+            alt=""
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover object-top"
+          />
         </div>
       </div>
 
-      {/* Flow strip */}
-      <div className="mt-5 hidden sm:block">
-        <ol className="flex items-center gap-2 text-[10.5px] uppercase tracking-[0.22em] font-sans font-medium text-muted-foreground/80 overflow-hidden">
-          {["WhatsApp", "Automation", "CRM", "Scheduling", "Resultado"].map((step, i, arr) => (
-            <li key={step} className="flex items-center gap-2 min-w-0">
-              <span className={`truncate ${i === arr.length - 1 ? "text-foreground/90" : ""}`}>{step}</span>
-              {i < arr.length - 1 && (
-                <ArrowRight className="h-3 w-3 shrink-0 text-muted-foreground/40" />
-              )}
+      {/* Floating chip: lead qualificado */}
+      <div className="hidden sm:flex absolute -top-4 -right-2 sm:-right-6 items-center gap-2.5 rounded-full border border-border/60 bg-background/85 backdrop-blur-md px-3 py-2 shadow-[0_12px_30px_-12px_oklch(0_0_0/0.7)]">
+        <span className="h-2 w-2 rounded-full bg-primary animate-pulse-glow shadow-[0_0_10px_oklch(0.72_0.22_250/0.9)]" />
+        <span className="text-[11px] font-sans font-medium text-foreground/90">Lead qualificado</span>
+        <span className="text-[9.5px] font-sans text-muted-foreground/70 tabular-nums">09:42</span>
+      </div>
+
+      {/* Floating chip: CRM */}
+      <div className="hidden md:flex absolute bottom-6 -right-4 items-center gap-2 rounded-xl border border-border/60 bg-background/85 backdrop-blur-md px-3 py-2 shadow-[0_16px_36px_-14px_oklch(0_0_0/0.7)] rotate-[3deg]">
+        <div className="h-7 w-7 rounded-md bg-primary/15 border border-primary/30 grid place-items-center">
+          <Users className="h-3.5 w-3.5 text-primary" />
+        </div>
+        <div className="leading-tight">
+          <div className="text-[10.5px] font-heading font-semibold text-foreground">Pipeline · R$ 380K</div>
+          <div className="text-[9px] uppercase tracking-[0.18em] text-muted-foreground/80 font-sans">+12 hoje</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function TrustStrip() {
+  const items = [
+    { icon: LayoutTemplate, label: "Projetos demonstrativos", value: "8 ao vivo" },
+    { icon: Briefcase, label: "Verticais atendidas", value: "Imobiliário · Estética · Saúde · Gastronomia · Serviços" },
+    { icon: Shield, label: "Atendimento", value: "Direto com a equipe — sem terceirização" },
+    { icon: CheckCircle2, label: "Cada projeto", value: "Desenvolvido sob medida pela Imperius" },
+  ];
+  return (
+    <section
+      aria-label="Confiança"
+      className="relative border-y border-border/40 bg-[oklch(0.07_0.004_240)]/70 backdrop-blur-sm"
+    >
+      <div className="mx-auto max-w-7xl px-6 py-7 sm:py-8">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-5">
+          {items.map((it) => (
+            <li key={it.label} className="flex items-start gap-3 min-w-0">
+              <div className="mt-0.5 h-8 w-8 shrink-0 rounded-md grid place-items-center border border-primary/25 bg-primary/10">
+                <it.icon className="h-4 w-4 text-primary" />
+              </div>
+              <div className="min-w-0">
+                <div className="text-[9.5px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium">
+                  {it.label}
+                </div>
+                <div className="mt-0.5 text-[13px] sm:text-[13.5px] text-foreground/90 font-sans font-medium leading-snug">
+                  {it.value}
+                </div>
+              </div>
             </li>
           ))}
-        </ol>
+        </ul>
       </div>
-    </div>
+    </section>
   );
 }
 
-function SatelliteCard({
-  className,
-  icon: Icon,
-  label,
-  meta,
-}: {
-  className?: string;
-  icon: typeof Bot;
-  label: string;
-  meta: string;
-}) {
-  return (
-    <div
-      className={`flex items-center gap-2.5 rounded-xl border border-border/60 bg-[oklch(0.13_0.008_245)]/85 backdrop-blur-xl px-3 py-2.5 shadow-[0_12px_30px_-16px_oklch(0_0_0/0.7),inset_0_1px_0_oklch(1_0_0/0.04)] ${className ?? ""}`}
-    >
-      <div className="h-8 w-8 rounded-lg grid place-items-center bg-[oklch(0.18_0.04_248)]/80 border border-primary/25">
-        <Icon className="h-4 w-4 text-primary" />
-      </div>
-      <div className="min-w-0 leading-tight">
-        <div className="text-[11.5px] font-heading font-semibold text-foreground tracking-[-0.005em]">{label}</div>
-        <div className="text-[9.5px] uppercase tracking-[0.18em] text-muted-foreground/80 font-sans">{meta}</div>
-      </div>
-    </div>
-  );
-}
 
 
 function SectionTitle({
@@ -598,6 +589,27 @@ function Manifesto() {
               <span className="h-1 w-1 rounded-full bg-border" />
               <span>Operação contínua</span>
             </div>
+            {/* Identidade empresarial — institucional mínimo */}
+            <dl className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4 border-t border-border/40 pt-8">
+              <div>
+                <dt className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground/70 font-sans font-semibold">Quem é</dt>
+                <dd className="mt-2 text-[13.5px] text-foreground/90 font-sans leading-relaxed">
+                  Estúdio digital brasileiro especializado em sites, automação e sistemas comerciais.
+                </dd>
+              </div>
+              <div>
+                <dt className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground/70 font-sans font-semibold">O que faz</dt>
+                <dd className="mt-2 text-[13.5px] text-foreground/90 font-sans leading-relaxed">
+                  Projeta presença digital e desenvolve software comercial sob medida — entregue, publicado e operado.
+                </dd>
+              </div>
+              <div>
+                <dt className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground/70 font-sans font-semibold">Como trabalha</dt>
+                <dd className="mt-2 text-[13.5px] text-foreground/90 font-sans leading-relaxed">
+                  Equipe enxuta, atendimento direto e demonstração funcional antes de qualquer proposta.
+                </dd>
+              </div>
+            </dl>
           </div>
         </div>
       </div>
@@ -693,42 +705,78 @@ function Demonstracoes() {
   ];
 
 
+  const productCards = cards.filter((c) => IMPERIUS_KINDS.has(c.kind));
+  const demoCards = cards.filter((c) => !IMPERIUS_KINDS.has(c.kind));
+
   return (
     <section id="vitrine" className="py-24 sm:py-32 relative">
       <div className="absolute inset-0 bg-grid opacity-15 pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[820px] h-[460px] rounded-full blur-3xl opacity-15 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.22 250 / 0.18), transparent 70%)" }} />
-      <div className="relative mx-auto max-w-7xl px-6">
-        <div className="mb-12 sm:mb-16 grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 lg:items-end">
-          <div className="max-w-2xl">
-            <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
-              <span className="h-px w-8 bg-primary/70" />
-              Vitrine · {cards.length.toString().padStart(2, "0")} projetos
+      <div className="relative mx-auto max-w-7xl px-6 space-y-20 sm:space-y-24">
+        {/* Group 1 — Produtos Imperius */}
+        <div>
+          <div className="mb-10 sm:mb-12 grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-12 lg:items-end">
+            <div className="max-w-2xl">
+              <div className="text-[10.5px] uppercase tracking-[0.32em] text-primary/90 font-semibold mb-5 font-sans inline-flex items-center gap-2.5">
+                <span className="h-px w-8 bg-primary/70" />
+                Produtos Imperius · {productCards.length.toString().padStart(2, "0")}
+              </div>
+              <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.75rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+                Software proprietário que opera o seu comercial.
+              </h2>
+              <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans max-w-xl">
+                Automation, CRM e Scheduling — três produtos integrados que respondem,
+                organizam e agendam, do primeiro contato ao fechamento.
+              </p>
             </div>
-            <h2 className="font-display font-semibold text-[2rem] sm:text-[2.7rem] lg:text-[3.1rem] leading-[1.05] tracking-[-0.028em] text-foreground">
-              Projetos navegáveis,{" "}
-              <span className="text-neon">não mockups.</span>
-            </h2>
-            <p className="mt-5 text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed font-sans max-w-xl">
-              Cada card abaixo abre uma demonstração funcional — construída pela Imperius
-              para um nicho real. Clique, explore o fluxo e veja o nível de acabamento
-              antes mesmo do briefing.
-            </p>
+            <div className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium inline-flex items-center gap-2 lg:justify-end">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+              Plataforma integrada
+            </div>
           </div>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11.5px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium lg:justify-end">
-            <span className="inline-flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              Produtos · 03
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-muted-foreground/50" />
-              Verticais · 05
-            </span>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+            {productCards.map((c) => (
+              <DemoCardItem key={c.title} card={c} />
+            ))}
           </div>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-          {cards.map((c) => (
-            <DemoCardItem key={c.title} card={c} />
-          ))}
+
+        {/* Divider */}
+        <div className="flex items-center gap-4" aria-hidden>
+          <span className="h-px flex-1 bg-border/50" />
+          <span className="text-[10px] uppercase tracking-[0.32em] text-muted-foreground/70 font-sans font-medium">
+            Demonstrações por nicho
+          </span>
+          <span className="h-px flex-1 bg-border/50" />
+        </div>
+
+        {/* Group 2 — Demonstrações */}
+        <div>
+          <div className="mb-10 sm:mb-12 grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-12 lg:items-end">
+            <div className="max-w-2xl">
+              <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
+                <span className="h-px w-8 bg-muted-foreground/60" />
+                Demonstrações · {demoCards.length.toString().padStart(2, "0")} verticais
+              </div>
+              <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.75rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+                Projetos navegáveis,{" "}
+                <span className="text-neon">não mockups.</span>
+              </h2>
+              <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans max-w-xl">
+                Cada card abre uma demonstração funcional construída pela Imperius
+                para um nicho real. Explore o fluxo e veja o acabamento antes do briefing.
+              </p>
+            </div>
+            <div className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium inline-flex items-center gap-2 lg:justify-end">
+              <span className="h-1.5 w-1.5 rounded-full bg-muted-foreground/60" />
+              5 verticais
+            </div>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+            {demoCards.map((c) => (
+              <DemoCardItem key={c.title} card={c} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -1128,7 +1176,7 @@ function FinalCTA() {
           Receba uma demonstração construída especificamente para o seu negócio — sem
           briefing engessado, sem orçamento antes da entrega.
         </p>
-        <div className="mt-10 flex justify-center">
+        <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
           <a
             href={WA}
             target="_blank"
@@ -1145,6 +1193,13 @@ function FinalCTA() {
             >
               Solicitar demonstração <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
+          </a>
+          <a
+            href={PROPOSAL_MAILTO}
+            className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2"
+            onClick={() => track("final_cta_click", { destination: "email" })}
+          >
+            <Mail className="h-4 w-4" /> Receber proposta por e-mail
           </a>
         </div>
         <p className="mt-8 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
