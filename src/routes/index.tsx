@@ -251,31 +251,45 @@ function Manifesto() {
 
 function Services() {
   const items = [
-    { icon: LayoutTemplate, title: "Landing Pages", desc: "Páginas premium pensadas para conversão." },
-    { icon: Globe, title: "Websites", desc: "Presença digital sólida e profissional." },
-    { icon: Zap, title: "Automação", desc: "Atendimento e processos automatizados." },
-    { icon: Bot, title: "Inteligência Artificial", desc: "IA aplicada ao dia a dia do negócio." },
-    { icon: Briefcase, title: "Sistemas Comerciais", desc: "CRM e ferramentas para gestão de leads." },
+    { n: "01", icon: LayoutTemplate, title: "Landing Pages", desc: "Páginas de alta densidade visual, pensadas para converter contatos qualificados." },
+    { n: "02", icon: Globe, title: "Websites institucionais", desc: "Presença digital com identidade própria e arquitetura escalável." },
+    { n: "03", icon: Zap, title: "Automação de atendimento", desc: "Fluxos via WhatsApp que respondem, qualificam e encaminham em tempo real." },
+    { n: "04", icon: Bot, title: "Inteligência Artificial aplicada", desc: "Assistentes treinados no contexto do seu negócio, integrados aos canais existentes." },
+    { n: "05", icon: Briefcase, title: "Sistemas comerciais", desc: "CRM, agendamento e dashboards desenhados para a operação real do time." },
   ];
   return (
-    <section id="servicos" className="py-24 sm:py-28 relative">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="servicos" className="py-24 sm:py-32 relative border-y border-border/30">
+      <div className="mx-auto max-w-6xl px-6">
         <SectionTitle
           display
+          align="left"
           eyebrow="Soluções"
-          title="O que a Imperius entrega."
+          title="Cinco frentes. Um único padrão de execução."
+          sub="Cada serviço é tratado como produto: especificado, prototipado e operado com a mesma exigência técnica."
         />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <ul className="mt-4 divide-y divide-border/40 border-y border-border/40">
           {items.map((it) => (
-            <div key={it.title} className="card-premium hover-lift rounded-2xl p-7 group transition-all duration-300 hover:border-primary/50">
-              <div className="h-12 w-12 rounded-xl flex items-center justify-center mb-5 ring-1 ring-primary/30 group-hover:ring-primary/60 transition" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.6), oklch(0.18 0.05 245 / 0.3))" }}>
-                <it.icon className="h-6 w-6 text-primary" />
+            <li
+              key={it.title}
+              className="group grid grid-cols-[auto_1fr] sm:grid-cols-[3rem_auto_1fr] items-start gap-x-5 sm:gap-x-8 gap-y-2 py-7 sm:py-8 transition-colors hover:bg-card/30"
+            >
+              <span className="hidden sm:block font-display text-[12px] text-muted-foreground/70 tracking-[0.2em] pt-1.5">
+                {it.n}
+              </span>
+              <div className="h-11 w-11 rounded-lg flex items-center justify-center ring-1 ring-primary/25 group-hover:ring-primary/60 transition" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.5), oklch(0.18 0.05 245 / 0.25))" }}>
+                <it.icon className="h-5 w-5 text-primary" />
               </div>
-              <h3 className="font-heading font-semibold text-base sm:text-lg mb-2 tracking-tight">{it.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed font-sans">{it.desc}</p>
-            </div>
+              <div className="col-start-2 sm:col-start-3 min-w-0">
+                <h3 className="font-heading font-semibold text-[17px] sm:text-[19px] tracking-[-0.01em] text-foreground">
+                  {it.title}
+                </h3>
+                <p className="mt-1.5 text-[14px] sm:text-[15px] text-muted-foreground leading-relaxed font-sans max-w-2xl">
+                  {it.desc}
+                </p>
+              </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );
@@ -316,16 +330,32 @@ function Demonstracoes() {
 
 
   return (
-    <section id="demonstracoes" className="py-24 sm:py-28 relative">
-      <div className="absolute inset-0 bg-grid opacity-40 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[420px] rounded-full blur-3xl opacity-40 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.25 250 / 0.35), transparent 70%)" }} />
+    <section id="vitrine" className="py-24 sm:py-32 relative">
+      <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[820px] h-[460px] rounded-full blur-3xl opacity-30 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.25 250 / 0.32), transparent 70%)" }} />
       <div className="relative mx-auto max-w-7xl px-6">
-        <SectionTitle
-          display
-          eyebrow="Vitrine de soluções reais"
-          title="Demonstrações Imperius."
-          sub="Soluções reais que a Imperius já desenvolve para diferentes segmentos."
-        />
+        <div className="mb-12 sm:mb-16 grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 lg:items-end">
+          <div className="max-w-2xl">
+            <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
+              <span className="h-px w-8 bg-primary/70" />
+              Vitrine · {cards.length.toString().padStart(2, "0")} projetos
+            </div>
+            <h2 className="font-display text-[2rem] sm:text-[2.8rem] lg:text-[3.4rem] font-bold leading-[1.05] tracking-[-0.02em] text-foreground">
+              Projetos navegáveis,
+              <span className="block text-neon">não mockups.</span>
+            </h2>
+            <p className="mt-5 text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed font-sans max-w-xl">
+              Cada card abaixo abre uma demonstração funcional — desenvolvida pela Imperius
+              para um nicho real. Clique, explore o fluxo e veja o nível de acabamento
+              entregue antes mesmo do briefing.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11.5px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium lg:justify-end">
+            <span>Produtos Imperius · 03</span>
+            <span className="h-1 w-1 rounded-full bg-border" />
+            <span>Nichos verticais · 05</span>
+          </div>
+        </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {cards.map((c) => (
             <DemoCardItem key={c.title} card={c} />
