@@ -69,6 +69,7 @@ function Landing() {
     <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
       <Nav />
       <Hero />
+      <Ecossistema />
       <Manifesto />
       <Demonstracoes />
       <Services />
