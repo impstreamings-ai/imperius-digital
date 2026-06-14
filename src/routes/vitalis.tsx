@@ -811,7 +811,7 @@ function Benefits() {
     { i: HeartPulse, t: "Atendimento humanizado", d: "Tempo de consulta adequado e escuta atenta." },
     { i: ShieldCheck, t: "Médicos com CRM ativo", d: "Profissionais certificados e experientes." },
     { i: CalendarCheck, t: "Agenda sempre aberta", d: "Marque online a qualquer hora do dia." },
-    { i: MapPin, t: "Localização privilegiada", d: "No coração da Avenida Paulista, com fácil acesso." },
+    { i: MapPin, t: "Localização personalizável", d: "Endereço estratégico de fácil acesso, definido conforme a clínica." },
   ];
   return (
     <section className="py-20 sm:py-24 bg-slate-50/50 border-y border-slate-200/70">
