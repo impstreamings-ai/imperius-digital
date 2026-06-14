@@ -529,18 +529,18 @@ function Chef() {
             className="text-3xl sm:text-4xl lg:text-[3rem] leading-[1.1] tracking-tight font-normal"
             style={{ ...SERIF, color: CREAM }}
           >
-            Chef Bruno Ferraz —
+            Chef Executivo —
             <span className="italic" style={{ color: EMBER }}> a alma da cozinha</span>.
           </h2>
           <p className="mt-5 text-base sm:text-lg leading-relaxed text-white/80">
-            Após passagens por restaurantes premiados em São Paulo e na Itália, Bruno fundou
-            o Imperial em 2013 com uma proposta clara: cozinha sazonal, técnica precisa e
+            Liderança gastronômica formada em escolas internacionais e com passagens por
+            restaurantes premiados. Proposta clara: cozinha sazonal, técnica precisa e
             ingredientes em primeiro lugar.
           </p>
           <ul className="mt-7 grid sm:grid-cols-2 gap-x-6 gap-y-3 text-[13.5px] text-white/85">
             {[
-              "12 anos de cozinha de autor",
-              "Formação no Le Cordon Bleu",
+              "Cozinha de autor",
+              "Formação internacional",
               "Menu sazonal trocado a cada estação",
               "Parceria com produtores locais",
             ].map((t) => (
@@ -803,17 +803,17 @@ function MiniCalendar({
 function Testimonials() {
   const tts = [
     {
-      n: "Carolina M.",
+      n: "Cliente 01",
       r: "Aniversário de casamento",
-      t: "Comemoramos nove anos no Imperial. Cada prato, cada vinho, cada minuto — perfeitos. É o nosso lugar.",
+      t: "Comemoramos nossa data no Imperial. Cada prato, cada vinho, cada minuto — perfeitos. É o nosso lugar.",
     },
     {
-      n: "Rafael T.",
-      r: "Cliente há 4 anos",
-      t: "Não existe restaurante em São Paulo com essa combinação de cozinha, serviço e atmosfera. O Bruno é um dos grandes chefs do país.",
+      n: "Cliente 02",
+      r: "Cliente recorrente",
+      t: "Combinação rara de cozinha, serviço e atmosfera. A equipe é diferenciada do começo ao fim.",
     },
     {
-      n: "Família Ribeiro",
+      n: "Cliente 03",
       r: "Jantar de domingo",
       t: "Atendimento impecável, mesmo com a casa cheia. As crianças se sentem em casa, os pais relaxam. Voltamos sempre.",
     },
@@ -894,7 +894,7 @@ function Visit() {
               </span>
               <span>
                 <span className="text-[12px] block" style={{ color: MUTED }}>Endereço</span>
-                Rua Haddock Lobo, 1.580 · Jardins · São Paulo · SP
+                Endereço personalizável
               </span>
             </li>
             <li className="flex items-center gap-3">
@@ -903,7 +903,7 @@ function Visit() {
               </span>
               <span>
                 <span className="text-[12px] block" style={{ color: MUTED }}>Funcionamento</span>
-                Ter–Sáb 19h–00h · Dom 12h–17h · Segundas fechado
+                Horário personalizável
               </span>
             </li>
             <li className="flex items-center gap-3">
@@ -912,7 +912,7 @@ function Visit() {
               </span>
               <span>
                 <span className="text-[12px] block" style={{ color: MUTED }}>WhatsApp</span>
-                (15) 9810-2379
+                (XX) XXXXX-XXXX
               </span>
             </li>
           </ul>
@@ -1008,19 +1008,19 @@ function FinalCTA() {
                   <span className="h-9 w-9 rounded-full grid place-items-center shrink-0" style={{ background: GRAPHITE }}>
                     <Phone className="h-4 w-4" style={{ color: EMBER }} />
                   </span>
-                  <span><span className="text-[12px] block" style={{ color: MUTED }}>Telefone / WhatsApp</span>(15) 9810-2379</span>
+                  <span><span className="text-[12px] block" style={{ color: MUTED }}>Telefone / WhatsApp</span>(XX) XXXXX-XXXX</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="h-9 w-9 rounded-full grid place-items-center shrink-0" style={{ background: GRAPHITE }}>
                     <Mail className="h-4 w-4" style={{ color: EMBER }} />
                   </span>
-                  <span><span className="text-[12px] block" style={{ color: MUTED }}>E-mail</span>reservas@restauranteimperial.com.br</span>
+                  <span><span className="text-[12px] block" style={{ color: MUTED }}>E-mail</span>reservas@seurestaurante.com.br</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="h-9 w-9 rounded-full grid place-items-center shrink-0" style={{ background: GRAPHITE }}>
                     <MapPin className="h-4 w-4" style={{ color: EMBER }} />
                   </span>
-                  <span><span className="text-[12px] block" style={{ color: MUTED }}>Endereço</span>Rua Haddock Lobo, 1.580 · Jardins</span>
+                  <span><span className="text-[12px] block" style={{ color: MUTED }}>Endereço</span>Endereço personalizável</span>
                 </li>
               </ul>
             </div>
@@ -1035,17 +1035,23 @@ function FinalCTA() {
 function Footer() {
   return (
     <footer className="border-t py-10" style={{ borderColor: "rgba(26,22,19,0.08)", background: CREAM }}>
-      <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12.5px]" style={{ color: MUTED }}>
-        <div className="flex items-center gap-2">
-          <UtensilsCrossed className="h-4 w-4" style={{ color: BURGUNDY }} />
-          <span className="font-semibold" style={{ ...SERIF, color: GRAPHITE }}>
-            Restaurante Imperial
-          </span>
-          <span>· Rua Haddock Lobo, 1.580 · São Paulo</span>
+      <div className="mx-auto max-w-7xl px-6 flex flex-col gap-4 text-[12.5px]" style={{ color: MUTED }}>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <UtensilsCrossed className="h-4 w-4" style={{ color: BURGUNDY }} />
+            <span className="font-semibold" style={{ ...SERIF, color: GRAPHITE }}>
+              Restaurante Imperial
+            </span>
+            <span>· Endereço personalizável</span>
+          </div>
+          <div className="text-center sm:text-right">
+            © {new Date().getFullYear()} Restaurante Imperial. Site desenvolvido por{" "}
+            <span className="font-semibold" style={{ color: GRAPHITE }}>Imperius Digital</span>.
+          </div>
         </div>
-        <div className="text-center sm:text-right">
-          © {new Date().getFullYear()} Restaurante Imperial. Site desenvolvido por{" "}
-          <span className="font-semibold" style={{ color: GRAPHITE }}>Imperius Digital</span>.
+        <div className="text-center sm:text-left text-[11.5px] leading-relaxed" style={{ color: MUTED }}>
+          Projeto demonstrativo desenvolvido pela Imperius Digital. Conteúdo ilustrativo
+          para apresentação de soluções digitais — informações sujeitas à personalização.
         </div>
       </div>
     </footer>

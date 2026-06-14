@@ -335,36 +335,36 @@ type Doctor = {
 function Doctors() {
   const doctors: Doctor[] = [
     {
-      name: "Dra. Marina Costa",
+      name: "Especialista em Cardiologia",
       specialty: "Cardiologia",
-      crm: "CRM-SP 142.587",
+      crm: "CRM XXX.XXX",
       photo: doc1Asset.url,
       rating: 4.9,
       slots: ["09:00", "14:00", "16:30"],
       next: "Hoje · 14:00",
     },
     {
-      name: "Dr. Felipe Andrade",
+      name: "Especialista em Clínica Geral",
       specialty: "Clínica Geral",
-      crm: "CRM-SP 098.214",
+      crm: "CRM XXX.XXX",
       photo: doc2Asset.url,
       rating: 4.8,
       slots: ["10:30", "11:30", "15:00"],
       next: "Hoje · 10:30",
     },
     {
-      name: "Dra. Helena Vargas",
+      name: "Especialista em Dermatologia",
       specialty: "Dermatologia",
-      crm: "CRM-SP 187.302",
+      crm: "CRM XXX.XXX",
       photo: doc3Asset.url,
       rating: 5.0,
       slots: ["08:30", "13:00", "17:00"],
       next: "Amanhã · 08:30",
     },
     {
-      name: "Dr. Renato Lima",
+      name: "Especialista em Ortopedia",
       specialty: "Ortopedia",
-      crm: "CRM-SP 121.044",
+      crm: "CRM XXX.XXX",
       photo: doc4Asset.url,
       rating: 4.7,
       slots: ["09:30", "11:00", "16:00"],
@@ -459,9 +459,9 @@ function BookingFlow() {
           <StepCard step="01" tag="Profissional" icon={Stethoscope}>
             <div className="space-y-2">
               {[
-                { n: "Dra. Marina Costa", s: "Cardiologia", active: true, photo: doc1Asset.url },
-                { n: "Dr. Felipe Andrade", s: "Clínica Geral", photo: doc2Asset.url },
-                { n: "Dra. Helena Vargas", s: "Dermatologia", photo: doc3Asset.url },
+                { n: "Especialista em Cardiologia", s: "Cardiologia", active: true, photo: doc1Asset.url },
+                { n: "Especialista em Clínica Geral", s: "Clínica Geral", photo: doc2Asset.url },
+                { n: "Especialista em Dermatologia", s: "Dermatologia", photo: doc3Asset.url },
               ].map((d) => (
                 <div
                   key={d.n}
@@ -528,7 +528,7 @@ function BookingFlow() {
                 Resumo
               </div>
               <p className="text-[12px] text-slate-700 leading-snug">
-                <span className="font-semibold text-slate-900">Dra. Marina Costa</span> · Cardiologia · Qua 12/06 ·{" "}
+                <span className="font-semibold text-slate-900">Especialista em Cardiologia</span> · Cardiologia · Qua 12/06 ·{" "}
                 <span className="text-sky-700 font-semibold">14:00</span>
               </p>
               <div className="mt-3 flex items-center justify-between gap-2 text-[10px] text-slate-500">
@@ -665,7 +665,7 @@ function Confirmations() {
                 </div>
                 <div className="leading-tight">
                   <div className="text-sm font-semibold text-slate-900">Clínica Vitalis</div>
-                  <div className="text-[11px] text-slate-500">+55 15 9810-2379</div>
+                  <div className="text-[11px] text-slate-500">(XX) XXXXX-XXXX</div>
                 </div>
               </div>
               <span className="text-[10px] text-emerald-600 font-semibold inline-flex items-center gap-1.5">
@@ -676,17 +676,17 @@ function Confirmations() {
             <div className="space-y-2.5">
               <WaClinic
                 tag="Confirmação · 14:31"
-                text="Olá, Renato! Sua consulta com a Dra. Marina Costa (Cardiologia) está confirmada para quarta-feira, 12/06 às 14:00. Posso confirmar sua presença? ✅"
+                text="Olá! Sua consulta com o profissional escolhido (Cardiologia) está confirmada para quarta-feira, 12/06 às 14:00. Posso confirmar sua presença? ✅"
               />
               <PatientReply text="Sim, confirmado! 🙌" />
               <WaClinic
                 tag="Lembrete · enviado às 08:00"
-                text="Bom dia, Renato 👋 Lembrete carinhoso: sua consulta é hoje às 14:00. Endereço: Av. Paulista 1500, sala 802. Estamos te esperando!"
+                text="Bom dia 👋 Lembrete carinhoso: sua consulta é hoje às 14:00, no endereço da clínica. Estamos te esperando!"
               />
               <PatientReply text="Posso remarcar para quinta?" />
               <WaClinic
                 tag="Reagendamento"
-                text="Claro! Temos quinta-feira (13/06) às 10:00 ou 16:30 com a Dra. Marina. Qual horário fica melhor pra você?"
+                text="Claro! Temos quinta-feira (13/06) às 10:00 ou 16:30 com a mesma profissional. Qual horário fica melhor pra você?"
               />
             </div>
           </div>
@@ -811,7 +811,7 @@ function Benefits() {
     { i: HeartPulse, t: "Atendimento humanizado", d: "Tempo de consulta adequado e escuta atenta." },
     { i: ShieldCheck, t: "Médicos com CRM ativo", d: "Profissionais certificados e experientes." },
     { i: CalendarCheck, t: "Agenda sempre aberta", d: "Marque online a qualquer hora do dia." },
-    { i: MapPin, t: "Localização privilegiada", d: "No coração da Avenida Paulista, com fácil acesso." },
+    { i: MapPin, t: "Localização personalizável", d: "Endereço estratégico de fácil acesso, definido conforme a clínica." },
   ];
   return (
     <section className="py-20 sm:py-24 bg-slate-50/50 border-y border-slate-200/70">
@@ -901,27 +901,27 @@ function FinalCTA() {
                 Como chegar
               </div>
               <h3 className="text-xl font-semibold tracking-tight" style={SERIF}>
-                Av. Paulista, 1500 · Sala 802
+                Endereço personalizável
               </h3>
-              <p className="text-sm text-slate-600 mt-1">Bela Vista · São Paulo · SP</p>
+              <p className="text-sm text-slate-600 mt-1">Bairro e cidade definidos pela clínica</p>
               <ul className="mt-5 space-y-3 text-sm text-slate-700">
                 <li className="flex items-center gap-3">
                   <span className="h-9 w-9 rounded-full bg-sky-50 grid place-items-center ring-1 ring-sky-100 shrink-0">
                     <Phone className="h-4 w-4 text-sky-600" />
                   </span>
-                  <span><span className="text-slate-500 text-[12px] block">Telefone</span>(15) 9810-2379</span>
+                  <span><span className="text-slate-500 text-[12px] block">Telefone</span>(XX) XXXXX-XXXX</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="h-9 w-9 rounded-full bg-sky-50 grid place-items-center ring-1 ring-sky-100 shrink-0">
                     <Mail className="h-4 w-4 text-sky-600" />
                   </span>
-                  <span><span className="text-slate-500 text-[12px] block">E-mail</span>contato@clinicavitalis.com.br</span>
+                  <span><span className="text-slate-500 text-[12px] block">E-mail</span>contato@suaclinica.com.br</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="h-9 w-9 rounded-full bg-sky-50 grid place-items-center ring-1 ring-sky-100 shrink-0">
                     <Clock className="h-4 w-4 text-sky-600" />
                   </span>
-                  <span><span className="text-slate-500 text-[12px] block">Horário</span>Seg–Sex 08h–20h · Sáb 08h–13h</span>
+                  <span><span className="text-slate-500 text-[12px] block">Horário</span>Horário personalizável</span>
                 </li>
               </ul>
             </div>
@@ -936,17 +936,23 @@ function FinalCTA() {
 function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-white py-10">
-      <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12.5px] text-slate-500">
-        <div className="flex items-center gap-2">
-          <HeartPulse className="h-4 w-4 text-sky-600" />
-          <span className="font-semibold text-slate-700" style={SERIF}>
-            Clínica Vitalis
-          </span>
-          <span>· Av. Paulista, 1500 · São Paulo</span>
+      <div className="mx-auto max-w-7xl px-6 flex flex-col gap-4 text-[12.5px] text-slate-500">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <HeartPulse className="h-4 w-4 text-sky-600" />
+            <span className="font-semibold text-slate-700" style={SERIF}>
+              Clínica Vitalis
+            </span>
+            <span>· Endereço personalizável</span>
+          </div>
+          <div className="text-center sm:text-right">
+            © {new Date().getFullYear()} Clínica Vitalis. Site desenvolvido por{" "}
+            <span className="text-slate-700 font-semibold">Imperius Digital</span>.
+          </div>
         </div>
-        <div className="text-center sm:text-right">
-          © {new Date().getFullYear()} Clínica Vitalis. Site desenvolvido por{" "}
-          <span className="text-slate-700 font-semibold">Imperius Digital</span>.
+        <div className="text-center sm:text-left text-[11.5px] text-slate-400 leading-relaxed">
+          Projeto demonstrativo desenvolvido pela Imperius Digital. Conteúdo ilustrativo
+          para apresentação de soluções digitais — informações sujeitas à personalização.
         </div>
       </div>
     </footer>

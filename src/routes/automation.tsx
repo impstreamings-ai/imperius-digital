@@ -446,9 +446,9 @@ function ProductDemo() {
 
           <DemoModule label="CRM" tag="Organização" icon={Database}>
             <div className="space-y-2">
-              <CrmRow name="Mariana S." tag="Quente" status="Novo lead" />
-              <CrmRow name="João P." tag="Morno" status="Aguardando retorno" />
-              <CrmRow name="Carla M." tag="Quente" status="Orçamento enviado" />
+              <CrmRow name="Cliente 01" tag="Quente" status="Novo lead" />
+              <CrmRow name="Cliente 02" tag="Morno" status="Aguardando retorno" />
+              <CrmRow name="Cliente 03" tag="Quente" status="Orçamento enviado" />
             </div>
           </DemoModule>
 
@@ -744,16 +744,22 @@ function FinalCTA() {
 function Footer() {
   return (
     <footer className="border-t border-border/40 py-10 mt-0">
-      <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-        <div className="flex items-center gap-2">
-          <Cpu className="h-4 w-4 text-primary" />
-          <span className="font-display tracking-[0.18em] font-semibold">
-            IMPERIUS AUTOMATION<span className="text-primary">™</span>
-          </span>
+      <div className="mx-auto max-w-7xl px-6 flex flex-col gap-4 text-xs text-muted-foreground">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <Cpu className="h-4 w-4 text-primary" />
+            <span className="font-display tracking-[0.18em] font-semibold">
+              IMPERIUS AUTOMATION<span className="text-primary">™</span>
+            </span>
+          </div>
+          <div className="text-center sm:text-right">
+            © {new Date().getFullYear()} Imperius Soluções Digitais. Todos os
+            direitos reservados.
+          </div>
         </div>
-        <div className="text-center sm:text-right">
-          © {new Date().getFullYear()} Imperius Soluções Digitais. Todos os
-          direitos reservados.
+        <div className="text-center sm:text-left text-[11px] text-muted-foreground/70 leading-relaxed">
+          Produto demonstrativo da Imperius Digital. Dados, nomes e métricas exibidos são
+          ilustrativos, criados apenas para apresentação da solução.
         </div>
       </div>
     </footer>

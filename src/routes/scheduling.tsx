@@ -302,7 +302,7 @@ function HeroVisual() {
               <span className="text-[9px] text-muted-foreground">agora</span>
             </div>
             <p className="text-[11px] text-muted-foreground mt-0.5 leading-snug">
-              <span className="text-foreground/80 font-medium">Mariana S.</span> · Corte
+              <span className="text-foreground/80 font-medium">Cliente 01</span> · Corte
               + Barba · <span className="text-primary">Qua 12, 15h</span>
             </p>
           </div>
@@ -553,10 +553,10 @@ function CalendarModule() {
 
 function BookingsModule() {
   const bookings = [
-    { name: "Mariana S.", service: "Corte + Barba", date: "Qua 12 · 15:00", state: "Confirmado" },
-    { name: "Lucas R.", service: "Consulta inicial", date: "Qua 12 · 16:30", state: "Confirmado" },
-    { name: "Beatriz O.", service: "Limpeza de pele", date: "Qui 13 · 10:00", state: "Pendente" },
-    { name: "Renato C.", service: "Avaliação", date: "Sex 14 · 09:00", state: "Confirmado" },
+    { name: "Cliente 01", service: "Corte + Barba", date: "Qua 12 · 15:00", state: "Confirmado" },
+    { name: "Cliente 02", service: "Consulta inicial", date: "Qua 12 · 16:30", state: "Confirmado" },
+    { name: "Cliente 03", service: "Limpeza de pele", date: "Qui 13 · 10:00", state: "Pendente" },
+    { name: "Cliente 04", service: "Avaliação", date: "Sex 14 · 09:00", state: "Confirmado" },
   ];
   return (
     <ModuleShell label="Reservas" tag="Próximos atendimentos" icon={CalendarCheck}>
@@ -605,11 +605,11 @@ function WhatsappModule() {
       <div className="space-y-3">
         <WaBubble
           tag="Confirmação · enviada às 14:31"
-          text="Olá Mariana! Seu horário está confirmado para Qua 12/06 às 15:00. Até lá! ✅"
+          text="Olá! Seu horário está confirmado para Qua 12/06 às 15:00. Até lá! ✅"
         />
         <WaBubble
           tag="Lembrete · agendado para 14:00 amanhã"
-          text="Oi Mariana 👋 Seu atendimento será amanhã às 15h. Posso confirmar sua presença?"
+          text="Oi 👋 Seu atendimento será amanhã às 15h. Posso confirmar sua presença?"
         />
         <div className="rounded-lg border border-border/50 bg-card/40 px-3 py-2 text-[11px] text-muted-foreground flex items-center justify-between">
           <span className="flex items-center gap-1.5">
@@ -823,15 +823,21 @@ function FinalCTA() {
 function Footer() {
   return (
     <footer className="border-t border-border/40 py-10 mt-0">
-      <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-        <div className="flex items-center gap-2">
-          <Cpu className="h-4 w-4 text-primary" />
-          <span className="font-display tracking-[0.18em] font-semibold">
-            IMPERIUS SCHEDULING<span className="text-primary">™</span>
-          </span>
+      <div className="mx-auto max-w-7xl px-6 flex flex-col gap-4 text-xs text-muted-foreground">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <Cpu className="h-4 w-4 text-primary" />
+            <span className="font-display tracking-[0.18em] font-semibold">
+              IMPERIUS SCHEDULING<span className="text-primary">™</span>
+            </span>
+          </div>
+          <div className="text-center sm:text-right">
+            © {new Date().getFullYear()} Imperius Soluções Digitais. Todos os direitos reservados.
+          </div>
         </div>
-        <div className="text-center sm:text-right">
-          © {new Date().getFullYear()} Imperius Soluções Digitais. Todos os direitos reservados.
+        <div className="text-center sm:text-left text-[11px] text-muted-foreground/70 leading-relaxed">
+          Produto demonstrativo da Imperius Digital. Dados, nomes e métricas exibidos são
+          ilustrativos, criados apenas para apresentação da solução.
         </div>
       </div>
     </footer>

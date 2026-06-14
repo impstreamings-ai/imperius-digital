@@ -442,24 +442,24 @@ type Pro = { name: string; role: string; reg: string; photo: string; rating: num
 function Team() {
   const team: Pro[] = [
     {
-      name: "Dra. Camila Bellini",
-      role: "Diretora Clínica",
-      reg: "CRBM 27.401",
+      name: "Diretora Clínica",
+      role: "Harmonização facial",
+      reg: "Registro XX.XXX",
       photo: pro2.url,
       rating: 5.0,
       spec: "Harmonização facial",
     },
     {
-      name: "Letícia Andrade",
-      role: "Esteticista Sênior",
+      name: "Esteticista Sênior",
+      role: "Estética avançada",
       reg: "Especialista facial",
       photo: pro1.url,
       rating: 4.9,
       spec: "Estética avançada",
     },
     {
-      name: "Júlia Moraes",
-      role: "Dermato-funcional",
+      name: "Dermato-funcional",
+      role: "Laser & corporal",
       reg: "Especialista corporal",
       photo: pro3.url,
       rating: 4.9,
@@ -527,19 +527,19 @@ function Team() {
 function Testimonials() {
   const tts = [
     {
-      n: "Marina S.",
-      r: "Cliente há 3 anos",
-      t: "A Bella entendeu o que eu queria sem que eu precisasse explicar. Resultado discreto, elegante, exatamente como pedi.",
+      n: "Cliente 01",
+      r: "Cliente recorrente",
+      t: "Entenderam o que eu queria sem que eu precisasse explicar. Resultado discreto, elegante, exatamente como pedi.",
     },
     {
-      n: "Camille R.",
+      n: "Cliente 02",
       r: "Harmonização facial",
       t: "Saí me sentindo a melhor versão de mim. Atendimento impecável, ambiente de outro nível.",
     },
     {
-      n: "Patrícia L.",
+      n: "Cliente 03",
       r: "Programa anual",
-      t: "É o único lugar em São Paulo em que confio o meu rosto. A equipe da Camila é cirúrgica e humana ao mesmo tempo.",
+      t: "É o único lugar em que confio o meu rosto. A equipe é cirúrgica e humana ao mesmo tempo.",
     },
   ];
   return (
@@ -672,7 +672,7 @@ function Booking() {
                 Resumo
               </div>
               <p className="text-[12.5px] text-stone-700 leading-snug">
-                <span className="font-semibold text-stone-900">Avaliação facial</span> · com Dra. Camila · Sáb 14/06 ·{" "}
+                <span className="font-semibold text-stone-900">Avaliação facial</span> · com a profissional escolhida · Sáb 14/06 ·{" "}
                 <span className="font-semibold" style={{ color: "#9B5C8A" }}>15:30</span>
               </p>
               <div className="mt-3 flex items-center justify-between gap-2 text-[10px] text-stone-500">
@@ -843,7 +843,7 @@ function Visit() {
               </span>
               <span>
                 <span className="text-stone-500 text-[12px] block">Endereço</span>
-                Rua Oscar Freire, 902 · Sala 304 · Jardins · São Paulo · SP
+                Endereço personalizável
               </span>
             </li>
             <li className="flex items-center gap-3">
@@ -852,7 +852,7 @@ function Visit() {
               </span>
               <span>
                 <span className="text-stone-500 text-[12px] block">Horário</span>
-                Ter–Sex 10h–20h · Sáb 09h–17h
+                Horário personalizável
               </span>
             </li>
             <li className="flex items-center gap-3">
@@ -861,7 +861,7 @@ function Visit() {
               </span>
               <span>
                 <span className="text-stone-500 text-[12px] block">WhatsApp</span>
-                (15) 9810-2379
+                (XX) XXXXX-XXXX
               </span>
             </li>
           </ul>
@@ -947,19 +947,19 @@ function FinalCTA() {
                   <span className="h-9 w-9 rounded-full grid place-items-center shrink-0" style={{ background: "#F5E6F0" }}>
                     <Phone className="h-4 w-4" style={{ color: "#9B5C8A" }} />
                   </span>
-                  <span><span className="text-stone-500 text-[12px] block">Telefone / WhatsApp</span>(15) 9810-2379</span>
+                  <span><span className="text-stone-500 text-[12px] block">Telefone / WhatsApp</span>(XX) XXXXX-XXXX</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="h-9 w-9 rounded-full grid place-items-center shrink-0" style={{ background: "#F5E6F0" }}>
                     <Mail className="h-4 w-4" style={{ color: "#9B5C8A" }} />
                   </span>
-                  <span><span className="text-stone-500 text-[12px] block">E-mail</span>contato@studiobella.com.br</span>
+                  <span><span className="text-stone-500 text-[12px] block">E-mail</span>contato@seustudio.com.br</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="h-9 w-9 rounded-full grid place-items-center shrink-0" style={{ background: "#F5E6F0" }}>
                     <MapPin className="h-4 w-4" style={{ color: "#9B5C8A" }} />
                   </span>
-                  <span><span className="text-stone-500 text-[12px] block">Endereço</span>Rua Oscar Freire, 902 · Sala 304</span>
+                  <span><span className="text-stone-500 text-[12px] block">Endereço</span>Endereço personalizável</span>
                 </li>
               </ul>
             </div>
@@ -974,17 +974,23 @@ function FinalCTA() {
 function Footer() {
   return (
     <footer className="border-t py-10" style={{ borderColor: "#EADFE6", background: "#FBF7F4" }}>
-      <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12.5px] text-stone-500">
-        <div className="flex items-center gap-2">
-          <Flower2 className="h-4 w-4" style={{ color: "#9B5C8A" }} />
-          <span className="font-medium text-stone-700" style={SERIF}>
-            Studio Bella Estética
-          </span>
-          <span>· Rua Oscar Freire, 902 · São Paulo</span>
+      <div className="mx-auto max-w-7xl px-6 flex flex-col gap-4 text-[12.5px] text-stone-500">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <Flower2 className="h-4 w-4" style={{ color: "#9B5C8A" }} />
+            <span className="font-medium text-stone-700" style={SERIF}>
+              Studio Bella Estética
+            </span>
+            <span>· Endereço personalizável</span>
+          </div>
+          <div className="text-center sm:text-right">
+            © {new Date().getFullYear()} Studio Bella. Site desenvolvido por{" "}
+            <span className="text-stone-700 font-semibold">Imperius Digital</span>.
+          </div>
         </div>
-        <div className="text-center sm:text-right">
-          © {new Date().getFullYear()} Studio Bella. Site desenvolvido por{" "}
-          <span className="text-stone-700 font-semibold">Imperius Digital</span>.
+        <div className="text-center sm:text-left text-[11.5px] text-stone-400 leading-relaxed">
+          Projeto demonstrativo desenvolvido pela Imperius Digital. Conteúdo ilustrativo
+          para apresentação de soluções digitais — informações sujeitas à personalização.
         </div>
       </div>
     </footer>

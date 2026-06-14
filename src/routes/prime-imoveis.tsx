@@ -366,10 +366,10 @@ function Properties() {
     {
       img: prop1.url,
       alt: "Living de cobertura premium com vista panorâmica para a cidade",
-      tag: "Cobertura · Itaim",
-      name: "Cobertura Faria Lima",
-      area: "Itaim Bibi · São Paulo",
-      price: "R$ 12.800.000",
+      tag: "Cobertura · Região nobre",
+      name: "Cobertura Premium",
+      area: "Endereço personalizável",
+      price: "R$ XX.XXX.XXX",
       beds: 4,
       baths: 5,
       parking: 4,
@@ -378,10 +378,10 @@ function Properties() {
     {
       img: prop2.url,
       alt: "Casa moderna de alto padrão com piscina e iluminação noturna",
-      tag: "Casa · Alphaville",
-      name: "Residence Alphaville",
-      area: "Alphaville · Barueri",
-      price: "R$ 7.450.000",
+      tag: "Casa · Condomínio fechado",
+      name: "Residência Exclusiva",
+      area: "Endereço personalizável",
+      price: "R$ X.XXX.XXX",
       beds: 5,
       baths: 6,
       parking: 6,
@@ -390,10 +390,10 @@ function Properties() {
     {
       img: prop3.url,
       alt: "Fachada de prédio residencial premium com varandas e jardins suspensos",
-      tag: "Apartamento · Pinheiros",
-      name: "Jardim Vertical",
-      area: "Pinheiros · São Paulo",
-      price: "R$ 3.290.000",
+      tag: "Apartamento · Bairro premium",
+      name: "Edifício Conceito",
+      area: "Endereço personalizável",
+      price: "R$ X.XXX.XXX",
       beds: 3,
       baths: 4,
       parking: 3,
@@ -586,25 +586,25 @@ type Broker = {
 function Team() {
   const team: Broker[] = [
     {
-      name: "Ricardo Mendes",
-      role: "Diretor Comercial",
-      creci: "CRECI 142.380",
+      name: "Diretor Comercial",
+      role: "Especialista em alto padrão",
+      creci: "CRECI XXX.XXX",
       photo: broker1.url,
       rating: 5.0,
-      spec: "Alto padrão · Faria Lima",
+      spec: "Alto padrão · Região nobre",
     },
     {
-      name: "Beatriz Camargo",
-      role: "Consultora Sênior",
-      creci: "CRECI 188.572",
+      name: "Consultora Sênior",
+      role: "Coberturas e exclusivos",
+      creci: "CRECI XXX.XXX",
       photo: broker2.url,
       rating: 4.9,
-      spec: "Coberturas · Jardins",
+      spec: "Coberturas · Bairros premium",
     },
     {
-      name: "Felipe Almeida",
-      role: "Consultor de Investimentos",
-      creci: "CRECI 201.904",
+      name: "Consultor de Investimentos",
+      role: "Casas e condomínios",
+      creci: "CRECI XXX.XXX",
       photo: broker3.url,
       rating: 4.9,
       spec: "Casas · Condomínios",
@@ -750,17 +750,17 @@ function Process() {
 function Testimonials() {
   const tts = [
     {
-      n: "Família Carvalho",
-      r: "Cobertura · Itaim",
+      n: "Cliente 01",
+      r: "Cobertura · região premium",
       t: "Encontraram exatamente o que procurávamos em menos de 30 dias. Negociação impecável e zero dor de cabeça com documentação.",
     },
     {
-      n: "Eduardo R.",
+      n: "Cliente 02",
       r: "Investidor",
-      t: "Trabalho com a Prime há 6 anos. Já comprei e vendi 4 imóveis com eles. Conhecimento de mercado e seriedade que poucas têm.",
+      t: "Trabalho com a equipe há anos e já fiz várias operações. Conhecimento de mercado e seriedade que poucas têm.",
     },
     {
-      n: "Marina P.",
+      n: "Cliente 03",
       r: "Primeira compra premium",
       t: "Era a primeira vez que entrava em alto padrão. A equipe me orientou em tudo — do financiamento à escolha do condomínio. Confiei e acertei.",
     },
@@ -823,8 +823,8 @@ function Visit() {
             <span className="italic" style={{ color: NAVY }}> com hora marcada</span>.
           </h2>
           <p className="mt-5 text-base sm:text-lg leading-relaxed max-w-xl" style={{ color: NAVY_SOFT }}>
-            Recebemos cada cliente no nosso escritório nos Jardins com café, privacidade e
-            tempo para entender o seu projeto. Atendemos de segunda a sábado.
+            Recebemos cada cliente no nosso escritório com café, privacidade e
+            tempo para entender o seu projeto. Horário de atendimento personalizável.
           </p>
           <ul className="mt-7 space-y-3 text-sm" style={{ color: NAVY_SOFT }}>
             <li className="flex items-center gap-3">
@@ -833,7 +833,7 @@ function Visit() {
               </span>
               <span>
                 <span className="text-[12px] block" style={{ color: TITANIUM }}>Escritório</span>
-                Av. Brigadeiro Faria Lima, 3.144 · 12º andar · Itaim Bibi · São Paulo
+                Endereço personalizável
               </span>
             </li>
             <li className="flex items-center gap-3">
@@ -842,7 +842,7 @@ function Visit() {
               </span>
               <span>
                 <span className="text-[12px] block" style={{ color: TITANIUM }}>Horário</span>
-                Seg–Sex 9h–19h · Sáb 10h–14h · Domingos com hora marcada
+                Horário personalizável · atendimento sob agendamento
               </span>
             </li>
             <li className="flex items-center gap-3">
@@ -851,7 +851,7 @@ function Visit() {
               </span>
               <span>
                 <span className="text-[12px] block" style={{ color: TITANIUM }}>WhatsApp</span>
-                (15) 9810-2379
+                (XX) XXXXX-XXXX
               </span>
             </li>
           </ul>
@@ -948,19 +948,19 @@ function FinalCTA() {
                   <span className="h-9 w-9 rounded-md grid place-items-center shrink-0" style={{ background: NAVY }}>
                     <Phone className="h-4 w-4 text-white" />
                   </span>
-                  <span><span className="text-[12px] block" style={{ color: TITANIUM }}>Telefone / WhatsApp</span>(15) 9810-2379</span>
+                  <span><span className="text-[12px] block" style={{ color: TITANIUM }}>Telefone / WhatsApp</span>(XX) XXXXX-XXXX</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="h-9 w-9 rounded-md grid place-items-center shrink-0" style={{ background: NAVY }}>
                     <Mail className="h-4 w-4 text-white" />
                   </span>
-                  <span><span className="text-[12px] block" style={{ color: TITANIUM }}>E-mail</span>contato@primeimoveis.com.br</span>
+                  <span><span className="text-[12px] block" style={{ color: TITANIUM }}>E-mail</span>contato@suaimobiliaria.com.br</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="h-9 w-9 rounded-md grid place-items-center shrink-0" style={{ background: NAVY }}>
                     <MapPin className="h-4 w-4 text-white" />
                   </span>
-                  <span><span className="text-[12px] block" style={{ color: TITANIUM }}>Endereço</span>Av. Brigadeiro Faria Lima, 3.144 · 12º andar</span>
+                  <span><span className="text-[12px] block" style={{ color: TITANIUM }}>Endereço</span>Endereço personalizável</span>
                 </li>
               </ul>
             </div>
@@ -975,17 +975,23 @@ function FinalCTA() {
 function Footer() {
   return (
     <footer className="border-t py-10" style={{ borderColor: TITANIUM_LIGHT, background: "#fff" }}>
-      <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12.5px]" style={{ color: TITANIUM }}>
-        <div className="flex items-center gap-2">
-          <Building2 className="h-4 w-4" style={{ color: NAVY }} />
-          <span className="font-semibold" style={{ ...SERIF, color: NAVY_DEEP }}>
-            Prime Imóveis
-          </span>
-          <span>· CRECI-J 38.402 · São Paulo</span>
+      <div className="mx-auto max-w-7xl px-6 flex flex-col gap-4 text-[12.5px]" style={{ color: TITANIUM }}>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <Building2 className="h-4 w-4" style={{ color: NAVY }} />
+            <span className="font-semibold" style={{ ...SERIF, color: NAVY_DEEP }}>
+              Prime Imóveis
+            </span>
+            <span>· CRECI-J XX.XXX · Endereço personalizável</span>
+          </div>
+          <div className="text-center sm:text-right">
+            © {new Date().getFullYear()} Prime Imóveis. Site desenvolvido por{" "}
+            <span className="font-semibold" style={{ color: NAVY_DEEP }}>Imperius Digital</span>.
+          </div>
         </div>
-        <div className="text-center sm:text-right">
-          © {new Date().getFullYear()} Prime Imóveis. Site desenvolvido por{" "}
-          <span className="font-semibold" style={{ color: NAVY_DEEP }}>Imperius Digital</span>.
+        <div className="text-center sm:text-left text-[11.5px] leading-relaxed" style={{ color: TITANIUM }}>
+          Projeto demonstrativo desenvolvido pela Imperius Digital. Conteúdo ilustrativo
+          para apresentação de soluções digitais — informações sujeitas à personalização.
         </div>
       </div>
     </footer>

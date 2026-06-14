@@ -242,9 +242,9 @@ function HeroVisual() {
         {/* Mini pipeline */}
         <div className="grid grid-cols-3 gap-2">
           {[
-            { col: "Novos", count: 4, sample: "Mariana S.", tag: "Quente" },
-            { col: "Contato", count: 3, sample: "João P.", tag: "Morno" },
-            { col: "Proposta", count: 2, sample: "Carla M.", tag: "Quente" },
+            { col: "Novos", count: 4, sample: "Cliente 01", tag: "Quente" },
+            { col: "Contato", count: 3, sample: "Cliente 02", tag: "Morno" },
+            { col: "Proposta", count: 2, sample: "Cliente 03", tag: "Quente" },
           ].map((c) => (
             <div
               key={c.col}
@@ -290,7 +290,7 @@ function HeroVisual() {
               <span className="text-[9px] text-muted-foreground">agora</span>
             </div>
             <p className="text-[11px] text-muted-foreground mt-0.5 leading-snug">
-              <span className="text-foreground/80 font-medium">Lucas R.</span> ·
+              <span className="text-foreground/80 font-medium">Cliente 05</span> ·
               WhatsApp · Interesse: <span className="text-primary">Plano Premium</span>
             </p>
           </div>
@@ -386,32 +386,32 @@ const PIPELINE: { col: string; cards: PipelineCard[] }[] = [
   {
     col: "Novos Leads",
     cards: [
-      { name: "Mariana S.", tag: "Quente", meta: "WhatsApp · há 2 min" },
-      { name: "Lucas R.", tag: "Quente", meta: "Instagram · há 7 min" },
-      { name: "Beatriz O.", tag: "Morno", meta: "Site · há 18 min" },
+      { name: "Cliente 01", tag: "Quente", meta: "WhatsApp · há 2 min" },
+      { name: "Cliente 02", tag: "Quente", meta: "Instagram · há 7 min" },
+      { name: "Cliente 03", tag: "Morno", meta: "Site · há 18 min" },
     ],
   },
   {
     col: "Contato",
     cards: [
-      { name: "João P.", tag: "Morno", meta: "Aguardando retorno" },
-      { name: "Renato C.", tag: "Quente", meta: "Reunião agendada" },
+      { name: "Cliente 04", tag: "Morno", meta: "Aguardando retorno" },
+      { name: "Cliente 05", tag: "Quente", meta: "Reunião agendada" },
     ],
   },
   {
     col: "Proposta",
     cards: [
-      { name: "Carla M.", tag: "Quente", meta: "Orçamento enviado" },
-      { name: "Diego F.", tag: "Morno", meta: "Revisando proposta" },
+      { name: "Cliente 06", tag: "Quente", meta: "Orçamento enviado" },
+      { name: "Cliente 07", tag: "Morno", meta: "Revisando proposta" },
     ],
   },
   {
     col: "Negociação",
-    cards: [{ name: "Helena V.", tag: "Quente", meta: "Ajustando condições" }],
+    cards: [{ name: "Cliente 08", tag: "Quente", meta: "Ajustando condições" }],
   },
   {
     col: "Fechado",
-    cards: [{ name: "Bruno T.", tag: "Quente", meta: "R$ 4.800 · hoje" }],
+    cards: [{ name: "Cliente 09", tag: "Quente", meta: "R$ 4.800 · hoje" }],
   },
 ];
 
@@ -585,15 +585,15 @@ function LeadProfile() {
     <ModuleShell label="Lead Profile" tag="Ficha do contato" icon={Users}>
       <div className="flex items-center gap-3 pb-3 mb-3 border-b border-border/50">
         <div className="h-12 w-12 rounded-full bg-primary/15 ring-1 ring-primary/40 flex items-center justify-center text-base font-semibold text-primary">
-          M
+          C
         </div>
         <div className="min-w-0">
-          <div className="text-sm font-semibold truncate">Mariana Silveira</div>
+          <div className="text-sm font-semibold truncate">Cliente exemplo</div>
           <div className="text-[11px] text-muted-foreground truncate">Lead #2840 · há 2 min</div>
         </div>
       </div>
       <div className="space-y-2">
-        <ProfileLine icon={Phone} label="Telefone" value="(15) 99102-4421" />
+        <ProfileLine icon={Phone} label="Telefone" value="(XX) XXXXX-XXXX" />
         <ProfileLine icon={Instagram} label="Origem" value="Instagram Ads" />
         <ProfileLine icon={Target} label="Interesse" value="Plano Premium" highlight />
         <ProfileLine icon={Flame} label="Status" value="Aguardando contato" />
@@ -908,15 +908,21 @@ function FinalCTA() {
 function Footer() {
   return (
     <footer className="border-t border-border/40 py-10 mt-0">
-      <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-        <div className="flex items-center gap-2">
-          <Cpu className="h-4 w-4 text-primary" />
-          <span className="font-display tracking-[0.18em] font-semibold">
-            IMPERIUS CRM<span className="text-primary">™</span>
-          </span>
+      <div className="mx-auto max-w-7xl px-6 flex flex-col gap-4 text-xs text-muted-foreground">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <Cpu className="h-4 w-4 text-primary" />
+            <span className="font-display tracking-[0.18em] font-semibold">
+              IMPERIUS CRM<span className="text-primary">™</span>
+            </span>
+          </div>
+          <div className="text-center sm:text-right">
+            © {new Date().getFullYear()} Imperius Soluções Digitais. Todos os direitos reservados.
+          </div>
         </div>
-        <div className="text-center sm:text-right">
-          © {new Date().getFullYear()} Imperius Soluções Digitais. Todos os direitos reservados.
+        <div className="text-center sm:text-left text-[11px] text-muted-foreground/70 leading-relaxed">
+          Produto demonstrativo da Imperius Digital. Dados, nomes e métricas exibidos são
+          ilustrativos, criados apenas para apresentação da solução.
         </div>
       </div>
     </footer>
