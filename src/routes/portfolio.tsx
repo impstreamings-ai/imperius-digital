@@ -195,23 +195,42 @@ function PortfolioPage() {
 
 function Intro() {
   return (
-    <section className="relative pb-4">
+    <section className="relative pt-4 pb-2">
       <div className="relative mx-auto max-w-4xl px-6">
-        <div className="rounded-2xl border border-border/60 bg-card/40 backdrop-blur-sm p-7 sm:p-9">
-          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/80 font-semibold mb-4 font-sans inline-flex items-center gap-2.5">
-            <span className="h-px w-8 bg-muted-foreground/50" />
-            Nota institucional
-          </div>
-          <p className="text-foreground/90 text-[15px] sm:text-[16.5px] leading-relaxed">
-            As demonstrações apresentadas a seguir foram desenvolvidas para
-            ilustrar diferentes aplicações de websites, automações e sistemas
+        <div className="border-y border-border/50 py-9 sm:py-11">
+          <h2 className="font-display font-semibold text-[1.35rem] sm:text-[1.6rem] tracking-[-0.018em] text-foreground">
+            Ambiente de demonstração Imperius
+          </h2>
+          <p className="mt-4 text-foreground/85 text-[14.5px] sm:text-[15.5px] leading-relaxed max-w-2xl">
+            Os projetos apresentados neste portfólio foram desenvolvidos
+            internamente pela Imperius para demonstrar diferentes aplicações de
+            websites, automações, CRM, inteligência artificial e operações
             comerciais.
           </p>
-          <p className="mt-3 text-muted-foreground text-[14px] sm:text-[15.5px] leading-relaxed">
-            Cada projeto representa uma possibilidade de implementação que pode
-            ser adaptada para diferentes segmentos, identidades e operações.
+          <p className="mt-3 text-muted-foreground text-[14px] sm:text-[15px] leading-relaxed max-w-2xl">
+            Cada demonstração representa um cenário real de implementação e
+            pode ser adaptada para diferentes segmentos, marcas e necessidades.
           </p>
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ----------------------------- PRE-CTA ----------------------------- */
+
+function PreCTA() {
+  return (
+    <section className="relative pt-6 pb-2">
+      <div className="relative mx-auto max-w-3xl px-6 text-center">
+        <h2 className="font-display font-semibold text-[1.5rem] sm:text-[1.95rem] lg:text-[2.15rem] leading-[1.1] tracking-[-0.022em] text-foreground">
+          Pronto para ver uma versão{" "}
+          <span className="text-neon">adaptada ao seu negócio?</span>
+        </h2>
+        <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed max-w-xl mx-auto">
+          Antes de qualquer proposta, a Imperius apresenta uma demonstração
+          funcional baseada no contexto da sua operação.
+        </p>
       </div>
     </section>
   );
