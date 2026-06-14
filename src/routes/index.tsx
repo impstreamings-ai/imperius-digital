@@ -882,7 +882,7 @@ function Demonstracoes() {
         <div className="flex items-center gap-4" aria-hidden>
           <span className="h-px flex-1 bg-border/50" />
           <span className="text-[10px] uppercase tracking-[0.32em] text-muted-foreground/70 font-sans font-medium">
-            Demonstrações por nicho
+            Sites navegáveis por nicho
           </span>
           <span className="h-px flex-1 bg-border/50" />
         </div>
@@ -893,20 +893,20 @@ function Demonstracoes() {
             <div className="max-w-2xl">
               <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
                 <span className="h-px w-8 bg-muted-foreground/60" />
-                Demonstrações · {demoCards.length.toString().padStart(2, "0")} verticais
+                Vitrine ao vivo · {demoCards.length.toString().padStart(2, "0")} verticais
               </div>
               <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.75rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-                Projetos navegáveis,{" "}
-                <span className="text-neon">não mockups.</span>
+                Sites reais que você pode{" "}
+                <span className="text-neon">abrir e navegar agora.</span>
               </h2>
               <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans max-w-xl">
-                Cada card abre um site real, navegável de ponta a ponta. Clique, role,
-                simule um agendamento — é exatamente o que seu cliente final veria.
+                Não são telas estáticas. Cada card abre um site funcional, em domínio próprio —
+                clique, role, simule um agendamento e veja o acabamento como o seu cliente final veria.
               </p>
             </div>
             <div className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium inline-flex items-center gap-2 lg:justify-end">
-              <span className="h-1.5 w-1.5 rounded-full bg-muted-foreground/60" />
-              5 verticais
+              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+              Tudo ao vivo
             </div>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
