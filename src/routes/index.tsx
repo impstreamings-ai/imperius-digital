@@ -1157,7 +1157,7 @@ function DemoCardItem({ card }: { card: DemoCard }) {
         </p>
         {isActive && (
           <div className="mt-4 inline-flex items-center gap-1.5 text-[12px] text-primary/90 font-semibold font-sans">
-            Ver demonstração {card.external ? <ExternalLink className="h-3.5 w-3.5" /> : <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />}
+            {card.external ? "Abrir projeto ao vivo" : "Explorar demonstração"} {card.external ? <ExternalLink className="h-3.5 w-3.5" /> : <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />}
           </div>
         )}
       </div>
