@@ -168,35 +168,81 @@ function Hero() {
   );
 }
 
-function SectionTitle({ eyebrow, title, sub, display = false }: { eyebrow?: string; title: string; sub?: string; display?: boolean }) {
+function SectionTitle({
+  eyebrow,
+  title,
+  sub,
+  display = false,
+  align = "center",
+  gradient = false,
+}: {
+  eyebrow?: string;
+  title: string;
+  sub?: string;
+  display?: boolean;
+  align?: "center" | "left";
+  gradient?: boolean;
+}) {
+  const isCenter = align === "center";
   return (
-    <div className="max-w-3xl mx-auto text-center mb-14 sm:mb-16">
+    <div className={`${isCenter ? "max-w-3xl mx-auto text-center" : "max-w-3xl"} mb-12 sm:mb-16`}>
       {eyebrow && (
-        <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4 font-sans">{eyebrow}</div>
+        <div
+          className={`text-[10.5px] uppercase tracking-[0.3em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5 ${
+            isCenter ? "" : ""
+          }`}
+        >
+          <span className="h-px w-7 bg-primary/70" />
+          {eyebrow}
+        </div>
       )}
-      <h2 className={`${display ? "font-display" : "font-heading"} text-2xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight tracking-tight`}>{title}</h2>
-      {sub && <p className="mt-5 text-muted-foreground text-base sm:text-lg font-sans leading-relaxed">{sub}</p>}
+      <h2
+        className={`${display ? "font-display" : "font-heading"} ${
+          gradient ? "text-gradient" : "text-foreground"
+        } text-[1.75rem] sm:text-[2.4rem] lg:text-[3rem] font-bold leading-[1.08] tracking-[-0.02em]`}
+      >
+        {title}
+      </h2>
+      {sub && (
+        <p className="mt-5 text-muted-foreground text-[15px] sm:text-[17px] font-sans leading-relaxed max-w-2xl">
+          {sub}
+        </p>
+      )}
     </div>
   );
 }
 
 
-function ProblemaSolucao() {
+function Manifesto() {
   return (
-    <section className="py-20 sm:py-24 relative">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full blur-3xl opacity-30 pointer-events-none" style={{ background: "radial-gradient(ellipse, oklch(0.55 0.25 250 / 0.35), transparent 70%)" }} />
-      <div className="relative mx-auto max-w-5xl px-6 grid md:grid-cols-2 gap-5 sm:gap-6">
-        <div className="card-premium rounded-2xl p-7 sm:p-8 border border-destructive/20">
-          <div className="text-[11px] uppercase tracking-[0.28em] text-destructive/80 font-semibold mb-4 font-sans">O problema</div>
-          <p className="font-heading text-lg sm:text-xl leading-snug tracking-tight text-foreground/95">
-            Muitos negócios perdem oportunidades antes mesmo do primeiro contato.
-          </p>
-        </div>
-        <div className="card-premium rounded-2xl p-7 sm:p-8 border border-primary/30 glow-ring">
-          <div className="text-[11px] uppercase tracking-[0.28em] text-primary font-semibold mb-4 font-sans">A solução</div>
-          <p className="font-heading text-lg sm:text-xl leading-snug tracking-tight text-foreground/95">
-            Websites, automação e inteligência artificial que ajudam empresas a transmitir mais profissionalismo e gerar mais oportunidades.
-          </p>
+    <section className="relative py-24 sm:py-32 border-b border-border/30">
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] h-[360px] rounded-full blur-3xl opacity-25 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse, oklch(0.55 0.25 250 / 0.35), transparent 70%)" }}
+      />
+      <div className="relative mx-auto max-w-5xl px-6">
+        <div className="grid lg:grid-cols-[auto_1fr] gap-8 lg:gap-14 items-start">
+          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/80 font-medium font-sans flex items-center gap-2.5 lg:flex-col lg:items-start lg:gap-3 lg:pt-3">
+            <span className="h-px w-8 bg-primary/70 lg:h-12 lg:w-px" />
+            Manifesto
+          </div>
+          <div>
+            <p className="font-heading text-[1.4rem] sm:text-[1.8rem] lg:text-[2.1rem] leading-[1.25] tracking-[-0.015em] text-foreground/95">
+              Acreditamos que a primeira impressão digital de uma empresa{" "}
+              <span className="text-foreground/55">
+                deveria refletir a mesma sofisticação que ela exige no mundo real.
+              </span>{" "}
+              Por isso construímos cada site, automação e sistema como um produto —
+              não como um template.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-[12px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium">
+              <span>Design sob medida</span>
+              <span className="h-1 w-1 rounded-full bg-border" />
+              <span>Engenharia própria</span>
+              <span className="h-1 w-1 rounded-full bg-border" />
+              <span>Operação contínua</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
