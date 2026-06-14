@@ -58,7 +58,7 @@ export const Route = createFileRoute("/restaurante-imperial")({
       {
         name: "description",
         content:
-          "Restaurante Imperial: cozinha contemporânea, carta de vinhos premiada e experiência gastronômica em ambiente intimista. Reserve sua mesa.",
+          "Restaurante Imperial: cozinha contemporânea, carta de vinhos selecionada e experiência gastronômica em ambiente intimista. Reserve sua mesa.",
       },
       { property: "og:title", content: "Restaurante Imperial | Cozinha de Autor" },
       {
@@ -75,7 +75,7 @@ export const Route = createFileRoute("/restaurante-imperial")({
       {
         name: "twitter:description",
         content:
-          "Cozinha contemporânea de autor e carta de vinhos premiada.",
+          "Cozinha contemporânea de autor e carta de vinhos selecionada.",
       },
     ],
     links: [
@@ -224,7 +224,7 @@ function Hero() {
             </span>
           </h1>
           <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-white/80">
-            Menu de autor, ingredientes selecionados e uma carta de vinhos premiada — servidos
+            Menu de autor, ingredientes selecionados e uma carta de vinhos curada — servidos
             em um ambiente intimista pensado para o tempo da boa mesa.
           </p>
           <div className="mt-9 flex flex-col sm:flex-row sm:items-center flex-wrap gap-3 sm:gap-4">
@@ -275,27 +275,32 @@ function Hero() {
 /* ----------------------------- TRUST ----------------------------- */
 function TrustStrip() {
   const items = [
-    { n: "+12 anos", l: "à mesa de São Paulo" },
-    { n: "4,9★", l: "Google · TripAdvisor" },
-    { n: "+180", l: "rótulos na adega" },
-    { n: "Chef próprio", l: "menu sazonal autoral" },
+    { n: "Cozinha", l: "contemporânea de autor" },
+    { n: "Carta", l: "de vinhos selecionada" },
+    { n: "Menu", l: "sazonal" },
+    { n: "Ambiente", l: "intimista" },
   ];
   return (
     <section className="border-b" style={{ borderColor: "rgba(26,22,19,0.08)", background: CREAM }}>
-      <div className="mx-auto max-w-7xl px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
-        {items.map((it) => (
-          <div key={it.l} className="text-center md:text-left">
-            <div
-              className="text-[1.9rem] sm:text-[2.2rem] font-medium tracking-tight leading-none"
-              style={{ ...SERIF, color: GRAPHITE }}
-            >
-              {it.n}
+      <div className="mx-auto max-w-7xl px-6 py-8">
+        <div className="text-[10px] uppercase tracking-[0.24em] mb-4 text-center md:text-left" style={{ color: MUTED }}>
+          Exemplo ilustrativo · conteúdo personalizável
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {items.map((it) => (
+            <div key={it.l} className="text-center md:text-left">
+              <div
+                className="text-[1.6rem] sm:text-[1.9rem] font-medium tracking-tight leading-tight"
+                style={{ ...SERIF, color: GRAPHITE }}
+              >
+                {it.n}
+              </div>
+              <div className="text-[11px] uppercase tracking-[0.22em] mt-2" style={{ color: MUTED }}>
+                {it.l}
+              </div>
             </div>
-            <div className="text-[11px] uppercase tracking-[0.22em] mt-2" style={{ color: MUTED }}>
-              {it.l}
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -533,8 +538,8 @@ function Chef() {
             <span className="italic" style={{ color: EMBER }}> a alma da cozinha</span>.
           </h2>
           <p className="mt-5 text-base sm:text-lg leading-relaxed text-white/80">
-            Liderança gastronômica formada em escolas internacionais e com passagens por
-            restaurantes premiados. Proposta clara: cozinha sazonal, técnica precisa e
+            Liderança gastronômica com formação técnica e trajetória em cozinhas de autor.
+            Proposta clara: cozinha sazonal, técnica precisa e
             ingredientes em primeiro lugar.
           </p>
           <ul className="mt-7 grid sm:grid-cols-2 gap-x-6 gap-y-3 text-[13.5px] text-white/85">

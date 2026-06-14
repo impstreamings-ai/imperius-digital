@@ -321,27 +321,32 @@ function Hero() {
 /* ----------------------------- TRUST ----------------------------- */
 function TrustStrip() {
   const items = [
-    { n: "+15 anos", l: "no mercado de alto padrão" },
-    { n: "R$ 2,4 bi", l: "em VGV transacionado" },
-    { n: "+1.800", l: "famílias atendidas" },
-    { n: "4,9★", l: "avaliação Google" },
+    { n: "Alto padrão", l: "curadoria de imóveis" },
+    { n: "Atendimento", l: "consultivo e exclusivo" },
+    { n: "Visitas", l: "agendadas sob medida" },
+    { n: "Equipe", l: "com CRECI ativo" },
   ];
   return (
     <section className="border-y" style={{ borderColor: TITANIUM_LIGHT, background: "#fff" }}>
-      <div className="mx-auto max-w-7xl px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
-        {items.map((it) => (
-          <div key={it.l} className="text-center md:text-left">
-            <div
-              className="text-[1.9rem] sm:text-[2.2rem] font-medium tracking-tight leading-none"
-              style={{ ...SERIF, color: NAVY_DEEP }}
-            >
-              {it.n}
+      <div className="mx-auto max-w-7xl px-6 py-8">
+        <div className="text-[10px] uppercase tracking-[0.22em] mb-4 text-center md:text-left" style={{ color: TITANIUM }}>
+          Exemplo ilustrativo · conteúdo personalizável
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {items.map((it) => (
+            <div key={it.l} className="text-center md:text-left">
+              <div
+                className="text-[1.6rem] sm:text-[1.9rem] font-medium tracking-tight leading-tight"
+                style={{ ...SERIF, color: NAVY_DEEP }}
+              >
+                {it.n}
+              </div>
+              <div className="text-[11px] uppercase tracking-[0.2em] mt-2" style={{ color: TITANIUM }}>
+                {it.l}
+              </div>
             </div>
-            <div className="text-[11px] uppercase tracking-[0.2em] mt-2" style={{ color: TITANIUM }}>
-              {it.l}
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

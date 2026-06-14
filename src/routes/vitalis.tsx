@@ -241,7 +241,7 @@ function Hero() {
                 <img src={doc3Asset.url} alt="" className="h-full w-full object-cover" />
               </span>
             </div>
-            <span className="text-[11px] text-slate-700 font-semibold">+12 especialistas</span>
+            <span className="text-[11px] text-slate-700 font-semibold">Equipe multidisciplinar</span>
           </div>
         </div>
       </div>
@@ -252,22 +252,27 @@ function Hero() {
 /* ----------------------------- TRUST STRIP ----------------------------- */
 function TrustStrip() {
   const items = [
-    { n: "+15 anos", l: "de atendimento" },
-    { n: "+40.000", l: "pacientes atendidos" },
-    { n: "12", l: "especialistas" },
-    { n: "4,9★", l: "avaliação Google" },
+    { n: "Equipe", l: "multidisciplinar" },
+    { n: "Agenda online", l: "24h por dia" },
+    { n: "Prontuário", l: "digital unificado" },
+    { n: "Atendimento", l: "humanizado" },
   ];
   return (
     <section className="border-y border-slate-200 bg-slate-50/60">
-      <div className="mx-auto max-w-7xl px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
-        {items.map((it) => (
-          <div key={it.l} className="text-center md:text-left">
-            <div className="text-2xl text-slate-900 font-semibold tracking-tight" style={SERIF}>
-              {it.n}
+      <div className="mx-auto max-w-7xl px-6 py-8">
+        <div className="text-[10px] uppercase tracking-[0.22em] text-slate-400 mb-4 text-center md:text-left">
+          Exemplo ilustrativo · conteúdo personalizável
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {items.map((it) => (
+            <div key={it.l} className="text-center md:text-left">
+              <div className="text-2xl text-slate-900 font-semibold tracking-tight" style={SERIF}>
+                {it.n}
+              </div>
+              <div className="text-[12px] text-slate-500 uppercase tracking-[0.18em] mt-1">{it.l}</div>
             </div>
-            <div className="text-[12px] text-slate-500 uppercase tracking-[0.18em] mt-1">{it.l}</div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -768,16 +773,16 @@ function FeatureRow({
 /* ----------------------------- RESULTS ----------------------------- */
 function Results() {
   const stats = [
-    { v: "96%", l: "Taxa de comparecimento", d: "Confirmação + lembrete reduzem no-show" },
-    { v: "30s", l: "Tempo médio de agendamento", d: "Do clique à confirmação" },
-    { v: "0", l: "Ligações para a recepção", d: "Tudo resolvido pelo WhatsApp" },
+    { v: "Confirmação", l: "Lembretes automáticos", d: "Reduz faltas com mensagens no WhatsApp." },
+    { v: "Self-service", l: "Agendamento online", d: "Paciente escolhe horário sem ligar para a clínica." },
+    { v: "Centralizado", l: "Tudo num só lugar", d: "Histórico, exames e contato no mesmo painel." },
   ];
   return (
     <section className="py-20 sm:py-24 bg-white">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl mb-12">
           <div className="text-[11px] uppercase tracking-[0.2em] text-sky-700 font-semibold mb-3">
-            Resultados que importam
+            Como funciona na prática
           </div>
           <h2
             className="text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.1] tracking-tight text-slate-900 font-medium"
@@ -785,6 +790,9 @@ function Results() {
           >
             Uma clínica que respeita o seu tempo.
           </h2>
+          <p className="mt-3 text-[11px] uppercase tracking-[0.18em] text-slate-400">
+            Exemplo ilustrativo · cenário demonstrativo
+          </p>
         </div>
         <div className="grid sm:grid-cols-3 gap-5 sm:gap-6">
           {stats.map((s) => (
@@ -792,7 +800,7 @@ function Results() {
               key={s.l}
               className="rounded-2xl bg-gradient-to-b from-sky-50 to-white border border-sky-100 p-6 sm:p-7"
             >
-              <div className="text-5xl sm:text-6xl text-sky-700 font-medium tracking-tight" style={SERIF}>
+              <div className="text-2xl sm:text-3xl text-sky-700 font-medium tracking-tight" style={SERIF}>
                 {s.v}
               </div>
               <div className="mt-2 text-sm font-semibold text-slate-900">{s.l}</div>
