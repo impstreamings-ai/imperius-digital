@@ -80,6 +80,7 @@ function Landing() {
       <Ecossistema />
       <Manifesto />
       <Demonstracoes />
+      <SobreImperius />
       <Services />
       <Process />
       <FAQ />
