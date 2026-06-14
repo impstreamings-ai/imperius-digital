@@ -110,45 +110,59 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative lg:min-h-screen flex items-center pt-28 pb-10 sm:pb-14 overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
+    <section
+      id="top"
+      className="relative lg:min-h-[88vh] flex items-center pt-32 pb-16 sm:pb-20 overflow-hidden"
+      style={{ background: "var(--gradient-hero)" }}
+    >
       <div className="absolute inset-0 bg-grid pointer-events-none" />
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full blur-3xl animate-pulse-glow" style={{ background: "radial-gradient(circle, oklch(0.5 0.25 250 / 0.35), transparent 70%)" }} />
+      <div
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[640px] h-[640px] rounded-full blur-3xl animate-pulse-glow"
+        style={{ background: "radial-gradient(circle, oklch(0.5 0.25 250 / 0.32), transparent 70%)" }}
+      />
 
-      <div className="relative mx-auto max-w-4xl px-6 text-center w-full">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border/60 bg-card/40 backdrop-blur text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-7 font-sans font-medium">
-          <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-          Soluções Digitais Premium
+      <div className="relative mx-auto max-w-5xl px-6 w-full">
+        <div className="max-w-3xl">
+          <div className="inline-flex items-center gap-2.5 text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-sans font-medium mb-8">
+            <span className="h-px w-8 bg-primary/70" />
+            Imperius™ · Sorocaba/SP
+          </div>
+          <h1 className="font-display text-[2.1rem] sm:text-[3.1rem] lg:text-[3.9rem] xl:text-[4.4rem] font-bold leading-[1.02] tracking-[-0.02em] text-foreground">
+            Soluções digitais para empresas que precisam{" "}
+            <span className="text-neon">transmitir autoridade</span>.
+          </h1>
+          <p className="mt-7 max-w-xl text-muted-foreground text-base sm:text-[17px] leading-relaxed font-sans">
+            Websites, automação com IA e sistemas comerciais sob medida — construídos
+            para gerar oportunidades reais, não apenas impressões bonitas.
+          </p>
+          <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+            <a
+              href={WA}
+              target="_blank"
+              rel="noreferrer"
+              className="w-full sm:w-auto"
+              onClick={() => track("hero_cta_click", { destination: "whatsapp" })}
+            >
+              <Button
+                size="lg"
+                className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]"
+              >
+                Solicitar demonstração <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </a>
+            <a
+              href="#vitrine"
+              className="text-[13.5px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2 group"
+              onClick={() => track("demo_click", { location: "hero" })}
+            >
+              <span className="h-px w-6 bg-border group-hover:bg-primary transition-colors" />
+              Explorar a vitrine de projetos
+            </a>
+          </div>
+          <p className="mt-10 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
+            Demonstração personalizada · Sem compromisso · Resposta no mesmo dia útil
+          </p>
         </div>
-        <h1 className="font-display text-[1.875rem] sm:text-[2.75rem] lg:text-[3.5rem] xl:text-[4rem] font-bold leading-[1.05] tracking-tight">
-          <span className="block text-gradient">Mais autoridade.</span>
-          <span className="block text-gradient">Mais contatos.</span>
-          <span className="block text-neon">Mais oportunidades.</span>
-        </h1>
-        <p className="mt-8 max-w-xl mx-auto text-muted-foreground text-base sm:text-lg leading-relaxed font-sans">
-          Landing pages, automações e soluções digitais criadas para empresas que desejam transmitir profissionalismo e gerar mais oportunidades de negócio.
-        </p>
-        <div className="mt-10 flex flex-col sm:flex-row sm:items-center justify-center flex-wrap gap-3 sm:gap-5">
-          <a href={WA} target="_blank" rel="noreferrer" className="w-full sm:w-auto" onClick={() => track("hero_cta_click", { destination: "whatsapp" })}>
-            <Button size="lg" className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-13 px-8 text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]">
-              QUERO UMA DEMONSTRAÇÃO GRATUITA <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </a>
-          <a
-            href="#demonstracoes"
-            className="text-sm text-muted-foreground hover:text-foreground underline underline-offset-4 decoration-border hover:decoration-primary transition-colors font-sans inline-flex items-center gap-1.5"
-            onClick={() => track("demo_click", { location: "hero" })}
-          >
-            ou veja demonstrações reais <ArrowRight className="h-3.5 w-3.5" />
-          </a>
-        </div>
-        <p className="mt-4 text-xs sm:text-[13px] text-muted-foreground/90 font-sans max-w-md mx-auto leading-relaxed">
-          Receba uma prévia personalizada da sua presença digital, sem compromisso.
-        </p>
-        <ul className="mt-5 flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs sm:text-[13px] text-muted-foreground/80 max-w-md mx-auto leading-relaxed font-sans">
-          <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Demonstração personalizada</li>
-          <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Sem compromisso</li>
-          <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Atendimento próximo</li>
-        </ul>
       </div>
     </section>
   );
