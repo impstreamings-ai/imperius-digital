@@ -69,9 +69,9 @@ function Landing() {
     <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
       <Nav />
       <Hero />
-      <ProblemaSolucao />
-      <Services />
+      <Manifesto />
       <Demonstracoes />
+      <Services />
       <Process />
       <FAQ />
       <FinalCTA />
@@ -83,20 +83,24 @@ function Landing() {
 function Nav() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 border-b border-border/40 backdrop-blur-xl bg-background/70">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2.5 min-w-0">
-          <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[40px] w-auto object-contain shrink-0" loading="eager" decoding="async" />
-          <span className="font-display font-bold tracking-[0.2em] text-sm truncate">IMPERIUS</span>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+        <a href="#top" className="flex items-center gap-3 min-w-0">
+          <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[36px] w-auto object-contain shrink-0" loading="eager" decoding="async" />
+          <span className="hidden sm:flex flex-col leading-tight min-w-0">
+            <span className="font-display font-bold tracking-[0.22em] text-[12px] truncate">IMPERIUS</span>
+            <span className="text-[9.5px] uppercase tracking-[0.28em] text-muted-foreground/80 font-medium truncate">Estúdio digital</span>
+          </span>
         </a>
-        <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground font-medium">
+        <nav className="hidden md:flex items-center gap-9 text-[13px] text-muted-foreground font-medium">
+          <a href="#vitrine" className="hover:text-foreground transition-colors">Vitrine</a>
           <a href="#servicos" className="hover:text-foreground transition-colors">Soluções</a>
-          <a href="#demonstracoes" className="hover:text-foreground transition-colors">Demonstrações</a>
-          <a href="#processo" className="hover:text-foreground transition-colors">Como Funciona</a>
+          <a href="#processo" className="hover:text-foreground transition-colors">Processo</a>
+          <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
         </nav>
         <a href={WA} target="_blank" rel="noreferrer" className="shrink-0" onClick={() => track("whatsapp_click", { location: "nav" })}>
-          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.72_0.22_250/0.7)]">
-            <span className="sm:hidden">Demonstração</span>
-            <span className="hidden sm:inline">Quero uma demonstração</span>
+          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.72_0.22_250/0.7)]">
+            <span className="sm:hidden">Falar agora</span>
+            <span className="hidden sm:inline">Solicitar demonstração</span>
           </Button>
         </a>
       </div>
