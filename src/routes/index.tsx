@@ -198,9 +198,9 @@ function SectionTitle({
         </div>
       )}
       <h2
-        className={`${display ? "font-display font-normal" : "font-heading font-bold"} ${
+        className={`${display ? "font-display font-semibold" : "font-heading font-semibold"} ${
           gradient ? "text-gradient" : "text-foreground"
-        } text-[1.9rem] sm:text-[2.6rem] lg:text-[3.2rem] leading-[1.05] tracking-[-0.015em]`}
+        } text-[1.7rem] sm:text-[2.25rem] lg:text-[2.75rem] leading-[1.08] tracking-[-0.025em]`}
       >
         {title}
       </h2>
