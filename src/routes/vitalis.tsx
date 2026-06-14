@@ -676,17 +676,17 @@ function Confirmations() {
             <div className="space-y-2.5">
               <WaClinic
                 tag="Confirmação · 14:31"
-                text="Olá, Renato! Sua consulta com a Dra. Marina Costa (Cardiologia) está confirmada para quarta-feira, 12/06 às 14:00. Posso confirmar sua presença? ✅"
+                text="Olá! Sua consulta com o profissional escolhido (Cardiologia) está confirmada para quarta-feira, 12/06 às 14:00. Posso confirmar sua presença? ✅"
               />
               <PatientReply text="Sim, confirmado! 🙌" />
               <WaClinic
                 tag="Lembrete · enviado às 08:00"
-                text="Bom dia, Renato 👋 Lembrete carinhoso: sua consulta é hoje às 14:00. Endereço: Av. Paulista 1500, sala 802. Estamos te esperando!"
+                text="Bom dia 👋 Lembrete carinhoso: sua consulta é hoje às 14:00, no endereço da clínica. Estamos te esperando!"
               />
               <PatientReply text="Posso remarcar para quinta?" />
               <WaClinic
                 tag="Reagendamento"
-                text="Claro! Temos quinta-feira (13/06) às 10:00 ou 16:30 com a Dra. Marina. Qual horário fica melhor pra você?"
+                text="Claro! Temos quinta-feira (13/06) às 10:00 ou 16:30 com a mesma profissional. Qual horário fica melhor pra você?"
               />
             </div>
           </div>
