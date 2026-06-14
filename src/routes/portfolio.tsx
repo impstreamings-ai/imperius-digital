@@ -484,15 +484,9 @@ function SolutionCard({ solution }: { solution: Solution }) {
 
 function Demos() {
   return (
-    <section id="demonstracoes" className="py-20 sm:py-24 relative">
+    <section id="demonstracoes" className="pt-8 sm:pt-10 pb-20 sm:pb-24 relative">
       <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" />
       <div className="relative mx-auto max-w-7xl px-6">
-        <SectionHeader
-          label="Demonstrações de nicho"
-          count={DEMOS.length}
-          title="Sites navegáveis,"
-          highlight="prontos para explorar."
-        />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {DEMOS.map((d) => (
             <DemoCard key={d.title} demo={d} />
