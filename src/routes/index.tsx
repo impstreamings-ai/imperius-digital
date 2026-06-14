@@ -27,6 +27,9 @@ import {
   Briefcase,
   Building2,
   UtensilsCrossed,
+  Mail,
+  Shield,
+  CheckCircle2,
 } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
