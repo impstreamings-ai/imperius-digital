@@ -172,7 +172,7 @@ function Hero() {
                   variant="outline"
                   className="w-full sm:w-auto border-border/70 bg-background/30 hover:bg-background/60 hover:border-primary/50 text-foreground/90 font-medium rounded-full h-12 px-6 text-[13.5px] transition-all duration-300"
                 >
-                  <Mail className="mr-2 h-4 w-4 text-muted-foreground" /> Receber proposta por e-mail
+                  <Mail className="mr-2 h-4 w-4 text-muted-foreground" /> Receber demonstração personalizada
                 </Button>
               </a>
             </div>
@@ -1335,7 +1335,7 @@ function FinalCTA() {
             className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2"
             onClick={() => track("final_cta_click", { destination: "email" })}
           >
-            <Mail className="h-4 w-4" /> Receber proposta por e-mail
+            <Mail className="h-4 w-4" /> Solicitar análise do meu negócio
           </a>
         </div>
         <p className="mt-8 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
