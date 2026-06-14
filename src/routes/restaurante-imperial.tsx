@@ -1035,17 +1035,23 @@ function FinalCTA() {
 function Footer() {
   return (
     <footer className="border-t py-10" style={{ borderColor: "rgba(26,22,19,0.08)", background: CREAM }}>
-      <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12.5px]" style={{ color: MUTED }}>
-        <div className="flex items-center gap-2">
-          <UtensilsCrossed className="h-4 w-4" style={{ color: BURGUNDY }} />
-          <span className="font-semibold" style={{ ...SERIF, color: GRAPHITE }}>
-            Restaurante Imperial
-          </span>
-          <span>· Rua Haddock Lobo, 1.580 · São Paulo</span>
+      <div className="mx-auto max-w-7xl px-6 flex flex-col gap-4 text-[12.5px]" style={{ color: MUTED }}>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <UtensilsCrossed className="h-4 w-4" style={{ color: BURGUNDY }} />
+            <span className="font-semibold" style={{ ...SERIF, color: GRAPHITE }}>
+              Restaurante Imperial
+            </span>
+            <span>· Endereço personalizável</span>
+          </div>
+          <div className="text-center sm:text-right">
+            © {new Date().getFullYear()} Restaurante Imperial. Site desenvolvido por{" "}
+            <span className="font-semibold" style={{ color: GRAPHITE }}>Imperius Digital</span>.
+          </div>
         </div>
-        <div className="text-center sm:text-right">
-          © {new Date().getFullYear()} Restaurante Imperial. Site desenvolvido por{" "}
-          <span className="font-semibold" style={{ color: GRAPHITE }}>Imperius Digital</span>.
+        <div className="text-center sm:text-left text-[11.5px] leading-relaxed" style={{ color: MUTED }}>
+          Projeto demonstrativo desenvolvido pela Imperius Digital. Conteúdo ilustrativo
+          para apresentação de soluções digitais — informações sujeitas à personalização.
         </div>
       </div>
     </footer>
