@@ -386,32 +386,32 @@ const PIPELINE: { col: string; cards: PipelineCard[] }[] = [
   {
     col: "Novos Leads",
     cards: [
-      { name: "Mariana S.", tag: "Quente", meta: "WhatsApp · há 2 min" },
-      { name: "Lucas R.", tag: "Quente", meta: "Instagram · há 7 min" },
-      { name: "Beatriz O.", tag: "Morno", meta: "Site · há 18 min" },
+      { name: "Cliente 01", tag: "Quente", meta: "WhatsApp · há 2 min" },
+      { name: "Cliente 02", tag: "Quente", meta: "Instagram · há 7 min" },
+      { name: "Cliente 03", tag: "Morno", meta: "Site · há 18 min" },
     ],
   },
   {
     col: "Contato",
     cards: [
-      { name: "João P.", tag: "Morno", meta: "Aguardando retorno" },
-      { name: "Renato C.", tag: "Quente", meta: "Reunião agendada" },
+      { name: "Cliente 04", tag: "Morno", meta: "Aguardando retorno" },
+      { name: "Cliente 05", tag: "Quente", meta: "Reunião agendada" },
     ],
   },
   {
     col: "Proposta",
     cards: [
-      { name: "Carla M.", tag: "Quente", meta: "Orçamento enviado" },
-      { name: "Diego F.", tag: "Morno", meta: "Revisando proposta" },
+      { name: "Cliente 06", tag: "Quente", meta: "Orçamento enviado" },
+      { name: "Cliente 07", tag: "Morno", meta: "Revisando proposta" },
     ],
   },
   {
     col: "Negociação",
-    cards: [{ name: "Helena V.", tag: "Quente", meta: "Ajustando condições" }],
+    cards: [{ name: "Cliente 08", tag: "Quente", meta: "Ajustando condições" }],
   },
   {
     col: "Fechado",
-    cards: [{ name: "Bruno T.", tag: "Quente", meta: "R$ 4.800 · hoje" }],
+    cards: [{ name: "Cliente 09", tag: "Quente", meta: "R$ 4.800 · hoje" }],
   },
 ];
 
