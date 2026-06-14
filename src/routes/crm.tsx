@@ -52,9 +52,12 @@ export const Route = createFileRoute("/crm")({
         content:
           "Pipeline, IA, WhatsApp e Dashboard conectados. Veja o Imperius CRM™ em operação.",
       },
+      { property: "og:url", content: "https://imperius-digital.lovable.app/crm" },
+      { property: "og:type", content: "product" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "canonical", href: "https://imperius-digital.lovable.app/crm" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap",
