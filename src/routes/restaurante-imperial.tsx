@@ -1008,19 +1008,19 @@ function FinalCTA() {
                   <span className="h-9 w-9 rounded-full grid place-items-center shrink-0" style={{ background: GRAPHITE }}>
                     <Phone className="h-4 w-4" style={{ color: EMBER }} />
                   </span>
-                  <span><span className="text-[12px] block" style={{ color: MUTED }}>Telefone / WhatsApp</span>(15) 9810-2379</span>
+                  <span><span className="text-[12px] block" style={{ color: MUTED }}>Telefone / WhatsApp</span>(XX) XXXXX-XXXX</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="h-9 w-9 rounded-full grid place-items-center shrink-0" style={{ background: GRAPHITE }}>
                     <Mail className="h-4 w-4" style={{ color: EMBER }} />
                   </span>
-                  <span><span className="text-[12px] block" style={{ color: MUTED }}>E-mail</span>reservas@restauranteimperial.com.br</span>
+                  <span><span className="text-[12px] block" style={{ color: MUTED }}>E-mail</span>reservas@seurestaurante.com.br</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="h-9 w-9 rounded-full grid place-items-center shrink-0" style={{ background: GRAPHITE }}>
                     <MapPin className="h-4 w-4" style={{ color: EMBER }} />
                   </span>
-                  <span><span className="text-[12px] block" style={{ color: MUTED }}>Endereço</span>Rua Haddock Lobo, 1.580 · Jardins</span>
+                  <span><span className="text-[12px] block" style={{ color: MUTED }}>Endereço</span>Endereço personalizável</span>
                 </li>
               </ul>
             </div>
