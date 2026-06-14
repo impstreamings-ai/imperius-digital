@@ -1375,11 +1375,11 @@ function Footer() {
               <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[44px] w-auto object-contain" loading="lazy" decoding="async" />
               <div>
                 <div className="font-heading font-bold tracking-[0.2em] text-sm">IMPERIUS</div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-sans font-medium">Design • Automação • IA</div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-sans font-medium">Websites · Automação · IA</div>
               </div>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed font-sans">
-              Soluções digitais premium para empresas que querem transmitir autoridade e gerar mais oportunidades.
+              Estúdio digital especializado em websites, automação e sistemas comerciais sob medida para empresas que operam vendas pelo digital.
             </p>
           </div>
 
