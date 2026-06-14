@@ -605,11 +605,11 @@ function WhatsappModule() {
       <div className="space-y-3">
         <WaBubble
           tag="Confirmação · enviada às 14:31"
-          text="Olá Mariana! Seu horário está confirmado para Qua 12/06 às 15:00. Até lá! ✅"
+          text="Olá! Seu horário está confirmado para Qua 12/06 às 15:00. Até lá! ✅"
         />
         <WaBubble
           tag="Lembrete · agendado para 14:00 amanhã"
-          text="Oi Mariana 👋 Seu atendimento será amanhã às 15h. Posso confirmar sua presença?"
+          text="Oi 👋 Seu atendimento será amanhã às 15h. Posso confirmar sua presença?"
         />
         <div className="rounded-lg border border-border/50 bg-card/40 px-3 py-2 text-[11px] text-muted-foreground flex items-center justify-between">
           <span className="flex items-center gap-1.5">
