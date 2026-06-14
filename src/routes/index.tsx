@@ -343,20 +343,25 @@ function Demonstracoes() {
               <span className="h-px w-8 bg-primary/70" />
               Vitrine · {cards.length.toString().padStart(2, "0")} projetos
             </div>
-            <h2 className="font-display text-[2rem] sm:text-[2.8rem] lg:text-[3.4rem] font-bold leading-[1.05] tracking-[-0.02em] text-foreground">
-              Projetos navegáveis,
-              <span className="block text-neon">não mockups.</span>
+            <h2 className="font-display font-normal text-[2.2rem] sm:text-[3rem] lg:text-[3.6rem] leading-[1.05] tracking-[-0.015em] text-foreground">
+              Projetos navegáveis,{" "}
+              <span className="italic text-neon">não mockups.</span>
             </h2>
             <p className="mt-5 text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed font-sans max-w-xl">
-              Cada card abaixo abre uma demonstração funcional — desenvolvida pela Imperius
+              Cada card abaixo abre uma demonstração funcional — construída pela Imperius
               para um nicho real. Clique, explore o fluxo e veja o nível de acabamento
-              entregue antes mesmo do briefing.
+              antes mesmo do briefing.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11.5px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium lg:justify-end">
-            <span>Produtos Imperius · 03</span>
-            <span className="h-1 w-1 rounded-full bg-border" />
-            <span>Nichos verticais · 05</span>
+            <span className="inline-flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+              Produtos · 03
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-muted-foreground/50" />
+              Verticais · 05
+            </span>
           </div>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
