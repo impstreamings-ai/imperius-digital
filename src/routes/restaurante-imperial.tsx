@@ -894,7 +894,7 @@ function Visit() {
               </span>
               <span>
                 <span className="text-[12px] block" style={{ color: MUTED }}>Endereço</span>
-                Rua Haddock Lobo, 1.580 · Jardins · São Paulo · SP
+                Endereço personalizável
               </span>
             </li>
             <li className="flex items-center gap-3">
@@ -903,7 +903,7 @@ function Visit() {
               </span>
               <span>
                 <span className="text-[12px] block" style={{ color: MUTED }}>Funcionamento</span>
-                Ter–Sáb 19h–00h · Dom 12h–17h · Segundas fechado
+                Horário personalizável
               </span>
             </li>
             <li className="flex items-center gap-3">
@@ -912,7 +912,7 @@ function Visit() {
               </span>
               <span>
                 <span className="text-[12px] block" style={{ color: MUTED }}>WhatsApp</span>
-                (15) 9810-2379
+                (XX) XXXXX-XXXX
               </span>
             </li>
           </ul>
