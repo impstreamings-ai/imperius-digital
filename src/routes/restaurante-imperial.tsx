@@ -12,7 +12,7 @@ import {
   MapPin,
   Phone,
   Mail,
-  Star,
+  // Star removed (transparency audit)
   Quote,
   Send,
   MessageCircle,

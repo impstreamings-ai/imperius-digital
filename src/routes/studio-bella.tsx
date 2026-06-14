@@ -17,7 +17,7 @@ import {
   Phone,
   Mail,
   MapPin,
-  Star,
+  // Star removed (transparency audit)
   Quote,
   Send,
   Calendar as CalendarIcon,

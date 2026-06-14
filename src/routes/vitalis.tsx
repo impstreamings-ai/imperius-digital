@@ -16,7 +16,7 @@ import {
   Apple,
   Sparkles,
   Phone,
-  Star,
+  // Star removed (transparency audit)
   MapPin,
   Mail,
   Calendar as CalendarIcon,
