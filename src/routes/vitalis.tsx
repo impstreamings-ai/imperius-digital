@@ -665,7 +665,7 @@ function Confirmations() {
                 </div>
                 <div className="leading-tight">
                   <div className="text-sm font-semibold text-slate-900">Clínica Vitalis</div>
-                  <div className="text-[11px] text-slate-500">+55 15 9810-2379</div>
+                  <div className="text-[11px] text-slate-500">(XX) XXXXX-XXXX</div>
                 </div>
               </div>
               <span className="text-[10px] text-emerald-600 font-semibold inline-flex items-center gap-1.5">
