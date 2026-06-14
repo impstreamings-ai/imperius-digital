@@ -655,7 +655,12 @@ function Services() {
 }
 
 type DemoStatus = "Ativo" | "Em desenvolvimento" | "Em breve";
-type DemoKind = "Produto Imperius" | "Demonstração de nicho" | "Projeto externo";
+type DemoKind =
+  | "Atendimento"
+  | "Comercial"
+  | "Operação"
+  | "Demonstração de nicho"
+  | "Projeto externo";
 type DemoCard = {
   icon: typeof Scissors;
   title: string;
@@ -666,22 +671,23 @@ type DemoCard = {
   to?: string;
   external?: boolean;
   cover?: string;
+  /** Optional custom preview node (used for Imperius products to render a realistic mini-UI instead of a generic image). */
+  preview?: "automation" | "crm" | "scheduling";
 };
 
 import blackCrownCover from "@/assets/black-crown-cover.png.asset.json";
-import automationCover from "@/assets/automation-thumb.jpg.asset.json";
-import crmCover from "@/assets/crm-thumb.jpg.asset.json";
-import schedulingCover from "@/assets/scheduling-thumb.jpg.asset.json";
 import vitalisCover from "@/assets/vitalis-hero.jpg.asset.json";
 import bellaCover from "@/assets/studio-bella-hero.jpg.asset.json";
 import primeCover from "@/assets/prime-hero.jpg.asset.json";
 import imperialCover from "@/assets/imperial-hero.jpg.asset.json";
 
+const IMPERIUS_KINDS: ReadonlySet<DemoKind> = new Set(["Atendimento", "Comercial", "Operação"]);
+
 function Demonstracoes() {
   const cards: DemoCard[] = [
-    { icon: Bot, title: "Imperius Automation", desc: "IA + WhatsApp automatizado", status: "Ativo", kind: "Produto Imperius", to: "/automation", cover: automationCover.url },
-    { icon: Users, title: "Imperius CRM", desc: "CRM comercial inteligente", status: "Ativo", kind: "Produto Imperius", to: "/crm", cover: crmCover.url },
-    { icon: Calendar, title: "Imperius Scheduling", desc: "Sistema de agendamento inteligente", status: "Ativo", kind: "Produto Imperius", to: "/scheduling", cover: schedulingCover.url },
+    { icon: Bot, title: "Imperius Automation", desc: "WhatsApp Business com IA que qualifica e encaminha leads em tempo real.", status: "Ativo", kind: "Atendimento", to: "/automation", preview: "automation" },
+    { icon: Users, title: "Imperius CRM", desc: "Pipeline comercial com etapas, oportunidades e indicadores do time.", status: "Ativo", kind: "Comercial", to: "/crm", preview: "crm" },
+    { icon: Calendar, title: "Imperius Scheduling", desc: "Agenda, confirmações e reservas integradas ao atendimento.", status: "Ativo", kind: "Operação", to: "/scheduling", preview: "scheduling" },
     { icon: Scissors, title: "Black Crown Barbershop", desc: "Website para barbearia premium", status: "Ativo", kind: "Projeto externo", href: BLACK_CROWN_URL, external: true, cover: blackCrownCover.url },
     { icon: Stethoscope, title: "Clínica Vitalis", desc: "Website e agendamento para clínica", status: "Ativo", kind: "Demonstração de nicho", to: "/vitalis", cover: vitalisCover.url },
     { icon: Sparkles, title: "Studio Bella Estética", desc: "Centro de estética premium em São Paulo", status: "Ativo", kind: "Demonstração de nicho", to: "/studio-bella", cover: bellaCover.url },
