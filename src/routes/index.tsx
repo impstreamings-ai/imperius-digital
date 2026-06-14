@@ -233,7 +233,7 @@ import blackCrownCover from "@/assets/black-crown-cover.png.asset.json";
 import automationCover from "@/assets/imperius-automation-cover.png.asset.json";
 import crmCover from "@/assets/imperius-crm-cover.png.asset.json";
 import schedulingCover from "@/assets/imperius-scheduling-cover.png.asset.json";
-import vitalisCover from "@/assets/vitalis-cover.png.asset.json";
+import vitalisCover from "@/assets/vitalis-cover.jpg.asset.json";
 import bellaCover from "@/assets/studio-bella-cover.png.asset.json";
 import primeCover from "@/assets/prime-imoveis-cover.png.asset.json";
 import imperialCover from "@/assets/restaurante-imperial-cover.png.asset.json";
