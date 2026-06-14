@@ -266,10 +266,10 @@ function HeroVisual() {
 
 function TrustStrip() {
   const items = [
-    { icon: LayoutTemplate, label: "Projetos demonstrativos", value: "8 ao vivo" },
-    { icon: Briefcase, label: "Verticais atendidas", value: "Imobiliário · Estética · Saúde · Gastronomia · Serviços" },
-    { icon: Shield, label: "Atendimento", value: "Direto com a equipe — sem terceirização" },
-    { icon: CheckCircle2, label: "Cada projeto", value: "Desenvolvido sob medida pela Imperius" },
+    { icon: LayoutTemplate, label: "Projetos demonstrativos", value: "8 ativos" },
+    { icon: Briefcase, label: "Verticais atendidas", value: "5 segmentos" },
+    { icon: CheckCircle2, label: "Tecnologia", value: "Desenvolvimento próprio" },
+    { icon: Shield, label: "Atendimento", value: "Direto com a equipe" },
   ];
   return (
     <section
