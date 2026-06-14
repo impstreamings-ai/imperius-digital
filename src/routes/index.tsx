@@ -7,7 +7,7 @@ import {
   ArrowRight,
   Bot,
   MessageCircle,
-  Check,
+  
   Zap,
   Instagram,
   Phone,
@@ -69,9 +69,9 @@ function Landing() {
     <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
       <Nav />
       <Hero />
-      <ProblemaSolucao />
-      <Services />
+      <Manifesto />
       <Demonstracoes />
+      <Services />
       <Process />
       <FAQ />
       <FinalCTA />
@@ -83,20 +83,24 @@ function Landing() {
 function Nav() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 border-b border-border/40 backdrop-blur-xl bg-background/70">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2.5 min-w-0">
-          <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[40px] w-auto object-contain shrink-0" loading="eager" decoding="async" />
-          <span className="font-display font-bold tracking-[0.2em] text-sm truncate">IMPERIUS</span>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+        <a href="#top" className="flex items-center gap-3 min-w-0">
+          <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[36px] w-auto object-contain shrink-0" loading="eager" decoding="async" />
+          <span className="hidden sm:flex flex-col leading-tight min-w-0">
+            <span className="font-display font-bold tracking-[0.22em] text-[12px] truncate">IMPERIUS</span>
+            <span className="text-[9.5px] uppercase tracking-[0.28em] text-muted-foreground/80 font-medium truncate">Estúdio digital</span>
+          </span>
         </a>
-        <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground font-medium">
+        <nav className="hidden md:flex items-center gap-9 text-[13px] text-muted-foreground font-medium">
+          <a href="#vitrine" className="hover:text-foreground transition-colors">Vitrine</a>
           <a href="#servicos" className="hover:text-foreground transition-colors">Soluções</a>
-          <a href="#demonstracoes" className="hover:text-foreground transition-colors">Demonstrações</a>
-          <a href="#processo" className="hover:text-foreground transition-colors">Como Funciona</a>
+          <a href="#processo" className="hover:text-foreground transition-colors">Processo</a>
+          <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
         </nav>
         <a href={WA} target="_blank" rel="noreferrer" className="shrink-0" onClick={() => track("whatsapp_click", { location: "nav" })}>
-          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.72_0.22_250/0.7)]">
-            <span className="sm:hidden">Demonstração</span>
-            <span className="hidden sm:inline">Quero uma demonstração</span>
+          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.72_0.22_250/0.7)]">
+            <span className="sm:hidden">Falar agora</span>
+            <span className="hidden sm:inline">Solicitar demonstração</span>
           </Button>
         </a>
       </div>
@@ -106,79 +110,139 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative lg:min-h-screen flex items-center pt-28 pb-10 sm:pb-14 overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
+    <section
+      id="top"
+      className="relative lg:min-h-[88vh] flex items-center pt-32 pb-16 sm:pb-20 overflow-hidden"
+      style={{ background: "var(--gradient-hero)" }}
+    >
       <div className="absolute inset-0 bg-grid pointer-events-none" />
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full blur-3xl animate-pulse-glow" style={{ background: "radial-gradient(circle, oklch(0.5 0.25 250 / 0.35), transparent 70%)" }} />
+      <div
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[640px] h-[640px] rounded-full blur-3xl animate-pulse-glow"
+        style={{ background: "radial-gradient(circle, oklch(0.5 0.25 250 / 0.32), transparent 70%)" }}
+      />
 
-      <div className="relative mx-auto max-w-4xl px-6 text-center w-full">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border/60 bg-card/40 backdrop-blur text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-7 font-sans font-medium">
-          <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-          Soluções Digitais Premium
+      <div className="relative mx-auto max-w-5xl px-6 w-full">
+        <div className="max-w-3xl">
+          <div className="inline-flex items-center gap-2.5 text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-sans font-medium mb-8">
+            <span className="h-px w-8 bg-primary/70" />
+            Imperius™ · Sorocaba/SP
+          </div>
+          <h1 className="font-display text-[2.1rem] sm:text-[3.1rem] lg:text-[3.9rem] xl:text-[4.4rem] font-bold leading-[1.02] tracking-[-0.02em] text-foreground">
+            Soluções digitais para empresas que precisam{" "}
+            <span className="text-neon">transmitir autoridade</span>.
+          </h1>
+          <p className="mt-7 max-w-xl text-muted-foreground text-base sm:text-[17px] leading-relaxed font-sans">
+            Websites, automação com IA e sistemas comerciais sob medida — construídos
+            para gerar oportunidades reais, não apenas impressões bonitas.
+          </p>
+          <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+            <a
+              href={WA}
+              target="_blank"
+              rel="noreferrer"
+              className="w-full sm:w-auto"
+              onClick={() => track("hero_cta_click", { destination: "whatsapp" })}
+            >
+              <Button
+                size="lg"
+                className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]"
+              >
+                Solicitar demonstração <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </a>
+            <a
+              href="#vitrine"
+              className="text-[13.5px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2 group"
+              onClick={() => track("demo_click", { location: "hero" })}
+            >
+              <span className="h-px w-6 bg-border group-hover:bg-primary transition-colors" />
+              Explorar a vitrine de projetos
+            </a>
+          </div>
+          <p className="mt-10 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
+            Demonstração personalizada · Sem compromisso · Resposta no mesmo dia útil
+          </p>
         </div>
-        <h1 className="font-display text-[1.875rem] sm:text-[2.75rem] lg:text-[3.5rem] xl:text-[4rem] font-bold leading-[1.05] tracking-tight">
-          <span className="block text-gradient">Mais autoridade.</span>
-          <span className="block text-gradient">Mais contatos.</span>
-          <span className="block text-neon">Mais oportunidades.</span>
-        </h1>
-        <p className="mt-8 max-w-xl mx-auto text-muted-foreground text-base sm:text-lg leading-relaxed font-sans">
-          Landing pages, automações e soluções digitais criadas para empresas que desejam transmitir profissionalismo e gerar mais oportunidades de negócio.
-        </p>
-        <div className="mt-10 flex flex-col sm:flex-row sm:items-center justify-center flex-wrap gap-3 sm:gap-5">
-          <a href={WA} target="_blank" rel="noreferrer" className="w-full sm:w-auto" onClick={() => track("hero_cta_click", { destination: "whatsapp" })}>
-            <Button size="lg" className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-13 px-8 text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]">
-              QUERO UMA DEMONSTRAÇÃO GRATUITA <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </a>
-          <a
-            href="#demonstracoes"
-            className="text-sm text-muted-foreground hover:text-foreground underline underline-offset-4 decoration-border hover:decoration-primary transition-colors font-sans inline-flex items-center gap-1.5"
-            onClick={() => track("demo_click", { location: "hero" })}
-          >
-            ou veja demonstrações reais <ArrowRight className="h-3.5 w-3.5" />
-          </a>
-        </div>
-        <p className="mt-4 text-xs sm:text-[13px] text-muted-foreground/90 font-sans max-w-md mx-auto leading-relaxed">
-          Receba uma prévia personalizada da sua presença digital, sem compromisso.
-        </p>
-        <ul className="mt-5 flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs sm:text-[13px] text-muted-foreground/80 max-w-md mx-auto leading-relaxed font-sans">
-          <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Demonstração personalizada</li>
-          <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Sem compromisso</li>
-          <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Atendimento próximo</li>
-        </ul>
       </div>
     </section>
   );
 }
 
-function SectionTitle({ eyebrow, title, sub, display = false }: { eyebrow?: string; title: string; sub?: string; display?: boolean }) {
+function SectionTitle({
+  eyebrow,
+  title,
+  sub,
+  display = false,
+  align = "center",
+  gradient = false,
+}: {
+  eyebrow?: string;
+  title: string;
+  sub?: string;
+  display?: boolean;
+  align?: "center" | "left";
+  gradient?: boolean;
+}) {
+  const isCenter = align === "center";
   return (
-    <div className="max-w-3xl mx-auto text-center mb-14 sm:mb-16">
+    <div className={`${isCenter ? "max-w-3xl mx-auto text-center" : "max-w-3xl"} mb-12 sm:mb-16`}>
       {eyebrow && (
-        <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4 font-sans">{eyebrow}</div>
+        <div
+          className={`text-[10.5px] uppercase tracking-[0.3em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5 ${
+            isCenter ? "" : ""
+          }`}
+        >
+          <span className="h-px w-7 bg-primary/70" />
+          {eyebrow}
+        </div>
       )}
-      <h2 className={`${display ? "font-display" : "font-heading"} text-2xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-tight tracking-tight`}>{title}</h2>
-      {sub && <p className="mt-5 text-muted-foreground text-base sm:text-lg font-sans leading-relaxed">{sub}</p>}
+      <h2
+        className={`${display ? "font-display" : "font-heading"} ${
+          gradient ? "text-gradient" : "text-foreground"
+        } text-[1.75rem] sm:text-[2.4rem] lg:text-[3rem] font-bold leading-[1.08] tracking-[-0.02em]`}
+      >
+        {title}
+      </h2>
+      {sub && (
+        <p className="mt-5 text-muted-foreground text-[15px] sm:text-[17px] font-sans leading-relaxed max-w-2xl">
+          {sub}
+        </p>
+      )}
     </div>
   );
 }
 
 
-function ProblemaSolucao() {
+function Manifesto() {
   return (
-    <section className="py-20 sm:py-24 relative">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full blur-3xl opacity-30 pointer-events-none" style={{ background: "radial-gradient(ellipse, oklch(0.55 0.25 250 / 0.35), transparent 70%)" }} />
-      <div className="relative mx-auto max-w-5xl px-6 grid md:grid-cols-2 gap-5 sm:gap-6">
-        <div className="card-premium rounded-2xl p-7 sm:p-8 border border-destructive/20">
-          <div className="text-[11px] uppercase tracking-[0.28em] text-destructive/80 font-semibold mb-4 font-sans">O problema</div>
-          <p className="font-heading text-lg sm:text-xl leading-snug tracking-tight text-foreground/95">
-            Muitos negócios perdem oportunidades antes mesmo do primeiro contato.
-          </p>
-        </div>
-        <div className="card-premium rounded-2xl p-7 sm:p-8 border border-primary/30 glow-ring">
-          <div className="text-[11px] uppercase tracking-[0.28em] text-primary font-semibold mb-4 font-sans">A solução</div>
-          <p className="font-heading text-lg sm:text-xl leading-snug tracking-tight text-foreground/95">
-            Websites, automação e inteligência artificial que ajudam empresas a transmitir mais profissionalismo e gerar mais oportunidades.
-          </p>
+    <section className="relative py-24 sm:py-32 border-b border-border/30">
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] h-[360px] rounded-full blur-3xl opacity-25 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse, oklch(0.55 0.25 250 / 0.35), transparent 70%)" }}
+      />
+      <div className="relative mx-auto max-w-5xl px-6">
+        <div className="grid lg:grid-cols-[auto_1fr] gap-8 lg:gap-14 items-start">
+          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/80 font-medium font-sans flex items-center gap-2.5 lg:flex-col lg:items-start lg:gap-3 lg:pt-3">
+            <span className="h-px w-8 bg-primary/70 lg:h-12 lg:w-px" />
+            Manifesto
+          </div>
+          <div>
+            <p className="font-heading text-[1.4rem] sm:text-[1.8rem] lg:text-[2.1rem] leading-[1.25] tracking-[-0.015em] text-foreground/95">
+              Acreditamos que a primeira impressão digital de uma empresa{" "}
+              <span className="text-foreground/55">
+                deveria refletir a mesma sofisticação que ela exige no mundo real.
+              </span>{" "}
+              Por isso construímos cada site, automação e sistema como um produto —
+              não como um template.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-[12px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium">
+              <span>Design sob medida</span>
+              <span className="h-1 w-1 rounded-full bg-border" />
+              <span>Engenharia própria</span>
+              <span className="h-1 w-1 rounded-full bg-border" />
+              <span>Operação contínua</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -187,31 +251,45 @@ function ProblemaSolucao() {
 
 function Services() {
   const items = [
-    { icon: LayoutTemplate, title: "Landing Pages", desc: "Páginas premium pensadas para conversão." },
-    { icon: Globe, title: "Websites", desc: "Presença digital sólida e profissional." },
-    { icon: Zap, title: "Automação", desc: "Atendimento e processos automatizados." },
-    { icon: Bot, title: "Inteligência Artificial", desc: "IA aplicada ao dia a dia do negócio." },
-    { icon: Briefcase, title: "Sistemas Comerciais", desc: "CRM e ferramentas para gestão de leads." },
+    { n: "01", icon: LayoutTemplate, title: "Landing Pages", desc: "Páginas de alta densidade visual, pensadas para converter contatos qualificados." },
+    { n: "02", icon: Globe, title: "Websites institucionais", desc: "Presença digital com identidade própria e arquitetura escalável." },
+    { n: "03", icon: Zap, title: "Automação de atendimento", desc: "Fluxos via WhatsApp que respondem, qualificam e encaminham em tempo real." },
+    { n: "04", icon: Bot, title: "Inteligência Artificial aplicada", desc: "Assistentes treinados no contexto do seu negócio, integrados aos canais existentes." },
+    { n: "05", icon: Briefcase, title: "Sistemas comerciais", desc: "CRM, agendamento e dashboards desenhados para a operação real do time." },
   ];
   return (
-    <section id="servicos" className="py-24 sm:py-28 relative">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="servicos" className="py-24 sm:py-32 relative border-y border-border/30">
+      <div className="mx-auto max-w-6xl px-6">
         <SectionTitle
           display
+          align="left"
           eyebrow="Soluções"
-          title="O que a Imperius entrega."
+          title="Cinco frentes. Um único padrão de execução."
+          sub="Cada serviço é tratado como produto: especificado, prototipado e operado com a mesma exigência técnica."
         />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <ul className="mt-4 divide-y divide-border/40 border-y border-border/40">
           {items.map((it) => (
-            <div key={it.title} className="card-premium hover-lift rounded-2xl p-7 group transition-all duration-300 hover:border-primary/50">
-              <div className="h-12 w-12 rounded-xl flex items-center justify-center mb-5 ring-1 ring-primary/30 group-hover:ring-primary/60 transition" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.6), oklch(0.18 0.05 245 / 0.3))" }}>
-                <it.icon className="h-6 w-6 text-primary" />
+            <li
+              key={it.title}
+              className="group grid grid-cols-[auto_1fr] sm:grid-cols-[3rem_auto_1fr] items-start gap-x-5 sm:gap-x-8 gap-y-2 py-7 sm:py-8 transition-colors hover:bg-card/30"
+            >
+              <span className="hidden sm:block font-display text-[12px] text-muted-foreground/70 tracking-[0.2em] pt-1.5">
+                {it.n}
+              </span>
+              <div className="h-11 w-11 rounded-lg flex items-center justify-center ring-1 ring-primary/25 group-hover:ring-primary/60 transition" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.5), oklch(0.18 0.05 245 / 0.25))" }}>
+                <it.icon className="h-5 w-5 text-primary" />
               </div>
-              <h3 className="font-heading font-semibold text-base sm:text-lg mb-2 tracking-tight">{it.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed font-sans">{it.desc}</p>
-            </div>
+              <div className="col-start-2 sm:col-start-3 min-w-0">
+                <h3 className="font-heading font-semibold text-[17px] sm:text-[19px] tracking-[-0.01em] text-foreground">
+                  {it.title}
+                </h3>
+                <p className="mt-1.5 text-[14px] sm:text-[15px] text-muted-foreground leading-relaxed font-sans max-w-2xl">
+                  {it.desc}
+                </p>
+              </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );
@@ -252,16 +330,32 @@ function Demonstracoes() {
 
 
   return (
-    <section id="demonstracoes" className="py-24 sm:py-28 relative">
-      <div className="absolute inset-0 bg-grid opacity-40 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[420px] rounded-full blur-3xl opacity-40 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.25 250 / 0.35), transparent 70%)" }} />
+    <section id="vitrine" className="py-24 sm:py-32 relative">
+      <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[820px] h-[460px] rounded-full blur-3xl opacity-30 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.25 250 / 0.32), transparent 70%)" }} />
       <div className="relative mx-auto max-w-7xl px-6">
-        <SectionTitle
-          display
-          eyebrow="Vitrine de soluções reais"
-          title="Demonstrações Imperius."
-          sub="Soluções reais que a Imperius já desenvolve para diferentes segmentos."
-        />
+        <div className="mb-12 sm:mb-16 grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 lg:items-end">
+          <div className="max-w-2xl">
+            <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
+              <span className="h-px w-8 bg-primary/70" />
+              Vitrine · {cards.length.toString().padStart(2, "0")} projetos
+            </div>
+            <h2 className="font-display text-[2rem] sm:text-[2.8rem] lg:text-[3.4rem] font-bold leading-[1.05] tracking-[-0.02em] text-foreground">
+              Projetos navegáveis,
+              <span className="block text-neon">não mockups.</span>
+            </h2>
+            <p className="mt-5 text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed font-sans max-w-xl">
+              Cada card abaixo abre uma demonstração funcional — desenvolvida pela Imperius
+              para um nicho real. Clique, explore o fluxo e veja o nível de acabamento
+              entregue antes mesmo do briefing.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11.5px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium lg:justify-end">
+            <span>Produtos Imperius · 03</span>
+            <span className="h-1 w-1 rounded-full bg-border" />
+            <span>Nichos verticais · 05</span>
+          </div>
+        </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {cards.map((c) => (
             <DemoCardItem key={c.title} card={c} />
@@ -353,33 +447,45 @@ function DemoCardItem({ card }: { card: DemoCard }) {
 
 function Process() {
   const steps = [
-    { n: "01", i: MessageCircle, t: "Conversamos sobre sua empresa", d: "Entendemos seu negócio e seus objetivos." },
-    { n: "02", i: LayoutTemplate, t: "Criamos uma demonstração personalizada", d: "Uma versão sob medida para você visualizar antes de decidir." },
-    { n: "03", i: ClipboardList, t: "Você aprova", d: "Ajustamos cada detalhe até refletir a sua marca." },
-    { n: "04", i: Rocket, t: "Publicamos", d: "Seu projeto entra no ar pronto para gerar oportunidades." },
-    { n: "05", i: TrendingUp, t: "Mais oportunidades", d: "Sua empresa passa a transmitir mais autoridade." },
+    { n: "01", i: MessageCircle, t: "Diagnóstico", d: "Conversa direta para entender contexto, posicionamento e gargalos atuais." },
+    { n: "02", i: LayoutTemplate, t: "Demonstração sob medida", d: "Construímos uma prévia funcional do seu projeto antes de qualquer fechamento." },
+    { n: "03", i: ClipboardList, t: "Refinamento", d: "Iterações até cada detalhe refletir a sua marca e seu padrão de operação." },
+    { n: "04", i: Rocket, t: "Publicação", d: "Deploy, configuração de domínio, integrações e monitoramento ativo." },
+    { n: "05", i: TrendingUp, t: "Operação contínua", d: "Acompanhamento de performance e evoluções planejadas com o seu time." },
   ];
   return (
-    <section id="processo" className="py-24 sm:py-28">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="processo" className="py-24 sm:py-32">
+      <div className="mx-auto max-w-6xl px-6">
         <SectionTitle
           display
-          eyebrow="Como funciona"
-          title="Processo simples. Resultado profissional."
+          align="left"
+          eyebrow="Processo"
+          title="Do briefing à operação, em cinco passos."
+          sub="Sem propostas genéricas. Você acompanha a construção em cada etapa."
         />
-        <div className="relative grid sm:grid-cols-2 lg:grid-cols-5 gap-5 sm:gap-6">
-          <div className="hidden lg:block absolute top-10 left-[10%] right-[10%] h-px" style={{ background: "linear-gradient(90deg, transparent, oklch(0.72 0.22 250 / 0.5), transparent)" }} />
+        <ol className="mt-4 divide-y divide-border/40 border-y border-border/40">
           {steps.map((s) => (
-            <div key={s.t} className="relative card-premium hover-lift rounded-2xl p-6 transition-all duration-300">
-              <div className="absolute -top-3 -right-3 h-9 w-9 rounded-full ring-1 ring-primary/40 bg-background flex items-center justify-center font-display font-bold text-[11px] text-primary">{s.n}</div>
-              <div className="h-12 w-12 rounded-xl flex items-center justify-center ring-1 ring-primary/40 mb-5" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.7), oklch(0.12 0.02 245 / 0.7))" }}>
-                <s.i className="h-5 w-5 text-primary" />
+            <li
+              key={s.t}
+              className="grid grid-cols-[3rem_auto_1fr] sm:grid-cols-[4rem_auto_1fr] items-start gap-x-5 sm:gap-x-8 py-7 sm:py-8"
+            >
+              <span className="font-display text-[13px] sm:text-[14px] text-primary tracking-[0.2em] pt-2 font-semibold">
+                {s.n}
+              </span>
+              <div className="h-10 w-10 rounded-lg flex items-center justify-center ring-1 ring-primary/30 shrink-0" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.55), oklch(0.18 0.05 245 / 0.25))" }}>
+                <s.i className="h-[18px] w-[18px] text-primary" />
               </div>
-              <h3 className="font-heading font-semibold text-base mb-2 tracking-tight">{s.t}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed font-sans">{s.d}</p>
-            </div>
+              <div className="min-w-0">
+                <h3 className="font-heading font-semibold text-[17px] sm:text-[19px] tracking-[-0.01em] text-foreground">
+                  {s.t}
+                </h3>
+                <p className="mt-1.5 text-[14px] sm:text-[15px] text-muted-foreground leading-relaxed font-sans max-w-2xl">
+                  {s.d}
+                </p>
+              </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );
@@ -401,24 +507,32 @@ function FAQ() {
     },
   ];
   return (
-    <section id="faq" className="py-20 sm:py-24">
+    <section id="faq" className="py-24 sm:py-28 border-t border-border/30">
       <div className="mx-auto max-w-3xl px-6">
-        <div className="text-center mb-10 sm:mb-12">
-          <div className="text-[11px] uppercase tracking-[0.25em] text-primary font-semibold mb-4 font-sans">Dúvidas frequentes</div>
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-gradient leading-tight tracking-tight">
+        <div className="mb-12">
+          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
+            <span className="h-px w-8 bg-primary/70" />
+            FAQ
+          </div>
+          <h2 className="font-heading text-[1.75rem] sm:text-[2.2rem] lg:text-[2.6rem] font-bold leading-[1.1] tracking-[-0.02em] text-foreground">
             Antes de pedir sua demonstração.
           </h2>
         </div>
-        <div className="space-y-4">
+        <div className="divide-y divide-border/40 border-y border-border/40">
           {items.map((it) => (
-            <div key={it.q} className="card-premium rounded-2xl p-6 sm:p-7 border border-primary/15">
-              <h3 className="font-heading font-semibold text-base sm:text-lg tracking-tight">
-                {it.q}
-              </h3>
-              <p className="mt-3 text-sm sm:text-[15px] text-muted-foreground leading-relaxed font-sans">
+            <details key={it.q} className="group py-6 sm:py-7">
+              <summary className="flex items-start justify-between gap-6 cursor-pointer list-none">
+                <h3 className="font-heading font-semibold text-[16px] sm:text-[18px] tracking-[-0.01em] text-foreground">
+                  {it.q}
+                </h3>
+                <span className="mt-1 shrink-0 h-7 w-7 rounded-full border border-border/60 grid place-items-center text-muted-foreground group-open:bg-primary/10 group-open:text-primary group-open:border-primary/50 transition-colors">
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-open:rotate-90" />
+                </span>
+              </summary>
+              <p className="mt-4 text-[14.5px] sm:text-[15px] text-muted-foreground leading-relaxed font-sans max-w-2xl">
                 {it.a}
               </p>
-            </div>
+            </details>
           ))}
         </div>
       </div>
@@ -428,32 +542,46 @@ function FAQ() {
 
 function FinalCTA() {
   return (
-    <section className="py-24 sm:py-28">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <div className="relative overflow-hidden card-premium rounded-3xl p-8 sm:p-12 lg:p-16 text-center glow-ring">
-          <div className="absolute inset-0 bg-grid opacity-60 pointer-events-none" />
-          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[480px] h-[480px] rounded-full blur-3xl" style={{ background: "radial-gradient(circle, oklch(0.55 0.25 250 / 0.45), transparent 70%)" }} />
-          <div className="relative">
-            <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-gradient leading-[1.1] tracking-tight">
-              Sua empresa transmite a imagem que merece?
-            </h2>
-            <p className="mt-6 text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-sans">
-              Criamos soluções digitais para negócios que desejam transmitir mais autoridade, facilitar o contato e gerar mais oportunidades.
-            </p>
-            <div className="mt-9 flex justify-center">
-              <a href={WA} target="_blank" rel="noreferrer" className="w-full sm:w-auto" onClick={() => { track("final_cta_click", { destination: "whatsapp" }); track("whatsapp_click", { location: "final_cta" }); }}>
-                <Button size="lg" className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide h-13 px-8 text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]">
-                  QUERO MINHA DEMONSTRAÇÃO <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </a>
-            </div>
-            <ul className="mt-7 flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs sm:text-[13px] text-muted-foreground/80 font-sans">
-              <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Sem compromisso</li>
-              <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Atendimento personalizado</li>
-              <li className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Demonstração exclusiva</li>
-            </ul>
-          </div>
+    <section className="relative py-28 sm:py-36 border-t border-border/30 overflow-hidden">
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[820px] h-[420px] rounded-full blur-3xl opacity-30 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse, oklch(0.55 0.25 250 / 0.4), transparent 70%)" }}
+      />
+      <div className="relative mx-auto max-w-4xl px-6 text-center">
+        <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-6 font-sans inline-flex items-center gap-2.5">
+          <span className="h-px w-8 bg-primary/70" />
+          Próximo passo
         </div>
+        <h2 className="font-display text-[2rem] sm:text-[2.8rem] lg:text-[3.4rem] font-bold leading-[1.05] tracking-[-0.02em] text-foreground">
+          Pronto para ver sua empresa
+          <span className="block text-neon">na medida que ela merece?</span>
+        </h2>
+        <p className="mt-6 text-muted-foreground text-[15px] sm:text-[17px] max-w-2xl mx-auto leading-relaxed font-sans">
+          Receba uma demonstração construída especificamente para o seu negócio — sem
+          briefing engessado, sem orçamento antes da entrega.
+        </p>
+        <div className="mt-10 flex justify-center">
+          <a
+            href={WA}
+            target="_blank"
+            rel="noreferrer"
+            className="w-full sm:w-auto"
+            onClick={() => {
+              track("final_cta_click", { destination: "whatsapp" });
+              track("whatsapp_click", { location: "final_cta" });
+            }}
+          >
+            <Button
+              size="lg"
+              className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]"
+            >
+              Solicitar demonstração <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </a>
+        </div>
+        <p className="mt-8 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
+          Sem compromisso · Resposta no mesmo dia útil · Atendimento direto com a equipe
+        </p>
       </div>
     </section>
   );
@@ -485,7 +613,7 @@ function Footer() {
               <li><a href="#servicos" className="hover:text-foreground transition-colors">Landing Pages</a></li>
               <li><a href="#servicos" className="hover:text-foreground transition-colors">Automação</a></li>
               <li><a href="#servicos" className="hover:text-foreground transition-colors">Inteligência Artificial</a></li>
-              <li><a href="#demonstracoes" className="hover:text-foreground transition-colors">Demonstrações</a></li>
+              <li><a href="#vitrine" className="hover:text-foreground transition-colors">Vitrine de projetos</a></li>
             </ul>
           </div>
 
