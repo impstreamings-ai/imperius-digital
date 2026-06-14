@@ -621,7 +621,7 @@ function Footer() {
             <div className="flex items-center gap-3 mb-5">
               <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[44px] w-auto object-contain" loading="lazy" decoding="async" />
               <div>
-                <div className="font-display font-bold tracking-[0.2em] text-sm">IMPERIUS™</div>
+                <div className="font-heading font-bold tracking-[0.2em] text-sm">IMPERIUS</div>
                 <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-sans font-medium">Design • Automação • IA</div>
               </div>
             </div>
