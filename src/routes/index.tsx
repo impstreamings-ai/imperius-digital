@@ -306,7 +306,7 @@ function SatelliteCard({
     </div>
   );
 }
-}
+
 
 function SectionTitle({
   eyebrow,
