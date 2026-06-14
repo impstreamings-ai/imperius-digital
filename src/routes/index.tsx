@@ -833,11 +833,11 @@ function Demonstracoes() {
     { icon: Bot, title: "Imperius Automation", desc: "WhatsApp Business com IA que qualifica e encaminha leads em tempo real.", status: "Ativo", kind: "Atendimento", to: "/automation", preview: "automation" },
     { icon: Users, title: "Imperius CRM", desc: "Pipeline comercial com etapas, oportunidades e indicadores do time.", status: "Ativo", kind: "Comercial", to: "/crm", preview: "crm" },
     { icon: Calendar, title: "Imperius Scheduling", desc: "Agenda, confirmações e reservas integradas ao atendimento.", status: "Ativo", kind: "Operação", to: "/scheduling", preview: "scheduling" },
-    { icon: Scissors, title: "Black Crown Barbershop", desc: "Website para barbearia premium", status: "Ativo", kind: "Projeto externo", href: BLACK_CROWN_URL, external: true, cover: blackCrownCover.url },
-    { icon: Stethoscope, title: "Clínica Vitalis", desc: "Website e agendamento para clínica", status: "Ativo", kind: "Demonstração de nicho", to: "/vitalis", cover: vitalisCover.url },
-    { icon: Sparkles, title: "Studio Bella Estética", desc: "Centro de estética premium em São Paulo", status: "Ativo", kind: "Demonstração de nicho", to: "/studio-bella", cover: bellaCover.url },
-    { icon: Building2, title: "Prime Imóveis", desc: "Portal para imobiliária de alto padrão", status: "Ativo", kind: "Demonstração de nicho", to: "/prime-imoveis", cover: primeCover.url },
-    { icon: UtensilsCrossed, title: "Restaurante Imperial", desc: "Reservas e cardápio para gastronomia premium", status: "Ativo", kind: "Demonstração de nicho", to: "/restaurante-imperial", cover: imperialCover.url },
+    { icon: Scissors, title: "Black Crown Barbershop", desc: "Barbearia premium com agendamento e identidade visual cinematográfica. Abra e navegue como um cliente real.", status: "Ativo", kind: "Projeto externo", href: BLACK_CROWN_URL, external: true, cover: blackCrownCover.url },
+    { icon: Stethoscope, title: "Clínica Vitalis", desc: "Site clínico com agendamento, especialidades e tom de confiança — pronto para captar pacientes.", status: "Ativo", kind: "Demonstração de nicho", to: "/vitalis", cover: vitalisCover.url },
+    { icon: Sparkles, title: "Studio Bella Estética", desc: "Estética de alto padrão com vitrine de procedimentos e reserva direta. Veja o fluxo completo.", status: "Ativo", kind: "Demonstração de nicho", to: "/studio-bella", cover: bellaCover.url },
+    { icon: Building2, title: "Prime Imóveis", desc: "Portal imobiliário com busca, ficha de imóvel e captação de leads qualificados em segundos.", status: "Ativo", kind: "Demonstração de nicho", to: "/prime-imoveis", cover: primeCover.url },
+    { icon: UtensilsCrossed, title: "Restaurante Imperial", desc: "Reservas, cardápio e identidade gastronômica premium — explore como um cliente reservaria hoje.", status: "Ativo", kind: "Demonstração de nicho", to: "/restaurante-imperial", cover: imperialCover.url },
   ];
 
 
@@ -899,8 +899,8 @@ function Demonstracoes() {
                 <span className="text-neon">não mockups.</span>
               </h2>
               <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans max-w-xl">
-                Cada card abre uma demonstração funcional construída pela Imperius
-                para um nicho real. Explore o fluxo e veja o acabamento antes do briefing.
+                Cada card abre um site real, navegável de ponta a ponta. Clique, role,
+                simule um agendamento — é exatamente o que seu cliente final veria.
               </p>
             </div>
             <div className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium inline-flex items-center gap-2 lg:justify-end">
@@ -1157,7 +1157,7 @@ function DemoCardItem({ card }: { card: DemoCard }) {
         </p>
         {isActive && (
           <div className="mt-4 inline-flex items-center gap-1.5 text-[12px] text-primary/90 font-semibold font-sans">
-            Ver demonstração {card.external ? <ExternalLink className="h-3.5 w-3.5" /> : <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />}
+            {card.external ? "Abrir projeto ao vivo" : "Explorar demonstração"} {card.external ? <ExternalLink className="h-3.5 w-3.5" /> : <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />}
           </div>
         )}
       </div>
