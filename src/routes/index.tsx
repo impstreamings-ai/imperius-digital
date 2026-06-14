@@ -218,8 +218,8 @@ function Manifesto() {
   return (
     <section className="relative py-24 sm:py-32 border-b border-border/30">
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] h-[360px] rounded-full blur-3xl opacity-25 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, oklch(0.55 0.25 250 / 0.35), transparent 70%)" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] h-[360px] rounded-full blur-3xl opacity-15 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse, oklch(0.55 0.22 250 / 0.2), transparent 70%)" }}
       />
       <div className="relative mx-auto max-w-5xl px-6">
         <div className="grid lg:grid-cols-[auto_1fr] gap-8 lg:gap-14 items-start">
