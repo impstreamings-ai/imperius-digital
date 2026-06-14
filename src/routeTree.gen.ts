@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VitalisRouteImport } from './routes/vitalis'
+import { Route as StudioBellaRouteImport } from './routes/studio-bella'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SchedulingRouteImport } from './routes/scheduling'
 import { Route as CrmRouteImport } from './routes/crm'
@@ -19,6 +20,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const VitalisRoute = VitalisRouteImport.update({
   id: '/vitalis',
   path: '/vitalis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudioBellaRoute = StudioBellaRouteImport.update({
+  id: '/studio-bella',
+  path: '/studio-bella',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/crm': typeof CrmRoute
   '/scheduling': typeof SchedulingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/studio-bella': typeof StudioBellaRoute
   '/vitalis': typeof VitalisRoute
 }
 export interface FileRoutesByTo {
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/crm': typeof CrmRoute
   '/scheduling': typeof SchedulingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/studio-bella': typeof StudioBellaRoute
   '/vitalis': typeof VitalisRoute
 }
 export interface FileRoutesById {
@@ -70,6 +78,7 @@ export interface FileRoutesById {
   '/crm': typeof CrmRoute
   '/scheduling': typeof SchedulingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/studio-bella': typeof StudioBellaRoute
   '/vitalis': typeof VitalisRoute
 }
 export interface FileRouteTypes {
@@ -80,9 +89,17 @@ export interface FileRouteTypes {
     | '/crm'
     | '/scheduling'
     | '/sitemap.xml'
+    | '/studio-bella'
     | '/vitalis'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/automation' | '/crm' | '/scheduling' | '/sitemap.xml' | '/vitalis'
+  to:
+    | '/'
+    | '/automation'
+    | '/crm'
+    | '/scheduling'
+    | '/sitemap.xml'
+    | '/studio-bella'
+    | '/vitalis'
   id:
     | '__root__'
     | '/'
@@ -90,6 +107,7 @@ export interface FileRouteTypes {
     | '/crm'
     | '/scheduling'
     | '/sitemap.xml'
+    | '/studio-bella'
     | '/vitalis'
   fileRoutesById: FileRoutesById
 }
@@ -99,6 +117,7 @@ export interface RootRouteChildren {
   CrmRoute: typeof CrmRoute
   SchedulingRoute: typeof SchedulingRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  StudioBellaRoute: typeof StudioBellaRoute
   VitalisRoute: typeof VitalisRoute
 }
 
@@ -109,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/vitalis'
       fullPath: '/vitalis'
       preLoaderRoute: typeof VitalisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/studio-bella': {
+      id: '/studio-bella'
+      path: '/studio-bella'
+      fullPath: '/studio-bella'
+      preLoaderRoute: typeof StudioBellaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -155,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   CrmRoute: CrmRoute,
   SchedulingRoute: SchedulingRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  StudioBellaRoute: StudioBellaRoute,
   VitalisRoute: VitalisRoute,
 }
 export const routeTree = rootRouteImport

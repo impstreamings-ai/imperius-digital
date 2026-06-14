@@ -234,7 +234,7 @@ import automationCover from "@/assets/imperius-automation-cover.png.asset.json";
 import crmCover from "@/assets/imperius-crm-cover.png.asset.json";
 import schedulingCover from "@/assets/imperius-scheduling-cover.png.asset.json";
 import vitalisCover from "@/assets/vitalis-cover.jpg.asset.json";
-import bellaCover from "@/assets/studio-bella-cover.png.asset.json";
+import bellaCover from "@/assets/studio-bella-cover.jpg.asset.json";
 import primeCover from "@/assets/prime-imoveis-cover.png.asset.json";
 import imperialCover from "@/assets/restaurante-imperial-cover.png.asset.json";
 
@@ -245,7 +245,7 @@ function Demonstracoes() {
     { icon: Users, title: "Imperius CRM", desc: "CRM Comercial Inteligente", status: "Ativo", to: "/crm", cover: crmCover.url },
     { icon: Calendar, title: "Imperius Scheduling", desc: "Sistema de Agendamento Inteligente", status: "Ativo", to: "/scheduling", cover: schedulingCover.url },
     { icon: Stethoscope, title: "Clínica Vitalis", desc: "Website + agendamento para Clínica", status: "Ativo", to: "/vitalis", cover: vitalisCover.url },
-    { icon: Sparkles, title: "Studio Bella Estética", desc: "Editorial premium para estética e beleza", status: "Em breve", cover: bellaCover.url },
+    { icon: Sparkles, title: "Studio Bella Estética", desc: "Centro de estética premium em São Paulo", status: "Ativo", to: "/studio-bella", cover: bellaCover.url },
     { icon: Building2, title: "Prime Imóveis", desc: "Portal premium para imobiliária de alto padrão", status: "Em breve", cover: primeCover.url },
     { icon: UtensilsCrossed, title: "Restaurante Imperial", desc: "Reservas e cardápio para gastronomia premium", status: "Em breve", cover: imperialCover.url },
   ];
