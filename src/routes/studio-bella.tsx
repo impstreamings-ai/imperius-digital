@@ -843,7 +843,7 @@ function Visit() {
               </span>
               <span>
                 <span className="text-stone-500 text-[12px] block">Endereço</span>
-                Rua Oscar Freire, 902 · Sala 304 · Jardins · São Paulo · SP
+                Endereço personalizável
               </span>
             </li>
             <li className="flex items-center gap-3">
@@ -852,7 +852,7 @@ function Visit() {
               </span>
               <span>
                 <span className="text-stone-500 text-[12px] block">Horário</span>
-                Ter–Sex 10h–20h · Sáb 09h–17h
+                Horário personalizável
               </span>
             </li>
             <li className="flex items-center gap-3">
@@ -861,7 +861,7 @@ function Visit() {
               </span>
               <span>
                 <span className="text-stone-500 text-[12px] block">WhatsApp</span>
-                (15) 9810-2379
+                (XX) XXXXX-XXXX
               </span>
             </li>
           </ul>
