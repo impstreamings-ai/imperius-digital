@@ -502,9 +502,8 @@ function Team() {
                   width={900}
                   height={1100}
                 />
-                <div className="absolute top-3 left-3 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/95 backdrop-blur text-amber-600 text-[11px] font-semibold ring-1 ring-amber-100">
-                  <Star className="h-3 w-3 fill-current" />
-                  {p.rating.toFixed(1)}
+                <div className="absolute top-3 left-3 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/95 backdrop-blur text-[10px] uppercase tracking-[0.14em] font-semibold ring-1 ring-[#EADFE6]" style={{ color: "#9B5C8A" }}>
+                  Exemplo demonstrativo
                 </div>
               </div>
               <div className="p-5 sm:p-6">
