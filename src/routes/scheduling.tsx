@@ -553,10 +553,10 @@ function CalendarModule() {
 
 function BookingsModule() {
   const bookings = [
-    { name: "Mariana S.", service: "Corte + Barba", date: "Qua 12 · 15:00", state: "Confirmado" },
-    { name: "Lucas R.", service: "Consulta inicial", date: "Qua 12 · 16:30", state: "Confirmado" },
-    { name: "Beatriz O.", service: "Limpeza de pele", date: "Qui 13 · 10:00", state: "Pendente" },
-    { name: "Renato C.", service: "Avaliação", date: "Sex 14 · 09:00", state: "Confirmado" },
+    { name: "Cliente 01", service: "Corte + Barba", date: "Qua 12 · 15:00", state: "Confirmado" },
+    { name: "Cliente 02", service: "Consulta inicial", date: "Qua 12 · 16:30", state: "Confirmado" },
+    { name: "Cliente 03", service: "Limpeza de pele", date: "Qui 13 · 10:00", state: "Pendente" },
+    { name: "Cliente 04", service: "Avaliação", date: "Sex 14 · 09:00", state: "Confirmado" },
   ];
   return (
     <ModuleShell label="Reservas" tag="Próximos atendimentos" icon={CalendarCheck}>
