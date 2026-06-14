@@ -258,7 +258,7 @@ function HeroVisual() {
         </div>
         <div className="leading-tight">
           <div className="text-[10.5px] font-heading font-semibold text-foreground">Pipeline · R$ 380K</div>
-          <div className="text-[9px] uppercase tracking-[0.18em] text-muted-foreground/80 font-sans">+12 hoje</div>
+          <div className="text-[9px] uppercase tracking-[0.18em] text-muted-foreground/80 font-sans">Demonstração visual</div>
         </div>
       </div>
     </div>
