@@ -138,9 +138,8 @@ function Hero() {
               Imperius · Plataforma proprietária
             </div>
             <h1 className="font-display text-[2rem] sm:text-[2.9rem] lg:text-[3.4rem] xl:text-[3.9rem] font-semibold leading-[1.04] tracking-[-0.028em] text-foreground">
-              Presença digital, automação e sistemas comerciais para empresas que precisam{" "}
-              <span className="text-neon">parecer maiores</span>{" "}
-              e vender melhor.
+              Sites, automação e sistemas comerciais que transformam{" "}
+              <span className="text-neon">presença digital em oportunidade real</span>.
             </h1>
             <p className="mt-7 max-w-xl text-muted-foreground text-base sm:text-[17px] leading-relaxed font-sans">
               Construímos sites, fluxos com IA e operações comerciais sob medida —
