@@ -461,7 +461,7 @@ function Ecossistema() {
               <div key={i} className="flex-1 rounded-sm bg-primary/60" style={{ height: `${h}%` }} />
             ))}
           </div>
-          <div className="text-[9px] font-sans uppercase tracking-wider text-muted-foreground/70">Últimos 7 dias</div>
+          <div className="text-[9px] font-sans uppercase tracking-wider text-muted-foreground/70">Exemplo ilustrativo · últimos 7 dias</div>
         </div>
       ),
     },
