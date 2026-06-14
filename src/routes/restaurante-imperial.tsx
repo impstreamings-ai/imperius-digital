@@ -529,18 +529,18 @@ function Chef() {
             className="text-3xl sm:text-4xl lg:text-[3rem] leading-[1.1] tracking-tight font-normal"
             style={{ ...SERIF, color: CREAM }}
           >
-            Chef Bruno Ferraz —
+            Chef Executivo —
             <span className="italic" style={{ color: EMBER }}> a alma da cozinha</span>.
           </h2>
           <p className="mt-5 text-base sm:text-lg leading-relaxed text-white/80">
-            Após passagens por restaurantes premiados em São Paulo e na Itália, Bruno fundou
-            o Imperial em 2013 com uma proposta clara: cozinha sazonal, técnica precisa e
+            Liderança gastronômica formada em escolas internacionais e com passagens por
+            restaurantes premiados. Proposta clara: cozinha sazonal, técnica precisa e
             ingredientes em primeiro lugar.
           </p>
           <ul className="mt-7 grid sm:grid-cols-2 gap-x-6 gap-y-3 text-[13.5px] text-white/85">
             {[
-              "12 anos de cozinha de autor",
-              "Formação no Le Cordon Bleu",
+              "Cozinha de autor",
+              "Formação internacional",
               "Menu sazonal trocado a cada estação",
               "Parceria com produtores locais",
             ].map((t) => (
