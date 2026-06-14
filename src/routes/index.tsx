@@ -684,42 +684,78 @@ function Demonstracoes() {
   ];
 
 
+  const productCards = cards.filter((c) => IMPERIUS_KINDS.has(c.kind));
+  const demoCards = cards.filter((c) => !IMPERIUS_KINDS.has(c.kind));
+
   return (
     <section id="vitrine" className="py-24 sm:py-32 relative">
       <div className="absolute inset-0 bg-grid opacity-15 pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[820px] h-[460px] rounded-full blur-3xl opacity-15 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.22 250 / 0.18), transparent 70%)" }} />
-      <div className="relative mx-auto max-w-7xl px-6">
-        <div className="mb-12 sm:mb-16 grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 lg:items-end">
-          <div className="max-w-2xl">
-            <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
-              <span className="h-px w-8 bg-primary/70" />
-              Vitrine · {cards.length.toString().padStart(2, "0")} projetos
+      <div className="relative mx-auto max-w-7xl px-6 space-y-20 sm:space-y-24">
+        {/* Group 1 — Produtos Imperius */}
+        <div>
+          <div className="mb-10 sm:mb-12 grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-12 lg:items-end">
+            <div className="max-w-2xl">
+              <div className="text-[10.5px] uppercase tracking-[0.32em] text-primary/90 font-semibold mb-5 font-sans inline-flex items-center gap-2.5">
+                <span className="h-px w-8 bg-primary/70" />
+                Produtos Imperius · {productCards.length.toString().padStart(2, "0")}
+              </div>
+              <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.75rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+                Software proprietário que opera o seu comercial.
+              </h2>
+              <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans max-w-xl">
+                Automation, CRM e Scheduling — três produtos integrados que respondem,
+                organizam e agendam, do primeiro contato ao fechamento.
+              </p>
             </div>
-            <h2 className="font-display font-semibold text-[2rem] sm:text-[2.7rem] lg:text-[3.1rem] leading-[1.05] tracking-[-0.028em] text-foreground">
-              Projetos navegáveis,{" "}
-              <span className="text-neon">não mockups.</span>
-            </h2>
-            <p className="mt-5 text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed font-sans max-w-xl">
-              Cada card abaixo abre uma demonstração funcional — construída pela Imperius
-              para um nicho real. Clique, explore o fluxo e veja o nível de acabamento
-              antes mesmo do briefing.
-            </p>
+            <div className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium inline-flex items-center gap-2 lg:justify-end">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+              Plataforma integrada
+            </div>
           </div>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11.5px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium lg:justify-end">
-            <span className="inline-flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              Produtos · 03
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-muted-foreground/50" />
-              Verticais · 05
-            </span>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+            {productCards.map((c) => (
+              <DemoCardItem key={c.title} card={c} />
+            ))}
           </div>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-          {cards.map((c) => (
-            <DemoCardItem key={c.title} card={c} />
-          ))}
+
+        {/* Divider */}
+        <div className="flex items-center gap-4" aria-hidden>
+          <span className="h-px flex-1 bg-border/50" />
+          <span className="text-[10px] uppercase tracking-[0.32em] text-muted-foreground/70 font-sans font-medium">
+            Demonstrações por nicho
+          </span>
+          <span className="h-px flex-1 bg-border/50" />
+        </div>
+
+        {/* Group 2 — Demonstrações */}
+        <div>
+          <div className="mb-10 sm:mb-12 grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-12 lg:items-end">
+            <div className="max-w-2xl">
+              <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
+                <span className="h-px w-8 bg-muted-foreground/60" />
+                Demonstrações · {demoCards.length.toString().padStart(2, "0")} verticais
+              </div>
+              <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.75rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+                Projetos navegáveis,{" "}
+                <span className="text-neon">não mockups.</span>
+              </h2>
+              <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans max-w-xl">
+                Cada card abre uma demonstração funcional construída pela Imperius
+                para um nicho real. Explore o fluxo e veja o acabamento antes do briefing.
+              </p>
+            </div>
+            <div className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium inline-flex items-center gap-2 lg:justify-end">
+              <span className="h-1.5 w-1.5 rounded-full bg-muted-foreground/60" />
+              5 verticais
+            </div>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+            {demoCards.map((c) => (
+              <DemoCardItem key={c.title} card={c} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
