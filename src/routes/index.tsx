@@ -816,6 +816,7 @@ type DemoCard = {
   to?: string;
   external?: boolean;
   cover?: string;
+  domain?: string;
   /** Optional custom preview node (used for Imperius products to render a realistic mini-UI instead of a generic image). */
   preview?: "automation" | "crm" | "scheduling";
 };
