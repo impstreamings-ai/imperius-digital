@@ -86,6 +86,7 @@ type Solution = {
 type Demo = {
   icon: typeof Scissors;
   title: string;
+  segment: string;
   desc: string;
   cover: string;
   domain: string;
