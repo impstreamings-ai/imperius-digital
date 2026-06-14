@@ -258,7 +258,7 @@ function HeroVisual() {
         </div>
         <div className="leading-tight">
           <div className="text-[10.5px] font-heading font-semibold text-foreground">Pipeline · R$ 380K</div>
-          <div className="text-[9px] uppercase tracking-[0.18em] text-muted-foreground/80 font-sans">+12 hoje</div>
+          <div className="text-[9px] uppercase tracking-[0.18em] text-muted-foreground/80 font-sans">Demonstração visual</div>
         </div>
       </div>
     </div>
@@ -461,7 +461,7 @@ function Ecossistema() {
               <div key={i} className="flex-1 rounded-sm bg-primary/60" style={{ height: `${h}%` }} />
             ))}
           </div>
-          <div className="text-[9px] font-sans uppercase tracking-wider text-muted-foreground/70">Últimos 7 dias</div>
+          <div className="text-[9px] font-sans uppercase tracking-wider text-muted-foreground/70">Exemplo ilustrativo · últimos 7 dias</div>
         </div>
       ),
     },
@@ -872,11 +872,24 @@ function Demonstracoes() {
               Plataforma integrada
             </div>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-            {productCards.map((c) => (
-              <DemoCardItem key={c.title} card={c} />
-            ))}
-          </div>
+          {(() => {
+            const automation = productCards.find((c) => c.preview === "automation");
+            const crm = productCards.find((c) => c.preview === "crm");
+            const scheduling = productCards.find((c) => c.preview === "scheduling");
+            return (
+              <div className="grid gap-5 sm:gap-6 lg:grid-cols-3 lg:items-stretch">
+                {automation && (
+                  <div className="lg:col-span-2">
+                    <DemoCardItem card={automation} featured />
+                  </div>
+                )}
+                <div className="grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-1 lg:col-span-1">
+                  {crm && <DemoCardItem card={crm} compact />}
+                  {scheduling && <DemoCardItem card={scheduling} compact />}
+                </div>
+              </div>
+            );
+          })()}
         </div>
 
         {/* Divider */}
@@ -1127,15 +1140,27 @@ function ProductPreview({ kind }: { kind: NonNullable<DemoCard["preview"]> }) {
   );
 }
 
-function DemoCardItem({ card }: { card: DemoCard }) {
+function DemoCardItem({ card, featured = false, compact = false }: { card: DemoCard; featured?: boolean; compact?: boolean }) {
   const isActive = card.status === "Ativo";
+  const accentRing = featured
+    ? "ring-1 ring-emerald-400/20 shadow-[0_24px_60px_-30px_oklch(0.7_0.18_155/0.35)]"
+    : "";
+  const previewAspect = featured
+    ? "aspect-[16/10] lg:aspect-[16/9]"
+    : compact
+      ? "aspect-[16/8]"
+      : "aspect-[16/10]";
   const inner = (
     <>
       {(card.cover || card.preview) && (
         <div className="relative overflow-hidden bg-[oklch(0.09_0.005_240)] border-b border-border/50">
           {card.preview ? (
-            <div className="relative aspect-[16/10] bg-card">
+            <div className={`relative ${previewAspect} bg-card`}>
               <ProductPreview kind={card.preview} />
+              <span className="absolute bottom-2 left-2 z-10 inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-background/80 backdrop-blur-md px-2 py-0.5 text-[8.5px] uppercase tracking-[0.22em] font-semibold font-sans text-muted-foreground/85">
+                <span className="h-1 w-1 rounded-full bg-muted-foreground/60" />
+                Demonstração visual
+              </span>
             </div>
           ) : (
             <>
@@ -1163,6 +1188,12 @@ function DemoCardItem({ card }: { card: DemoCard }) {
             </>
           )}
           <div className="absolute top-2 right-2"><StatusBadge status={card.status} /></div>
+          {featured && (
+            <span className="absolute top-2 left-2 inline-flex items-center gap-1.5 rounded-full border border-emerald-400/40 bg-background/85 backdrop-blur-md px-2.5 py-1 text-[9px] uppercase tracking-[0.22em] font-semibold font-sans text-emerald-300">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse-glow" />
+              Produto principal
+            </span>
+          )}
         </div>
       )}
       <div className="px-5 sm:px-6 pt-4 pb-5 sm:pb-6">
@@ -1182,7 +1213,7 @@ function DemoCardItem({ card }: { card: DemoCard }) {
     </>
   );
 
-  const baseCls = "card-editorial rounded-xl overflow-hidden h-full flex flex-col";
+  const baseCls = `card-editorial rounded-xl overflow-hidden h-full flex flex-col ${accentRing}`;
   const activeCls = "card-editorial-hover group cursor-pointer";
   const inactiveCls = "opacity-80 cursor-default";
 
