@@ -823,8 +823,8 @@ function Visit() {
             <span className="italic" style={{ color: NAVY }}> com hora marcada</span>.
           </h2>
           <p className="mt-5 text-base sm:text-lg leading-relaxed max-w-xl" style={{ color: NAVY_SOFT }}>
-            Recebemos cada cliente no nosso escritório nos Jardins com café, privacidade e
-            tempo para entender o seu projeto. Atendemos de segunda a sábado.
+            Recebemos cada cliente no nosso escritório com café, privacidade e
+            tempo para entender o seu projeto. Horário de atendimento personalizável.
           </p>
           <ul className="mt-7 space-y-3 text-sm" style={{ color: NAVY_SOFT }}>
             <li className="flex items-center gap-3">
@@ -833,7 +833,7 @@ function Visit() {
               </span>
               <span>
                 <span className="text-[12px] block" style={{ color: TITANIUM }}>Escritório</span>
-                Av. Brigadeiro Faria Lima, 3.144 · 12º andar · Itaim Bibi · São Paulo
+                Endereço personalizável
               </span>
             </li>
             <li className="flex items-center gap-3">
@@ -842,7 +842,7 @@ function Visit() {
               </span>
               <span>
                 <span className="text-[12px] block" style={{ color: TITANIUM }}>Horário</span>
-                Seg–Sex 9h–19h · Sáb 10h–14h · Domingos com hora marcada
+                Horário personalizável · atendimento sob agendamento
               </span>
             </li>
             <li className="flex items-center gap-3">
@@ -851,7 +851,7 @@ function Visit() {
               </span>
               <span>
                 <span className="text-[12px] block" style={{ color: TITANIUM }}>WhatsApp</span>
-                (15) 9810-2379
+                (XX) XXXXX-XXXX
               </span>
             </li>
           </ul>
