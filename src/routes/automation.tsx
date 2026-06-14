@@ -446,9 +446,9 @@ function ProductDemo() {
 
           <DemoModule label="CRM" tag="Organização" icon={Database}>
             <div className="space-y-2">
-              <CrmRow name="Mariana S." tag="Quente" status="Novo lead" />
-              <CrmRow name="João P." tag="Morno" status="Aguardando retorno" />
-              <CrmRow name="Carla M." tag="Quente" status="Orçamento enviado" />
+              <CrmRow name="Cliente 01" tag="Quente" status="Novo lead" />
+              <CrmRow name="Cliente 02" tag="Morno" status="Aguardando retorno" />
+              <CrmRow name="Cliente 03" tag="Quente" status="Orçamento enviado" />
             </div>
           </DemoModule>
 
