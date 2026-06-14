@@ -577,12 +577,12 @@ function Manifesto() {
           </div>
           <div>
             <p className="font-heading text-[1.4rem] sm:text-[1.8rem] lg:text-[2.1rem] leading-[1.25] tracking-[-0.015em] text-foreground/95">
-              Acreditamos que a primeira impressão digital de uma empresa{" "}
+              A primeira impressão digital de uma empresa{" "}
               <span className="text-foreground/55">
-                deveria refletir a mesma sofisticação que ela exige no mundo real.
+                deve refletir a mesma sofisticação que ela exige no mundo real.
               </span>{" "}
-              Por isso construímos cada site, automação e sistema como um produto —
-              não como um template.
+              Por isso desenvolvemos cada site, automação e sistema como produto —
+              não como template.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-[12px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium">
               <span>Design sob medida</span>
