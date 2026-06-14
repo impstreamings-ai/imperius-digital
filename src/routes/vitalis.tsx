@@ -901,27 +901,27 @@ function FinalCTA() {
                 Como chegar
               </div>
               <h3 className="text-xl font-semibold tracking-tight" style={SERIF}>
-                Av. Paulista, 1500 · Sala 802
+                Endereço personalizável
               </h3>
-              <p className="text-sm text-slate-600 mt-1">Bela Vista · São Paulo · SP</p>
+              <p className="text-sm text-slate-600 mt-1">Bairro e cidade definidos pela clínica</p>
               <ul className="mt-5 space-y-3 text-sm text-slate-700">
                 <li className="flex items-center gap-3">
                   <span className="h-9 w-9 rounded-full bg-sky-50 grid place-items-center ring-1 ring-sky-100 shrink-0">
                     <Phone className="h-4 w-4 text-sky-600" />
                   </span>
-                  <span><span className="text-slate-500 text-[12px] block">Telefone</span>(15) 9810-2379</span>
+                  <span><span className="text-slate-500 text-[12px] block">Telefone</span>(XX) XXXXX-XXXX</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="h-9 w-9 rounded-full bg-sky-50 grid place-items-center ring-1 ring-sky-100 shrink-0">
                     <Mail className="h-4 w-4 text-sky-600" />
                   </span>
-                  <span><span className="text-slate-500 text-[12px] block">E-mail</span>contato@clinicavitalis.com.br</span>
+                  <span><span className="text-slate-500 text-[12px] block">E-mail</span>contato@suaclinica.com.br</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="h-9 w-9 rounded-full bg-sky-50 grid place-items-center ring-1 ring-sky-100 shrink-0">
                     <Clock className="h-4 w-4 text-sky-600" />
                   </span>
-                  <span><span className="text-slate-500 text-[12px] block">Horário</span>Seg–Sex 08h–20h · Sáb 08h–13h</span>
+                  <span><span className="text-slate-500 text-[12px] block">Horário</span>Horário personalizável</span>
                 </li>
               </ul>
             </div>
