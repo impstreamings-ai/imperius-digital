@@ -457,6 +457,9 @@ function ProductDemo() {
             tag="Visão geral"
             icon={LayoutDashboard}
           >
+            <div className="mb-2 text-[9.5px] uppercase tracking-[0.22em] text-muted-foreground/70">
+              Dados demonstrativos
+            </div>
             <div className="grid grid-cols-3 gap-2">
               <KpiCard label="Atendimentos hoje" value="47" />
               <KpiCard label="Leads qualificados" value="18" />

@@ -683,6 +683,9 @@ function Dashboard() {
   const bars = [38, 52, 44, 70, 60, 82, 75, 92, 80, 96, 88, 100];
   return (
     <ModuleShell label="Dashboard" tag="Visão geral" icon={LayoutDashboard}>
+      <div className="mb-2 text-[9.5px] uppercase tracking-[0.22em] text-muted-foreground/70">
+        Dados demonstrativos
+      </div>
       <div className="grid grid-cols-2 gap-2">
         <Kpi label="Leads do mês" value="184" delta="+23%" />
         <Kpi label="Conversão" value="32%" delta="+4 p.p." />
