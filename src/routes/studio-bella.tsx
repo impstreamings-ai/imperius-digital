@@ -947,19 +947,19 @@ function FinalCTA() {
                   <span className="h-9 w-9 rounded-full grid place-items-center shrink-0" style={{ background: "#F5E6F0" }}>
                     <Phone className="h-4 w-4" style={{ color: "#9B5C8A" }} />
                   </span>
-                  <span><span className="text-stone-500 text-[12px] block">Telefone / WhatsApp</span>(15) 9810-2379</span>
+                  <span><span className="text-stone-500 text-[12px] block">Telefone / WhatsApp</span>(XX) XXXXX-XXXX</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="h-9 w-9 rounded-full grid place-items-center shrink-0" style={{ background: "#F5E6F0" }}>
                     <Mail className="h-4 w-4" style={{ color: "#9B5C8A" }} />
                   </span>
-                  <span><span className="text-stone-500 text-[12px] block">E-mail</span>contato@studiobella.com.br</span>
+                  <span><span className="text-stone-500 text-[12px] block">E-mail</span>contato@seustudio.com.br</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="h-9 w-9 rounded-full grid place-items-center shrink-0" style={{ background: "#F5E6F0" }}>
                     <MapPin className="h-4 w-4" style={{ color: "#9B5C8A" }} />
                   </span>
-                  <span><span className="text-stone-500 text-[12px] block">Endereço</span>Rua Oscar Freire, 902 · Sala 304</span>
+                  <span><span className="text-stone-500 text-[12px] block">Endereço</span>Endereço personalizável</span>
                 </li>
               </ul>
             </div>
