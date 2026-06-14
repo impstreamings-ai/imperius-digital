@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as CrmRouteImport } from './routes/crm'
 import { Route as AutomationRouteImport } from './routes/automation'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CrmRoute = CrmRouteImport.update({
+  id: '/crm',
+  path: '/crm',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AutomationRoute = AutomationRouteImport.update({
@@ -32,30 +38,34 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/automation': typeof AutomationRoute
+  '/crm': typeof CrmRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/automation': typeof AutomationRoute
+  '/crm': typeof CrmRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/automation': typeof AutomationRoute
+  '/crm': typeof CrmRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/automation' | '/sitemap.xml'
+  fullPaths: '/' | '/automation' | '/crm' | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/automation' | '/sitemap.xml'
-  id: '__root__' | '/' | '/automation' | '/sitemap.xml'
+  to: '/' | '/automation' | '/crm' | '/sitemap.xml'
+  id: '__root__' | '/' | '/automation' | '/crm' | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AutomationRoute: typeof AutomationRoute
+  CrmRoute: typeof CrmRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/crm': {
+      id: '/crm'
+      path: '/crm'
+      fullPath: '/crm'
+      preLoaderRoute: typeof CrmRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/automation': {
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AutomationRoute: AutomationRoute,
+  CrmRoute: CrmRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
