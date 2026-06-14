@@ -13,7 +13,6 @@ import {
   Phone,
   Mail,
   Clock,
-  Star,
   Quote,
   Send,
   MessageCircle,
