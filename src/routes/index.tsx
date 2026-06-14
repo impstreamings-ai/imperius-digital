@@ -277,13 +277,26 @@ function StatusBadge({ status }: { status: DemoStatus }) {
 
 function DemoCardItem({ card }: { card: DemoCard }) {
   const isActive = card.status === "Ativo";
+  const hasCover = !!card.cover;
   const inner = (
     <>
+      {hasCover && (
+        <div className="relative -mx-6 sm:-mx-7 -mt-6 sm:-mt-7 mb-5 overflow-hidden rounded-t-2xl aspect-[16/10] border-b border-primary/20 bg-card">
+          <img
+            src={card.cover}
+            alt={`Capa da demonstração ${card.title}`}
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent pointer-events-none" />
+          <div className="absolute top-3 right-3"><StatusBadge status={card.status} /></div>
+        </div>
+      )}
       <div className="flex items-start justify-between gap-3 mb-5">
         <div className="h-12 w-12 rounded-xl flex items-center justify-center ring-1 ring-primary/30 group-hover:ring-primary/60 transition" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.6), oklch(0.18 0.05 245 / 0.3))" }}>
           <card.icon className="h-6 w-6 text-primary" />
         </div>
-        <StatusBadge status={card.status} />
+        {!hasCover && <StatusBadge status={card.status} />}
       </div>
       <h3 className="font-heading font-semibold text-base sm:text-lg tracking-tight">{card.title}</h3>
       <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed font-sans">{card.desc}</p>
@@ -295,7 +308,7 @@ function DemoCardItem({ card }: { card: DemoCard }) {
     </>
   );
 
-  const baseCls = "card-premium rounded-2xl p-6 sm:p-7 h-full transition-all duration-300 border";
+  const baseCls = "card-premium rounded-2xl p-6 sm:p-7 h-full transition-all duration-300 border overflow-hidden";
   const activeCls = "hover-lift group cursor-pointer border-primary/30 hover:border-primary/60 hover:shadow-[0_0_40px_-12px_oklch(0.72_0.22_250/0.7)]";
   const inactiveCls = "border-border/40 opacity-80 cursor-default";
 
@@ -325,6 +338,7 @@ function DemoCardItem({ card }: { card: DemoCard }) {
   }
   return <div className={`${baseCls} ${inactiveCls}`}>{inner}</div>;
 }
+
 
 function Process() {
   const steps = [
