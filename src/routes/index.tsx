@@ -1375,11 +1375,11 @@ function Footer() {
               <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[44px] w-auto object-contain" loading="lazy" decoding="async" />
               <div>
                 <div className="font-heading font-bold tracking-[0.2em] text-sm">IMPERIUS</div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-sans font-medium">Design • Automação • IA</div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-sans font-medium">Websites · Automação · IA</div>
               </div>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed font-sans">
-              Soluções digitais premium para empresas que querem transmitir autoridade e gerar mais oportunidades.
+              Estúdio digital especializado em websites, automação e sistemas comerciais sob medida para empresas que operam vendas pelo digital.
             </p>
           </div>
 
@@ -1407,8 +1407,8 @@ function Footer() {
           </div>
 
           <div>
-            <div className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4 font-sans">Comece agora</div>
-            <p className="text-sm text-muted-foreground mb-4 font-sans">Solicite uma apresentação personalizada.</p>
+            <div className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4 font-sans">Próximo passo</div>
+            <p className="text-sm text-muted-foreground mb-4 font-sans">Solicite uma demonstração construída para a sua empresa.</p>
             <a href={WA} target="_blank" rel="noreferrer" onClick={() => track("whatsapp_click", { location: "footer_cta" })}>
               <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold w-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.72_0.22_250/0.7)]">
                 Falar com a Imperius <ArrowRight className="ml-2 h-4 w-4" />
