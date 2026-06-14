@@ -302,7 +302,7 @@ function HeroVisual() {
               <span className="text-[9px] text-muted-foreground">agora</span>
             </div>
             <p className="text-[11px] text-muted-foreground mt-0.5 leading-snug">
-              <span className="text-foreground/80 font-medium">Mariana S.</span> · Corte
+              <span className="text-foreground/80 font-medium">Cliente 01</span> · Corte
               + Barba · <span className="text-primary">Qua 12, 15h</span>
             </p>
           </div>
