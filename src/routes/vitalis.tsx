@@ -406,9 +406,8 @@ function Doctors() {
                   loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
-                <div className="absolute top-3 left-3 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/90 backdrop-blur text-amber-600 text-[11px] font-semibold ring-1 ring-amber-100">
-                  <Star className="h-3 w-3 fill-current" />
-                  {d.rating.toFixed(1)}
+                <div className="absolute top-3 left-3 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/95 backdrop-blur text-sky-700 text-[10px] uppercase tracking-[0.14em] font-semibold ring-1 ring-sky-100">
+                  Exemplo demonstrativo
                 </div>
               </div>
               <div className="p-4 sm:p-5 flex-1 flex flex-col">
