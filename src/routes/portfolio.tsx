@@ -17,6 +17,13 @@ import {
   Wand2,
   Rocket,
   Activity,
+  Palette,
+  Type,
+  Briefcase,
+  Plug,
+  GitBranch,
+  Bot as BotIcon,
+  LayoutTemplate,
 } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
