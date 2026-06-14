@@ -872,11 +872,24 @@ function Demonstracoes() {
               Plataforma integrada
             </div>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-            {productCards.map((c) => (
-              <DemoCardItem key={c.title} card={c} />
-            ))}
-          </div>
+          {(() => {
+            const automation = productCards.find((c) => c.preview === "automation");
+            const crm = productCards.find((c) => c.preview === "crm");
+            const scheduling = productCards.find((c) => c.preview === "scheduling");
+            return (
+              <div className="grid gap-5 sm:gap-6 lg:grid-cols-3 lg:items-stretch">
+                {automation && (
+                  <div className="lg:col-span-2">
+                    <DemoCardItem card={automation} featured />
+                  </div>
+                )}
+                <div className="grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-1 lg:col-span-1">
+                  {crm && <DemoCardItem card={crm} compact />}
+                  {scheduling && <DemoCardItem card={scheduling} compact />}
+                </div>
+              </div>
+            );
+          })()}
         </div>
 
         {/* Divider */}
