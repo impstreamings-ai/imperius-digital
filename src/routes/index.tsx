@@ -975,7 +975,11 @@ function ProductPreview({ kind }: { kind: NonNullable<DemoCard["preview"]> }) {
       { n: "Ana C.", m: "Obrigada pelo retorno!", t: "09:18", a: false, unread: 0, hot: false },
       { n: "Pedro M.", m: "Vou pensar e te respondo", t: "ontem", a: false, unread: 0, hot: false },
       { n: "Letícia V.", m: "Posso pagar parcelado?", t: "ontem", a: false, unread: 0, hot: true },
+      { n: "Bruno L.", m: "Qual o endereço?", t: "ontem", a: false, unread: 0, hot: false },
+      { n: "Camila O.", m: "Aceita financiamento?", t: "qua", a: false, unread: 0, hot: true },
+      { n: "Diego F.", m: "Tem garagem?", t: "qua", a: false, unread: 0, hot: false },
     ];
+
     return (
       <div className="absolute inset-0 grid grid-cols-[31%_1fr] bg-[oklch(0.09_0.005_245)]">
         {/* Fila de conversas */}
