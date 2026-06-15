@@ -9,7 +9,6 @@ import {
   ArrowRight,
   Bot,
   MessageCircle,
-  
   Zap,
   Instagram,
   Phone,
@@ -30,6 +29,8 @@ import {
   Mail,
   Shield,
   CheckCircle2,
+  Activity,
+  Cpu,
 } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
