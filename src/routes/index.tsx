@@ -1522,8 +1522,9 @@ function ProductShowcaseCard({ card, featured = false }: { card: DemoCard; featu
   const { Icon, BadgeIcon } = theme;
   const isActive = card.status === "Ativo";
   const previewWrapCls = featured
-    ? "relative flex-1 min-h-[340px] sm:min-h-[400px] lg:min-h-0 lg:aspect-auto aspect-[16/9.6]"
+    ? "relative aspect-[16/9.6] lg:aspect-auto lg:flex-1 lg:min-h-[400px]"
     : "relative aspect-[16/8]";
+
 
   const shortTitle = card.title.replace("Imperius ", "");
 
