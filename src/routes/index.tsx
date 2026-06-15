@@ -146,15 +146,15 @@ function Hero() {
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2.5 text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-sans font-medium mb-8">
               <span className="h-px w-8 bg-primary/70" />
-              Imperius · Plataforma proprietária
+              Imperius · Software house
             </div>
             <h1 className="font-display text-[2rem] sm:text-[2.9rem] lg:text-[3.4rem] xl:text-[3.9rem] font-semibold leading-[1.04] tracking-[-0.028em] text-foreground">
-              Sites, automação e sistemas comerciais que transformam{" "}
-              <span className="text-neon">presença digital em oportunidade real</span>.
+              Engenharia de software aplicada à{" "}
+              <span className="text-neon">operação comercial da sua empresa</span>.
             </h1>
             <p className="mt-7 max-w-xl text-muted-foreground text-base sm:text-[17px] leading-relaxed font-sans">
-              Projetamos sites, fluxos com IA e sistemas comerciais sob medida —
-              para gerar contatos qualificados e estruturar o ciclo comercial do primeiro toque ao fechamento.
+              Construímos sistemas de atendimento, pipeline e agenda como engenharia —
+              não como template. Produtos próprios em evolução, implantados no contexto real do seu negócio.
             </p>
             <div className="mt-9 flex flex-col sm:flex-row sm:items-center gap-4">
               <a
