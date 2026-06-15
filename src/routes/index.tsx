@@ -54,8 +54,8 @@ export const Route = createFileRoute("/")({
         content:
           "Criamos landing pages, automação e soluções digitais para empresas que desejam transmitir mais credibilidade e gerar novos contatos.",
       },
-      { property: "og:image", content: logoAsset.url },
       { name: "twitter:card", content: "summary_large_image" },
+
     ],
     links: [
       {
@@ -1810,9 +1810,10 @@ function Footer() {
             <a href={WA} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors mb-3 font-sans" onClick={() => track("whatsapp_click", { location: "footer" })}>
               <MessageCircle className="h-4 w-4 shrink-0" /> WhatsApp com a equipe
             </a>
-            <a href={WA} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors mb-3 font-sans" onClick={() => track("whatsapp_click", { location: "footer" })}>
+            <a href="tel:+5515981023792" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors mb-3 font-sans" onClick={() => track("phone_click", { location: "footer" })}>
               <Phone className="h-4 w-4 shrink-0" /> +55 15 98102-3792
             </a>
+
             <a href={PROPOSAL_MAILTO} className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors mb-3 font-sans" onClick={() => track("footer_email_click")}>
               <Mail className="h-4 w-4 shrink-0" /> {PROPOSAL_EMAIL}
             </a>
