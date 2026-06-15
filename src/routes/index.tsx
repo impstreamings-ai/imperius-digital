@@ -1549,7 +1549,7 @@ function ProductShowcaseCard({ card, featured = false }: { card: DemoCard; featu
       </div>
 
       {/* Preview */}
-      <div className={`relative ${previewAspect} bg-card overflow-hidden border-b border-border/50`}>
+      <div className={`${previewWrapCls} bg-card overflow-hidden border-b border-border/50`}>
         <ProductPreview kind={kind} />
         <div className="absolute top-2 right-2 z-10 inline-flex items-center gap-1.5 rounded-md border border-border/60 bg-background/75 backdrop-blur-md px-1.5 py-0.5 text-[7.5px] font-mono uppercase tracking-wider text-foreground/85">
           <BadgeIcon className={`h-2.5 w-2.5 ${theme.textCls}`} />
