@@ -14,7 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-dvh items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
         <h2 className="mt-4 text-xl font-semibold text-foreground">Página não encontrada</h2>
@@ -42,7 +42,8 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   }, [error]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-dvh items-center justify-center bg-background px-4">
+
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
           Não foi possível carregar esta página
@@ -77,16 +78,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "IMPERIUS | Landing Pages, Automação e IA" },
-      { name: "description", content: "Transforme sua presença digital com landing pages profissionais, automação e IA para gerar mais contatos e oportunidades." },
+      { title: "Imperius — Software, Automação e IA para Operações Comerciais" },
+      { name: "description", content: "Plataforma proprietária Imperius: software, automação e IA aplicados a operações comerciais — atendimento, agenda e pipeline em um só ecossistema." },
       { name: "author", content: "Imperius Soluções Digitais" },
-      { property: "og:title", content: "IMPERIUS | Landing Pages, Automação e IA" },
-      { property: "og:description", content: "Transforme sua presença digital com landing pages profissionais, automação e IA para gerar mais contatos e oportunidades." },
+      { property: "og:title", content: "Imperius — Software, Automação e IA para Operações Comerciais" },
+      { property: "og:description", content: "Plataforma proprietária Imperius: software, automação e IA aplicados a operações comerciais — atendimento, agenda e pipeline em um só ecossistema." },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Imperius Soluções Digitais" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "IMPERIUS | Landing Pages, Automação e IA" },
-      { name: "twitter:description", content: "Transforme sua presença digital com landing pages profissionais, automação e IA para gerar mais contatos e oportunidades." },
+      { name: "twitter:title", content: "Imperius — Software, Automação e IA para Operações Comerciais" },
+      { name: "twitter:description", content: "Plataforma proprietária Imperius: software, automação e IA aplicados a operações comerciais — atendimento, agenda e pipeline em um só ecossistema." },
+
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/OcyNTqxMWMeMSL6WKtCopesHPVV2/social-images/social-1781121634206-artesocvial.webp" },
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/OcyNTqxMWMeMSL6WKtCopesHPVV2/social-images/social-1781121634206-artesocvial.webp" },
     ],
@@ -105,19 +107,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const isProd = import.meta.env.PROD;
   return (
     <html lang="pt-BR">
       <head>
         <HeadContent />
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-24VYN8CDZ1"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js', new Date());gtag('config', 'G-24VYN8CDZ1', { send_page_view: true });`,
-          }}
-        />
+        {isProd ? (
+          <>
+            <script
+              async
+              src="https://www.googletagmanager.com/gtag/js?id=G-24VYN8CDZ1"
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js', new Date());gtag('config', 'G-24VYN8CDZ1', { send_page_view: true });`,
+              }}
+            />
+          </>
+        ) : null}
       </head>
       <body>
         {children}
@@ -126,6 +133,7 @@ function RootShell({ children }: { children: ReactNode }) {
     </html>
   );
 }
+
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();

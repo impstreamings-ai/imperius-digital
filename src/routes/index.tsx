@@ -42,18 +42,19 @@ const track = (name: string, params: Record<string, unknown> = {}) => trackEvent
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Imperius Soluções Digitais | Landing Pages, Automação e IA" },
+      { title: "Imperius — Software, Automação e IA para Operações Comerciais" },
       {
         name: "description",
         content:
-          "Criamos landing pages, automação e soluções digitais para empresas que desejam transmitir mais credibilidade e gerar novos contatos.",
+          "Plataforma proprietária Imperius: software, automação e IA aplicados a operações comerciais — atendimento, agenda e pipeline em um só ecossistema.",
       },
-      { property: "og:title", content: "Imperius Soluções Digitais | Landing Pages, Automação e IA" },
+      { property: "og:title", content: "Imperius — Software, Automação e IA para Operações Comerciais" },
       {
         property: "og:description",
         content:
-          "Criamos landing pages, automação e soluções digitais para empresas que desejam transmitir mais credibilidade e gerar novos contatos.",
+          "Plataforma proprietária Imperius: software, automação e IA aplicados a operações comerciais — atendimento, agenda e pipeline em um só ecossistema.",
       },
+
       { name: "twitter:card", content: "summary_large_image" },
 
     ],
@@ -72,12 +73,15 @@ const WA_MESSAGE = "Olá! Quero uma demonstração personalizada da Imperius par
 const WA = `https://wa.me/5515981023792?text=${encodeURIComponent(WA_MESSAGE)}`;
 const IG = "https://instagram.com/imperiusdigital.br";
 const BLACK_CROWN_URL = "https://blackcrown-by-imperius.lovable.app/";
+// Endereço de contato comercial. Centralizado para permitir migração futura
+// para domínio próprio (ex.: contato@imperiusdigital.com.br) sem alterar JSX.
 const PROPOSAL_EMAIL = "imperiusuniverse@gmail.com";
 const PROPOSAL_MAILTO = `mailto:${PROPOSAL_EMAIL}?subject=${encodeURIComponent("Proposta Imperius — apresentação personalizada")}&body=${encodeURIComponent("Olá, equipe Imperius.\n\nGostaria de receber uma proposta personalizada.\n\nEmpresa:\nSegmento:\nObjetivo principal:\n\nObrigado.")}`;
 
 function Landing() {
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
+    <div className="min-h-dvh bg-background text-foreground font-sans overflow-x-hidden">
+
       <Nav />
       <Hero />
       <TrustStrip />
@@ -1807,12 +1811,10 @@ function Footer() {
 
           <div>
             <div className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4 font-sans">Contato direto</div>
-            <a href={WA} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors mb-3 font-sans" onClick={() => track("whatsapp_click", { location: "footer" })}>
-              <MessageCircle className="h-4 w-4 shrink-0" /> WhatsApp com a equipe
-            </a>
             <a href="tel:+5515981023792" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors mb-3 font-sans" onClick={() => track("phone_click", { location: "footer" })}>
               <Phone className="h-4 w-4 shrink-0" /> +55 15 98102-3792
             </a>
+
 
             <a href={PROPOSAL_MAILTO} className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors mb-3 font-sans" onClick={() => track("footer_email_click")}>
               <Mail className="h-4 w-4 shrink-0" /> {PROPOSAL_EMAIL}
