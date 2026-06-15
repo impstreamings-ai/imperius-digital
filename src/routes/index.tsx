@@ -697,23 +697,23 @@ function SobreImperius() {
   const pillars = [
     {
       icon: LayoutTemplate,
-      title: "Soluções sob medida",
-      desc: "Cada site, sistema ou fluxo é desenhado para o contexto real do negócio — sem template, sem revenda.",
+      title: "Engenharia para cada contexto",
+      desc: "Cada site, sistema ou fluxo é especificado para o contexto técnico e comercial real do negócio — sem template, sem revenda.",
     },
     {
       icon: Bot,
       title: "Atendimento que não dorme",
-      desc: "IA conectada à API oficial do WhatsApp Business responde, qualifica o lead e marca na agenda em segundos — inclusive fora do expediente.",
+      desc: "Camada de IA sobre a API oficial do WhatsApp Business: responde, qualifica e marca na agenda em segundos — inclusive fora do expediente.",
     },
     {
       icon: ClipboardList,
-      title: "Processos organizados",
-      desc: "Pipeline, agenda e indicadores consolidados em uma única operação comercial.",
+      title: "Processos instrumentados",
+      desc: "Pipeline, agenda e indicadores consolidados em uma operação única, observável e versionada.",
     },
     {
       icon: Rocket,
       title: "Implementação rápida",
-      desc: "Demonstração funcional em poucos dias, publicação em domínio próprio e operação acompanhada.",
+      desc: "Implementação funcional em poucos dias, publicação em domínio próprio e operação acompanhada pela engenharia.",
     },
   ];
   return (
