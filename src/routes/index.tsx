@@ -30,7 +30,6 @@ import {
   Shield,
   CheckCircle2,
   Activity,
-  Cpu,
 } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
