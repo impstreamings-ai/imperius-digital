@@ -1894,12 +1894,13 @@ function Footer() {
 
           <div>
             <div className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4 font-sans">Próximo passo</div>
-            <p className="text-sm text-muted-foreground mb-4 font-sans">Solicite uma demonstração construída para a sua empresa.</p>
+            <p className="text-sm text-muted-foreground mb-4 font-sans">Demonstração funcional em 3 a 7 dias úteis. Sem proposta antes da entrega.</p>
             <a href={WA} target="_blank" rel="noreferrer" onClick={() => track("whatsapp_click", { location: "footer_cta" })}>
               <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold w-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.72_0.22_250/0.7)]">
-                Falar com a Imperius <ArrowRight className="ml-2 h-4 w-4" />
+                Falar com a equipe no WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </a>
+            <p className="mt-3 text-[11px] text-muted-foreground/70 font-sans">Resposta humana em até 2h em horário comercial.</p>
           </div>
         </div>
 
