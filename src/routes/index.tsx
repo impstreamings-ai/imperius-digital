@@ -1653,7 +1653,7 @@ function ProductShowcaseCard({ card, featured = false }: { card: DemoCard; featu
 function Process() {
   const steps = [
     { n: "01", i: MessageCircle, t: "Diagnóstico", d: "Conversa direta para entender contexto, posicionamento e gargalos atuais." },
-    { n: "02", i: LayoutTemplate, t: "Demonstração sob medida", d: "Construímos uma prévia funcional do seu projeto antes de qualquer fechamento." },
+    { n: "02", i: LayoutTemplate, t: "Implementação funcional", d: "Construímos uma versão funcional do seu sistema antes de qualquer fechamento." },
     { n: "03", i: ClipboardList, t: "Refinamento", d: "Iterações até cada detalhe refletir a sua marca e seu padrão de operação." },
     { n: "04", i: Rocket, t: "Publicação", d: "Deploy, configuração de domínio, integrações e monitoramento ativo." },
     { n: "05", i: TrendingUp, t: "Operação contínua", d: "Acompanhamento de performance e evoluções planejadas com o seu time." },
