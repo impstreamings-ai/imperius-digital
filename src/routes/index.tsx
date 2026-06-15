@@ -1578,13 +1578,14 @@ function ProductShowcaseCard({ card, featured = false }: { card: DemoCard; featu
       </div>
 
       {/* Bottom content */}
-      <div className="px-4 sm:px-5 pt-3.5 pb-4 sm:pb-5 flex flex-col gap-2 flex-1">
+      <div className="px-4 sm:px-5 pt-3.5 pb-4 sm:pb-5 flex flex-col gap-2">
         <h3 className="font-heading font-semibold text-[15px] sm:text-[16px] tracking-[-0.01em] text-foreground">
           {card.title}
         </h3>
-        <p className="text-[12.5px] sm:text-[13px] text-muted-foreground leading-relaxed font-sans flex-1">
+        <p className="text-[12.5px] sm:text-[13px] text-muted-foreground leading-relaxed font-sans">
           {card.desc}
         </p>
+
         {isActive && (
           <div className={`mt-1 inline-flex items-center gap-1.5 text-[12px] font-semibold font-sans ${theme.textCls}`}>
             {theme.cta}
