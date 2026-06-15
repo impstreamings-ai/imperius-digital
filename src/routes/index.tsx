@@ -275,10 +275,10 @@ function HeroVisual() {
 
 function TrustStrip() {
   const items = [
-    { icon: LayoutTemplate, label: "Projetos demonstrativos", value: "8 ativos" },
+    { icon: LayoutTemplate, label: "Implementações de referência", value: "8 ambientes" },
     { icon: Briefcase, label: "Verticais atendidas", value: "5 segmentos" },
-    { icon: CheckCircle2, label: "Tecnologia", value: "Desenvolvimento próprio" },
-    { icon: Shield, label: "Atendimento", value: "Direto com a equipe" },
+    { icon: CheckCircle2, label: "Stack", value: "Engenharia própria" },
+    { icon: Shield, label: "Atendimento", value: "Direto com a engenharia" },
   ];
   return (
     <section
