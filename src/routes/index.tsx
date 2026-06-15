@@ -865,19 +865,19 @@ function Demonstracoes() {
             <div className="max-w-2xl">
               <div className="text-[10.5px] uppercase tracking-[0.32em] text-primary/90 font-semibold mb-5 font-sans inline-flex items-center gap-2.5">
                 <span className="h-px w-8 bg-primary/70" />
-                Produtos Imperius · {productCards.length.toString().padStart(2, "0")}
+                Produtos próprios · {productCards.length.toString().padStart(2, "0")} módulos
               </div>
               <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.75rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-                Software proprietário que opera o seu comercial.
+                Engenharia que opera o seu comercial.
               </h2>
               <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans max-w-xl">
-                Automation, CRM e Scheduling — três produtos integrados que respondem,
-                organizam e agendam, do primeiro contato ao fechamento.
+                Automation, CRM e Scheduling — três módulos integrados, desenvolvidos internamente e
+                em evolução contínua. Implantados sob o contexto técnico do seu negócio, não como SaaS de prateleira.
               </p>
             </div>
             <div className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium inline-flex items-center gap-2 lg:justify-end">
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-              Plataforma integrada
+              Stack integrada · em evolução
             </div>
           </div>
           {(() => {
