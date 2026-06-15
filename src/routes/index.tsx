@@ -1827,7 +1827,7 @@ function FinalCTA() {
               size="lg"
               className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]"
             >
-              Solicitar demonstração <ArrowRight className="ml-2 h-4 w-4" />
+              Falar com a equipe no WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
           <a
@@ -1835,11 +1835,12 @@ function FinalCTA() {
             className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2"
             onClick={() => track("final_cta_click", { destination: "email" })}
           >
-            <Mail className="h-4 w-4" /> Solicitar análise do meu negócio
+            <Mail className="h-4 w-4" /> Prefiro receber por e-mail
           </a>
         </div>
-        <p className="mt-8 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
-          Sem compromisso · Resposta no mesmo dia útil · Atendimento direto com a equipe
+        <p className="mt-8 text-[12px] text-muted-foreground/80 font-sans tracking-wide max-w-xl mx-auto leading-relaxed">
+          Você fala direto com a equipe técnica (sem bot, sem SDR terceirizado).
+          Resposta em até 2h em horário comercial · Demonstração funcional em 3 a 7 dias úteis · Sem proposta antes da entrega.
         </p>
       </div>
     </section>
