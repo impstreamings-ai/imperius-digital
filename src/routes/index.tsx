@@ -631,11 +631,11 @@ function Manifesto() {
 function Capacidades() {
   const items = [
     { icon: Globe, label: "Websites profissionais", meta: "Landing pages e institucionais" },
-    { icon: Bot, label: "Automação inteligente", meta: "WhatsApp · Formulários · IA" },
-    { icon: Users, label: "CRM comercial", meta: "Pipeline e oportunidades" },
-    { icon: Calendar, label: "Agendamento digital", meta: "Reservas e confirmações" },
+    { icon: Bot, label: "Atendimento automático no WhatsApp", meta: "Responde em segundos · 24/7 · API oficial Meta" },
+    { icon: Users, label: "CRM comercial", meta: "Pipeline, oportunidades e histórico" },
+    { icon: Calendar, label: "Agendamento digital", meta: "Reservas, confirmações e lembretes" },
     { icon: Zap, label: "Integrações", meta: "APIs, webhooks e canais" },
-    { icon: Sparkles, label: "IA aplicada", meta: "Assistentes treinados no negócio" },
+    { icon: Sparkles, label: "IA que qualifica e agenda", meta: "Triagem, resposta e marcação sem humano" },
   ];
   return (
     <section aria-labelledby="capacidades-title" className="relative py-20 sm:py-24 border-t border-border/30">
@@ -702,8 +702,8 @@ function SobreImperius() {
     },
     {
       icon: Bot,
-      title: "Automação inteligente",
-      desc: "IA aplicada a WhatsApp, formulários e CRM para qualificar contatos e responder em segundos.",
+      title: "Atendimento que não dorme",
+      desc: "IA conectada à API oficial do WhatsApp Business responde, qualifica o lead e marca na agenda em segundos — inclusive fora do expediente.",
     },
     {
       icon: ClipboardList,
@@ -1699,24 +1699,63 @@ function Process() {
 function FAQ() {
   const items = [
     {
-      q: "Preciso já ter um site?",
-      a: "Não. Construímos a demonstração do zero, mesmo que a sua empresa ainda não tenha presença digital estruturada.",
+      q: "Quanto custa um projeto da Imperius?",
+      a: "Projetos partem de uma faixa definida em conjunto após entender escopo, integrações e canais. Não trabalhamos com mensalidade obrigatória: você escolhe entre pagamento único do projeto ou plano contínuo de evolução e suporte. O valor é apresentado por escrito antes de qualquer compromisso — você só aprova depois de ver a demonstração funcional.",
     },
     {
       q: "Quanto tempo leva para entregar?",
-      a: "A demonstração personalizada fica pronta em poucos dias úteis. O projeto completo é dimensionado em conjunto, conforme escopo e integrações.",
+      a: "Demonstração funcional personalizada: 3 a 7 dias úteis. Projeto completo (site + automação + CRM + agenda): 2 a 4 semanas, conforme escopo e integrações. Definimos cronograma por etapas no kickoff, com datas de entrega registradas.",
     },
     {
       q: "A demonstração tem custo?",
-      a: "Não. A demonstração inicial é cortesia da Imperius, sem compromisso comercial.",
+      a: "Não. A demonstração inicial é cortesia da Imperius, sem compromisso comercial e sem cobrança de proposta.",
+    },
+    {
+      q: "Preciso já ter um site ou conta no WhatsApp Business?",
+      a: "Não. Construímos do zero quando necessário. Se você já usa WhatsApp Business, integramos ao número existente sem perder histórico. Também configuramos um novo número e a API oficial do WhatsApp quando faz mais sentido para o seu volume.",
+    },
+    {
+      q: "A automação funciona no meu WhatsApp atual?",
+      a: "Sim. Trabalhamos com a API oficial do WhatsApp Business (Meta), o que mantém o número, contatos e conversas. O atendimento humano continua funcionando normalmente — a IA atua só nos momentos definidos por você (fora do horário, fila cheia, primeira triagem, agendamento).",
+    },
+    {
+      q: "O site, código e dados são meus?",
+      a: "Sim. O projeto entregue é seu: você recebe acesso ao código-fonte, ao painel, ao domínio e ao banco de dados. Não há lock-in técnico. Se um dia decidir sair, você leva tudo — inclusive os contatos, histórico de conversas e pipeline do CRM, exportáveis em formato padrão.",
+    },
+    {
+      q: "Como funciona o domínio e a hospedagem?",
+      a: "Você pode usar um domínio que já tem ou registramos um novo no seu nome (não no nosso). A hospedagem fica em infraestrutura profissional com SSL, backups automáticos e monitoramento. Custo de hospedagem e domínio é transparente, cobrado direto do provedor ou repassado sem margem — você decide.",
+    },
+    {
+      q: "Tem suporte depois da entrega?",
+      a: "Sim. Todo projeto inclui período de acompanhamento pós-publicação para ajustes finos. Após esse período, você pode contratar um plano contínuo (evolução + suporte + monitoramento) ou seguir avulso por demanda. Resposta a chamados em horário comercial, com SLA combinado em contrato.",
+    },
+    {
+      q: "E se eu quiser cancelar?",
+      a: "Projetos pagos por escopo fechado não têm cancelamento — você paga pelo que foi entregue até a etapa concluída. Planos contínuos de suporte podem ser cancelados a qualquer momento com aviso de 30 dias, sem multa. Em qualquer cenário, você mantém o site, o código, os dados e o domínio.",
     },
     {
       q: "Com quem eu falo?",
-      a: "Diretamente com a equipe que desenvolve o projeto. Sem atendimento terceirizado, sem chatbot intermediário — o mesmo time conduz da conversa inicial à publicação.",
+      a: "Diretamente com a equipe que desenvolve o projeto. Sem atendimento terceirizado, sem chatbot intermediário — o mesmo time conduz da conversa inicial à publicação e ao suporte.",
     },
   ];
   return (
     <section id="faq" className="py-24 sm:py-28 border-t border-border/30">
+      <script
+        type="application/ld+json"
+        // FAQPage schema para SEO e featured snippets
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: items.map((it) => ({
+              "@type": "Question",
+              name: it.q,
+              acceptedAnswer: { "@type": "Answer", text: it.a },
+            })),
+          }),
+        }}
+      />
       <div className="mx-auto max-w-3xl px-6">
         <div className="mb-12">
           <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
@@ -1724,8 +1763,11 @@ function FAQ() {
             FAQ
           </div>
           <h2 className="font-heading text-[1.75rem] sm:text-[2.2rem] lg:text-[2.6rem] font-bold leading-[1.1] tracking-[-0.02em] text-foreground">
-            Antes de pedir sua demonstração.
+            Preço, prazo, propriedade e suporte — respondidos direto.
           </h2>
+          <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[15px] leading-relaxed font-sans max-w-2xl">
+            As perguntas que todo cliente faz antes de decidir. Respostas objetivas, sem rodeio comercial.
+          </p>
         </div>
         <div className="divide-y divide-border/40 border-y border-border/40">
           {items.map((it) => (
@@ -1738,7 +1780,7 @@ function FAQ() {
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-open:rotate-90" />
                 </span>
               </summary>
-              <p className="mt-4 text-[14.5px] sm:text-[15px] text-muted-foreground leading-relaxed font-sans max-w-2xl">
+              <p className="mt-4 text-[14.5px] sm:text-[15px] text-muted-foreground leading-relaxed font-sans max-w-2xl whitespace-pre-line">
                 {it.a}
               </p>
             </details>
@@ -1785,7 +1827,7 @@ function FinalCTA() {
               size="lg"
               className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]"
             >
-              Solicitar demonstração <ArrowRight className="ml-2 h-4 w-4" />
+              Falar com a equipe no WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
           <a
@@ -1793,11 +1835,12 @@ function FinalCTA() {
             className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2"
             onClick={() => track("final_cta_click", { destination: "email" })}
           >
-            <Mail className="h-4 w-4" /> Solicitar análise do meu negócio
+            <Mail className="h-4 w-4" /> Prefiro receber por e-mail
           </a>
         </div>
-        <p className="mt-8 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
-          Sem compromisso · Resposta no mesmo dia útil · Atendimento direto com a equipe
+        <p className="mt-8 text-[12px] text-muted-foreground/80 font-sans tracking-wide max-w-xl mx-auto leading-relaxed">
+          Você fala direto com a equipe técnica (sem bot, sem SDR terceirizado).
+          Resposta em até 2h em horário comercial · Demonstração funcional em 3 a 7 dias úteis · Sem proposta antes da entrega.
         </p>
       </div>
     </section>
@@ -1851,12 +1894,13 @@ function Footer() {
 
           <div>
             <div className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4 font-sans">Próximo passo</div>
-            <p className="text-sm text-muted-foreground mb-4 font-sans">Solicite uma demonstração construída para a sua empresa.</p>
+            <p className="text-sm text-muted-foreground mb-4 font-sans">Demonstração funcional em 3 a 7 dias úteis. Sem proposta antes da entrega.</p>
             <a href={WA} target="_blank" rel="noreferrer" onClick={() => track("whatsapp_click", { location: "footer_cta" })}>
               <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold w-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.72_0.22_250/0.7)]">
-                Falar com a Imperius <ArrowRight className="ml-2 h-4 w-4" />
+                Falar com a equipe no WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </a>
+            <p className="mt-3 text-[11px] text-muted-foreground/70 font-sans">Resposta humana em até 2h em horário comercial.</p>
           </div>
         </div>
 
