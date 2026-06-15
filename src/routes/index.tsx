@@ -30,6 +30,10 @@ import {
   Shield,
   CheckCircle2,
   Activity,
+  CheckCheck,
+  Clock,
+  BarChart3,
+  CircleDot,
 } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
@@ -964,59 +968,133 @@ function KindTag({ kind }: { kind: DemoKind }) {
 
 function ProductPreview({ kind }: { kind: NonNullable<DemoCard["preview"]> }) {
   if (kind === "automation") {
+    // WhatsApp + IA · conversa viva, com fila, digitando, métricas e ações IA
+    const fila = [
+      { n: "Mariana R.", m: "Quero ver o apto da Vila…", t: "agora", a: true, unread: 2, hot: true },
+      { n: "João S.", m: "Bom dia, é possível agendar?", t: "09:42", a: false, unread: 1, hot: false },
+      { n: "Ana C.", m: "Obrigada pelo retorno!", t: "09:18", a: false, unread: 0, hot: false },
+      { n: "Pedro M.", m: "Vou pensar e te respondo", t: "ontem", a: false, unread: 0, hot: false },
+      { n: "Letícia V.", m: "Posso pagar parcelado?", t: "ontem", a: false, unread: 0, hot: true },
+      { n: "Bruno L.", m: "Qual o endereço?", t: "ontem", a: false, unread: 0, hot: false },
+      { n: "Camila O.", m: "Aceita financiamento?", t: "qua", a: false, unread: 0, hot: true },
+      { n: "Diego F.", m: "Tem garagem?", t: "qua", a: false, unread: 0, hot: false },
+    ];
+
     return (
-      <div className="absolute inset-0 grid grid-cols-[34%_1fr] bg-[oklch(0.11_0.006_245)]">
-        {/* Conversation list */}
-        <div className="border-r border-border/40 bg-[oklch(0.09_0.005_245)] flex flex-col">
-          <div className="px-3 py-2.5 border-b border-border/40 flex items-center gap-1.5">
-            <MessageCircle className="h-3 w-3 text-emerald-400/80" />
-            <span className="text-[9px] font-semibold font-sans text-foreground/90">WhatsApp</span>
-            <span className="ml-auto text-[8px] font-sans text-emerald-400/80">12</span>
+      <div className="absolute inset-0 grid grid-cols-[31%_1fr] bg-[oklch(0.09_0.005_245)]">
+        {/* Fila de conversas */}
+        <div className="border-r border-border/40 bg-[oklch(0.075_0.004_245)] flex flex-col">
+          <div className="px-2.5 py-2 border-b border-border/40 flex items-center gap-1.5">
+            <MessageCircle className="h-3 w-3 text-emerald-400/85" />
+            <span className="text-[9px] font-semibold font-sans text-foreground/95">WhatsApp</span>
+            <span className="ml-auto inline-flex items-center gap-1 text-[7.5px] font-semibold font-sans text-emerald-300 bg-emerald-400/10 border border-emerald-400/30 rounded-full px-1.5 py-px">
+              <span className="h-1 w-1 rounded-full bg-emerald-400 animate-pulse-glow" /> 12 ao vivo
+            </span>
           </div>
-          {[
-            { n: "Mariana R.", m: "Quero saber sobre…", t: "agora", a: true },
-            { n: "João S.", m: "Bom dia, é poss…", t: "09:42", a: false },
-            { n: "Ana C.", m: "Obrigada!", t: "09:18", a: false },
-            { n: "Pedro M.", m: "Vou pensar", t: "ontem", a: false },
-          ].map((c) => (
-            <div key={c.n} className={`px-3 py-2 border-b border-border/20 ${c.a ? "bg-primary/10" : ""}`}>
-              <div className="flex items-center justify-between gap-2">
-                <span className="text-[9.5px] font-semibold font-sans text-foreground truncate">{c.n}</span>
-                <span className="text-[7.5px] font-sans text-muted-foreground/70 shrink-0">{c.t}</span>
+          <div className="flex-1 overflow-hidden">
+            {fila.map((c) => (
+              <div key={c.n} className={`px-2.5 py-1.5 border-b border-border/20 ${c.a ? "bg-emerald-400/8 border-l-2 border-l-emerald-400/70" : ""}`}>
+                <div className="flex items-center gap-1.5">
+                  <div className="relative shrink-0">
+                    <div className="h-4 w-4 rounded-full bg-gradient-to-br from-emerald-400/40 to-emerald-700/40 grid place-items-center text-[6.5px] font-bold text-emerald-100 ring-1 ring-emerald-400/20">
+                      {c.n.split(" ").map((x) => x[0]).join("").slice(0, 2)}
+                    </div>
+                    {c.a && <span className="absolute -bottom-px -right-px h-1.5 w-1.5 rounded-full bg-emerald-400 ring-1 ring-[oklch(0.075_0.004_245)]" />}
+                  </div>
+                  <span className="text-[9px] font-semibold font-sans text-foreground truncate flex-1">{c.n}</span>
+                  <span className="text-[7px] font-sans text-muted-foreground/60 shrink-0">{c.t}</span>
+                </div>
+                <div className="mt-0.5 flex items-center gap-1 pl-[22px]">
+                  <span className="text-[8px] font-sans text-muted-foreground/80 truncate flex-1">{c.m}</span>
+                  {c.unread > 0 && (
+                    <span className="shrink-0 text-[6.5px] font-bold font-sans text-[oklch(0.09_0.005_245)] bg-emerald-400 rounded-full h-3 min-w-[12px] px-1 grid place-items-center tabular-nums">
+                      {c.unread}
+                    </span>
+                  )}
+                  {c.hot && !c.unread && <span className="shrink-0 text-[6.5px] font-semibold font-sans text-amber-300 uppercase tracking-wider">Hot</span>}
+                </div>
               </div>
-              <div className="text-[8.5px] font-sans text-muted-foreground/80 truncate mt-0.5">{c.m}</div>
-            </div>
-          ))}
-        </div>
-        {/* Conversation */}
-        <div className="flex flex-col bg-[oklch(0.08_0.004_245)]">
-          <div className="px-3 py-2 border-b border-border/40 flex items-center gap-2">
-            <div className="h-5 w-5 rounded-full bg-primary/20 grid place-items-center text-[8px] font-bold text-primary">MR</div>
-            <div className="min-w-0">
-              <div className="text-[9.5px] font-semibold font-sans text-foreground truncate">Mariana Ribeiro</div>
-              <div className="text-[7.5px] font-sans text-muted-foreground/70">+55 15 99812-4471</div>
-            </div>
-            <span className="ml-auto text-[7.5px] font-sans font-semibold uppercase tracking-wider text-primary border border-primary/40 rounded-full px-1.5 py-0.5">Lead quente</span>
+            ))}
           </div>
-          <div className="flex-1 p-2.5 space-y-1.5 overflow-hidden">
-            <div className="max-w-[78%] rounded-md rounded-tl-sm bg-[#1f2c33] px-2 py-1 text-[8.5px] text-foreground/90 font-sans">
+        </div>
+
+        {/* Conversa ativa */}
+        <div className="flex flex-col bg-[oklch(0.065_0.003_245)] min-w-0">
+          <div className="px-2.5 py-1.5 border-b border-border/40 flex items-center gap-2 bg-[oklch(0.085_0.004_245)]">
+            <div className="relative shrink-0">
+              <div className="h-6 w-6 rounded-full bg-gradient-to-br from-emerald-400/50 to-emerald-700/40 grid place-items-center text-[8.5px] font-bold text-emerald-50 ring-1 ring-emerald-400/30">MR</div>
+              <span className="absolute -bottom-px -right-px h-2 w-2 rounded-full bg-emerald-400 ring-1 ring-[oklch(0.085_0.004_245)]" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <div className="flex items-center gap-1.5">
+                <span className="text-[9.5px] font-semibold font-sans text-foreground truncate">Mariana Ribeiro</span>
+                <span className="text-[6.5px] font-semibold font-sans uppercase tracking-wider text-amber-300 bg-amber-300/10 border border-amber-300/30 rounded px-1 py-px">Lead quente</span>
+              </div>
+              <div className="text-[7.5px] font-sans text-emerald-300/80 flex items-center gap-1">
+                <span className="h-1 w-1 rounded-full bg-emerald-400 animate-pulse-glow" /> online · digitando
+              </div>
+            </div>
+            <div className="hidden sm:flex items-center gap-1 text-[6.5px] font-mono uppercase tracking-wider text-muted-foreground/70 shrink-0">
+              <Activity className="h-2.5 w-2.5 text-emerald-400/80" /> IA · 2.4s
+            </div>
+          </div>
+
+          {/* Mensagens */}
+          <div className="flex-1 px-2.5 py-2 space-y-1.5 overflow-hidden">
+            <div className="text-center">
+              <span className="text-[6.5px] font-sans uppercase tracking-wider text-muted-foreground/55 bg-[oklch(0.12_0.005_245)] rounded-full px-2 py-px">Hoje · 09:48</span>
+            </div>
+            <div className="max-w-[78%] rounded-md rounded-tl-sm bg-[#1f2c33] px-2 py-1 text-[8.5px] text-foreground/90 font-sans shadow-sm">
               Olá! Quero saber sobre o apartamento da Vila Mariana.
+              <div className="text-right text-[6.5px] text-muted-foreground/60 mt-0.5">09:48</div>
             </div>
-            <div className="ml-auto max-w-[80%] rounded-md rounded-tr-sm bg-[#005c4b]/85 px-2 py-1 text-[8.5px] text-white/95 font-sans">
-              Claro, Mariana! Para qual faixa de orçamento?
-              <span className="ml-1 text-[7px] font-semibold uppercase tracking-wider text-emerald-300/90">IA</span>
+            <div className="ml-auto max-w-[80%] rounded-md rounded-tr-sm bg-[#005c4b]/90 px-2 py-1 text-[8.5px] text-white/95 font-sans shadow-sm">
+              Claro, Mariana! Qual a sua faixa de orçamento?
+              <div className="flex items-center justify-end gap-1 mt-0.5">
+                <span className="text-[6px] font-semibold uppercase tracking-wider text-emerald-200/95 bg-emerald-400/20 border border-emerald-300/30 rounded px-1">IA</span>
+                <span className="text-[6.5px] text-emerald-100/70">09:48</span>
+                <CheckCheck className="h-2.5 w-2.5 text-sky-300" />
+              </div>
             </div>
-            <div className="max-w-[55%] rounded-md rounded-tl-sm bg-[#1f2c33] px-2 py-1 text-[8.5px] text-foreground/90 font-sans">
+            <div className="max-w-[50%] rounded-md rounded-tl-sm bg-[#1f2c33] px-2 py-1 text-[8.5px] text-foreground/90 font-sans shadow-sm">
               Até R$ 850 mil.
+              <div className="text-right text-[6.5px] text-muted-foreground/60 mt-0.5">09:49</div>
             </div>
-            <div className="ml-auto max-w-[82%] rounded-md rounded-tr-sm bg-[#005c4b]/85 px-2 py-1 text-[8.5px] text-white/95 font-sans">
-              Perfeito. Encaminhei para o consultor Lucas. Ele responde em instantes.
-              <span className="ml-1 text-[7px] font-semibold uppercase tracking-wider text-emerald-300/90">IA</span>
+            <div className="ml-auto max-w-[82%] rounded-md rounded-tr-sm bg-[#005c4b]/90 px-2 py-1 text-[8.5px] text-white/95 font-sans shadow-sm">
+              Perfeito! Encaminhei para o consultor Lucas — ele responde em instantes.
+              <div className="flex items-center justify-end gap-1 mt-0.5">
+                <span className="text-[6px] font-semibold uppercase tracking-wider text-emerald-200/95 bg-emerald-400/20 border border-emerald-300/30 rounded px-1">IA</span>
+                <span className="text-[6.5px] text-emerald-100/70">09:49</span>
+                <CheckCheck className="h-2.5 w-2.5 text-sky-300" />
+              </div>
             </div>
-            <div className="inline-flex items-center gap-1 rounded-full bg-primary/15 border border-primary/30 px-1.5 py-0.5 text-[7.5px] font-semibold font-sans text-primary uppercase tracking-wider">
-              <span className="h-1 w-1 rounded-full bg-primary animate-pulse-glow" />
-              Encaminhado · CRM
+            {/* Indicador digitando */}
+            <div className="max-w-[28%] rounded-md rounded-tl-sm bg-[#1f2c33] px-2 py-1.5 flex items-center gap-1">
+              <span className="h-1 w-1 rounded-full bg-muted-foreground/70 animate-pulse-glow" />
+              <span className="h-1 w-1 rounded-full bg-muted-foreground/70 animate-pulse-glow [animation-delay:200ms]" />
+              <span className="h-1 w-1 rounded-full bg-muted-foreground/70 animate-pulse-glow [animation-delay:400ms]" />
             </div>
+            {/* Ação automática */}
+            <div className="flex items-center gap-1.5 pt-0.5">
+              <span className="inline-flex items-center gap-1 rounded-full bg-emerald-400/12 border border-emerald-400/35 px-1.5 py-0.5 text-[7px] font-semibold font-sans text-emerald-200 uppercase tracking-wider">
+                <span className="h-1 w-1 rounded-full bg-emerald-400 animate-pulse-glow" />
+                Encaminhado · CRM
+              </span>
+              <span className="inline-flex items-center gap-1 rounded-full bg-primary/12 border border-primary/30 px-1.5 py-0.5 text-[7px] font-semibold font-sans text-primary/90 uppercase tracking-wider">
+                <Calendar className="h-2 w-2" /> Agenda sugerida
+              </span>
+            </div>
+          </div>
+
+          {/* Barra IA inferior */}
+          <div className="border-t border-border/40 px-2.5 py-1 flex items-center gap-2 bg-[oklch(0.085_0.004_245)]">
+            <div className="flex items-center gap-1 text-[7px] font-mono uppercase tracking-wider text-emerald-300/85">
+              <Activity className="h-2.5 w-2.5" /> IA processando
+            </div>
+            <div className="flex-1 h-1 rounded-full bg-emerald-400/10 overflow-hidden">
+              <div className="h-full w-2/3 bg-gradient-to-r from-emerald-400/70 to-emerald-300/40 rounded-full" />
+            </div>
+            <span className="text-[7px] font-mono tabular-nums text-muted-foreground/75 shrink-0">128 hoje</span>
           </div>
         </div>
       </div>
@@ -1024,121 +1102,233 @@ function ProductPreview({ kind }: { kind: NonNullable<DemoCard["preview"]> }) {
   }
 
   if (kind === "crm") {
+    // Pipeline + receita ao vivo
     const cols = [
-      { t: "Novo lead", n: 14, cards: [{ n: "Mariana R.", c: "Imobiliária Vila", v: "R$ 12.500", tag: "Quente", hot: true }, { n: "João S.", c: "Petfield", v: "R$ 8.300", tag: "Morno", hot: false }] },
-      { t: "Em contato", n: 9, cards: [{ n: "Ana C.", c: "Studio Belle", v: "R$ 18.900", tag: "Quente", hot: true }, { n: "Pedro M.", c: "Lumière", v: "R$ 6.200", tag: "Morno", hot: false }] },
-      { t: "Proposta", n: 5, cards: [{ n: "Letícia V.", c: "Vitalis", v: "R$ 34.000", tag: "Quente", hot: true }] },
-      { t: "Fechado", n: 12, cards: [{ n: "Rafael T.", c: "Imperial", v: "R$ 22.800", tag: "Ganho", hot: true }] },
-    ];
+      { t: "Novo", n: 42, v: "92K", tone: "muted", pct: 100, cards: [
+        { n: "Mariana R.", c: "Imobiliária Vila", v: "R$ 12.5K", tag: "Quente", hot: true },
+        { n: "João S.", c: "Petfield", v: "R$ 8.3K", tag: "Morno", hot: false },
+      ]},
+      { t: "Contato", n: 28, v: "146K", tone: "primary", pct: 70, cards: [
+        { n: "Ana C.", c: "Studio Belle", v: "R$ 18.9K", tag: "Quente", hot: true },
+      ]},
+      { t: "Proposta", n: 18, v: "92K", tone: "amber", pct: 45, cards: [
+        { n: "Letícia V.", c: "Vitalis", v: "R$ 34K", tag: "Quente", hot: true },
+      ]},
+      { t: "Ganho", n: 12, v: "50K", tone: "emerald", pct: 28, cards: [
+        { n: "Rafael T.", c: "Imperial", v: "R$ 22.8K", tag: "Won", hot: true },
+      ]},
+    ] as const;
     return (
-      <div className="absolute inset-0 bg-[oklch(0.09_0.005_245)] flex flex-col">
+      <div className="absolute inset-0 bg-[oklch(0.085_0.004_245)] flex flex-col">
+        {/* Header KPI com mini-bars */}
+        <div className="border-b border-border/40 px-2.5 py-1.5 flex items-center gap-1.5 bg-[oklch(0.075_0.003_245)]">
+          <BarChart3 className="h-3 w-3 text-sky-300 shrink-0" />
+          <span className="text-[9px] font-semibold font-sans text-foreground/95 truncate">Pipeline · Nov</span>
+          <div className="ml-auto flex items-center gap-1.5 shrink-0">
+            <span className="text-[9.5px] font-heading font-semibold text-sky-200 tabular-nums">R$ 380K</span>
+            <span className="inline-flex items-center gap-0.5 text-[7px] font-semibold font-sans text-emerald-300 bg-emerald-400/10 border border-emerald-400/25 rounded px-1 py-px">
+              <TrendingUp className="h-2 w-2" /> +18%
+            </span>
+          </div>
+        </div>
+
+
         {/* KPI strip */}
         <div className="grid grid-cols-4 border-b border-border/40 divide-x divide-border/30">
           {[
-            { l: "Pipeline", v: "R$ 380K" },
-            { l: "Oport.", v: "142" },
-            { l: "Conv.", v: "28%" },
-            { l: "Hoje", v: "+12" },
+            { l: "Oport.", v: "142", spark: [3, 5, 4, 6, 7, 5, 8] },
+            { l: "Conv.", v: "28%", spark: [4, 4, 5, 5, 6, 7, 7] },
+            { l: "Ticket méd.", v: "R$ 9.8K", spark: [5, 6, 5, 7, 6, 8, 9] },
+            { l: "Fechados hoje", v: "+12", spark: [2, 3, 4, 5, 6, 8, 12] },
           ].map((k) => (
-            <div key={k.l} className="px-2 py-1.5">
-              <div className="text-[7.5px] font-sans uppercase tracking-wider text-muted-foreground/70">{k.l}</div>
-              <div className="text-[11px] font-heading font-semibold text-foreground tabular-nums">{k.v}</div>
+            <div key={k.l} className="px-2 py-1.5 flex flex-col gap-0.5">
+              <div className="text-[7px] font-sans uppercase tracking-wider text-muted-foreground/65 truncate">{k.l}</div>
+              <div className="flex items-end justify-between gap-1">
+                <span className="text-[10.5px] font-heading font-semibold text-foreground tabular-nums">{k.v}</span>
+                <div className="flex items-end gap-px h-3">
+                  {k.spark.map((h, i) => (
+                    <span key={i} className="w-[2px] rounded-sm bg-sky-300/55" style={{ height: `${(h / 12) * 100}%` }} />
+                  ))}
+                </div>
+              </div>
             </div>
           ))}
         </div>
-        {/* Kanban */}
-        <div className="flex-1 grid grid-cols-4 gap-1.5 p-2 overflow-hidden">
-          {cols.map((col) => (
-            <div key={col.t} className="flex flex-col min-w-0">
-              <div className="flex items-center justify-between mb-1.5">
-                <span className="text-[8px] font-semibold font-sans uppercase tracking-wider text-foreground/85 truncate">{col.t}</span>
-                <span className="text-[7.5px] font-sans text-muted-foreground/70 tabular-nums">{col.n}</span>
-              </div>
-              <div className="space-y-1.5">
-                {col.cards.map((c, i) => (
-                  <div key={i} className="rounded border border-border/50 bg-[oklch(0.11_0.006_245)] p-1.5">
-                    <div className="flex items-center gap-1 mb-0.5">
-                      <div className="h-3 w-3 rounded-full bg-primary/30 grid place-items-center text-[6px] font-bold text-primary shrink-0">
-                        {c.n.split(" ").map((x) => x[0]).join("").slice(0,2)}
+
+        {/* Kanban com indicador de progresso por coluna */}
+        <div className="flex-1 grid grid-cols-4 gap-1.5 p-1.5 overflow-hidden">
+          {cols.map((col) => {
+            const toneCls =
+              col.tone === "emerald" ? "bg-emerald-400" :
+              col.tone === "amber" ? "bg-amber-300" :
+              col.tone === "primary" ? "bg-sky-300" : "bg-muted-foreground/50";
+            const chipCls =
+              col.tone === "emerald" ? "bg-emerald-400/15 text-emerald-200 border-emerald-400/35" :
+              col.tone === "amber" ? "bg-amber-300/15 text-amber-200 border-amber-300/35" :
+              "bg-sky-300/12 text-sky-100 border-sky-300/30";
+            return (
+              <div key={col.t} className="flex flex-col min-w-0 rounded-md bg-[oklch(0.095_0.005_245)] border border-border/40 p-1">
+                <div className="flex items-center justify-between mb-0.5 gap-1">
+                  <span className="text-[7.5px] font-semibold font-sans uppercase tracking-wider text-foreground/90 truncate">{col.t}</span>
+                  <span className="text-[7px] font-sans text-muted-foreground/75 tabular-nums shrink-0">{col.n}</span>
+                </div>
+                <div className="h-0.5 rounded-full bg-border/40 mb-1 overflow-hidden">
+                  <div className={`h-full ${toneCls} rounded-full`} style={{ width: `${col.pct}%` }} />
+                </div>
+                <div className="text-[7.5px] font-mono tabular-nums text-foreground/85 mb-1">R$ {col.v}</div>
+                <div className="space-y-1">
+                  {col.cards.map((c, i) => (
+                    <div key={i} className="rounded border border-border/50 bg-[oklch(0.115_0.005_245)] p-1 hover:bg-[oklch(0.13_0.006_245)] transition-colors">
+                      <div className="flex items-center gap-1 mb-0.5">
+                        <div className="h-3 w-3 rounded-full bg-sky-300/25 grid place-items-center text-[6px] font-bold text-sky-100 shrink-0">
+                          {c.n.split(" ").map((x) => x[0]).join("").slice(0, 2)}
+                        </div>
+                        <span className="text-[7.5px] font-semibold font-sans text-foreground truncate flex-1">{c.n}</span>
                       </div>
-                      <span className="text-[8px] font-semibold font-sans text-foreground truncate">{c.n}</span>
+                      <div className="text-[6.5px] font-sans text-muted-foreground/75 truncate">{c.c}</div>
+                      <div className="mt-0.5 flex items-center justify-between gap-1">
+                        <span className="text-[7.5px] font-semibold font-sans text-foreground/95 tabular-nums">{c.v}</span>
+                        <span className={`text-[6px] font-semibold font-sans uppercase tracking-wider px-1 py-px rounded border ${chipCls}`}>{c.tag}</span>
+                      </div>
                     </div>
-                    <div className="text-[7px] font-sans text-muted-foreground/80 truncate">{c.c}</div>
-                    <div className="mt-1 flex items-center justify-between gap-1">
-                      <span className="text-[8px] font-semibold font-sans text-foreground/90 tabular-nums">{c.v}</span>
-                      <span className={`text-[6.5px] font-semibold font-sans uppercase tracking-wider px-1 py-px rounded ${c.hot ? "bg-primary/20 text-primary" : "bg-muted/40 text-muted-foreground/80"}`}>{c.tag}</span>
+                  ))}
+                  {col.tone === "primary" && (
+                    <div className="rounded border border-dashed border-sky-300/35 bg-sky-300/5 p-1 flex items-center gap-1">
+                      <ArrowRight className="h-2 w-2 text-sky-300" />
+                      <span className="text-[6.5px] font-sans text-sky-200/85 truncate">movendo · 3 leads</span>
                     </div>
-                  </div>
-                ))}
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
+        </div>
+
+        {/* Footer ticker */}
+        <div className="border-t border-border/40 px-2.5 py-1 flex items-center gap-2 bg-[oklch(0.075_0.003_245)]">
+          <span className="inline-flex items-center gap-1 text-[7px] font-semibold font-sans text-emerald-300">
+            <CircleDot className="h-2 w-2 animate-pulse-glow" /> Rafael T. · Imperial · <span className="tabular-nums">R$ 22.8K</span> fechado
+          </span>
+          <span className="ml-auto text-[7px] font-mono uppercase tracking-wider text-muted-foreground/70">Meta mês · 76%</span>
         </div>
       </div>
     );
   }
 
-  // scheduling
+  // ============ Scheduling — agenda inteligente ============
   const days = ["Seg 18", "Ter 19", "Qua 20", "Qui 21", "Sex 22"];
   const slots = [
-    { d: 0, top: 8, h: 16, label: "09:00 · Mariana R.", tone: "primary" as const },
-    { d: 1, top: 28, h: 18, label: "10:30 · João S.", tone: "muted" as const },
-    { d: 2, top: 50, h: 20, label: "14:00 · Ana C.", tone: "primary" as const },
-    { d: 3, top: 14, h: 16, label: "09:30 · Pedro M.", tone: "muted" as const },
-    { d: 3, top: 56, h: 14, label: "15:00 · Lucas T.", tone: "primary" as const },
-    { d: 4, top: 38, h: 18, label: "13:00 · Letícia V.", tone: "primary" as const },
+    { d: 0, top: 6, h: 18, label: "09:00 · Mariana R.", status: "confirmed" as const, dur: "45min" },
+    { d: 0, top: 56, h: 14, label: "14:30 · Ana C.", status: "pending" as const, dur: "30min" },
+    { d: 1, top: 22, h: 18, label: "10:30 · João S.", status: "confirmed" as const, dur: "45min" },
+    { d: 2, top: 12, h: 14, label: "09:30 · Bruno L.", status: "confirmed" as const, dur: "30min" },
+    { d: 2, top: 48, h: 22, label: "14:00 · Ana C.", status: "confirmed" as const, dur: "1h" },
+    { d: 3, top: 8, h: 18, label: "09:30 · Pedro M.", status: "pending" as const, dur: "45min" },
+    { d: 3, top: 54, h: 16, label: "15:00 · Lucas T.", status: "confirmed" as const, dur: "45min" },
+    { d: 4, top: 30, h: 22, label: "13:00 · Letícia V.", status: "confirmed" as const, dur: "1h" },
+    { d: 4, top: 70, h: 14, label: "16:30 · Cliente", status: "blocked" as const, dur: "Bloqueio" },
   ];
+  const blue = "oklch(0.65 0.22 250)";
   return (
-    <div className="absolute inset-0 bg-[oklch(0.09_0.005_245)] flex flex-col">
-      <div className="flex items-center justify-between border-b border-border/40 px-3 py-2">
-        <div className="flex items-center gap-1.5">
-          <Calendar className="h-3 w-3 text-primary" />
-          <span className="text-[9.5px] font-semibold font-sans text-foreground">Novembro · Semana 47</span>
+    <div className="absolute inset-0 bg-[oklch(0.085_0.004_245)] flex flex-col">
+      {/* Header */}
+      <div className="flex items-center justify-between border-b border-border/40 px-2.5 py-1.5 bg-[oklch(0.075_0.003_245)]">
+        <div className="flex items-center gap-1.5 min-w-0">
+          <Calendar className="h-3 w-3" style={{ color: blue }} />
+          <span className="text-[9px] font-semibold font-sans text-foreground/95 truncate">Novembro · Semana 47</span>
+          <span className="hidden sm:inline-flex items-center gap-1 ml-1 text-[7px] font-mono uppercase tracking-wider text-muted-foreground/70">
+            <Clock className="h-2 w-2" /> próx · 14:00
+          </span>
         </div>
-        <div className="flex items-center gap-1.5">
-          <span className="text-[7.5px] font-sans uppercase tracking-wider text-muted-foreground/70">Semana</span>
-          <span className="text-[7.5px] font-semibold font-sans uppercase tracking-wider text-primary border border-primary/40 rounded px-1 py-px">Confirmar</span>
+        <div className="flex items-center gap-1">
+          <span className="text-[7px] font-sans uppercase tracking-wider text-muted-foreground/65 hidden sm:inline">Visão</span>
+          <span className="text-[7px] font-semibold font-sans uppercase tracking-wider rounded px-1.5 py-px border" style={{ color: blue, borderColor: `color-mix(in oklab, ${blue} 45%, transparent)`, background: `color-mix(in oklab, ${blue} 12%, transparent)` }}>
+            Semana
+          </span>
         </div>
       </div>
-      <div className="grid grid-cols-[28px_repeat(5,1fr)] flex-1 overflow-hidden">
-        <div className="flex flex-col text-[7px] font-sans text-muted-foreground/60 pr-1 pt-1 border-r border-border/30">
+
+      {/* KPI strip operacional */}
+      <div className="grid grid-cols-4 border-b border-border/40 divide-x divide-border/30 bg-[oklch(0.08_0.004_245)]">
+        {[
+          { l: "Hoje", v: "6", tone: "neutral" },
+          { l: "Confirmados", v: "4", tone: "emerald" },
+          { l: "Pendentes", v: "1", tone: "amber" },
+          { l: "Comparec.", v: "92%", tone: "blue" },
+        ].map((k) => {
+          const cls =
+            k.tone === "emerald" ? "text-emerald-300" :
+            k.tone === "amber" ? "text-amber-300" :
+            k.tone === "blue" ? "" : "text-foreground";
+          const style = k.tone === "blue" ? { color: "oklch(0.82 0.14 250)" } : undefined;
+          return (
+            <div key={k.l} className="px-2 py-1">
+              <div className="text-[7px] font-sans uppercase tracking-wider text-muted-foreground/65 truncate">{k.l}</div>
+              <div className={`text-[11px] font-heading font-semibold tabular-nums ${cls}`} style={style}>{k.v}</div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Calendário */}
+      <div className="grid grid-cols-[24px_repeat(5,1fr)] flex-1 overflow-hidden">
+        <div className="flex flex-col text-[6.5px] font-mono text-muted-foreground/55 pr-0.5 pt-3 border-r border-border/30">
           {["09", "11", "13", "15", "17"].map((h) => (
-            <div key={h} className="flex-1 flex items-start justify-end pr-0.5">{h}h</div>
+            <div key={h} className="flex-1 flex items-start justify-end pr-0.5">{h}</div>
           ))}
         </div>
-        {days.map((d, idx) => (
-          <div key={d} className="relative border-r border-border/30 last:border-r-0">
-            <div className="text-[8px] font-semibold font-sans text-foreground/85 px-1.5 py-1 border-b border-border/30 truncate">
-              {d}
+        {days.map((d, idx) => {
+          const isToday = idx === 2;
+          return (
+            <div key={d} className={`relative border-r border-border/30 last:border-r-0 ${isToday ? "bg-[oklch(0.095_0.01_250/0.5)]" : ""}`}>
+              <div className={`text-[7.5px] font-semibold font-sans px-1 py-1 border-b border-border/30 truncate flex items-center gap-1 ${isToday ? "text-foreground" : "text-foreground/80"}`}>
+                {d}
+                {isToday && <span className="h-1 w-1 rounded-full" style={{ background: blue }} />}
+              </div>
+              {/* Linhas de hora */}
+              <div className="absolute inset-x-0 top-[18px] bottom-0 pointer-events-none">
+                {[0, 25, 50, 75].map((p) => (
+                  <span key={p} className="absolute inset-x-0 h-px bg-border/15" style={{ top: `${p}%` }} />
+                ))}
+              </div>
+              <div className="absolute inset-0 top-[18px]">
+                {slots.filter((s) => s.d === idx).map((s, i) => {
+                  const base = "absolute left-0.5 right-0.5 rounded px-1 py-0.5 text-[6.5px] font-semibold font-sans truncate flex flex-col gap-px";
+                  const cls =
+                    s.status === "confirmed" ? "" :
+                    s.status === "pending" ? "bg-amber-300/15 border border-amber-300/45 text-amber-100" :
+                    "bg-[oklch(0.16_0.005_245)] border border-dashed border-border/60 text-muted-foreground/80";
+                  const style =
+                    s.status === "confirmed"
+                      ? { top: `${s.top}%`, height: `${s.h}%`, background: `color-mix(in oklab, ${blue} 22%, transparent)`, borderLeft: `2px solid ${blue}`, color: "oklch(0.92 0.06 250)" }
+                      : { top: `${s.top}%`, height: `${s.h}%` };
+                  return (
+                    <div key={i} className={`${base} ${cls}`} style={style}>
+                      <span className="truncate leading-tight">{s.label}</span>
+                      <span className="text-[6px] font-mono uppercase tracking-wider opacity-75 truncate leading-tight">{s.dur}</span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-            <div className="absolute inset-0 top-[18px]">
-              {slots.filter((s) => s.d === idx).map((s, i) => (
-                <div
-                  key={i}
-                  className={`absolute left-1 right-1 rounded-sm px-1 py-0.5 text-[7px] font-semibold font-sans truncate ${
-                    s.tone === "primary"
-                      ? "bg-primary/20 border border-primary/50 text-primary"
-                      : "bg-[oklch(0.18_0.01_245)] border border-border/50 text-foreground/80"
-                  }`}
-                  style={{ top: `${s.top}%`, height: `${s.h}%` }}
-                >
-                  {s.label}
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
-      <div className="border-t border-border/40 px-3 py-1.5 flex items-center justify-between">
-        <span className="text-[8px] font-sans text-muted-foreground/80">
-          <span className="font-semibold text-foreground/90 tabular-nums">6</span> agendados ·{" "}
-          <span className="font-semibold text-emerald-400/90">4 confirmados</span>
+
+      {/* Footer confirmações */}
+      <div className="border-t border-border/40 px-2.5 py-1 flex items-center gap-2 bg-[oklch(0.075_0.003_245)]">
+        <span className="inline-flex items-center gap-1 text-[7px] font-semibold font-sans text-emerald-300">
+          <CheckCheck className="h-2.5 w-2.5" /> Ana C. · 14:00 confirmou
         </span>
-        <span className="text-[7.5px] font-sans uppercase tracking-wider text-muted-foreground/70">Equipe · 3</span>
+        <span className="hidden sm:inline-flex items-center gap-1 text-[7px] font-semibold font-sans text-amber-300">
+          <Clock className="h-2 w-2" /> Pedro M. · aguardando
+        </span>
+        <span className="ml-auto text-[7px] font-mono uppercase tracking-wider text-muted-foreground/70 shrink-0">Equipe · 3</span>
       </div>
     </div>
   );
 }
+
 
 function DemoCardItem({ card, featured = false, compact = false }: { card: DemoCard; featured?: boolean; compact?: boolean }) {
   const isActive = card.status === "Ativo";
@@ -1335,7 +1525,11 @@ function ProductShowcaseCard({ card, featured = false }: { card: DemoCard; featu
   const theme = PRODUCT_THEMES[kind];
   const { Icon, BadgeIcon } = theme;
   const isActive = card.status === "Ativo";
-  const previewAspect = featured ? "aspect-[16/9.2]" : "aspect-[16/8]";
+  const previewWrapCls = featured
+    ? "relative aspect-[16/9.6] lg:aspect-auto lg:flex-1 lg:min-h-[400px]"
+    : "relative aspect-[16/8]";
+
+
   const shortTitle = card.title.replace("Imperius ", "");
 
   const inner = (
@@ -1360,7 +1554,7 @@ function ProductShowcaseCard({ card, featured = false }: { card: DemoCard; featu
       </div>
 
       {/* Preview */}
-      <div className={`relative ${previewAspect} bg-card overflow-hidden border-b border-border/50`}>
+      <div className={`${previewWrapCls} bg-card overflow-hidden border-b border-border/50`}>
         <ProductPreview kind={kind} />
         <div className="absolute top-2 right-2 z-10 inline-flex items-center gap-1.5 rounded-md border border-border/60 bg-background/75 backdrop-blur-md px-1.5 py-0.5 text-[7.5px] font-mono uppercase tracking-wider text-foreground/85">
           <BadgeIcon className={`h-2.5 w-2.5 ${theme.textCls}`} />
@@ -1388,13 +1582,14 @@ function ProductShowcaseCard({ card, featured = false }: { card: DemoCard; featu
       </div>
 
       {/* Bottom content */}
-      <div className="px-4 sm:px-5 pt-3.5 pb-4 sm:pb-5 flex flex-col gap-2 flex-1">
+      <div className="px-4 sm:px-5 pt-3.5 pb-4 sm:pb-5 flex flex-col gap-2">
         <h3 className="font-heading font-semibold text-[15px] sm:text-[16px] tracking-[-0.01em] text-foreground">
           {card.title}
         </h3>
-        <p className="text-[12.5px] sm:text-[13px] text-muted-foreground leading-relaxed font-sans flex-1">
+        <p className="text-[12.5px] sm:text-[13px] text-muted-foreground leading-relaxed font-sans">
           {card.desc}
         </p>
+
         {isActive && (
           <div className={`mt-1 inline-flex items-center gap-1.5 text-[12px] font-semibold font-sans ${theme.textCls}`}>
             {theme.cta}
