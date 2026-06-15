@@ -764,11 +764,11 @@ function SobreImperius() {
 
 function Services() {
   const items = [
-    { n: "01", icon: LayoutTemplate, title: "Landing Pages", desc: "Páginas de alta densidade visual, pensadas para converter contatos qualificados." },
-    { n: "02", icon: Globe, title: "Websites institucionais", desc: "Presença digital com identidade própria e arquitetura escalável." },
-    { n: "03", icon: Zap, title: "Automação de atendimento", desc: "Fluxos via WhatsApp que respondem, qualificam e encaminham em tempo real." },
-    { n: "04", icon: Bot, title: "Inteligência Artificial aplicada", desc: "Assistentes treinados no contexto do seu negócio, integrados aos canais existentes." },
-    { n: "05", icon: Briefcase, title: "Sistemas comerciais", desc: "CRM, agendamento e dashboards desenhados para a operação real do time." },
+    { n: "01", icon: LayoutTemplate, title: "Landing Pages de engenharia", desc: "Páginas de alta densidade técnica e visual, especificadas para converter tráfego em contato qualificado." },
+    { n: "02", icon: Globe, title: "Websites institucionais", desc: "Presença digital com identidade própria, arquitetura escalável e código sob versão." },
+    { n: "03", icon: Zap, title: "Engenharia de atendimento", desc: "Fluxos sobre a API oficial do WhatsApp Business que respondem, qualificam e encaminham em tempo real." },
+    { n: "04", icon: Bot, title: "Camada de IA aplicada", desc: "Assistentes treinados no domínio do negócio, integrados aos canais e ao CRM existentes." },
+    { n: "05", icon: Briefcase, title: "Sistemas comerciais", desc: "Módulos de CRM, agenda e indicadores construídos a partir da operação real do time — não pacotes prontos." },
   ];
   return (
     <section id="servicos" className="py-24 sm:py-32 relative border-y border-border/30">
@@ -777,8 +777,8 @@ function Services() {
           display
           align="left"
           eyebrow="Soluções"
-          title="Cinco frentes. Um único padrão de execução."
-          sub="Cada serviço é tratado como produto: especificado, prototipado e operado com a mesma exigência técnica."
+          title="Cinco frentes. Um único padrão de engenharia."
+          sub="Cada frente é tratada como produto: especificada, prototipada, versionada e operada com o mesmo rigor técnico."
         />
         <ul className="mt-4 divide-y divide-border/40 border-y border-border/40">
           {items.map((it) => (
