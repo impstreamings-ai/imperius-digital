@@ -655,11 +655,11 @@ function Capacidades() {
               id="capacidades-title"
               className="font-display font-semibold text-[1.7rem] sm:text-[2.1rem] lg:text-[2.35rem] leading-[1.08] tracking-[-0.025em] text-foreground"
             >
-              Domínios que a Imperius desenvolve internamente.
+              Domínios técnicos que a Imperius desenvolve internamente.
             </h2>
             <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans max-w-xl">
-              Cada frente abaixo é parte do que entregamos em projeto e demonstração —
-              construído pela própria equipe, sem revenda e sem dependência de terceiros.
+              Cada frente abaixo é parte da stack que entregamos e operamos —
+              engenharia própria, sem revenda e sem dependência de terceiros.
             </p>
           </div>
           <div className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium inline-flex items-center gap-2 lg:justify-end">
