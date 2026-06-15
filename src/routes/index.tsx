@@ -9,7 +9,6 @@ import {
   ArrowRight,
   Bot,
   MessageCircle,
-  
   Zap,
   Instagram,
   Phone,
@@ -30,6 +29,7 @@ import {
   Mail,
   Shield,
   CheckCircle2,
+  Activity,
 } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
@@ -877,15 +877,15 @@ function Demonstracoes() {
             const crm = productCards.find((c) => c.preview === "crm");
             const scheduling = productCards.find((c) => c.preview === "scheduling");
             return (
-              <div className="grid gap-5 sm:gap-6 lg:grid-cols-3 lg:items-stretch">
+              <div className="grid gap-5 sm:gap-6 lg:grid-cols-5 lg:items-stretch">
                 {automation && (
-                  <div className="lg:col-span-2">
-                    <DemoCardItem card={automation} featured />
+                  <div className="lg:col-span-3">
+                    <ProductShowcaseCard card={automation} featured />
                   </div>
                 )}
-                <div className="grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-1 lg:col-span-1">
-                  {crm && <DemoCardItem card={crm} compact />}
-                  {scheduling && <DemoCardItem card={scheduling} compact />}
+                <div className="grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-1 lg:col-span-2">
+                  {crm && <ProductShowcaseCard card={crm} />}
+                  {scheduling && <ProductShowcaseCard card={scheduling} />}
                 </div>
               </div>
             );
@@ -1243,6 +1243,187 @@ function DemoCardItem({ card, featured = false, compact = false }: { card: DemoC
   }
   return <div className={`${baseCls} ${inactiveCls}`}>{inner}</div>;
 }
+
+
+type ProductKind = NonNullable<DemoCard["preview"]>;
+type ProductTheme = {
+  Icon: typeof Bot;
+  BadgeIcon: typeof Sparkles;
+  version: string;
+  badge: string;
+  tagline: string;
+  slug: string;
+  ringCls: string;
+  glowCls: string;
+  dotCls: string;
+  textCls: string;
+  chipCls: string;
+  iconWrapCls: string;
+  bloom: string;
+  kpis: { l: string; v: string }[];
+  cta: string;
+};
+
+const PRODUCT_THEMES: Record<ProductKind, ProductTheme> = {
+  automation: {
+    Icon: Bot,
+    BadgeIcon: Sparkles,
+    version: "v2.4",
+    badge: "IA Ativa",
+    tagline: "Resposta IA · 2.4s",
+    slug: "imperius.automation",
+    ringCls: "ring-1 ring-emerald-400/25",
+    glowCls: "shadow-[0_30px_80px_-32px_oklch(0.7_0.18_155/0.45)]",
+    dotCls: "bg-emerald-400",
+    textCls: "text-emerald-300",
+    chipCls: "border-emerald-400/40 bg-emerald-400/10 text-emerald-200",
+    iconWrapCls: "border-emerald-400/30 bg-emerald-400/10",
+    bloom: "radial-gradient(ellipse at 50% 100%, oklch(0.7 0.18 155 / 0.22), transparent 70%)",
+    kpis: [
+      { l: "Conversas", v: "128" },
+      { l: "Leads quentes", v: "34" },
+      { l: "SLA IA", v: "2.4s" },
+    ],
+    cta: "Explorar Automation",
+  },
+  crm: {
+    Icon: Users,
+    BadgeIcon: TrendingUp,
+    version: "v1.8",
+    badge: "Pipeline live",
+    tagline: "R$ 380K em jogo",
+    slug: "imperius.crm",
+    ringCls: "ring-1 ring-sky-300/25",
+    glowCls: "shadow-[0_24px_60px_-30px_oklch(0.6_0.08_240/0.5)]",
+    dotCls: "bg-sky-300",
+    textCls: "text-sky-200",
+    chipCls: "border-sky-300/40 bg-sky-300/10 text-sky-100",
+    iconWrapCls: "border-sky-300/30 bg-sky-300/10",
+    bloom: "radial-gradient(ellipse at 50% 100%, oklch(0.55 0.08 240 / 0.28), transparent 70%)",
+    kpis: [
+      { l: "Pipeline", v: "R$ 380K" },
+      { l: "Oport.", v: "142" },
+      { l: "Conv.", v: "28%" },
+    ],
+    cta: "Explorar CRM",
+  },
+  scheduling: {
+    Icon: Calendar,
+    BadgeIcon: Zap,
+    version: "v1.5",
+    badge: "Agenda inteligente",
+    tagline: "92% comparecimento",
+    slug: "imperius.scheduling",
+    ringCls: "ring-1 ring-[oklch(0.65_0.22_250)]/30",
+    glowCls: "shadow-[0_24px_60px_-30px_oklch(0.55_0.22_250/0.55)]",
+    dotCls: "bg-[oklch(0.72_0.2_250)]",
+    textCls: "text-[oklch(0.82_0.14_250)]",
+    chipCls: "border-[oklch(0.65_0.22_250)]/45 bg-[oklch(0.65_0.22_250)]/12 text-[oklch(0.85_0.12_250)]",
+    iconWrapCls: "border-[oklch(0.65_0.22_250)]/35 bg-[oklch(0.65_0.22_250)]/12",
+    bloom: "radial-gradient(ellipse at 50% 100%, oklch(0.55 0.22 250 / 0.32), transparent 70%)",
+    kpis: [
+      { l: "Hoje", v: "6" },
+      { l: "Confirmados", v: "4" },
+      { l: "Comparec.", v: "92%" },
+    ],
+    cta: "Explorar Scheduling",
+  },
+};
+
+function ProductShowcaseCard({ card, featured = false }: { card: DemoCard; featured?: boolean }) {
+  const kind = card.preview as ProductKind;
+  const theme = PRODUCT_THEMES[kind];
+  const { Icon, BadgeIcon } = theme;
+  const isActive = card.status === "Ativo";
+  const previewAspect = featured ? "aspect-[16/9.2]" : "aspect-[16/8]";
+  const shortTitle = card.title.replace("Imperius ", "");
+
+  const inner = (
+    <>
+      {/* HUD top chrome */}
+      <div className="relative flex items-center gap-2.5 px-3.5 sm:px-4 py-2.5 border-b border-border/50 bg-gradient-to-r from-[oklch(0.1_0.005_245)] via-[oklch(0.115_0.006_245)] to-[oklch(0.1_0.005_245)] backdrop-blur-md">
+        <div className={`h-7 w-7 shrink-0 rounded-lg grid place-items-center border ${theme.iconWrapCls}`}>
+          <Icon className={`h-3.5 w-3.5 ${theme.textCls}`} />
+        </div>
+        <div className="min-w-0 flex-1">
+          <div className="text-[10.5px] font-semibold font-sans text-foreground/95 leading-tight truncate">
+            {shortTitle}
+          </div>
+          <div className="text-[8.5px] font-mono text-muted-foreground/65 leading-tight tracking-wider truncate">
+            {theme.slug} · {theme.version}
+          </div>
+        </div>
+        <span className={`shrink-0 inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-[8.5px] uppercase tracking-[0.2em] font-semibold font-sans ${theme.chipCls}`}>
+          <span className={`h-1 w-1 rounded-full ${theme.dotCls} animate-pulse-glow`} />
+          {theme.badge}
+        </span>
+      </div>
+
+      {/* Preview */}
+      <div className={`relative ${previewAspect} bg-card overflow-hidden border-b border-border/50`}>
+        <ProductPreview kind={kind} />
+        <div className="absolute top-2 right-2 z-10 inline-flex items-center gap-1.5 rounded-md border border-border/60 bg-background/75 backdrop-blur-md px-1.5 py-0.5 text-[7.5px] font-mono uppercase tracking-wider text-foreground/85">
+          <BadgeIcon className={`h-2.5 w-2.5 ${theme.textCls}`} />
+          {theme.tagline}
+        </div>
+        <div className="absolute bottom-2 left-2 z-10 inline-flex items-center gap-1 rounded-md border border-border/60 bg-background/75 backdrop-blur-md px-1.5 py-0.5 text-[7.5px] font-mono uppercase tracking-wider text-muted-foreground/85">
+          <Activity className={`h-2.5 w-2.5 ${theme.textCls}`} />
+          Live
+        </div>
+        <div className="absolute inset-x-0 bottom-0 h-24 pointer-events-none" style={{ background: theme.bloom }} />
+      </div>
+
+      {/* KPI strip */}
+      <div className="grid grid-cols-3 divide-x divide-border/30 border-b border-border/50 bg-[oklch(0.095_0.005_245)]">
+        {theme.kpis.map((k) => (
+          <div key={k.l} className="px-2.5 sm:px-3 py-2.5">
+            <div className="text-[8.5px] font-sans uppercase tracking-[0.18em] text-muted-foreground/70 truncate">
+              {k.l}
+            </div>
+            <div className={`mt-0.5 text-[13.5px] sm:text-[14.5px] font-heading font-semibold tabular-nums ${theme.textCls}`}>
+              {k.v}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Bottom content */}
+      <div className="px-4 sm:px-5 pt-3.5 pb-4 sm:pb-5 flex flex-col gap-2 flex-1">
+        <h3 className="font-heading font-semibold text-[15px] sm:text-[16px] tracking-[-0.01em] text-foreground">
+          {card.title}
+        </h3>
+        <p className="text-[12.5px] sm:text-[13px] text-muted-foreground leading-relaxed font-sans flex-1">
+          {card.desc}
+        </p>
+        {isActive && (
+          <div className={`mt-1 inline-flex items-center gap-1.5 text-[12px] font-semibold font-sans ${theme.textCls}`}>
+            {theme.cta}
+            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+          </div>
+        )}
+      </div>
+    </>
+  );
+
+  const baseCls = `card-editorial rounded-2xl overflow-hidden h-full flex flex-col relative ${theme.ringCls} ${theme.glowCls}`;
+  const activeCls = "card-editorial-hover group cursor-pointer";
+
+  if (isActive && card.to) {
+    return (
+      <Link
+        to={card.to}
+        className={`${baseCls} ${activeCls} block`}
+        onClick={() => track("product_card_click", { title: card.title, to: card.to })}
+      >
+        {inner}
+      </Link>
+    );
+  }
+  return <div className={`${baseCls} opacity-90`}>{inner}</div>;
+}
+
+
+
 
 
 function Process() {
