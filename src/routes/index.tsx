@@ -30,6 +30,10 @@ import {
   Shield,
   CheckCircle2,
   Activity,
+  CheckCheck,
+  Clock,
+  BarChart3,
+  CircleDot,
 } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
