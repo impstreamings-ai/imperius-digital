@@ -42,17 +42,17 @@ const track = (name: string, params: Record<string, unknown> = {}) => trackEvent
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Imperius — Software, Automação e IA para Operações Comerciais" },
+      { title: "Imperius — Software House para Operações Comerciais" },
       {
         name: "description",
         content:
-          "Plataforma proprietária Imperius: software, automação e IA aplicados a operações comerciais — atendimento, agenda e pipeline em um só ecossistema.",
+          "Software house brasileira especializada em operações comerciais. Engenharia de atendimento, pipeline e agenda — com produtos próprios em evolução.",
       },
-      { property: "og:title", content: "Imperius — Software, Automação e IA para Operações Comerciais" },
+      { property: "og:title", content: "Imperius — Software House para Operações Comerciais" },
       {
         property: "og:description",
         content:
-          "Plataforma proprietária Imperius: software, automação e IA aplicados a operações comerciais — atendimento, agenda e pipeline em um só ecossistema.",
+          "Software house brasileira especializada em operações comerciais. Engenharia de atendimento, pipeline e agenda — com produtos próprios em evolução.",
       },
 
       { name: "twitter:card", content: "summary_large_image" },
@@ -107,7 +107,7 @@ function Nav() {
           <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[36px] w-auto object-contain shrink-0" loading="eager" decoding="async" />
           <span className="hidden sm:flex flex-col leading-tight min-w-0">
             <span className="font-heading font-semibold tracking-[0.2em] text-[12px] truncate">IMPERIUS</span>
-            <span className="text-[9.5px] uppercase tracking-[0.28em] text-muted-foreground/80 font-medium truncate">Estúdio digital</span>
+            <span className="text-[9.5px] uppercase tracking-[0.28em] text-muted-foreground/80 font-medium truncate">Software house</span>
           </span>
         </a>
         <nav className="hidden md:flex items-center gap-9 text-[13px] text-muted-foreground font-medium">
@@ -146,15 +146,15 @@ function Hero() {
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2.5 text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-sans font-medium mb-8">
               <span className="h-px w-8 bg-primary/70" />
-              Imperius · Plataforma proprietária
+              Imperius · Software house
             </div>
             <h1 className="font-display text-[2rem] sm:text-[2.9rem] lg:text-[3.4rem] xl:text-[3.9rem] font-semibold leading-[1.04] tracking-[-0.028em] text-foreground">
-              Sites, automação e sistemas comerciais que transformam{" "}
-              <span className="text-neon">presença digital em oportunidade real</span>.
+              Engenharia de software aplicada à{" "}
+              <span className="text-neon">operação comercial da sua empresa</span>.
             </h1>
             <p className="mt-7 max-w-xl text-muted-foreground text-base sm:text-[17px] leading-relaxed font-sans">
-              Projetamos sites, fluxos com IA e sistemas comerciais sob medida —
-              para gerar contatos qualificados e estruturar o ciclo comercial do primeiro toque ao fechamento.
+              Construímos sistemas de atendimento, pipeline e agenda como engenharia —
+              não como template. Produtos próprios em evolução, implantados no contexto real do seu negócio.
             </p>
             <div className="mt-9 flex flex-col sm:flex-row sm:items-center gap-4">
               <a
@@ -275,10 +275,10 @@ function HeroVisual() {
 
 function TrustStrip() {
   const items = [
-    { icon: LayoutTemplate, label: "Projetos demonstrativos", value: "8 ativos" },
+    { icon: LayoutTemplate, label: "Implementações de referência", value: "8 ambientes" },
     { icon: Briefcase, label: "Verticais atendidas", value: "5 segmentos" },
-    { icon: CheckCircle2, label: "Tecnologia", value: "Desenvolvimento próprio" },
-    { icon: Shield, label: "Atendimento", value: "Direto com a equipe" },
+    { icon: CheckCircle2, label: "Stack", value: "Engenharia própria" },
+    { icon: Shield, label: "Atendimento", value: "Direto com a engenharia" },
   ];
   return (
     <section
@@ -586,17 +586,17 @@ function Manifesto() {
           </div>
           <div>
             <p className="font-heading text-[1.4rem] sm:text-[1.8rem] lg:text-[2.1rem] leading-[1.25] tracking-[-0.015em] text-foreground/95">
-              A primeira impressão digital de uma empresa{" "}
+              A operação comercial de uma empresa{" "}
               <span className="text-foreground/55">
-                deve refletir a mesma sofisticação que ela exige no mundo real.
+                merece o mesmo rigor de engenharia de qualquer sistema crítico.
               </span>{" "}
-              Por isso desenvolvemos cada site, automação e sistema como produto —
-              não como template.
+              Por isso tratamos cada site, automação e fluxo como software —
+              especificado, versionado e operado.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-[12px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium">
-              <span>Design sob medida</span>
-              <span className="h-1 w-1 rounded-full bg-border" />
               <span>Engenharia própria</span>
+              <span className="h-1 w-1 rounded-full bg-border" />
+              <span>Produtos em evolução</span>
               <span className="h-1 w-1 rounded-full bg-border" />
               <span>Operação contínua</span>
             </div>
@@ -605,19 +605,19 @@ function Manifesto() {
               <div>
                 <dt className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground/70 font-sans font-semibold">Quem é</dt>
                 <dd className="mt-2 text-[13.5px] text-foreground/90 font-sans leading-relaxed">
-                  Estúdio digital brasileiro especializado em sites, automação e sistemas comerciais.
+                  Software house brasileira especializada em operações comerciais, com produtos próprios em evolução.
                 </dd>
               </div>
               <div>
                 <dt className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground/70 font-sans font-semibold">O que faz</dt>
                 <dd className="mt-2 text-[13.5px] text-foreground/90 font-sans leading-relaxed">
-                  Projeta presença digital e desenvolve software comercial sob medida — entregue, publicado e operado.
+                  Projeta e implementa sistemas de atendimento, pipeline e agenda — entregues, integrados e operados.
                 </dd>
               </div>
               <div>
                 <dt className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground/70 font-sans font-semibold">Como trabalha</dt>
                 <dd className="mt-2 text-[13.5px] text-foreground/90 font-sans leading-relaxed">
-                  Equipe enxuta, atendimento direto e demonstração funcional antes de qualquer proposta.
+                  Equipe técnica enxuta, contato direto com a engenharia e implementação funcional antes de qualquer proposta.
                 </dd>
               </div>
             </dl>
@@ -655,11 +655,11 @@ function Capacidades() {
               id="capacidades-title"
               className="font-display font-semibold text-[1.7rem] sm:text-[2.1rem] lg:text-[2.35rem] leading-[1.08] tracking-[-0.025em] text-foreground"
             >
-              Domínios que a Imperius desenvolve internamente.
+              Domínios técnicos que a Imperius desenvolve internamente.
             </h2>
             <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans max-w-xl">
-              Cada frente abaixo é parte do que entregamos em projeto e demonstração —
-              construído pela própria equipe, sem revenda e sem dependência de terceiros.
+              Cada frente abaixo é parte da stack que entregamos e operamos —
+              engenharia própria, sem revenda e sem dependência de terceiros.
             </p>
           </div>
           <div className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium inline-flex items-center gap-2 lg:justify-end">
@@ -697,23 +697,23 @@ function SobreImperius() {
   const pillars = [
     {
       icon: LayoutTemplate,
-      title: "Soluções sob medida",
-      desc: "Cada site, sistema ou fluxo é desenhado para o contexto real do negócio — sem template, sem revenda.",
+      title: "Engenharia para cada contexto",
+      desc: "Cada site, sistema ou fluxo é especificado para o contexto técnico e comercial real do negócio — sem template, sem revenda.",
     },
     {
       icon: Bot,
       title: "Atendimento que não dorme",
-      desc: "IA conectada à API oficial do WhatsApp Business responde, qualifica o lead e marca na agenda em segundos — inclusive fora do expediente.",
+      desc: "Camada de IA sobre a API oficial do WhatsApp Business: responde, qualifica e marca na agenda em segundos — inclusive fora do expediente.",
     },
     {
       icon: ClipboardList,
-      title: "Processos organizados",
-      desc: "Pipeline, agenda e indicadores consolidados em uma única operação comercial.",
+      title: "Processos instrumentados",
+      desc: "Pipeline, agenda e indicadores consolidados em uma operação única, observável e versionada.",
     },
     {
       icon: Rocket,
       title: "Implementação rápida",
-      desc: "Demonstração funcional em poucos dias, publicação em domínio próprio e operação acompanhada.",
+      desc: "Implementação funcional em poucos dias, publicação em domínio próprio e operação acompanhada pela engenharia.",
     },
   ];
   return (
@@ -729,11 +729,11 @@ function SobreImperius() {
               id="sobre-title"
               className="font-display font-semibold text-[1.7rem] sm:text-[2.1rem] lg:text-[2.35rem] leading-[1.08] tracking-[-0.025em] text-foreground"
             >
-              Websites, automação, CRM e IA para negócios que precisam operar com método.
+              Sistemas de atendimento, pipeline e agenda para negócios que precisam operar com método.
             </h2>
             <p className="mt-5 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans">
-              Estúdio digital especializado em sistemas comerciais para empresas que dependem do digital para vender.
-              Estruturamos rotinas manuais em operações comerciais mensuráveis, organizadas e prontas para escalar.
+              Software house especializada em operações comerciais, com produtos próprios em evolução.
+              Convertemos rotinas manuais em sistemas mensuráveis, instrumentados e prontos para escalar.
             </p>
           </div>
           <ul className="grid sm:grid-cols-2 gap-y-8 gap-x-10 sm:border-l sm:border-border/40 sm:pl-10">
@@ -764,11 +764,11 @@ function SobreImperius() {
 
 function Services() {
   const items = [
-    { n: "01", icon: LayoutTemplate, title: "Landing Pages", desc: "Páginas de alta densidade visual, pensadas para converter contatos qualificados." },
-    { n: "02", icon: Globe, title: "Websites institucionais", desc: "Presença digital com identidade própria e arquitetura escalável." },
-    { n: "03", icon: Zap, title: "Automação de atendimento", desc: "Fluxos via WhatsApp que respondem, qualificam e encaminham em tempo real." },
-    { n: "04", icon: Bot, title: "Inteligência Artificial aplicada", desc: "Assistentes treinados no contexto do seu negócio, integrados aos canais existentes." },
-    { n: "05", icon: Briefcase, title: "Sistemas comerciais", desc: "CRM, agendamento e dashboards desenhados para a operação real do time." },
+    { n: "01", icon: LayoutTemplate, title: "Landing Pages de engenharia", desc: "Páginas de alta densidade técnica e visual, especificadas para converter tráfego em contato qualificado." },
+    { n: "02", icon: Globe, title: "Websites institucionais", desc: "Presença digital com identidade própria, arquitetura escalável e código sob versão." },
+    { n: "03", icon: Zap, title: "Engenharia de atendimento", desc: "Fluxos sobre a API oficial do WhatsApp Business que respondem, qualificam e encaminham em tempo real." },
+    { n: "04", icon: Bot, title: "Camada de IA aplicada", desc: "Assistentes treinados no domínio do negócio, integrados aos canais e ao CRM existentes." },
+    { n: "05", icon: Briefcase, title: "Sistemas comerciais", desc: "Módulos de CRM, agenda e indicadores construídos a partir da operação real do time — não pacotes prontos." },
   ];
   return (
     <section id="servicos" className="py-24 sm:py-32 relative border-y border-border/30">
@@ -777,8 +777,8 @@ function Services() {
           display
           align="left"
           eyebrow="Soluções"
-          title="Cinco frentes. Um único padrão de execução."
-          sub="Cada serviço é tratado como produto: especificado, prototipado e operado com a mesma exigência técnica."
+          title="Cinco frentes. Um único padrão de engenharia."
+          sub="Cada frente é tratada como produto: especificada, prototipada, versionada e operada com o mesmo rigor técnico."
         />
         <ul className="mt-4 divide-y divide-border/40 border-y border-border/40">
           {items.map((it) => (
@@ -840,9 +840,9 @@ const IMPERIUS_KINDS: ReadonlySet<DemoKind> = new Set(["Atendimento", "Comercial
 
 function Demonstracoes() {
   const cards: DemoCard[] = [
-    { icon: Bot, title: "Imperius Automation", desc: "WhatsApp Business com IA que qualifica e encaminha leads em tempo real.", status: "Ativo", kind: "Atendimento", to: "/automation", preview: "automation" },
-    { icon: Users, title: "Imperius CRM", desc: "Pipeline comercial com etapas, oportunidades e indicadores do time.", status: "Ativo", kind: "Comercial", to: "/crm", preview: "crm" },
-    { icon: Calendar, title: "Imperius Scheduling", desc: "Agenda, confirmações e reservas integradas ao atendimento.", status: "Ativo", kind: "Operação", to: "/scheduling", preview: "scheduling" },
+    { icon: Bot, title: "Imperius Automation", desc: "Camada de IA sobre a API oficial do WhatsApp Business — qualifica e encaminha leads em tempo real. Em evolução contínua.", status: "Ativo", kind: "Atendimento", to: "/automation", preview: "automation" },
+    { icon: Users, title: "Imperius CRM", desc: "Módulo de pipeline comercial com etapas, oportunidades e indicadores instrumentados por cliente. Em evolução contínua.", status: "Ativo", kind: "Comercial", to: "/crm", preview: "crm" },
+    { icon: Calendar, title: "Imperius Scheduling", desc: "Motor de agenda, confirmações e reservas acoplado ao atendimento e ao CRM. Em evolução contínua.", status: "Ativo", kind: "Operação", to: "/scheduling", preview: "scheduling" },
     { icon: Scissors, title: "Black Crown Barbershop", desc: "Barbearia premium com agendamento e identidade visual cinematográfica. Abra e navegue como um cliente real.", status: "Ativo", kind: "Projeto externo", href: BLACK_CROWN_URL, external: true, cover: blackCrownCover.url, domain: "blackcrown-by-imperius.lovable.app" },
     { icon: Stethoscope, title: "Clínica Vitalis", desc: "Site clínico com agendamento, especialidades e tom de confiança — pronto para captar pacientes.", status: "Ativo", kind: "Demonstração de nicho", to: "/vitalis", cover: vitalisCover.url, domain: "vitalis.imperiusdigital.com.br" },
     { icon: Sparkles, title: "Studio Bella Estética", desc: "Estética de alto padrão com vitrine de procedimentos e reserva direta. Veja o fluxo completo.", status: "Ativo", kind: "Demonstração de nicho", to: "/studio-bella", cover: bellaCover.url, domain: "studiobella.imperiusdigital.com.br" },
@@ -865,19 +865,19 @@ function Demonstracoes() {
             <div className="max-w-2xl">
               <div className="text-[10.5px] uppercase tracking-[0.32em] text-primary/90 font-semibold mb-5 font-sans inline-flex items-center gap-2.5">
                 <span className="h-px w-8 bg-primary/70" />
-                Produtos Imperius · {productCards.length.toString().padStart(2, "0")}
+                Produtos próprios · {productCards.length.toString().padStart(2, "0")} módulos
               </div>
               <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.75rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-                Software proprietário que opera o seu comercial.
+                Engenharia que opera o seu comercial.
               </h2>
               <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans max-w-xl">
-                Automation, CRM e Scheduling — três produtos integrados que respondem,
-                organizam e agendam, do primeiro contato ao fechamento.
+                Automation, CRM e Scheduling — três módulos integrados, desenvolvidos internamente e
+                em evolução contínua. Implantados sob o contexto técnico do seu negócio, não como SaaS de prateleira.
               </p>
             </div>
             <div className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium inline-flex items-center gap-2 lg:justify-end">
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-              Plataforma integrada
+              Stack integrada · em evolução
             </div>
           </div>
           {(() => {
@@ -1653,7 +1653,7 @@ function ProductShowcaseCard({ card, featured = false }: { card: DemoCard; featu
 function Process() {
   const steps = [
     { n: "01", i: MessageCircle, t: "Diagnóstico", d: "Conversa direta para entender contexto, posicionamento e gargalos atuais." },
-    { n: "02", i: LayoutTemplate, t: "Demonstração sob medida", d: "Construímos uma prévia funcional do seu projeto antes de qualquer fechamento." },
+    { n: "02", i: LayoutTemplate, t: "Implementação funcional", d: "Construímos uma versão funcional do seu sistema antes de qualquer fechamento." },
     { n: "03", i: ClipboardList, t: "Refinamento", d: "Iterações até cada detalhe refletir a sua marca e seu padrão de operação." },
     { n: "04", i: Rocket, t: "Publicação", d: "Deploy, configuração de domínio, integrações e monitoramento ativo." },
     { n: "05", i: TrendingUp, t: "Operação contínua", d: "Acompanhamento de performance e evoluções planejadas com o seu time." },
@@ -1859,11 +1859,11 @@ function Footer() {
               <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[44px] w-auto object-contain" loading="lazy" decoding="async" />
               <div>
                 <div className="font-heading font-bold tracking-[0.2em] text-sm">IMPERIUS</div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-sans font-medium">Websites · Automação · IA</div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-sans font-medium">Software · Automação · IA</div>
               </div>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed font-sans">
-              Estúdio digital especializado em websites, automação e sistemas comerciais sob medida para empresas que operam vendas pelo digital.
+              Software house brasileira especializada em operações comerciais, com produtos próprios em evolução para atendimento, pipeline e agenda.
             </p>
           </div>
 
