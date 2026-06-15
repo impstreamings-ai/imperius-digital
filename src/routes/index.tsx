@@ -840,9 +840,9 @@ const IMPERIUS_KINDS: ReadonlySet<DemoKind> = new Set(["Atendimento", "Comercial
 
 function Demonstracoes() {
   const cards: DemoCard[] = [
-    { icon: Bot, title: "Imperius Automation", desc: "WhatsApp Business com IA que qualifica e encaminha leads em tempo real.", status: "Ativo", kind: "Atendimento", to: "/automation", preview: "automation" },
-    { icon: Users, title: "Imperius CRM", desc: "Pipeline comercial com etapas, oportunidades e indicadores do time.", status: "Ativo", kind: "Comercial", to: "/crm", preview: "crm" },
-    { icon: Calendar, title: "Imperius Scheduling", desc: "Agenda, confirmações e reservas integradas ao atendimento.", status: "Ativo", kind: "Operação", to: "/scheduling", preview: "scheduling" },
+    { icon: Bot, title: "Imperius Automation", desc: "Camada de IA sobre a API oficial do WhatsApp Business — qualifica e encaminha leads em tempo real. Em evolução contínua.", status: "Ativo", kind: "Atendimento", to: "/automation", preview: "automation" },
+    { icon: Users, title: "Imperius CRM", desc: "Módulo de pipeline comercial com etapas, oportunidades e indicadores instrumentados por cliente. Em evolução contínua.", status: "Ativo", kind: "Comercial", to: "/crm", preview: "crm" },
+    { icon: Calendar, title: "Imperius Scheduling", desc: "Motor de agenda, confirmações e reservas acoplado ao atendimento e ao CRM. Em evolução contínua.", status: "Ativo", kind: "Operação", to: "/scheduling", preview: "scheduling" },
     { icon: Scissors, title: "Black Crown Barbershop", desc: "Barbearia premium com agendamento e identidade visual cinematográfica. Abra e navegue como um cliente real.", status: "Ativo", kind: "Projeto externo", href: BLACK_CROWN_URL, external: true, cover: blackCrownCover.url, domain: "blackcrown-by-imperius.lovable.app" },
     { icon: Stethoscope, title: "Clínica Vitalis", desc: "Site clínico com agendamento, especialidades e tom de confiança — pronto para captar pacientes.", status: "Ativo", kind: "Demonstração de nicho", to: "/vitalis", cover: vitalisCover.url, domain: "vitalis.imperiusdigital.com.br" },
     { icon: Sparkles, title: "Studio Bella Estética", desc: "Estética de alto padrão com vitrine de procedimentos e reserva direta. Veja o fluxo completo.", status: "Ativo", kind: "Demonstração de nicho", to: "/studio-bella", cover: bellaCover.url, domain: "studiobella.imperiusdigital.com.br" },
