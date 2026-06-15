@@ -878,15 +878,15 @@ function Demonstracoes() {
             const crm = productCards.find((c) => c.preview === "crm");
             const scheduling = productCards.find((c) => c.preview === "scheduling");
             return (
-              <div className="grid gap-5 sm:gap-6 lg:grid-cols-3 lg:items-stretch">
+              <div className="grid gap-5 sm:gap-6 lg:grid-cols-5 lg:items-stretch">
                 {automation && (
-                  <div className="lg:col-span-2">
-                    <DemoCardItem card={automation} featured />
+                  <div className="lg:col-span-3">
+                    <ProductShowcaseCard card={automation} featured />
                   </div>
                 )}
-                <div className="grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-1 lg:col-span-1">
-                  {crm && <DemoCardItem card={crm} compact />}
-                  {scheduling && <DemoCardItem card={scheduling} compact />}
+                <div className="grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-1 lg:col-span-2">
+                  {crm && <ProductShowcaseCard card={crm} />}
+                  {scheduling && <ProductShowcaseCard card={scheduling} />}
                 </div>
               </div>
             );
