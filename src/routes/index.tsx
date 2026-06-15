@@ -702,8 +702,8 @@ function SobreImperius() {
     },
     {
       icon: Bot,
-      title: "Automação inteligente",
-      desc: "IA aplicada a WhatsApp, formulários e CRM para qualificar contatos e responder em segundos.",
+      title: "Atendimento que não dorme",
+      desc: "IA conectada à API oficial do WhatsApp Business responde, qualifica o lead e marca na agenda em segundos — inclusive fora do expediente.",
     },
     {
       icon: ClipboardList,
