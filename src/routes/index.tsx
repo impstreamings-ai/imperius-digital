@@ -729,11 +729,11 @@ function SobreImperius() {
               id="sobre-title"
               className="font-display font-semibold text-[1.7rem] sm:text-[2.1rem] lg:text-[2.35rem] leading-[1.08] tracking-[-0.025em] text-foreground"
             >
-              Websites, automação, CRM e IA para negócios que precisam operar com método.
+              Sistemas de atendimento, pipeline e agenda para negócios que precisam operar com método.
             </h2>
             <p className="mt-5 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans">
-              Estúdio digital especializado em sistemas comerciais para empresas que dependem do digital para vender.
-              Estruturamos rotinas manuais em operações comerciais mensuráveis, organizadas e prontas para escalar.
+              Software house especializada em operações comerciais, com produtos próprios em evolução.
+              Convertemos rotinas manuais em sistemas mensuráveis, instrumentados e prontos para escalar.
             </p>
           </div>
           <ul className="grid sm:grid-cols-2 gap-y-8 gap-x-10 sm:border-l sm:border-border/40 sm:pl-10">
