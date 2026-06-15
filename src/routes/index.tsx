@@ -586,17 +586,17 @@ function Manifesto() {
           </div>
           <div>
             <p className="font-heading text-[1.4rem] sm:text-[1.8rem] lg:text-[2.1rem] leading-[1.25] tracking-[-0.015em] text-foreground/95">
-              A primeira impressão digital de uma empresa{" "}
+              A operação comercial de uma empresa{" "}
               <span className="text-foreground/55">
-                deve refletir a mesma sofisticação que ela exige no mundo real.
+                merece o mesmo rigor de engenharia de qualquer sistema crítico.
               </span>{" "}
-              Por isso desenvolvemos cada site, automação e sistema como produto —
-              não como template.
+              Por isso tratamos cada site, automação e fluxo como software —
+              especificado, versionado e operado.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-[12px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium">
-              <span>Design sob medida</span>
-              <span className="h-1 w-1 rounded-full bg-border" />
               <span>Engenharia própria</span>
+              <span className="h-1 w-1 rounded-full bg-border" />
+              <span>Produtos em evolução</span>
               <span className="h-1 w-1 rounded-full bg-border" />
               <span>Operação contínua</span>
             </div>
@@ -605,19 +605,19 @@ function Manifesto() {
               <div>
                 <dt className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground/70 font-sans font-semibold">Quem é</dt>
                 <dd className="mt-2 text-[13.5px] text-foreground/90 font-sans leading-relaxed">
-                  Estúdio digital brasileiro especializado em sites, automação e sistemas comerciais.
+                  Software house brasileira especializada em operações comerciais, com produtos próprios em evolução.
                 </dd>
               </div>
               <div>
                 <dt className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground/70 font-sans font-semibold">O que faz</dt>
                 <dd className="mt-2 text-[13.5px] text-foreground/90 font-sans leading-relaxed">
-                  Projeta presença digital e desenvolve software comercial sob medida — entregue, publicado e operado.
+                  Projeta e implementa sistemas de atendimento, pipeline e agenda — entregues, integrados e operados.
                 </dd>
               </div>
               <div>
                 <dt className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground/70 font-sans font-semibold">Como trabalha</dt>
                 <dd className="mt-2 text-[13.5px] text-foreground/90 font-sans leading-relaxed">
-                  Equipe enxuta, atendimento direto e demonstração funcional antes de qualquer proposta.
+                  Equipe técnica enxuta, contato direto com a engenharia e implementação funcional antes de qualquer proposta.
                 </dd>
               </div>
             </dl>
