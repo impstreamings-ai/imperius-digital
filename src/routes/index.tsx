@@ -1117,17 +1117,17 @@ function ProductPreview({ kind }: { kind: NonNullable<DemoCard["preview"]> }) {
     return (
       <div className="absolute inset-0 bg-[oklch(0.085_0.004_245)] flex flex-col">
         {/* Header KPI com mini-bars */}
-        <div className="border-b border-border/40 px-2.5 py-1.5 flex items-center gap-2 bg-[oklch(0.075_0.003_245)]">
-          <BarChart3 className="h-3 w-3 text-sky-300" />
-          <span className="text-[9px] font-semibold font-sans text-foreground/95">Pipeline · Novembro</span>
-          <div className="ml-auto flex items-center gap-2">
-            <span className="text-[7px] font-mono uppercase tracking-wider text-muted-foreground/70">Receita</span>
+        <div className="border-b border-border/40 px-2.5 py-1.5 flex items-center gap-1.5 bg-[oklch(0.075_0.003_245)]">
+          <BarChart3 className="h-3 w-3 text-sky-300 shrink-0" />
+          <span className="text-[9px] font-semibold font-sans text-foreground/95 truncate">Pipeline · Nov</span>
+          <div className="ml-auto flex items-center gap-1.5 shrink-0">
             <span className="text-[9.5px] font-heading font-semibold text-sky-200 tabular-nums">R$ 380K</span>
             <span className="inline-flex items-center gap-0.5 text-[7px] font-semibold font-sans text-emerald-300 bg-emerald-400/10 border border-emerald-400/25 rounded px-1 py-px">
               <TrendingUp className="h-2 w-2" /> +18%
             </span>
           </div>
         </div>
+
 
         {/* KPI strip */}
         <div className="grid grid-cols-4 border-b border-border/40 divide-x divide-border/30">
