@@ -1454,6 +1454,12 @@ type ProductTheme = {
   chipCls: string;
   iconWrapCls: string;
   bloom: string;
+  /** Subtle wash applied to the HUD chrome so each product has a distinct top-bar color. */
+  hudTintCls: string;
+  /** Wash applied to the KPI strip background so each product's metrics row reads differently. */
+  kpiStripCls: string;
+  /** Color for the left accent rail that runs through the KPI strip. */
+  kpiAccentCls: string;
   kpis: { l: string; v: string }[];
   cta: string;
 };
@@ -1473,6 +1479,9 @@ const PRODUCT_THEMES: Record<ProductKind, ProductTheme> = {
     chipCls: "border-emerald-400/40 bg-emerald-400/10 text-emerald-200",
     iconWrapCls: "border-emerald-400/30 bg-emerald-400/10",
     bloom: "radial-gradient(ellipse at 50% 100%, oklch(0.7 0.18 155 / 0.22), transparent 70%)",
+    hudTintCls: "bg-[linear-gradient(90deg,oklch(0.1_0.018_155/0.55),oklch(0.105_0.008_245)_55%,oklch(0.1_0.018_155/0.45))]",
+    kpiStripCls: "bg-[linear-gradient(180deg,oklch(0.095_0.012_155/0.7),oklch(0.085_0.004_245))]",
+    kpiAccentCls: "bg-emerald-400/70",
     kpis: [
       { l: "Conversas", v: "128" },
       { l: "Leads quentes", v: "34" },
@@ -1494,6 +1503,9 @@ const PRODUCT_THEMES: Record<ProductKind, ProductTheme> = {
     chipCls: "border-sky-300/40 bg-sky-300/10 text-sky-100",
     iconWrapCls: "border-sky-300/30 bg-sky-300/10",
     bloom: "radial-gradient(ellipse at 50% 100%, oklch(0.55 0.08 240 / 0.28), transparent 70%)",
+    hudTintCls: "bg-[linear-gradient(90deg,oklch(0.1_0.02_240/0.55),oklch(0.105_0.006_245)_55%,oklch(0.1_0.02_240/0.45))]",
+    kpiStripCls: "bg-[linear-gradient(180deg,oklch(0.095_0.014_240/0.7),oklch(0.085_0.004_245))]",
+    kpiAccentCls: "bg-sky-300/70",
     kpis: [
       { l: "Pipeline", v: "R$ 380K" },
       { l: "Oport.", v: "142" },
@@ -1515,6 +1527,9 @@ const PRODUCT_THEMES: Record<ProductKind, ProductTheme> = {
     chipCls: "border-[oklch(0.65_0.22_250)]/45 bg-[oklch(0.65_0.22_250)]/12 text-[oklch(0.85_0.12_250)]",
     iconWrapCls: "border-[oklch(0.65_0.22_250)]/35 bg-[oklch(0.65_0.22_250)]/12",
     bloom: "radial-gradient(ellipse at 50% 100%, oklch(0.55 0.22 250 / 0.32), transparent 70%)",
+    hudTintCls: "bg-[linear-gradient(90deg,oklch(0.11_0.05_250/0.6),oklch(0.105_0.008_245)_55%,oklch(0.11_0.05_250/0.5))]",
+    kpiStripCls: "bg-[linear-gradient(180deg,oklch(0.1_0.04_250/0.7),oklch(0.085_0.004_245))]",
+    kpiAccentCls: "bg-[oklch(0.72_0.2_250)]/80",
     kpis: [
       { l: "Hoje", v: "6" },
       { l: "Confirmados", v: "4" },
@@ -1523,6 +1538,7 @@ const PRODUCT_THEMES: Record<ProductKind, ProductTheme> = {
     cta: "Explorar Scheduling",
   },
 };
+
 
 function ProductShowcaseCard({ card, featured = false }: { card: DemoCard; featured?: boolean }) {
   const kind = card.preview as ProductKind;
@@ -1538,8 +1554,15 @@ function ProductShowcaseCard({ card, featured = false }: { card: DemoCard; featu
 
   const inner = (
     <>
-      {/* HUD top chrome */}
-      <div className="relative flex items-center gap-2.5 px-3.5 sm:px-4 py-2.5 border-b border-border/50 bg-gradient-to-r from-[oklch(0.1_0.005_245)] via-[oklch(0.115_0.006_245)] to-[oklch(0.1_0.005_245)] backdrop-blur-md">
+      {/* HUD top chrome — per-product tint + featured-only window controls */}
+      <div className={`relative flex items-center gap-2.5 px-3.5 sm:px-4 py-2.5 border-b border-border/50 backdrop-blur-md ${theme.hudTintCls}`}>
+        {featured && (
+          <div className="hidden sm:flex items-center gap-1 shrink-0 mr-1" aria-hidden>
+            <span className="h-2 w-2 rounded-full bg-white/12" />
+            <span className="h-2 w-2 rounded-full bg-white/12" />
+            <span className="h-2 w-2 rounded-full bg-white/12" />
+          </div>
+        )}
         <div className={`h-7 w-7 shrink-0 rounded-lg grid place-items-center border ${theme.iconWrapCls}`}>
           <Icon className={`h-3.5 w-3.5 ${theme.textCls}`} />
         </div>
@@ -1571,19 +1594,21 @@ function ProductShowcaseCard({ card, featured = false }: { card: DemoCard; featu
         <div className="absolute inset-x-0 bottom-0 h-24 pointer-events-none" style={{ background: theme.bloom }} />
       </div>
 
-      {/* KPI strip */}
-      <div className="grid grid-cols-3 divide-x divide-border/30 border-b border-border/50 bg-[oklch(0.095_0.005_245)]">
+      {/* KPI strip — per-product tint + left accent rail; featured uses larger value type */}
+      <div className={`relative grid grid-cols-3 divide-x divide-border/30 border-b border-border/50 ${theme.kpiStripCls}`}>
+        <span aria-hidden className={`absolute left-0 top-0 bottom-0 w-[2px] ${theme.kpiAccentCls}`} />
         {theme.kpis.map((k) => (
-          <div key={k.l} className="px-2.5 sm:px-3 py-2.5">
+          <div key={k.l} className={featured ? "px-3 sm:px-4 py-3" : "px-2.5 sm:px-3 py-2.5"}>
             <div className="text-[8.5px] font-sans uppercase tracking-[0.18em] text-muted-foreground/70 truncate">
               {k.l}
             </div>
-            <div className={`mt-0.5 text-[13.5px] sm:text-[14.5px] font-heading font-semibold tabular-nums ${theme.textCls}`}>
+            <div className={`mt-0.5 font-heading font-semibold tabular-nums ${theme.textCls} ${featured ? "text-[17px] sm:text-[19px]" : "text-[13.5px] sm:text-[14.5px]"}`}>
               {k.v}
             </div>
           </div>
         ))}
       </div>
+
 
       {/* Bottom content */}
       <div className="px-4 sm:px-5 pt-3.5 pb-4 sm:pb-5 flex flex-col gap-2">
