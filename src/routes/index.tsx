@@ -42,17 +42,17 @@ const track = (name: string, params: Record<string, unknown> = {}) => trackEvent
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Imperius — Software, Automação e IA para Operações Comerciais" },
+      { title: "Imperius — Software House para Operações Comerciais" },
       {
         name: "description",
         content:
-          "Plataforma proprietária Imperius: software, automação e IA aplicados a operações comerciais — atendimento, agenda e pipeline em um só ecossistema.",
+          "Software house brasileira especializada em operações comerciais. Engenharia de atendimento, pipeline e agenda — com produtos próprios em evolução.",
       },
-      { property: "og:title", content: "Imperius — Software, Automação e IA para Operações Comerciais" },
+      { property: "og:title", content: "Imperius — Software House para Operações Comerciais" },
       {
         property: "og:description",
         content:
-          "Plataforma proprietária Imperius: software, automação e IA aplicados a operações comerciais — atendimento, agenda e pipeline em um só ecossistema.",
+          "Software house brasileira especializada em operações comerciais. Engenharia de atendimento, pipeline e agenda — com produtos próprios em evolução.",
       },
 
       { name: "twitter:card", content: "summary_large_image" },
