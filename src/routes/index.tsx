@@ -25,7 +25,6 @@ import {
   Sparkles,
   Briefcase,
   Building2,
-  UtensilsCrossed,
   Mail,
   Shield,
   CheckCircle2,
@@ -89,7 +88,6 @@ function Landing() {
       <Manifesto />
       <Demonstracoes />
       <Capacidades />
-      <SobreImperius />
       <Services />
       <Process />
       <FAQ />
@@ -630,12 +628,10 @@ function Manifesto() {
 
 function Capacidades() {
   const items = [
-    { icon: Globe, label: "Websites profissionais", meta: "Landing pages e institucionais" },
-    { icon: Bot, label: "Atendimento automático no WhatsApp", meta: "Responde em segundos · 24/7 · API oficial Meta" },
+    { icon: Bot, label: "Atendimento no WhatsApp com IA", meta: "API oficial Meta · 24/7" },
     { icon: Users, label: "CRM comercial", meta: "Pipeline, oportunidades e histórico" },
     { icon: Calendar, label: "Agendamento digital", meta: "Reservas, confirmações e lembretes" },
-    { icon: Zap, label: "Integrações", meta: "APIs, webhooks e canais" },
-    { icon: Sparkles, label: "IA que qualifica e agenda", meta: "Triagem, resposta e marcação sem humano" },
+    { icon: Zap, label: "Integrações e websites", meta: "APIs, webhooks, landing pages" },
   ];
   return (
     <section aria-labelledby="capacidades-title" className="relative py-20 sm:py-24 border-t border-border/30">
@@ -668,7 +664,7 @@ function Capacidades() {
           </div>
         </div>
 
-        <ul className="grid grid-cols-2 lg:grid-cols-6 border-y border-border/40 divide-x divide-border/40">
+        <ul className="grid grid-cols-2 lg:grid-cols-4 border-y border-border/40 divide-x divide-border/40">
           {items.map((it) => (
             <li
               key={it.label}
@@ -693,74 +689,6 @@ function Capacidades() {
   );
 }
 
-function SobreImperius() {
-  const pillars = [
-    {
-      icon: LayoutTemplate,
-      title: "Engenharia para cada contexto",
-      desc: "Cada site, sistema ou fluxo é especificado para o contexto técnico e comercial real do negócio — sem template, sem revenda.",
-    },
-    {
-      icon: Bot,
-      title: "Atendimento que não dorme",
-      desc: "Camada de IA sobre a API oficial do WhatsApp Business: responde, qualifica e marca na agenda em segundos — inclusive fora do expediente.",
-    },
-    {
-      icon: ClipboardList,
-      title: "Processos instrumentados",
-      desc: "Pipeline, agenda e indicadores consolidados em uma operação única, observável e versionada.",
-    },
-    {
-      icon: Rocket,
-      title: "Implementação rápida",
-      desc: "Implementação funcional em poucos dias, publicação em domínio próprio e operação acompanhada pela engenharia.",
-    },
-  ];
-  return (
-    <section id="sobre" aria-labelledby="sobre-title" className="relative py-24 sm:py-28 border-y border-border/30 bg-[oklch(0.07_0.004_240)]/60">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid lg:grid-cols-[minmax(0,360px)_1fr] gap-10 lg:gap-16">
-          <div>
-            <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
-              <span className="h-px w-8 bg-primary/70" />
-              Sobre a Imperius
-            </div>
-            <h2
-              id="sobre-title"
-              className="font-display font-semibold text-[1.7rem] sm:text-[2.1rem] lg:text-[2.35rem] leading-[1.08] tracking-[-0.025em] text-foreground"
-            >
-              Sistemas de atendimento, pipeline e agenda para negócios que precisam operar com método.
-            </h2>
-            <p className="mt-5 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans">
-              Software house especializada em operações comerciais, com produtos próprios em evolução.
-              Convertemos rotinas manuais em sistemas mensuráveis, instrumentados e prontos para escalar.
-            </p>
-          </div>
-          <ul className="grid sm:grid-cols-2 gap-y-8 gap-x-10 sm:border-l sm:border-border/40 sm:pl-10">
-            {pillars.map((p, i) => (
-              <li key={p.title} className="min-w-0">
-                <div className="flex items-center gap-3 mb-2.5">
-                  <div className="h-9 w-9 rounded-md border border-primary/25 bg-primary/10 grid place-items-center shrink-0">
-                    <p.icon className="h-[18px] w-[18px] text-primary" />
-                  </div>
-                  <span className="font-heading text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/70 font-semibold tabular-nums">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                </div>
-                <h3 className="font-heading font-semibold text-[15.5px] sm:text-[16px] tracking-[-0.01em] text-foreground">
-                  {p.title}
-                </h3>
-                <p className="mt-1.5 text-[13.5px] text-muted-foreground leading-relaxed font-sans">
-                  {p.desc}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function Services() {
   const items = [
@@ -832,22 +760,18 @@ type DemoCard = {
 
 import blackCrownCover from "@/assets/black-crown-cover.png.asset.json";
 import vitalisCover from "@/assets/vitalis-hero.jpg.asset.json";
-import bellaCover from "@/assets/studio-bella-hero.jpg.asset.json";
 import primeCover from "@/assets/prime-hero.jpg.asset.json";
-import imperialCover from "@/assets/imperial-hero.jpg.asset.json";
 
 const IMPERIUS_KINDS: ReadonlySet<DemoKind> = new Set(["Atendimento", "Comercial", "Operação"]);
 
 function Demonstracoes() {
   const cards: DemoCard[] = [
-    { icon: Bot, title: "Imperius Automation", desc: "Camada de IA sobre a API oficial do WhatsApp Business — qualifica e encaminha leads em tempo real. Em evolução contínua.", status: "Ativo", kind: "Atendimento", to: "/automation", preview: "automation" },
-    { icon: Users, title: "Imperius CRM", desc: "Módulo de pipeline comercial com etapas, oportunidades e indicadores instrumentados por cliente. Em evolução contínua.", status: "Ativo", kind: "Comercial", to: "/crm", preview: "crm" },
-    { icon: Calendar, title: "Imperius Scheduling", desc: "Motor de agenda, confirmações e reservas acoplado ao atendimento e ao CRM. Em evolução contínua.", status: "Ativo", kind: "Operação", to: "/scheduling", preview: "scheduling" },
+    { icon: Bot, title: "Imperius Automation", desc: "IA sobre a API oficial do WhatsApp Business. Qualifica e encaminha leads em tempo real.", status: "Ativo", kind: "Atendimento", to: "/automation", preview: "automation" },
+    { icon: Users, title: "Imperius CRM", desc: "Pipeline comercial com etapas, oportunidades e indicadores por cliente.", status: "Ativo", kind: "Comercial", to: "/crm", preview: "crm" },
+    { icon: Calendar, title: "Imperius Scheduling", desc: "Agenda, confirmações e reservas integradas ao atendimento e ao CRM.", status: "Ativo", kind: "Operação", to: "/scheduling", preview: "scheduling" },
     { icon: Scissors, title: "Black Crown Barbershop", desc: "Barbearia premium com agendamento e identidade visual cinematográfica. Abra e navegue como um cliente real.", status: "Ativo", kind: "Projeto externo", href: BLACK_CROWN_URL, external: true, cover: blackCrownCover.url, domain: "blackcrown-by-imperius.lovable.app" },
     { icon: Stethoscope, title: "Clínica Vitalis", desc: "Site clínico com agendamento, especialidades e tom de confiança — pronto para captar pacientes.", status: "Ativo", kind: "Demonstração de nicho", to: "/vitalis", cover: vitalisCover.url, domain: "vitalis.imperiusdigital.com.br" },
-    { icon: Sparkles, title: "Studio Bella Estética", desc: "Estética de alto padrão com vitrine de procedimentos e reserva direta. Veja o fluxo completo.", status: "Ativo", kind: "Demonstração de nicho", to: "/studio-bella", cover: bellaCover.url, domain: "studiobella.imperiusdigital.com.br" },
     { icon: Building2, title: "Prime Imóveis", desc: "Portal imobiliário com busca, ficha de imóvel e captação de leads qualificados em segundos.", status: "Ativo", kind: "Demonstração de nicho", to: "/prime-imoveis", cover: primeCover.url, domain: "primeimoveis.imperiusdigital.com.br" },
-    { icon: UtensilsCrossed, title: "Restaurante Imperial", desc: "Reservas, cardápio e identidade gastronômica premium — explore como um cliente reservaria hoje.", status: "Ativo", kind: "Demonstração de nicho", to: "/restaurante-imperial", cover: imperialCover.url, domain: "imperial.imperiusdigital.com.br" },
   ];
 
 
@@ -1707,14 +1631,6 @@ function FAQ() {
       a: "Demonstração funcional personalizada: 3 a 7 dias úteis. Projeto completo (site + automação + CRM + agenda): 2 a 4 semanas, conforme escopo e integrações. Definimos cronograma por etapas no kickoff, com datas de entrega registradas.",
     },
     {
-      q: "A demonstração tem custo?",
-      a: "Não. A demonstração inicial é cortesia da Imperius, sem compromisso comercial e sem cobrança de proposta.",
-    },
-    {
-      q: "Preciso já ter um site ou conta no WhatsApp Business?",
-      a: "Não. Construímos do zero quando necessário. Se você já usa WhatsApp Business, integramos ao número existente sem perder histórico. Também configuramos um novo número e a API oficial do WhatsApp quando faz mais sentido para o seu volume.",
-    },
-    {
       q: "A automação funciona no meu WhatsApp atual?",
       a: "Sim. Trabalhamos com a API oficial do WhatsApp Business (Meta), o que mantém o número, contatos e conversas. O atendimento humano continua funcionando normalmente — a IA atua só nos momentos definidos por você (fora do horário, fila cheia, primeira triagem, agendamento).",
     },
@@ -1723,16 +1639,8 @@ function FAQ() {
       a: "Sim. O projeto entregue é seu: você recebe acesso ao código-fonte, ao painel, ao domínio e ao banco de dados. Não há lock-in técnico. Se um dia decidir sair, você leva tudo — inclusive os contatos, histórico de conversas e pipeline do CRM, exportáveis em formato padrão.",
     },
     {
-      q: "Como funciona o domínio e a hospedagem?",
-      a: "Você pode usar um domínio que já tem ou registramos um novo no seu nome (não no nosso). A hospedagem fica em infraestrutura profissional com SSL, backups automáticos e monitoramento. Custo de hospedagem e domínio é transparente, cobrado direto do provedor ou repassado sem margem — você decide.",
-    },
-    {
       q: "Tem suporte depois da entrega?",
       a: "Sim. Todo projeto inclui período de acompanhamento pós-publicação para ajustes finos. Após esse período, você pode contratar um plano contínuo (evolução + suporte + monitoramento) ou seguir avulso por demanda. Resposta a chamados em horário comercial, com SLA combinado em contrato.",
-    },
-    {
-      q: "E se eu quiser cancelar?",
-      a: "Projetos pagos por escopo fechado não têm cancelamento — você paga pelo que foi entregue até a etapa concluída. Planos contínuos de suporte podem ser cancelados a qualquer momento com aviso de 30 dias, sem multa. Em qualquer cenário, você mantém o site, o código, os dados e o domínio.",
     },
     {
       q: "Com quem eu falo?",
