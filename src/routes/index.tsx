@@ -760,9 +760,7 @@ type DemoCard = {
 
 import blackCrownCover from "@/assets/black-crown-cover.png.asset.json";
 import vitalisCover from "@/assets/vitalis-hero.jpg.asset.json";
-import bellaCover from "@/assets/studio-bella-hero.jpg.asset.json";
 import primeCover from "@/assets/prime-hero.jpg.asset.json";
-import imperialCover from "@/assets/imperial-hero.jpg.asset.json";
 
 const IMPERIUS_KINDS: ReadonlySet<DemoKind> = new Set(["Atendimento", "Comercial", "Operação"]);
 
