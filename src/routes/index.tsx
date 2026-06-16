@@ -80,20 +80,58 @@ const PROPOSAL_MAILTO = `mailto:${PROPOSAL_EMAIL}?subject=${encodeURIComponent("
 function Landing() {
   return (
     <div className="min-h-dvh bg-background text-foreground font-sans overflow-x-hidden">
-
       <Nav />
       <Hero />
-      <TrustStrip />
+      <Problema />
       <Ecossistema />
-      <Manifesto />
       <Demonstracoes />
-      <Capacidades />
-      <Services />
       <Process />
       <FAQ />
       <FinalCTA />
       <Footer />
     </div>
+  );
+}
+
+function Problema() {
+  const dores = [
+    { icon: MessageCircle, t: "Atendimento disperso", d: "Mensagens espalhadas entre canais, sem registro nem responsável claro." },
+    { icon: TrendingUp, t: "Oportunidades perdidas", d: "Leads que entram, somem na conversa e nunca chegam ao comercial." },
+    { icon: ClipboardList, t: "Processos manuais", d: "Planilhas, copia-e-cola e retrabalho consumindo o time todo dia." },
+    { icon: Activity, t: "Sem visão da operação", d: "Você não sabe quantos contatos entraram, quantos fecharam, quanto sobrou." },
+  ];
+  return (
+    <section className="relative py-20 sm:py-28 border-y border-border/30">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="max-w-3xl mb-12 sm:mb-14">
+          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
+            <span className="h-px w-8 bg-primary/70" />
+            O problema
+          </div>
+          <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+            Sua operação comercial está rodando{" "}
+            <span className="text-foreground/55">no improviso.</span>
+          </h2>
+        </div>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-y border-border/40 divide-y sm:divide-y-0 sm:divide-x divide-border/40">
+          {dores.map((d) => (
+            <li key={d.t} className="p-5 sm:p-6 flex flex-col gap-3 min-w-0">
+              <div className="h-9 w-9 rounded-md border border-primary/25 bg-primary/10 grid place-items-center">
+                <d.icon className="h-[18px] w-[18px] text-primary" />
+              </div>
+              <div className="min-w-0">
+                <h3 className="font-heading font-semibold text-[14.5px] tracking-[-0.005em] text-foreground leading-snug">
+                  {d.t}
+                </h3>
+                <p className="mt-1.5 text-[13px] text-muted-foreground leading-relaxed font-sans">
+                  {d.d}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
   );
 }
 
