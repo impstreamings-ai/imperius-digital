@@ -410,11 +410,11 @@ function HeroVisual() {
 
 
         {/* Bottom meta strip */}
-        <div className="absolute bottom-0 inset-x-0 flex items-center justify-between px-4 py-2.5 border-t border-border/40 bg-gradient-to-t from-[oklch(0.065_0.004_240)]/90 to-transparent">
-          <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-muted-foreground/70">
+        <div className="absolute bottom-0 inset-x-0 flex items-center justify-between gap-3 px-3 sm:px-4 py-2.5 border-t border-border/40 bg-gradient-to-t from-[oklch(0.065_0.004_240)]/90 to-transparent">
+          <span className="text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.22em] sm:tracking-[0.28em] text-muted-foreground/70 truncate">
             Sistemas próprios
           </span>
-          <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-primary/80">
+          <span className="shrink-0 text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.22em] sm:tracking-[0.28em] text-primary/80">
             Engenharia aplicada
           </span>
         </div>
