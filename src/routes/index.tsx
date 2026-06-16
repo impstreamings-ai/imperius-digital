@@ -227,18 +227,23 @@ function Hero() {
 }
 
 function HeroVisual() {
-  // Cinematic institutional composition — holographic integration of systems.
-  // Software house signal: no dashboards, KPIs, charts, or fake metrics.
-  // Nodes represent the integration surface: Website, WhatsApp, CRM, Automação,
-  // orbiting an Imperius core.
-  // Symmetric grid: nodes mirrored across both axes so the diagram stays
-  // balanced under any rotation, scale, or device aspect.
+  // Institutional composition — holographic representation of an integrated
+  // commercial operation. Software house signal: no dashboards, KPIs, charts
+  // or fake metrics. Six surfaces orbit a central operational architecture
+  // (Website, WhatsApp, CRM, Automação, Agenda, Integrações), arranged in a
+  // symmetric hexagon so the diagram stays balanced under any rotation.
+  const R = 34;
   const nodes = [
-    { id: "web", label: "Website", x: 24, y: 30 },
-    { id: "wa", label: "WhatsApp", x: 76, y: 30 },
-    { id: "crm", label: "CRM", x: 24, y: 70 },
-    { id: "auto", label: "Automação", x: 76, y: 70 },
-  ];
+    { id: "web",  label: "Website",      angle: 210 },
+    { id: "wa",   label: "WhatsApp",     angle: 270 },
+    { id: "crm",  label: "CRM",          angle: 330 },
+    { id: "int",  label: "Integrações",  angle: 30  },
+    { id: "auto", label: "Automação",    angle: 90  },
+    { id: "ag",   label: "Agenda",       angle: 150 },
+  ].map((n) => {
+    const rad = (n.angle * Math.PI) / 180;
+    return { ...n, x: 50 + R * Math.cos(rad), y: 50 + R * Math.sin(rad) };
+  });
   const core = { x: 50, y: 50 };
 
   return (
@@ -256,16 +261,25 @@ function HeroVisual() {
       <div className="relative aspect-square rounded-[20px] overflow-hidden border border-border/50 bg-[oklch(0.07_0.004_240)] shadow-[0_60px_160px_-40px_oklch(0_0_0/0.9),0_0_0_1px_oklch(1_0_0/0.04)_inset]">
         {/* Holographic grid */}
         <div
-          className="absolute inset-0 opacity-[0.18]"
+          className="absolute inset-0 opacity-[0.16]"
           style={{
             backgroundImage:
               "linear-gradient(oklch(0.72 0.22 250 / 0.5) 1px, transparent 1px), linear-gradient(90deg, oklch(0.72 0.22 250 / 0.5) 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
+            backgroundSize: "44px 44px",
             maskImage:
-              "radial-gradient(70% 70% at 50% 50%, black 40%, transparent 100%)",
+              "radial-gradient(70% 70% at 50% 50%, black 35%, transparent 100%)",
           }}
         />
-        {/* Concentric rings */}
+        {/* Soft holographic sweep */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-60 mix-blend-screen"
+          style={{
+            background:
+              "conic-gradient(from 200deg at 50% 50%, transparent 0deg, oklch(0.72 0.22 250 / 0.10) 60deg, transparent 140deg, oklch(0.82 0.16 230 / 0.08) 240deg, transparent 320deg)",
+          }}
+        />
+
+        {/* Concentric architecture */}
         <svg
           viewBox="0 0 100 100"
           preserveAspectRatio="none"
@@ -273,19 +287,19 @@ function HeroVisual() {
         >
           <defs>
             <radialGradient id="heroCore" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="oklch(0.82 0.22 250)" stopOpacity="0.9" />
-              <stop offset="60%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0.25" />
+              <stop offset="0%" stopColor="oklch(0.86 0.22 250)" stopOpacity="0.95" />
+              <stop offset="55%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0.22" />
               <stop offset="100%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0" />
             </radialGradient>
             <linearGradient id="heroEdge" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stopColor="oklch(0.78 0.2 250)" stopOpacity="0.05" />
-              <stop offset="50%" stopColor="oklch(0.82 0.22 250)" stopOpacity="0.9" />
+              <stop offset="50%" stopColor="oklch(0.88 0.22 250)" stopOpacity="0.9" />
               <stop offset="100%" stopColor="oklch(0.78 0.2 250)" stopOpacity="0.05" />
             </linearGradient>
           </defs>
 
-          {/* Faint orbits */}
-          {[18, 28, 38].map((r) => (
+          {/* Faint concentric orbits */}
+          {[14, 22, 30, 38, 44].map((r, i) => (
             <circle
               key={r}
               cx="50"
@@ -293,15 +307,25 @@ function HeroVisual() {
               r={r}
               fill="none"
               stroke="oklch(0.78 0.2 250 / 0.18)"
-              strokeWidth="0.2"
+              strokeWidth={i === 2 ? "0.35" : "0.18"}
+              strokeDasharray={i % 2 === 0 ? "0.6 1.2" : undefined}
               vectorEffect="non-scaling-stroke"
             />
           ))}
 
+          {/* Hex perimeter linking surfaces */}
+          <polygon
+            points={nodes.map((n) => `${n.x},${n.y}`).join(" ")}
+            fill="none"
+            stroke="oklch(0.78 0.2 250 / 0.25)"
+            strokeWidth="0.25"
+            vectorEffect="non-scaling-stroke"
+          />
+
           {/* Core halo */}
           <circle cx="50" cy="50" r="22" fill="url(#heroCore)" />
 
-          {/* Connection lines */}
+          {/* Connection lines core → node */}
           {nodes.map((n) => (
             <line
               key={n.id}
@@ -315,77 +339,57 @@ function HeroVisual() {
             />
           ))}
 
-          {/* Node dots */}
+          {/* Node markers */}
           {nodes.map((n) => (
             <g key={`d-${n.id}`}>
+              <circle cx={n.x} cy={n.y} r="3.4" fill="oklch(0.07 0.004 240)" />
               <circle
                 cx={n.x}
                 cy={n.y}
-                r="1.4"
-                fill="oklch(0.85 0.22 250)"
-              />
-              <circle
-                cx={n.x}
-                cy={n.y}
-                r="3"
+                r="3.4"
                 fill="none"
-                stroke="oklch(0.78 0.2 250 / 0.4)"
-                strokeWidth="0.2"
+                stroke="oklch(0.82 0.22 250 / 0.55)"
+                strokeWidth="0.25"
                 vectorEffect="non-scaling-stroke"
               />
+              <circle cx={n.x} cy={n.y} r="1.3" fill="oklch(0.9 0.18 250)" />
             </g>
           ))}
 
-          {/* Core glyph */}
-          <circle
-            cx="50"
-            cy="50"
-            r="3.2"
-            fill="oklch(0.95 0.05 250)"
-          />
-          <circle
-            cx="50"
-            cy="50"
-            r="6"
-            fill="none"
-            stroke="oklch(0.85 0.22 250 / 0.7)"
-            strokeWidth="0.3"
-            vectorEffect="non-scaling-stroke"
-          />
+          {/* Core glyph — concentric apertures */}
+          <circle cx="50" cy="50" r="7.5" fill="none" stroke="oklch(0.82 0.22 250 / 0.45)" strokeWidth="0.25" vectorEffect="non-scaling-stroke" />
+          <circle cx="50" cy="50" r="4.6" fill="none" stroke="oklch(0.88 0.22 250 / 0.7)" strokeWidth="0.3" vectorEffect="non-scaling-stroke" />
+          <circle cx="50" cy="50" r="2.4" fill="oklch(0.96 0.05 250)" />
         </svg>
 
-        {/* Node labels (HTML for crisp type) */}
+        {/* Node labels */}
         {nodes.map((n) => {
-          const isLeft = n.x < 50;
-          const isTop = n.y < 50;
+          const dx = n.x - 50;
+          const dy = n.y - 50;
+          const len = Math.hypot(dx, dy) || 1;
+          const offset = 6.5;
+          const lx = n.x + (dx / len) * offset;
+          const ly = n.y + (dy / len) * offset;
           return (
             <div
               key={`l-${n.id}`}
               className="absolute -translate-x-1/2 -translate-y-1/2"
-              style={{
-                left: `${n.x}%`,
-                top: `${n.y + (isTop ? -8 : 8)}%`,
-              }}
+              style={{ left: `${lx}%`, top: `${ly}%` }}
             >
-              <span
-                className="text-[10px] font-sans uppercase tracking-[0.22em] text-foreground/75 whitespace-nowrap"
-                style={{
-                  textAlign: isLeft ? "left" : "right",
-                }}
-              >
+              <span className="text-[9.5px] sm:text-[10px] font-sans uppercase tracking-[0.2em] text-foreground/80 whitespace-nowrap">
                 {n.label}
               </span>
             </div>
           );
         })}
 
-        {/* Core label */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-6 text-center">
-          <div className="text-[9px] font-sans uppercase tracking-[0.32em] text-primary/90">
-            Imperius
+        {/* Core label — institutional terminology, no SaaS naming */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-[58%] text-center pointer-events-none">
+          <div className="text-[8.5px] sm:text-[9px] font-sans uppercase tracking-[0.34em] text-primary/85">
+            Arquitetura
           </div>
-          <div className="text-[8.5px] font-sans uppercase tracking-[0.28em] text-muted-foreground/60 mt-0.5">
-            Core
+          <div className="text-[8.5px] sm:text-[9px] font-sans uppercase tracking-[0.34em] text-foreground/70 mt-0.5">
+            Operacional
           </div>
         </div>
 
@@ -412,15 +416,15 @@ function HeroVisual() {
             </span>
           </div>
           <span className="shrink-0 text-[9px] sm:text-[10px] font-sans tracking-[0.14em] sm:tracking-[0.22em] text-muted-foreground/55 uppercase">
-            v · 2026
+            Rev · 2026
           </span>
         </div>
 
         {/* Bottom meta strip */}
         <div className="absolute bottom-0 inset-x-0 flex items-center justify-between gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 border-t border-border/40 bg-gradient-to-t from-[oklch(0.065_0.004_240)]/90 to-transparent">
           <span className="text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.18em] sm:tracking-[0.28em] text-muted-foreground/70 truncate">
-            <span className="sm:hidden">Sistemas</span>
-            <span className="hidden sm:inline">Sistemas próprios</span>
+            <span className="sm:hidden">Operação</span>
+            <span className="hidden sm:inline">Operação comercial</span>
           </span>
           <span className="shrink-0 text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.14em] sm:tracking-[0.28em] text-primary/80">
             <span className="sm:hidden">Engenharia</span>
