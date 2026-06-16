@@ -234,14 +234,14 @@ function Hero() {
 
 function HeroVisual() {
   return (
-    <div className="relative w-full max-w-[600px] mx-auto lg:ml-auto lg:mr-0" aria-hidden>
+    <div className="relative w-full max-w-[640px] mx-auto lg:ml-auto lg:mr-0" aria-hidden>
       {/* Main browser frame — Black Crown live project */}
       <a
         href={BLACK_CROWN_URL}
         target="_blank"
         rel="noreferrer"
         onClick={() => track("hero_visual_click", { project: "black_crown" })}
-        className="relative block rounded-[14px] overflow-hidden border border-border/60 bg-[oklch(0.09_0.005_240)] shadow-[0_40px_120px_-30px_oklch(0_0_0/0.8),0_0_0_1px_oklch(1_0_0/0.04)_inset] transition-transform duration-500 hover:-translate-y-1"
+        className="relative block rounded-[14px] overflow-hidden border border-border/60 bg-[oklch(0.09_0.005_240)] shadow-[0_50px_140px_-30px_oklch(0_0_0/0.85),0_0_0_1px_oklch(1_0_0/0.04)_inset] transition-transform duration-500 hover:-translate-y-1"
       >
         <div className="flex items-center gap-1.5 px-3 py-2 border-b border-border/50 bg-[oklch(0.08_0.004_240)]">
           <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
@@ -266,47 +266,10 @@ function HeroVisual() {
           <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent pointer-events-none" />
         </div>
       </a>
-
-      {/* Floating mini-frame: Vitalis */}
-      <div className="hidden sm:block absolute -bottom-10 -left-8 w-[58%] rounded-[12px] overflow-hidden border border-border/60 bg-[oklch(0.09_0.005_240)] shadow-[0_30px_80px_-30px_oklch(0_0_0/0.85),0_0_0_1px_oklch(1_0_0/0.04)_inset] rotate-[-3deg]">
-        <div className="flex items-center gap-1 px-2 py-1.5 border-b border-border/50 bg-[oklch(0.08_0.004_240)]">
-          <span className="h-1.5 w-1.5 rounded-full bg-red-400/70" />
-          <span className="h-1.5 w-1.5 rounded-full bg-yellow-400/70" />
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/70" />
-          <span className="ml-2 truncate text-[8.5px] font-sans text-muted-foreground/80">
-            vitalis · clínica
-          </span>
-        </div>
-        <div className="relative aspect-[16/10] bg-card">
-          <img
-            src={vitalisHeroCover.url}
-            alt=""
-            loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover object-top"
-          />
-        </div>
-      </div>
-
-      {/* Floating chip: lead qualificado */}
-      <div className="hidden sm:flex absolute -top-4 -right-2 sm:-right-6 items-center gap-2.5 rounded-full border border-border/60 bg-background/85 backdrop-blur-md px-3 py-2 shadow-[0_12px_30px_-12px_oklch(0_0_0/0.7)]">
-        <span className="h-2 w-2 rounded-full bg-primary animate-pulse-glow shadow-[0_0_10px_oklch(0.72_0.22_250/0.9)]" />
-        <span className="text-[11px] font-sans font-medium text-foreground/90">Lead qualificado</span>
-        <span className="text-[9.5px] font-sans text-muted-foreground/70 tabular-nums">09:42</span>
-      </div>
-
-      {/* Floating chip: CRM */}
-      <div className="hidden md:flex absolute bottom-6 -right-4 items-center gap-2 rounded-xl border border-border/60 bg-background/85 backdrop-blur-md px-3 py-2 shadow-[0_16px_36px_-14px_oklch(0_0_0/0.7)] rotate-[3deg]">
-        <div className="h-7 w-7 rounded-md bg-primary/15 border border-primary/30 grid place-items-center">
-          <Users className="h-3.5 w-3.5 text-primary" />
-        </div>
-        <div className="leading-tight">
-          <div className="text-[10.5px] font-heading font-semibold text-foreground">Pipeline · R$ 380K</div>
-          <div className="text-[9px] uppercase tracking-[0.18em] text-muted-foreground/80 font-sans">Demonstração visual</div>
-        </div>
-      </div>
     </div>
   );
 }
+
 
 function TrustStrip() {
   const items = [
