@@ -227,19 +227,19 @@ function Hero() {
 }
 
 function HeroVisual() {
-  // Institutional composition — holographic representation of an integrated
-  // commercial operation. Software house signal: no dashboards, KPIs, charts
-  // or fake metrics. Six surfaces orbit a central operational architecture
-  // (Website, WhatsApp, CRM, Automação, Agenda, Integrações), arranged in a
-  // symmetric hexagon so the diagram stays balanced under any rotation.
+  // Ecossistema Operacional Imperius — institutional composition.
+  // Five surfaces orbit the Imperius symbol in a symmetric pentagon:
+  // WhatsApp (top), CRM (upper-right), Automação (lower-right),
+  // Agenda (lower-left), Website (upper-left). Software house signal:
+  // no dashboards, KPIs, charts or SaaS chrome — just the brand mark,
+  // titanium-blue energy lines and operational module markers.
   const R = 34;
   const nodes = [
-    { id: "web",  label: "Website",      angle: 210 },
-    { id: "wa",   label: "WhatsApp",     angle: 270 },
-    { id: "crm",  label: "CRM",          angle: 330 },
-    { id: "int",  label: "Integrações",  angle: 30  },
-    { id: "auto", label: "Automação",    angle: 90  },
-    { id: "ag",   label: "Agenda",       angle: 150 },
+    { id: "wa",   label: "WhatsApp",  angle: 270 },
+    { id: "crm",  label: "CRM",       angle: 342 },
+    { id: "auto", label: "Automação", angle: 54  },
+    { id: "ag",   label: "Agenda",    angle: 126 },
+    { id: "web",  label: "Website",   angle: 198 },
   ].map((n) => {
     const rad = (n.angle * Math.PI) / 180;
     return { ...n, x: 50 + R * Math.cos(rad), y: 50 + R * Math.sin(rad) };
@@ -270,7 +270,7 @@ function HeroVisual() {
               "radial-gradient(70% 70% at 50% 50%, black 35%, transparent 100%)",
           }}
         />
-        {/* Soft holographic sweep */}
+        {/* Soft titanium sweep */}
         <div
           className="absolute inset-0 pointer-events-none opacity-60 mix-blend-screen"
           style={{
@@ -279,7 +279,7 @@ function HeroVisual() {
           }}
         />
 
-        {/* Concentric architecture */}
+        {/* Orbits + energy lines */}
         <svg
           viewBox="0 0 100 100"
           preserveAspectRatio="none"
@@ -313,11 +313,11 @@ function HeroVisual() {
             />
           ))}
 
-          {/* Hex perimeter linking surfaces */}
+          {/* Pentagon perimeter linking surfaces */}
           <polygon
             points={nodes.map((n) => `${n.x},${n.y}`).join(" ")}
             fill="none"
-            stroke="oklch(0.78 0.2 250 / 0.25)"
+            stroke="oklch(0.78 0.2 250 / 0.22)"
             strokeWidth="0.25"
             vectorEffect="non-scaling-stroke"
           />
@@ -325,7 +325,7 @@ function HeroVisual() {
           {/* Core halo */}
           <circle cx="50" cy="50" r="22" fill="url(#heroCore)" />
 
-          {/* Connection lines core → node */}
+          {/* Energy lines core → node */}
           {nodes.map((n) => (
             <line
               key={n.id}
@@ -355,12 +355,25 @@ function HeroVisual() {
               <circle cx={n.x} cy={n.y} r="1.3" fill="oklch(0.9 0.18 250)" />
             </g>
           ))}
-
-          {/* Core glyph — concentric apertures */}
-          <circle cx="50" cy="50" r="7.5" fill="none" stroke="oklch(0.82 0.22 250 / 0.45)" strokeWidth="0.25" vectorEffect="non-scaling-stroke" />
-          <circle cx="50" cy="50" r="4.6" fill="none" stroke="oklch(0.88 0.22 250 / 0.7)" strokeWidth="0.3" vectorEffect="non-scaling-stroke" />
-          <circle cx="50" cy="50" r="2.4" fill="oklch(0.96 0.05 250)" />
         </svg>
+
+        {/* Imperius symbol at the core */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+          <div
+            className="absolute inset-0 -m-6 rounded-full blur-2xl"
+            style={{
+              background:
+                "radial-gradient(circle, oklch(0.78 0.22 250 / 0.55), transparent 70%)",
+            }}
+          />
+          <img
+            src={logoAsset.url}
+            alt=""
+            className="relative h-16 w-16 sm:h-20 sm:w-20 object-contain drop-shadow-[0_0_18px_oklch(0.78_0.22_250/0.55)]"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
 
         {/* Node labels */}
         {nodes.map((n) => {
@@ -383,10 +396,10 @@ function HeroVisual() {
           );
         })}
 
-        {/* Core label — institutional terminology, no SaaS naming */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-[58%] text-center pointer-events-none">
+        {/* Core label — institutional terminology */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-[62%] text-center pointer-events-none">
           <div className="text-[8.5px] sm:text-[9px] font-sans uppercase tracking-[0.34em] text-primary/85">
-            Arquitetura
+            Ecossistema
           </div>
           <div className="text-[8.5px] sm:text-[9px] font-sans uppercase tracking-[0.34em] text-foreground/70 mt-0.5">
             Operacional
@@ -411,8 +424,8 @@ function HeroVisual() {
           <div className="flex min-w-0 items-center gap-2">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-pulse-glow" />
             <span className="text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.18em] sm:tracking-[0.28em] text-foreground/70 truncate">
-              <span className="sm:hidden">Arquitetura</span>
-              <span className="hidden sm:inline">Arquitetura · Integração</span>
+              <span className="sm:hidden">Ecossistema</span>
+              <span className="hidden sm:inline">Ecossistema · Imperius</span>
             </span>
           </div>
           <span className="shrink-0 text-[9px] sm:text-[10px] font-sans tracking-[0.14em] sm:tracking-[0.22em] text-muted-foreground/55 uppercase">
