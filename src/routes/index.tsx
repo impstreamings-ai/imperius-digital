@@ -520,7 +520,7 @@ function Ecossistema() {
           {cards.map((c) => (
             <li
               key={c.title}
-              className="group rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/80 backdrop-blur-md p-6 flex flex-col transition-all duration-300 hover:border-primary/40 hover:-translate-y-0.5 hover:shadow-[0_24px_60px_-30px_oklch(0_0_0/0.8)]"
+              className="card-rise group rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/80 backdrop-blur-md p-6 flex flex-col"
             >
               <div className="flex items-center justify-between mb-5">
                 <div className="h-9 w-9 rounded-md border border-primary/30 bg-primary/10 grid place-items-center">
@@ -576,7 +576,7 @@ function Demonstracoes() {
           target="_blank"
           rel="noreferrer"
           onClick={() => track("demo_click", { project: "black_crown" })}
-          className="group block rounded-2xl border border-border/50 bg-[oklch(0.09_0.005_245)] overflow-hidden transition-all duration-300 hover:border-primary/40 hover:-translate-y-0.5 hover:shadow-[0_40px_80px_-40px_oklch(0_0_0/0.9)]"
+          className="card-rise group block rounded-2xl border border-border/50 bg-[oklch(0.09_0.005_245)] overflow-hidden"
         >
           <div className="grid lg:grid-cols-[1.4fr_1fr] items-stretch">
             <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden bg-black">
@@ -648,7 +648,7 @@ function Process() {
           {steps.map((s) => (
             <li
               key={s.t}
-              className="rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 backdrop-blur-md p-6 flex flex-col"
+              className="card-rise rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 backdrop-blur-md p-6 flex flex-col"
             >
               <div className="flex items-center justify-between mb-5">
                 <div className="h-9 w-9 rounded-md border border-primary/30 bg-primary/10 grid place-items-center">
