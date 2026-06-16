@@ -629,12 +629,10 @@ function Manifesto() {
 
 function Capacidades() {
   const items = [
-    { icon: Globe, label: "Websites profissionais", meta: "Landing pages e institucionais" },
-    { icon: Bot, label: "Atendimento automático no WhatsApp", meta: "Responde em segundos · 24/7 · API oficial Meta" },
+    { icon: Bot, label: "Atendimento no WhatsApp com IA", meta: "API oficial Meta · 24/7" },
     { icon: Users, label: "CRM comercial", meta: "Pipeline, oportunidades e histórico" },
     { icon: Calendar, label: "Agendamento digital", meta: "Reservas, confirmações e lembretes" },
-    { icon: Zap, label: "Integrações", meta: "APIs, webhooks e canais" },
-    { icon: Sparkles, label: "IA que qualifica e agenda", meta: "Triagem, resposta e marcação sem humano" },
+    { icon: Zap, label: "Integrações e websites", meta: "APIs, webhooks, landing pages" },
   ];
   return (
     <section aria-labelledby="capacidades-title" className="relative py-20 sm:py-24 border-t border-border/30">
