@@ -141,7 +141,7 @@ function Nav() {
           <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
         </nav>
         <a href={WA} target="_blank" rel="noreferrer" className="shrink-0" onClick={() => track("whatsapp_click", { location: "nav" })}>
-          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.72_0.22_250/0.7)]">
+          <Button size="sm" className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4">
             <span className="sm:hidden">Falar agora</span>
             <span className="hidden sm:inline">Solicitar demonstração</span>
           </Button>
@@ -163,11 +163,36 @@ function Hero() {
       }}
     >
 
-      <div className="absolute inset-0 bg-grid pointer-events-none opacity-25" />
+      <div className="absolute inset-0 bg-grid hero-drift pointer-events-none opacity-25" />
       <div
-        className="absolute top-[38%] right-[-8%] w-[560px] h-[560px] rounded-full blur-3xl opacity-40 pointer-events-none"
+        className="absolute top-[38%] right-[-8%] w-[560px] h-[560px] rounded-full blur-3xl opacity-40 pointer-events-none hero-drift"
         style={{ background: "radial-gradient(circle, oklch(0.5 0.22 250 / 0.18), transparent 70%)" }}
       />
+      <div className="hero-particles" aria-hidden>
+        {[
+          { l: "8%",  t: "78%", dur: "16s", delay: "0s",   tx: "20px",  ty: "-90px", op: 0.55 },
+          { l: "18%", t: "88%", dur: "19s", delay: "2.4s", tx: "-14px", ty: "-110px", op: 0.45 },
+          { l: "32%", t: "70%", dur: "21s", delay: "5s",   tx: "26px",  ty: "-80px", op: 0.4 },
+          { l: "46%", t: "92%", dur: "17s", delay: "1.2s", tx: "10px",  ty: "-130px", op: 0.5 },
+          { l: "62%", t: "80%", dur: "23s", delay: "3.8s", tx: "-22px", ty: "-95px", op: 0.45 },
+          { l: "74%", t: "86%", dur: "18s", delay: "0.6s", tx: "18px",  ty: "-105px", op: 0.55 },
+          { l: "86%", t: "72%", dur: "20s", delay: "4.2s", tx: "-12px", ty: "-85px", op: 0.4 },
+          { l: "92%", t: "90%", dur: "22s", delay: "6.4s", tx: "8px",   ty: "-120px", op: 0.5 },
+        ].map((p, i) => (
+          <span
+            key={i}
+            style={{
+              left: p.l,
+              top: p.t,
+              ["--p-dur" as never]: p.dur,
+              ["--p-delay" as never]: p.delay,
+              ["--p-tx" as never]: p.tx,
+              ["--p-ty" as never]: p.ty,
+              ["--p-op" as never]: p.op,
+            }}
+          />
+        ))}
+      </div>
 
       <div className="relative mx-auto max-w-7xl px-6 w-full">
         <div className="grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] gap-12 lg:gap-16 items-center">
@@ -178,7 +203,7 @@ function Hero() {
             </div>
             <h1 className="font-display text-[2rem] sm:text-[2.9rem] lg:text-[3.4rem] xl:text-[3.9rem] font-semibold leading-[1.04] tracking-[-0.028em] text-foreground">
               Engenharia de software aplicada à{" "}
-              <span className="text-neon">operação comercial da sua empresa</span>.
+              <span className="text-shimmer">operação comercial da sua empresa</span>.
             </h1>
             <p className="mt-7 max-w-xl text-muted-foreground text-base sm:text-[17px] leading-relaxed font-sans">
               Construímos sistemas de atendimento, pipeline e agenda como engenharia —
@@ -194,7 +219,7 @@ function Hero() {
               >
                 <Button
                   size="lg"
-                  className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_36px_-8px_oklch(0.72_0.22_250/0.7)]"
+                  className="btn-premium w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[14px]"
                 >
                   Solicitar demonstração <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -207,7 +232,7 @@ function Hero() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="w-full sm:w-auto border-border/70 bg-background/30 hover:bg-background/60 hover:border-primary/50 text-foreground/90 font-medium rounded-full h-auto min-h-12 py-2 px-5 sm:px-6 text-[12.5px] sm:text-[13.5px] whitespace-normal text-center leading-snug transition-all duration-300"
+                  className="btn-premium w-full sm:w-auto border-border/70 bg-background/30 hover:bg-background/60 hover:border-primary/50 text-foreground/90 font-medium rounded-full h-auto min-h-12 py-2 px-5 sm:px-6 text-[12.5px] sm:text-[13.5px] whitespace-normal text-center leading-snug"
                 >
                   <Mail className="mr-2 h-4 w-4 shrink-0 text-muted-foreground" />
                   <span>Receber demonstração personalizada</span>
@@ -562,7 +587,7 @@ function Demonstracoes() {
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" aria-hidden />
-              <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-primary/40 bg-background/70 backdrop-blur-md text-[10px] uppercase tracking-[0.18em] font-semibold font-sans text-primary">
+              <div className="badge-pulse absolute top-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-primary/40 bg-background/70 backdrop-blur-md text-[10px] uppercase tracking-[0.18em] font-semibold font-sans text-primary">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
                 Ao vivo
               </div>
