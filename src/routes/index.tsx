@@ -89,7 +89,6 @@ function Landing() {
       <Manifesto />
       <Demonstracoes />
       <Capacidades />
-      <SobreImperius />
       <Services />
       <Process />
       <FAQ />
