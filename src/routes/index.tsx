@@ -1439,42 +1439,43 @@ function ProductShowcaseCard({ card, featured = false }: { card: DemoCard; featu
 
 function Process() {
   const steps = [
-    { n: "01", i: MessageCircle, t: "Diagnóstico", d: "Conversa direta para entender contexto, posicionamento e gargalos atuais." },
-    { n: "02", i: LayoutTemplate, t: "Implementação funcional", d: "Construímos uma versão funcional do seu sistema antes de qualquer fechamento." },
-    { n: "03", i: ClipboardList, t: "Refinamento", d: "Iterações até cada detalhe refletir a sua marca e seu padrão de operação." },
-    { n: "04", i: Rocket, t: "Publicação", d: "Deploy, configuração de domínio, integrações e monitoramento ativo." },
-    { n: "05", i: TrendingUp, t: "Operação contínua", d: "Acompanhamento de performance e evoluções planejadas com o seu time." },
+    { n: "01", i: MessageCircle, t: "Diagnóstico", d: "Conversa direta para mapear contexto, gargalos e oportunidades reais." },
+    { n: "02", i: LayoutTemplate, t: "Construção", d: "Engenharia da solução sob o seu contexto — funcional antes de qualquer fechamento." },
+    { n: "03", i: Rocket, t: "Implantação", d: "Deploy, integrações e operação assistida até estar rodando com o seu time." },
   ];
   return (
-    <section id="processo" className="py-24 sm:py-32">
-      <div className="mx-auto max-w-6xl px-6">
-        <SectionTitle
-          display
-          align="left"
-          eyebrow="Processo"
-          title="Do briefing à operação, em cinco passos."
-          sub="Sem propostas genéricas. Você acompanha a construção em cada etapa."
-        />
-        <ol className="mt-4 divide-y divide-border/40 border-y border-border/40">
+    <section id="processo" className="py-20 sm:py-28 border-t border-border/30">
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="max-w-2xl mb-12 sm:mb-14">
+          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
+            <span className="h-px w-8 bg-primary/70" />
+            Como funciona
+          </div>
+          <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+            Três etapas.{" "}
+            <span className="text-foreground/55">Sem propostas genéricas.</span>
+          </h2>
+        </div>
+        <ol className="grid gap-4 sm:gap-5 sm:grid-cols-3">
           {steps.map((s) => (
             <li
               key={s.t}
-              className="grid grid-cols-[3rem_auto_1fr] sm:grid-cols-[4rem_auto_1fr] items-start gap-x-5 sm:gap-x-8 py-7 sm:py-8"
+              className="rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 backdrop-blur-md p-6 flex flex-col"
             >
-              <span className="font-heading text-[13px] sm:text-[14px] text-primary tracking-[0.22em] pt-2 font-semibold">
-                {s.n}
-              </span>
-              <div className="h-10 w-10 rounded-lg flex items-center justify-center ring-1 ring-primary/30 shrink-0" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.55), oklch(0.18 0.05 245 / 0.25))" }}>
-                <s.i className="h-[18px] w-[18px] text-primary" />
+              <div className="flex items-center justify-between mb-5">
+                <div className="h-9 w-9 rounded-md border border-primary/30 bg-primary/10 grid place-items-center">
+                  <s.i className="h-[18px] w-[18px] text-primary" />
+                </div>
+                <span className="font-heading text-[11px] tracking-[0.24em] text-muted-foreground/60 font-semibold">
+                  {s.n}
+                </span>
               </div>
-              <div className="min-w-0">
-                <h3 className="font-heading font-semibold text-[17px] sm:text-[19px] tracking-[-0.01em] text-foreground">
-                  {s.t}
-                </h3>
-                <p className="mt-1.5 text-[14px] sm:text-[15px] text-muted-foreground leading-relaxed font-sans max-w-2xl">
-                  {s.d}
-                </p>
-              </div>
+              <h3 className="font-heading font-semibold text-[16px] tracking-[-0.01em] text-foreground leading-snug">
+                {s.t}
+              </h3>
+              <p className="mt-2 text-[13.5px] text-muted-foreground leading-relaxed font-sans">
+                {s.d}
+              </p>
             </li>
           ))}
         </ol>
@@ -1482,6 +1483,7 @@ function Process() {
     </section>
   );
 }
+
 
 function FAQ() {
   const items = [
