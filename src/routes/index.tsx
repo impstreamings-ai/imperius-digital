@@ -616,7 +616,7 @@ function Footer() {
               <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[44px] w-auto object-contain" loading="lazy" decoding="async" />
               <div>
                 <div className="font-heading font-bold tracking-[0.2em] text-sm">IMPERIUS</div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-sans font-medium">Software · Automação · IA</div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-sans font-medium">Software house</div>
               </div>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed font-sans">
@@ -625,14 +625,15 @@ function Footer() {
           </div>
 
           <div>
-            <div className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4 font-sans">Soluções</div>
+            <div className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4 font-sans">Navegação</div>
             <ul className="space-y-2.5 text-sm text-muted-foreground font-sans">
-              <li><a href="#servicos" className="hover:text-foreground transition-colors">Landing Pages</a></li>
-              <li><a href="#servicos" className="hover:text-foreground transition-colors">Automação</a></li>
-              <li><a href="#servicos" className="hover:text-foreground transition-colors">Inteligência Artificial</a></li>
-              <li><a href="#vitrine" className="hover:text-foreground transition-colors">Vitrine de projetos</a></li>
+              <li><a href="#vitrine" className="hover:text-foreground transition-colors">Demonstração</a></li>
+              <li><a href="#processo" className="hover:text-foreground transition-colors">Como funciona</a></li>
+              <li><Link to="/portfolio" className="hover:text-foreground transition-colors">Portfólio</Link></li>
+              <li><a href="#faq" className="hover:text-foreground transition-colors">FAQ</a></li>
             </ul>
           </div>
+
 
           <div>
             <div className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4 font-sans">Contato direto</div>
