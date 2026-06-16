@@ -155,7 +155,7 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative lg:min-h-[92vh] flex items-center pt-28 sm:pt-32 pb-20 sm:pb-24 overflow-hidden"
+      className="relative lg:min-h-[88vh] flex items-center pt-24 sm:pt-28 lg:pt-24 pb-16 sm:pb-20 lg:pb-20 overflow-hidden"
       style={{
         background: "var(--gradient-hero)",
         paddingLeft: "max(0px, env(safe-area-inset-left))",
@@ -194,22 +194,22 @@ function Hero() {
         ))}
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 w-full">
-        <div className="grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] gap-12 lg:gap-16 items-center">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2.5 text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-sans font-medium mb-8">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-6 w-full">
+        <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] gap-10 sm:gap-12 lg:gap-14 items-center">
+          <div className="max-w-[34rem]">
+            <div className="inline-flex items-center gap-2.5 text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-sans font-medium mb-6 sm:mb-7">
               <span className="h-px w-8 bg-primary/70" />
               Imperius · Software house
             </div>
-            <h1 className="font-display text-[2rem] sm:text-[2.9rem] lg:text-[3.4rem] xl:text-[3.9rem] font-semibold leading-[1.04] tracking-[-0.028em] text-foreground">
+            <h1 className="font-display text-[1.95rem] sm:text-[2.75rem] lg:text-[3.2rem] xl:text-[3.65rem] font-semibold leading-[1.02] tracking-[-0.028em] text-foreground">
               Engenharia de software aplicada à{" "}
               <span className="text-shimmer">operação comercial da sua empresa</span>.
             </h1>
-            <p className="mt-7 max-w-xl text-muted-foreground text-base sm:text-[17px] leading-relaxed font-sans">
+            <p className="mt-5 sm:mt-6 max-w-[32rem] text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed font-sans">
               Construímos sistemas de atendimento, pipeline e agenda como engenharia —
               não como template. Produtos próprios em evolução, implantados no contexto real do seu negócio.
             </p>
-            <div className="mt-9 flex flex-col sm:flex-row sm:items-center gap-4">
+            <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-3.5">
               <a
                 href={WA}
                 target="_blank"
@@ -239,12 +239,14 @@ function Hero() {
                 </Button>
               </a>
             </div>
-            <p className="mt-8 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
+            <p className="mt-6 sm:mt-7 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
               Demonstração funcional em poucos dias · Sem proposta antes da entrega · Atendimento direto com a equipe
             </p>
           </div>
 
-          <HeroVisual />
+          <div className="w-full max-w-[420px] sm:max-w-[480px] lg:max-w-none mx-auto lg:mx-0">
+            <HeroVisual />
+          </div>
         </div>
       </div>
     </section>
