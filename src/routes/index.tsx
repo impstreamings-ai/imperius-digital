@@ -202,9 +202,10 @@ function Hero() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="w-full sm:w-auto border-border/70 bg-background/30 hover:bg-background/60 hover:border-primary/50 text-foreground/90 font-medium rounded-full h-12 px-6 text-[13.5px] transition-all duration-300"
+                  className="w-full sm:w-auto border-border/70 bg-background/30 hover:bg-background/60 hover:border-primary/50 text-foreground/90 font-medium rounded-full h-auto min-h-12 py-2 px-5 sm:px-6 text-[12.5px] sm:text-[13.5px] whitespace-normal text-center leading-snug transition-all duration-300"
                 >
-                  <Mail className="mr-2 h-4 w-4 text-muted-foreground" /> Receber demonstração personalizada
+                  <Mail className="mr-2 h-4 w-4 shrink-0 text-muted-foreground" />
+                  <span>Receber demonstração personalizada</span>
                 </Button>
               </a>
             </div>
