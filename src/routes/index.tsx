@@ -7,13 +7,10 @@ import blackCrownHeroCover from "@/assets/black-crown-cover.png.asset.json";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
-  Bot,
   MessageCircle,
-  Zap,
   Instagram,
   Phone,
   ExternalLink,
-  Globe,
   ClipboardList,
   Rocket,
   LayoutTemplate,
@@ -21,19 +18,10 @@ import {
   Scissors,
   Users,
   Calendar,
-  Stethoscope,
-  Sparkles,
-  Briefcase,
-  Building2,
   Mail,
-  Shield,
-  CheckCircle2,
   Activity,
-  CheckCheck,
-  Clock,
-  BarChart3,
-  CircleDot,
 } from "lucide-react";
+
 import { trackEvent } from "@/lib/analytics";
 
 const track = (name: string, params: Record<string, unknown> = {}) => trackEvent(name, params);
