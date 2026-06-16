@@ -221,39 +221,120 @@ function Hero() {
 }
 
 function HeroVisual() {
+  // Institutional system diagram — engineering of commercial operations.
+  const nodes = [
+    { id: "site", label: "Site", x: 90, y: 70 },
+    { id: "wa", label: "WhatsApp", x: 90, y: 200 },
+    { id: "form", label: "Formulário", x: 90, y: 330 },
+    { id: "core", label: "Imperius Core", x: 270, y: 200, primary: true },
+    { id: "crm", label: "CRM", x: 460, y: 90 },
+    { id: "auto", label: "Automação", x: 460, y: 200 },
+    { id: "agenda", label: "Agenda", x: 460, y: 310 },
+  ];
+  const edges = [
+    ["site", "core"], ["wa", "core"], ["form", "core"],
+    ["core", "crm"], ["core", "auto"], ["core", "agenda"],
+  ];
+  const byId = Object.fromEntries(nodes.map((n) => [n.id, n]));
+
   return (
-    <div className="relative w-full max-w-[640px] mx-auto lg:ml-auto lg:mr-0" aria-hidden>
-      {/* Main browser frame — Black Crown live project */}
-      <a
-        href={BLACK_CROWN_URL}
-        target="_blank"
-        rel="noreferrer"
-        onClick={() => track("hero_visual_click", { project: "black_crown" })}
-        className="relative block rounded-[14px] overflow-hidden border border-border/60 bg-[oklch(0.09_0.005_240)] shadow-[0_50px_140px_-30px_oklch(0_0_0/0.85),0_0_0_1px_oklch(1_0_0/0.04)_inset] transition-transform duration-500 hover:-translate-y-1"
-      >
-        <div className="flex items-center gap-1.5 px-3 py-2 border-b border-border/50 bg-[oklch(0.08_0.004_240)]">
-          <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
-          <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
-          <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
-          <span className="ml-3 flex-1 truncate rounded-md bg-[oklch(0.12_0.005_245)] px-2.5 py-1 text-[10.5px] font-sans text-muted-foreground/80">
-            blackcrown-by-imperius.lovable.app
-          </span>
-          <span className="hidden sm:inline-flex items-center gap-1 text-[9.5px] uppercase tracking-[0.22em] text-primary font-semibold font-sans">
+    <div className="relative w-full max-w-[600px] mx-auto lg:ml-auto lg:mr-0" aria-hidden>
+      <div className="relative rounded-[18px] overflow-hidden border border-border/60 bg-[oklch(0.075_0.004_240)] shadow-[0_50px_140px_-30px_oklch(0_0_0/0.85),0_0_0_1px_oklch(1_0_0/0.04)_inset]">
+        {/* meta bar */}
+        <div className="flex items-center justify-between px-5 py-3 border-b border-border/50 bg-[oklch(0.065_0.004_240)]">
+          <div className="flex items-center gap-2.5">
             <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-            Ao vivo
+            <span className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground font-sans font-medium">
+              Arquitetura · Operação comercial
+            </span>
+          </div>
+          <span className="text-[10px] font-sans text-muted-foreground/60 tracking-wider">v · 2026</span>
+        </div>
+
+        {/* diagram */}
+        <div className="relative aspect-[16/11] bg-[oklch(0.07_0.004_240)]">
+          {/* grid bg */}
+          <div
+            className="absolute inset-0 opacity-[0.18]"
+            style={{
+              backgroundImage:
+                "linear-gradient(oklch(1 0 0 / 0.06) 1px, transparent 1px), linear-gradient(90deg, oklch(1 0 0 / 0.06) 1px, transparent 1px)",
+              backgroundSize: "32px 32px",
+            }}
+          />
+          {/* radial glow behind core */}
+          <div
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] rounded-full blur-3xl opacity-50 pointer-events-none"
+            style={{ background: "radial-gradient(circle, oklch(0.72 0.22 250 / 0.22), transparent 70%)" }}
+          />
+
+          <svg viewBox="0 0 560 400" className="absolute inset-0 h-full w-full">
+            <defs>
+              <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0.15" />
+                <stop offset="50%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0.15" />
+              </linearGradient>
+            </defs>
+
+            {edges.map(([a, b], i) => {
+              const A = byId[a];
+              const B = byId[b];
+              const mx = (A.x + B.x) / 2;
+              return (
+                <path
+                  key={i}
+                  d={`M ${A.x} ${A.y} C ${mx} ${A.y}, ${mx} ${B.y}, ${B.x} ${B.y}`}
+                  stroke="url(#edge)"
+                  strokeWidth="1.25"
+                  fill="none"
+                />
+              );
+            })}
+
+            {nodes.map((n) => (
+              <g key={n.id}>
+                <rect
+                  x={n.x - 62}
+                  y={n.y - 18}
+                  width={124}
+                  height={36}
+                  rx={10}
+                  fill={n.primary ? "oklch(0.72 0.22 250 / 0.14)" : "oklch(0.1 0.005 240)"}
+                  stroke={n.primary ? "oklch(0.72 0.22 250 / 0.7)" : "oklch(1 0 0 / 0.1)"}
+                  strokeWidth="1"
+                />
+                <circle
+                  cx={n.x - 46}
+                  cy={n.y}
+                  r="3"
+                  fill={n.primary ? "oklch(0.78 0.2 250)" : "oklch(0.6 0.04 250)"}
+                />
+                <text
+                  x={n.x - 34}
+                  y={n.y + 4}
+                  fontSize="12"
+                  fontFamily="ui-sans-serif, system-ui"
+                  fontWeight={n.primary ? 600 : 500}
+                  fill={n.primary ? "oklch(0.95 0.02 250)" : "oklch(0.78 0.02 250)"}
+                >
+                  {n.label}
+                </text>
+              </g>
+            ))}
+          </svg>
+        </div>
+
+        {/* footer line */}
+        <div className="flex items-center justify-between px-5 py-3 border-t border-border/50 bg-[oklch(0.065_0.004_240)]">
+          <span className="text-[10.5px] font-sans text-muted-foreground/80">
+            Sistemas próprios · Integrações sob medida
+          </span>
+          <span className="text-[10.5px] font-sans text-primary/90 tracking-wider uppercase">
+            Engenharia aplicada
           </span>
         </div>
-        <div className="relative aspect-[16/10] bg-card">
-          <img
-            src={blackCrownHeroCover.url}
-            alt="Projeto Black Crown desenvolvido pela Imperius"
-            loading="eager"
-            decoding="async"
-            className="absolute inset-0 h-full w-full object-cover object-top"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent pointer-events-none" />
-        </div>
-      </a>
+      </div>
     </div>
   );
 }
