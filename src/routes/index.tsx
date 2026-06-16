@@ -147,9 +147,8 @@ function Nav() {
           </span>
         </a>
         <nav className="hidden md:flex items-center gap-9 text-[13px] text-muted-foreground font-medium">
-          <a href="#vitrine" className="hover:text-foreground transition-colors">Vitrine</a>
-          <a href="#servicos" className="hover:text-foreground transition-colors">Soluções</a>
-          <a href="#processo" className="hover:text-foreground transition-colors">Processo</a>
+          <a href="#vitrine" className="hover:text-foreground transition-colors">Demonstração</a>
+          <a href="#processo" className="hover:text-foreground transition-colors">Como funciona</a>
           <Link to="/portfolio" className="hover:text-foreground transition-colors">Portfólio</Link>
           <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
         </nav>
