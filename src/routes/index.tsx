@@ -665,7 +665,7 @@ function Capacidades() {
           </div>
         </div>
 
-        <ul className="grid grid-cols-2 lg:grid-cols-6 border-y border-border/40 divide-x divide-border/40">
+        <ul className="grid grid-cols-2 lg:grid-cols-4 border-y border-border/40 divide-x divide-border/40">
           {items.map((it) => (
             <li
               key={it.label}
