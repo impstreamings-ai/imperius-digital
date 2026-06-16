@@ -141,7 +141,7 @@ function Nav() {
           <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
         </nav>
         <a href={WA} target="_blank" rel="noreferrer" className="shrink-0" onClick={() => track("whatsapp_click", { location: "nav" })}>
-          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.72_0.22_250/0.7)]">
+          <Button size="sm" className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4">
             <span className="sm:hidden">Falar agora</span>
             <span className="hidden sm:inline">Solicitar demonstração</span>
           </Button>
@@ -163,11 +163,36 @@ function Hero() {
       }}
     >
 
-      <div className="absolute inset-0 bg-grid pointer-events-none opacity-25" />
+      <div className="absolute inset-0 bg-grid hero-drift pointer-events-none opacity-25" />
       <div
-        className="absolute top-[38%] right-[-8%] w-[560px] h-[560px] rounded-full blur-3xl opacity-40 pointer-events-none"
+        className="absolute top-[38%] right-[-8%] w-[560px] h-[560px] rounded-full blur-3xl opacity-40 pointer-events-none hero-drift"
         style={{ background: "radial-gradient(circle, oklch(0.5 0.22 250 / 0.18), transparent 70%)" }}
       />
+      <div className="hero-particles" aria-hidden>
+        {[
+          { l: "8%",  t: "78%", dur: "16s", delay: "0s",   tx: "20px",  ty: "-90px", op: 0.55 },
+          { l: "18%", t: "88%", dur: "19s", delay: "2.4s", tx: "-14px", ty: "-110px", op: 0.45 },
+          { l: "32%", t: "70%", dur: "21s", delay: "5s",   tx: "26px",  ty: "-80px", op: 0.4 },
+          { l: "46%", t: "92%", dur: "17s", delay: "1.2s", tx: "10px",  ty: "-130px", op: 0.5 },
+          { l: "62%", t: "80%", dur: "23s", delay: "3.8s", tx: "-22px", ty: "-95px", op: 0.45 },
+          { l: "74%", t: "86%", dur: "18s", delay: "0.6s", tx: "18px",  ty: "-105px", op: 0.55 },
+          { l: "86%", t: "72%", dur: "20s", delay: "4.2s", tx: "-12px", ty: "-85px", op: 0.4 },
+          { l: "92%", t: "90%", dur: "22s", delay: "6.4s", tx: "8px",   ty: "-120px", op: 0.5 },
+        ].map((p, i) => (
+          <span
+            key={i}
+            style={{
+              left: p.l,
+              top: p.t,
+              ["--p-dur" as never]: p.dur,
+              ["--p-delay" as never]: p.delay,
+              ["--p-tx" as never]: p.tx,
+              ["--p-ty" as never]: p.ty,
+              ["--p-op" as never]: p.op,
+            }}
+          />
+        ))}
+      </div>
 
       <div className="relative mx-auto max-w-7xl px-6 w-full">
         <div className="grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] gap-12 lg:gap-16 items-center">
