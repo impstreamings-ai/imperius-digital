@@ -382,7 +382,7 @@ function HeroVisual() {
           </div>
         </div>
 
-        {/* Corner brackets */}
+        {/* Corner brackets — decorative, hidden on mobile to free strip space */}
         {[
           "top-3 left-3 border-l border-t",
           "top-3 right-3 border-r border-t",
@@ -391,32 +391,33 @@ function HeroVisual() {
         ].map((c, i) => (
           <span
             key={i}
-            className={`absolute h-3 w-3 border-primary/40 ${c}`}
+            className={`hidden sm:block absolute h-3 w-3 border-primary/40 ${c}`}
           />
         ))}
 
         {/* Top meta strip */}
-        <div className="absolute top-0 inset-x-0 flex items-center justify-between gap-3 px-3 sm:px-4 py-2.5 border-b border-border/40 bg-gradient-to-b from-[oklch(0.065_0.004_240)]/90 to-transparent">
+        <div className="absolute top-0 inset-x-0 flex items-center justify-between gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 border-b border-border/40 bg-gradient-to-b from-[oklch(0.065_0.004_240)]/90 to-transparent">
           <div className="flex min-w-0 items-center gap-2">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-pulse-glow" />
-            <span className="text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.22em] sm:tracking-[0.28em] text-foreground/70 truncate">
+            <span className="text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.18em] sm:tracking-[0.28em] text-foreground/70 truncate">
               <span className="sm:hidden">Arquitetura</span>
               <span className="hidden sm:inline">Arquitetura · Integração</span>
             </span>
           </div>
-          <span className="shrink-0 text-[9px] sm:text-[10px] font-sans tracking-[0.18em] sm:tracking-[0.22em] text-muted-foreground/55 uppercase">
+          <span className="shrink-0 text-[9px] sm:text-[10px] font-sans tracking-[0.14em] sm:tracking-[0.22em] text-muted-foreground/55 uppercase">
             v · 2026
           </span>
         </div>
 
-
         {/* Bottom meta strip */}
-        <div className="absolute bottom-0 inset-x-0 flex items-center justify-between gap-3 px-3 sm:px-4 py-2.5 border-t border-border/40 bg-gradient-to-t from-[oklch(0.065_0.004_240)]/90 to-transparent">
-          <span className="text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.22em] sm:tracking-[0.28em] text-muted-foreground/70 truncate">
-            Sistemas próprios
+        <div className="absolute bottom-0 inset-x-0 flex items-center justify-between gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 border-t border-border/40 bg-gradient-to-t from-[oklch(0.065_0.004_240)]/90 to-transparent">
+          <span className="text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.18em] sm:tracking-[0.28em] text-muted-foreground/70 truncate">
+            <span className="sm:hidden">Sistemas</span>
+            <span className="hidden sm:inline">Sistemas próprios</span>
           </span>
-          <span className="shrink-0 text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.22em] sm:tracking-[0.28em] text-primary/80">
-            Engenharia aplicada
+          <span className="shrink-0 text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.14em] sm:tracking-[0.28em] text-primary/80">
+            <span className="sm:hidden">Engenharia</span>
+            <span className="hidden sm:inline">Engenharia aplicada</span>
           </span>
         </div>
       </div>
