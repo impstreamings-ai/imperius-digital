@@ -156,8 +156,13 @@ function Hero() {
     <section
       id="top"
       className="relative lg:min-h-[92vh] flex items-center pt-28 sm:pt-32 pb-20 sm:pb-24 overflow-hidden"
-      style={{ background: "var(--gradient-hero)" }}
+      style={{
+        background: "var(--gradient-hero)",
+        paddingLeft: "max(0px, env(safe-area-inset-left))",
+        paddingRight: "max(0px, env(safe-area-inset-right))",
+      }}
     >
+
       <div className="absolute inset-0 bg-grid pointer-events-none opacity-25" />
       <div
         className="absolute top-[38%] right-[-8%] w-[560px] h-[560px] rounded-full blur-3xl opacity-40 pointer-events-none"
