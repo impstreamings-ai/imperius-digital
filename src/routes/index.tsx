@@ -221,119 +221,184 @@ function Hero() {
 }
 
 function HeroVisual() {
-  // Institutional system diagram — engineering of commercial operations.
-  const nodes = [
-    { id: "site", label: "Site", x: 90, y: 70 },
-    { id: "wa", label: "WhatsApp", x: 90, y: 200 },
-    { id: "form", label: "Formulário", x: 90, y: 330 },
-    { id: "core", label: "Imperius Core", x: 270, y: 200, primary: true },
-    { id: "crm", label: "CRM", x: 460, y: 90 },
-    { id: "auto", label: "Automação", x: 460, y: 200 },
-    { id: "agenda", label: "Agenda", x: 460, y: 310 },
-  ];
-  const edges = [
-    ["site", "core"], ["wa", "core"], ["form", "core"],
-    ["core", "crm"], ["core", "auto"], ["core", "agenda"],
-  ];
-  const byId = Object.fromEntries(nodes.map((n) => [n.id, n]));
+  // Premium institutional dashboard composition — abstract own-product look.
+  // No segment references, no client data, no flowcharts.
+  const spark = [22, 28, 26, 34, 31, 40, 38, 46, 44, 52, 58, 55, 64, 70, 68, 78];
+  const max = Math.max(...spark);
+  const points = spark
+    .map((v, i) => `${(i / (spark.length - 1)) * 100},${100 - (v / max) * 100}`)
+    .join(" ");
+  const areaPath = `M0,100 L${points.split(" ").join(" L")} L100,100 Z`;
 
   return (
     <div className="relative w-full max-w-[600px] mx-auto lg:ml-auto lg:mr-0" aria-hidden>
-      <div className="relative rounded-[18px] overflow-hidden border border-border/60 bg-[oklch(0.075_0.004_240)] shadow-[0_50px_140px_-30px_oklch(0_0_0/0.85),0_0_0_1px_oklch(1_0_0/0.04)_inset]">
-        {/* meta bar */}
-        <div className="flex items-center justify-between px-5 py-3 border-b border-border/50 bg-[oklch(0.065_0.004_240)]">
+      {/* Ambient glow */}
+      <div
+        className="absolute -inset-10 blur-3xl opacity-60 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(60% 50% at 70% 30%, oklch(0.72 0.22 250 / 0.18), transparent 70%)",
+        }}
+      />
+
+      {/* Back card — peeking behind for depth */}
+      <div
+        className="absolute -right-6 top-10 hidden md:block w-[78%] h-[78%] rounded-[16px] border border-border/40 bg-[oklch(0.08_0.004_240)]/80 backdrop-blur-sm rotate-[2.5deg] shadow-[0_30px_80px_-30px_oklch(0_0_0/0.7)]"
+      />
+
+      {/* Main app frame */}
+      <div className="relative rounded-[16px] overflow-hidden border border-border/60 bg-[oklch(0.075_0.004_240)] shadow-[0_50px_140px_-30px_oklch(0_0_0/0.85),0_0_0_1px_oklch(1_0_0/0.04)_inset]">
+        {/* top chrome */}
+        <div className="flex items-center justify-between px-4 py-2.5 border-b border-border/50 bg-[oklch(0.065_0.004_240)]">
           <div className="flex items-center gap-2.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-            <span className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground font-sans font-medium">
-              Arquitetura · Operação comercial
+            <div className="h-6 w-6 rounded-md bg-primary/15 border border-primary/30 flex items-center justify-center">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+            </div>
+            <span className="text-[11px] font-sans font-medium text-foreground/85 tracking-tight">
+              Imperius · Console
             </span>
           </div>
-          <span className="text-[10px] font-sans text-muted-foreground/60 tracking-wider">v · 2026</span>
+          <div className="flex items-center gap-3">
+            <span className="hidden sm:inline text-[10px] font-sans text-muted-foreground/70 tracking-wider uppercase">
+              Visão geral
+            </span>
+            <span className="h-2 w-2 rounded-full bg-emerald-400/70" />
+          </div>
         </div>
 
-        {/* diagram */}
-        <div className="relative aspect-[16/11] bg-[oklch(0.07_0.004_240)]">
-          {/* grid bg */}
-          <div
-            className="absolute inset-0 opacity-[0.18]"
-            style={{
-              backgroundImage:
-                "linear-gradient(oklch(1 0 0 / 0.06) 1px, transparent 1px), linear-gradient(90deg, oklch(1 0 0 / 0.06) 1px, transparent 1px)",
-              backgroundSize: "32px 32px",
-            }}
-          />
-          {/* radial glow behind core */}
-          <div
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] rounded-full blur-3xl opacity-50 pointer-events-none"
-            style={{ background: "radial-gradient(circle, oklch(0.72 0.22 250 / 0.22), transparent 70%)" }}
-          />
-
-          <svg viewBox="0 0 560 400" className="absolute inset-0 h-full w-full">
-            <defs>
-              <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0.15" />
-                <stop offset="50%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0.15" />
-              </linearGradient>
-            </defs>
-
-            {edges.map(([a, b], i) => {
-              const A = byId[a];
-              const B = byId[b];
-              const mx = (A.x + B.x) / 2;
-              return (
-                <path
-                  key={i}
-                  d={`M ${A.x} ${A.y} C ${mx} ${A.y}, ${mx} ${B.y}, ${B.x} ${B.y}`}
-                  stroke="url(#edge)"
-                  strokeWidth="1.25"
-                  fill="none"
-                />
-              );
-            })}
-
-            {nodes.map((n) => (
-              <g key={n.id}>
-                <rect
-                  x={n.x - 62}
-                  y={n.y - 18}
-                  width={124}
-                  height={36}
-                  rx={10}
-                  fill={n.primary ? "oklch(0.72 0.22 250 / 0.14)" : "oklch(0.1 0.005 240)"}
-                  stroke={n.primary ? "oklch(0.72 0.22 250 / 0.7)" : "oklch(1 0 0 / 0.1)"}
-                  strokeWidth="1"
-                />
-                <circle
-                  cx={n.x - 46}
-                  cy={n.y}
-                  r="3"
-                  fill={n.primary ? "oklch(0.78 0.2 250)" : "oklch(0.6 0.04 250)"}
-                />
-                <text
-                  x={n.x - 34}
-                  y={n.y + 4}
-                  fontSize="12"
-                  fontFamily="ui-sans-serif, system-ui"
-                  fontWeight={n.primary ? 600 : 500}
-                  fill={n.primary ? "oklch(0.95 0.02 250)" : "oklch(0.78 0.02 250)"}
-                >
-                  {n.label}
-                </text>
-              </g>
+        {/* body */}
+        <div className="grid grid-cols-12 gap-3 p-4 bg-[oklch(0.07_0.004_240)]">
+          {/* KPI strip */}
+          <div className="col-span-12 grid grid-cols-3 gap-3">
+            {[
+              { k: "Conversões", v: "128", d: "+18%" },
+              { k: "Tempo médio", v: "2m 14s", d: "−9%" },
+              { k: "Receita", v: "R$ 84k", d: "+22%" },
+            ].map((m) => (
+              <div
+                key={m.k}
+                className="rounded-lg border border-border/50 bg-[oklch(0.085_0.005_240)] px-3 py-2.5"
+              >
+                <div className="text-[9.5px] uppercase tracking-[0.18em] text-muted-foreground/70 font-sans">
+                  {m.k}
+                </div>
+                <div className="mt-1 flex items-baseline gap-2">
+                  <span className="font-display text-[15px] font-semibold text-foreground tracking-tight">
+                    {m.v}
+                  </span>
+                  <span className="text-[10px] font-sans text-primary/90 font-medium">{m.d}</span>
+                </div>
+              </div>
             ))}
-          </svg>
+          </div>
+
+          {/* Chart card */}
+          <div className="col-span-12 md:col-span-7 rounded-lg border border-border/50 bg-[oklch(0.085_0.005_240)] p-3">
+            <div className="flex items-center justify-between mb-2">
+              <div>
+                <div className="text-[9.5px] uppercase tracking-[0.18em] text-muted-foreground/70 font-sans">
+                  Performance
+                </div>
+                <div className="text-[12px] font-sans text-foreground/85 mt-0.5">
+                  Últimos 30 dias
+                </div>
+              </div>
+              <div className="flex gap-1">
+                {["7D", "30D", "90D"].map((t, i) => (
+                  <span
+                    key={t}
+                    className={`text-[9.5px] font-sans px-1.5 py-0.5 rounded ${
+                      i === 1
+                        ? "bg-primary/15 text-primary border border-primary/30"
+                        : "text-muted-foreground/60 border border-transparent"
+                    }`}
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="relative aspect-[16/8]">
+              <svg
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                className="absolute inset-0 h-full w-full"
+              >
+                <defs>
+                  <linearGradient id="heroArea" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0.45" />
+                    <stop offset="100%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+                {[20, 40, 60, 80].map((y) => (
+                  <line
+                    key={y}
+                    x1="0"
+                    x2="100"
+                    y1={y}
+                    y2={y}
+                    stroke="oklch(1 0 0 / 0.05)"
+                    strokeWidth="0.3"
+                  />
+                ))}
+                <path d={areaPath} fill="url(#heroArea)" />
+                <polyline
+                  points={points}
+                  fill="none"
+                  stroke="oklch(0.78 0.2 250)"
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  vectorEffect="non-scaling-stroke"
+                />
+              </svg>
+            </div>
+          </div>
+
+          {/* Activity card */}
+          <div className="col-span-12 md:col-span-5 rounded-lg border border-border/50 bg-[oklch(0.085_0.005_240)] p-3">
+            <div className="flex items-center justify-between mb-2.5">
+              <div className="text-[9.5px] uppercase tracking-[0.18em] text-muted-foreground/70 font-sans">
+                Atividade
+              </div>
+              <span className="text-[9.5px] font-sans text-muted-foreground/50">agora</span>
+            </div>
+            <ul className="space-y-2">
+              {[
+                { c: "bg-emerald-400/80", t: "Lead qualificado", s: "fluxo Aurora" },
+                { c: "bg-primary/90", t: "Proposta enviada", s: "pipeline #248" },
+                { c: "bg-amber-400/80", t: "Follow-up agendado", s: "amanhã · 09h" },
+                { c: "bg-sky-400/80", t: "Integração sincronizada", s: "CRM · ok" },
+              ].map((a, i) => (
+                <li key={i} className="flex items-center gap-2.5">
+                  <span className={`h-1.5 w-1.5 rounded-full ${a.c}`} />
+                  <span className="text-[11px] font-sans text-foreground/85 truncate">{a.t}</span>
+                  <span className="ml-auto text-[10px] font-sans text-muted-foreground/60 truncate">
+                    {a.s}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        {/* footer line */}
-        <div className="flex items-center justify-between px-5 py-3 border-t border-border/50 bg-[oklch(0.065_0.004_240)]">
-          <span className="text-[10.5px] font-sans text-muted-foreground/80">
-            Sistemas próprios · Integrações sob medida
+        {/* footer */}
+        <div className="flex items-center justify-between px-4 py-2.5 border-t border-border/50 bg-[oklch(0.065_0.004_240)]">
+          <span className="text-[10px] font-sans text-muted-foreground/70 tracking-wider">
+            Sistemas próprios · Imperius
           </span>
-          <span className="text-[10.5px] font-sans text-primary/90 tracking-wider uppercase">
+          <span className="text-[10px] font-sans text-primary/90 tracking-[0.22em] uppercase">
             Engenharia aplicada
           </span>
         </div>
+      </div>
+
+      {/* Floating badge */}
+      <div className="hidden md:flex absolute -left-5 bottom-8 items-center gap-2 rounded-full border border-border/60 bg-[oklch(0.09_0.005_240)]/95 backdrop-blur px-3 py-2 shadow-[0_20px_60px_-20px_oklch(0_0_0/0.8)]">
+        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse-glow" />
+        <span className="text-[10.5px] font-sans text-foreground/85 tracking-tight">
+          Operação ativa · sincronizada
+        </span>
       </div>
     </div>
   );
