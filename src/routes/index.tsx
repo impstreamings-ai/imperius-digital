@@ -395,17 +395,19 @@ function HeroVisual() {
         ))}
 
         {/* Top meta strip */}
-        <div className="absolute top-0 inset-x-0 flex items-center justify-between px-4 py-2.5 border-b border-border/40 bg-gradient-to-b from-[oklch(0.065_0.004_240)]/90 to-transparent">
-          <div className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-            <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-foreground/70">
-              Arquitetura · Integração
+        <div className="absolute top-0 inset-x-0 flex items-center justify-between gap-3 px-3 sm:px-4 py-2.5 border-b border-border/40 bg-gradient-to-b from-[oklch(0.065_0.004_240)]/90 to-transparent">
+          <div className="flex min-w-0 items-center gap-2">
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-pulse-glow" />
+            <span className="text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.22em] sm:tracking-[0.28em] text-foreground/70 truncate">
+              <span className="sm:hidden">Arquitetura</span>
+              <span className="hidden sm:inline">Arquitetura · Integração</span>
             </span>
           </div>
-          <span className="text-[10px] font-sans tracking-[0.22em] text-muted-foreground/55 uppercase">
+          <span className="shrink-0 text-[9px] sm:text-[10px] font-sans tracking-[0.18em] sm:tracking-[0.22em] text-muted-foreground/55 uppercase">
             v · 2026
           </span>
         </div>
+
 
         {/* Bottom meta strip */}
         <div className="absolute bottom-0 inset-x-0 flex items-center justify-between px-4 py-2.5 border-t border-border/40 bg-gradient-to-t from-[oklch(0.065_0.004_240)]/90 to-transparent">
