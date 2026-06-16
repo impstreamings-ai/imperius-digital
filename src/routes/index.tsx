@@ -221,184 +221,201 @@ function Hero() {
 }
 
 function HeroVisual() {
-  // Premium institutional dashboard composition — abstract own-product look.
-  // No segment references, no client data, no flowcharts.
-  const spark = [22, 28, 26, 34, 31, 40, 38, 46, 44, 52, 58, 55, 64, 70, 68, 78];
-  const max = Math.max(...spark);
-  const points = spark
-    .map((v, i) => `${(i / (spark.length - 1)) * 100},${100 - (v / max) * 100}`)
-    .join(" ");
-  const areaPath = `M0,100 L${points.split(" ").join(" L")} L100,100 Z`;
+  // Cinematic institutional composition — holographic integration of systems.
+  // Software house signal: no dashboards, KPIs, charts, or fake metrics.
+  // Nodes represent the integration surface: Website, WhatsApp, CRM, Automação,
+  // orbiting an Imperius core.
+  const nodes = [
+    { id: "web", label: "Website", x: 18, y: 22 },
+    { id: "wa", label: "WhatsApp", x: 82, y: 30 },
+    { id: "crm", label: "CRM", x: 22, y: 78 },
+    { id: "auto", label: "Automação", x: 80, y: 74 },
+  ];
+  const core = { x: 50, y: 50 };
 
   return (
     <div className="relative w-full max-w-[600px] mx-auto lg:ml-auto lg:mr-0" aria-hidden>
-      {/* Ambient glow */}
+      {/* Ambient cinematic glow */}
       <div
-        className="absolute -inset-10 blur-3xl opacity-60 pointer-events-none"
+        className="absolute -inset-12 blur-3xl opacity-70 pointer-events-none"
         style={{
           background:
-            "radial-gradient(60% 50% at 70% 30%, oklch(0.72 0.22 250 / 0.18), transparent 70%)",
+            "radial-gradient(55% 45% at 50% 50%, oklch(0.72 0.22 250 / 0.22), transparent 70%)",
         }}
       />
 
-      {/* Back card — peeking behind for depth */}
-      <div
-        className="absolute -right-6 top-10 hidden md:block w-[78%] h-[78%] rounded-[16px] border border-border/40 bg-[oklch(0.08_0.004_240)]/80 backdrop-blur-sm rotate-[2.5deg] shadow-[0_30px_80px_-30px_oklch(0_0_0/0.7)]"
-      />
+      {/* Frame */}
+      <div className="relative aspect-square rounded-[20px] overflow-hidden border border-border/50 bg-[oklch(0.07_0.004_240)] shadow-[0_60px_160px_-40px_oklch(0_0_0/0.9),0_0_0_1px_oklch(1_0_0/0.04)_inset]">
+        {/* Holographic grid */}
+        <div
+          className="absolute inset-0 opacity-[0.18]"
+          style={{
+            backgroundImage:
+              "linear-gradient(oklch(0.72 0.22 250 / 0.5) 1px, transparent 1px), linear-gradient(90deg, oklch(0.72 0.22 250 / 0.5) 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
+            maskImage:
+              "radial-gradient(70% 70% at 50% 50%, black 40%, transparent 100%)",
+          }}
+        />
+        {/* Concentric rings */}
+        <svg
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+          className="absolute inset-0 h-full w-full"
+        >
+          <defs>
+            <radialGradient id="heroCore" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="oklch(0.82 0.22 250)" stopOpacity="0.9" />
+              <stop offset="60%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0.25" />
+              <stop offset="100%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0" />
+            </radialGradient>
+            <linearGradient id="heroEdge" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="oklch(0.78 0.2 250)" stopOpacity="0.05" />
+              <stop offset="50%" stopColor="oklch(0.82 0.22 250)" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="oklch(0.78 0.2 250)" stopOpacity="0.05" />
+            </linearGradient>
+          </defs>
 
-      {/* Main app frame */}
-      <div className="relative rounded-[16px] overflow-hidden border border-border/60 bg-[oklch(0.075_0.004_240)] shadow-[0_50px_140px_-30px_oklch(0_0_0/0.85),0_0_0_1px_oklch(1_0_0/0.04)_inset]">
-        {/* top chrome */}
-        <div className="flex items-center justify-between px-4 py-2.5 border-b border-border/50 bg-[oklch(0.065_0.004_240)]">
-          <div className="flex items-center gap-2.5">
-            <div className="h-6 w-6 rounded-md bg-primary/15 border border-primary/30 flex items-center justify-center">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+          {/* Faint orbits */}
+          {[18, 28, 38].map((r) => (
+            <circle
+              key={r}
+              cx="50"
+              cy="50"
+              r={r}
+              fill="none"
+              stroke="oklch(0.78 0.2 250 / 0.18)"
+              strokeWidth="0.2"
+              vectorEffect="non-scaling-stroke"
+            />
+          ))}
+
+          {/* Core halo */}
+          <circle cx="50" cy="50" r="22" fill="url(#heroCore)" />
+
+          {/* Connection lines */}
+          {nodes.map((n) => (
+            <line
+              key={n.id}
+              x1={core.x}
+              y1={core.y}
+              x2={n.x}
+              y2={n.y}
+              stroke="url(#heroEdge)"
+              strokeWidth="0.4"
+              vectorEffect="non-scaling-stroke"
+            />
+          ))}
+
+          {/* Node dots */}
+          {nodes.map((n) => (
+            <g key={`d-${n.id}`}>
+              <circle
+                cx={n.x}
+                cy={n.y}
+                r="1.4"
+                fill="oklch(0.85 0.22 250)"
+              />
+              <circle
+                cx={n.x}
+                cy={n.y}
+                r="3"
+                fill="none"
+                stroke="oklch(0.78 0.2 250 / 0.4)"
+                strokeWidth="0.2"
+                vectorEffect="non-scaling-stroke"
+              />
+            </g>
+          ))}
+
+          {/* Core glyph */}
+          <circle
+            cx="50"
+            cy="50"
+            r="3.2"
+            fill="oklch(0.95 0.05 250)"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r="6"
+            fill="none"
+            stroke="oklch(0.85 0.22 250 / 0.7)"
+            strokeWidth="0.3"
+            vectorEffect="non-scaling-stroke"
+          />
+        </svg>
+
+        {/* Node labels (HTML for crisp type) */}
+        {nodes.map((n) => {
+          const isLeft = n.x < 50;
+          const isTop = n.y < 50;
+          return (
+            <div
+              key={`l-${n.id}`}
+              className="absolute -translate-x-1/2 -translate-y-1/2"
+              style={{
+                left: `${n.x}%`,
+                top: `${n.y + (isTop ? -8 : 8)}%`,
+              }}
+            >
+              <span
+                className="text-[10px] font-sans uppercase tracking-[0.22em] text-foreground/75 whitespace-nowrap"
+                style={{
+                  textAlign: isLeft ? "left" : "right",
+                }}
+              >
+                {n.label}
+              </span>
             </div>
-            <span className="text-[11px] font-sans font-medium text-foreground/85 tracking-tight">
-              Imperius · Console
-            </span>
+          );
+        })}
+
+        {/* Core label */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-6 text-center">
+          <div className="text-[9px] font-sans uppercase tracking-[0.32em] text-primary/90">
+            Imperius
           </div>
-          <div className="flex items-center gap-3">
-            <span className="hidden sm:inline text-[10px] font-sans text-muted-foreground/70 tracking-wider uppercase">
-              Visão geral
-            </span>
-            <span className="h-2 w-2 rounded-full bg-emerald-400/70" />
+          <div className="text-[8.5px] font-sans uppercase tracking-[0.28em] text-muted-foreground/60 mt-0.5">
+            Core
           </div>
         </div>
 
-        {/* body */}
-        <div className="grid grid-cols-12 gap-3 p-4 bg-[oklch(0.07_0.004_240)]">
-          {/* KPI strip */}
-          <div className="col-span-12 grid grid-cols-3 gap-3">
-            {[
-              { k: "Conversões", v: "128", d: "+18%" },
-              { k: "Tempo médio", v: "2m 14s", d: "−9%" },
-              { k: "Receita", v: "R$ 84k", d: "+22%" },
-            ].map((m) => (
-              <div
-                key={m.k}
-                className="rounded-lg border border-border/50 bg-[oklch(0.085_0.005_240)] px-3 py-2.5"
-              >
-                <div className="text-[9.5px] uppercase tracking-[0.18em] text-muted-foreground/70 font-sans">
-                  {m.k}
-                </div>
-                <div className="mt-1 flex items-baseline gap-2">
-                  <span className="font-display text-[15px] font-semibold text-foreground tracking-tight">
-                    {m.v}
-                  </span>
-                  <span className="text-[10px] font-sans text-primary/90 font-medium">{m.d}</span>
-                </div>
-              </div>
-            ))}
-          </div>
+        {/* Corner brackets */}
+        {[
+          "top-3 left-3 border-l border-t",
+          "top-3 right-3 border-r border-t",
+          "bottom-3 left-3 border-l border-b",
+          "bottom-3 right-3 border-r border-b",
+        ].map((c, i) => (
+          <span
+            key={i}
+            className={`absolute h-3 w-3 border-primary/40 ${c}`}
+          />
+        ))}
 
-          {/* Chart card */}
-          <div className="col-span-12 md:col-span-7 rounded-lg border border-border/50 bg-[oklch(0.085_0.005_240)] p-3">
-            <div className="flex items-center justify-between mb-2">
-              <div>
-                <div className="text-[9.5px] uppercase tracking-[0.18em] text-muted-foreground/70 font-sans">
-                  Performance
-                </div>
-                <div className="text-[12px] font-sans text-foreground/85 mt-0.5">
-                  Últimos 30 dias
-                </div>
-              </div>
-              <div className="flex gap-1">
-                {["7D", "30D", "90D"].map((t, i) => (
-                  <span
-                    key={t}
-                    className={`text-[9.5px] font-sans px-1.5 py-0.5 rounded ${
-                      i === 1
-                        ? "bg-primary/15 text-primary border border-primary/30"
-                        : "text-muted-foreground/60 border border-transparent"
-                    }`}
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="relative aspect-[16/8]">
-              <svg
-                viewBox="0 0 100 100"
-                preserveAspectRatio="none"
-                className="absolute inset-0 h-full w-full"
-              >
-                <defs>
-                  <linearGradient id="heroArea" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0.45" />
-                    <stop offset="100%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0" />
-                  </linearGradient>
-                </defs>
-                {[20, 40, 60, 80].map((y) => (
-                  <line
-                    key={y}
-                    x1="0"
-                    x2="100"
-                    y1={y}
-                    y2={y}
-                    stroke="oklch(1 0 0 / 0.05)"
-                    strokeWidth="0.3"
-                  />
-                ))}
-                <path d={areaPath} fill="url(#heroArea)" />
-                <polyline
-                  points={points}
-                  fill="none"
-                  stroke="oklch(0.78 0.2 250)"
-                  strokeWidth="1.2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  vectorEffect="non-scaling-stroke"
-                />
-              </svg>
-            </div>
+        {/* Top meta strip */}
+        <div className="absolute top-0 inset-x-0 flex items-center justify-between px-4 py-2.5 border-b border-border/40 bg-gradient-to-b from-[oklch(0.065_0.004_240)]/90 to-transparent">
+          <div className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+            <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-foreground/70">
+              Arquitetura · Integração
+            </span>
           </div>
-
-          {/* Activity card */}
-          <div className="col-span-12 md:col-span-5 rounded-lg border border-border/50 bg-[oklch(0.085_0.005_240)] p-3">
-            <div className="flex items-center justify-between mb-2.5">
-              <div className="text-[9.5px] uppercase tracking-[0.18em] text-muted-foreground/70 font-sans">
-                Atividade
-              </div>
-              <span className="text-[9.5px] font-sans text-muted-foreground/50">agora</span>
-            </div>
-            <ul className="space-y-2">
-              {[
-                { c: "bg-emerald-400/80", t: "Lead qualificado", s: "fluxo Aurora" },
-                { c: "bg-primary/90", t: "Proposta enviada", s: "pipeline #248" },
-                { c: "bg-amber-400/80", t: "Follow-up agendado", s: "amanhã · 09h" },
-                { c: "bg-sky-400/80", t: "Integração sincronizada", s: "CRM · ok" },
-              ].map((a, i) => (
-                <li key={i} className="flex items-center gap-2.5">
-                  <span className={`h-1.5 w-1.5 rounded-full ${a.c}`} />
-                  <span className="text-[11px] font-sans text-foreground/85 truncate">{a.t}</span>
-                  <span className="ml-auto text-[10px] font-sans text-muted-foreground/60 truncate">
-                    {a.s}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* footer */}
-        <div className="flex items-center justify-between px-4 py-2.5 border-t border-border/50 bg-[oklch(0.065_0.004_240)]">
-          <span className="text-[10px] font-sans text-muted-foreground/70 tracking-wider">
-            Sistemas próprios · Imperius
+          <span className="text-[10px] font-sans tracking-[0.22em] text-muted-foreground/55 uppercase">
+            v · 2026
           </span>
-          <span className="text-[10px] font-sans text-primary/90 tracking-[0.22em] uppercase">
+        </div>
+
+        {/* Bottom meta strip */}
+        <div className="absolute bottom-0 inset-x-0 flex items-center justify-between px-4 py-2.5 border-t border-border/40 bg-gradient-to-t from-[oklch(0.065_0.004_240)]/90 to-transparent">
+          <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-muted-foreground/70">
+            Sistemas próprios
+          </span>
+          <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-primary/80">
             Engenharia aplicada
           </span>
         </div>
-      </div>
-
-      {/* Floating badge */}
-      <div className="hidden md:flex absolute -left-5 bottom-8 items-center gap-2 rounded-full border border-border/60 bg-[oklch(0.09_0.005_240)]/95 backdrop-blur px-3 py-2 shadow-[0_20px_60px_-20px_oklch(0_0_0/0.8)]">
-        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse-glow" />
-        <span className="text-[10.5px] font-sans text-foreground/85 tracking-tight">
-          Operação ativa · sincronizada
-        </span>
       </div>
     </div>
   );
