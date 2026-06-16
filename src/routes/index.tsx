@@ -80,20 +80,58 @@ const PROPOSAL_MAILTO = `mailto:${PROPOSAL_EMAIL}?subject=${encodeURIComponent("
 function Landing() {
   return (
     <div className="min-h-dvh bg-background text-foreground font-sans overflow-x-hidden">
-
       <Nav />
       <Hero />
-      <TrustStrip />
+      <Problema />
       <Ecossistema />
-      <Manifesto />
       <Demonstracoes />
-      <Capacidades />
-      <Services />
       <Process />
       <FAQ />
       <FinalCTA />
       <Footer />
     </div>
+  );
+}
+
+function Problema() {
+  const dores = [
+    { icon: MessageCircle, t: "Atendimento disperso", d: "Mensagens espalhadas entre canais, sem registro nem responsável claro." },
+    { icon: TrendingUp, t: "Oportunidades perdidas", d: "Leads que entram, somem na conversa e nunca chegam ao comercial." },
+    { icon: ClipboardList, t: "Processos manuais", d: "Planilhas, copia-e-cola e retrabalho consumindo o time todo dia." },
+    { icon: Activity, t: "Sem visão da operação", d: "Você não sabe quantos contatos entraram, quantos fecharam, quanto sobrou." },
+  ];
+  return (
+    <section className="relative py-20 sm:py-28 border-y border-border/30">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="max-w-3xl mb-12 sm:mb-14">
+          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
+            <span className="h-px w-8 bg-primary/70" />
+            O problema
+          </div>
+          <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+            Sua operação comercial está rodando{" "}
+            <span className="text-foreground/55">no improviso.</span>
+          </h2>
+        </div>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-y border-border/40 divide-y sm:divide-y-0 sm:divide-x divide-border/40">
+          {dores.map((d) => (
+            <li key={d.t} className="p-5 sm:p-6 flex flex-col gap-3 min-w-0">
+              <div className="h-9 w-9 rounded-md border border-primary/25 bg-primary/10 grid place-items-center">
+                <d.icon className="h-[18px] w-[18px] text-primary" />
+              </div>
+              <div className="min-w-0">
+                <h3 className="font-heading font-semibold text-[14.5px] tracking-[-0.005em] text-foreground leading-snug">
+                  {d.t}
+                </h3>
+                <p className="mt-1.5 text-[13px] text-muted-foreground leading-relaxed font-sans">
+                  {d.d}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
   );
 }
 
@@ -109,9 +147,8 @@ function Nav() {
           </span>
         </a>
         <nav className="hidden md:flex items-center gap-9 text-[13px] text-muted-foreground font-medium">
-          <a href="#vitrine" className="hover:text-foreground transition-colors">Vitrine</a>
-          <a href="#servicos" className="hover:text-foreground transition-colors">Soluções</a>
-          <a href="#processo" className="hover:text-foreground transition-colors">Processo</a>
+          <a href="#vitrine" className="hover:text-foreground transition-colors">Demonstração</a>
+          <a href="#processo" className="hover:text-foreground transition-colors">Como funciona</a>
           <Link to="/portfolio" className="hover:text-foreground transition-colors">Portfólio</Link>
           <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
         </nav>
@@ -354,219 +391,72 @@ function SectionTitle({
 
 
 function Ecossistema() {
-  const flow = [
+  const cards = [
     {
-      n: "01",
-      tag: "Site",
-      title: "Cliente entra",
-      desc: "Landing page Imperius capta a intenção e abre a conversa.",
-      icon: Globe,
-      preview: (
-        <div className="space-y-2">
-          <div className="flex items-center gap-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-red-400/80" />
-            <span className="h-1.5 w-1.5 rounded-full bg-yellow-400/80" />
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/80" />
-            <span className="ml-1.5 text-[9px] font-sans text-muted-foreground/70 truncate">imperius.com</span>
-          </div>
-          <div className="h-1.5 w-3/4 rounded-full bg-foreground/15" />
-          <div className="h-1.5 w-1/2 rounded-full bg-foreground/10" />
-          <div className="mt-3 inline-flex h-5 items-center rounded-full bg-primary/90 px-2 text-[8.5px] font-semibold tracking-wide text-primary-foreground">
-            Falar agora
-          </div>
-        </div>
-      ),
-    },
-    {
-      n: "02",
-      tag: "WhatsApp · IA",
-      title: "IA responde",
-      desc: "Automação Imperius qualifica em segundos e coleta o que importa.",
       icon: MessageCircle,
-      preview: (
-        <div className="space-y-1.5">
-          <div className="ml-auto max-w-[80%] rounded-lg rounded-tr-sm bg-[#005c4b]/80 px-2 py-1 text-[9px] text-white/95 font-sans">
-            Quero um orçamento
-          </div>
-          <div className="max-w-[85%] rounded-lg rounded-tl-sm bg-[oklch(0.18_0.008_245)] px-2 py-1 text-[9px] text-foreground/85 font-sans">
-            Claro! Em qual segmento?
-          </div>
-          <div className="ml-auto max-w-[60%] rounded-lg rounded-tr-sm bg-[#005c4b]/80 px-2 py-1 text-[9px] text-white/95 font-sans">
-            Clínica
-          </div>
-        </div>
-      ),
+      tag: "Atendimento",
+      title: "Atendimento Inteligente",
+      desc: "Centralização do contato, qualificação e direcionamento inicial.",
     },
     {
-      n: "03",
-      tag: "CRM",
-      title: "Lead entra no pipeline",
-      desc: "Contato é registrado, classificado e enviado ao responsável certo.",
       icon: Users,
-      preview: (
-        <div className="space-y-1.5">
-          <div className="flex items-center gap-2 rounded-md border border-border/60 bg-[oklch(0.12_0.008_245)] px-2 py-1.5">
-            <div className="h-5 w-5 rounded-full bg-primary/30 grid place-items-center text-[8px] font-semibold text-primary">
-              MR
-            </div>
-            <div className="min-w-0 flex-1">
-              <div className="h-1.5 w-3/4 rounded-full bg-foreground/20" />
-              <div className="mt-1 h-1 w-1/2 rounded-full bg-foreground/10" />
-            </div>
-            <span className="text-[8px] font-semibold uppercase tracking-wider text-primary">Quente</span>
-          </div>
-          <div className="flex items-center gap-2 rounded-md border border-border/40 bg-[oklch(0.11_0.005_245)] px-2 py-1.5 opacity-70">
-            <div className="h-5 w-5 rounded-full bg-foreground/10" />
-            <div className="min-w-0 flex-1">
-              <div className="h-1.5 w-2/3 rounded-full bg-foreground/15" />
-              <div className="mt-1 h-1 w-1/3 rounded-full bg-foreground/10" />
-            </div>
-          </div>
-        </div>
-      ),
+      tag: "Comercial",
+      title: "Gestão Comercial",
+      desc: "Organização de oportunidades e acompanhamento do processo comercial.",
     },
     {
-      n: "04",
-      tag: "Agenda",
-      title: "Agendamento criado",
-      desc: "Horário confirmado no Scheduling, sincronizado com o time.",
       icon: Calendar,
-      preview: (
-        <div className="space-y-1.5">
-          <div className="grid grid-cols-5 gap-1">
-            {["S","T","Q","Q","S"].map((d, i) => (
-              <div key={i} className={`rounded-sm text-[8px] font-semibold font-sans text-center py-1 ${i === 2 ? "bg-primary/80 text-primary-foreground" : "bg-[oklch(0.13_0.005_245)] text-muted-foreground/70"}`}>
-                {d}
-              </div>
-            ))}
-          </div>
-          <div className="rounded-md border border-primary/40 bg-primary/10 px-2 py-1.5">
-            <div className="flex items-center justify-between">
-              <span className="text-[9px] font-semibold font-sans text-foreground">14:30 · Demo</span>
-              <span className="text-[8px] font-sans text-primary">Confirmado</span>
-            </div>
-            <div className="mt-0.5 text-[8.5px] font-sans text-muted-foreground/80">Mariana R.</div>
-          </div>
-        </div>
-      ),
-    },
-    {
-      n: "05",
-      tag: "Resultado",
-      title: "Oportunidade real",
-      desc: "Empresa recebe o lead pronto — com contexto, histórico e próximo passo.",
-      icon: TrendingUp,
-      preview: (
-        <div className="space-y-2">
-          <div className="flex items-baseline gap-1.5">
-            <span className="font-display text-2xl font-semibold text-foreground leading-none">+38%</span>
-            <span className="text-[9px] font-sans text-emerald-400/90 font-semibold">conversão</span>
-          </div>
-          <div className="flex items-end gap-1 h-8">
-            {[30, 45, 38, 60, 52, 78, 90].map((h, i) => (
-              <div key={i} className="flex-1 rounded-sm bg-primary/60" style={{ height: `${h}%` }} />
-            ))}
-          </div>
-          <div className="text-[9px] font-sans uppercase tracking-wider text-muted-foreground/70">Exemplo ilustrativo · últimos 7 dias</div>
-        </div>
-      ),
+      tag: "Operação",
+      title: "Operação Integrada",
+      desc: "Agenda, confirmações e processos conectados em um único fluxo.",
     },
   ];
-
   return (
-    <section className="relative py-24 sm:py-32 border-y border-border/30 bg-[oklch(0.075_0.004_240)]">
+    <section className="relative py-20 sm:py-28 border-b border-border/30 bg-[oklch(0.075_0.004_240)]">
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[760px] h-[260px] rounded-full blur-3xl opacity-20 pointer-events-none"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[680px] h-[220px] rounded-full blur-3xl opacity-20 pointer-events-none"
         style={{ background: "radial-gradient(ellipse, oklch(0.55 0.22 250 / 0.2), transparent 70%)" }}
+        aria-hidden
       />
-      <div className="relative mx-auto max-w-7xl px-6">
-        <div className="mb-14 sm:mb-20 grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 lg:items-end">
-          <div className="max-w-2xl">
-            <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
-              <span className="h-px w-8 bg-primary/60" />
-              Ecossistema Imperius
-            </div>
-            <h2 className="font-display font-semibold text-[1.9rem] sm:text-[2.5rem] lg:text-[2.9rem] leading-[1.05] tracking-[-0.028em] text-foreground">
-              Do primeiro clique{" "}
-              <span className="text-neon">à oportunidade fechada</span>
-              {" "}— sem ruído entre etapas.
-            </h2>
-            <p className="mt-5 text-muted-foreground text-[15px] sm:text-[16.5px] leading-relaxed font-sans max-w-xl">
-              Site, IA, WhatsApp, CRM e agenda funcionando como uma única operação.
-              O cliente percorre o fluxo sem perceber a costura — sua empresa recebe
-              cada lead já no ponto certo.
-            </p>
+      <div className="relative mx-auto max-w-6xl px-6">
+        <div className="max-w-2xl mb-12 sm:mb-14">
+          <div className="text-[10.5px] uppercase tracking-[0.32em] text-primary/90 font-semibold mb-5 font-sans inline-flex items-center gap-2.5">
+            <span className="h-px w-8 bg-primary/70" />
+            Ecossistema Imperius
           </div>
-          <div className="text-[11.5px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium inline-flex items-center gap-3 lg:justify-end">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-            Plataforma integrada
-          </div>
+          <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+            Tecnologia aplicada à{" "}
+            <span className="text-neon">operação comercial.</span>
+          </h2>
         </div>
-
-        {/* Flow */}
-        <div className="relative">
-          {/* Desktop connector line */}
-          <div
-            className="hidden lg:block absolute top-[64px] left-[5%] right-[5%] h-px pointer-events-none"
-            style={{ background: "linear-gradient(90deg, transparent, oklch(0.72 0.22 250 / 0.4), oklch(0.72 0.22 250 / 0.5), oklch(0.72 0.22 250 / 0.4), transparent)" }}
-          />
-          <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 lg:gap-4">
-            {flow.map((step, i) => (
-              <li key={step.n} className="relative flex flex-col">
-                {/* Node marker (desktop) */}
-                <div className="hidden lg:flex items-center justify-center mb-6">
-                  <div className="relative h-8 w-8 rounded-full border border-primary/50 bg-[oklch(0.075_0.004_240)] grid place-items-center shadow-[0_0_24px_-6px_oklch(0.72_0.22_250/0.6)]">
-                    <step.icon className="h-3.5 w-3.5 text-primary" />
-                  </div>
+        <ul className="grid gap-4 sm:gap-5 sm:grid-cols-3">
+          {cards.map((c) => (
+            <li
+              key={c.title}
+              className="group rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/80 backdrop-blur-md p-6 flex flex-col transition-all duration-300 hover:border-primary/40 hover:-translate-y-0.5 hover:shadow-[0_24px_60px_-30px_oklch(0_0_0/0.8)]"
+            >
+              <div className="flex items-center justify-between mb-5">
+                <div className="h-9 w-9 rounded-md border border-primary/30 bg-primary/10 grid place-items-center">
+                  <c.icon className="h-[18px] w-[18px] text-primary" />
                 </div>
-
-                <div className="relative rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/80 backdrop-blur-md p-4 sm:p-5 h-full flex flex-col transition-all duration-300 hover:border-primary/30 hover:-translate-y-0.5 hover:shadow-[0_24px_60px_-30px_oklch(0_0_0/0.8)]">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-[9.5px] uppercase tracking-[0.22em] font-sans font-semibold text-muted-foreground/80 inline-flex items-center gap-1.5">
-                      <step.icon className="h-3 w-3 text-primary lg:hidden" />
-                      {step.tag}
-                    </span>
-                    <span className="font-heading text-[10px] tracking-[0.24em] text-muted-foreground/50 font-semibold">{step.n}</span>
-                  </div>
-
-                  {/* Mini interface */}
-                  <div className="rounded-lg border border-border/40 bg-[oklch(0.08_0.004_245)] p-2.5 mb-4 min-h-[88px]">
-                    {step.preview}
-                  </div>
-
-                  <h3 className="font-heading font-semibold text-[14.5px] sm:text-[15px] tracking-[-0.01em] text-foreground leading-snug">
-                    {step.title}
-                  </h3>
-                  <p className="mt-1.5 text-[12.5px] text-muted-foreground leading-relaxed font-sans">
-                    {step.desc}
-                  </p>
-                </div>
-
-                {/* Mobile/tablet connector arrow */}
-                {i < flow.length - 1 && (
-                  <div className="lg:hidden flex justify-center py-2 text-muted-foreground/40">
-                    <ArrowRight className="h-3.5 w-3.5 rotate-90 sm:rotate-0" />
-                  </div>
-                )}
-              </li>
-            ))}
-          </ol>
-        </div>
-
-        {/* Subline (lightweight, non-duplicative) */}
-        <div className="mt-12 sm:mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.22em] text-muted-foreground/70 font-sans font-medium">
-          <span>Mesmo contato</span>
-          <span className="h-1 w-1 rounded-full bg-border" />
-          <span>Mesmo histórico</span>
-          <span className="h-1 w-1 rounded-full bg-border" />
-          <span>Mesmos indicadores</span>
-          <span className="h-1 w-1 rounded-full bg-border" />
-          <span className="text-foreground/80">Veja cada produto na vitrine abaixo</span>
-        </div>
+                <span className="text-[9.5px] uppercase tracking-[0.22em] font-sans font-semibold text-muted-foreground/70">
+                  {c.tag}
+                </span>
+              </div>
+              <h3 className="font-heading font-semibold text-[16px] tracking-[-0.01em] text-foreground leading-snug">
+                {c.title}
+              </h3>
+              <p className="mt-2 text-[13.5px] text-muted-foreground leading-relaxed font-sans">
+                {c.desc}
+              </p>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
 }
+
 
 
 function Manifesto() {
@@ -765,106 +655,78 @@ import primeCover from "@/assets/prime-hero.jpg.asset.json";
 const IMPERIUS_KINDS: ReadonlySet<DemoKind> = new Set(["Atendimento", "Comercial", "Operação"]);
 
 function Demonstracoes() {
-  const cards: DemoCard[] = [
-    { icon: Bot, title: "Imperius Automation", desc: "IA sobre a API oficial do WhatsApp Business. Qualifica e encaminha leads em tempo real.", status: "Ativo", kind: "Atendimento", to: "/automation", preview: "automation" },
-    { icon: Users, title: "Imperius CRM", desc: "Pipeline comercial com etapas, oportunidades e indicadores por cliente.", status: "Ativo", kind: "Comercial", to: "/crm", preview: "crm" },
-    { icon: Calendar, title: "Imperius Scheduling", desc: "Agenda, confirmações e reservas integradas ao atendimento e ao CRM.", status: "Ativo", kind: "Operação", to: "/scheduling", preview: "scheduling" },
-    { icon: Scissors, title: "Black Crown Barbershop", desc: "Barbearia premium com agendamento e identidade visual cinematográfica. Abra e navegue como um cliente real.", status: "Ativo", kind: "Projeto externo", href: BLACK_CROWN_URL, external: true, cover: blackCrownCover.url, domain: "blackcrown-by-imperius.lovable.app" },
-    { icon: Stethoscope, title: "Clínica Vitalis", desc: "Site clínico com agendamento, especialidades e tom de confiança — pronto para captar pacientes.", status: "Ativo", kind: "Demonstração de nicho", to: "/vitalis", cover: vitalisCover.url, domain: "vitalis.imperiusdigital.com.br" },
-    { icon: Building2, title: "Prime Imóveis", desc: "Portal imobiliário com busca, ficha de imóvel e captação de leads qualificados em segundos.", status: "Ativo", kind: "Demonstração de nicho", to: "/prime-imoveis", cover: primeCover.url, domain: "primeimoveis.imperiusdigital.com.br" },
-  ];
-
-
-  const productCards = cards.filter((c) => IMPERIUS_KINDS.has(c.kind));
-  const demoCards = cards.filter((c) => !IMPERIUS_KINDS.has(c.kind));
-
   return (
-    <section id="vitrine" className="py-24 sm:py-32 relative">
-      <div className="absolute inset-0 bg-grid opacity-15 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[820px] h-[460px] rounded-full blur-3xl opacity-15 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.22 250 / 0.18), transparent 70%)" }} />
-      <div className="relative mx-auto max-w-7xl px-6 space-y-20 sm:space-y-24">
-        {/* Group 1 — Produtos Imperius */}
-        <div>
-          <div className="mb-10 sm:mb-12 grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-12 lg:items-end">
-            <div className="max-w-2xl">
-              <div className="text-[10.5px] uppercase tracking-[0.32em] text-primary/90 font-semibold mb-5 font-sans inline-flex items-center gap-2.5">
-                <span className="h-px w-8 bg-primary/70" />
-                Produtos próprios · {productCards.length.toString().padStart(2, "0")} módulos
-              </div>
-              <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.75rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-                Engenharia que opera o seu comercial.
-              </h2>
-              <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans max-w-xl">
-                Automation, CRM e Scheduling — três módulos integrados, desenvolvidos internamente e
-                em evolução contínua. Implantados sob o contexto técnico do seu negócio, não como SaaS de prateleira.
-              </p>
-            </div>
-            <div className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium inline-flex items-center gap-2 lg:justify-end">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-              Stack integrada · em evolução
-            </div>
+    <section id="vitrine" className="relative py-24 sm:py-32 border-t border-border/30">
+      <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" aria-hidden />
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[380px] rounded-full blur-3xl opacity-15 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse, oklch(0.55 0.22 250 / 0.18), transparent 70%)" }}
+        aria-hidden
+      />
+      <div className="relative mx-auto max-w-6xl px-6">
+        <div className="max-w-2xl mb-10 sm:mb-14">
+          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
+            <span className="h-px w-8 bg-primary/70" />
+            Demonstração
           </div>
-          {(() => {
-            const automation = productCards.find((c) => c.preview === "automation");
-            const crm = productCards.find((c) => c.preview === "crm");
-            const scheduling = productCards.find((c) => c.preview === "scheduling");
-            return (
-              <div className="grid gap-5 sm:gap-6 lg:grid-cols-5 lg:items-stretch">
-                {automation && (
-                  <div className="lg:col-span-3">
-                    <ProductShowcaseCard card={automation} featured />
-                  </div>
-                )}
-                <div className="grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-1 lg:col-span-2">
-                  {crm && <ProductShowcaseCard card={crm} />}
-                  {scheduling && <ProductShowcaseCard card={scheduling} />}
-                </div>
-              </div>
-            );
-          })()}
+          <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+            Aplicação real,{" "}
+            <span className="text-neon">navegável agora.</span>
+          </h2>
+          <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans">
+            Não é mockup. É um ambiente operacional ao vivo, em domínio próprio —
+            o mesmo padrão de engenharia que aplicamos ao seu negócio.
+          </p>
         </div>
 
-        {/* Divider */}
-        <div className="flex items-center gap-4" aria-hidden>
-          <span className="h-px flex-1 bg-border/50" />
-          <span className="text-[10px] uppercase tracking-[0.32em] text-muted-foreground/70 font-sans font-medium">
-            Sites navegáveis por nicho
-          </span>
-          <span className="h-px flex-1 bg-border/50" />
-        </div>
-
-        {/* Group 2 — Demonstrações */}
-        <div>
-          <div className="mb-10 sm:mb-12 grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-12 lg:items-end">
-            <div className="max-w-2xl">
-              <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
-                <span className="h-px w-8 bg-muted-foreground/60" />
-                Vitrine ao vivo · {demoCards.length.toString().padStart(2, "0")} verticais
+        <a
+          href={BLACK_CROWN_URL}
+          target="_blank"
+          rel="noreferrer"
+          onClick={() => track("demo_click", { project: "black_crown" })}
+          className="group block rounded-2xl border border-border/50 bg-[oklch(0.09_0.005_245)] overflow-hidden transition-all duration-300 hover:border-primary/40 hover:-translate-y-0.5 hover:shadow-[0_40px_80px_-40px_oklch(0_0_0/0.9)]"
+        >
+          <div className="grid lg:grid-cols-[1.4fr_1fr] items-stretch">
+            <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden bg-black">
+              <img
+                src={blackCrownHeroCover.url}
+                alt="Black Crown Barbershop — ambiente operacional Imperius"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" aria-hidden />
+              <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-primary/40 bg-background/70 backdrop-blur-md text-[10px] uppercase tracking-[0.18em] font-semibold font-sans text-primary">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+                Ao vivo
               </div>
-              <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.75rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-                Sites reais que você pode{" "}
-                <span className="text-neon">abrir e navegar agora.</span>
-              </h2>
-              <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans max-w-xl">
-                Não são telas estáticas. Cada card abre um site funcional, em domínio próprio —
-                clique, role, simule um agendamento e veja o acabamento como o seu cliente final veria.
+            </div>
+            <div className="p-6 sm:p-8 lg:p-10 flex flex-col">
+              <span className="text-[10px] uppercase tracking-[0.22em] font-sans font-semibold text-primary/90 inline-flex items-center gap-1.5">
+                <Scissors className="h-3.5 w-3.5" />
+                Projeto de referência
+              </span>
+              <h3 className="mt-3 font-display font-semibold text-[1.5rem] sm:text-[1.8rem] leading-[1.1] tracking-[-0.02em] text-foreground">
+                Black Crown Barbershop
+              </h3>
+              <p className="mt-3 text-[14px] sm:text-[14.5px] text-muted-foreground leading-relaxed font-sans">
+                Operação completa em produção: site, agendamento, atendimento e
+                identidade — desenvolvidos e operados pela Imperius.
               </p>
-            </div>
-            <div className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium inline-flex items-center gap-2 lg:justify-end">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-              Tudo ao vivo
+              <div className="mt-5 text-[11px] uppercase tracking-[0.22em] font-sans text-muted-foreground/70 truncate">
+                blackcrown-by-imperius.lovable.app
+              </div>
+              <div className="mt-auto pt-6 inline-flex items-center gap-2 text-[13px] font-sans font-semibold text-foreground group-hover:text-primary transition-colors">
+                Abrir demonstração
+                <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </div>
             </div>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-            {demoCards.map((c) => (
-              <DemoCardItem key={c.title} card={c} />
-            ))}
-          </div>
-        </div>
+        </a>
       </div>
     </section>
   );
 }
+
 
 function StatusBadge({ status }: { status: DemoStatus }) {
   const styles: Record<DemoStatus, string> = {
@@ -1576,42 +1438,43 @@ function ProductShowcaseCard({ card, featured = false }: { card: DemoCard; featu
 
 function Process() {
   const steps = [
-    { n: "01", i: MessageCircle, t: "Diagnóstico", d: "Conversa direta para entender contexto, posicionamento e gargalos atuais." },
-    { n: "02", i: LayoutTemplate, t: "Implementação funcional", d: "Construímos uma versão funcional do seu sistema antes de qualquer fechamento." },
-    { n: "03", i: ClipboardList, t: "Refinamento", d: "Iterações até cada detalhe refletir a sua marca e seu padrão de operação." },
-    { n: "04", i: Rocket, t: "Publicação", d: "Deploy, configuração de domínio, integrações e monitoramento ativo." },
-    { n: "05", i: TrendingUp, t: "Operação contínua", d: "Acompanhamento de performance e evoluções planejadas com o seu time." },
+    { n: "01", i: MessageCircle, t: "Diagnóstico", d: "Conversa direta para mapear contexto, gargalos e oportunidades reais." },
+    { n: "02", i: LayoutTemplate, t: "Construção", d: "Engenharia da solução sob o seu contexto — funcional antes de qualquer fechamento." },
+    { n: "03", i: Rocket, t: "Implantação", d: "Deploy, integrações e operação assistida até estar rodando com o seu time." },
   ];
   return (
-    <section id="processo" className="py-24 sm:py-32">
-      <div className="mx-auto max-w-6xl px-6">
-        <SectionTitle
-          display
-          align="left"
-          eyebrow="Processo"
-          title="Do briefing à operação, em cinco passos."
-          sub="Sem propostas genéricas. Você acompanha a construção em cada etapa."
-        />
-        <ol className="mt-4 divide-y divide-border/40 border-y border-border/40">
+    <section id="processo" className="py-20 sm:py-28 border-t border-border/30">
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="max-w-2xl mb-12 sm:mb-14">
+          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
+            <span className="h-px w-8 bg-primary/70" />
+            Como funciona
+          </div>
+          <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+            Três etapas.{" "}
+            <span className="text-foreground/55">Sem propostas genéricas.</span>
+          </h2>
+        </div>
+        <ol className="grid gap-4 sm:gap-5 sm:grid-cols-3">
           {steps.map((s) => (
             <li
               key={s.t}
-              className="grid grid-cols-[3rem_auto_1fr] sm:grid-cols-[4rem_auto_1fr] items-start gap-x-5 sm:gap-x-8 py-7 sm:py-8"
+              className="rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 backdrop-blur-md p-6 flex flex-col"
             >
-              <span className="font-heading text-[13px] sm:text-[14px] text-primary tracking-[0.22em] pt-2 font-semibold">
-                {s.n}
-              </span>
-              <div className="h-10 w-10 rounded-lg flex items-center justify-center ring-1 ring-primary/30 shrink-0" style={{ background: "linear-gradient(135deg, oklch(0.25 0.12 250 / 0.55), oklch(0.18 0.05 245 / 0.25))" }}>
-                <s.i className="h-[18px] w-[18px] text-primary" />
+              <div className="flex items-center justify-between mb-5">
+                <div className="h-9 w-9 rounded-md border border-primary/30 bg-primary/10 grid place-items-center">
+                  <s.i className="h-[18px] w-[18px] text-primary" />
+                </div>
+                <span className="font-heading text-[11px] tracking-[0.24em] text-muted-foreground/60 font-semibold">
+                  {s.n}
+                </span>
               </div>
-              <div className="min-w-0">
-                <h3 className="font-heading font-semibold text-[17px] sm:text-[19px] tracking-[-0.01em] text-foreground">
-                  {s.t}
-                </h3>
-                <p className="mt-1.5 text-[14px] sm:text-[15px] text-muted-foreground leading-relaxed font-sans max-w-2xl">
-                  {s.d}
-                </p>
-              </div>
+              <h3 className="font-heading font-semibold text-[16px] tracking-[-0.01em] text-foreground leading-snug">
+                {s.t}
+              </h3>
+              <p className="mt-2 text-[13.5px] text-muted-foreground leading-relaxed font-sans">
+                {s.d}
+              </p>
             </li>
           ))}
         </ol>
@@ -1619,6 +1482,7 @@ function Process() {
     </section>
   );
 }
+
 
 function FAQ() {
   const items = [
