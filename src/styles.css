@@ -169,4 +169,124 @@
   50% { transform: translateY(-12px); opacity: 0.7; }
 }
 
+/* === Micro-interactions: premium, Apple/Stripe register === */
+
+/* Buttons: subtle lift + soft blue glow growing on hover */
+@utility btn-premium {
+  transition:
+    transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.5s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      0 0 0 1px oklch(0.72 0.22 250 / 0.35),
+      0 14px 40px -16px oklch(0.72 0.22 250 / 0.55),
+      0 0 60px -10px oklch(0.72 0.22 250 / 0.35);
+  }
+  &:active { transform: translateY(0); transition-duration: 0.12s; }
+  &:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--background),
+      0 0 0 4px oklch(0.72 0.22 250 / 0.55);
+  }
+}
+
+/* Cards: discreet elevation on hover */
+@utility card-rise {
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.45s ease,
+    border-color 0.45s ease;
+  &:hover {
+    transform: translateY(-2px);
+    border-color: oklch(0.72 0.22 250 / 0.32);
+    box-shadow:
+      0 1px 0 0 oklch(1 0 0 / 0.04) inset,
+      0 24px 48px -28px oklch(0.6 0.25 250 / 0.4);
+  }
+}
+
+/* AO VIVO badge: soft halo pulse around the chip */
+@keyframes badge-halo {
+  0%, 100% {
+    box-shadow:
+      0 0 0 0 oklch(0.72 0.22 250 / 0.0),
+      0 0 0 1px oklch(0.72 0.22 250 / 0.35);
+  }
+  50% {
+    box-shadow:
+      0 0 0 6px oklch(0.72 0.22 250 / 0.0),
+      0 0 22px 2px oklch(0.72 0.22 250 / 0.45),
+      0 0 0 1px oklch(0.72 0.22 250 / 0.55);
+  }
+}
+@utility badge-pulse {
+  animation: badge-halo 2.8s ease-in-out infinite;
+}
+
+/* Keyword shimmer: refined sweep across gradient text */
+@keyframes keyword-shimmer {
+  0% { background-position: -150% 0; }
+  60%, 100% { background-position: 250% 0; }
+}
+@utility text-shimmer {
+  background-image: linear-gradient(
+    100deg,
+    oklch(0.78 0.18 248) 0%,
+    oklch(0.78 0.18 248) 35%,
+    oklch(0.98 0.05 240) 50%,
+    oklch(0.86 0.1 230) 65%,
+    oklch(0.86 0.1 230) 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: keyword-shimmer 7s ease-in-out infinite;
+}
+
+/* Hero ambient particles — slow, almost imperceptible */
+@keyframes hero-particle {
+  0%   { transform: translate3d(0, 0, 0);     opacity: 0; }
+  15%  { opacity: var(--p-op, 0.5); }
+  85%  { opacity: var(--p-op, 0.5); }
+  100% { transform: translate3d(var(--p-tx, 30px), var(--p-ty, -80px), 0); opacity: 0; }
+}
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  mask-image: radial-gradient(ellipse at center, black 35%, transparent 80%);
+}
+.hero-particles span {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 9999px;
+  background: oklch(0.85 0.18 250 / 0.75);
+  box-shadow: 0 0 8px oklch(0.78 0.22 250 / 0.55);
+  animation: hero-particle var(--p-dur, 14s) linear infinite;
+  animation-delay: var(--p-delay, 0s);
+}
+
+/* Slow background drift behind the hero */
+@keyframes hero-drift {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(-1.5%, 1%, 0); }
+}
+.hero-drift { animation: hero-drift 22s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .badge-pulse,
+  .text-shimmer,
+  .hero-particles span,
+  .hero-drift,
+  .animate-pulse-glow { animation: none !important; }
+  .btn-premium, .card-rise { transition: none !important; }
+}
+
 #lovable-badge { display: none !important; }
