@@ -231,11 +231,13 @@ function HeroVisual() {
   // Software house signal: no dashboards, KPIs, charts, or fake metrics.
   // Nodes represent the integration surface: Website, WhatsApp, CRM, Automação,
   // orbiting an Imperius core.
+  // Symmetric grid: nodes mirrored across both axes so the diagram stays
+  // balanced under any rotation, scale, or device aspect.
   const nodes = [
-    { id: "web", label: "Website", x: 22, y: 30 },
-    { id: "wa", label: "WhatsApp", x: 76, y: 32 },
-    { id: "crm", label: "CRM", x: 22, y: 68 },
-    { id: "auto", label: "Automação", x: 74, y: 66 },
+    { id: "web", label: "Website", x: 24, y: 30 },
+    { id: "wa", label: "WhatsApp", x: 76, y: 30 },
+    { id: "crm", label: "CRM", x: 24, y: 70 },
+    { id: "auto", label: "Automação", x: 76, y: 70 },
   ];
   const core = { x: 50, y: 50 };
 
