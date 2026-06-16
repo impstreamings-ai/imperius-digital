@@ -25,7 +25,6 @@ import {
   Sparkles,
   Briefcase,
   Building2,
-  Building2,
   Mail,
   Shield,
   CheckCircle2,
