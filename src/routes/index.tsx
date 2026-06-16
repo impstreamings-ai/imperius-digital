@@ -1634,14 +1634,6 @@ function FAQ() {
       a: "Demonstração funcional personalizada: 3 a 7 dias úteis. Projeto completo (site + automação + CRM + agenda): 2 a 4 semanas, conforme escopo e integrações. Definimos cronograma por etapas no kickoff, com datas de entrega registradas.",
     },
     {
-      q: "A demonstração tem custo?",
-      a: "Não. A demonstração inicial é cortesia da Imperius, sem compromisso comercial e sem cobrança de proposta.",
-    },
-    {
-      q: "Preciso já ter um site ou conta no WhatsApp Business?",
-      a: "Não. Construímos do zero quando necessário. Se você já usa WhatsApp Business, integramos ao número existente sem perder histórico. Também configuramos um novo número e a API oficial do WhatsApp quando faz mais sentido para o seu volume.",
-    },
-    {
       q: "A automação funciona no meu WhatsApp atual?",
       a: "Sim. Trabalhamos com a API oficial do WhatsApp Business (Meta), o que mantém o número, contatos e conversas. O atendimento humano continua funcionando normalmente — a IA atua só nos momentos definidos por você (fora do horário, fila cheia, primeira triagem, agendamento).",
     },
@@ -1650,16 +1642,8 @@ function FAQ() {
       a: "Sim. O projeto entregue é seu: você recebe acesso ao código-fonte, ao painel, ao domínio e ao banco de dados. Não há lock-in técnico. Se um dia decidir sair, você leva tudo — inclusive os contatos, histórico de conversas e pipeline do CRM, exportáveis em formato padrão.",
     },
     {
-      q: "Como funciona o domínio e a hospedagem?",
-      a: "Você pode usar um domínio que já tem ou registramos um novo no seu nome (não no nosso). A hospedagem fica em infraestrutura profissional com SSL, backups automáticos e monitoramento. Custo de hospedagem e domínio é transparente, cobrado direto do provedor ou repassado sem margem — você decide.",
-    },
-    {
       q: "Tem suporte depois da entrega?",
       a: "Sim. Todo projeto inclui período de acompanhamento pós-publicação para ajustes finos. Após esse período, você pode contratar um plano contínuo (evolução + suporte + monitoramento) ou seguir avulso por demanda. Resposta a chamados em horário comercial, com SLA combinado em contrato.",
-    },
-    {
-      q: "E se eu quiser cancelar?",
-      a: "Projetos pagos por escopo fechado não têm cancelamento — você paga pelo que foi entregue até a etapa concluída. Planos contínuos de suporte podem ser cancelados a qualquer momento com aviso de 30 dias, sem multa. Em qualquer cenário, você mantém o site, o código, os dados e o domínio.",
     },
     {
       q: "Com quem eu falo?",
