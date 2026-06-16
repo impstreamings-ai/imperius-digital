@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import logoAsset from "@/assets/imperius-logo-official.png.asset.json";
 import blackCrownHeroCover from "@/assets/black-crown-cover.png.asset.json";
-import vitalisHeroCover from "@/assets/vitalis-hero.jpg.asset.json";
+
 
 import { Button } from "@/components/ui/button";
 import {
