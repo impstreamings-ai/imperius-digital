@@ -202,9 +202,10 @@ function Hero() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="w-full sm:w-auto border-border/70 bg-background/30 hover:bg-background/60 hover:border-primary/50 text-foreground/90 font-medium rounded-full h-12 px-6 text-[13.5px] transition-all duration-300"
+                  className="w-full sm:w-auto border-border/70 bg-background/30 hover:bg-background/60 hover:border-primary/50 text-foreground/90 font-medium rounded-full h-auto min-h-12 py-2 px-5 sm:px-6 text-[12.5px] sm:text-[13.5px] whitespace-normal text-center leading-snug transition-all duration-300"
                 >
-                  <Mail className="mr-2 h-4 w-4 text-muted-foreground" /> Receber demonstração personalizada
+                  <Mail className="mr-2 h-4 w-4 shrink-0 text-muted-foreground" />
+                  <span>Receber demonstração personalizada</span>
                 </Button>
               </a>
             </div>
@@ -226,10 +227,10 @@ function HeroVisual() {
   // Nodes represent the integration surface: Website, WhatsApp, CRM, Automação,
   // orbiting an Imperius core.
   const nodes = [
-    { id: "web", label: "Website", x: 20, y: 28 },
-    { id: "wa", label: "WhatsApp", x: 80, y: 32 },
+    { id: "web", label: "Website", x: 22, y: 30 },
+    { id: "wa", label: "WhatsApp", x: 76, y: 32 },
     { id: "crm", label: "CRM", x: 22, y: 68 },
-    { id: "auto", label: "Automação", x: 78, y: 66 },
+    { id: "auto", label: "Automação", x: 74, y: 66 },
   ];
   const core = { x: 50, y: 50 };
 
@@ -395,24 +396,26 @@ function HeroVisual() {
         ))}
 
         {/* Top meta strip */}
-        <div className="absolute top-0 inset-x-0 flex items-center justify-between px-4 py-2.5 border-b border-border/40 bg-gradient-to-b from-[oklch(0.065_0.004_240)]/90 to-transparent">
-          <div className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-            <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-foreground/70">
-              Arquitetura · Integração
+        <div className="absolute top-0 inset-x-0 flex items-center justify-between gap-3 px-3 sm:px-4 py-2.5 border-b border-border/40 bg-gradient-to-b from-[oklch(0.065_0.004_240)]/90 to-transparent">
+          <div className="flex min-w-0 items-center gap-2">
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-pulse-glow" />
+            <span className="text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.22em] sm:tracking-[0.28em] text-foreground/70 truncate">
+              <span className="sm:hidden">Arquitetura</span>
+              <span className="hidden sm:inline">Arquitetura · Integração</span>
             </span>
           </div>
-          <span className="text-[10px] font-sans tracking-[0.22em] text-muted-foreground/55 uppercase">
+          <span className="shrink-0 text-[9px] sm:text-[10px] font-sans tracking-[0.18em] sm:tracking-[0.22em] text-muted-foreground/55 uppercase">
             v · 2026
           </span>
         </div>
 
+
         {/* Bottom meta strip */}
-        <div className="absolute bottom-0 inset-x-0 flex items-center justify-between px-4 py-2.5 border-t border-border/40 bg-gradient-to-t from-[oklch(0.065_0.004_240)]/90 to-transparent">
-          <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-muted-foreground/70">
+        <div className="absolute bottom-0 inset-x-0 flex items-center justify-between gap-3 px-3 sm:px-4 py-2.5 border-t border-border/40 bg-gradient-to-t from-[oklch(0.065_0.004_240)]/90 to-transparent">
+          <span className="text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.22em] sm:tracking-[0.28em] text-muted-foreground/70 truncate">
             Sistemas próprios
           </span>
-          <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-primary/80">
+          <span className="shrink-0 text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.22em] sm:tracking-[0.28em] text-primary/80">
             Engenharia aplicada
           </span>
         </div>
