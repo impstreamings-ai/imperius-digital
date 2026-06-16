@@ -656,106 +656,78 @@ import primeCover from "@/assets/prime-hero.jpg.asset.json";
 const IMPERIUS_KINDS: ReadonlySet<DemoKind> = new Set(["Atendimento", "Comercial", "Operação"]);
 
 function Demonstracoes() {
-  const cards: DemoCard[] = [
-    { icon: Bot, title: "Imperius Automation", desc: "IA sobre a API oficial do WhatsApp Business. Qualifica e encaminha leads em tempo real.", status: "Ativo", kind: "Atendimento", to: "/automation", preview: "automation" },
-    { icon: Users, title: "Imperius CRM", desc: "Pipeline comercial com etapas, oportunidades e indicadores por cliente.", status: "Ativo", kind: "Comercial", to: "/crm", preview: "crm" },
-    { icon: Calendar, title: "Imperius Scheduling", desc: "Agenda, confirmações e reservas integradas ao atendimento e ao CRM.", status: "Ativo", kind: "Operação", to: "/scheduling", preview: "scheduling" },
-    { icon: Scissors, title: "Black Crown Barbershop", desc: "Barbearia premium com agendamento e identidade visual cinematográfica. Abra e navegue como um cliente real.", status: "Ativo", kind: "Projeto externo", href: BLACK_CROWN_URL, external: true, cover: blackCrownCover.url, domain: "blackcrown-by-imperius.lovable.app" },
-    { icon: Stethoscope, title: "Clínica Vitalis", desc: "Site clínico com agendamento, especialidades e tom de confiança — pronto para captar pacientes.", status: "Ativo", kind: "Demonstração de nicho", to: "/vitalis", cover: vitalisCover.url, domain: "vitalis.imperiusdigital.com.br" },
-    { icon: Building2, title: "Prime Imóveis", desc: "Portal imobiliário com busca, ficha de imóvel e captação de leads qualificados em segundos.", status: "Ativo", kind: "Demonstração de nicho", to: "/prime-imoveis", cover: primeCover.url, domain: "primeimoveis.imperiusdigital.com.br" },
-  ];
-
-
-  const productCards = cards.filter((c) => IMPERIUS_KINDS.has(c.kind));
-  const demoCards = cards.filter((c) => !IMPERIUS_KINDS.has(c.kind));
-
   return (
-    <section id="vitrine" className="py-24 sm:py-32 relative">
-      <div className="absolute inset-0 bg-grid opacity-15 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[820px] h-[460px] rounded-full blur-3xl opacity-15 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, oklch(0.55 0.22 250 / 0.18), transparent 70%)" }} />
-      <div className="relative mx-auto max-w-7xl px-6 space-y-20 sm:space-y-24">
-        {/* Group 1 — Produtos Imperius */}
-        <div>
-          <div className="mb-10 sm:mb-12 grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-12 lg:items-end">
-            <div className="max-w-2xl">
-              <div className="text-[10.5px] uppercase tracking-[0.32em] text-primary/90 font-semibold mb-5 font-sans inline-flex items-center gap-2.5">
-                <span className="h-px w-8 bg-primary/70" />
-                Produtos próprios · {productCards.length.toString().padStart(2, "0")} módulos
-              </div>
-              <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.75rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-                Engenharia que opera o seu comercial.
-              </h2>
-              <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans max-w-xl">
-                Automation, CRM e Scheduling — três módulos integrados, desenvolvidos internamente e
-                em evolução contínua. Implantados sob o contexto técnico do seu negócio, não como SaaS de prateleira.
-              </p>
-            </div>
-            <div className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium inline-flex items-center gap-2 lg:justify-end">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-              Stack integrada · em evolução
-            </div>
+    <section id="vitrine" className="relative py-24 sm:py-32 border-t border-border/30">
+      <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" aria-hidden />
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[380px] rounded-full blur-3xl opacity-15 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse, oklch(0.55 0.22 250 / 0.18), transparent 70%)" }}
+        aria-hidden
+      />
+      <div className="relative mx-auto max-w-6xl px-6">
+        <div className="max-w-2xl mb-10 sm:mb-14">
+          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
+            <span className="h-px w-8 bg-primary/70" />
+            Demonstração
           </div>
-          {(() => {
-            const automation = productCards.find((c) => c.preview === "automation");
-            const crm = productCards.find((c) => c.preview === "crm");
-            const scheduling = productCards.find((c) => c.preview === "scheduling");
-            return (
-              <div className="grid gap-5 sm:gap-6 lg:grid-cols-5 lg:items-stretch">
-                {automation && (
-                  <div className="lg:col-span-3">
-                    <ProductShowcaseCard card={automation} featured />
-                  </div>
-                )}
-                <div className="grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-1 lg:col-span-2">
-                  {crm && <ProductShowcaseCard card={crm} />}
-                  {scheduling && <ProductShowcaseCard card={scheduling} />}
-                </div>
-              </div>
-            );
-          })()}
+          <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+            Aplicação real,{" "}
+            <span className="text-neon">navegável agora.</span>
+          </h2>
+          <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans">
+            Não é mockup. É um ambiente operacional ao vivo, em domínio próprio —
+            o mesmo padrão de engenharia que aplicamos ao seu negócio.
+          </p>
         </div>
 
-        {/* Divider */}
-        <div className="flex items-center gap-4" aria-hidden>
-          <span className="h-px flex-1 bg-border/50" />
-          <span className="text-[10px] uppercase tracking-[0.32em] text-muted-foreground/70 font-sans font-medium">
-            Sites navegáveis por nicho
-          </span>
-          <span className="h-px flex-1 bg-border/50" />
-        </div>
-
-        {/* Group 2 — Demonstrações */}
-        <div>
-          <div className="mb-10 sm:mb-12 grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-12 lg:items-end">
-            <div className="max-w-2xl">
-              <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
-                <span className="h-px w-8 bg-muted-foreground/60" />
-                Vitrine ao vivo · {demoCards.length.toString().padStart(2, "0")} verticais
+        <a
+          href={BLACK_CROWN_URL}
+          target="_blank"
+          rel="noreferrer"
+          onClick={() => track("demo_click", { project: "black_crown" })}
+          className="group block rounded-2xl border border-border/50 bg-[oklch(0.09_0.005_245)] overflow-hidden transition-all duration-300 hover:border-primary/40 hover:-translate-y-0.5 hover:shadow-[0_40px_80px_-40px_oklch(0_0_0/0.9)]"
+        >
+          <div className="grid lg:grid-cols-[1.4fr_1fr] items-stretch">
+            <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden bg-black">
+              <img
+                src={blackCrownHeroCover.url}
+                alt="Black Crown Barbershop — ambiente operacional Imperius"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" aria-hidden />
+              <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-primary/40 bg-background/70 backdrop-blur-md text-[10px] uppercase tracking-[0.18em] font-semibold font-sans text-primary">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+                Ao vivo
               </div>
-              <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.75rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-                Sites reais que você pode{" "}
-                <span className="text-neon">abrir e navegar agora.</span>
-              </h2>
-              <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans max-w-xl">
-                Não são telas estáticas. Cada card abre um site funcional, em domínio próprio —
-                clique, role, simule um agendamento e veja o acabamento como o seu cliente final veria.
+            </div>
+            <div className="p-6 sm:p-8 lg:p-10 flex flex-col">
+              <span className="text-[10px] uppercase tracking-[0.22em] font-sans font-semibold text-primary/90 inline-flex items-center gap-1.5">
+                <Scissors className="h-3.5 w-3.5" />
+                Projeto de referência
+              </span>
+              <h3 className="mt-3 font-display font-semibold text-[1.5rem] sm:text-[1.8rem] leading-[1.1] tracking-[-0.02em] text-foreground">
+                Black Crown Barbershop
+              </h3>
+              <p className="mt-3 text-[14px] sm:text-[14.5px] text-muted-foreground leading-relaxed font-sans">
+                Operação completa em produção: site, agendamento, atendimento e
+                identidade — desenvolvidos e operados pela Imperius.
               </p>
-            </div>
-            <div className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground/80 font-sans font-medium inline-flex items-center gap-2 lg:justify-end">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-              Tudo ao vivo
+              <div className="mt-5 text-[11px] uppercase tracking-[0.22em] font-sans text-muted-foreground/70 truncate">
+                blackcrown-by-imperius.lovable.app
+              </div>
+              <div className="mt-auto pt-6 inline-flex items-center gap-2 text-[13px] font-sans font-semibold text-foreground group-hover:text-primary transition-colors">
+                Abrir demonstração
+                <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </div>
             </div>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-            {demoCards.map((c) => (
-              <DemoCardItem key={c.title} card={c} />
-            ))}
-          </div>
-        </div>
+        </a>
       </div>
     </section>
   );
 }
+
 
 function StatusBadge({ status }: { status: DemoStatus }) {
   const styles: Record<DemoStatus, string> = {
