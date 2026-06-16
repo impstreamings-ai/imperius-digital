@@ -227,10 +227,10 @@ function HeroVisual() {
   // Nodes represent the integration surface: Website, WhatsApp, CRM, Automação,
   // orbiting an Imperius core.
   const nodes = [
-    { id: "web", label: "Website", x: 20, y: 28 },
-    { id: "wa", label: "WhatsApp", x: 80, y: 32 },
+    { id: "web", label: "Website", x: 22, y: 30 },
+    { id: "wa", label: "WhatsApp", x: 76, y: 32 },
     { id: "crm", label: "CRM", x: 22, y: 68 },
-    { id: "auto", label: "Automação", x: 78, y: 66 },
+    { id: "auto", label: "Automação", x: 74, y: 66 },
   ];
   const core = { x: 50, y: 50 };
 
