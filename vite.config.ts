@@ -12,4 +12,16 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Force-enable Nitro outside the Lovable sandbox and target a traditional Node server
+  // (Startup File for cPanel / Phusion Passenger / Node selector).
+  // Inside the Lovable sandbox the wrapper overrides preset+output to cloudflare-module,
+  // so this does NOT affect Lovable preview/publish.
+  nitro: {
+    preset: "node-server",
+    output: {
+      dir: ".output",
+      serverDir: ".output/server",
+      publicDir: ".output/public",
+    },
+  },
 });
