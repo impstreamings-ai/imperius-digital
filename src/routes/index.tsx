@@ -523,7 +523,7 @@ function FAQ() {
 
 function FinalCTA() {
   return (
-    <section className="relative py-28 sm:py-36 border-t border-border/30 overflow-hidden">
+    <section className="relative py-24 sm:py-32 border-t border-border/30 overflow-hidden">
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[820px] h-[420px] rounded-full blur-3xl opacity-18 pointer-events-none"
         style={{ background: "radial-gradient(ellipse, oklch(0.55 0.22 250 / 0.22), transparent 70%)" }}
