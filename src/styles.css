@@ -280,13 +280,88 @@
 }
 .hero-drift { animation: hero-drift 22s ease-in-out infinite; }
 
+/* === Ecossistema Operacional — cinematic motion === */
+
+/* Deep-blue background breathing layer (sits over gradient-hero) */
+@keyframes hero-breathe {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%      { opacity: 0.85; transform: scale(1.04); }
+}
+.hero-breathe {
+  position: absolute;
+  inset: -10%;
+  pointer-events: none;
+  background:
+    radial-gradient(55% 45% at 50% 45%, oklch(0.42 0.18 250 / 0.28), transparent 70%),
+    radial-gradient(40% 35% at 50% 55%, oklch(0.55 0.22 250 / 0.18), transparent 75%);
+  filter: blur(40px);
+  animation: hero-breathe 11s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+/* Core halo: gentle blue pulse */
+@keyframes hero-core-pulse {
+  0%, 100% { opacity: 0.78; transform: scale(1); }
+  50%      { opacity: 1;    transform: scale(1.05); }
+}
+.hero-core-halo {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hero-core-pulse 5.5s ease-in-out infinite;
+}
+
+/* Orbits: almost imperceptible rotation, opposite directions for depth */
+@keyframes hero-orbit-spin     { to { transform: rotate(360deg); } }
+@keyframes hero-orbit-spin-rev { to { transform: rotate(-360deg); } }
+.hero-orbits {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hero-orbit-spin 140s linear infinite;
+}
+.hero-orbits-rev {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hero-orbit-spin-rev 200s linear infinite;
+}
+
+/* Energy lines: slow flowing dash from core to node */
+@keyframes hero-energy-flow {
+  to { stroke-dashoffset: -24; }
+}
+.hero-energy-line {
+  stroke-dasharray: 2 4;
+  animation: hero-energy-flow 6s linear infinite;
+}
+.hero-energy-line:nth-child(2) { animation-duration: 7.5s; }
+.hero-energy-line:nth-child(3) { animation-duration: 9s;   }
+.hero-energy-line:nth-child(4) { animation-duration: 8s;   }
+.hero-energy-line:nth-child(5) { animation-duration: 10s;  }
+
+/* Node markers: discreet hover glow on Website/Agenda/Automação/CRM/WhatsApp */
+.hero-node {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.5s cubic-bezier(0.2,0.7,0.2,1), filter 0.5s ease;
+  cursor: default;
+}
+.hero-node:hover {
+  transform: scale(1.18);
+  filter: drop-shadow(0 0 8px oklch(0.82 0.22 250 / 0.85));
+}
+
 @media (prefers-reduced-motion: reduce) {
   .badge-pulse,
   .text-shimmer,
   .hero-particles span,
   .hero-drift,
+  .hero-breathe,
+  .hero-core-halo,
+  .hero-orbits,
+  .hero-orbits-rev,
+  .hero-energy-line,
   .animate-pulse-glow { animation: none !important; }
-  .btn-premium, .card-rise { transition: none !important; }
+  .btn-premium, .card-rise, .hero-node { transition: none !important; }
 }
 
 #lovable-badge { display: none !important; }
+
