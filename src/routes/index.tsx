@@ -493,7 +493,7 @@ function FAQ() {
     },
   ];
   return (
-    <section id="faq" className="py-20 sm:py-28 border-t border-border/30">
+    <section id="faq" className="py-14 sm:py-20 border-t border-border/30">
       <script
         type="application/ld+json"
         // FAQPage schema para SEO e featured snippets
@@ -510,7 +510,7 @@ function FAQ() {
         }}
       />
       <div className="mx-auto max-w-3xl px-6">
-        <div className="max-w-2xl mb-12 sm:mb-14">
+        <div className="max-w-2xl mb-9 sm:mb-12">
           <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
             <span className="h-px w-8 bg-primary/70" />
             FAQ
@@ -524,17 +524,17 @@ function FAQ() {
           </p>
         </div>
         <div className="divide-y divide-border/40 border-y border-border/40">
-          {items.map((it) => (
-            <details key={it.q} className="group py-6 sm:py-7">
+          {items.map((it, idx) => (
+            <details key={it.q} className="group py-5 sm:py-6" open={idx === 0}>
               <summary className="flex items-start justify-between gap-6 cursor-pointer list-none">
-                <h3 className="font-heading font-semibold text-[16px] sm:text-[18px] tracking-[-0.01em] text-foreground">
+                <h3 className="font-heading font-semibold text-[15.5px] sm:text-[17px] tracking-[-0.01em] text-foreground">
                   {it.q}
                 </h3>
                 <span className="mt-1 shrink-0 h-7 w-7 rounded-full border border-border/60 grid place-items-center text-muted-foreground group-open:bg-primary/10 group-open:text-primary group-open:border-primary/50 transition-colors">
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-open:rotate-90" />
                 </span>
               </summary>
-              <p className="mt-4 text-[14.5px] sm:text-[15px] text-muted-foreground leading-relaxed font-sans max-w-2xl whitespace-pre-line">
+              <p className="mt-4 text-[14px] sm:text-[15px] text-muted-foreground leading-relaxed font-sans max-w-2xl whitespace-pre-line">
                 {it.a}
               </p>
             </details>
@@ -544,6 +544,7 @@ function FAQ() {
     </section>
   );
 }
+
 
 function FinalCTA() {
   return (
