@@ -310,7 +310,7 @@ function Ecossistema() {
 
 function Demonstracoes() {
   return (
-    <section id="vitrine" className="relative py-24 sm:py-32 border-t border-border/30">
+    <section id="vitrine" className="relative py-20 sm:py-28 border-t border-border/30">
       <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" aria-hidden />
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[380px] rounded-full blur-3xl opacity-15 pointer-events-none"
