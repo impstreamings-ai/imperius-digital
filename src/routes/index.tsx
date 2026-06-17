@@ -195,61 +195,55 @@ function Hero() {
         ))}
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-6 w-full">
-        <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] gap-10 sm:gap-12 lg:gap-14 items-center">
-          <div className="max-w-[34rem]">
-            <div className="inline-flex items-center gap-2.5 text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-sans font-medium mb-6 sm:mb-7">
-              <span className="h-px w-8 bg-primary/70" />
-              Imperius · Software house
-            </div>
-            <h1 className="font-display text-[1.95rem] sm:text-[2.75rem] lg:text-[3.2rem] xl:text-[3.65rem] font-semibold leading-[1.02] tracking-[-0.028em] text-foreground">
-              Engenharia de software aplicada à{" "}
-              <span className="text-shimmer">operação comercial da sua empresa</span>.
-            </h1>
-            <p className="mt-5 sm:mt-6 max-w-[32rem] text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed font-sans">
-              Construímos sistemas de atendimento, pipeline e agenda como engenharia —
-              não como template. Produtos próprios em evolução, implantados no contexto real do seu negócio.
-            </p>
-            <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-3.5">
-              <a
-                href={WA}
-                target="_blank"
-                rel="noreferrer"
-                className="w-full sm:w-auto"
-                onClick={() => track("hero_cta_click", { destination: "whatsapp" })}
-              >
-                <Button
-                  size="lg"
-                  className="btn-premium w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[14px]"
-                >
-                  Solicitar demonstração <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </a>
-              <a
-                href={PROPOSAL_MAILTO}
-                className="w-full sm:w-auto"
-                onClick={() => track("hero_cta_click", { destination: "email" })}
-              >
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="btn-premium w-full sm:w-auto border-border/70 bg-background/30 hover:bg-background/60 hover:border-primary/50 text-foreground/90 font-medium rounded-full h-auto min-h-12 py-2 px-5 sm:px-6 text-[12.5px] sm:text-[13.5px] whitespace-normal text-center leading-snug"
-                >
-                  <Mail className="mr-2 h-4 w-4 shrink-0 text-muted-foreground" />
-                  <span>Receber demonstração personalizada</span>
-                </Button>
-              </a>
-            </div>
-            <p className="mt-6 sm:mt-7 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
-              Demonstração funcional em poucos dias · Sem proposta antes da entrega · Atendimento direto com a equipe
-            </p>
-          </div>
-
-          <div className="w-full max-w-[420px] sm:max-w-[480px] lg:max-w-none mx-auto lg:mx-0">
-            <HeroVisual />
-          </div>
+      <div className="relative mx-auto max-w-3xl px-5 sm:px-6 w-full text-center">
+        <div className="inline-flex items-center gap-2.5 text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-sans font-medium mb-6 sm:mb-7">
+          <span className="h-px w-8 bg-primary/70" />
+          Imperius · Software house
+          <span className="h-px w-8 bg-primary/70" />
         </div>
+        <h1 className="font-display text-[2.1rem] sm:text-[3rem] lg:text-[3.6rem] xl:text-[4rem] font-semibold leading-[1.02] tracking-[-0.028em] text-foreground">
+          Engenharia de software aplicada à{" "}
+          <span className="text-shimmer">operação comercial da sua empresa</span>.
+        </h1>
+        <p className="mt-6 sm:mt-7 mx-auto max-w-[36rem] text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed font-sans">
+          Construímos sistemas de atendimento, pipeline e agenda como engenharia —
+          não como template. Produtos próprios em evolução, implantados no contexto real do seu negócio.
+        </p>
+        <div className="mt-8 sm:mt-9 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-3.5">
+          <a
+            href={WA}
+            target="_blank"
+            rel="noreferrer"
+            className="w-full sm:w-auto"
+            onClick={() => track("hero_cta_click", { destination: "whatsapp" })}
+          >
+            <Button
+              size="lg"
+              className="btn-premium w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[14px]"
+            >
+              Solicitar demonstração <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </a>
+          <a
+            href={PROPOSAL_MAILTO}
+            className="w-full sm:w-auto"
+            onClick={() => track("hero_cta_click", { destination: "email" })}
+          >
+            <Button
+              size="lg"
+              variant="outline"
+              className="btn-premium w-full sm:w-auto border-border/70 bg-background/30 hover:bg-background/60 hover:border-primary/50 text-foreground/90 font-medium rounded-full h-auto min-h-12 py-2 px-5 sm:px-6 text-[12.5px] sm:text-[13.5px] whitespace-normal text-center leading-snug"
+            >
+              <Mail className="mr-2 h-4 w-4 shrink-0 text-muted-foreground" />
+              <span>Receber demonstração personalizada</span>
+            </Button>
+          </a>
+        </div>
+        <p className="mt-7 sm:mt-8 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
+          Demonstração funcional em poucos dias · Sem proposta antes da entrega · Atendimento direto com a equipe
+        </p>
       </div>
+
     </section>
   );
 }
