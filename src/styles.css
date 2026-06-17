@@ -337,31 +337,62 @@
 .hero-energy-line:nth-child(4) { animation-duration: 8s;   }
 .hero-energy-line:nth-child(5) { animation-duration: 10s;  }
 
-/* Node markers: discreet hover glow on Website/Agenda/Automação/CRM/WhatsApp */
+/* Node markers: discreet hover glow + slow breathing */
+@keyframes hero-node-breath {
+  0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 3px oklch(0.82 0.22 250 / 0.45)); }
+  50%      { opacity: 1;    filter: drop-shadow(0 0 9px oklch(0.86 0.22 250 / 0.85)); }
+}
 .hero-node {
   transform-box: fill-box;
   transform-origin: center;
   transition: transform 0.5s cubic-bezier(0.2,0.7,0.2,1), filter 0.5s ease;
   cursor: default;
+  animation: hero-node-breath 6s ease-in-out infinite;
 }
+.hero-node:nth-of-type(2) { animation-delay: -1.2s; }
+.hero-node:nth-of-type(3) { animation-delay: -2.4s; }
+.hero-node:nth-of-type(4) { animation-delay: -3.6s; }
+.hero-node:nth-of-type(5) { animation-delay: -4.8s; }
 .hero-node:hover {
   transform: scale(1.18);
-  filter: drop-shadow(0 0 8px oklch(0.82 0.22 250 / 0.85));
+  filter: drop-shadow(0 0 10px oklch(0.86 0.22 250 / 0.95));
+}
+
+/* Cinematic radial fade so the composition melts into the page */
+.hero-visual-fade {
+  -webkit-mask-image: radial-gradient(70% 70% at 50% 50%, #000 45%, transparent 92%);
+          mask-image: radial-gradient(70% 70% at 50% 50%, #000 45%, transparent 92%);
+}
+
+/* Floating ambient particles */
+@keyframes hero-particle-float {
+  0%, 100% { transform: translate3d(0,0,0); opacity: 0.25; }
+  50%      { transform: translate3d(0,-6px,0); opacity: 0.7; }
+}
+.hero-particle {
+  position: absolute;
+  width: 2px; height: 2px; border-radius: 9999px;
+  background: oklch(0.88 0.22 250 / 0.85);
+  box-shadow: 0 0 6px oklch(0.82 0.22 250 / 0.7);
+  animation: hero-particle-float 7s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .badge-pulse,
   .text-shimmer,
   .hero-particles span,
+  .hero-particle,
   .hero-drift,
   .hero-breathe,
   .hero-core-halo,
   .hero-orbits,
   .hero-orbits-rev,
   .hero-energy-line,
+  .hero-node,
   .animate-pulse-glow { animation: none !important; }
   .btn-premium, .card-rise, .hero-node { transition: none !important; }
 }
+
 
 #lovable-badge { display: none !important; }
 
