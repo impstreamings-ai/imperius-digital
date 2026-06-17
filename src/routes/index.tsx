@@ -269,7 +269,7 @@ function Ecossistema() {
       />
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-12 sm:mb-14">
-          <div className="text-[10.5px] uppercase tracking-[0.32em] text-primary/90 font-semibold mb-5 font-sans inline-flex items-center gap-2.5">
+          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
             <span className="h-px w-8 bg-primary/70" />
             Ecossistema Imperius
           </div>
