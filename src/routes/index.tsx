@@ -360,12 +360,12 @@ function Demonstracoes() {
                 Ao vivo
               </div>
             </div>
-            <div className="p-6 sm:p-8 lg:p-10 flex flex-col">
+            <div className="p-5 sm:p-8 lg:p-10 flex flex-col min-w-0">
               <span className="text-[10px] uppercase tracking-[0.22em] font-sans font-semibold text-primary/90 inline-flex items-center gap-1.5">
                 <Scissors className="h-3.5 w-3.5" />
                 Projeto de referência
               </span>
-              <h3 className="mt-3 font-display font-semibold text-[1.5rem] sm:text-[1.8rem] leading-[1.1] tracking-[-0.02em] text-foreground">
+              <h3 className="mt-3 font-display font-semibold text-[1.25rem] sm:text-[1.5rem] lg:text-[1.8rem] leading-[1.1] tracking-[-0.02em] text-foreground">
                 Black Crown Barbershop
               </h3>
               <p className="mt-3 text-[14px] sm:text-[14.5px] text-muted-foreground leading-relaxed font-sans">
