@@ -649,36 +649,37 @@ function FinalCTA() {
         }}
       />
       <div className="relative mx-auto max-w-3xl px-6 text-center">
-        <h2 className="font-display font-semibold text-[1.9rem] sm:text-[2.5rem] lg:text-[2.9rem] leading-[1.05] tracking-[-0.028em] text-foreground">
+        <h2 className="font-display font-semibold text-[2rem] sm:text-[2.7rem] lg:text-[3.1rem] leading-[1.05] tracking-[-0.028em] text-foreground">
           Gostaria de uma versão{" "}
           <span className="text-neon">personalizada</span> para o seu negócio?
         </h2>
-        <p className="mt-5 text-muted-foreground text-[15px] sm:text-[16.5px] leading-relaxed max-w-xl mx-auto">
+        <p className="mt-6 text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed max-w-2xl mx-auto">
           A Imperius desenvolve websites, automações e sistemas adaptados para
           cada operação.
         </p>
-        <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+        <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
           <a
             href={WA}
             target="_blank"
             rel="noreferrer"
+            className="w-full sm:w-auto"
             onClick={() =>
               track("whatsapp_click", { location: "final_cta_portfolio" })
             }
           >
             <Button
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-7 h-12 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_36px_-6px_oklch(0.72_0.22_250/0.7)]"
+              className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]"
             >
               <MessageCircle className="mr-2 h-4 w-4" />
               Solicitar Demonstração
             </Button>
           </a>
-          <Link to="/">
+          <Link to="/" className="w-full sm:w-auto">
             <Button
               size="lg"
               variant="outline"
-              className="rounded-full px-6 h-12 border-border/70 text-foreground hover:bg-card/60"
+              className="w-full sm:w-auto rounded-full h-12 px-6 text-[13.5px] border-border/70 bg-background/30 hover:bg-background/60 hover:border-primary/50 text-foreground/90 font-medium transition-all duration-300"
             >
               Voltar para a Imperius
             </Button>
