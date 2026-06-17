@@ -617,7 +617,7 @@ function Process() {
                   <span className="h-10 w-10 rounded-xl border border-primary/30 bg-background/60 grid place-items-center">
                     <Icon className="h-5 w-5 text-primary" strokeWidth={1.5} />
                   </span>
-                  <span className="text-[10.5px] uppercase tracking-[0.22em] text-muted-foreground/70 font-mono">
+                  <span className="font-heading text-[11px] tracking-[0.24em] text-muted-foreground/60 font-semibold">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
