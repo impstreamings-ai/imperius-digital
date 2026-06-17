@@ -417,7 +417,7 @@ function SectionHeader({
 
 function Solutions() {
   return (
-    <section id="solucoes" className="py-20 sm:py-24 relative">
+    <section id="solucoes" className="py-20 sm:py-28 relative">
       <div className="relative mx-auto max-w-7xl px-6">
         <SectionHeader
           label="Soluções Imperius"
