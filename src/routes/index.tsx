@@ -341,13 +341,16 @@ function Demonstracoes() {
           className="card-rise group block rounded-2xl border border-border/50 bg-[oklch(0.09_0.005_245)] overflow-hidden"
         >
           <div className="grid lg:grid-cols-[1.4fr_1fr] items-stretch">
-            <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden bg-black">
+            <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden bg-[oklch(0.14_0.01_245)]">
               <img
                 src={blackCrownHeroCover.url}
                 alt="Black Crown Barbershop — ambiente operacional Imperius"
-                loading="lazy"
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
               />
+
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" aria-hidden />
               <div className="badge-pulse absolute top-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-primary/40 bg-background/70 backdrop-blur-md text-[10px] uppercase tracking-[0.18em] font-semibold font-sans text-primary">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
