@@ -393,7 +393,8 @@ function Demonstracoes() {
             onClick={() => track("portfolio_bridge_click", { from: "home_demo" })}
             className="shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-md border border-primary/40 bg-primary/10 hover:bg-primary/15 text-[13px] font-sans font-semibold text-primary transition-colors"
           >
-            Ver demonstrações por segmento
+            <span className="sm:hidden">Ver demos por segmento</span>
+            <span className="hidden sm:inline">Ver demonstrações por segmento</span>
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
         </div>
