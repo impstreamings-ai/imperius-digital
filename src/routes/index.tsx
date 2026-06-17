@@ -195,293 +195,61 @@ function Hero() {
         ))}
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-6 w-full">
-        <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] gap-10 sm:gap-12 lg:gap-14 items-center">
-          <div className="max-w-[34rem]">
-            <div className="inline-flex items-center gap-2.5 text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-sans font-medium mb-6 sm:mb-7">
-              <span className="h-px w-8 bg-primary/70" />
-              Imperius · Software house
-            </div>
-            <h1 className="font-display text-[1.95rem] sm:text-[2.75rem] lg:text-[3.2rem] xl:text-[3.65rem] font-semibold leading-[1.02] tracking-[-0.028em] text-foreground">
-              Engenharia de software aplicada à{" "}
-              <span className="text-shimmer">operação comercial da sua empresa</span>.
-            </h1>
-            <p className="mt-5 sm:mt-6 max-w-[32rem] text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed font-sans">
-              Construímos sistemas de atendimento, pipeline e agenda como engenharia —
-              não como template. Produtos próprios em evolução, implantados no contexto real do seu negócio.
-            </p>
-            <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-3.5">
-              <a
-                href={WA}
-                target="_blank"
-                rel="noreferrer"
-                className="w-full sm:w-auto"
-                onClick={() => track("hero_cta_click", { destination: "whatsapp" })}
-              >
-                <Button
-                  size="lg"
-                  className="btn-premium w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[14px]"
-                >
-                  Solicitar demonstração <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </a>
-              <a
-                href={PROPOSAL_MAILTO}
-                className="w-full sm:w-auto"
-                onClick={() => track("hero_cta_click", { destination: "email" })}
-              >
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="btn-premium w-full sm:w-auto border-border/70 bg-background/30 hover:bg-background/60 hover:border-primary/50 text-foreground/90 font-medium rounded-full h-auto min-h-12 py-2 px-5 sm:px-6 text-[12.5px] sm:text-[13.5px] whitespace-normal text-center leading-snug"
-                >
-                  <Mail className="mr-2 h-4 w-4 shrink-0 text-muted-foreground" />
-                  <span>Receber demonstração personalizada</span>
-                </Button>
-              </a>
-            </div>
-            <p className="mt-6 sm:mt-7 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
-              Demonstração funcional em poucos dias · Sem proposta antes da entrega · Atendimento direto com a equipe
-            </p>
-          </div>
-
-          <div className="w-full max-w-[420px] sm:max-w-[480px] lg:max-w-none mx-auto lg:mx-0">
-            <HeroVisual />
-          </div>
+      <div className="relative mx-auto max-w-3xl px-5 sm:px-6 w-full text-center">
+        <div className="inline-flex items-center gap-2.5 text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-sans font-medium mb-6 sm:mb-7">
+          <span className="h-px w-8 bg-primary/70" />
+          Imperius · Software house
+          <span className="h-px w-8 bg-primary/70" />
         </div>
+        <h1 className="font-display text-[2.1rem] sm:text-[3rem] lg:text-[3.6rem] xl:text-[4rem] font-semibold leading-[1.02] tracking-[-0.028em] text-foreground">
+          Engenharia de software aplicada à{" "}
+          <span className="text-shimmer">operação comercial da sua empresa</span>.
+        </h1>
+        <p className="mt-6 sm:mt-7 mx-auto max-w-[36rem] text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed font-sans">
+          Construímos sistemas de atendimento, pipeline e agenda como engenharia —
+          não como template. Produtos próprios em evolução, implantados no contexto real do seu negócio.
+        </p>
+        <div className="mt-8 sm:mt-9 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-3.5">
+          <a
+            href={WA}
+            target="_blank"
+            rel="noreferrer"
+            className="w-full sm:w-auto"
+            onClick={() => track("hero_cta_click", { destination: "whatsapp" })}
+          >
+            <Button
+              size="lg"
+              className="btn-premium w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[14px]"
+            >
+              Solicitar demonstração <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </a>
+          <a
+            href={PROPOSAL_MAILTO}
+            className="w-full sm:w-auto"
+            onClick={() => track("hero_cta_click", { destination: "email" })}
+          >
+            <Button
+              size="lg"
+              variant="outline"
+              className="btn-premium w-full sm:w-auto border-border/70 bg-background/30 hover:bg-background/60 hover:border-primary/50 text-foreground/90 font-medium rounded-full h-auto min-h-12 py-2 px-5 sm:px-6 text-[12.5px] sm:text-[13.5px] whitespace-normal text-center leading-snug"
+            >
+              <Mail className="mr-2 h-4 w-4 shrink-0 text-muted-foreground" />
+              <span>Receber demonstração personalizada</span>
+            </Button>
+          </a>
+        </div>
+        <p className="mt-7 sm:mt-8 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
+          Demonstração funcional em poucos dias · Sem proposta antes da entrega · Atendimento direto com a equipe
+        </p>
       </div>
+
     </section>
   );
 }
 
-function HeroVisual() {
-  // Ecossistema Operacional Imperius — institutional composition.
-  // Five surfaces orbit the Imperius symbol in a symmetric pentagon:
-  // WhatsApp (top), CRM (upper-right), Automação (lower-right),
-  // Agenda (lower-left), Website (upper-left). Software house signal:
-  // no dashboards, KPIs, charts or SaaS chrome — just the brand mark,
-  // titanium-blue energy lines and operational module markers.
-  const R = 34;
-  const nodes = [
-    { id: "wa",   label: "WhatsApp",  angle: 270 },
-    { id: "crm",  label: "CRM",       angle: 342 },
-    { id: "auto", label: "Automação", angle: 54  },
-    { id: "ag",   label: "Agenda",    angle: 126 },
-    { id: "web",  label: "Website",   angle: 198 },
-  ].map((n) => {
-    const rad = (n.angle * Math.PI) / 180;
-    return { ...n, x: 50 + R * Math.cos(rad), y: 50 + R * Math.sin(rad) };
-  });
-  const core = { x: 50, y: 50 };
 
-  return (
-    <div className="relative w-full max-w-[600px] mx-auto lg:ml-auto lg:mr-0" aria-hidden>
-      {/* Deep ambient halo — fuses the composition with the hero background */}
-      <div
-        className="absolute -inset-20 blur-3xl opacity-80 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(50% 50% at 50% 50%, oklch(0.55 0.22 250 / 0.32), transparent 70%)",
-        }}
-      />
-      <div
-        className="absolute -inset-32 blur-[80px] opacity-60 pointer-events-none mix-blend-screen"
-        style={{
-          background:
-            "radial-gradient(40% 40% at 50% 50%, oklch(0.82 0.16 230 / 0.18), transparent 75%)",
-        }}
-      />
 
-      {/* Borderless cinematic stage — fades into the page */}
-      <div className="relative aspect-square hero-visual-fade">
-        {/* Inner radial vignette for depth (no hard frame) */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(circle at 50% 50%, oklch(0.10 0.02 250 / 0.55) 0%, transparent 60%)",
-            boxShadow:
-              "inset 0 0 120px 20px oklch(0 0 0 / 0.6), inset 0 0 240px oklch(0.55 0.22 250 / 0.05)",
-          }}
-        />
-
-        {/* Holographic grid — softer, masked tighter */}
-        <div
-          className="absolute inset-0 opacity-[0.10]"
-          style={{
-            backgroundImage:
-              "linear-gradient(oklch(0.72 0.22 250 / 0.45) 1px, transparent 1px), linear-gradient(90deg, oklch(0.72 0.22 250 / 0.45) 1px, transparent 1px)",
-            backgroundSize: "44px 44px",
-            maskImage:
-              "radial-gradient(55% 55% at 50% 50%, black 30%, transparent 95%)",
-            WebkitMaskImage:
-              "radial-gradient(55% 55% at 50% 50%, black 30%, transparent 95%)",
-          }}
-        />
-
-        {/* Slow titanium sweep */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-70 mix-blend-screen hero-drift"
-          style={{
-            background:
-              "conic-gradient(from 200deg at 50% 50%, transparent 0deg, oklch(0.72 0.22 250 / 0.12) 60deg, transparent 140deg, oklch(0.82 0.16 230 / 0.10) 240deg, transparent 320deg)",
-            maskImage:
-              "radial-gradient(60% 60% at 50% 50%, black 20%, transparent 95%)",
-            WebkitMaskImage:
-              "radial-gradient(60% 60% at 50% 50%, black 20%, transparent 95%)",
-          }}
-        />
-
-        {/* Floating ambient particles */}
-        {[
-          { top: "18%", left: "22%", delay: "-0.4s" },
-          { top: "28%", left: "78%", delay: "-2.1s" },
-          { top: "62%", left: "18%", delay: "-3.3s" },
-          { top: "74%", left: "70%", delay: "-1.6s" },
-          { top: "48%", left: "12%", delay: "-4.2s" },
-          { top: "44%", left: "88%", delay: "-5.0s" },
-          { top: "82%", left: "44%", delay: "-2.8s" },
-        ].map((p, i) => (
-          <span key={i} className="hero-particle" style={{ top: p.top, left: p.left, animationDelay: p.delay }} />
-        ))}
-
-        {/* Orbits + energy lines */}
-        <svg
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-          className="absolute inset-0 h-full w-full"
-        >
-          <defs>
-            <radialGradient id="heroCore" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="oklch(0.88 0.22 250)" stopOpacity="0.95" />
-              <stop offset="55%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0.22" />
-              <stop offset="100%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0" />
-            </radialGradient>
-            <linearGradient id="heroEdge" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="oklch(0.78 0.2 250)" stopOpacity="0.05" />
-              <stop offset="50%" stopColor="oklch(0.9 0.2 250)" stopOpacity="0.9" />
-              <stop offset="100%" stopColor="oklch(0.78 0.2 250)" stopOpacity="0.05" />
-            </linearGradient>
-          </defs>
-
-          {/* Concentric orbits */}
-          <g className="hero-orbits">
-            {[14, 22, 30, 38, 44].map((r, i) => (
-              <circle
-                key={r}
-                cx="50"
-                cy="50"
-                r={r}
-                fill="none"
-                stroke="oklch(0.82 0.2 250 / 0.16)"
-                strokeWidth={i === 2 ? "0.3" : "0.15"}
-                strokeDasharray={i % 2 === 0 ? "0.6 1.2" : undefined}
-                vectorEffect="non-scaling-stroke"
-              />
-            ))}
-          </g>
-
-          {/* Pentagon perimeter */}
-          <g className="hero-orbits-rev">
-            <polygon
-              points={nodes.map((n) => `${n.x},${n.y}`).join(" ")}
-              fill="none"
-              stroke="oklch(0.82 0.2 250 / 0.18)"
-              strokeWidth="0.22"
-              vectorEffect="non-scaling-stroke"
-            />
-          </g>
-
-          {/* Core halo */}
-          <circle className="hero-core-halo" cx="50" cy="50" r="24" fill="url(#heroCore)" />
-
-          {/* Energy lines */}
-          <g>
-            {nodes.map((n) => (
-              <line
-                key={n.id}
-                className="hero-energy-line"
-                x1={core.x}
-                y1={core.y}
-                x2={n.x}
-                y2={n.y}
-                stroke="url(#heroEdge)"
-                strokeWidth="0.4"
-                vectorEffect="non-scaling-stroke"
-              />
-            ))}
-          </g>
-
-          {/* Node markers */}
-          {nodes.map((n) => (
-            <g key={`d-${n.id}`} className="hero-node">
-              <circle cx={n.x} cy={n.y} r="3.6" fill="oklch(0.08 0.01 250 / 0.85)" />
-              <circle
-                cx={n.x}
-                cy={n.y}
-                r="3.6"
-                fill="none"
-                stroke="oklch(0.86 0.22 250 / 0.6)"
-                strokeWidth="0.25"
-                vectorEffect="non-scaling-stroke"
-              />
-              <circle cx={n.x} cy={n.y} r="1.4" fill="oklch(0.92 0.18 250)" />
-            </g>
-          ))}
-        </svg>
-
-        {/* Imperius symbol at the core */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-          <div
-            className="absolute inset-0 -m-8 rounded-full blur-2xl"
-            style={{
-              background:
-                "radial-gradient(circle, oklch(0.82 0.22 250 / 0.6), transparent 70%)",
-            }}
-          />
-          <img
-            src={logoAsset.url}
-            alt=""
-            className="relative h-16 w-16 sm:h-20 sm:w-20 object-contain drop-shadow-[0_0_22px_oklch(0.82_0.22_250/0.6)]"
-            loading="eager"
-            decoding="async"
-          />
-        </div>
-
-        {/* Node labels */}
-        {nodes.map((n) => {
-          const dx = n.x - 50;
-          const dy = n.y - 50;
-          const len = Math.hypot(dx, dy) || 1;
-          const offset = 6.5;
-          const lx = n.x + (dx / len) * offset;
-          const ly = n.y + (dy / len) * offset;
-          return (
-            <div
-              key={`l-${n.id}`}
-              className="absolute -translate-x-1/2 -translate-y-1/2"
-              style={{ left: `${lx}%`, top: `${ly}%` }}
-            >
-              <span className="text-[9.5px] sm:text-[10px] font-sans uppercase tracking-[0.2em] text-foreground/85 whitespace-nowrap drop-shadow-[0_1px_6px_oklch(0_0_0/0.8)]">
-                {n.label}
-              </span>
-            </div>
-          );
-        })}
-
-        {/* Core label */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-[62%] text-center pointer-events-none">
-          <div className="text-[8.5px] sm:text-[9px] font-sans uppercase tracking-[0.34em] text-primary/90 drop-shadow-[0_1px_6px_oklch(0_0_0/0.8)]">
-            Ecossistema
-          </div>
-          <div className="text-[8.5px] sm:text-[9px] font-sans uppercase tracking-[0.34em] text-foreground/75 mt-0.5 drop-shadow-[0_1px_6px_oklch(0_0_0/0.8)]">
-            Operacional
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 
 
