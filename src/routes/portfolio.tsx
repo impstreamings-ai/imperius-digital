@@ -531,7 +531,7 @@ function DemoCard({ demo }: { demo: Demo }) {
         </div>
       </div>
       <div className="p-5 sm:p-6 flex-1 flex flex-col">
-        <div className="text-[10.5px] uppercase tracking-[0.22em] text-primary/90 font-semibold mb-2 font-sans">
+        <div className="text-[10.5px] uppercase tracking-[0.22em] text-muted-foreground/90 font-medium mb-2 font-sans">
           {demo.segment}
         </div>
         <h3 className="font-display font-semibold text-[1.15rem] tracking-[-0.015em] text-foreground">
