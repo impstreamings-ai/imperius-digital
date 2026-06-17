@@ -276,36 +276,74 @@ function HeroVisual() {
 
   return (
     <div className="relative w-full max-w-[600px] mx-auto lg:ml-auto lg:mr-0" aria-hidden>
-      {/* Ambient cinematic glow */}
+      {/* Deep ambient halo — fuses the composition with the hero background */}
       <div
-        className="absolute -inset-12 blur-3xl opacity-70 pointer-events-none"
+        className="absolute -inset-20 blur-3xl opacity-80 pointer-events-none"
         style={{
           background:
-            "radial-gradient(55% 45% at 50% 50%, oklch(0.72 0.22 250 / 0.22), transparent 70%)",
+            "radial-gradient(50% 50% at 50% 50%, oklch(0.55 0.22 250 / 0.32), transparent 70%)",
+        }}
+      />
+      <div
+        className="absolute -inset-32 blur-[80px] opacity-60 pointer-events-none mix-blend-screen"
+        style={{
+          background:
+            "radial-gradient(40% 40% at 50% 50%, oklch(0.82 0.16 230 / 0.18), transparent 75%)",
         }}
       />
 
-      {/* Frame */}
-      <div className="relative aspect-square rounded-[20px] overflow-hidden border border-border/50 bg-[oklch(0.07_0.004_240)] shadow-[0_60px_160px_-40px_oklch(0_0_0/0.9),0_0_0_1px_oklch(1_0_0/0.04)_inset]">
-        {/* Holographic grid */}
+      {/* Borderless cinematic stage — fades into the page */}
+      <div className="relative aspect-square hero-visual-fade">
+        {/* Inner radial vignette for depth (no hard frame) */}
         <div
-          className="absolute inset-0 opacity-[0.16]"
-          style={{
-            backgroundImage:
-              "linear-gradient(oklch(0.72 0.22 250 / 0.5) 1px, transparent 1px), linear-gradient(90deg, oklch(0.72 0.22 250 / 0.5) 1px, transparent 1px)",
-            backgroundSize: "44px 44px",
-            maskImage:
-              "radial-gradient(70% 70% at 50% 50%, black 35%, transparent 100%)",
-          }}
-        />
-        {/* Soft titanium sweep */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-60 mix-blend-screen"
+          className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "conic-gradient(from 200deg at 50% 50%, transparent 0deg, oklch(0.72 0.22 250 / 0.10) 60deg, transparent 140deg, oklch(0.82 0.16 230 / 0.08) 240deg, transparent 320deg)",
+              "radial-gradient(circle at 50% 50%, oklch(0.10 0.02 250 / 0.55) 0%, transparent 60%)",
+            boxShadow:
+              "inset 0 0 120px 20px oklch(0 0 0 / 0.6), inset 0 0 240px oklch(0.55 0.22 250 / 0.05)",
           }}
         />
+
+        {/* Holographic grid — softer, masked tighter */}
+        <div
+          className="absolute inset-0 opacity-[0.10]"
+          style={{
+            backgroundImage:
+              "linear-gradient(oklch(0.72 0.22 250 / 0.45) 1px, transparent 1px), linear-gradient(90deg, oklch(0.72 0.22 250 / 0.45) 1px, transparent 1px)",
+            backgroundSize: "44px 44px",
+            maskImage:
+              "radial-gradient(55% 55% at 50% 50%, black 30%, transparent 95%)",
+            WebkitMaskImage:
+              "radial-gradient(55% 55% at 50% 50%, black 30%, transparent 95%)",
+          }}
+        />
+
+        {/* Slow titanium sweep */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-70 mix-blend-screen hero-drift"
+          style={{
+            background:
+              "conic-gradient(from 200deg at 50% 50%, transparent 0deg, oklch(0.72 0.22 250 / 0.12) 60deg, transparent 140deg, oklch(0.82 0.16 230 / 0.10) 240deg, transparent 320deg)",
+            maskImage:
+              "radial-gradient(60% 60% at 50% 50%, black 20%, transparent 95%)",
+            WebkitMaskImage:
+              "radial-gradient(60% 60% at 50% 50%, black 20%, transparent 95%)",
+          }}
+        />
+
+        {/* Floating ambient particles */}
+        {[
+          { top: "18%", left: "22%", delay: "-0.4s" },
+          { top: "28%", left: "78%", delay: "-2.1s" },
+          { top: "62%", left: "18%", delay: "-3.3s" },
+          { top: "74%", left: "70%", delay: "-1.6s" },
+          { top: "48%", left: "12%", delay: "-4.2s" },
+          { top: "44%", left: "88%", delay: "-5.0s" },
+          { top: "82%", left: "44%", delay: "-2.8s" },
+        ].map((p, i) => (
+          <span key={i} className="hero-particle" style={{ top: p.top, left: p.left, animationDelay: p.delay }} />
+        ))}
 
         {/* Orbits + energy lines */}
         <svg
@@ -315,18 +353,18 @@ function HeroVisual() {
         >
           <defs>
             <radialGradient id="heroCore" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="oklch(0.86 0.22 250)" stopOpacity="0.95" />
+              <stop offset="0%" stopColor="oklch(0.88 0.22 250)" stopOpacity="0.95" />
               <stop offset="55%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0.22" />
               <stop offset="100%" stopColor="oklch(0.72 0.22 250)" stopOpacity="0" />
             </radialGradient>
             <linearGradient id="heroEdge" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stopColor="oklch(0.78 0.2 250)" stopOpacity="0.05" />
-              <stop offset="50%" stopColor="oklch(0.88 0.22 250)" stopOpacity="0.9" />
+              <stop offset="50%" stopColor="oklch(0.9 0.2 250)" stopOpacity="0.9" />
               <stop offset="100%" stopColor="oklch(0.78 0.2 250)" stopOpacity="0.05" />
             </linearGradient>
           </defs>
 
-          {/* Faint concentric orbits — almost imperceptible rotation for depth */}
+          {/* Concentric orbits */}
           <g className="hero-orbits">
             {[14, 22, 30, 38, 44].map((r, i) => (
               <circle
@@ -335,29 +373,29 @@ function HeroVisual() {
                 cy="50"
                 r={r}
                 fill="none"
-                stroke="oklch(0.78 0.2 250 / 0.18)"
-                strokeWidth={i === 2 ? "0.35" : "0.18"}
+                stroke="oklch(0.82 0.2 250 / 0.16)"
+                strokeWidth={i === 2 ? "0.3" : "0.15"}
                 strokeDasharray={i % 2 === 0 ? "0.6 1.2" : undefined}
                 vectorEffect="non-scaling-stroke"
               />
             ))}
           </g>
 
-          {/* Pentagon perimeter — counter-rotating for parallax */}
+          {/* Pentagon perimeter */}
           <g className="hero-orbits-rev">
             <polygon
               points={nodes.map((n) => `${n.x},${n.y}`).join(" ")}
               fill="none"
-              stroke="oklch(0.78 0.2 250 / 0.22)"
-              strokeWidth="0.25"
+              stroke="oklch(0.82 0.2 250 / 0.18)"
+              strokeWidth="0.22"
               vectorEffect="non-scaling-stroke"
             />
           </g>
 
-          {/* Core halo — soft blue pulse */}
-          <circle className="hero-core-halo" cx="50" cy="50" r="22" fill="url(#heroCore)" />
+          {/* Core halo */}
+          <circle className="hero-core-halo" cx="50" cy="50" r="24" fill="url(#heroCore)" />
 
-          {/* Energy lines core → node — slow flowing dash */}
+          {/* Energy lines */}
           <g>
             {nodes.map((n) => (
               <line
@@ -374,38 +412,37 @@ function HeroVisual() {
             ))}
           </g>
 
-          {/* Node markers — discreet hover glow */}
+          {/* Node markers */}
           {nodes.map((n) => (
             <g key={`d-${n.id}`} className="hero-node">
-              <circle cx={n.x} cy={n.y} r="3.4" fill="oklch(0.07 0.004 240)" />
+              <circle cx={n.x} cy={n.y} r="3.6" fill="oklch(0.08 0.01 250 / 0.85)" />
               <circle
                 cx={n.x}
                 cy={n.y}
-                r="3.4"
+                r="3.6"
                 fill="none"
-                stroke="oklch(0.82 0.22 250 / 0.55)"
+                stroke="oklch(0.86 0.22 250 / 0.6)"
                 strokeWidth="0.25"
                 vectorEffect="non-scaling-stroke"
               />
-              <circle cx={n.x} cy={n.y} r="1.3" fill="oklch(0.9 0.18 250)" />
+              <circle cx={n.x} cy={n.y} r="1.4" fill="oklch(0.92 0.18 250)" />
             </g>
           ))}
         </svg>
 
-
         {/* Imperius symbol at the core */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
           <div
-            className="absolute inset-0 -m-6 rounded-full blur-2xl"
+            className="absolute inset-0 -m-8 rounded-full blur-2xl"
             style={{
               background:
-                "radial-gradient(circle, oklch(0.78 0.22 250 / 0.55), transparent 70%)",
+                "radial-gradient(circle, oklch(0.82 0.22 250 / 0.6), transparent 70%)",
             }}
           />
           <img
             src={logoAsset.url}
             alt=""
-            className="relative h-16 w-16 sm:h-20 sm:w-20 object-contain drop-shadow-[0_0_18px_oklch(0.78_0.22_250/0.55)]"
+            className="relative h-16 w-16 sm:h-20 sm:w-20 object-contain drop-shadow-[0_0_22px_oklch(0.82_0.22_250/0.6)]"
             loading="eager"
             decoding="async"
           />
@@ -425,65 +462,27 @@ function HeroVisual() {
               className="absolute -translate-x-1/2 -translate-y-1/2"
               style={{ left: `${lx}%`, top: `${ly}%` }}
             >
-              <span className="text-[9.5px] sm:text-[10px] font-sans uppercase tracking-[0.2em] text-foreground/80 whitespace-nowrap">
+              <span className="text-[9.5px] sm:text-[10px] font-sans uppercase tracking-[0.2em] text-foreground/85 whitespace-nowrap drop-shadow-[0_1px_6px_oklch(0_0_0/0.8)]">
                 {n.label}
               </span>
             </div>
           );
         })}
 
-        {/* Core label — institutional terminology */}
+        {/* Core label */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-[62%] text-center pointer-events-none">
-          <div className="text-[8.5px] sm:text-[9px] font-sans uppercase tracking-[0.34em] text-primary/85">
+          <div className="text-[8.5px] sm:text-[9px] font-sans uppercase tracking-[0.34em] text-primary/90 drop-shadow-[0_1px_6px_oklch(0_0_0/0.8)]">
             Ecossistema
           </div>
-          <div className="text-[8.5px] sm:text-[9px] font-sans uppercase tracking-[0.34em] text-foreground/70 mt-0.5">
+          <div className="text-[8.5px] sm:text-[9px] font-sans uppercase tracking-[0.34em] text-foreground/75 mt-0.5 drop-shadow-[0_1px_6px_oklch(0_0_0/0.8)]">
             Operacional
           </div>
-        </div>
-
-        {/* Corner brackets — decorative, hidden on mobile to free strip space */}
-        {[
-          "top-3 left-3 border-l border-t",
-          "top-3 right-3 border-r border-t",
-          "bottom-3 left-3 border-l border-b",
-          "bottom-3 right-3 border-r border-b",
-        ].map((c, i) => (
-          <span
-            key={i}
-            className={`hidden sm:block absolute h-3 w-3 border-primary/40 ${c}`}
-          />
-        ))}
-
-        {/* Top meta strip */}
-        <div className="absolute top-0 inset-x-0 flex items-center justify-between gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 border-b border-border/40 bg-gradient-to-b from-[oklch(0.065_0.004_240)]/90 to-transparent">
-          <div className="flex min-w-0 items-center gap-2">
-            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-pulse-glow" />
-            <span className="text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.18em] sm:tracking-[0.28em] text-foreground/70 truncate">
-              <span className="sm:hidden">Ecossistema</span>
-              <span className="hidden sm:inline">Ecossistema · Imperius</span>
-            </span>
-          </div>
-          <span className="shrink-0 text-[9px] sm:text-[10px] font-sans tracking-[0.14em] sm:tracking-[0.22em] text-muted-foreground/55 uppercase">
-            Rev · 2026
-          </span>
-        </div>
-
-        {/* Bottom meta strip */}
-        <div className="absolute bottom-0 inset-x-0 flex items-center justify-between gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 border-t border-border/40 bg-gradient-to-t from-[oklch(0.065_0.004_240)]/90 to-transparent">
-          <span className="text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.18em] sm:tracking-[0.28em] text-muted-foreground/70 truncate">
-            <span className="sm:hidden">Operação</span>
-            <span className="hidden sm:inline">Operação comercial</span>
-          </span>
-          <span className="shrink-0 text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.14em] sm:tracking-[0.28em] text-primary/80">
-            <span className="sm:hidden">Engenharia</span>
-            <span className="hidden sm:inline">Engenharia aplicada</span>
-          </span>
         </div>
       </div>
     </div>
   );
 }
+
 
 
 
