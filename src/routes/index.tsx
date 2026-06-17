@@ -269,7 +269,7 @@ function Ecossistema() {
       />
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-12 sm:mb-14">
-          <div className="text-[10.5px] uppercase tracking-[0.32em] text-primary/90 font-semibold mb-5 font-sans inline-flex items-center gap-2.5">
+          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
             <span className="h-px w-8 bg-primary/70" />
             Ecossistema Imperius
           </div>
@@ -310,7 +310,7 @@ function Ecossistema() {
 
 function Demonstracoes() {
   return (
-    <section id="vitrine" className="relative py-24 sm:py-32 border-t border-border/30">
+    <section id="vitrine" className="relative py-20 sm:py-28 border-t border-border/30">
       <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" aria-hidden />
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[380px] rounded-full blur-3xl opacity-15 pointer-events-none"
@@ -469,7 +469,7 @@ function FAQ() {
     },
   ];
   return (
-    <section id="faq" className="py-24 sm:py-28 border-t border-border/30">
+    <section id="faq" className="py-20 sm:py-28 border-t border-border/30">
       <script
         type="application/ld+json"
         // FAQPage schema para SEO e featured snippets
@@ -486,15 +486,16 @@ function FAQ() {
         }}
       />
       <div className="mx-auto max-w-3xl px-6">
-        <div className="mb-12">
+        <div className="max-w-2xl mb-12 sm:mb-14">
           <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
             <span className="h-px w-8 bg-primary/70" />
             FAQ
           </div>
-          <h2 className="font-heading text-[1.75rem] sm:text-[2.2rem] lg:text-[2.6rem] font-bold leading-[1.1] tracking-[-0.02em] text-foreground">
-            Preço, prazo, propriedade e suporte — respondidos direto.
+          <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+            Preço, prazo, propriedade e suporte —{" "}
+            <span className="text-foreground/55">respondidos direto.</span>
           </h2>
-          <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[15px] leading-relaxed font-sans max-w-2xl">
+          <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans max-w-2xl">
             As perguntas que todo cliente faz antes de decidir. Respostas objetivas, sem rodeio comercial.
           </p>
         </div>
@@ -522,7 +523,7 @@ function FAQ() {
 
 function FinalCTA() {
   return (
-    <section className="relative py-28 sm:py-36 border-t border-border/30 overflow-hidden">
+    <section className="relative py-24 sm:py-32 border-t border-border/30 overflow-hidden">
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[820px] h-[420px] rounded-full blur-3xl opacity-18 pointer-events-none"
         style={{ background: "radial-gradient(ellipse, oklch(0.55 0.22 250 / 0.22), transparent 70%)" }}
