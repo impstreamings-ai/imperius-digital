@@ -167,7 +167,7 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative lg:min-h-[86vh] flex items-center pt-24 sm:pt-28 lg:pt-24 pb-16 sm:pb-20 lg:pb-20 overflow-hidden"
+      className="relative lg:min-h-[82vh] flex items-center pt-24 sm:pt-28 lg:pt-24 pb-12 sm:pb-16 lg:pb-20 overflow-hidden"
       style={{
         background: "var(--gradient-hero)",
         paddingLeft: "max(0px, env(safe-area-inset-left))",
@@ -187,13 +187,13 @@ function Hero() {
           Imperius · Software house
           <span className="h-px w-8 bg-primary/70" />
         </div>
-        <h1 className="font-display text-[2.1rem] sm:text-[3rem] lg:text-[3.6rem] xl:text-[4rem] font-semibold leading-[1.02] tracking-[-0.028em] text-foreground">
-          Engenharia de software aplicada à{" "}
-          <span className="text-shimmer">operação comercial da sua empresa</span>.
+        <h1 className="font-display text-[2rem] sm:text-[2.9rem] lg:text-[3.4rem] xl:text-[3.8rem] font-semibold leading-[1.04] tracking-[-0.028em] text-foreground">
+          Sistemas, atendimento e automação para sua{" "}
+          <span className="text-shimmer">empresa vender com mais controle</span>.
         </h1>
-        <p className="mt-6 sm:mt-7 mx-auto max-w-[36rem] text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed font-sans">
-          Construímos sistemas de atendimento, pipeline e agenda como engenharia —
-          não como template. Produtos próprios em evolução, implantados no contexto real do seu negócio.
+        <p className="mt-6 sm:mt-7 mx-auto max-w-[38rem] text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed font-sans">
+          Criamos páginas, fluxos de atendimento, agenda e organização comercial adaptados
+          ao contexto real da sua empresa — sem depender de solução genérica.
         </p>
         <div className="mt-8 sm:mt-9 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-3.5">
           <a
@@ -207,7 +207,7 @@ function Hero() {
               size="lg"
               className="btn-premium w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[14px] transition-all duration-300 hover:-translate-y-0.5"
             >
-              Solicitar demonstração <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              Solicitar análise pelo WhatsApp <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Button>
           </a>
           <a
@@ -221,7 +221,7 @@ function Hero() {
               className="btn-premium w-full sm:w-auto border-border/70 bg-background/30 hover:bg-background/60 hover:border-primary/50 text-foreground/90 font-medium rounded-full h-auto min-h-12 py-2 px-5 sm:px-6 text-[12.5px] sm:text-[13.5px] whitespace-normal text-center leading-snug transition-all duration-300"
             >
               <Mail className="mr-2 h-4 w-4 shrink-0 text-muted-foreground" />
-              <span>Receber proposta por e-mail</span>
+              <span>Prefiro receber por e-mail</span>
             </Button>
           </a>
         </div>
@@ -232,6 +232,7 @@ function Hero() {
     </section>
   );
 }
+
 
 
 
