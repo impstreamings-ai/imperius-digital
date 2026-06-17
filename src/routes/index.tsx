@@ -548,7 +548,7 @@ function FAQ() {
 
 function FinalCTA() {
   return (
-    <section className="relative py-24 sm:py-32 border-t border-border/30 overflow-hidden">
+    <section className="relative py-16 sm:py-24 border-t border-border/30 overflow-hidden">
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[820px] h-[420px] rounded-full blur-3xl opacity-18 pointer-events-none"
         style={{ background: "radial-gradient(ellipse, oklch(0.55 0.22 250 / 0.22), transparent 70%)" }}
@@ -558,16 +558,16 @@ function FinalCTA() {
           <span className="h-px w-8 bg-primary/70" />
           Próximo passo
         </div>
-        <h2 className="font-display font-semibold text-[2rem] sm:text-[2.7rem] lg:text-[3.1rem] leading-[1.05] tracking-[-0.028em] text-foreground">
-          Veja como a Imperius{" "}
-          <span className="text-neon">apresenta</span>{" "}
-          o seu negócio.
+        <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.5rem] lg:text-[2.9rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+          Veja como sua operação pode ficar mais{" "}
+          <span className="text-neon">organizada, apresentável</span>{" "}
+          e pronta para vender.
         </h2>
         <p className="mt-6 text-muted-foreground text-[15px] sm:text-[17px] max-w-2xl mx-auto leading-relaxed font-sans">
-          Você recebe uma demonstração construída especificamente para a sua empresa —
+          Demonstração funcional construída para a sua empresa —
           escopo definido em conjunto, projeto funcional antes de qualquer contrato.
         </p>
-        <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
           <a
             href={WA}
             target="_blank"
@@ -582,7 +582,7 @@ function FinalCTA() {
               size="lg"
               className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]"
             >
-              Falar com a equipe no WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
+              Solicitar análise pelo WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
           <a
@@ -600,6 +600,7 @@ function FinalCTA() {
     </section>
   );
 }
+
 
 function Footer() {
   return (
