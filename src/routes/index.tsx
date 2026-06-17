@@ -94,15 +94,15 @@ function Landing() {
 
 function Problema() {
   const dores = [
-    { icon: MessageCircle, t: "Atendimento disperso", d: "Mensagens espalhadas entre canais, sem registro nem responsável claro." },
-    { icon: TrendingUp, t: "Oportunidades perdidas", d: "Leads que entram, somem na conversa e nunca chegam ao comercial." },
-    { icon: ClipboardList, t: "Processos manuais", d: "Planilhas, copia-e-cola e retrabalho consumindo o time todo dia." },
-    { icon: Activity, t: "Sem visão da operação", d: "Você não sabe quantos contatos entraram, quantos fecharam, quanto sobrou." },
+    { icon: MessageCircle, t: "Clientes perdidos no WhatsApp", d: "Mensagens espalhadas, sem registro nem responsável definido." },
+    { icon: TrendingUp, t: "Leads sem acompanhamento", d: "Oportunidades entram, somem na conversa e nunca chegam ao comercial." },
+    { icon: ClipboardList, t: "Tempo perdido em tarefas repetitivas", d: "Planilhas, copia-e-cola e retrabalho consumindo o time todo dia." },
+    { icon: Activity, t: "Decisões no escuro", d: "Sem visão de quantos contatos entraram, quantos fecharam, quanto sobrou." },
   ];
   return (
-    <section className="relative py-20 sm:py-28 border-y border-border/30">
+    <section className="relative py-14 sm:py-20 border-y border-border/30">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="max-w-3xl mb-12 sm:mb-14">
+        <div className="max-w-3xl mb-9 sm:mb-12">
           <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
             <span className="h-px w-8 bg-primary/70" />
             O problema
@@ -133,6 +133,7 @@ function Problema() {
     </section>
   );
 }
+
 
 function Nav() {
   return (
