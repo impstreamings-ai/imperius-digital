@@ -592,15 +592,15 @@ function DemoCard({ demo }: { demo: Demo }) {
 
 function Process() {
   return (
-    <section id="processo" className="py-20 sm:py-24 relative border-y border-border/40">
+    <section id="processo" className="py-20 sm:py-28 relative border-y border-border/40">
       <div className="relative mx-auto max-w-7xl px-6">
-        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-          <div className="text-[10.5px] uppercase tracking-[0.32em] text-primary/90 font-semibold mb-5 font-sans inline-flex items-center gap-2.5">
+        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
+          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
             <span className="h-px w-8 bg-primary/70" />
             Como trabalhamos
             <span className="h-px w-8 bg-primary/70" />
           </div>
-          <h2 className="font-display font-semibold text-[1.7rem] sm:text-[2.2rem] lg:text-[2.4rem] leading-[1.08] tracking-[-0.028em] text-foreground">
+          <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Cinco etapas. Sem ruído.
           </h2>
         </div>
