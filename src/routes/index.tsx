@@ -94,15 +94,15 @@ function Landing() {
 
 function Problema() {
   const dores = [
-    { icon: MessageCircle, t: "Atendimento disperso", d: "Mensagens espalhadas entre canais, sem registro nem responsável claro." },
-    { icon: TrendingUp, t: "Oportunidades perdidas", d: "Leads que entram, somem na conversa e nunca chegam ao comercial." },
-    { icon: ClipboardList, t: "Processos manuais", d: "Planilhas, copia-e-cola e retrabalho consumindo o time todo dia." },
-    { icon: Activity, t: "Sem visão da operação", d: "Você não sabe quantos contatos entraram, quantos fecharam, quanto sobrou." },
+    { icon: MessageCircle, t: "Clientes perdidos no WhatsApp", d: "Mensagens espalhadas, sem registro nem responsável definido." },
+    { icon: TrendingUp, t: "Leads sem acompanhamento", d: "Oportunidades entram, somem na conversa e nunca chegam ao comercial." },
+    { icon: ClipboardList, t: "Tempo perdido em tarefas repetitivas", d: "Planilhas, copia-e-cola e retrabalho consumindo o time todo dia." },
+    { icon: Activity, t: "Decisões no escuro", d: "Sem visão de quantos contatos entraram, quantos fecharam, quanto sobrou." },
   ];
   return (
-    <section className="relative py-20 sm:py-28 border-y border-border/30">
+    <section className="relative py-14 sm:py-20 border-y border-border/30">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="max-w-3xl mb-12 sm:mb-14">
+        <div className="max-w-3xl mb-9 sm:mb-12">
           <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
             <span className="h-px w-8 bg-primary/70" />
             O problema
@@ -133,6 +133,7 @@ function Problema() {
     </section>
   );
 }
+
 
 function Nav() {
   return (
@@ -166,7 +167,7 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative lg:min-h-[86vh] flex items-center pt-24 sm:pt-28 lg:pt-24 pb-16 sm:pb-20 lg:pb-20 overflow-hidden"
+      className="relative lg:min-h-[82vh] flex items-center pt-24 sm:pt-28 lg:pt-24 pb-12 sm:pb-16 lg:pb-20 overflow-hidden"
       style={{
         background: "var(--gradient-hero)",
         paddingLeft: "max(0px, env(safe-area-inset-left))",
@@ -186,13 +187,13 @@ function Hero() {
           Imperius · Software house
           <span className="h-px w-8 bg-primary/70" />
         </div>
-        <h1 className="font-display text-[2.1rem] sm:text-[3rem] lg:text-[3.6rem] xl:text-[4rem] font-semibold leading-[1.02] tracking-[-0.028em] text-foreground">
-          Engenharia de software aplicada à{" "}
-          <span className="text-shimmer">operação comercial da sua empresa</span>.
+        <h1 className="font-display text-[2rem] sm:text-[2.9rem] lg:text-[3.4rem] xl:text-[3.8rem] font-semibold leading-[1.04] tracking-[-0.028em] text-foreground">
+          Sistemas, atendimento e automação para sua{" "}
+          <span className="text-shimmer">empresa vender com mais controle</span>.
         </h1>
-        <p className="mt-6 sm:mt-7 mx-auto max-w-[36rem] text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed font-sans">
-          Construímos sistemas de atendimento, pipeline e agenda como engenharia —
-          não como template. Produtos próprios em evolução, implantados no contexto real do seu negócio.
+        <p className="mt-6 sm:mt-7 mx-auto max-w-[38rem] text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed font-sans">
+          Criamos páginas, fluxos de atendimento, agenda e organização comercial adaptados
+          ao contexto real da sua empresa — sem depender de solução genérica.
         </p>
         <div className="mt-8 sm:mt-9 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-3.5">
           <a
@@ -206,7 +207,7 @@ function Hero() {
               size="lg"
               className="btn-premium w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[14px] transition-all duration-300 hover:-translate-y-0.5"
             >
-              Solicitar demonstração <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              Solicitar análise pelo WhatsApp <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Button>
           </a>
           <a
@@ -220,7 +221,7 @@ function Hero() {
               className="btn-premium w-full sm:w-auto border-border/70 bg-background/30 hover:bg-background/60 hover:border-primary/50 text-foreground/90 font-medium rounded-full h-auto min-h-12 py-2 px-5 sm:px-6 text-[12.5px] sm:text-[13.5px] whitespace-normal text-center leading-snug transition-all duration-300"
             >
               <Mail className="mr-2 h-4 w-4 shrink-0 text-muted-foreground" />
-              <span>Receber proposta por e-mail</span>
+              <span>Prefiro receber por e-mail</span>
             </Button>
           </a>
         </div>
@@ -239,43 +240,44 @@ function Hero() {
 
 
 
+
 function Ecossistema() {
   const cards = [
     {
       icon: MessageCircle,
       tag: "Atendimento",
       title: "Atendimento Inteligente",
-      desc: "Centralização do contato, qualificação e direcionamento inicial.",
+      desc: "Centralizamos WhatsApp, formulários e canais em um só fluxo — com qualificação inicial automática e registro de cada contato.",
     },
     {
       icon: Users,
       tag: "Comercial",
       title: "Gestão Comercial",
-      desc: "Organização de oportunidades e acompanhamento do processo comercial.",
+      desc: "Pipeline de oportunidades, follow-up organizado e relatórios claros para você acompanhar o que está aberto e o que fechou.",
     },
     {
       icon: Calendar,
       tag: "Operação",
       title: "Operação Integrada",
-      desc: "Agenda, confirmações e processos conectados em um único fluxo.",
+      desc: "Agenda online, confirmações automáticas e integração com o atendimento — tudo conectado em um único painel.",
     },
   ];
   return (
-    <section className="relative py-20 sm:py-28 border-b border-border/30 bg-[oklch(0.075_0.004_240)]">
+    <section className="relative py-14 sm:py-20 border-b border-border/30 bg-[oklch(0.075_0.004_240)]">
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[680px] h-[220px] rounded-full blur-3xl opacity-20 pointer-events-none"
         style={{ background: "radial-gradient(ellipse, oklch(0.55 0.22 250 / 0.2), transparent 70%)" }}
         aria-hidden
       />
       <div className="relative mx-auto max-w-6xl px-6">
-        <div className="max-w-2xl mb-12 sm:mb-14">
+        <div className="max-w-2xl mb-9 sm:mb-12">
           <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
             <span className="h-px w-8 bg-primary/70" />
             Ecossistema Imperius
           </div>
           <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-            Tecnologia aplicada à{" "}
-            <span className="text-neon">operação comercial.</span>
+            O que a Imperius{" "}
+            <span className="text-neon">entrega na prática.</span>
           </h2>
         </div>
         <ul className="grid gap-4 sm:gap-5 sm:grid-cols-3">
@@ -308,9 +310,10 @@ function Ecossistema() {
 
 
 
+
 function Demonstracoes() {
   return (
-    <section id="vitrine" className="relative py-20 sm:py-28 border-t border-border/30">
+    <section id="vitrine" className="relative py-14 sm:py-20 border-t border-border/30">
       <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" aria-hidden />
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[380px] rounded-full blur-3xl opacity-15 pointer-events-none"
@@ -318,13 +321,13 @@ function Demonstracoes() {
         aria-hidden
       />
       <div className="relative mx-auto max-w-6xl px-6">
-        <div className="max-w-2xl mb-10 sm:mb-14">
+        <div className="max-w-2xl mb-8 sm:mb-12">
           <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
             <span className="h-px w-8 bg-primary/70" />
             Demonstração
           </div>
           <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-            Aplicação real,{" "}
+            Demonstração funcional,{" "}
             <span className="text-neon">navegável agora.</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans">
@@ -338,7 +341,7 @@ function Demonstracoes() {
           target="_blank"
           rel="noreferrer"
           onClick={() => track("demo_click", { project: "black_crown" })}
-          className="card-rise group block rounded-2xl border border-border/50 bg-[oklch(0.09_0.005_245)] overflow-hidden"
+          className="card-rise group block rounded-2xl border border-primary/30 bg-[oklch(0.09_0.005_245)] overflow-hidden shadow-[0_30px_80px_-30px_oklch(0.55_0.22_250/0.45)]"
         >
           <div className="grid lg:grid-cols-[1.4fr_1fr] items-stretch">
             <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden bg-[oklch(0.14_0.01_245)]">
@@ -352,8 +355,6 @@ function Demonstracoes() {
                 fetchPriority="high"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
               />
-
-
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" aria-hidden />
               <div className="badge-pulse absolute top-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-primary/40 bg-background/70 backdrop-blur-md text-[10px] uppercase tracking-[0.18em] font-semibold font-sans text-primary">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
@@ -365,43 +366,49 @@ function Demonstracoes() {
                 <Scissors className="h-3.5 w-3.5" />
                 Projeto de referência
               </span>
-              <h3 className="mt-3 font-display font-semibold text-[1.25rem] sm:text-[1.5rem] lg:text-[1.8rem] leading-[1.1] tracking-[-0.02em] text-foreground">
+              <h3 className="mt-3 font-display font-semibold text-[1.25rem] sm:text-[1.5rem] lg:text-[1.9rem] leading-[1.1] tracking-[-0.02em] text-foreground">
                 Black Crown Barbershop
               </h3>
               <p className="mt-3 text-[14px] sm:text-[14.5px] text-muted-foreground leading-relaxed font-sans">
-                Operação completa em produção: site, agendamento, atendimento e
+                Demonstração funcional completa: site, agendamento, atendimento e
                 identidade — desenvolvidos e operados pela Imperius.
               </p>
               <div className="mt-5 text-[11px] uppercase tracking-[0.22em] font-sans text-muted-foreground/70 truncate">
                 blackcrown-by-imperius.lovable.app
               </div>
-              <div className="mt-auto pt-6 inline-flex items-center gap-2 text-[13px] font-sans font-semibold text-foreground group-hover:text-primary transition-colors">
-                Abrir demonstração ao vivo
-                <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              <div className="mt-auto pt-6">
+                <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold transition-transform group-hover:-translate-y-0.5">
+                  Ver demonstração Black Crown
+                  <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </span>
               </div>
             </div>
           </div>
         </a>
 
-        <div className="mt-6 sm:mt-8 rounded-xl border border-border/40 bg-[oklch(0.1_0.005_245)]/60 backdrop-blur-md p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <p className="text-[13.5px] sm:text-[14px] text-muted-foreground leading-relaxed font-sans max-w-2xl">
-            <span className="text-foreground font-medium">Além da Black Crown</span> — temos demonstrações
-            por segmento para clínicas, estética, restaurantes e imobiliárias.
-          </p>
+        <div className="mt-8 sm:mt-10 rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 backdrop-blur-md p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+          <div className="max-w-2xl">
+            <h3 className="font-display font-semibold text-[1.1rem] sm:text-[1.3rem] tracking-[-0.015em] text-foreground leading-snug">
+              Outras demonstrações por segmento
+            </h3>
+            <p className="mt-2 text-[13.5px] sm:text-[14px] text-muted-foreground leading-relaxed font-sans">
+              Veja exemplos adaptados para clínicas, estética, restaurantes e imobiliárias.
+            </p>
+          </div>
           <Link
             to="/portfolio"
             onClick={() => track("portfolio_bridge_click", { from: "home_demo" })}
-            className="shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-md border border-primary/40 bg-primary/10 hover:bg-primary/15 text-[13px] font-sans font-semibold text-primary transition-colors"
+            className="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-full border border-primary/50 bg-primary/15 hover:bg-primary/25 text-[13px] font-sans font-semibold text-primary transition-colors"
           >
-            <span className="sm:hidden">Ver demos por segmento</span>
-            <span className="hidden sm:inline">Ver demonstrações por segmento</span>
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            Explorar portfólio de demonstrações
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </div>
     </section>
   );
 }
+
 
 
 
@@ -416,18 +423,19 @@ function Process() {
     { n: "03", i: Rocket, t: "Implantação", d: "Deploy, integrações e operação assistida até estar rodando com o seu time." },
   ];
   return (
-    <section id="processo" className="py-20 sm:py-28 border-t border-border/30">
+    <section id="processo" className="py-14 sm:py-20 border-t border-border/30">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="max-w-2xl mb-12 sm:mb-14">
+        <div className="max-w-2xl mb-9 sm:mb-12">
           <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
             <span className="h-px w-8 bg-primary/70" />
             Como funciona
           </div>
           <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Três etapas.{" "}
-            <span className="text-foreground/55">Sem propostas genéricas.</span>
+            <span className="text-foreground/55">Projeto ajustado ao seu contexto.</span>
           </h2>
         </div>
+
         <ol className="grid gap-4 sm:gap-5 sm:grid-cols-3">
           {steps.map((s) => (
             <li
@@ -485,7 +493,7 @@ function FAQ() {
     },
   ];
   return (
-    <section id="faq" className="py-20 sm:py-28 border-t border-border/30">
+    <section id="faq" className="py-14 sm:py-20 border-t border-border/30">
       <script
         type="application/ld+json"
         // FAQPage schema para SEO e featured snippets
@@ -502,7 +510,7 @@ function FAQ() {
         }}
       />
       <div className="mx-auto max-w-3xl px-6">
-        <div className="max-w-2xl mb-12 sm:mb-14">
+        <div className="max-w-2xl mb-9 sm:mb-12">
           <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
             <span className="h-px w-8 bg-primary/70" />
             FAQ
@@ -516,17 +524,17 @@ function FAQ() {
           </p>
         </div>
         <div className="divide-y divide-border/40 border-y border-border/40">
-          {items.map((it) => (
-            <details key={it.q} className="group py-6 sm:py-7">
+          {items.map((it, idx) => (
+            <details key={it.q} className="group py-5 sm:py-6" open={idx === 0}>
               <summary className="flex items-start justify-between gap-6 cursor-pointer list-none">
-                <h3 className="font-heading font-semibold text-[16px] sm:text-[18px] tracking-[-0.01em] text-foreground">
+                <h3 className="font-heading font-semibold text-[15.5px] sm:text-[17px] tracking-[-0.01em] text-foreground">
                   {it.q}
                 </h3>
                 <span className="mt-1 shrink-0 h-7 w-7 rounded-full border border-border/60 grid place-items-center text-muted-foreground group-open:bg-primary/10 group-open:text-primary group-open:border-primary/50 transition-colors">
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-open:rotate-90" />
                 </span>
               </summary>
-              <p className="mt-4 text-[14.5px] sm:text-[15px] text-muted-foreground leading-relaxed font-sans max-w-2xl whitespace-pre-line">
+              <p className="mt-4 text-[14px] sm:text-[15px] text-muted-foreground leading-relaxed font-sans max-w-2xl whitespace-pre-line">
                 {it.a}
               </p>
             </details>
@@ -537,9 +545,10 @@ function FAQ() {
   );
 }
 
+
 function FinalCTA() {
   return (
-    <section className="relative py-24 sm:py-32 border-t border-border/30 overflow-hidden">
+    <section className="relative py-16 sm:py-24 border-t border-border/30 overflow-hidden">
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[820px] h-[420px] rounded-full blur-3xl opacity-18 pointer-events-none"
         style={{ background: "radial-gradient(ellipse, oklch(0.55 0.22 250 / 0.22), transparent 70%)" }}
@@ -549,16 +558,16 @@ function FinalCTA() {
           <span className="h-px w-8 bg-primary/70" />
           Próximo passo
         </div>
-        <h2 className="font-display font-semibold text-[2rem] sm:text-[2.7rem] lg:text-[3.1rem] leading-[1.05] tracking-[-0.028em] text-foreground">
-          Veja como a Imperius{" "}
-          <span className="text-neon">apresenta</span>{" "}
-          o seu negócio.
+        <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.5rem] lg:text-[2.9rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+          Veja como sua operação pode ficar mais{" "}
+          <span className="text-neon">organizada, apresentável</span>{" "}
+          e pronta para vender.
         </h2>
         <p className="mt-6 text-muted-foreground text-[15px] sm:text-[17px] max-w-2xl mx-auto leading-relaxed font-sans">
-          Você recebe uma demonstração construída especificamente para a sua empresa —
+          Demonstração funcional construída para a sua empresa —
           escopo definido em conjunto, projeto funcional antes de qualquer contrato.
         </p>
-        <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
           <a
             href={WA}
             target="_blank"
@@ -573,7 +582,7 @@ function FinalCTA() {
               size="lg"
               className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]"
             >
-              Falar com a equipe no WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
+              Solicitar análise pelo WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
           <a
@@ -591,6 +600,7 @@ function FinalCTA() {
     </section>
   );
 }
+
 
 function Footer() {
   return (
