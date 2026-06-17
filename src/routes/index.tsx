@@ -376,12 +376,27 @@ function Demonstracoes() {
                 blackcrown-by-imperius.lovable.app
               </div>
               <div className="mt-auto pt-6 inline-flex items-center gap-2 text-[13px] font-sans font-semibold text-foreground group-hover:text-primary transition-colors">
-                Abrir demonstração
+                Abrir demonstração ao vivo
                 <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </div>
             </div>
           </div>
         </a>
+
+        <div className="mt-6 sm:mt-8 rounded-xl border border-border/40 bg-[oklch(0.1_0.005_245)]/60 backdrop-blur-md p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <p className="text-[13.5px] sm:text-[14px] text-muted-foreground leading-relaxed font-sans max-w-2xl">
+            <span className="text-foreground font-medium">Além da Black Crown</span> — temos demonstrações
+            por segmento para clínicas, estética, restaurantes e imobiliárias.
+          </p>
+          <Link
+            to="/portfolio"
+            onClick={() => track("portfolio_bridge_click", { from: "home_demo" })}
+            className="shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-md border border-primary/40 bg-primary/10 hover:bg-primary/15 text-[13px] font-sans font-semibold text-primary transition-colors"
+          >
+            Ver demonstrações por segmento
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          </Link>
+        </div>
       </div>
     </section>
   );
