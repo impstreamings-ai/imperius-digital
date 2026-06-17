@@ -155,45 +155,19 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative lg:min-h-[88vh] flex items-center pt-24 sm:pt-28 lg:pt-24 pb-16 sm:pb-20 lg:pb-20 overflow-hidden"
+      className="relative lg:min-h-[86vh] flex items-center pt-24 sm:pt-28 lg:pt-24 pb-16 sm:pb-20 lg:pb-20 overflow-hidden"
       style={{
         background: "var(--gradient-hero)",
         paddingLeft: "max(0px, env(safe-area-inset-left))",
         paddingRight: "max(0px, env(safe-area-inset-right))",
       }}
     >
-
-      <div className="hero-breathe" aria-hidden />
-      <div className="absolute inset-0 bg-grid hero-drift pointer-events-none opacity-25" />
+      <div className="absolute inset-0 bg-grid pointer-events-none opacity-[0.18]" aria-hidden />
       <div
-        className="absolute top-[38%] right-[-8%] w-[560px] h-[560px] rounded-full blur-3xl opacity-40 pointer-events-none hero-drift"
-        style={{ background: "radial-gradient(circle, oklch(0.5 0.22 250 / 0.18), transparent 70%)" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[420px] rounded-full blur-3xl opacity-30 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse, oklch(0.55 0.22 250 / 0.22), transparent 70%)" }}
+        aria-hidden
       />
-      <div className="hero-particles" aria-hidden>
-        {[
-          { l: "8%",  t: "78%", dur: "16s", delay: "0s",   tx: "20px",  ty: "-90px", op: 0.55 },
-          { l: "18%", t: "88%", dur: "19s", delay: "2.4s", tx: "-14px", ty: "-110px", op: 0.45 },
-          { l: "32%", t: "70%", dur: "21s", delay: "5s",   tx: "26px",  ty: "-80px", op: 0.4 },
-          { l: "46%", t: "92%", dur: "17s", delay: "1.2s", tx: "10px",  ty: "-130px", op: 0.5 },
-          { l: "62%", t: "80%", dur: "23s", delay: "3.8s", tx: "-22px", ty: "-95px", op: 0.45 },
-          { l: "74%", t: "86%", dur: "18s", delay: "0.6s", tx: "18px",  ty: "-105px", op: 0.55 },
-          { l: "86%", t: "72%", dur: "20s", delay: "4.2s", tx: "-12px", ty: "-85px", op: 0.4 },
-          { l: "92%", t: "90%", dur: "22s", delay: "6.4s", tx: "8px",   ty: "-120px", op: 0.5 },
-        ].map((p, i) => (
-          <span
-            key={i}
-            style={{
-              left: p.l,
-              top: p.t,
-              ["--p-dur" as never]: p.dur,
-              ["--p-delay" as never]: p.delay,
-              ["--p-tx" as never]: p.tx,
-              ["--p-ty" as never]: p.ty,
-              ["--p-op" as never]: p.op,
-            }}
-          />
-        ))}
-      </div>
 
       <div className="relative mx-auto max-w-3xl px-5 sm:px-6 w-full text-center">
         <div className="inline-flex items-center gap-2.5 text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-sans font-medium mb-6 sm:mb-7">
@@ -219,9 +193,9 @@ function Hero() {
           >
             <Button
               size="lg"
-              className="btn-premium w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[14px]"
+              className="btn-premium w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[14px] transition-all duration-300 hover:-translate-y-0.5"
             >
-              Solicitar demonstração <ArrowRight className="ml-2 h-4 w-4" />
+              Solicitar demonstração <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Button>
           </a>
           <a
@@ -232,18 +206,17 @@ function Hero() {
             <Button
               size="lg"
               variant="outline"
-              className="btn-premium w-full sm:w-auto border-border/70 bg-background/30 hover:bg-background/60 hover:border-primary/50 text-foreground/90 font-medium rounded-full h-auto min-h-12 py-2 px-5 sm:px-6 text-[12.5px] sm:text-[13.5px] whitespace-normal text-center leading-snug"
+              className="btn-premium w-full sm:w-auto border-border/70 bg-background/30 hover:bg-background/60 hover:border-primary/50 text-foreground/90 font-medium rounded-full h-auto min-h-12 py-2 px-5 sm:px-6 text-[12.5px] sm:text-[13.5px] whitespace-normal text-center leading-snug transition-all duration-300"
             >
               <Mail className="mr-2 h-4 w-4 shrink-0 text-muted-foreground" />
-              <span>Receber demonstração personalizada</span>
+              <span>Receber proposta por e-mail</span>
             </Button>
           </a>
         </div>
         <p className="mt-7 sm:mt-8 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
-          Demonstração funcional em poucos dias · Sem proposta antes da entrega · Atendimento direto com a equipe
+          Demonstração funcional em 3 a 7 dias úteis · Sem proposta antes da entrega
         </p>
       </div>
-
     </section>
   );
 }
@@ -578,8 +551,7 @@ function FinalCTA() {
           </a>
         </div>
         <p className="mt-8 text-[12px] text-muted-foreground/80 font-sans tracking-wide max-w-xl mx-auto leading-relaxed">
-          Você fala direto com a equipe técnica (sem bot, sem SDR terceirizado).
-          Resposta em até 2h em horário comercial · Demonstração funcional em 3 a 7 dias úteis · Sem proposta antes da entrega.
+          Atendimento direto com a equipe técnica · Resposta em até 2h em horário comercial.
         </p>
       </div>
     </section>
@@ -592,8 +564,8 @@ function Footer() {
       <div className="absolute inset-x-0 -top-px h-px" style={{ background: "linear-gradient(90deg, transparent, oklch(0.72 0.22 250 / 0.6), transparent)" }} />
       <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full blur-3xl opacity-40 pointer-events-none" style={{ background: "radial-gradient(ellipse, oklch(0.55 0.25 250 / 0.35), transparent 70%)" }} />
       <div className="relative mx-auto max-w-7xl px-6 pt-14 sm:pt-16 pb-24 sm:pb-20">
-        <div className="grid md:grid-cols-4 gap-10">
-          <div className="md:col-span-1">
+        <div className="grid md:grid-cols-3 gap-10">
+          <div>
             <div className="flex items-center gap-3 mb-5">
               <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[44px] w-auto object-contain" loading="lazy" decoding="async" />
               <div>
@@ -609,48 +581,24 @@ function Footer() {
           <div>
             <div className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4 font-sans">Navegação</div>
             <ul className="space-y-2.5 text-sm text-muted-foreground font-sans">
-              <li><a href="#vitrine" className="hover:text-foreground transition-colors">Demonstração</a></li>
-              <li><a href="#processo" className="hover:text-foreground transition-colors">Como funciona</a></li>
-              <li><Link to="/portfolio" className="hover:text-foreground transition-colors">Portfólio</Link></li>
-              <li><a href="#faq" className="hover:text-foreground transition-colors">FAQ</a></li>
+              <li><a href="#vitrine" className="hover:text-foreground transition-colors duration-200">Demonstração</a></li>
+              <li><a href="#processo" className="hover:text-foreground transition-colors duration-200">Como funciona</a></li>
+              <li><Link to="/portfolio" className="hover:text-foreground transition-colors duration-200">Portfólio</Link></li>
+              <li><a href="#faq" className="hover:text-foreground transition-colors duration-200">FAQ</a></li>
             </ul>
           </div>
 
-
           <div>
             <div className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4 font-sans">Contato direto</div>
-            <a href="tel:+5515981023792" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors mb-3 font-sans" onClick={() => track("phone_click", { location: "footer" })}>
+            <a href="tel:+5515981023792" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 mb-3 font-sans" onClick={() => track("phone_click", { location: "footer" })}>
               <Phone className="h-4 w-4 shrink-0" /> +55 15 98102-3792
             </a>
-
-
-            <a href={PROPOSAL_MAILTO} className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors mb-3 font-sans" onClick={() => track("footer_email_click")}>
+            <a href={PROPOSAL_MAILTO} className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 mb-3 font-sans" onClick={() => track("footer_email_click")}>
               <Mail className="h-4 w-4 shrink-0" /> {PROPOSAL_EMAIL}
             </a>
-            <a href={IG} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors font-sans">
+            <a href={IG} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 font-sans">
               <Instagram className="h-4 w-4 shrink-0" /> @imperiusdigital.br
             </a>
-          </div>
-
-          <div className="min-w-0">
-            <div className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4 font-sans">Próximo passo</div>
-            <p className="text-sm text-muted-foreground mb-4 font-sans">Demonstração funcional em 3 a 7 dias úteis. Sem proposta antes da entrega.</p>
-            <a
-              href={WA}
-              target="_blank"
-              rel="noreferrer"
-              onClick={() => track("whatsapp_click", { location: "footer_cta" })}
-              className="relative z-10 block w-full max-w-full"
-            >
-              <Button
-                size="sm"
-                className="relative z-10 w-full max-w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold h-auto min-h-11 py-2.5 px-4 leading-snug whitespace-normal text-center inline-flex items-center justify-center gap-2 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.72_0.22_250/0.7)]"
-              >
-                <span className="break-words">Falar com a equipe no WhatsApp</span>
-                <ArrowRight className="h-4 w-4 shrink-0" />
-              </Button>
-            </a>
-            <p className="mt-3 text-[11px] text-muted-foreground/70 font-sans">Resposta humana em até 2h em horário comercial.</p>
           </div>
         </div>
 
