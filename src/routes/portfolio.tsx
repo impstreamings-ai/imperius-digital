@@ -248,14 +248,14 @@ const PERSONALIZE = [
 
 function Personalization() {
   return (
-    <section className="py-20 sm:py-24 relative">
+    <section className="py-20 sm:py-28 relative">
       <div className="relative mx-auto max-w-7xl px-6">
-        <div className="mb-10 sm:mb-12 max-w-2xl">
-          <div className="text-[10.5px] uppercase tracking-[0.32em] text-primary/90 font-semibold mb-5 font-sans inline-flex items-center gap-2.5">
+        <div className="mb-12 sm:mb-14 max-w-2xl">
+          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
             <span className="h-px w-8 bg-primary/70" />
             Flexibilidade Imperius
           </div>
-          <h2 className="font-display font-semibold text-[1.7rem] sm:text-[2.2rem] lg:text-[2.55rem] leading-[1.08] tracking-[-0.028em] text-foreground">
+          <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Cada camada é{" "}
             <span className="text-neon">adaptada à sua operação.</span>
           </h2>
@@ -330,7 +330,7 @@ function Nav() {
         >
           <Button
             size="sm"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.72_0.22_250/0.7)]"
+            className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4"
           >
             <span className="sm:hidden">Falar agora</span>
             <span className="hidden sm:inline">Solicitar demonstração</span>
@@ -355,7 +355,7 @@ function Hero() {
         }}
       />
       <div className="relative mx-auto max-w-5xl px-6 text-center">
-        <div className="text-[10.5px] uppercase tracking-[0.32em] text-primary/90 font-semibold mb-5 font-sans inline-flex items-center gap-2.5">
+        <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
           <span className="h-px w-8 bg-primary/70" />
           Portfólio Oficial · Imperius
           <span className="h-px w-8 bg-primary/70" />
@@ -402,12 +402,12 @@ function SectionHeader({
   highlight?: string;
 }) {
   return (
-    <div className="mb-10 sm:mb-12 max-w-2xl">
-      <div className="text-[10.5px] uppercase tracking-[0.32em] text-primary/90 font-semibold mb-5 font-sans inline-flex items-center gap-2.5">
+    <div className="mb-12 sm:mb-14 max-w-2xl">
+      <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
         <span className="h-px w-8 bg-primary/70" />
         {label} · {count.toString().padStart(2, "0")}
       </div>
-      <h2 className="font-display font-semibold text-[1.7rem] sm:text-[2.2rem] lg:text-[2.55rem] leading-[1.08] tracking-[-0.028em] text-foreground">
+      <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
         {title}{" "}
         {highlight && <span className="text-neon">{highlight}</span>}
       </h2>
@@ -417,7 +417,7 @@ function SectionHeader({
 
 function Solutions() {
   return (
-    <section id="solucoes" className="py-20 sm:py-24 relative">
+    <section id="solucoes" className="py-20 sm:py-28 relative">
       <div className="relative mx-auto max-w-7xl px-6">
         <SectionHeader
           label="Soluções Imperius"
@@ -531,7 +531,7 @@ function DemoCard({ demo }: { demo: Demo }) {
         </div>
       </div>
       <div className="p-5 sm:p-6 flex-1 flex flex-col">
-        <div className="text-[10.5px] uppercase tracking-[0.22em] text-primary/90 font-semibold mb-2 font-sans">
+        <div className="text-[10.5px] uppercase tracking-[0.22em] text-muted-foreground/90 font-medium mb-2 font-sans">
           {demo.segment}
         </div>
         <h3 className="font-display font-semibold text-[1.15rem] tracking-[-0.015em] text-foreground">
@@ -592,15 +592,15 @@ function DemoCard({ demo }: { demo: Demo }) {
 
 function Process() {
   return (
-    <section id="processo" className="py-20 sm:py-24 relative border-y border-border/40">
+    <section id="processo" className="py-20 sm:py-28 relative border-y border-border/40">
       <div className="relative mx-auto max-w-7xl px-6">
-        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-          <div className="text-[10.5px] uppercase tracking-[0.32em] text-primary/90 font-semibold mb-5 font-sans inline-flex items-center gap-2.5">
+        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
+          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
             <span className="h-px w-8 bg-primary/70" />
             Como trabalhamos
             <span className="h-px w-8 bg-primary/70" />
           </div>
-          <h2 className="font-display font-semibold text-[1.7rem] sm:text-[2.2rem] lg:text-[2.4rem] leading-[1.08] tracking-[-0.028em] text-foreground">
+          <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Cinco etapas. Sem ruído.
           </h2>
         </div>
@@ -649,36 +649,37 @@ function FinalCTA() {
         }}
       />
       <div className="relative mx-auto max-w-3xl px-6 text-center">
-        <h2 className="font-display font-semibold text-[1.9rem] sm:text-[2.5rem] lg:text-[2.9rem] leading-[1.05] tracking-[-0.028em] text-foreground">
+        <h2 className="font-display font-semibold text-[2rem] sm:text-[2.7rem] lg:text-[3.1rem] leading-[1.05] tracking-[-0.028em] text-foreground">
           Gostaria de uma versão{" "}
           <span className="text-neon">personalizada</span> para o seu negócio?
         </h2>
-        <p className="mt-5 text-muted-foreground text-[15px] sm:text-[16.5px] leading-relaxed max-w-xl mx-auto">
+        <p className="mt-6 text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed max-w-2xl mx-auto">
           A Imperius desenvolve websites, automações e sistemas adaptados para
           cada operação.
         </p>
-        <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+        <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
           <a
             href={WA}
             target="_blank"
             rel="noreferrer"
+            className="w-full sm:w-auto"
             onClick={() =>
               track("whatsapp_click", { location: "final_cta_portfolio" })
             }
           >
             <Button
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-7 h-12 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_36px_-6px_oklch(0.72_0.22_250/0.7)]"
+              className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]"
             >
               <MessageCircle className="mr-2 h-4 w-4" />
               Solicitar Demonstração
             </Button>
           </a>
-          <Link to="/">
+          <Link to="/" className="w-full sm:w-auto">
             <Button
               size="lg"
               variant="outline"
-              className="rounded-full px-6 h-12 border-border/70 text-foreground hover:bg-card/60"
+              className="w-full sm:w-auto rounded-full h-12 px-6 text-[13.5px] border-border/70 bg-background/30 hover:bg-background/60 hover:border-primary/50 text-foreground/90 font-medium transition-all duration-300"
             >
               Voltar para a Imperius
             </Button>
