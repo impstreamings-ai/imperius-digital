@@ -163,6 +163,7 @@ function Hero() {
       }}
     >
 
+      <div className="hero-breathe" aria-hidden />
       <div className="absolute inset-0 bg-grid hero-drift pointer-events-none opacity-25" />
       <div
         className="absolute top-[38%] right-[-8%] w-[560px] h-[560px] rounded-full blur-3xl opacity-40 pointer-events-none hero-drift"
@@ -325,50 +326,57 @@ function HeroVisual() {
             </linearGradient>
           </defs>
 
-          {/* Faint concentric orbits */}
-          {[14, 22, 30, 38, 44].map((r, i) => (
-            <circle
-              key={r}
-              cx="50"
-              cy="50"
-              r={r}
+          {/* Faint concentric orbits — almost imperceptible rotation for depth */}
+          <g className="hero-orbits">
+            {[14, 22, 30, 38, 44].map((r, i) => (
+              <circle
+                key={r}
+                cx="50"
+                cy="50"
+                r={r}
+                fill="none"
+                stroke="oklch(0.78 0.2 250 / 0.18)"
+                strokeWidth={i === 2 ? "0.35" : "0.18"}
+                strokeDasharray={i % 2 === 0 ? "0.6 1.2" : undefined}
+                vectorEffect="non-scaling-stroke"
+              />
+            ))}
+          </g>
+
+          {/* Pentagon perimeter — counter-rotating for parallax */}
+          <g className="hero-orbits-rev">
+            <polygon
+              points={nodes.map((n) => `${n.x},${n.y}`).join(" ")}
               fill="none"
-              stroke="oklch(0.78 0.2 250 / 0.18)"
-              strokeWidth={i === 2 ? "0.35" : "0.18"}
-              strokeDasharray={i % 2 === 0 ? "0.6 1.2" : undefined}
+              stroke="oklch(0.78 0.2 250 / 0.22)"
+              strokeWidth="0.25"
               vectorEffect="non-scaling-stroke"
             />
-          ))}
+          </g>
 
-          {/* Pentagon perimeter linking surfaces */}
-          <polygon
-            points={nodes.map((n) => `${n.x},${n.y}`).join(" ")}
-            fill="none"
-            stroke="oklch(0.78 0.2 250 / 0.22)"
-            strokeWidth="0.25"
-            vectorEffect="non-scaling-stroke"
-          />
+          {/* Core halo — soft blue pulse */}
+          <circle className="hero-core-halo" cx="50" cy="50" r="22" fill="url(#heroCore)" />
 
-          {/* Core halo */}
-          <circle cx="50" cy="50" r="22" fill="url(#heroCore)" />
+          {/* Energy lines core → node — slow flowing dash */}
+          <g>
+            {nodes.map((n) => (
+              <line
+                key={n.id}
+                className="hero-energy-line"
+                x1={core.x}
+                y1={core.y}
+                x2={n.x}
+                y2={n.y}
+                stroke="url(#heroEdge)"
+                strokeWidth="0.4"
+                vectorEffect="non-scaling-stroke"
+              />
+            ))}
+          </g>
 
-          {/* Energy lines core → node */}
+          {/* Node markers — discreet hover glow */}
           {nodes.map((n) => (
-            <line
-              key={n.id}
-              x1={core.x}
-              y1={core.y}
-              x2={n.x}
-              y2={n.y}
-              stroke="url(#heroEdge)"
-              strokeWidth="0.4"
-              vectorEffect="non-scaling-stroke"
-            />
-          ))}
-
-          {/* Node markers */}
-          {nodes.map((n) => (
-            <g key={`d-${n.id}`}>
+            <g key={`d-${n.id}`} className="hero-node">
               <circle cx={n.x} cy={n.y} r="3.4" fill="oklch(0.07 0.004 240)" />
               <circle
                 cx={n.x}
@@ -383,6 +391,7 @@ function HeroVisual() {
             </g>
           ))}
         </svg>
+
 
         {/* Imperius symbol at the core */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
