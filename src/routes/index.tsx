@@ -51,7 +51,18 @@ export const Route = createFileRoute("/")({
         href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap",
       },
       { rel: "icon", href: logoAsset.url },
+      // Pré-carrega a capa Black Crown apenas em viewports ≥ tablet (onde a imagem
+      // entra cedo no viewport e impacta LCP). Mobile mantém lazy para não competir
+      // com o hero.
+      {
+        rel: "preload",
+        as: "image",
+        href: blackCrownHeroCover.url,
+        media: "(min-width: 768px)",
+        fetchpriority: "high",
+      } as unknown as Record<string, string>,
     ],
+
   }),
   component: Landing,
 });
