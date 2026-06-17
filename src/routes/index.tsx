@@ -345,11 +345,14 @@ function Demonstracoes() {
               <img
                 src={blackCrownHeroCover.url}
                 alt="Black Crown Barbershop — ambiente operacional Imperius"
+                width={1600}
+                height={1000}
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
               />
+
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" aria-hidden />
               <div className="badge-pulse absolute top-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-primary/40 bg-background/70 backdrop-blur-md text-[10px] uppercase tracking-[0.18em] font-semibold font-sans text-primary">
