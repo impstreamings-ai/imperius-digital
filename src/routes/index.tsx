@@ -163,6 +163,7 @@ function Hero() {
       }}
     >
 
+      <div className="hero-breathe" aria-hidden />
       <div className="absolute inset-0 bg-grid hero-drift pointer-events-none opacity-25" />
       <div
         className="absolute top-[38%] right-[-8%] w-[560px] h-[560px] rounded-full blur-3xl opacity-40 pointer-events-none hero-drift"
