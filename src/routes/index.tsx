@@ -815,7 +815,7 @@ function Footer() {
     <footer className="relative border-t border-border/40 mt-10 overflow-hidden">
       <div className="absolute inset-x-0 -top-px h-px" style={{ background: "linear-gradient(90deg, transparent, oklch(0.72 0.22 250 / 0.6), transparent)" }} />
       <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full blur-3xl opacity-40 pointer-events-none" style={{ background: "radial-gradient(ellipse, oklch(0.55 0.25 250 / 0.35), transparent 70%)" }} />
-      <div className="relative mx-auto max-w-7xl px-6 py-14 sm:py-16">
+      <div className="relative mx-auto max-w-7xl px-6 pt-14 sm:pt-16 pb-24 sm:pb-20">
         <div className="grid md:grid-cols-4 gap-10">
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-5">
@@ -856,12 +856,22 @@ function Footer() {
             </a>
           </div>
 
-          <div>
+          <div className="min-w-0">
             <div className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4 font-sans">Próximo passo</div>
             <p className="text-sm text-muted-foreground mb-4 font-sans">Demonstração funcional em 3 a 7 dias úteis. Sem proposta antes da entrega.</p>
-            <a href={WA} target="_blank" rel="noreferrer" onClick={() => track("whatsapp_click", { location: "footer_cta" })}>
-              <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold w-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.72_0.22_250/0.7)]">
-                Falar com a equipe no WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
+            <a
+              href={WA}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => track("whatsapp_click", { location: "footer_cta" })}
+              className="relative z-10 block w-full max-w-full"
+            >
+              <Button
+                size="sm"
+                className="relative z-10 w-full max-w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold h-auto min-h-11 py-2.5 px-4 leading-snug whitespace-normal text-center inline-flex items-center justify-center gap-2 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.72_0.22_250/0.7)]"
+              >
+                <span className="break-words">Falar com a equipe no WhatsApp</span>
+                <ArrowRight className="h-4 w-4 shrink-0" />
               </Button>
             </a>
             <p className="mt-3 text-[11px] text-muted-foreground/70 font-sans">Resposta humana em até 2h em horário comercial.</p>
