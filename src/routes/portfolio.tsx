@@ -355,7 +355,7 @@ function Hero() {
         }}
       />
       <div className="relative mx-auto max-w-5xl px-6 text-center">
-        <div className="text-[10.5px] uppercase tracking-[0.32em] text-primary/90 font-semibold mb-5 font-sans inline-flex items-center gap-2.5">
+        <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
           <span className="h-px w-8 bg-primary/70" />
           Portfólio Oficial · Imperius
           <span className="h-px w-8 bg-primary/70" />
