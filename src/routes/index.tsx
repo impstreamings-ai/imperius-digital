@@ -423,18 +423,19 @@ function Process() {
     { n: "03", i: Rocket, t: "Implantação", d: "Deploy, integrações e operação assistida até estar rodando com o seu time." },
   ];
   return (
-    <section id="processo" className="py-20 sm:py-28 border-t border-border/30">
+    <section id="processo" className="py-14 sm:py-20 border-t border-border/30">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="max-w-2xl mb-12 sm:mb-14">
+        <div className="max-w-2xl mb-9 sm:mb-12">
           <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
             <span className="h-px w-8 bg-primary/70" />
             Como funciona
           </div>
           <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Três etapas.{" "}
-            <span className="text-foreground/55">Sem propostas genéricas.</span>
+            <span className="text-foreground/55">Projeto ajustado ao seu contexto.</span>
           </h2>
         </div>
+
         <ol className="grid gap-4 sm:gap-5 sm:grid-cols-3">
           {steps.map((s) => (
             <li
