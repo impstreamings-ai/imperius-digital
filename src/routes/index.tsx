@@ -856,12 +856,22 @@ function Footer() {
             </a>
           </div>
 
-          <div>
+          <div className="min-w-0">
             <div className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4 font-sans">Próximo passo</div>
             <p className="text-sm text-muted-foreground mb-4 font-sans">Demonstração funcional em 3 a 7 dias úteis. Sem proposta antes da entrega.</p>
-            <a href={WA} target="_blank" rel="noreferrer" onClick={() => track("whatsapp_click", { location: "footer_cta" })}>
-              <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold w-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.72_0.22_250/0.7)]">
-                Falar com a equipe no WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
+            <a
+              href={WA}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => track("whatsapp_click", { location: "footer_cta" })}
+              className="relative z-10 block w-full max-w-full"
+            >
+              <Button
+                size="sm"
+                className="relative z-10 w-full max-w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold h-auto min-h-11 py-2.5 px-4 leading-snug whitespace-normal text-center inline-flex items-center justify-center gap-2 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.72_0.22_250/0.7)]"
+              >
+                <span className="break-words">Falar com a equipe no WhatsApp</span>
+                <ArrowRight className="h-4 w-4 shrink-0" />
               </Button>
             </a>
             <p className="mt-3 text-[11px] text-muted-foreground/70 font-sans">Resposta humana em até 2h em horário comercial.</p>
