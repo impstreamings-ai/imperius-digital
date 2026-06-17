@@ -313,7 +313,7 @@ function Ecossistema() {
 
 function Demonstracoes() {
   return (
-    <section id="vitrine" className="relative py-20 sm:py-28 border-t border-border/30">
+    <section id="vitrine" className="relative py-14 sm:py-20 border-t border-border/30">
       <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" aria-hidden />
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[380px] rounded-full blur-3xl opacity-15 pointer-events-none"
@@ -321,13 +321,13 @@ function Demonstracoes() {
         aria-hidden
       />
       <div className="relative mx-auto max-w-6xl px-6">
-        <div className="max-w-2xl mb-10 sm:mb-14">
+        <div className="max-w-2xl mb-8 sm:mb-12">
           <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
             <span className="h-px w-8 bg-primary/70" />
             Demonstração
           </div>
           <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-            Aplicação real,{" "}
+            Demonstração funcional,{" "}
             <span className="text-neon">navegável agora.</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans">
@@ -341,7 +341,7 @@ function Demonstracoes() {
           target="_blank"
           rel="noreferrer"
           onClick={() => track("demo_click", { project: "black_crown" })}
-          className="card-rise group block rounded-2xl border border-border/50 bg-[oklch(0.09_0.005_245)] overflow-hidden"
+          className="card-rise group block rounded-2xl border border-primary/30 bg-[oklch(0.09_0.005_245)] overflow-hidden shadow-[0_30px_80px_-30px_oklch(0.55_0.22_250/0.45)]"
         >
           <div className="grid lg:grid-cols-[1.4fr_1fr] items-stretch">
             <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden bg-[oklch(0.14_0.01_245)]">
@@ -355,8 +355,6 @@ function Demonstracoes() {
                 fetchPriority="high"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
               />
-
-
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" aria-hidden />
               <div className="badge-pulse absolute top-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-primary/40 bg-background/70 backdrop-blur-md text-[10px] uppercase tracking-[0.18em] font-semibold font-sans text-primary">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
@@ -368,43 +366,49 @@ function Demonstracoes() {
                 <Scissors className="h-3.5 w-3.5" />
                 Projeto de referência
               </span>
-              <h3 className="mt-3 font-display font-semibold text-[1.25rem] sm:text-[1.5rem] lg:text-[1.8rem] leading-[1.1] tracking-[-0.02em] text-foreground">
+              <h3 className="mt-3 font-display font-semibold text-[1.25rem] sm:text-[1.5rem] lg:text-[1.9rem] leading-[1.1] tracking-[-0.02em] text-foreground">
                 Black Crown Barbershop
               </h3>
               <p className="mt-3 text-[14px] sm:text-[14.5px] text-muted-foreground leading-relaxed font-sans">
-                Operação completa em produção: site, agendamento, atendimento e
+                Demonstração funcional completa: site, agendamento, atendimento e
                 identidade — desenvolvidos e operados pela Imperius.
               </p>
               <div className="mt-5 text-[11px] uppercase tracking-[0.22em] font-sans text-muted-foreground/70 truncate">
                 blackcrown-by-imperius.lovable.app
               </div>
-              <div className="mt-auto pt-6 inline-flex items-center gap-2 text-[13px] font-sans font-semibold text-foreground group-hover:text-primary transition-colors">
-                Abrir demonstração ao vivo
-                <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              <div className="mt-auto pt-6">
+                <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold transition-transform group-hover:-translate-y-0.5">
+                  Ver demonstração Black Crown
+                  <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </span>
               </div>
             </div>
           </div>
         </a>
 
-        <div className="mt-6 sm:mt-8 rounded-xl border border-border/40 bg-[oklch(0.1_0.005_245)]/60 backdrop-blur-md p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <p className="text-[13.5px] sm:text-[14px] text-muted-foreground leading-relaxed font-sans max-w-2xl">
-            <span className="text-foreground font-medium">Além da Black Crown</span> — temos demonstrações
-            por segmento para clínicas, estética, restaurantes e imobiliárias.
-          </p>
+        <div className="mt-8 sm:mt-10 rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 backdrop-blur-md p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+          <div className="max-w-2xl">
+            <h3 className="font-display font-semibold text-[1.1rem] sm:text-[1.3rem] tracking-[-0.015em] text-foreground leading-snug">
+              Outras demonstrações por segmento
+            </h3>
+            <p className="mt-2 text-[13.5px] sm:text-[14px] text-muted-foreground leading-relaxed font-sans">
+              Veja exemplos adaptados para clínicas, estética, restaurantes e imobiliárias.
+            </p>
+          </div>
           <Link
             to="/portfolio"
             onClick={() => track("portfolio_bridge_click", { from: "home_demo" })}
-            className="shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-md border border-primary/40 bg-primary/10 hover:bg-primary/15 text-[13px] font-sans font-semibold text-primary transition-colors"
+            className="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-full border border-primary/50 bg-primary/15 hover:bg-primary/25 text-[13px] font-sans font-semibold text-primary transition-colors"
           >
-            <span className="sm:hidden">Ver demos por segmento</span>
-            <span className="hidden sm:inline">Ver demonstrações por segmento</span>
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            Explorar portfólio de demonstrações
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </div>
     </section>
   );
 }
+
 
 
 
