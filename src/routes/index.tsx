@@ -247,37 +247,37 @@ function Ecossistema() {
       icon: MessageCircle,
       tag: "Atendimento",
       title: "Atendimento Inteligente",
-      desc: "Centralização do contato, qualificação e direcionamento inicial.",
+      desc: "Centralizamos WhatsApp, formulários e canais em um só fluxo — com qualificação inicial automática e registro de cada contato.",
     },
     {
       icon: Users,
       tag: "Comercial",
       title: "Gestão Comercial",
-      desc: "Organização de oportunidades e acompanhamento do processo comercial.",
+      desc: "Pipeline de oportunidades, follow-up organizado e relatórios claros para você acompanhar o que está aberto e o que fechou.",
     },
     {
       icon: Calendar,
       tag: "Operação",
       title: "Operação Integrada",
-      desc: "Agenda, confirmações e processos conectados em um único fluxo.",
+      desc: "Agenda online, confirmações automáticas e integração com o atendimento — tudo conectado em um único painel.",
     },
   ];
   return (
-    <section className="relative py-20 sm:py-28 border-b border-border/30 bg-[oklch(0.075_0.004_240)]">
+    <section className="relative py-14 sm:py-20 border-b border-border/30 bg-[oklch(0.075_0.004_240)]">
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[680px] h-[220px] rounded-full blur-3xl opacity-20 pointer-events-none"
         style={{ background: "radial-gradient(ellipse, oklch(0.55 0.22 250 / 0.2), transparent 70%)" }}
         aria-hidden
       />
       <div className="relative mx-auto max-w-6xl px-6">
-        <div className="max-w-2xl mb-12 sm:mb-14">
+        <div className="max-w-2xl mb-9 sm:mb-12">
           <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
             <span className="h-px w-8 bg-primary/70" />
             Ecossistema Imperius
           </div>
           <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-            Tecnologia aplicada à{" "}
-            <span className="text-neon">operação comercial.</span>
+            O que a Imperius{" "}
+            <span className="text-neon">entrega na prática.</span>
           </h2>
         </div>
         <ul className="grid gap-4 sm:gap-5 sm:grid-cols-3">
@@ -307,6 +307,7 @@ function Ecossistema() {
     </section>
   );
 }
+
 
 
 
