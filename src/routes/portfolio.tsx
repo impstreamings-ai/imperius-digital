@@ -248,14 +248,14 @@ const PERSONALIZE = [
 
 function Personalization() {
   return (
-    <section className="py-20 sm:py-24 relative">
+    <section className="py-20 sm:py-28 relative">
       <div className="relative mx-auto max-w-7xl px-6">
-        <div className="mb-10 sm:mb-12 max-w-2xl">
-          <div className="text-[10.5px] uppercase tracking-[0.32em] text-primary/90 font-semibold mb-5 font-sans inline-flex items-center gap-2.5">
+        <div className="mb-12 sm:mb-14 max-w-2xl">
+          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
             <span className="h-px w-8 bg-primary/70" />
             Flexibilidade Imperius
           </div>
-          <h2 className="font-display font-semibold text-[1.7rem] sm:text-[2.2rem] lg:text-[2.55rem] leading-[1.08] tracking-[-0.028em] text-foreground">
+          <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Cada camada é{" "}
             <span className="text-neon">adaptada à sua operação.</span>
           </h2>
