@@ -330,7 +330,7 @@ function Nav() {
         >
           <Button
             size="sm"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.72_0.22_250/0.7)]"
+            className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4"
           >
             <span className="sm:hidden">Falar agora</span>
             <span className="hidden sm:inline">Solicitar demonstração</span>
