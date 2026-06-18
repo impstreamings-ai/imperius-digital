@@ -291,9 +291,9 @@ function Hero() {
             style={{ ["--tw-ring-color" as string]: TITANIUM_LIGHT }}
           >
             <div className="flex -space-x-1.5">
-              {[broker1, broker2, broker3].map((b, i) => (
+              {["/assets/prime-broker1.jpg", "/assets/prime-broker2.jpg", "/assets/prime-broker3.jpg"].map((b, i) => (
                 <span key={i} className="h-6 w-6 rounded-full ring-2 ring-white overflow-hidden" style={{ background: TITANIUM_LIGHT }}>
-                  <img src={b.url} alt="" className="h-full w-full object-cover" />
+                  <img src={b} alt="" className="h-full w-full object-cover" />
                 </span>
               ))}
             </div>
