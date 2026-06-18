@@ -1,9 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
-import logoAsset from "@/assets/imperius-logo-official.png.asset.json";
-import blackCrownHeroCover from "@/assets/black-crown-cover.png.asset.json";
-
-
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
@@ -50,14 +46,14 @@ export const Route = createFileRoute("/")({
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap",
       },
-      { rel: "icon", href: logoAsset.url },
+      { rel: "icon", href: "/assets/imperius-logo-official.png" },
       // Pré-carrega a capa Black Crown apenas em viewports ≥ tablet (onde a imagem
       // entra cedo no viewport e impacta LCP). Mobile mantém lazy para não competir
       // com o hero.
       {
         rel: "preload",
         as: "image",
-        href: blackCrownHeroCover.url,
+        href: "/assets/black-crown-cover.png",
         media: "(min-width: 768px)",
         fetchpriority: "high",
       } as unknown as Record<string, string>,
@@ -140,7 +136,7 @@ function Nav() {
     <header className="fixed top-0 inset-x-0 z-50 border-b border-border/40 backdrop-blur-xl bg-background/70">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
         <a href="#top" className="flex items-center gap-3 min-w-0">
-          <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[36px] w-auto object-contain shrink-0" loading="eager" decoding="async" />
+          <img src={"/assets/imperius-logo-official.png"} alt="Imperius Soluções Digitais" className="h-[36px] w-auto object-contain shrink-0" loading="eager" decoding="async" />
           <span className="hidden sm:flex flex-col leading-tight min-w-0">
             <span className="font-heading font-semibold tracking-[0.2em] text-[12px] truncate">IMPERIUS</span>
             <span className="text-[9.5px] uppercase tracking-[0.28em] text-muted-foreground/80 font-medium truncate">Software house</span>
@@ -346,7 +342,7 @@ function Demonstracoes() {
           <div className="grid lg:grid-cols-[1.4fr_1fr] items-stretch">
             <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden bg-[oklch(0.14_0.01_245)]">
               <img
-                src={blackCrownHeroCover.url}
+                src={"/assets/black-crown-cover.png"}
                 alt="Black Crown Barbershop — ambiente operacional Imperius"
                 width={1600}
                 height={1000}
@@ -611,7 +607,7 @@ function Footer() {
         <div className="grid md:grid-cols-3 gap-10">
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <img src={logoAsset.url} alt="Imperius Soluções Digitais" className="h-[44px] w-auto object-contain" loading="lazy" decoding="async" />
+              <img src={"/assets/imperius-logo-official.png"} alt="Imperius Soluções Digitais" className="h-[44px] w-auto object-contain" loading="lazy" decoding="async" />
               <div>
                 <div className="font-heading font-bold tracking-[0.2em] text-sm">IMPERIUS</div>
                 <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-sans font-medium">Software house</div>

@@ -26,14 +26,6 @@ import {
   LayoutTemplate,
 } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
-
-import logoAsset from "@/assets/imperius-logo-official.png.asset.json";
-import blackCrownCover from "@/assets/black-crown-cover.png.asset.json";
-import vitalisCover from "@/assets/vitalis-hero.jpg.asset.json";
-import bellaCover from "@/assets/studio-bella-hero.jpg.asset.json";
-import primeCover from "@/assets/prime-hero.jpg.asset.json";
-import imperialCover from "@/assets/imperial-hero.jpg.asset.json";
-
 const track = (name: string, params: Record<string, unknown> = {}) =>
   trackEvent(name, params);
 
@@ -60,7 +52,7 @@ export const Route = createFileRoute("/portfolio")({
         content:
           "Catálogo oficial da Imperius: projetos demonstrativos e soluções desenvolvidas para apresentar possibilidades de websites, automação, CRM e inteligência artificial.",
       },
-      { property: "og:image", content: logoAsset.url },
+      { property: "og:image", content: "/assets/imperius-logo-official.png" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -68,7 +60,7 @@ export const Route = createFileRoute("/portfolio")({
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap",
       },
-      { rel: "icon", href: logoAsset.url },
+      { rel: "icon", href: "/assets/imperius-logo-official.png" },
     ],
   }),
   component: PortfolioPage,
@@ -123,7 +115,7 @@ const DEMOS: Demo[] = [
     title: "Black Crown Barbershop",
     segment: "Barbearia premium",
     desc: "Barbearia premium com agendamento e identidade visual cinematográfica.",
-    cover: blackCrownCover.url,
+    cover: "/assets/black-crown-cover.png",
     domain: "blackcrown-by-imperius.lovable.app",
     href: BLACK_CROWN_URL,
     external: true,
@@ -134,7 +126,7 @@ const DEMOS: Demo[] = [
     title: "Clínica Vitalis",
     segment: "Saúde · Clínica",
     desc: "Site clínico com agendamento, especialidades e tom de confiança.",
-    cover: vitalisCover.url,
+    cover: "/assets/vitalis-hero.jpg",
     domain: "vitalis.imperiusdigital.com.br",
     to: "/vitalis",
   },
@@ -143,7 +135,7 @@ const DEMOS: Demo[] = [
     title: "Studio Bella Estética",
     segment: "Estética · Alto padrão",
     desc: "Estética de alto padrão com vitrine de procedimentos e reserva direta.",
-    cover: bellaCover.url,
+    cover: "/assets/studio-bella-hero.jpg",
     domain: "studiobella.imperiusdigital.com.br",
     to: "/studio-bella",
   },
@@ -152,7 +144,7 @@ const DEMOS: Demo[] = [
     title: "Prime Imóveis",
     segment: "Imobiliário",
     desc: "Portal imobiliário com busca, ficha de imóvel e captação de leads.",
-    cover: primeCover.url,
+    cover: "/assets/prime-hero.jpg",
     domain: "primeimoveis.imperiusdigital.com.br",
     to: "/prime-imoveis",
   },
@@ -161,7 +153,7 @@ const DEMOS: Demo[] = [
     title: "Restaurante Imperial",
     segment: "Gastronomia",
     desc: "Reservas, cardápio e identidade gastronômica premium.",
-    cover: imperialCover.url,
+    cover: "/assets/imperial-hero.jpg",
     domain: "imperial.imperiusdigital.com.br",
     to: "/restaurante-imperial",
   },
@@ -298,7 +290,7 @@ function Nav() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-3 min-w-0">
           <img
-            src={logoAsset.url}
+            src={"/assets/imperius-logo-official.png"}
             alt="Imperius Soluções Digitais"
             className="h-[36px] w-auto object-contain shrink-0"
             loading="eager"
@@ -698,7 +690,7 @@ function Footer() {
       <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12.5px] text-muted-foreground">
         <div className="flex items-center gap-3">
           <img
-            src={logoAsset.url}
+            src={"/assets/imperius-logo-official.png"}
             alt="Imperius"
             className="h-6 w-auto object-contain"
             loading="lazy"

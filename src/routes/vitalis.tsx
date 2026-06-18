@@ -22,13 +22,6 @@ import {
   Calendar as CalendarIcon,
 } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
-
-import heroAsset from "@/assets/vitalis-hero.jpg.asset.json";
-import doc1Asset from "@/assets/vitalis-doc1.jpg.asset.json";
-import doc2Asset from "@/assets/vitalis-doc2.jpg.asset.json";
-import doc3Asset from "@/assets/vitalis-doc3.jpg.asset.json";
-import doc4Asset from "@/assets/vitalis-doc4.jpg.asset.json";
-
 const track = (name: string, params: Record<string, unknown> = {}) =>
   trackEvent(name, params);
 
@@ -212,7 +205,7 @@ function Hero() {
           <div className="absolute -inset-4 sm:-inset-6 bg-sky-100/60 rounded-[2rem] blur-2xl pointer-events-none" />
           <div className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] ring-1 ring-slate-200 shadow-xl shadow-sky-900/10 aspect-[4/3]">
             <img
-              src={heroAsset.url}
+              src={"/assets/vitalis-hero.jpg"}
               alt="Recepção moderna da Clínica Vitalis com paciente sendo atendida"
               className="absolute inset-0 h-full w-full object-cover"
               width={1600}
@@ -232,13 +225,13 @@ function Hero() {
           <div className="hidden sm:flex absolute -top-5 -right-3 items-center gap-2 bg-white rounded-full shadow-md shadow-slate-900/10 ring-1 ring-slate-200 pl-2 pr-3.5 py-1.5">
             <div className="flex -space-x-1.5">
               <span className="h-6 w-6 rounded-full ring-2 ring-white overflow-hidden bg-sky-100">
-                <img src={doc1Asset.url} alt="" className="h-full w-full object-cover" />
+                <img src={"/assets/vitalis-doc1.jpg"} alt="" className="h-full w-full object-cover" />
               </span>
               <span className="h-6 w-6 rounded-full ring-2 ring-white overflow-hidden bg-sky-100">
-                <img src={doc2Asset.url} alt="" className="h-full w-full object-cover" />
+                <img src={"/assets/vitalis-doc2.jpg"} alt="" className="h-full w-full object-cover" />
               </span>
               <span className="h-6 w-6 rounded-full ring-2 ring-white overflow-hidden bg-sky-100">
-                <img src={doc3Asset.url} alt="" className="h-full w-full object-cover" />
+                <img src={"/assets/vitalis-doc3.jpg"} alt="" className="h-full w-full object-cover" />
               </span>
             </div>
             <span className="text-[11px] text-slate-700 font-semibold">Equipe multidisciplinar</span>
@@ -343,7 +336,7 @@ function Doctors() {
       name: "Especialista em Cardiologia",
       specialty: "Cardiologia",
       crm: "CRM XXX.XXX",
-      photo: doc1Asset.url,
+      photo: "/assets/vitalis-doc1.jpg",
       rating: 4.9,
       slots: ["09:00", "14:00", "16:30"],
       next: "Hoje · 14:00",
@@ -352,7 +345,7 @@ function Doctors() {
       name: "Especialista em Clínica Geral",
       specialty: "Clínica Geral",
       crm: "CRM XXX.XXX",
-      photo: doc2Asset.url,
+      photo: "/assets/vitalis-doc2.jpg",
       rating: 4.8,
       slots: ["10:30", "11:30", "15:00"],
       next: "Hoje · 10:30",
@@ -361,7 +354,7 @@ function Doctors() {
       name: "Especialista em Dermatologia",
       specialty: "Dermatologia",
       crm: "CRM XXX.XXX",
-      photo: doc3Asset.url,
+      photo: "/assets/vitalis-doc3.jpg",
       rating: 5.0,
       slots: ["08:30", "13:00", "17:00"],
       next: "Amanhã · 08:30",
@@ -370,7 +363,7 @@ function Doctors() {
       name: "Especialista em Ortopedia",
       specialty: "Ortopedia",
       crm: "CRM XXX.XXX",
-      photo: doc4Asset.url,
+      photo: "/assets/vitalis-doc4.jpg",
       rating: 4.7,
       slots: ["09:30", "11:00", "16:00"],
       next: "Hoje · 16:00",
@@ -463,9 +456,9 @@ function BookingFlow() {
           <StepCard step="01" tag="Profissional" icon={Stethoscope}>
             <div className="space-y-2">
               {[
-                { n: "Especialista em Cardiologia", s: "Cardiologia", active: true, photo: doc1Asset.url },
-                { n: "Especialista em Clínica Geral", s: "Clínica Geral", photo: doc2Asset.url },
-                { n: "Especialista em Dermatologia", s: "Dermatologia", photo: doc3Asset.url },
+                { n: "Especialista em Cardiologia", s: "Cardiologia", active: true, photo: "/assets/vitalis-doc1.jpg" },
+                { n: "Especialista em Clínica Geral", s: "Clínica Geral", photo: "/assets/vitalis-doc2.jpg" },
+                { n: "Especialista em Dermatologia", s: "Dermatologia", photo: "/assets/vitalis-doc3.jpg" },
               ].map((d) => (
                 <div
                   key={d.n}

@@ -21,16 +21,6 @@ import {
   Sparkles,
 } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
-
-import heroAsset from "@/assets/imperial-hero.jpg.asset.json";
-import coverAsset from "@/assets/imperial-cover.jpg.asset.json";
-import dish1 from "@/assets/imperial-dish1.jpg.asset.json";
-import dish2 from "@/assets/imperial-dish2.jpg.asset.json";
-import dish3 from "@/assets/imperial-dish3.jpg.asset.json";
-import room from "@/assets/imperial-room.jpg.asset.json";
-import chef from "@/assets/imperial-chef.jpg.asset.json";
-import wine from "@/assets/imperial-wine.jpg.asset.json";
-
 const track = (name: string, params: Record<string, unknown> = {}) =>
   trackEvent(name, params);
 
@@ -66,12 +56,12 @@ export const Route = createFileRoute("/restaurante-imperial")({
         content:
           "Cozinha contemporânea, ingredientes selecionados e ambiente intimista. Uma experiência para celebrar.",
       },
-      { property: "og:image", content: coverAsset.url },
+      { property: "og:image", content: "/assets/imperial-cover.jpg" },
       { property: "og:url", content: "https://imperius-digital.lovable.app/restaurante-imperial" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Restaurante Imperial" },
-      { name: "twitter:image", content: coverAsset.url },
+      { name: "twitter:image", content: "/assets/imperial-cover.jpg" },
       {
         name: "twitter:description",
         content:
@@ -182,7 +172,7 @@ function Hero() {
       {/* full-bleed hero image */}
       <div className="absolute inset-0">
         <img
-          src={heroAsset.url}
+          src={"/assets/imperial-hero.jpg"}
           alt="Salão intimista do Restaurante Imperial com banquettes de veludo bordô e velas acesas"
           className="absolute inset-0 h-full w-full object-cover opacity-55"
           width={1920}
@@ -319,7 +309,7 @@ type Dish = {
 function Menu() {
   const items: Dish[] = [
     {
-      img: dish1.url,
+      img: "/assets/imperial-dish1.jpg",
       alt: "Tartare de atum com abacate e crocante cítrico",
       course: "Entrada",
       name: "Tartare de Atum",
@@ -327,7 +317,7 @@ function Menu() {
       price: "R$ 89",
     },
     {
-      img: coverAsset.url,
+      img: "/assets/imperial-cover.jpg",
       alt: "Bife de wagyu selado com redução de vinho tinto e legumes grelhados",
       course: "Principal",
       name: "Wagyu ao Vinho",
@@ -335,7 +325,7 @@ function Menu() {
       price: "R$ 248",
     },
     {
-      img: dish2.url,
+      img: "/assets/imperial-dish2.jpg",
       alt: "Massa fresca com trufa e parmesão em cumbuca de cerâmica bordô",
       course: "Principal",
       name: "Tagliolini de Trufa",
@@ -343,7 +333,7 @@ function Menu() {
       price: "R$ 164",
     },
     {
-      img: dish3.url,
+      img: "/assets/imperial-dish3.jpg",
       alt: "Sobremesa de chocolate com framboesa e folha de ouro",
       course: "Sobremesa",
       name: "Esfera de Chocolate",
@@ -452,7 +442,7 @@ function Experience() {
             style={{ borderColor: "rgba(26,22,19,0.08)" }}
           >
             <img
-              src={room.url}
+              src={"/assets/imperial-room.jpg"}
               alt="Salão principal do Imperial com pendentes vintage e mesas postas à luz de velas"
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
@@ -517,7 +507,7 @@ function Chef() {
             style={{ borderColor: "rgba(245,239,230,0.12)" }}
           >
             <img
-              src={chef.url}
+              src={"/assets/imperial-chef.jpg"}
               alt="Chef executivo do Restaurante Imperial em sua cozinha"
               loading="lazy"
               className="absolute inset-0 h-full w-full object-cover"
@@ -926,7 +916,7 @@ function Visit() {
             style={{ borderColor: "rgba(26,22,19,0.08)" }}
           >
             <img
-              src={wine.url}
+              src={"/assets/imperial-wine.jpg"}
               alt="Sommelier servindo vinho tinto em taça de cristal à luz de velas"
               loading="lazy"
               className="absolute inset-0 h-full w-full object-cover"

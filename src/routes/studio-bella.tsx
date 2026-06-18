@@ -23,16 +23,6 @@ import {
   Calendar as CalendarIcon,
 } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
-
-import heroAsset from "@/assets/studio-bella-hero.jpg.asset.json";
-import coverAsset from "@/assets/studio-bella-cover.jpg.asset.json";
-import treat1 from "@/assets/studio-bella-treat1.jpg.asset.json";
-import treat2 from "@/assets/studio-bella-treat2.jpg.asset.json";
-import treat3 from "@/assets/studio-bella-treat3.jpg.asset.json";
-import pro1 from "@/assets/studio-bella-pro1.jpg.asset.json";
-import pro2 from "@/assets/studio-bella-pro2.jpg.asset.json";
-import pro3 from "@/assets/studio-bella-pro3.jpg.asset.json";
-
 const track = (name: string, params: Record<string, unknown> = {}) =>
   trackEvent(name, params);
 
@@ -58,12 +48,12 @@ export const Route = createFileRoute("/studio-bella")({
         content:
           "Centro de estética premium em São Paulo. Tratamentos faciais, harmonização, laser e protocolos personalizados.",
       },
-      { property: "og:image", content: coverAsset.url },
+      { property: "og:image", content: "/assets/studio-bella-cover.jpg" },
       { property: "og:url", content: "https://imperius-digital.lovable.app/studio-bella" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Studio Bella Estética" },
-      { name: "twitter:image", content: coverAsset.url },
+      { name: "twitter:image", content: "/assets/studio-bella-cover.jpg" },
       {
         name: "twitter:description",
         content:
@@ -244,7 +234,7 @@ function Hero() {
             style={{ borderColor: "#E8D2E0", boxShadow: "0 30px 60px -30px rgba(122,69,112,0.35)" }}
           >
             <img
-              src={heroAsset.url}
+              src={"/assets/studio-bella-hero.jpg"}
               alt="Sala de tratamento premium do Studio Bella com orquídeas lilás e luz natural"
               className="absolute inset-0 h-full w-full object-cover"
               width={1600}
@@ -268,13 +258,13 @@ function Hero() {
           >
             <div className="flex -space-x-1.5">
               <span className="h-6 w-6 rounded-full ring-2 ring-white overflow-hidden" style={{ background: "#F5E6F0" }}>
-                <img src={pro1.url} alt="" className="h-full w-full object-cover" />
+                <img src={"/assets/studio-bella-pro1.jpg"} alt="" className="h-full w-full object-cover" />
               </span>
               <span className="h-6 w-6 rounded-full ring-2 ring-white overflow-hidden" style={{ background: "#F5E6F0" }}>
-                <img src={pro2.url} alt="" className="h-full w-full object-cover" />
+                <img src={"/assets/studio-bella-pro2.jpg"} alt="" className="h-full w-full object-cover" />
               </span>
               <span className="h-6 w-6 rounded-full ring-2 ring-white overflow-hidden" style={{ background: "#F5E6F0" }}>
-                <img src={pro3.url} alt="" className="h-full w-full object-cover" />
+                <img src={"/assets/studio-bella-pro3.jpg"} alt="" className="h-full w-full object-cover" />
               </span>
             </div>
             <span className="text-[11px] text-stone-700 font-semibold">Equipe especializada</span>
@@ -317,12 +307,12 @@ function TrustStrip() {
 /* ----------------------------- TREATMENTS ----------------------------- */
 function Treatments() {
   const items = [
-    { i: Sparkles, t: "Estética Facial", d: "Limpeza de pele profunda, peeling, microagulhamento e protocolos avançados de rejuvenescimento.", img: treat1.url, alt: "Produtos premium de skincare sobre mármore branco" },
+    { i: Sparkles, t: "Estética Facial", d: "Limpeza de pele profunda, peeling, microagulhamento e protocolos avançados de rejuvenescimento.", img: "/assets/studio-bella-treat1.jpg", alt: "Produtos premium de skincare sobre mármore branco" },
     { i: Wand2, t: "Harmonização Facial", d: "Toxina, preenchimento, bioestimulador e ultraformer com técnica natural e resultado sob medida.", img: undefined, alt: "" },
-    { i: Sun, t: "Depilação a Laser", d: "Tecnologia de diodo de alta potência para resultados duradouros, com conforto e segurança.", img: treat2.url, alt: "Sala de laser com equipamento premium e óculos de proteção" },
+    { i: Sun, t: "Depilação a Laser", d: "Tecnologia de diodo de alta potência para resultados duradouros, com conforto e segurança.", img: "/assets/studio-bella-treat2.jpg", alt: "Sala de laser com equipamento premium e óculos de proteção" },
     { i: Heart, t: "Estética Corporal", d: "Modeladora, criofrequência, drenagem e protocolos pós-parto e pós-bariátrico." },
     { i: Droplet, t: "Cuidados com a Pele", d: "Acne, melasma, manchas e tratamentos personalizados com avaliação dermatofuncional." },
-    { i: Gem, t: "Day Spa Premium", d: "Massagem relaxante, ritual facial e momento exclusivo para você desacelerar.", img: treat3.url, alt: "Lounge de relaxamento premium do Studio Bella" },
+    { i: Gem, t: "Day Spa Premium", d: "Massagem relaxante, ritual facial e momento exclusivo para você desacelerar.", img: "/assets/studio-bella-treat3.jpg", alt: "Lounge de relaxamento premium do Studio Bella" },
   ];
   return (
     <section id="tratamentos" className="py-20 sm:py-28" style={{ background: "#FBF7F4" }}>
@@ -394,7 +384,7 @@ function Experience() {
         <div className="relative order-2 lg:order-1">
           <div className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] ring-1 shadow-lg aspect-[4/3]" style={{ borderColor: "#E8D2E0" }}>
             <img
-              src={coverAsset.url}
+              src={"/assets/studio-bella-cover.jpg"}
               alt="Recepção elegante do Studio Bella com mármore branco e flores lilás"
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
@@ -450,7 +440,7 @@ function Team() {
       name: "Diretora Clínica",
       role: "Harmonização facial",
       reg: "Registro XX.XXX",
-      photo: pro2.url,
+      photo: "/assets/studio-bella-pro2.jpg",
       rating: 5.0,
       spec: "Harmonização facial",
     },
@@ -458,7 +448,7 @@ function Team() {
       name: "Esteticista Sênior",
       role: "Estética avançada",
       reg: "Especialista facial",
-      photo: pro1.url,
+      photo: "/assets/studio-bella-pro1.jpg",
       rating: 4.9,
       spec: "Estética avançada",
     },
@@ -466,7 +456,7 @@ function Team() {
       name: "Dermato-funcional",
       role: "Laser & corporal",
       reg: "Especialista corporal",
-      photo: pro3.url,
+      photo: "/assets/studio-bella-pro3.jpg",
       rating: 4.9,
       spec: "Laser & corporal",
     },
@@ -873,7 +863,7 @@ function Visit() {
         <div className="relative">
           <div className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] ring-1 shadow-lg aspect-[4/3]" style={{ borderColor: "#E8D2E0" }}>
             <img
-              src={treat3.url}
+              src={"/assets/studio-bella-treat3.jpg"}
               alt="Lounge de relaxamento do Studio Bella"
               loading="lazy"
               className="absolute inset-0 h-full w-full object-cover"

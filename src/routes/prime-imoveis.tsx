@@ -24,16 +24,6 @@ import {
   Award,
 } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
-
-import heroAsset from "@/assets/prime-hero.jpg.asset.json";
-import coverAsset from "@/assets/prime-cover.jpg.asset.json";
-import prop1 from "@/assets/prime-prop1.jpg.asset.json";
-import prop2 from "@/assets/prime-prop2.jpg.asset.json";
-import prop3 from "@/assets/prime-prop3.jpg.asset.json";
-import broker1 from "@/assets/prime-broker1.jpg.asset.json";
-import broker2 from "@/assets/prime-broker2.jpg.asset.json";
-import broker3 from "@/assets/prime-broker3.jpg.asset.json";
-
 const track = (name: string, params: Record<string, unknown> = {}) =>
   trackEvent(name, params);
 
@@ -68,12 +58,12 @@ export const Route = createFileRoute("/prime-imoveis")({
         content:
           "Imóveis premium com curadoria, segurança jurídica e assessoria personalizada — para quem busca patrimônio de verdade.",
       },
-      { property: "og:image", content: coverAsset.url },
+      { property: "og:image", content: "/assets/prime-cover.jpg" },
       { property: "og:url", content: "https://imperius-digital.lovable.app/prime-imoveis" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Prime Imóveis" },
-      { name: "twitter:image", content: coverAsset.url },
+      { name: "twitter:image", content: "/assets/prime-cover.jpg" },
       {
         name: "twitter:description",
         content:
@@ -273,7 +263,7 @@ function Hero() {
             style={{ borderColor: TITANIUM_LIGHT, boxShadow: "0 30px 60px -30px rgba(14,30,58,0.45)" }}
           >
             <img
-              src={heroAsset.url}
+              src={"/assets/prime-hero.jpg"}
               alt="Fachada de condomínio premium ao entardecer com palmeiras iluminadas"
               className="absolute inset-0 h-full w-full object-cover"
               width={1600}
@@ -301,9 +291,9 @@ function Hero() {
             style={{ ["--tw-ring-color" as string]: TITANIUM_LIGHT }}
           >
             <div className="flex -space-x-1.5">
-              {[broker1, broker2, broker3].map((b, i) => (
+              {["/assets/prime-broker1.jpg", "/assets/prime-broker2.jpg", "/assets/prime-broker3.jpg"].map((b, i) => (
                 <span key={i} className="h-6 w-6 rounded-full ring-2 ring-white overflow-hidden" style={{ background: TITANIUM_LIGHT }}>
-                  <img src={b.url} alt="" className="h-full w-full object-cover" />
+                  <img src={b} alt="" className="h-full w-full object-cover" />
                 </span>
               ))}
             </div>
@@ -368,7 +358,7 @@ type Property = {
 function Properties() {
   const items: Property[] = [
     {
-      img: prop1.url,
+      img: "/assets/prime-prop1.jpg",
       alt: "Living de cobertura premium com vista panorâmica para a cidade",
       tag: "Cobertura · Região nobre",
       name: "Cobertura Premium",
@@ -380,7 +370,7 @@ function Properties() {
       size: "420 m²",
     },
     {
-      img: prop2.url,
+      img: "/assets/prime-prop2.jpg",
       alt: "Casa moderna de alto padrão com piscina e iluminação noturna",
       tag: "Casa · Condomínio fechado",
       name: "Residência Exclusiva",
@@ -392,7 +382,7 @@ function Properties() {
       size: "680 m²",
     },
     {
-      img: prop3.url,
+      img: "/assets/prime-prop3.jpg",
       alt: "Fachada de prédio residencial premium com varandas e jardins suspensos",
       tag: "Apartamento · Bairro premium",
       name: "Edifício Conceito",
@@ -527,7 +517,7 @@ function WhyPrime() {
             style={{ borderColor: TITANIUM_LIGHT }}
           >
             <img
-              src={coverAsset.url}
+              src={"/assets/prime-cover.jpg"}
               alt="Área de lazer de condomínio premium com piscina e jardins iluminados"
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
@@ -593,7 +583,7 @@ function Team() {
       name: "Diretor Comercial",
       role: "Especialista em alto padrão",
       creci: "CRECI XXX.XXX",
-      photo: broker1.url,
+      photo: "/assets/prime-broker1.jpg",
       rating: 5.0,
       spec: "Alto padrão · Região nobre",
     },
@@ -601,7 +591,7 @@ function Team() {
       name: "Consultora Sênior",
       role: "Coberturas e exclusivos",
       creci: "CRECI XXX.XXX",
-      photo: broker2.url,
+      photo: "/assets/prime-broker2.jpg",
       rating: 4.9,
       spec: "Coberturas · Bairros premium",
     },
@@ -609,7 +599,7 @@ function Team() {
       name: "Consultor de Investimentos",
       role: "Casas e condomínios",
       creci: "CRECI XXX.XXX",
-      photo: broker3.url,
+      photo: "/assets/prime-broker3.jpg",
       rating: 4.9,
       spec: "Casas · Condomínios",
     },
@@ -865,7 +855,7 @@ function Visit() {
             style={{ borderColor: TITANIUM_LIGHT }}
           >
             <img
-              src={prop1.url}
+              src={"/assets/prime-prop1.jpg"}
               alt="Sala de estar de cobertura premium com vista para a cidade"
               loading="lazy"
               className="absolute inset-0 h-full w-full object-cover"
