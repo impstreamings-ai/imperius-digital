@@ -292,33 +292,34 @@ function Ecossistema() {
   const cards = [
     {
       icon: MessageCircle,
-      tag: "Atendimento",
-      title: "Atendimento Inteligente",
-      desc: "WhatsApp, formulários e canais em um só fluxo. Cada contato registrado, qualificado e atribuído a um responsável.",
+      tag: "Resposta",
+      title: "Resposta no tempo certo",
+      desc: "Toda mensagem com responsável, prazo e próximo passo. Nada some na conversa.",
     },
     {
       icon: Users,
-      tag: "Comercial",
-      title: "Gestão Comercial",
-      desc: "Pipeline de vendas, follow-up programado e relatórios objetivos: o que entrou, o que avançou, o que fechou.",
+      tag: "Funil",
+      title: "Lead que avança",
+      desc: "Você enxerga onde cada cliente travou — e o que falta pra fechar.",
     },
     {
       icon: Calendar,
-      tag: "Operação",
-      title: "Operação Integrada",
-      desc: "Agenda online, confirmações automáticas e integração direta com o atendimento — sem planilha paralela.",
+      tag: "Agenda",
+      title: "Agenda que confirma sozinha",
+      desc: "Marcação, lembrete e confirmação acontecem antes de você lembrar.",
     },
   ];
   return (
     <section className="relative py-12 sm:py-16 border-b border-border/30 bg-[oklch(0.075_0.004_240)]">
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-7 sm:mb-10">
-          <div className="mb-4"><SectionEyebrow>Ecossistema Imperius</SectionEyebrow></div>
+          <div className="mb-4"><SectionEyebrow>Como reduzimos a distância</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-            O que a Imperius{" "}
-            <span className="text-neon">entrega na prática.</span>
+            Não vendemos ferramenta.{" "}
+            <span className="text-neon">Encurtamos o caminho entre o contato e a venda.</span>
           </h2>
         </div>
+
         <ul className="grid gap-4 sm:gap-5 sm:grid-cols-3">
           {cards.map((c) => (
             <li
