@@ -403,8 +403,9 @@ function Ecossistema() {
 
           <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Não vendemos ferramenta.{" "}
-            <span className="text-neon">Encurtamos o caminho entre o contato e a venda.</span>
+            <span className="text-neon">Encurtamos o caminho até a venda.</span>
           </h2>
+
         </div>
 
         <ul className="grid gap-4 sm:gap-5 sm:grid-cols-3">
