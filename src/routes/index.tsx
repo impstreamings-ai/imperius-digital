@@ -129,12 +129,13 @@ function Landing() {
 
 function Problema() {
   const dores = [
-    { icon: Calendar, t: "Cliente desiste antes do agendamento", d: "Muita fricção entre interesse e marcação. Some no meio do caminho." },
-    { icon: ClipboardList, t: "Cliques demais pra concluir uma ação", d: "Cada passo extra é cliente que abandona o fluxo." },
-    { icon: MessageCircle, t: "WhatsApp desorganizado", d: "Conversa espalhada, sem dono, sem prazo. Mensagem que some na fila." },
-    { icon: Activity, t: "Atendimento lento", d: "Resposta demora, o cliente esfria e fala com quem responder primeiro." },
-    { icon: TrendingUp, t: "Oportunidades perdidas", d: "Lead entra, ninguém retoma. Vira histórico, não venda." },
+    { icon: Calendar, t: "Cliente desiste antes do agendamento", d: "Some entre o interesse e a marcação." },
+    { icon: ClipboardList, t: "Cliques demais pra concluir", d: "Cada passo extra é abandono." },
+    { icon: MessageCircle, t: "WhatsApp desorganizado", d: "Sem dono, sem prazo, sem rastro." },
+    { icon: Activity, t: "Atendimento lento", d: "Cliente esfria e fala com quem responder primeiro." },
+    { icon: TrendingUp, t: "Oportunidades perdidas", d: "Lead entra, ninguém retoma. Vira histórico." },
   ];
+
   return (
     <section className="relative py-12 sm:py-16 border-y border-border/30">
       <div className="mx-auto max-w-6xl px-6">
