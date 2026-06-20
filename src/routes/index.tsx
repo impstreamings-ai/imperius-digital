@@ -129,12 +129,13 @@ function Landing() {
 
 function Problema() {
   const dores = [
-    { icon: Calendar, t: "Cliente desiste antes do agendamento", d: "Muita fricção entre interesse e marcação. Some no meio do caminho." },
-    { icon: ClipboardList, t: "Cliques demais pra concluir uma ação", d: "Cada passo extra é cliente que abandona o fluxo." },
-    { icon: MessageCircle, t: "WhatsApp desorganizado", d: "Conversa espalhada, sem dono, sem prazo. Mensagem que some na fila." },
-    { icon: Activity, t: "Atendimento lento", d: "Resposta demora, o cliente esfria e fala com quem responder primeiro." },
-    { icon: TrendingUp, t: "Oportunidades perdidas", d: "Lead entra, ninguém retoma. Vira histórico, não venda." },
+    { icon: Calendar, t: "Cliente desiste antes do agendamento", d: "Some entre o interesse e a marcação." },
+    { icon: ClipboardList, t: "Cliques demais pra concluir", d: "Cada passo extra é abandono." },
+    { icon: MessageCircle, t: "WhatsApp desorganizado", d: "Sem dono, sem prazo, sem rastro." },
+    { icon: Activity, t: "Atendimento lento", d: "Cliente esfria e fala com quem responder primeiro." },
+    { icon: TrendingUp, t: "Oportunidades perdidas", d: "Lead entra, ninguém retoma. Vira histórico." },
   ];
+
   return (
     <section className="relative py-12 sm:py-16 border-y border-border/30">
       <div className="mx-auto max-w-6xl px-6">
@@ -142,9 +143,10 @@ function Problema() {
           <div className="mb-4"><SectionEyebrow>Problemas que encontramos diariamente</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Tem cliente entrando.{" "}
-            <span className="text-foreground/55">Só não está chegando até a venda.</span>
+            <span className="text-foreground/55">Não está chegando até a venda.</span>
           </h2>
         </div>
+
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 border-y border-border/40 divide-y sm:divide-y-0 sm:divide-x divide-border/40">
           {dores.map((d) => (
@@ -170,12 +172,13 @@ function Problema() {
 
 function Metodo() {
   const pilares = [
-    { n: "01", t: "Encontrar um gargalo real", d: "A gente olha a operação e identifica onde o cliente realmente trava." },
-    { n: "02", t: "Mostrar visualmente", d: "Desenhamos o gargalo. Você enxerga o ponto exato — não no discurso, na tela." },
-    { n: "03", t: "Fazer uma pergunta curta", d: "Uma pergunta direta sobre o que esse gargalo está custando hoje." },
-    { n: "04", t: "Conversar", d: "Conversa franca sobre contexto, prioridade e o que faz sentido resolver primeiro." },
-    { n: "05", t: "Só depois, apresentar a solução", d: "Proposta só quando o problema está claro pros dois lados." },
+    { n: "01", t: "Encontrar um gargalo real", d: "Onde o cliente trava de verdade." },
+    { n: "02", t: "Mostrar visualmente", d: "Você vê o ponto exato na tela." },
+    { n: "03", t: "Fazer uma pergunta curta", d: "Quanto esse gargalo está te custando?" },
+    { n: "04", t: "Conversar", d: "O que faz sentido resolver primeiro." },
+    { n: "05", t: "Só depois, a solução", d: "Proposta com o problema claro." },
   ];
+
   return (
     <section id="metodo" className="relative py-12 sm:py-16 border-b border-border/30">
       <div className="mx-auto max-w-6xl px-6">
@@ -218,13 +221,13 @@ function Operator() {
             <div className="min-w-0">
               <div className="mb-4"><SectionEyebrow>Imperius Operator</SectionEyebrow></div>
               <h2 className="font-display font-semibold text-[1.6rem] sm:text-[2rem] lg:text-[2.3rem] leading-[1.08] tracking-[-0.025em] text-foreground">
-                O operador que vigia seu funil{" "}
+                Vigia seu funil{" "}
                 <span className="text-neon">enquanto você toca o negócio.</span>
               </h2>
               <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans max-w-2xl">
-                Acompanha cada contato, cobra resposta no prazo e te avisa quando um cliente
-                está prestes a esfriar. Nada some, nada espera.
+                Cobra resposta no prazo e avisa quando um cliente vai esfriar.
               </p>
+
             </div>
             <a
               href={WA}
@@ -324,10 +327,10 @@ function Hero() {
           Onde sua empresa está perdendo cliente —{" "}
           <span className="text-shimmer">e como encurtar esse caminho</span>.
         </h1>
-        <p className="mt-5 sm:mt-6 mx-auto max-w-[36rem] text-muted-foreground text-[15px] sm:text-[16.5px] leading-relaxed font-sans">
-          A gente entra na sua operação, encontra o gargalo e mostra no detalhe.
-          Só depois a conversa vira solução.
+        <p className="mt-5 sm:mt-6 mx-auto max-w-[34rem] text-muted-foreground text-[15px] sm:text-[16.5px] leading-relaxed font-sans">
+          A gente acha o gargalo, te mostra, e só depois propõe.
         </p>
+
         <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3">
           <a
             href={WA}
@@ -353,8 +356,9 @@ function Hero() {
           </a>
         </div>
         <p className="mt-6 sm:mt-7 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
-          Conversa curta · Sem proposta antes de a gente entender sua operação
+          Conversa curta · Sem proposta antes do diagnóstico
         </p>
+
 
       </div>
     </section>
@@ -375,21 +379,22 @@ function Ecossistema() {
       icon: MessageCircle,
       tag: "Resposta",
       title: "Resposta no tempo certo",
-      desc: "Toda mensagem com responsável, prazo e próximo passo. Nada some na conversa.",
+      desc: "Cada mensagem com dono, prazo e próximo passo.",
     },
     {
       icon: Users,
       tag: "Funil",
       title: "Lead que avança",
-      desc: "Você enxerga onde cada cliente travou — e o que falta pra fechar.",
+      desc: "Você vê onde travou e o que falta pra fechar.",
     },
     {
       icon: Calendar,
       tag: "Agenda",
       title: "Agenda que confirma sozinha",
-      desc: "Marcação, lembrete e confirmação acontecem antes de você lembrar.",
+      desc: "Marcação, lembrete e confirmação no automático.",
     },
   ];
+
   return (
     <section id="solucoes" className="relative py-12 sm:py-16 border-b border-border/30 bg-[oklch(0.075_0.004_240)]">
       <div className="relative mx-auto max-w-6xl px-6">
@@ -398,8 +403,9 @@ function Ecossistema() {
 
           <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Não vendemos ferramenta.{" "}
-            <span className="text-neon">Encurtamos o caminho entre o contato e a venda.</span>
+            <span className="text-neon">Encurtamos o caminho até a venda.</span>
           </h2>
+
         </div>
 
         <ul className="grid gap-4 sm:gap-5 sm:grid-cols-3">
@@ -445,8 +451,9 @@ function Demonstracoes() {
             <span className="text-neon">numa operação real.</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans">
-            Ambiente nosso, rodando agora. Clica e usa como o cliente final usaria.
+            Ambiente nosso, rodando agora. Clica e usa.
           </p>
+
         </div>
 
 
@@ -484,9 +491,9 @@ function Demonstracoes() {
                 Black Crown Barbershop
               </h3>
               <p className="mt-3 text-[14px] sm:text-[14.5px] text-muted-foreground leading-relaxed font-sans">
-                Atendimento, agenda e site operando juntos — não três ferramentas
-                colando uma na outra.
+                Atendimento, agenda e site operando juntos.
               </p>
+
               <div className="mt-5 text-[11px] uppercase tracking-[0.22em] font-sans text-muted-foreground/70 truncate">
                 blackcrown-by-imperius.lovable.app
               </div>
@@ -504,12 +511,13 @@ function Demonstracoes() {
         <div className="mt-6 sm:mt-8 rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 backdrop-blur-md p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="max-w-2xl">
             <h3 className="font-display font-semibold text-[1.1rem] sm:text-[1.3rem] tracking-[-0.015em] text-foreground leading-snug">
-              Outros gargalos, outros segmentos
+              Outros segmentos
             </h3>
             <p className="mt-2 text-[13.5px] sm:text-[14px] text-muted-foreground leading-relaxed font-sans">
-              Mesmo método aplicado em clínica, estética, restaurante e imóveis.
+              Clínica, estética, restaurante, imóveis.
             </p>
           </div>
+
           <Link
             to="/portfolio"
             onClick={() => track("portfolio_bridge_click", { from: "home_demo" })}
@@ -666,9 +674,9 @@ function FinalCTA() {
           <span className="text-neon">está vazando cliente?</span>
         </h2>
         <p className="mt-5 text-muted-foreground text-[15px] sm:text-[16.5px] max-w-xl mx-auto leading-relaxed font-sans">
-          20 minutos de conversa. A gente identifica o gargalo principal e te
-          mostra — antes de qualquer proposta.
+          20 minutos. Te mostramos o gargalo. Sem proposta antes.
         </p>
+
         <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row justify-center items-center gap-3">
           <a
             href={WA}
@@ -717,8 +725,9 @@ function Footer() {
               </div>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed font-sans">
-              Encontramos gargalos comerciais e reduzimos a distância entre o cliente e a ação.
+              Achamos o gargalo. Encurtamos o caminho até a venda.
             </p>
+
 
           </div>
 
