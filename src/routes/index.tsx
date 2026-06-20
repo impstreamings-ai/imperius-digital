@@ -631,12 +631,13 @@ function Footer() {
               <img src={"/assets/imperius-logo-official.png"} alt="Imperius Soluções Digitais" className="h-[44px] w-auto object-contain" loading="lazy" decoding="async" />
               <div>
                 <div className="font-heading font-bold tracking-[0.2em] text-sm">IMPERIUS</div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-sans font-medium">Software house</div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-sans font-medium">Diagnóstico comercial</div>
               </div>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed font-sans">
-              Software house brasileira especializada em operações comerciais, com produtos próprios em evolução para atendimento, pipeline e agenda.
+              Encontramos gargalos comerciais e reduzimos a distância entre o cliente e a ação.
             </p>
+
           </div>
 
           <div>
