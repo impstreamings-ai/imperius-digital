@@ -564,23 +564,18 @@ function FAQ() {
 
 function FinalCTA() {
   return (
-    <section className="relative py-16 sm:py-24 border-t border-border/30 overflow-hidden">
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[820px] h-[420px] rounded-full blur-3xl opacity-18 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, oklch(0.55 0.22 250 / 0.22), transparent 70%)" }}
-      />
-      <div className="relative mx-auto max-w-4xl px-6 text-center">
-        <div className="mb-6"><SectionEyebrow align="center">Próximo passo</SectionEyebrow></div>
-        <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.5rem] lg:text-[2.9rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+    <section className="relative py-14 sm:py-20 border-t border-border/30 overflow-hidden">
+      <div className="relative mx-auto max-w-3xl px-6 text-center">
+        <div className="mb-5"><SectionEyebrow align="center">Próximo passo</SectionEyebrow></div>
+        <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.05] tracking-[-0.03em] text-foreground">
           Veja sua operação{" "}
           <span className="text-neon">funcionando antes</span>{" "}
           de assinar contrato.
         </h2>
-        <p className="mt-6 text-muted-foreground text-[15px] sm:text-[17px] max-w-2xl mx-auto leading-relaxed font-sans">
-          Demonstração funcional construída para a sua empresa, entregue em 3 a 7 dias úteis.
-          Você só fecha depois de ver no ar.
+        <p className="mt-5 text-muted-foreground text-[15px] sm:text-[16.5px] max-w-xl mx-auto leading-relaxed font-sans">
+          Demonstração funcional em 3 a 7 dias úteis. Você só fecha depois de ver no ar.
         </p>
-        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+        <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row justify-center items-center gap-3">
           <a
             href={WA}
             target="_blank"
@@ -606,9 +601,6 @@ function FinalCTA() {
             <Mail className="h-4 w-4" /> Prefiro receber por e-mail
           </a>
         </div>
-        <p className="mt-8 text-[12px] text-muted-foreground/80 font-sans tracking-wide max-w-xl mx-auto leading-relaxed">
-          Atendimento direto com a equipe técnica · Resposta em até 2h em horário comercial.
-        </p>
       </div>
     </section>
   );
