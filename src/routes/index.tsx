@@ -219,7 +219,7 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative lg:min-h-[82vh] flex items-center pt-24 sm:pt-28 lg:pt-24 pb-12 sm:pb-16 lg:pb-20 overflow-hidden"
+      className="relative lg:min-h-[72vh] flex items-center pt-24 sm:pt-24 pb-10 sm:pb-14 overflow-hidden"
       style={{
         background: "var(--gradient-hero)",
         paddingLeft: "max(0px, env(safe-area-inset-left))",
@@ -234,16 +234,16 @@ function Hero() {
       />
 
       <div className="relative mx-auto max-w-3xl px-5 sm:px-6 w-full text-center">
-        <div className="mb-6 sm:mb-7"><SectionEyebrow align="center">Imperius · Software house</SectionEyebrow></div>
-        <h1 className="font-display text-[2rem] sm:text-[2.9rem] lg:text-[3.4rem] xl:text-[3.8rem] font-semibold leading-[1.04] tracking-[-0.028em] text-foreground">
+        <div className="mb-5 sm:mb-6"><SectionEyebrow align="center">Imperius · Software house</SectionEyebrow></div>
+        <h1 className="font-display text-[2rem] sm:text-[2.8rem] lg:text-[3.3rem] xl:text-[3.6rem] font-semibold leading-[1.04] tracking-[-0.03em] text-foreground">
           Sistemas e automação para empresas{" "}
           <span className="text-shimmer">venderem com mais controle</span>.
         </h1>
-        <p className="mt-6 sm:mt-7 mx-auto max-w-[38rem] text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed font-sans">
-          Site, atendimento no WhatsApp, CRM e agenda — desenvolvidos sob medida para o
-          seu fluxo comercial. Sem template, sem ferramenta genérica.
+        <p className="mt-5 sm:mt-6 mx-auto max-w-[36rem] text-muted-foreground text-[15px] sm:text-[16.5px] leading-relaxed font-sans">
+          Site, atendimento no WhatsApp, CRM e agenda — sob medida para o seu fluxo
+          comercial. Sem template, sem ferramenta genérica.
         </p>
-        <div className="mt-8 sm:mt-9 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-3.5">
+        <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3">
           <a
             href={WA}
             target="_blank"
@@ -260,20 +260,14 @@ function Hero() {
           </a>
           <a
             href={PROPOSAL_MAILTO}
-            className="w-full sm:w-auto"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-5 text-[13px] font-sans text-muted-foreground hover:text-foreground transition-colors"
             onClick={() => track("hero_cta_click", { destination: "email" })}
           >
-            <Button
-              size="lg"
-              variant="outline"
-              className="btn-premium w-full sm:w-auto border-border/70 bg-background/30 hover:bg-background/60 hover:border-primary/50 text-foreground/90 font-medium rounded-full h-auto min-h-12 py-2 px-5 sm:px-6 text-[12.5px] sm:text-[13.5px] whitespace-normal text-center leading-snug transition-all duration-300"
-            >
-              <Mail className="mr-2 h-4 w-4 shrink-0 text-muted-foreground" />
-              <span>Prefiro receber por e-mail</span>
-            </Button>
+            <Mail className="h-4 w-4" />
+            <span>Prefiro receber por e-mail</span>
           </a>
         </div>
-        <p className="mt-7 sm:mt-8 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
+        <p className="mt-6 sm:mt-7 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
           Demonstração funcional em 3 a 7 dias úteis · Sem proposta antes da entrega
         </p>
       </div>
