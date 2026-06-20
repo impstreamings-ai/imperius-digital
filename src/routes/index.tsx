@@ -150,8 +150,11 @@ function Problema() {
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 border-y border-border/40 divide-y sm:divide-y-0 sm:divide-x divide-border/40">
           {dores.map((d) => (
-            <li key={d.t} className="p-5 sm:p-6 flex flex-col gap-3 min-w-0">
-              <div className="h-9 w-9 rounded-md border border-primary/25 bg-primary/10 grid place-items-center">
+            <li
+              key={d.t}
+              className="p-5 sm:p-6 flex flex-col gap-3 min-w-0 transition-colors hover:bg-primary/[0.025]"
+            >
+              <div className="h-9 w-9 rounded-lg border border-primary/25 bg-primary/10 grid place-items-center">
                 <d.icon className="h-[18px] w-[18px] text-primary" />
               </div>
               <div className="min-w-0">
@@ -165,6 +168,7 @@ function Problema() {
             </li>
           ))}
         </ul>
+
       </div>
     </section>
   );
@@ -193,9 +197,10 @@ function Metodo() {
           {pilares.map((p) => (
             <li
               key={p.n}
-              className="rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 backdrop-blur-md p-5 flex flex-col min-w-0"
+              className="group relative rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 p-5 flex flex-col min-w-0 transition-colors hover:border-primary/40"
             >
-              <span className="font-heading text-[11px] tracking-[0.24em] text-primary/80 font-semibold mb-3">
+              <span className="absolute left-0 top-5 h-6 w-[2px] bg-primary/70 rounded-r" aria-hidden />
+              <span className="font-heading text-[18px] leading-none tracking-[-0.02em] text-primary font-semibold mb-3">
                 {p.n}
               </span>
               <h3 className="font-heading font-semibold text-[14.5px] tracking-[-0.005em] text-foreground leading-snug">
@@ -207,6 +212,7 @@ function Metodo() {
             </li>
           ))}
         </ol>
+
       </div>
     </section>
   );
@@ -216,31 +222,31 @@ function Operator() {
   return (
     <section id="operator" className="relative py-12 sm:py-16 border-t border-border/30 bg-[oklch(0.075_0.004_240)]">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="rounded-2xl border border-primary/30 bg-[oklch(0.1_0.005_245)]/80 backdrop-blur-md p-6 sm:p-10">
-          <div className="grid lg:grid-cols-[1fr_auto] gap-6 items-end">
+        <div className="rounded-2xl border border-primary/30 bg-[oklch(0.1_0.005_245)]/80 p-6 sm:p-8 lg:p-10">
+          <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-10 lg:items-end">
             <div className="min-w-0">
-              <div className="mb-4"><SectionEyebrow>Imperius Operator</SectionEyebrow></div>
+              <div className="mb-3"><SectionEyebrow>Imperius Operator</SectionEyebrow></div>
               <h2 className="font-display font-semibold text-[1.6rem] sm:text-[2rem] lg:text-[2.3rem] leading-[1.08] tracking-[-0.025em] text-foreground">
                 Vigia seu funil{" "}
                 <span className="text-neon">enquanto você toca o negócio.</span>
               </h2>
-              <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans max-w-2xl">
+              <p className="mt-3 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans max-w-2xl">
                 Cobra resposta no prazo e avisa quando um cliente vai esfriar.
               </p>
-
             </div>
             <a
               href={WA}
               target="_blank"
               rel="noreferrer"
               onClick={() => track("operator_cta_click", { destination: "whatsapp" })}
-              className="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold hover:-translate-y-0.5 transition-transform"
+              className="w-full lg:w-auto shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold hover:-translate-y-0.5 transition-transform"
             >
               Ver o Operator em ação <ArrowRight className="h-4 w-4" />
             </a>
           </div>
         </div>
       </div>
+
     </section>
   );
 }
@@ -307,7 +313,7 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative lg:min-h-[72vh] flex items-center pt-24 sm:pt-24 pb-10 sm:pb-14 overflow-hidden"
+      className="relative lg:min-h-[64vh] flex items-center pt-24 pb-12 sm:pb-16 overflow-hidden"
       style={{
         background: "var(--gradient-hero)",
         paddingLeft: "max(0px, env(safe-area-inset-left))",
