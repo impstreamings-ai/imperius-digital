@@ -448,11 +448,11 @@ function Process() {
     { n: "03", i: Rocket, t: "Implantação", d: "Deploy, integrações e acompanhamento até o time estar usando no dia a dia." },
   ];
   return (
-    <section id="processo" className="py-14 sm:py-20 border-t border-border/30">
+    <section id="processo" className="py-12 sm:py-16 border-t border-border/30">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="max-w-2xl mb-9 sm:mb-12">
-          <div className="mb-5"><SectionEyebrow>Como funciona</SectionEyebrow></div>
-          <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+        <div className="max-w-2xl mb-7 sm:mb-10">
+          <div className="mb-4"><SectionEyebrow>Como funciona</SectionEyebrow></div>
+          <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Três etapas.{" "}
             <span className="text-foreground/55">Você aprova antes de assinar.</span>
           </h2>
@@ -462,9 +462,9 @@ function Process() {
           {steps.map((s) => (
             <li
               key={s.t}
-              className="card-rise rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 backdrop-blur-md p-6 flex flex-col"
+              className="card-rise rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 backdrop-blur-md p-5 sm:p-6 flex flex-col"
             >
-              <div className="flex items-center justify-between mb-5">
+              <div className="flex items-center justify-between mb-4">
                 <div className="h-9 w-9 rounded-md border border-primary/30 bg-primary/10 grid place-items-center">
                   <s.i className="h-[18px] w-[18px] text-primary" />
                 </div>
