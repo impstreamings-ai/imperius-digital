@@ -515,7 +515,7 @@ function FAQ() {
     },
   ];
   return (
-    <section id="faq" className="py-14 sm:py-20 border-t border-border/30">
+    <section id="faq" className="py-12 sm:py-16 border-t border-border/30">
       <script
         type="application/ld+json"
         // FAQPage schema para SEO e featured snippets
@@ -532,9 +532,9 @@ function FAQ() {
         }}
       />
       <div className="mx-auto max-w-3xl px-6">
-        <div className="max-w-2xl mb-9 sm:mb-12">
-          <div className="mb-5"><SectionEyebrow>FAQ</SectionEyebrow></div>
-          <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+        <div className="max-w-2xl mb-7 sm:mb-10">
+          <div className="mb-4"><SectionEyebrow>FAQ</SectionEyebrow></div>
+          <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Preço, prazo, propriedade e suporte —{" "}
             <span className="text-foreground/55">respondidos direto.</span>
           </h2>
