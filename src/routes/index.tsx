@@ -172,12 +172,13 @@ function Problema() {
 
 function Metodo() {
   const pilares = [
-    { n: "01", t: "Encontrar um gargalo real", d: "A gente olha a operação e identifica onde o cliente realmente trava." },
-    { n: "02", t: "Mostrar visualmente", d: "Desenhamos o gargalo. Você enxerga o ponto exato — não no discurso, na tela." },
-    { n: "03", t: "Fazer uma pergunta curta", d: "Uma pergunta direta sobre o que esse gargalo está custando hoje." },
-    { n: "04", t: "Conversar", d: "Conversa franca sobre contexto, prioridade e o que faz sentido resolver primeiro." },
-    { n: "05", t: "Só depois, apresentar a solução", d: "Proposta só quando o problema está claro pros dois lados." },
+    { n: "01", t: "Encontrar um gargalo real", d: "Onde o cliente trava de verdade." },
+    { n: "02", t: "Mostrar visualmente", d: "Você vê o ponto exato na tela." },
+    { n: "03", t: "Fazer uma pergunta curta", d: "Quanto esse gargalo está te custando?" },
+    { n: "04", t: "Conversar", d: "O que faz sentido resolver primeiro." },
+    { n: "05", t: "Só depois, a solução", d: "Proposta com o problema claro." },
   ];
+
   return (
     <section id="metodo" className="relative py-12 sm:py-16 border-b border-border/30">
       <div className="mx-auto max-w-6xl px-6">
