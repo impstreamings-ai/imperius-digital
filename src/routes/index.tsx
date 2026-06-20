@@ -632,10 +632,9 @@ function FinalCTA() {
 
 function Footer() {
   return (
-    <footer className="relative border-t border-border/40 mt-10 overflow-hidden">
+    <footer className="relative border-t border-border/40 overflow-hidden">
       <div className="absolute inset-x-0 -top-px h-px" style={{ background: "linear-gradient(90deg, transparent, oklch(0.72 0.22 250 / 0.6), transparent)" }} />
-      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full blur-3xl opacity-40 pointer-events-none" style={{ background: "radial-gradient(ellipse, oklch(0.55 0.25 250 / 0.35), transparent 70%)" }} />
-      <div className="relative mx-auto max-w-7xl px-6 pt-14 sm:pt-16 pb-24 sm:pb-20">
+      <div className="relative mx-auto max-w-7xl px-6 pt-12 sm:pt-16 pb-16 sm:pb-20">
         <div className="grid md:grid-cols-3 gap-10">
           <div>
             <div className="flex items-center gap-3 mb-5">
