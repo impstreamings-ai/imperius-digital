@@ -491,9 +491,9 @@ function Demonstracoes() {
                 Black Crown Barbershop
               </h3>
               <p className="mt-3 text-[14px] sm:text-[14.5px] text-muted-foreground leading-relaxed font-sans">
-                Atendimento, agenda e site operando juntos — não três ferramentas
-                colando uma na outra.
+                Atendimento, agenda e site operando juntos.
               </p>
+
               <div className="mt-5 text-[11px] uppercase tracking-[0.22em] font-sans text-muted-foreground/70 truncate">
                 blackcrown-by-imperius.lovable.app
               </div>
