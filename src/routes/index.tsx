@@ -50,30 +50,31 @@ function SectionEyebrow({
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Imperius — Software House para Operações Comerciais" },
+      { title: "Imperius — Encontramos o gargalo que está te custando clientes" },
       {
         name: "description",
         content:
-          "Site, atendimento no WhatsApp, CRM e agenda sob medida para o seu fluxo comercial. Demonstração funcional em 3 a 7 dias — você só fecha depois de ver no ar.",
+          "Mapeamos onde sua operação perde cliente e encurtamos o caminho entre o contato e a venda. Diagnóstico antes de qualquer proposta.",
       },
-      { property: "og:title", content: "Imperius — Software House para Operações Comerciais" },
+      { property: "og:title", content: "Imperius — Encontramos o gargalo que está te custando clientes" },
       {
         property: "og:description",
         content:
-          "Site, atendimento no WhatsApp, CRM e agenda sob medida para o seu fluxo comercial. Demonstração funcional em 3 a 7 dias — você só fecha depois de ver no ar.",
+          "Mapeamos onde sua operação perde cliente e encurtamos o caminho entre o contato e a venda. Diagnóstico antes de qualquer proposta.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://imperiuslab.com.br/" },
       { property: "og:image", content: "https://imperiuslab.com.br/assets/black-crown-cover.png" },
 
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Imperius — Software House para Operações Comerciais" },
+      { name: "twitter:title", content: "Imperius — Encontramos o gargalo que está te custando clientes" },
       {
         name: "twitter:description",
         content:
-          "Site, atendimento no WhatsApp, CRM e agenda sob medida para o seu fluxo comercial. Demonstração funcional em 3 a 7 dias — você só fecha depois de ver no ar.",
+          "Mapeamos onde sua operação perde cliente e encurtamos o caminho entre o contato e a venda. Diagnóstico antes de qualquer proposta.",
       },
       { name: "twitter:image", content: "https://imperiuslab.com.br/assets/black-crown-cover.png" },
+
 
     ],
     links: [
@@ -99,8 +100,9 @@ export const Route = createFileRoute("/")({
   component: Landing,
 });
 
-const WA_MESSAGE = "Olá! Quero uma demonstração personalizada da Imperius para minha empresa.";
+const WA_MESSAGE = "Olá! Quero um diagnóstico do gargalo comercial da minha empresa.";
 const WA = `https://wa.me/5515981023792?text=${encodeURIComponent(WA_MESSAGE)}`;
+
 const IG = "https://instagram.com/imperiusdigital.br";
 const BLACK_CROWN_URL = "https://blackcrown-by-imperius.lovable.app/";
 // Endereço de contato comercial. Centralizado para permitir migração futura
@@ -126,21 +128,22 @@ function Landing() {
 
 function Problema() {
   const dores = [
-    { icon: MessageCircle, t: "Clientes perdidos no WhatsApp", d: "Mensagens espalhadas, sem registro nem responsável definido." },
-    { icon: TrendingUp, t: "Leads sem acompanhamento", d: "Oportunidades entram, somem na conversa e nunca chegam ao comercial." },
-    { icon: ClipboardList, t: "Tempo perdido em tarefas repetitivas", d: "Planilhas, copia-e-cola e retrabalho consumindo o time todo dia." },
-    { icon: Activity, t: "Decisões no escuro", d: "Sem visão de quantos contatos entraram, quantos fecharam, quanto sobrou." },
+    { icon: MessageCircle, t: "Cliente trava no WhatsApp", d: "A mensagem entra, ninguém responde a tempo. O cliente vai pro concorrente." },
+    { icon: TrendingUp, t: "Contato vira esquecimento", d: "O lead aparece, a conversa morre e ninguém retoma." },
+    { icon: ClipboardList, t: "Time apagando incêndio", d: "Planilha, copia-e-cola, retrabalho. Ninguém olha pro funil." },
+    { icon: Activity, t: "Você decide no escuro", d: "Não dá pra dizer quantos contatos viraram cliente esse mês." },
   ];
   return (
     <section className="relative py-12 sm:py-16 border-y border-border/30">
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-3xl mb-7 sm:mb-10">
-          <div className="mb-4"><SectionEyebrow>O problema</SectionEyebrow></div>
+          <div className="mb-4"><SectionEyebrow>O gargalo</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-            Sua operação comercial está rodando{" "}
-            <span className="text-foreground/55">no improviso.</span>
+            Tem cliente entrando.{" "}
+            <span className="text-foreground/55">Só não está chegando até a venda.</span>
           </h2>
         </div>
+
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-y border-border/40 divide-y sm:divide-y-0 sm:divide-x divide-border/40">
           {dores.map((d) => (
             <li key={d.t} className="p-5 sm:p-6 flex flex-col gap-3 min-w-0">
@@ -174,7 +177,7 @@ function Nav() {
           <img src={"/assets/imperius-logo-official.png"} alt="Imperius Soluções Digitais" className="h-[36px] w-auto object-contain shrink-0" loading="eager" decoding="async" />
           <span className="hidden sm:flex flex-col leading-tight min-w-0">
             <span className="font-heading font-semibold tracking-[0.2em] text-[12px] truncate">IMPERIUS</span>
-            <span className="text-[9.5px] uppercase tracking-[0.28em] text-muted-foreground/80 font-medium truncate">Software house</span>
+            <span className="text-[9.5px] uppercase tracking-[0.28em] text-muted-foreground/80 font-medium truncate">Diagnóstico comercial</span>
           </span>
         </a>
         <nav className="hidden md:flex items-center gap-9 text-[13px] text-muted-foreground font-medium">
@@ -187,9 +190,10 @@ function Nav() {
           <a href={WA} target="_blank" rel="noreferrer" onClick={() => track("whatsapp_click", { location: "nav" })}>
             <Button size="sm" className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4">
               <span className="sm:hidden">Falar agora</span>
-              <span className="hidden sm:inline">Solicitar demonstração</span>
+              <span className="hidden sm:inline">Mapear meu gargalo</span>
             </Button>
           </a>
+
           <button
             type="button"
             aria-label={open ? "Fechar menu" : "Abrir menu"}
@@ -234,14 +238,14 @@ function Hero() {
       />
 
       <div className="relative mx-auto max-w-3xl px-5 sm:px-6 w-full text-center">
-        <div className="mb-5 sm:mb-6"><SectionEyebrow align="center">Imperius · Software house</SectionEyebrow></div>
+        <div className="mb-5 sm:mb-6"><SectionEyebrow align="center">Imperius · Diagnóstico comercial</SectionEyebrow></div>
         <h1 className="font-display text-[2rem] sm:text-[2.8rem] lg:text-[3.3rem] xl:text-[3.6rem] font-semibold leading-[1.04] tracking-[-0.03em] text-foreground">
-          Sistemas e automação para empresas{" "}
-          <span className="text-shimmer">venderem com mais controle</span>.
+          Onde sua empresa está perdendo cliente —{" "}
+          <span className="text-shimmer">e como encurtar esse caminho</span>.
         </h1>
         <p className="mt-5 sm:mt-6 mx-auto max-w-[36rem] text-muted-foreground text-[15px] sm:text-[16.5px] leading-relaxed font-sans">
-          Site, atendimento no WhatsApp, CRM e agenda — sob medida para o seu fluxo
-          comercial. Sem template, sem ferramenta genérica.
+          A gente entra na sua operação, encontra o gargalo e mostra no detalhe.
+          Só depois a conversa vira solução.
         </p>
         <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3">
           <a
@@ -255,7 +259,7 @@ function Hero() {
               size="lg"
               className="btn-premium w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[14px] transition-all duration-300 hover:-translate-y-0.5"
             >
-              Solicitar análise pelo WhatsApp <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              Quero ver meu gargalo no WhatsApp <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Button>
           </a>
           <a
@@ -268,8 +272,9 @@ function Hero() {
           </a>
         </div>
         <p className="mt-6 sm:mt-7 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
-          Demonstração funcional em 3 a 7 dias úteis · Sem proposta antes da entrega
+          Conversa curta · Sem proposta antes de a gente entender sua operação
         </p>
+
       </div>
     </section>
   );
@@ -287,33 +292,34 @@ function Ecossistema() {
   const cards = [
     {
       icon: MessageCircle,
-      tag: "Atendimento",
-      title: "Atendimento Inteligente",
-      desc: "WhatsApp, formulários e canais em um só fluxo. Cada contato registrado, qualificado e atribuído a um responsável.",
+      tag: "Resposta",
+      title: "Resposta no tempo certo",
+      desc: "Toda mensagem com responsável, prazo e próximo passo. Nada some na conversa.",
     },
     {
       icon: Users,
-      tag: "Comercial",
-      title: "Gestão Comercial",
-      desc: "Pipeline de vendas, follow-up programado e relatórios objetivos: o que entrou, o que avançou, o que fechou.",
+      tag: "Funil",
+      title: "Lead que avança",
+      desc: "Você enxerga onde cada cliente travou — e o que falta pra fechar.",
     },
     {
       icon: Calendar,
-      tag: "Operação",
-      title: "Operação Integrada",
-      desc: "Agenda online, confirmações automáticas e integração direta com o atendimento — sem planilha paralela.",
+      tag: "Agenda",
+      title: "Agenda que confirma sozinha",
+      desc: "Marcação, lembrete e confirmação acontecem antes de você lembrar.",
     },
   ];
   return (
     <section className="relative py-12 sm:py-16 border-b border-border/30 bg-[oklch(0.075_0.004_240)]">
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-7 sm:mb-10">
-          <div className="mb-4"><SectionEyebrow>Ecossistema Imperius</SectionEyebrow></div>
+          <div className="mb-4"><SectionEyebrow>Como reduzimos a distância</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-            O que a Imperius{" "}
-            <span className="text-neon">entrega na prática.</span>
+            Não vendemos ferramenta.{" "}
+            <span className="text-neon">Encurtamos o caminho entre o contato e a venda.</span>
           </h2>
         </div>
+
         <ul className="grid gap-4 sm:gap-5 sm:grid-cols-3">
           {cards.map((c) => (
             <li
@@ -351,15 +357,16 @@ function Demonstracoes() {
       <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-7 sm:mb-10">
-          <div className="mb-4"><SectionEyebrow>Demonstração</SectionEyebrow></div>
+          <div className="mb-4"><SectionEyebrow>Mostrar visualmente</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-            Demonstração funcional,{" "}
-            <span className="text-neon">navegável agora.</span>
+            Veja o gargalo resolvido{" "}
+            <span className="text-neon">numa operação real.</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans">
-            Ambiente real em operação, com domínio próprio — clique e use como seu cliente final usaria.
+            Ambiente nosso, rodando agora. Clica e usa como o cliente final usaria.
           </p>
         </div>
+
 
         <a
           href={BLACK_CROWN_URL}
@@ -395,18 +402,19 @@ function Demonstracoes() {
                 Black Crown Barbershop
               </h3>
               <p className="mt-3 text-[14px] sm:text-[14.5px] text-muted-foreground leading-relaxed font-sans">
-                Demonstração funcional completa: site, agendamento, atendimento e
-                identidade — desenvolvidos e operados pela Imperius.
+                Atendimento, agenda e site operando juntos — não três ferramentas
+                colando uma na outra.
               </p>
               <div className="mt-5 text-[11px] uppercase tracking-[0.22em] font-sans text-muted-foreground/70 truncate">
                 blackcrown-by-imperius.lovable.app
               </div>
               <div className="mt-auto pt-6">
                 <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold transition-transform group-hover:-translate-y-0.5">
-                  Ver demonstração Black Crown
+                  Abrir a operação Black Crown
                   <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </span>
               </div>
+
             </div>
           </div>
         </a>
@@ -414,10 +422,10 @@ function Demonstracoes() {
         <div className="mt-6 sm:mt-8 rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 backdrop-blur-md p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="max-w-2xl">
             <h3 className="font-display font-semibold text-[1.1rem] sm:text-[1.3rem] tracking-[-0.015em] text-foreground leading-snug">
-              Outras demonstrações por segmento
+              Outros gargalos, outros segmentos
             </h3>
             <p className="mt-2 text-[13.5px] sm:text-[14px] text-muted-foreground leading-relaxed font-sans">
-              Veja exemplos adaptados para clínicas, estética, restaurantes e imobiliárias.
+              Mesmo método aplicado em clínica, estética, restaurante e imóveis.
             </p>
           </div>
           <Link
@@ -425,9 +433,10 @@ function Demonstracoes() {
             onClick={() => track("portfolio_bridge_click", { from: "home_demo" })}
             className="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-full border border-primary/50 bg-primary/15 hover:bg-primary/25 text-[13px] font-sans font-semibold text-primary transition-colors"
           >
-            Explorar portfólio de demonstrações
+            Ver outras operações
             <ArrowRight className="h-4 w-4" />
           </Link>
+
         </div>
       </div>
     </section>
@@ -443,20 +452,21 @@ function Demonstracoes() {
 
 function Process() {
   const steps = [
-    { n: "01", i: MessageCircle, t: "Diagnóstico", d: "Conversa de 30 minutos para mapear canais, gargalos e o que precisa fechar primeiro." },
-    { n: "02", i: LayoutTemplate, t: "Construção", d: "Você recebe a demonstração funcional em 3 a 7 dias úteis. Aprova antes de qualquer contrato." },
-    { n: "03", i: Rocket, t: "Implantação", d: "Deploy, integrações e acompanhamento até o time estar usando no dia a dia." },
+    { n: "01", i: MessageCircle, t: "Escutar", d: "Conversa curta. A gente entende onde está doendo e olha sua operação real." },
+    { n: "02", i: LayoutTemplate, t: "Mostrar", d: "Você vê o gargalo desenhado e uma versão funcional de como ele some." },
+    { n: "03", i: Rocket, t: "Decidir", d: "Se fizer sentido, a gente segue. Proposta só depois de você enxergar o valor." },
   ];
   return (
     <section id="processo" className="py-12 sm:py-16 border-t border-border/30">
       <div className="mx-auto max-w-5xl px-6">
         <div className="max-w-2xl mb-7 sm:mb-10">
-          <div className="mb-4"><SectionEyebrow>Como funciona</SectionEyebrow></div>
+          <div className="mb-4"><SectionEyebrow>Como conversamos</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-            Três etapas.{" "}
-            <span className="text-foreground/55">Você aprova antes de assinar.</span>
+            Primeiro a gente entende.{" "}
+            <span className="text-foreground/55">Só então propõe.</span>
           </h2>
         </div>
+
 
         <ol className="grid gap-4 sm:gap-5 sm:grid-cols-3">
           {steps.map((s) => (
@@ -490,30 +500,31 @@ function Process() {
 function FAQ() {
   const items = [
     {
-      q: "Quanto custa um projeto da Imperius?",
-      a: "Projetos partem de uma faixa definida em conjunto após entender escopo, integrações e canais. Não trabalhamos com mensalidade obrigatória: você escolhe entre pagamento único do projeto ou plano contínuo de evolução e suporte. O valor é apresentado por escrito antes de qualquer compromisso — você só aprova depois de ver a demonstração funcional.",
+      q: "Como funciona a conversa inicial?",
+      a: "Uma chamada curta — em torno de 20 minutos. A gente entende seus canais, onde a venda trava e o que precisa destravar primeiro. Sem briefing longo, sem apresentação de slides.",
     },
     {
-      q: "Quanto tempo leva para entregar?",
-      a: "Demonstração funcional personalizada: 3 a 7 dias úteis. Projeto completo (site + automação + CRM + agenda): 2 a 4 semanas, conforme escopo e integrações. Definimos cronograma por etapas no kickoff, com datas de entrega registradas.",
+      q: "Quando vocês falam de preço?",
+      a: "Só depois de entender sua operação e te mostrar o gargalo. Proposta empurrada antes disso é tiro no escuro — não fazemos.",
     },
     {
-      q: "A automação funciona no meu WhatsApp atual?",
-      a: "Sim. Trabalhamos com a API oficial do WhatsApp Business (Meta), o que mantém o número, contatos e conversas. O atendimento humano continua funcionando normalmente — a IA atua só nos momentos definidos por você (fora do horário, fila cheia, primeira triagem, agendamento).",
+      q: "Vocês trocam meu WhatsApp atual?",
+      a: "Não. A gente usa a API oficial do WhatsApp Business (Meta) sobre o número que você já tem. Atendimento humano segue normal — o automatizado entra só onde você decidir.",
     },
     {
-      q: "O site, código e dados são meus?",
-      a: "Sim. O projeto entregue é seu: você recebe acesso ao código-fonte, ao painel, ao domínio e ao banco de dados. Não há lock-in técnico. Se um dia decidir sair, você leva tudo — inclusive os contatos, histórico de conversas e pipeline do CRM, exportáveis em formato padrão.",
+      q: "Quem é dono do que vocês entregam?",
+      a: "Você. Código, painel, domínio, banco e histórico ficam no seu nome. Se um dia quiser sair, leva tudo — incluindo contatos e pipeline.",
     },
     {
-      q: "Tem suporte depois da entrega?",
-      a: "Sim. Todo projeto inclui período de acompanhamento pós-publicação para ajustes finos. Após esse período, você pode contratar um plano contínuo (evolução + suporte + monitoramento) ou seguir avulso por demanda. Resposta a chamados em horário comercial, com SLA combinado em contrato.",
+      q: "Tem acompanhamento depois?",
+      a: "Tem. Período inicial de ajuste fino sai junto. Depois, você escolhe entre plano contínuo ou demanda avulsa. SLA combinado por escrito.",
     },
     {
       q: "Com quem eu falo?",
-      a: "Diretamente com a equipe que desenvolve o projeto. Sem atendimento terceirizado, sem chatbot intermediário — o mesmo time conduz da conversa inicial à publicação e ao suporte.",
+      a: "Com a mesma pessoa do começo ao fim. Sem call center, sem intermediário, sem chatbot empurrando ticket.",
     },
   ];
+
   return (
     <section id="faq" className="py-12 sm:py-16 border-t border-border/30">
       <script
@@ -535,9 +546,10 @@ function FAQ() {
         <div className="max-w-2xl mb-7 sm:mb-10">
           <div className="mb-4"><SectionEyebrow>FAQ</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-            Preço, prazo, propriedade e suporte —{" "}
-            <span className="text-foreground/55">respondidos direto.</span>
+            Dúvidas frequentes —{" "}
+            <span className="text-foreground/55">respondidas direto.</span>
           </h2>
+
         </div>
         <div className="divide-y divide-border/40 border-y border-border/40">
           {items.map((it, idx) => (
@@ -568,12 +580,12 @@ function FinalCTA() {
       <div className="relative mx-auto max-w-3xl px-6 text-center">
         <div className="mb-5"><SectionEyebrow align="center">Próximo passo</SectionEyebrow></div>
         <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.05] tracking-[-0.03em] text-foreground">
-          Veja sua operação{" "}
-          <span className="text-neon">funcionando antes</span>{" "}
-          de assinar contrato.
+          Quer ver onde sua operação{" "}
+          <span className="text-neon">está vazando cliente?</span>
         </h2>
         <p className="mt-5 text-muted-foreground text-[15px] sm:text-[16.5px] max-w-xl mx-auto leading-relaxed font-sans">
-          Demonstração funcional em 3 a 7 dias úteis. Você só fecha depois de ver no ar.
+          20 minutos de conversa. A gente identifica o gargalo principal e te
+          mostra — antes de qualquer proposta.
         </p>
         <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row justify-center items-center gap-3">
           <a
@@ -590,9 +602,10 @@ function FinalCTA() {
               size="lg"
               className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]"
             >
-              Solicitar análise pelo WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
+              Quero meu diagnóstico no WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
+
           <a
             href={PROPOSAL_MAILTO}
             className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2"
@@ -618,12 +631,13 @@ function Footer() {
               <img src={"/assets/imperius-logo-official.png"} alt="Imperius Soluções Digitais" className="h-[44px] w-auto object-contain" loading="lazy" decoding="async" />
               <div>
                 <div className="font-heading font-bold tracking-[0.2em] text-sm">IMPERIUS</div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-sans font-medium">Software house</div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-sans font-medium">Diagnóstico comercial</div>
               </div>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed font-sans">
-              Software house brasileira especializada em operações comerciais, com produtos próprios em evolução para atendimento, pipeline e agenda.
+              Encontramos gargalos comerciais e reduzimos a distância entre o cliente e a ação.
             </p>
+
           </div>
 
           <div>
