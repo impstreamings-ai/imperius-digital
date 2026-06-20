@@ -222,31 +222,31 @@ function Operator() {
   return (
     <section id="operator" className="relative py-12 sm:py-16 border-t border-border/30 bg-[oklch(0.075_0.004_240)]">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="rounded-2xl border border-primary/30 bg-[oklch(0.1_0.005_245)]/80 backdrop-blur-md p-6 sm:p-10">
-          <div className="grid lg:grid-cols-[1fr_auto] gap-6 items-end">
+        <div className="rounded-2xl border border-primary/30 bg-[oklch(0.1_0.005_245)]/80 p-6 sm:p-8 lg:p-10">
+          <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-10 lg:items-end">
             <div className="min-w-0">
-              <div className="mb-4"><SectionEyebrow>Imperius Operator</SectionEyebrow></div>
+              <div className="mb-3"><SectionEyebrow>Imperius Operator</SectionEyebrow></div>
               <h2 className="font-display font-semibold text-[1.6rem] sm:text-[2rem] lg:text-[2.3rem] leading-[1.08] tracking-[-0.025em] text-foreground">
                 Vigia seu funil{" "}
                 <span className="text-neon">enquanto você toca o negócio.</span>
               </h2>
-              <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans max-w-2xl">
+              <p className="mt-3 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans max-w-2xl">
                 Cobra resposta no prazo e avisa quando um cliente vai esfriar.
               </p>
-
             </div>
             <a
               href={WA}
               target="_blank"
               rel="noreferrer"
               onClick={() => track("operator_cta_click", { destination: "whatsapp" })}
-              className="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold hover:-translate-y-0.5 transition-transform"
+              className="w-full lg:w-auto shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold hover:-translate-y-0.5 transition-transform"
             >
               Ver o Operator em ação <ArrowRight className="h-4 w-4" />
             </a>
           </div>
         </div>
       </div>
+
     </section>
   );
 }
