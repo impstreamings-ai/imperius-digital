@@ -54,13 +54,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Software house brasileira especializada em operações comerciais. Engenharia de atendimento, pipeline e agenda — com produtos próprios em evolução.",
+          "Site, atendimento no WhatsApp, CRM e agenda sob medida para o seu fluxo comercial. Demonstração funcional em 3 a 7 dias — você só fecha depois de ver no ar.",
       },
       { property: "og:title", content: "Imperius — Software House para Operações Comerciais" },
       {
         property: "og:description",
         content:
-          "Software house brasileira especializada em operações comerciais. Engenharia de atendimento, pipeline e agenda — com produtos próprios em evolução.",
+          "Site, atendimento no WhatsApp, CRM e agenda sob medida para o seu fluxo comercial. Demonstração funcional em 3 a 7 dias — você só fecha depois de ver no ar.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://imperiuslab.com.br/" },
