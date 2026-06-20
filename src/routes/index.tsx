@@ -305,16 +305,11 @@ function Ecossistema() {
     },
   ];
   return (
-    <section className="relative py-14 sm:py-20 border-b border-border/30 bg-[oklch(0.075_0.004_240)]">
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[680px] h-[220px] rounded-full blur-3xl opacity-20 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, oklch(0.55 0.22 250 / 0.2), transparent 70%)" }}
-        aria-hidden
-      />
+    <section className="relative py-12 sm:py-16 border-b border-border/30 bg-[oklch(0.075_0.004_240)]">
       <div className="relative mx-auto max-w-6xl px-6">
-        <div className="max-w-2xl mb-9 sm:mb-12">
-          <div className="mb-5"><SectionEyebrow>Ecossistema Imperius</SectionEyebrow></div>
-          <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+        <div className="max-w-2xl mb-7 sm:mb-10">
+          <div className="mb-4"><SectionEyebrow>Ecossistema Imperius</SectionEyebrow></div>
+          <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             O que a Imperius{" "}
             <span className="text-neon">entrega na prática.</span>
           </h2>
