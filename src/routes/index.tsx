@@ -674,9 +674,9 @@ function FinalCTA() {
           <span className="text-neon">está vazando cliente?</span>
         </h2>
         <p className="mt-5 text-muted-foreground text-[15px] sm:text-[16.5px] max-w-xl mx-auto leading-relaxed font-sans">
-          20 minutos de conversa. A gente identifica o gargalo principal e te
-          mostra — antes de qualquer proposta.
+          20 minutos. Te mostramos o gargalo. Sem proposta antes.
         </p>
+
         <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row justify-center items-center gap-3">
           <a
             href={WA}
