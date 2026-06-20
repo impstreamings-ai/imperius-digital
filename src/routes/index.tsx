@@ -135,10 +135,7 @@ function Problema() {
     <section className="relative py-14 sm:py-20 border-y border-border/30">
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-3xl mb-9 sm:mb-12">
-          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
-            <span className="h-px w-8 bg-primary/70" />
-            O problema
-          </div>
+          <div className="mb-5"><SectionEyebrow>O problema</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Sua operação comercial está rodando{" "}
             <span className="text-foreground/55">no improviso.</span>
@@ -214,11 +211,7 @@ function Hero() {
       />
 
       <div className="relative mx-auto max-w-3xl px-5 sm:px-6 w-full text-center">
-        <div className="inline-flex items-center gap-2.5 text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-sans font-medium mb-6 sm:mb-7">
-          <span className="h-px w-8 bg-primary/70" />
-          Imperius · Software house
-          <span className="h-px w-8 bg-primary/70" />
-        </div>
+        <div className="mb-6 sm:mb-7"><SectionEyebrow align="center">Imperius · Software house</SectionEyebrow></div>
         <h1 className="font-display text-[2rem] sm:text-[2.9rem] lg:text-[3.4rem] xl:text-[3.8rem] font-semibold leading-[1.04] tracking-[-0.028em] text-foreground">
           Sistemas, atendimento e automação para sua{" "}
           <span className="text-shimmer">empresa vender com mais controle</span>.
@@ -303,10 +296,7 @@ function Ecossistema() {
       />
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-9 sm:mb-12">
-          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
-            <span className="h-px w-8 bg-primary/70" />
-            Ecossistema Imperius
-          </div>
+          <div className="mb-5"><SectionEyebrow>Ecossistema Imperius</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             O que a Imperius{" "}
             <span className="text-neon">entrega na prática.</span>
@@ -354,10 +344,7 @@ function Demonstracoes() {
       />
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-8 sm:mb-12">
-          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
-            <span className="h-px w-8 bg-primary/70" />
-            Demonstração
-          </div>
+          <div className="mb-5"><SectionEyebrow>Demonstração</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Demonstração funcional,{" "}
             <span className="text-neon">navegável agora.</span>
@@ -458,10 +445,7 @@ function Process() {
     <section id="processo" className="py-14 sm:py-20 border-t border-border/30">
       <div className="mx-auto max-w-5xl px-6">
         <div className="max-w-2xl mb-9 sm:mb-12">
-          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
-            <span className="h-px w-8 bg-primary/70" />
-            Como funciona
-          </div>
+          <div className="mb-5"><SectionEyebrow>Como funciona</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Três etapas.{" "}
             <span className="text-foreground/55">Projeto ajustado ao seu contexto.</span>
@@ -543,10 +527,7 @@ function FAQ() {
       />
       <div className="mx-auto max-w-3xl px-6">
         <div className="max-w-2xl mb-9 sm:mb-12">
-          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
-            <span className="h-px w-8 bg-primary/70" />
-            FAQ
-          </div>
+          <div className="mb-5"><SectionEyebrow>FAQ</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Preço, prazo, propriedade e suporte —{" "}
             <span className="text-foreground/55">respondidos direto.</span>
@@ -586,10 +567,7 @@ function FinalCTA() {
         style={{ background: "radial-gradient(ellipse, oklch(0.55 0.22 250 / 0.22), transparent 70%)" }}
       />
       <div className="relative mx-auto max-w-4xl px-6 text-center">
-        <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-6 font-sans inline-flex items-center gap-2.5">
-          <span className="h-px w-8 bg-primary/70" />
-          Próximo passo
-        </div>
+        <div className="mb-6"><SectionEyebrow align="center">Próximo passo</SectionEyebrow></div>
         <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.5rem] lg:text-[2.9rem] leading-[1.06] tracking-[-0.028em] text-foreground">
           Veja como sua operação pode ficar mais{" "}
           <span className="text-neon">organizada, apresentável</span>{" "}
