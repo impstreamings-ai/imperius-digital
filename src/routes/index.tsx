@@ -391,10 +391,11 @@ function Ecossistema() {
     },
   ];
   return (
-    <section className="relative py-12 sm:py-16 border-b border-border/30 bg-[oklch(0.075_0.004_240)]">
+    <section id="solucoes" className="relative py-12 sm:py-16 border-b border-border/30 bg-[oklch(0.075_0.004_240)]">
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-7 sm:mb-10">
-          <div className="mb-4"><SectionEyebrow>Como reduzimos a distância</SectionEyebrow></div>
+          <div className="mb-4"><SectionEyebrow>Soluções</SectionEyebrow></div>
+
           <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Não vendemos ferramenta.{" "}
             <span className="text-neon">Encurtamos o caminho entre o contato e a venda.</span>
