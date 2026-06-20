@@ -379,21 +379,22 @@ function Ecossistema() {
       icon: MessageCircle,
       tag: "Resposta",
       title: "Resposta no tempo certo",
-      desc: "Toda mensagem com responsável, prazo e próximo passo. Nada some na conversa.",
+      desc: "Cada mensagem com dono, prazo e próximo passo.",
     },
     {
       icon: Users,
       tag: "Funil",
       title: "Lead que avança",
-      desc: "Você enxerga onde cada cliente travou — e o que falta pra fechar.",
+      desc: "Você vê onde travou e o que falta pra fechar.",
     },
     {
       icon: Calendar,
       tag: "Agenda",
       title: "Agenda que confirma sozinha",
-      desc: "Marcação, lembrete e confirmação acontecem antes de você lembrar.",
+      desc: "Marcação, lembrete e confirmação no automático.",
     },
   ];
+
   return (
     <section id="solucoes" className="relative py-12 sm:py-16 border-b border-border/30 bg-[oklch(0.075_0.004_240)]">
       <div className="relative mx-auto max-w-6xl px-6">
