@@ -360,11 +360,6 @@ function Demonstracoes() {
   return (
     <section id="vitrine" className="relative py-14 sm:py-20 border-t border-border/30">
       <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" aria-hidden />
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[380px] rounded-full blur-3xl opacity-15 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, oklch(0.55 0.22 250 / 0.18), transparent 70%)" }}
-        aria-hidden
-      />
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-8 sm:mb-12">
           <div className="mb-5"><SectionEyebrow>Demonstração</SectionEyebrow></div>
