@@ -50,30 +50,31 @@ function SectionEyebrow({
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Imperius — Software House para Operações Comerciais" },
+      { title: "Imperius — Encontramos o gargalo que está te custando clientes" },
       {
         name: "description",
         content:
-          "Site, atendimento no WhatsApp, CRM e agenda sob medida para o seu fluxo comercial. Demonstração funcional em 3 a 7 dias — você só fecha depois de ver no ar.",
+          "Mapeamos onde sua operação perde cliente e encurtamos o caminho entre o contato e a venda. Diagnóstico antes de qualquer proposta.",
       },
-      { property: "og:title", content: "Imperius — Software House para Operações Comerciais" },
+      { property: "og:title", content: "Imperius — Encontramos o gargalo que está te custando clientes" },
       {
         property: "og:description",
         content:
-          "Site, atendimento no WhatsApp, CRM e agenda sob medida para o seu fluxo comercial. Demonstração funcional em 3 a 7 dias — você só fecha depois de ver no ar.",
+          "Mapeamos onde sua operação perde cliente e encurtamos o caminho entre o contato e a venda. Diagnóstico antes de qualquer proposta.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://imperiuslab.com.br/" },
       { property: "og:image", content: "https://imperiuslab.com.br/assets/black-crown-cover.png" },
 
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Imperius — Software House para Operações Comerciais" },
+      { name: "twitter:title", content: "Imperius — Encontramos o gargalo que está te custando clientes" },
       {
         name: "twitter:description",
         content:
-          "Site, atendimento no WhatsApp, CRM e agenda sob medida para o seu fluxo comercial. Demonstração funcional em 3 a 7 dias — você só fecha depois de ver no ar.",
+          "Mapeamos onde sua operação perde cliente e encurtamos o caminho entre o contato e a venda. Diagnóstico antes de qualquer proposta.",
       },
       { name: "twitter:image", content: "https://imperiuslab.com.br/assets/black-crown-cover.png" },
+
 
     ],
     links: [
