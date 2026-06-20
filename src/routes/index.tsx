@@ -37,8 +37,18 @@ export const Route = createFileRoute("/")({
         content:
           "Software house brasileira especializada em operações comerciais. Engenharia de atendimento, pipeline e agenda — com produtos próprios em evolução.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://imperiuslab.com.br/" },
+      { property: "og:image", content: "https://imperiuslab.com.br/assets/black-crown-cover.png" },
 
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Imperius — Software House para Operações Comerciais" },
+      {
+        name: "twitter:description",
+        content:
+          "Software house brasileira especializada em operações comerciais. Engenharia de atendimento, pipeline e agenda — com produtos próprios em evolução.",
+      },
+      { name: "twitter:image", content: "https://imperiuslab.com.br/assets/black-crown-cover.png" },
 
     ],
     links: [
@@ -47,6 +57,7 @@ export const Route = createFileRoute("/")({
         href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap",
       },
       { rel: "icon", href: "/assets/imperius-logo-official.png" },
+      { rel: "canonical", href: "https://imperiuslab.com.br/" },
       // Pré-carrega a capa Black Crown apenas em viewports ≥ tablet (onde a imagem
       // entra cedo no viewport e impacta LCP). Mobile mantém lazy para não competir
       // com o hero.
