@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
@@ -16,11 +17,35 @@ import {
   Calendar,
   Mail,
   Activity,
+  Menu,
+  X,
 } from "lucide-react";
 
 import { trackEvent } from "@/lib/analytics";
 
 const track = (name: string, params: Record<string, unknown> = {}) => trackEvent(name, params);
+
+// --- Primitivo de sistema ---------------------------------------------------
+// Padroniza o "eyebrow" usado em todas as seções (mesma altura/tracking/cor),
+// eliminando 6 cópias do mesmo bloco e travando a hierarquia visual.
+function SectionEyebrow({
+  children,
+  align = "left",
+}: {
+  children: React.ReactNode;
+  align?: "left" | "center";
+}) {
+  const justify = align === "center" ? "justify-center" : "";
+  return (
+    <div
+      className={`text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium font-sans inline-flex items-center gap-2.5 ${justify}`}
+    >
+      <span className="h-px w-8 bg-primary/70" />
+      {children}
+      {align === "center" ? <span className="h-px w-8 bg-primary/70" /> : null}
+    </div>
+  );
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
