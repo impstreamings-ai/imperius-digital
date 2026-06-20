@@ -258,11 +258,13 @@ function Nav() {
           </span>
         </a>
         <nav className="hidden md:flex items-center gap-9 text-[13px] text-muted-foreground font-medium">
+          <a href="#metodo" className="hover:text-foreground transition-colors">Método</a>
+          <a href="#solucoes" className="hover:text-foreground transition-colors">Soluções</a>
           <a href="#vitrine" className="hover:text-foreground transition-colors">Demonstração</a>
-          <a href="#processo" className="hover:text-foreground transition-colors">Como funciona</a>
+          <a href="#operator" className="hover:text-foreground transition-colors">Operator</a>
           <Link to="/portfolio" className="hover:text-foreground transition-colors">Portfólio</Link>
-          <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
         </nav>
+
         <div className="flex items-center gap-2 shrink-0">
           <a href={WA} target="_blank" rel="noreferrer" onClick={() => track("whatsapp_click", { location: "nav" })}>
             <Button size="sm" className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4">
