@@ -580,12 +580,12 @@ function FinalCTA() {
       <div className="relative mx-auto max-w-3xl px-6 text-center">
         <div className="mb-5"><SectionEyebrow align="center">Próximo passo</SectionEyebrow></div>
         <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.05] tracking-[-0.03em] text-foreground">
-          Veja sua operação{" "}
-          <span className="text-neon">funcionando antes</span>{" "}
-          de assinar contrato.
+          Quer ver onde sua operação{" "}
+          <span className="text-neon">está vazando cliente?</span>
         </h2>
         <p className="mt-5 text-muted-foreground text-[15px] sm:text-[16.5px] max-w-xl mx-auto leading-relaxed font-sans">
-          Demonstração funcional em 3 a 7 dias úteis. Você só fecha depois de ver no ar.
+          20 minutos de conversa. A gente identifica o gargalo principal e te
+          mostra — antes de qualquer proposta.
         </p>
         <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row justify-center items-center gap-3">
           <a
@@ -602,9 +602,10 @@ function FinalCTA() {
               size="lg"
               className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]"
             >
-              Solicitar análise pelo WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
+              Quero meu diagnóstico no WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
+
           <a
             href={PROPOSAL_MAILTO}
             className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2"
