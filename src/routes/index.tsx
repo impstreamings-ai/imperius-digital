@@ -177,7 +177,7 @@ function Nav() {
           <img src={"/assets/imperius-logo-official.png"} alt="Imperius Soluções Digitais" className="h-[36px] w-auto object-contain shrink-0" loading="eager" decoding="async" />
           <span className="hidden sm:flex flex-col leading-tight min-w-0">
             <span className="font-heading font-semibold tracking-[0.2em] text-[12px] truncate">IMPERIUS</span>
-            <span className="text-[9.5px] uppercase tracking-[0.28em] text-muted-foreground/80 font-medium truncate">Software house</span>
+            <span className="text-[9.5px] uppercase tracking-[0.28em] text-muted-foreground/80 font-medium truncate">Diagnóstico comercial</span>
           </span>
         </a>
         <nav className="hidden md:flex items-center gap-9 text-[13px] text-muted-foreground font-medium">
@@ -190,9 +190,10 @@ function Nav() {
           <a href={WA} target="_blank" rel="noreferrer" onClick={() => track("whatsapp_click", { location: "nav" })}>
             <Button size="sm" className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4">
               <span className="sm:hidden">Falar agora</span>
-              <span className="hidden sm:inline">Solicitar demonstração</span>
+              <span className="hidden sm:inline">Mapear meu gargalo</span>
             </Button>
           </a>
+
           <button
             type="button"
             aria-label={open ? "Fechar menu" : "Abrir menu"}
