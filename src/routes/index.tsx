@@ -71,7 +71,7 @@ export const Route = createFileRoute("/")({
       {
         name: "twitter:description",
         content:
-          "Software house brasileira especializada em operações comerciais. Engenharia de atendimento, pipeline e agenda — com produtos próprios em evolução.",
+          "Site, atendimento no WhatsApp, CRM e agenda sob medida para o seu fluxo comercial. Demonstração funcional em 3 a 7 dias — você só fecha depois de ver no ar.",
       },
       { name: "twitter:image", content: "https://imperiuslab.com.br/assets/black-crown-cover.png" },
 
