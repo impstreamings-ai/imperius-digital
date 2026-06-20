@@ -197,9 +197,10 @@ function Metodo() {
           {pilares.map((p) => (
             <li
               key={p.n}
-              className="rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 backdrop-blur-md p-5 flex flex-col min-w-0"
+              className="group relative rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 p-5 flex flex-col min-w-0 transition-colors hover:border-primary/40"
             >
-              <span className="font-heading text-[11px] tracking-[0.24em] text-primary/80 font-semibold mb-3">
+              <span className="absolute left-0 top-5 h-6 w-[2px] bg-primary/70 rounded-r" aria-hidden />
+              <span className="font-heading text-[18px] leading-none tracking-[-0.02em] text-primary font-semibold mb-3">
                 {p.n}
               </span>
               <h3 className="font-heading font-semibold text-[14.5px] tracking-[-0.005em] text-foreground leading-snug">
@@ -211,6 +212,7 @@ function Metodo() {
             </li>
           ))}
         </ol>
+
       </div>
     </section>
   );
