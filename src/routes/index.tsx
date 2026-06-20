@@ -54,13 +54,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Software house brasileira especializada em operações comerciais. Engenharia de atendimento, pipeline e agenda — com produtos próprios em evolução.",
+          "Site, atendimento no WhatsApp, CRM e agenda sob medida para o seu fluxo comercial. Demonstração funcional em 3 a 7 dias — você só fecha depois de ver no ar.",
       },
       { property: "og:title", content: "Imperius — Software House para Operações Comerciais" },
       {
         property: "og:description",
         content:
-          "Software house brasileira especializada em operações comerciais. Engenharia de atendimento, pipeline e agenda — com produtos próprios em evolução.",
+          "Site, atendimento no WhatsApp, CRM e agenda sob medida para o seu fluxo comercial. Demonstração funcional em 3 a 7 dias — você só fecha depois de ver no ar.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://imperiuslab.com.br/" },
@@ -71,7 +71,7 @@ export const Route = createFileRoute("/")({
       {
         name: "twitter:description",
         content:
-          "Software house brasileira especializada em operações comerciais. Engenharia de atendimento, pipeline e agenda — com produtos próprios em evolução.",
+          "Site, atendimento no WhatsApp, CRM e agenda sob medida para o seu fluxo comercial. Demonstração funcional em 3 a 7 dias — você só fecha depois de ver no ar.",
       },
       { name: "twitter:image", content: "https://imperiuslab.com.br/assets/black-crown-cover.png" },
 
@@ -236,12 +236,12 @@ function Hero() {
       <div className="relative mx-auto max-w-3xl px-5 sm:px-6 w-full text-center">
         <div className="mb-6 sm:mb-7"><SectionEyebrow align="center">Imperius · Software house</SectionEyebrow></div>
         <h1 className="font-display text-[2rem] sm:text-[2.9rem] lg:text-[3.4rem] xl:text-[3.8rem] font-semibold leading-[1.04] tracking-[-0.028em] text-foreground">
-          Sistemas, atendimento e automação para sua{" "}
-          <span className="text-shimmer">empresa vender com mais controle</span>.
+          Sistemas e automação para empresas{" "}
+          <span className="text-shimmer">venderem com mais controle</span>.
         </h1>
         <p className="mt-6 sm:mt-7 mx-auto max-w-[38rem] text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed font-sans">
-          Criamos páginas, fluxos de atendimento, agenda e organização comercial adaptados
-          ao contexto real da sua empresa — sem depender de solução genérica.
+          Site, atendimento no WhatsApp, CRM e agenda — desenvolvidos sob medida para o
+          seu fluxo comercial. Sem template, sem ferramenta genérica.
         </p>
         <div className="mt-8 sm:mt-9 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-3.5">
           <a
@@ -295,19 +295,19 @@ function Ecossistema() {
       icon: MessageCircle,
       tag: "Atendimento",
       title: "Atendimento Inteligente",
-      desc: "Centralizamos WhatsApp, formulários e canais em um só fluxo — com qualificação inicial automática e registro de cada contato.",
+      desc: "WhatsApp, formulários e canais em um só fluxo. Cada contato registrado, qualificado e atribuído a um responsável.",
     },
     {
       icon: Users,
       tag: "Comercial",
       title: "Gestão Comercial",
-      desc: "Pipeline de oportunidades, follow-up organizado e relatórios claros para você acompanhar o que está aberto e o que fechou.",
+      desc: "Pipeline de vendas, follow-up programado e relatórios objetivos: o que entrou, o que avançou, o que fechou.",
     },
     {
       icon: Calendar,
       tag: "Operação",
       title: "Operação Integrada",
-      desc: "Agenda online, confirmações automáticas e integração com o atendimento — tudo conectado em um único painel.",
+      desc: "Agenda online, confirmações automáticas e integração direta com o atendimento — sem planilha paralela.",
     },
   ];
   return (
@@ -368,8 +368,8 @@ function Demonstracoes() {
             <span className="text-neon">navegável agora.</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans">
-            Não é mockup. É um ambiente operacional ao vivo, em domínio próprio —
-            o mesmo padrão de engenharia que aplicamos ao seu negócio.
+            Não é mockup. É um ambiente real em operação, com domínio próprio — clique
+            e use como seu cliente final usaria.
           </p>
         </div>
 
@@ -455,9 +455,9 @@ function Demonstracoes() {
 
 function Process() {
   const steps = [
-    { n: "01", i: MessageCircle, t: "Diagnóstico", d: "Conversa direta para mapear contexto, gargalos e oportunidades reais." },
-    { n: "02", i: LayoutTemplate, t: "Construção", d: "Engenharia da solução sob o seu contexto — funcional antes de qualquer fechamento." },
-    { n: "03", i: Rocket, t: "Implantação", d: "Deploy, integrações e operação assistida até estar rodando com o seu time." },
+    { n: "01", i: MessageCircle, t: "Diagnóstico", d: "Conversa de 30 minutos para mapear canais, gargalos e o que precisa fechar primeiro." },
+    { n: "02", i: LayoutTemplate, t: "Construção", d: "Você recebe a demonstração funcional em 3 a 7 dias úteis. Aprova antes de qualquer contrato." },
+    { n: "03", i: Rocket, t: "Implantação", d: "Deploy, integrações e acompanhamento até o time estar usando no dia a dia." },
   ];
   return (
     <section id="processo" className="py-14 sm:py-20 border-t border-border/30">
@@ -466,7 +466,7 @@ function Process() {
           <div className="mb-5"><SectionEyebrow>Como funciona</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Três etapas.{" "}
-            <span className="text-foreground/55">Projeto ajustado ao seu contexto.</span>
+            <span className="text-foreground/55">Você aprova antes de assinar.</span>
           </h2>
         </div>
 
@@ -550,9 +550,6 @@ function FAQ() {
             Preço, prazo, propriedade e suporte —{" "}
             <span className="text-foreground/55">respondidos direto.</span>
           </h2>
-          <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans max-w-2xl">
-            As perguntas que todo cliente faz antes de decidir. Respostas objetivas, sem rodeio comercial.
-          </p>
         </div>
         <div className="divide-y divide-border/40 border-y border-border/40">
           {items.map((it, idx) => (
@@ -587,13 +584,13 @@ function FinalCTA() {
       <div className="relative mx-auto max-w-4xl px-6 text-center">
         <div className="mb-6"><SectionEyebrow align="center">Próximo passo</SectionEyebrow></div>
         <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.5rem] lg:text-[2.9rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-          Veja como sua operação pode ficar mais{" "}
-          <span className="text-neon">organizada, apresentável</span>{" "}
-          e pronta para vender.
+          Veja sua operação{" "}
+          <span className="text-neon">funcionando antes</span>{" "}
+          de assinar contrato.
         </h2>
         <p className="mt-6 text-muted-foreground text-[15px] sm:text-[17px] max-w-2xl mx-auto leading-relaxed font-sans">
-          Demonstração funcional construída para a sua empresa —
-          escopo definido em conjunto, projeto funcional antes de qualquer contrato.
+          Demonstração funcional construída para a sua empresa, entregue em 3 a 7 dias úteis.
+          Você só fecha depois de ver no ar.
         </p>
         <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
           <a
