@@ -500,30 +500,31 @@ function Process() {
 function FAQ() {
   const items = [
     {
-      q: "Quanto custa um projeto da Imperius?",
-      a: "Projetos partem de uma faixa definida em conjunto após entender escopo, integrações e canais. Não trabalhamos com mensalidade obrigatória: você escolhe entre pagamento único do projeto ou plano contínuo de evolução e suporte. O valor é apresentado por escrito antes de qualquer compromisso — você só aprova depois de ver a demonstração funcional.",
+      q: "Como funciona a conversa inicial?",
+      a: "Uma chamada curta — em torno de 20 minutos. A gente entende seus canais, onde a venda trava e o que precisa destravar primeiro. Sem briefing longo, sem apresentação de slides.",
     },
     {
-      q: "Quanto tempo leva para entregar?",
-      a: "Demonstração funcional personalizada: 3 a 7 dias úteis. Projeto completo (site + automação + CRM + agenda): 2 a 4 semanas, conforme escopo e integrações. Definimos cronograma por etapas no kickoff, com datas de entrega registradas.",
+      q: "Quando vocês falam de preço?",
+      a: "Só depois de entender sua operação e te mostrar o gargalo. Proposta empurrada antes disso é tiro no escuro — não fazemos.",
     },
     {
-      q: "A automação funciona no meu WhatsApp atual?",
-      a: "Sim. Trabalhamos com a API oficial do WhatsApp Business (Meta), o que mantém o número, contatos e conversas. O atendimento humano continua funcionando normalmente — a IA atua só nos momentos definidos por você (fora do horário, fila cheia, primeira triagem, agendamento).",
+      q: "Vocês trocam meu WhatsApp atual?",
+      a: "Não. A gente usa a API oficial do WhatsApp Business (Meta) sobre o número que você já tem. Atendimento humano segue normal — o automatizado entra só onde você decidir.",
     },
     {
-      q: "O site, código e dados são meus?",
-      a: "Sim. O projeto entregue é seu: você recebe acesso ao código-fonte, ao painel, ao domínio e ao banco de dados. Não há lock-in técnico. Se um dia decidir sair, você leva tudo — inclusive os contatos, histórico de conversas e pipeline do CRM, exportáveis em formato padrão.",
+      q: "Quem é dono do que vocês entregam?",
+      a: "Você. Código, painel, domínio, banco e histórico ficam no seu nome. Se um dia quiser sair, leva tudo — incluindo contatos e pipeline.",
     },
     {
-      q: "Tem suporte depois da entrega?",
-      a: "Sim. Todo projeto inclui período de acompanhamento pós-publicação para ajustes finos. Após esse período, você pode contratar um plano contínuo (evolução + suporte + monitoramento) ou seguir avulso por demanda. Resposta a chamados em horário comercial, com SLA combinado em contrato.",
+      q: "Tem acompanhamento depois?",
+      a: "Tem. Período inicial de ajuste fino sai junto. Depois, você escolhe entre plano contínuo ou demanda avulsa. SLA combinado por escrito.",
     },
     {
       q: "Com quem eu falo?",
-      a: "Diretamente com a equipe que desenvolve o projeto. Sem atendimento terceirizado, sem chatbot intermediário — o mesmo time conduz da conversa inicial à publicação e ao suporte.",
+      a: "Com a mesma pessoa do começo ao fim. Sem call center, sem intermediário, sem chatbot empurrando ticket.",
     },
   ];
+
   return (
     <section id="faq" className="py-12 sm:py-16 border-t border-border/30">
       <script
