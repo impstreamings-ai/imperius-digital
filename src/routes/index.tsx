@@ -132,11 +132,11 @@ function Problema() {
     { icon: Activity, t: "Decisões no escuro", d: "Sem visão de quantos contatos entraram, quantos fecharam, quanto sobrou." },
   ];
   return (
-    <section className="relative py-14 sm:py-20 border-y border-border/30">
+    <section className="relative py-12 sm:py-16 border-y border-border/30">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="max-w-3xl mb-9 sm:mb-12">
-          <div className="mb-5"><SectionEyebrow>O problema</SectionEyebrow></div>
-          <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+        <div className="max-w-3xl mb-7 sm:mb-10">
+          <div className="mb-4"><SectionEyebrow>O problema</SectionEyebrow></div>
+          <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Sua operação comercial está rodando{" "}
             <span className="text-foreground/55">no improviso.</span>
           </h2>
