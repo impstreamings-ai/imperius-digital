@@ -368,8 +368,8 @@ function Demonstracoes() {
             <span className="text-neon">navegável agora.</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans">
-            Não é mockup. É um ambiente operacional ao vivo, em domínio próprio —
-            o mesmo padrão de engenharia que aplicamos ao seu negócio.
+            Não é mockup. É um ambiente real em operação, com domínio próprio — clique
+            e use como seu cliente final usaria.
           </p>
         </div>
 
