@@ -236,12 +236,12 @@ function Hero() {
       <div className="relative mx-auto max-w-3xl px-5 sm:px-6 w-full text-center">
         <div className="mb-6 sm:mb-7"><SectionEyebrow align="center">Imperius · Software house</SectionEyebrow></div>
         <h1 className="font-display text-[2rem] sm:text-[2.9rem] lg:text-[3.4rem] xl:text-[3.8rem] font-semibold leading-[1.04] tracking-[-0.028em] text-foreground">
-          Sistemas, atendimento e automação para sua{" "}
-          <span className="text-shimmer">empresa vender com mais controle</span>.
+          Sistemas e automação para empresas{" "}
+          <span className="text-shimmer">venderem com mais controle</span>.
         </h1>
         <p className="mt-6 sm:mt-7 mx-auto max-w-[38rem] text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed font-sans">
-          Criamos páginas, fluxos de atendimento, agenda e organização comercial adaptados
-          ao contexto real da sua empresa — sem depender de solução genérica.
+          Site, atendimento no WhatsApp, CRM e agenda — desenvolvidos sob medida para o
+          seu fluxo comercial. Sem template, sem ferramenta genérica.
         </p>
         <div className="mt-8 sm:mt-9 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-3.5">
           <a
