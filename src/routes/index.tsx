@@ -452,20 +452,21 @@ function Demonstracoes() {
 
 function Process() {
   const steps = [
-    { n: "01", i: MessageCircle, t: "Diagnóstico", d: "Conversa de 30 minutos para mapear canais, gargalos e o que precisa fechar primeiro." },
-    { n: "02", i: LayoutTemplate, t: "Construção", d: "Você recebe a demonstração funcional em 3 a 7 dias úteis. Aprova antes de qualquer contrato." },
-    { n: "03", i: Rocket, t: "Implantação", d: "Deploy, integrações e acompanhamento até o time estar usando no dia a dia." },
+    { n: "01", i: MessageCircle, t: "Escutar", d: "Conversa curta. A gente entende onde está doendo e olha sua operação real." },
+    { n: "02", i: LayoutTemplate, t: "Mostrar", d: "Você vê o gargalo desenhado e uma versão funcional de como ele some." },
+    { n: "03", i: Rocket, t: "Decidir", d: "Se fizer sentido, a gente segue. Proposta só depois de você enxergar o valor." },
   ];
   return (
     <section id="processo" className="py-12 sm:py-16 border-t border-border/30">
       <div className="mx-auto max-w-5xl px-6">
         <div className="max-w-2xl mb-7 sm:mb-10">
-          <div className="mb-4"><SectionEyebrow>Como funciona</SectionEyebrow></div>
+          <div className="mb-4"><SectionEyebrow>Como conversamos</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-            Três etapas.{" "}
-            <span className="text-foreground/55">Você aprova antes de assinar.</span>
+            Primeiro a gente entende.{" "}
+            <span className="text-foreground/55">Só então propõe.</span>
           </h2>
         </div>
+
 
         <ol className="grid gap-4 sm:gap-5 sm:grid-cols-3">
           {steps.map((s) => (
