@@ -451,8 +451,9 @@ function Demonstracoes() {
             <span className="text-neon">numa operação real.</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans">
-            Ambiente nosso, rodando agora. Clica e usa como o cliente final usaria.
+            Ambiente nosso, rodando agora. Clica e usa.
           </p>
+
         </div>
 
 
