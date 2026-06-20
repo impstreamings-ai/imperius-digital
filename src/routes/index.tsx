@@ -132,11 +132,11 @@ function Problema() {
     { icon: Activity, t: "Decisões no escuro", d: "Sem visão de quantos contatos entraram, quantos fecharam, quanto sobrou." },
   ];
   return (
-    <section className="relative py-14 sm:py-20 border-y border-border/30">
+    <section className="relative py-12 sm:py-16 border-y border-border/30">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="max-w-3xl mb-9 sm:mb-12">
-          <div className="mb-5"><SectionEyebrow>O problema</SectionEyebrow></div>
-          <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+        <div className="max-w-3xl mb-7 sm:mb-10">
+          <div className="mb-4"><SectionEyebrow>O problema</SectionEyebrow></div>
+          <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Sua operação comercial está rodando{" "}
             <span className="text-foreground/55">no improviso.</span>
           </h2>
@@ -219,7 +219,7 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative lg:min-h-[82vh] flex items-center pt-24 sm:pt-28 lg:pt-24 pb-12 sm:pb-16 lg:pb-20 overflow-hidden"
+      className="relative lg:min-h-[72vh] flex items-center pt-24 sm:pt-24 pb-10 sm:pb-14 overflow-hidden"
       style={{
         background: "var(--gradient-hero)",
         paddingLeft: "max(0px, env(safe-area-inset-left))",
@@ -234,16 +234,16 @@ function Hero() {
       />
 
       <div className="relative mx-auto max-w-3xl px-5 sm:px-6 w-full text-center">
-        <div className="mb-6 sm:mb-7"><SectionEyebrow align="center">Imperius · Software house</SectionEyebrow></div>
-        <h1 className="font-display text-[2rem] sm:text-[2.9rem] lg:text-[3.4rem] xl:text-[3.8rem] font-semibold leading-[1.04] tracking-[-0.028em] text-foreground">
+        <div className="mb-5 sm:mb-6"><SectionEyebrow align="center">Imperius · Software house</SectionEyebrow></div>
+        <h1 className="font-display text-[2rem] sm:text-[2.8rem] lg:text-[3.3rem] xl:text-[3.6rem] font-semibold leading-[1.04] tracking-[-0.03em] text-foreground">
           Sistemas e automação para empresas{" "}
           <span className="text-shimmer">venderem com mais controle</span>.
         </h1>
-        <p className="mt-6 sm:mt-7 mx-auto max-w-[38rem] text-muted-foreground text-[15px] sm:text-[17px] leading-relaxed font-sans">
-          Site, atendimento no WhatsApp, CRM e agenda — desenvolvidos sob medida para o
-          seu fluxo comercial. Sem template, sem ferramenta genérica.
+        <p className="mt-5 sm:mt-6 mx-auto max-w-[36rem] text-muted-foreground text-[15px] sm:text-[16.5px] leading-relaxed font-sans">
+          Site, atendimento no WhatsApp, CRM e agenda — sob medida para o seu fluxo
+          comercial. Sem template, sem ferramenta genérica.
         </p>
-        <div className="mt-8 sm:mt-9 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-3.5">
+        <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3">
           <a
             href={WA}
             target="_blank"
@@ -260,20 +260,14 @@ function Hero() {
           </a>
           <a
             href={PROPOSAL_MAILTO}
-            className="w-full sm:w-auto"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-5 text-[13px] font-sans text-muted-foreground hover:text-foreground transition-colors"
             onClick={() => track("hero_cta_click", { destination: "email" })}
           >
-            <Button
-              size="lg"
-              variant="outline"
-              className="btn-premium w-full sm:w-auto border-border/70 bg-background/30 hover:bg-background/60 hover:border-primary/50 text-foreground/90 font-medium rounded-full h-auto min-h-12 py-2 px-5 sm:px-6 text-[12.5px] sm:text-[13.5px] whitespace-normal text-center leading-snug transition-all duration-300"
-            >
-              <Mail className="mr-2 h-4 w-4 shrink-0 text-muted-foreground" />
-              <span>Prefiro receber por e-mail</span>
-            </Button>
+            <Mail className="h-4 w-4" />
+            <span>Prefiro receber por e-mail</span>
           </a>
         </div>
-        <p className="mt-7 sm:mt-8 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
+        <p className="mt-6 sm:mt-7 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
           Demonstração funcional em 3 a 7 dias úteis · Sem proposta antes da entrega
         </p>
       </div>
@@ -311,16 +305,11 @@ function Ecossistema() {
     },
   ];
   return (
-    <section className="relative py-14 sm:py-20 border-b border-border/30 bg-[oklch(0.075_0.004_240)]">
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[680px] h-[220px] rounded-full blur-3xl opacity-20 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, oklch(0.55 0.22 250 / 0.2), transparent 70%)" }}
-        aria-hidden
-      />
+    <section className="relative py-12 sm:py-16 border-b border-border/30 bg-[oklch(0.075_0.004_240)]">
       <div className="relative mx-auto max-w-6xl px-6">
-        <div className="max-w-2xl mb-9 sm:mb-12">
-          <div className="mb-5"><SectionEyebrow>Ecossistema Imperius</SectionEyebrow></div>
-          <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+        <div className="max-w-2xl mb-7 sm:mb-10">
+          <div className="mb-4"><SectionEyebrow>Ecossistema Imperius</SectionEyebrow></div>
+          <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             O que a Imperius{" "}
             <span className="text-neon">entrega na prática.</span>
           </h2>
@@ -358,18 +347,17 @@ function Ecossistema() {
 
 function Demonstracoes() {
   return (
-    <section id="vitrine" className="relative py-14 sm:py-20 border-t border-border/30">
+    <section id="vitrine" className="relative py-12 sm:py-16 border-t border-border/30">
       <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-6xl px-6">
-        <div className="max-w-2xl mb-8 sm:mb-12">
-          <div className="mb-5"><SectionEyebrow>Demonstração</SectionEyebrow></div>
-          <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+        <div className="max-w-2xl mb-7 sm:mb-10">
+          <div className="mb-4"><SectionEyebrow>Demonstração</SectionEyebrow></div>
+          <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Demonstração funcional,{" "}
             <span className="text-neon">navegável agora.</span>
           </h2>
-          <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans">
-            Não é mockup. É um ambiente real em operação, com domínio próprio — clique
-            e use como seu cliente final usaria.
+          <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans">
+            Ambiente real em operação, com domínio próprio — clique e use como seu cliente final usaria.
           </p>
         </div>
 
@@ -423,7 +411,7 @@ function Demonstracoes() {
           </div>
         </a>
 
-        <div className="mt-8 sm:mt-10 rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 backdrop-blur-md p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+        <div className="mt-6 sm:mt-8 rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 backdrop-blur-md p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="max-w-2xl">
             <h3 className="font-display font-semibold text-[1.1rem] sm:text-[1.3rem] tracking-[-0.015em] text-foreground leading-snug">
               Outras demonstrações por segmento
@@ -460,11 +448,11 @@ function Process() {
     { n: "03", i: Rocket, t: "Implantação", d: "Deploy, integrações e acompanhamento até o time estar usando no dia a dia." },
   ];
   return (
-    <section id="processo" className="py-14 sm:py-20 border-t border-border/30">
+    <section id="processo" className="py-12 sm:py-16 border-t border-border/30">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="max-w-2xl mb-9 sm:mb-12">
-          <div className="mb-5"><SectionEyebrow>Como funciona</SectionEyebrow></div>
-          <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+        <div className="max-w-2xl mb-7 sm:mb-10">
+          <div className="mb-4"><SectionEyebrow>Como funciona</SectionEyebrow></div>
+          <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Três etapas.{" "}
             <span className="text-foreground/55">Você aprova antes de assinar.</span>
           </h2>
@@ -474,9 +462,9 @@ function Process() {
           {steps.map((s) => (
             <li
               key={s.t}
-              className="card-rise rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 backdrop-blur-md p-6 flex flex-col"
+              className="card-rise rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 backdrop-blur-md p-5 sm:p-6 flex flex-col"
             >
-              <div className="flex items-center justify-between mb-5">
+              <div className="flex items-center justify-between mb-4">
                 <div className="h-9 w-9 rounded-md border border-primary/30 bg-primary/10 grid place-items-center">
                   <s.i className="h-[18px] w-[18px] text-primary" />
                 </div>
@@ -527,7 +515,7 @@ function FAQ() {
     },
   ];
   return (
-    <section id="faq" className="py-14 sm:py-20 border-t border-border/30">
+    <section id="faq" className="py-12 sm:py-16 border-t border-border/30">
       <script
         type="application/ld+json"
         // FAQPage schema para SEO e featured snippets
@@ -544,9 +532,9 @@ function FAQ() {
         }}
       />
       <div className="mx-auto max-w-3xl px-6">
-        <div className="max-w-2xl mb-9 sm:mb-12">
-          <div className="mb-5"><SectionEyebrow>FAQ</SectionEyebrow></div>
-          <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+        <div className="max-w-2xl mb-7 sm:mb-10">
+          <div className="mb-4"><SectionEyebrow>FAQ</SectionEyebrow></div>
+          <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Preço, prazo, propriedade e suporte —{" "}
             <span className="text-foreground/55">respondidos direto.</span>
           </h2>
@@ -576,23 +564,18 @@ function FAQ() {
 
 function FinalCTA() {
   return (
-    <section className="relative py-16 sm:py-24 border-t border-border/30 overflow-hidden">
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[820px] h-[420px] rounded-full blur-3xl opacity-18 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, oklch(0.55 0.22 250 / 0.22), transparent 70%)" }}
-      />
-      <div className="relative mx-auto max-w-4xl px-6 text-center">
-        <div className="mb-6"><SectionEyebrow align="center">Próximo passo</SectionEyebrow></div>
-        <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.5rem] lg:text-[2.9rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+    <section className="relative py-14 sm:py-20 border-t border-border/30 overflow-hidden">
+      <div className="relative mx-auto max-w-3xl px-6 text-center">
+        <div className="mb-5"><SectionEyebrow align="center">Próximo passo</SectionEyebrow></div>
+        <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.05] tracking-[-0.03em] text-foreground">
           Veja sua operação{" "}
           <span className="text-neon">funcionando antes</span>{" "}
           de assinar contrato.
         </h2>
-        <p className="mt-6 text-muted-foreground text-[15px] sm:text-[17px] max-w-2xl mx-auto leading-relaxed font-sans">
-          Demonstração funcional construída para a sua empresa, entregue em 3 a 7 dias úteis.
-          Você só fecha depois de ver no ar.
+        <p className="mt-5 text-muted-foreground text-[15px] sm:text-[16.5px] max-w-xl mx-auto leading-relaxed font-sans">
+          Demonstração funcional em 3 a 7 dias úteis. Você só fecha depois de ver no ar.
         </p>
-        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+        <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row justify-center items-center gap-3">
           <a
             href={WA}
             target="_blank"
@@ -618,9 +601,6 @@ function FinalCTA() {
             <Mail className="h-4 w-4" /> Prefiro receber por e-mail
           </a>
         </div>
-        <p className="mt-8 text-[12px] text-muted-foreground/80 font-sans tracking-wide max-w-xl mx-auto leading-relaxed">
-          Atendimento direto com a equipe técnica · Resposta em até 2h em horário comercial.
-        </p>
       </div>
     </section>
   );
@@ -631,8 +611,8 @@ function Footer() {
   return (
     <footer className="relative border-t border-border/40 overflow-hidden">
       <div className="absolute inset-x-0 -top-px h-px" style={{ background: "linear-gradient(90deg, transparent, oklch(0.72 0.22 250 / 0.6), transparent)" }} />
-      <div className="relative mx-auto max-w-7xl px-6 pt-12 sm:pt-16 pb-16 sm:pb-20">
-        <div className="grid md:grid-cols-3 gap-10">
+      <div className="relative mx-auto max-w-7xl px-6 pt-10 sm:pt-12 pb-10 sm:pb-12">
+        <div className="grid md:grid-cols-3 gap-8 sm:gap-10">
           <div>
             <div className="flex items-center gap-3 mb-5">
               <img src={"/assets/imperius-logo-official.png"} alt="Imperius Soluções Digitais" className="h-[44px] w-auto object-contain" loading="lazy" decoding="async" />
@@ -670,7 +650,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-border/40 flex flex-col items-center gap-2 text-center text-xs text-muted-foreground font-sans">
+        <div className="mt-10 pt-6 border-t border-border/40 flex flex-col items-center gap-2 text-center text-xs text-muted-foreground font-sans">
           <p>© {new Date().getFullYear()} Imperius Soluções Digitais. Todos os direitos reservados.</p>
           <p className="text-[11px] text-muted-foreground/70 max-w-xl leading-relaxed">
             Usamos cookies analíticos (Google Analytics) para medir o uso do site. Para solicitações relacionadas aos seus dados (LGPD),
