@@ -546,9 +546,10 @@ function FAQ() {
         <div className="max-w-2xl mb-7 sm:mb-10">
           <div className="mb-4"><SectionEyebrow>FAQ</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-            Preço, prazo, propriedade e suporte —{" "}
-            <span className="text-foreground/55">respondidos direto.</span>
+            Dúvidas frequentes —{" "}
+            <span className="text-foreground/55">respondidas direto.</span>
           </h2>
+
         </div>
         <div className="divide-y divide-border/40 border-y border-border/40">
           {items.map((it, idx) => (
