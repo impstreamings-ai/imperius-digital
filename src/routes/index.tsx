@@ -356,8 +356,9 @@ function Hero() {
           </a>
         </div>
         <p className="mt-6 sm:mt-7 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
-          Conversa curta · Sem proposta antes de a gente entender sua operação
+          Conversa curta · Sem proposta antes do diagnóstico
         </p>
+
 
       </div>
     </section>
