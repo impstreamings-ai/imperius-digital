@@ -287,11 +287,13 @@ function Nav() {
       {open ? (
         <div className="md:hidden border-t border-border/40 bg-background/95 backdrop-blur-xl">
           <nav className="mx-auto max-w-7xl px-4 sm:px-6 py-4 flex flex-col text-[14px] text-muted-foreground font-medium">
+            <a href="#metodo" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Método</a>
+            <a href="#solucoes" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Soluções</a>
             <a href="#vitrine" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Demonstração</a>
-            <a href="#processo" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Como funciona</a>
+            <a href="#operator" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Operator</a>
             <Link to="/portfolio" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Portfólio</Link>
-            <a href="#faq" onClick={close} className="py-2.5 hover:text-foreground transition-colors">FAQ</a>
           </nav>
+
         </div>
       ) : null}
     </header>
