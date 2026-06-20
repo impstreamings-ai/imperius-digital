@@ -143,9 +143,10 @@ function Problema() {
           <div className="mb-4"><SectionEyebrow>Problemas que encontramos diariamente</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Tem cliente entrando.{" "}
-            <span className="text-foreground/55">Só não está chegando até a venda.</span>
+            <span className="text-foreground/55">Não está chegando até a venda.</span>
           </h2>
         </div>
+
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 border-y border-border/40 divide-y sm:divide-y-0 sm:divide-x divide-border/40">
           {dores.map((d) => (
