@@ -238,14 +238,14 @@ function Hero() {
       />
 
       <div className="relative mx-auto max-w-3xl px-5 sm:px-6 w-full text-center">
-        <div className="mb-5 sm:mb-6"><SectionEyebrow align="center">Imperius · Software house</SectionEyebrow></div>
+        <div className="mb-5 sm:mb-6"><SectionEyebrow align="center">Imperius · Diagnóstico comercial</SectionEyebrow></div>
         <h1 className="font-display text-[2rem] sm:text-[2.8rem] lg:text-[3.3rem] xl:text-[3.6rem] font-semibold leading-[1.04] tracking-[-0.03em] text-foreground">
-          Sistemas e automação para empresas{" "}
-          <span className="text-shimmer">venderem com mais controle</span>.
+          Onde sua empresa está perdendo cliente —{" "}
+          <span className="text-shimmer">e como encurtar esse caminho</span>.
         </h1>
         <p className="mt-5 sm:mt-6 mx-auto max-w-[36rem] text-muted-foreground text-[15px] sm:text-[16.5px] leading-relaxed font-sans">
-          Site, atendimento no WhatsApp, CRM e agenda — sob medida para o seu fluxo
-          comercial. Sem template, sem ferramenta genérica.
+          A gente entra na sua operação, encontra o gargalo e mostra no detalhe.
+          Só depois a conversa vira solução.
         </p>
         <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3">
           <a
@@ -259,7 +259,7 @@ function Hero() {
               size="lg"
               className="btn-premium w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[14px] transition-all duration-300 hover:-translate-y-0.5"
             >
-              Solicitar análise pelo WhatsApp <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              Quero ver meu gargalo no WhatsApp <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Button>
           </a>
           <a
@@ -272,8 +272,9 @@ function Hero() {
           </a>
         </div>
         <p className="mt-6 sm:mt-7 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
-          Demonstração funcional em 3 a 7 dias úteis · Sem proposta antes da entrega
+          Conversa curta · Sem proposta antes de a gente entender sua operação
         </p>
+
       </div>
     </section>
   );
