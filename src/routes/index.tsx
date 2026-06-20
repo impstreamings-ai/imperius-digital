@@ -150,8 +150,11 @@ function Problema() {
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 border-y border-border/40 divide-y sm:divide-y-0 sm:divide-x divide-border/40">
           {dores.map((d) => (
-            <li key={d.t} className="p-5 sm:p-6 flex flex-col gap-3 min-w-0">
-              <div className="h-9 w-9 rounded-md border border-primary/25 bg-primary/10 grid place-items-center">
+            <li
+              key={d.t}
+              className="p-5 sm:p-6 flex flex-col gap-3 min-w-0 transition-colors hover:bg-primary/[0.025]"
+            >
+              <div className="h-9 w-9 rounded-lg border border-primary/25 bg-primary/10 grid place-items-center">
                 <d.icon className="h-[18px] w-[18px] text-primary" />
               </div>
               <div className="min-w-0">
@@ -165,6 +168,7 @@ function Problema() {
             </li>
           ))}
         </ul>
+
       </div>
     </section>
   );
