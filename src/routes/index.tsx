@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
+import { useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
@@ -16,11 +17,35 @@ import {
   Calendar,
   Mail,
   Activity,
+  Menu,
+  X,
 } from "lucide-react";
 
 import { trackEvent } from "@/lib/analytics";
 
 const track = (name: string, params: Record<string, unknown> = {}) => trackEvent(name, params);
+
+// --- Primitivo de sistema ---------------------------------------------------
+// Padroniza o "eyebrow" usado em todas as seções (mesma altura/tracking/cor),
+// eliminando 6 cópias do mesmo bloco e travando a hierarquia visual.
+function SectionEyebrow({
+  children,
+  align = "left",
+}: {
+  children: ReactNode;
+  align?: "left" | "center";
+}) {
+  const justify = align === "center" ? "justify-center" : "";
+  return (
+    <div
+      className={`text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium font-sans inline-flex items-center gap-2.5 ${justify}`}
+    >
+      <span className="h-px w-8 bg-primary/70" />
+      {children}
+      {align === "center" ? <span className="h-px w-8 bg-primary/70" /> : null}
+    </div>
+  );
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -110,10 +135,7 @@ function Problema() {
     <section className="relative py-14 sm:py-20 border-y border-border/30">
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-3xl mb-9 sm:mb-12">
-          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
-            <span className="h-px w-8 bg-primary/70" />
-            O problema
-          </div>
+          <div className="mb-5"><SectionEyebrow>O problema</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Sua operação comercial está rodando{" "}
             <span className="text-foreground/55">no improviso.</span>
@@ -143,10 +165,12 @@ function Problema() {
 
 
 function Nav() {
+  const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
   return (
     <header className="fixed top-0 inset-x-0 z-50 border-b border-border/40 backdrop-blur-xl bg-background/70">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-        <a href="#top" className="flex items-center gap-3 min-w-0">
+        <a href="#top" className="flex items-center gap-3 min-w-0" onClick={close}>
           <img src={"/assets/imperius-logo-official.png"} alt="Imperius Soluções Digitais" className="h-[36px] w-auto object-contain shrink-0" loading="eager" decoding="async" />
           <span className="hidden sm:flex flex-col leading-tight min-w-0">
             <span className="font-heading font-semibold tracking-[0.2em] text-[12px] truncate">IMPERIUS</span>
@@ -159,13 +183,34 @@ function Nav() {
           <Link to="/portfolio" className="hover:text-foreground transition-colors">Portfólio</Link>
           <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
         </nav>
-        <a href={WA} target="_blank" rel="noreferrer" className="shrink-0" onClick={() => track("whatsapp_click", { location: "nav" })}>
-          <Button size="sm" className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4">
-            <span className="sm:hidden">Falar agora</span>
-            <span className="hidden sm:inline">Solicitar demonstração</span>
-          </Button>
-        </a>
+        <div className="flex items-center gap-2 shrink-0">
+          <a href={WA} target="_blank" rel="noreferrer" onClick={() => track("whatsapp_click", { location: "nav" })}>
+            <Button size="sm" className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4">
+              <span className="sm:hidden">Falar agora</span>
+              <span className="hidden sm:inline">Solicitar demonstração</span>
+            </Button>
+          </a>
+          <button
+            type="button"
+            aria-label={open ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="md:hidden h-9 w-9 grid place-items-center rounded-md border border-border/60 text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+          >
+            {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          </button>
+        </div>
       </div>
+      {open ? (
+        <div className="md:hidden border-t border-border/40 bg-background/95 backdrop-blur-xl">
+          <nav className="mx-auto max-w-7xl px-4 sm:px-6 py-4 flex flex-col text-[14px] text-muted-foreground font-medium">
+            <a href="#vitrine" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Demonstração</a>
+            <a href="#processo" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Como funciona</a>
+            <Link to="/portfolio" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Portfólio</Link>
+            <a href="#faq" onClick={close} className="py-2.5 hover:text-foreground transition-colors">FAQ</a>
+          </nav>
+        </div>
+      ) : null}
     </header>
   );
 }
@@ -189,11 +234,7 @@ function Hero() {
       />
 
       <div className="relative mx-auto max-w-3xl px-5 sm:px-6 w-full text-center">
-        <div className="inline-flex items-center gap-2.5 text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-sans font-medium mb-6 sm:mb-7">
-          <span className="h-px w-8 bg-primary/70" />
-          Imperius · Software house
-          <span className="h-px w-8 bg-primary/70" />
-        </div>
+        <div className="mb-6 sm:mb-7"><SectionEyebrow align="center">Imperius · Software house</SectionEyebrow></div>
         <h1 className="font-display text-[2rem] sm:text-[2.9rem] lg:text-[3.4rem] xl:text-[3.8rem] font-semibold leading-[1.04] tracking-[-0.028em] text-foreground">
           Sistemas, atendimento e automação para sua{" "}
           <span className="text-shimmer">empresa vender com mais controle</span>.
@@ -278,10 +319,7 @@ function Ecossistema() {
       />
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-9 sm:mb-12">
-          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
-            <span className="h-px w-8 bg-primary/70" />
-            Ecossistema Imperius
-          </div>
+          <div className="mb-5"><SectionEyebrow>Ecossistema Imperius</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             O que a Imperius{" "}
             <span className="text-neon">entrega na prática.</span>
@@ -322,17 +360,9 @@ function Demonstracoes() {
   return (
     <section id="vitrine" className="relative py-14 sm:py-20 border-t border-border/30">
       <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" aria-hidden />
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[380px] rounded-full blur-3xl opacity-15 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, oklch(0.55 0.22 250 / 0.18), transparent 70%)" }}
-        aria-hidden
-      />
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-8 sm:mb-12">
-          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
-            <span className="h-px w-8 bg-primary/70" />
-            Demonstração
-          </div>
+          <div className="mb-5"><SectionEyebrow>Demonstração</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Demonstração funcional,{" "}
             <span className="text-neon">navegável agora.</span>
@@ -433,10 +463,7 @@ function Process() {
     <section id="processo" className="py-14 sm:py-20 border-t border-border/30">
       <div className="mx-auto max-w-5xl px-6">
         <div className="max-w-2xl mb-9 sm:mb-12">
-          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
-            <span className="h-px w-8 bg-primary/70" />
-            Como funciona
-          </div>
+          <div className="mb-5"><SectionEyebrow>Como funciona</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Três etapas.{" "}
             <span className="text-foreground/55">Projeto ajustado ao seu contexto.</span>
@@ -518,10 +545,7 @@ function FAQ() {
       />
       <div className="mx-auto max-w-3xl px-6">
         <div className="max-w-2xl mb-9 sm:mb-12">
-          <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-5 font-sans inline-flex items-center gap-2.5">
-            <span className="h-px w-8 bg-primary/70" />
-            FAQ
-          </div>
+          <div className="mb-5"><SectionEyebrow>FAQ</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Preço, prazo, propriedade e suporte —{" "}
             <span className="text-foreground/55">respondidos direto.</span>
@@ -561,10 +585,7 @@ function FinalCTA() {
         style={{ background: "radial-gradient(ellipse, oklch(0.55 0.22 250 / 0.22), transparent 70%)" }}
       />
       <div className="relative mx-auto max-w-4xl px-6 text-center">
-        <div className="text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium mb-6 font-sans inline-flex items-center gap-2.5">
-          <span className="h-px w-8 bg-primary/70" />
-          Próximo passo
-        </div>
+        <div className="mb-6"><SectionEyebrow align="center">Próximo passo</SectionEyebrow></div>
         <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.5rem] lg:text-[2.9rem] leading-[1.06] tracking-[-0.028em] text-foreground">
           Veja como sua operação pode ficar mais{" "}
           <span className="text-neon">organizada, apresentável</span>{" "}
@@ -611,10 +632,9 @@ function FinalCTA() {
 
 function Footer() {
   return (
-    <footer className="relative border-t border-border/40 mt-10 overflow-hidden">
+    <footer className="relative border-t border-border/40 overflow-hidden">
       <div className="absolute inset-x-0 -top-px h-px" style={{ background: "linear-gradient(90deg, transparent, oklch(0.72 0.22 250 / 0.6), transparent)" }} />
-      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full blur-3xl opacity-40 pointer-events-none" style={{ background: "radial-gradient(ellipse, oklch(0.55 0.25 250 / 0.35), transparent 70%)" }} />
-      <div className="relative mx-auto max-w-7xl px-6 pt-14 sm:pt-16 pb-24 sm:pb-20">
+      <div className="relative mx-auto max-w-7xl px-6 pt-12 sm:pt-16 pb-16 sm:pb-20">
         <div className="grid md:grid-cols-3 gap-10">
           <div>
             <div className="flex items-center gap-3 mb-5">
