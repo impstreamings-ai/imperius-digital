@@ -313,7 +313,7 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative lg:min-h-[72vh] flex items-center pt-24 sm:pt-24 pb-10 sm:pb-14 overflow-hidden"
+      className="relative lg:min-h-[64vh] flex items-center pt-24 pb-12 sm:pb-16 overflow-hidden"
       style={{
         background: "var(--gradient-hero)",
         paddingLeft: "max(0px, env(safe-area-inset-left))",
