@@ -221,13 +221,13 @@ function Operator() {
             <div className="min-w-0">
               <div className="mb-4"><SectionEyebrow>Imperius Operator</SectionEyebrow></div>
               <h2 className="font-display font-semibold text-[1.6rem] sm:text-[2rem] lg:text-[2.3rem] leading-[1.08] tracking-[-0.025em] text-foreground">
-                O operador que vigia seu funil{" "}
+                Vigia seu funil{" "}
                 <span className="text-neon">enquanto você toca o negócio.</span>
               </h2>
               <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans max-w-2xl">
-                Acompanha cada contato, cobra resposta no prazo e te avisa quando um cliente
-                está prestes a esfriar. Nada some, nada espera.
+                Cobra resposta no prazo e avisa quando um cliente vai esfriar.
               </p>
+
             </div>
             <a
               href={WA}
