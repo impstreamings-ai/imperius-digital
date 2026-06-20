@@ -725,8 +725,9 @@ function Footer() {
               </div>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed font-sans">
-              Encontramos gargalos comerciais e reduzimos a distância entre o cliente e a ação.
+              Achamos o gargalo. Encurtamos o caminho até a venda.
             </p>
+
 
           </div>
 
