@@ -327,10 +327,10 @@ function Hero() {
           Onde sua empresa está perdendo cliente —{" "}
           <span className="text-shimmer">e como encurtar esse caminho</span>.
         </h1>
-        <p className="mt-5 sm:mt-6 mx-auto max-w-[36rem] text-muted-foreground text-[15px] sm:text-[16.5px] leading-relaxed font-sans">
-          A gente entra na sua operação, encontra o gargalo e mostra no detalhe.
-          Só depois a conversa vira solução.
+        <p className="mt-5 sm:mt-6 mx-auto max-w-[34rem] text-muted-foreground text-[15px] sm:text-[16.5px] leading-relaxed font-sans">
+          A gente acha o gargalo, te mostra, e só depois propõe.
         </p>
+
         <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3">
           <a
             href={WA}
