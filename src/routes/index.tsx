@@ -422,10 +422,10 @@ function Demonstracoes() {
         <div className="mt-6 sm:mt-8 rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 backdrop-blur-md p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="max-w-2xl">
             <h3 className="font-display font-semibold text-[1.1rem] sm:text-[1.3rem] tracking-[-0.015em] text-foreground leading-snug">
-              Outras demonstrações por segmento
+              Outros gargalos, outros segmentos
             </h3>
             <p className="mt-2 text-[13.5px] sm:text-[14px] text-muted-foreground leading-relaxed font-sans">
-              Veja exemplos adaptados para clínicas, estética, restaurantes e imobiliárias.
+              Mesmo método aplicado em clínica, estética, restaurante e imóveis.
             </p>
           </div>
           <Link
@@ -433,9 +433,10 @@ function Demonstracoes() {
             onClick={() => track("portfolio_bridge_click", { from: "home_demo" })}
             className="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-full border border-primary/50 bg-primary/15 hover:bg-primary/25 text-[13px] font-sans font-semibold text-primary transition-colors"
           >
-            Explorar portfólio de demonstrações
+            Ver outras operações
             <ArrowRight className="h-4 w-4" />
           </Link>
+
         </div>
       </div>
     </section>
