@@ -100,8 +100,9 @@ export const Route = createFileRoute("/")({
   component: Landing,
 });
 
-const WA_MESSAGE = "Olá! Quero uma demonstração personalizada da Imperius para minha empresa.";
+const WA_MESSAGE = "Olá! Quero um diagnóstico do gargalo comercial da minha empresa.";
 const WA = `https://wa.me/5515981023792?text=${encodeURIComponent(WA_MESSAGE)}`;
+
 const IG = "https://instagram.com/imperiusdigital.br";
 const BLACK_CROWN_URL = "https://blackcrown-by-imperius.lovable.app/";
 // Endereço de contato comercial. Centralizado para permitir migração futura
