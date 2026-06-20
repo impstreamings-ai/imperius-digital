@@ -584,13 +584,13 @@ function FinalCTA() {
       <div className="relative mx-auto max-w-4xl px-6 text-center">
         <div className="mb-6"><SectionEyebrow align="center">Próximo passo</SectionEyebrow></div>
         <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.5rem] lg:text-[2.9rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-          Veja como sua operação pode ficar mais{" "}
-          <span className="text-neon">organizada, apresentável</span>{" "}
-          e pronta para vender.
+          Veja sua operação{" "}
+          <span className="text-neon">funcionando antes</span>{" "}
+          de assinar contrato.
         </h2>
         <p className="mt-6 text-muted-foreground text-[15px] sm:text-[17px] max-w-2xl mx-auto leading-relaxed font-sans">
-          Demonstração funcional construída para a sua empresa —
-          escopo definido em conjunto, projeto funcional antes de qualquer contrato.
+          Demonstração funcional construída para a sua empresa, entregue em 3 a 7 dias úteis.
+          Você só fecha depois de ver no ar.
         </p>
         <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
           <a
