@@ -511,12 +511,13 @@ function Demonstracoes() {
         <div className="mt-6 sm:mt-8 rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 backdrop-blur-md p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="max-w-2xl">
             <h3 className="font-display font-semibold text-[1.1rem] sm:text-[1.3rem] tracking-[-0.015em] text-foreground leading-snug">
-              Outros gargalos, outros segmentos
+              Outros segmentos
             </h3>
             <p className="mt-2 text-[13.5px] sm:text-[14px] text-muted-foreground leading-relaxed font-sans">
-              Mesmo método aplicado em clínica, estética, restaurante e imóveis.
+              Clínica, estética, restaurante, imóveis.
             </p>
           </div>
+
           <Link
             to="/portfolio"
             onClick={() => track("portfolio_bridge_click", { from: "home_demo" })}
