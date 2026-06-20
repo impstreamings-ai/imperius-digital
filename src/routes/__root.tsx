@@ -89,8 +89,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:title", content: "Imperius — Software, Automação e IA para Operações Comerciais" },
       { name: "twitter:description", content: "Plataforma proprietária Imperius: software, automação e IA aplicados a operações comerciais — atendimento, agenda e pipeline em um só ecossistema." },
 
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/OcyNTqxMWMeMSL6WKtCopesHPVV2/social-images/social-1781121634206-artesocvial.webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/OcyNTqxMWMeMSL6WKtCopesHPVV2/social-images/social-1781121634206-artesocvial.webp" },
+      // og:image / twitter:image são definidos por rota-folha para evitar
+      // que um valor do root sobrescreva o share image de cada página.
     ],
 
     links: [
