@@ -402,18 +402,19 @@ function Demonstracoes() {
                 Black Crown Barbershop
               </h3>
               <p className="mt-3 text-[14px] sm:text-[14.5px] text-muted-foreground leading-relaxed font-sans">
-                Demonstração funcional completa: site, agendamento, atendimento e
-                identidade — desenvolvidos e operados pela Imperius.
+                Atendimento, agenda e site operando juntos — não três ferramentas
+                colando uma na outra.
               </p>
               <div className="mt-5 text-[11px] uppercase tracking-[0.22em] font-sans text-muted-foreground/70 truncate">
                 blackcrown-by-imperius.lovable.app
               </div>
               <div className="mt-auto pt-6">
                 <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold transition-transform group-hover:-translate-y-0.5">
-                  Ver demonstração Black Crown
+                  Abrir a operação Black Crown
                   <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </span>
               </div>
+
             </div>
           </div>
         </a>
