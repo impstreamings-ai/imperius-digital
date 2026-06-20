@@ -295,19 +295,19 @@ function Ecossistema() {
       icon: MessageCircle,
       tag: "Atendimento",
       title: "Atendimento Inteligente",
-      desc: "Centralizamos WhatsApp, formulários e canais em um só fluxo — com qualificação inicial automática e registro de cada contato.",
+      desc: "WhatsApp, formulários e canais em um só fluxo. Cada contato registrado, qualificado e atribuído a um responsável.",
     },
     {
       icon: Users,
       tag: "Comercial",
       title: "Gestão Comercial",
-      desc: "Pipeline de oportunidades, follow-up organizado e relatórios claros para você acompanhar o que está aberto e o que fechou.",
+      desc: "Pipeline de vendas, follow-up programado e relatórios objetivos: o que entrou, o que avançou, o que fechou.",
     },
     {
       icon: Calendar,
       tag: "Operação",
       title: "Operação Integrada",
-      desc: "Agenda online, confirmações automáticas e integração com o atendimento — tudo conectado em um único painel.",
+      desc: "Agenda online, confirmações automáticas e integração direta com o atendimento — sem planilha paralela.",
     },
   ];
   return (
