@@ -165,10 +165,12 @@ function Problema() {
 
 
 function Nav() {
+  const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
   return (
     <header className="fixed top-0 inset-x-0 z-50 border-b border-border/40 backdrop-blur-xl bg-background/70">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-        <a href="#top" className="flex items-center gap-3 min-w-0">
+        <a href="#top" className="flex items-center gap-3 min-w-0" onClick={close}>
           <img src={"/assets/imperius-logo-official.png"} alt="Imperius Soluções Digitais" className="h-[36px] w-auto object-contain shrink-0" loading="eager" decoding="async" />
           <span className="hidden sm:flex flex-col leading-tight min-w-0">
             <span className="font-heading font-semibold tracking-[0.2em] text-[12px] truncate">IMPERIUS</span>
@@ -181,13 +183,34 @@ function Nav() {
           <Link to="/portfolio" className="hover:text-foreground transition-colors">Portfólio</Link>
           <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
         </nav>
-        <a href={WA} target="_blank" rel="noreferrer" className="shrink-0" onClick={() => track("whatsapp_click", { location: "nav" })}>
-          <Button size="sm" className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4">
-            <span className="sm:hidden">Falar agora</span>
-            <span className="hidden sm:inline">Solicitar demonstração</span>
-          </Button>
-        </a>
+        <div className="flex items-center gap-2 shrink-0">
+          <a href={WA} target="_blank" rel="noreferrer" onClick={() => track("whatsapp_click", { location: "nav" })}>
+            <Button size="sm" className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4">
+              <span className="sm:hidden">Falar agora</span>
+              <span className="hidden sm:inline">Solicitar demonstração</span>
+            </Button>
+          </a>
+          <button
+            type="button"
+            aria-label={open ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="md:hidden h-9 w-9 grid place-items-center rounded-md border border-border/60 text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+          >
+            {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          </button>
+        </div>
       </div>
+      {open ? (
+        <div className="md:hidden border-t border-border/40 bg-background/95 backdrop-blur-xl">
+          <nav className="mx-auto max-w-7xl px-4 sm:px-6 py-4 flex flex-col text-[14px] text-muted-foreground font-medium">
+            <a href="#vitrine" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Demonstração</a>
+            <a href="#processo" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Como funciona</a>
+            <Link to="/portfolio" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Portfólio</Link>
+            <a href="#faq" onClick={close} className="py-2.5 hover:text-foreground transition-colors">FAQ</a>
+          </nav>
+        </div>
+      ) : null}
     </header>
   );
 }
