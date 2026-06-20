@@ -116,13 +116,14 @@ function Landing() {
       <Nav />
       <Hero />
       <Problema />
+      <Metodo />
       <Ecossistema />
       <Demonstracoes />
-      <Process />
-      <FAQ />
+      <Operator />
       <FinalCTA />
       <Footer />
     </div>
+
   );
 }
 
