@@ -32,7 +32,7 @@ function SectionEyebrow({
   children,
   align = "left",
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   align?: "left" | "center";
 }) {
   const justify = align === "center" ? "justify-center" : "";
