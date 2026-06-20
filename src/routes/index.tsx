@@ -116,35 +116,37 @@ function Landing() {
       <Nav />
       <Hero />
       <Problema />
+      <Metodo />
       <Ecossistema />
       <Demonstracoes />
-      <Process />
-      <FAQ />
+      <Operator />
       <FinalCTA />
       <Footer />
     </div>
+
   );
 }
 
 function Problema() {
   const dores = [
-    { icon: MessageCircle, t: "Cliente trava no WhatsApp", d: "A mensagem entra, ninguém responde a tempo. O cliente vai pro concorrente." },
-    { icon: TrendingUp, t: "Contato vira esquecimento", d: "O lead aparece, a conversa morre e ninguém retoma." },
-    { icon: ClipboardList, t: "Time apagando incêndio", d: "Planilha, copia-e-cola, retrabalho. Ninguém olha pro funil." },
-    { icon: Activity, t: "Você decide no escuro", d: "Não dá pra dizer quantos contatos viraram cliente esse mês." },
+    { icon: Calendar, t: "Cliente desiste antes do agendamento", d: "Muita fricção entre interesse e marcação. Some no meio do caminho." },
+    { icon: ClipboardList, t: "Cliques demais pra concluir uma ação", d: "Cada passo extra é cliente que abandona o fluxo." },
+    { icon: MessageCircle, t: "WhatsApp desorganizado", d: "Conversa espalhada, sem dono, sem prazo. Mensagem que some na fila." },
+    { icon: Activity, t: "Atendimento lento", d: "Resposta demora, o cliente esfria e fala com quem responder primeiro." },
+    { icon: TrendingUp, t: "Oportunidades perdidas", d: "Lead entra, ninguém retoma. Vira histórico, não venda." },
   ];
   return (
     <section className="relative py-12 sm:py-16 border-y border-border/30">
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-3xl mb-7 sm:mb-10">
-          <div className="mb-4"><SectionEyebrow>O gargalo</SectionEyebrow></div>
+          <div className="mb-4"><SectionEyebrow>Problemas que encontramos diariamente</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Tem cliente entrando.{" "}
             <span className="text-foreground/55">Só não está chegando até a venda.</span>
           </h2>
         </div>
 
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-y border-border/40 divide-y sm:divide-y-0 sm:divide-x divide-border/40">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 border-y border-border/40 divide-y sm:divide-y-0 sm:divide-x divide-border/40">
           {dores.map((d) => (
             <li key={d.t} className="p-5 sm:p-6 flex flex-col gap-3 min-w-0">
               <div className="h-9 w-9 rounded-md border border-primary/25 bg-primary/10 grid place-items-center">
@@ -166,6 +168,81 @@ function Problema() {
   );
 }
 
+function Metodo() {
+  const pilares = [
+    { n: "01", t: "Encontrar um gargalo real", d: "A gente olha a operação e identifica onde o cliente realmente trava." },
+    { n: "02", t: "Mostrar visualmente", d: "Desenhamos o gargalo. Você enxerga o ponto exato — não no discurso, na tela." },
+    { n: "03", t: "Fazer uma pergunta curta", d: "Uma pergunta direta sobre o que esse gargalo está custando hoje." },
+    { n: "04", t: "Conversar", d: "Conversa franca sobre contexto, prioridade e o que faz sentido resolver primeiro." },
+    { n: "05", t: "Só depois, apresentar a solução", d: "Proposta só quando o problema está claro pros dois lados." },
+  ];
+  return (
+    <section id="metodo" className="relative py-12 sm:py-16 border-b border-border/30">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="max-w-2xl mb-7 sm:mb-10">
+          <div className="mb-4"><SectionEyebrow>Método Imperius</SectionEyebrow></div>
+          <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+            Cinco passos.{" "}
+            <span className="text-foreground/55">Sempre nessa ordem.</span>
+          </h2>
+        </div>
+        <ol className="grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {pilares.map((p) => (
+            <li
+              key={p.n}
+              className="rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 backdrop-blur-md p-5 flex flex-col min-w-0"
+            >
+              <span className="font-heading text-[11px] tracking-[0.24em] text-primary/80 font-semibold mb-3">
+                {p.n}
+              </span>
+              <h3 className="font-heading font-semibold text-[14.5px] tracking-[-0.005em] text-foreground leading-snug">
+                {p.t}
+              </h3>
+              <p className="mt-2 text-[12.5px] text-muted-foreground leading-relaxed font-sans">
+                {p.d}
+              </p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+function Operator() {
+  return (
+    <section id="operator" className="relative py-12 sm:py-16 border-t border-border/30 bg-[oklch(0.075_0.004_240)]">
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="rounded-2xl border border-primary/30 bg-[oklch(0.1_0.005_245)]/80 backdrop-blur-md p-6 sm:p-10">
+          <div className="grid lg:grid-cols-[1fr_auto] gap-6 items-end">
+            <div className="min-w-0">
+              <div className="mb-4"><SectionEyebrow>Imperius Operator</SectionEyebrow></div>
+              <h2 className="font-display font-semibold text-[1.6rem] sm:text-[2rem] lg:text-[2.3rem] leading-[1.08] tracking-[-0.025em] text-foreground">
+                O operador que vigia seu funil{" "}
+                <span className="text-neon">enquanto você toca o negócio.</span>
+              </h2>
+              <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans max-w-2xl">
+                Acompanha cada contato, cobra resposta no prazo e te avisa quando um cliente
+                está prestes a esfriar. Nada some, nada espera.
+              </p>
+            </div>
+            <a
+              href={WA}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => track("operator_cta_click", { destination: "whatsapp" })}
+              className="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold hover:-translate-y-0.5 transition-transform"
+            >
+              Ver o Operator em ação <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 
 function Nav() {
   const [open, setOpen] = useState(false);
@@ -181,11 +258,13 @@ function Nav() {
           </span>
         </a>
         <nav className="hidden md:flex items-center gap-9 text-[13px] text-muted-foreground font-medium">
+          <a href="#metodo" className="hover:text-foreground transition-colors">Método</a>
+          <a href="#solucoes" className="hover:text-foreground transition-colors">Soluções</a>
           <a href="#vitrine" className="hover:text-foreground transition-colors">Demonstração</a>
-          <a href="#processo" className="hover:text-foreground transition-colors">Como funciona</a>
+          <a href="#operator" className="hover:text-foreground transition-colors">Operator</a>
           <Link to="/portfolio" className="hover:text-foreground transition-colors">Portfólio</Link>
-          <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
         </nav>
+
         <div className="flex items-center gap-2 shrink-0">
           <a href={WA} target="_blank" rel="noreferrer" onClick={() => track("whatsapp_click", { location: "nav" })}>
             <Button size="sm" className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4">
@@ -208,11 +287,13 @@ function Nav() {
       {open ? (
         <div className="md:hidden border-t border-border/40 bg-background/95 backdrop-blur-xl">
           <nav className="mx-auto max-w-7xl px-4 sm:px-6 py-4 flex flex-col text-[14px] text-muted-foreground font-medium">
+            <a href="#metodo" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Método</a>
+            <a href="#solucoes" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Soluções</a>
             <a href="#vitrine" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Demonstração</a>
-            <a href="#processo" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Como funciona</a>
+            <a href="#operator" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Operator</a>
             <Link to="/portfolio" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Portfólio</Link>
-            <a href="#faq" onClick={close} className="py-2.5 hover:text-foreground transition-colors">FAQ</a>
           </nav>
+
         </div>
       ) : null}
     </header>
@@ -310,10 +391,11 @@ function Ecossistema() {
     },
   ];
   return (
-    <section className="relative py-12 sm:py-16 border-b border-border/30 bg-[oklch(0.075_0.004_240)]">
+    <section id="solucoes" className="relative py-12 sm:py-16 border-b border-border/30 bg-[oklch(0.075_0.004_240)]">
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-7 sm:mb-10">
-          <div className="mb-4"><SectionEyebrow>Como reduzimos a distância</SectionEyebrow></div>
+          <div className="mb-4"><SectionEyebrow>Soluções</SectionEyebrow></div>
+
           <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Não vendemos ferramenta.{" "}
             <span className="text-neon">Encurtamos o caminho entre o contato e a venda.</span>
@@ -643,10 +725,12 @@ function Footer() {
           <div>
             <div className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4 font-sans">Navegação</div>
             <ul className="space-y-2.5 text-sm text-muted-foreground font-sans">
+              <li><a href="#metodo" className="hover:text-foreground transition-colors duration-200">Método</a></li>
+              <li><a href="#solucoes" className="hover:text-foreground transition-colors duration-200">Soluções</a></li>
               <li><a href="#vitrine" className="hover:text-foreground transition-colors duration-200">Demonstração</a></li>
-              <li><a href="#processo" className="hover:text-foreground transition-colors duration-200">Como funciona</a></li>
+              <li><a href="#operator" className="hover:text-foreground transition-colors duration-200">Operator</a></li>
               <li><Link to="/portfolio" className="hover:text-foreground transition-colors duration-200">Portfólio</Link></li>
-              <li><a href="#faq" className="hover:text-foreground transition-colors duration-200">FAQ</a></li>
+
             </ul>
           </div>
 
