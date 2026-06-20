@@ -455,9 +455,9 @@ function Demonstracoes() {
 
 function Process() {
   const steps = [
-    { n: "01", i: MessageCircle, t: "Diagnóstico", d: "Conversa direta para mapear contexto, gargalos e oportunidades reais." },
-    { n: "02", i: LayoutTemplate, t: "Construção", d: "Engenharia da solução sob o seu contexto — funcional antes de qualquer fechamento." },
-    { n: "03", i: Rocket, t: "Implantação", d: "Deploy, integrações e operação assistida até estar rodando com o seu time." },
+    { n: "01", i: MessageCircle, t: "Diagnóstico", d: "Conversa de 30 minutos para mapear canais, gargalos e o que precisa fechar primeiro." },
+    { n: "02", i: LayoutTemplate, t: "Construção", d: "Você recebe a demonstração funcional em 3 a 7 dias úteis. Aprova antes de qualquer contrato." },
+    { n: "03", i: Rocket, t: "Implantação", d: "Deploy, integrações e acompanhamento até o time estar usando no dia a dia." },
   ];
   return (
     <section id="processo" className="py-14 sm:py-20 border-t border-border/30">
@@ -466,7 +466,7 @@ function Process() {
           <div className="mb-5"><SectionEyebrow>Como funciona</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Três etapas.{" "}
-            <span className="text-foreground/55">Projeto ajustado ao seu contexto.</span>
+            <span className="text-foreground/55">Você aprova antes de assinar.</span>
           </h2>
         </div>
 
