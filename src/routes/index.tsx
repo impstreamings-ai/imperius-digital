@@ -347,18 +347,17 @@ function Ecossistema() {
 
 function Demonstracoes() {
   return (
-    <section id="vitrine" className="relative py-14 sm:py-20 border-t border-border/30">
+    <section id="vitrine" className="relative py-12 sm:py-16 border-t border-border/30">
       <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-6xl px-6">
-        <div className="max-w-2xl mb-8 sm:mb-12">
-          <div className="mb-5"><SectionEyebrow>Demonstração</SectionEyebrow></div>
-          <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+        <div className="max-w-2xl mb-7 sm:mb-10">
+          <div className="mb-4"><SectionEyebrow>Demonstração</SectionEyebrow></div>
+          <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Demonstração funcional,{" "}
             <span className="text-neon">navegável agora.</span>
           </h2>
-          <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans">
-            Não é mockup. É um ambiente real em operação, com domínio próprio — clique
-            e use como seu cliente final usaria.
+          <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans">
+            Ambiente real em operação, com domínio próprio — clique e use como seu cliente final usaria.
           </p>
         </div>
 
