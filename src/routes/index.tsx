@@ -128,21 +128,22 @@ function Landing() {
 
 function Problema() {
   const dores = [
-    { icon: MessageCircle, t: "Clientes perdidos no WhatsApp", d: "Mensagens espalhadas, sem registro nem responsável definido." },
-    { icon: TrendingUp, t: "Leads sem acompanhamento", d: "Oportunidades entram, somem na conversa e nunca chegam ao comercial." },
-    { icon: ClipboardList, t: "Tempo perdido em tarefas repetitivas", d: "Planilhas, copia-e-cola e retrabalho consumindo o time todo dia." },
-    { icon: Activity, t: "Decisões no escuro", d: "Sem visão de quantos contatos entraram, quantos fecharam, quanto sobrou." },
+    { icon: MessageCircle, t: "Cliente trava no WhatsApp", d: "A mensagem entra, ninguém responde a tempo. O cliente vai pro concorrente." },
+    { icon: TrendingUp, t: "Contato vira esquecimento", d: "O lead aparece, a conversa morre e ninguém retoma." },
+    { icon: ClipboardList, t: "Time apagando incêndio", d: "Planilha, copia-e-cola, retrabalho. Ninguém olha pro funil." },
+    { icon: Activity, t: "Você decide no escuro", d: "Não dá pra dizer quantos contatos viraram cliente esse mês." },
   ];
   return (
     <section className="relative py-12 sm:py-16 border-y border-border/30">
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-3xl mb-7 sm:mb-10">
-          <div className="mb-4"><SectionEyebrow>O problema</SectionEyebrow></div>
+          <div className="mb-4"><SectionEyebrow>O gargalo</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-            Sua operação comercial está rodando{" "}
-            <span className="text-foreground/55">no improviso.</span>
+            Tem cliente entrando.{" "}
+            <span className="text-foreground/55">Só não está chegando até a venda.</span>
           </h2>
         </div>
+
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-y border-border/40 divide-y sm:divide-y-0 sm:divide-x divide-border/40">
           {dores.map((d) => (
             <li key={d.t} className="p-5 sm:p-6 flex flex-col gap-3 min-w-0">
