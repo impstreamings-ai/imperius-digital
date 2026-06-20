@@ -550,9 +550,6 @@ function FAQ() {
             Preço, prazo, propriedade e suporte —{" "}
             <span className="text-foreground/55">respondidos direto.</span>
           </h2>
-          <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[16px] leading-relaxed font-sans max-w-2xl">
-            As perguntas que todo cliente faz antes de decidir. Respostas objetivas, sem rodeio comercial.
-          </p>
         </div>
         <div className="divide-y divide-border/40 border-y border-border/40">
           {items.map((it, idx) => (
