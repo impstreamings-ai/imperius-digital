@@ -611,8 +611,8 @@ function Footer() {
   return (
     <footer className="relative border-t border-border/40 overflow-hidden">
       <div className="absolute inset-x-0 -top-px h-px" style={{ background: "linear-gradient(90deg, transparent, oklch(0.72 0.22 250 / 0.6), transparent)" }} />
-      <div className="relative mx-auto max-w-7xl px-6 pt-12 sm:pt-16 pb-16 sm:pb-20">
-        <div className="grid md:grid-cols-3 gap-10">
+      <div className="relative mx-auto max-w-7xl px-6 pt-10 sm:pt-12 pb-10 sm:pb-12">
+        <div className="grid md:grid-cols-3 gap-8 sm:gap-10">
           <div>
             <div className="flex items-center gap-3 mb-5">
               <img src={"/assets/imperius-logo-official.png"} alt="Imperius Soluções Digitais" className="h-[44px] w-auto object-contain" loading="lazy" decoding="async" />
