@@ -396,8 +396,8 @@ function Ecossistema() {
     {
       icon: Calendar,
       tag: "Agenda",
-      title: "Agenda que confirma sozinha",
-      desc: "Marcação, lembrete e confirmação no automático.",
+      title: "Agenda sem cliente sumindo",
+      desc: "Marcação confirmada antes do cliente desistir.",
     },
   ];
 
