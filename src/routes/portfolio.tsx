@@ -52,8 +52,13 @@ export const Route = createFileRoute("/portfolio")({
         content:
           "Catálogo oficial da Imperius: projetos demonstrativos e soluções desenvolvidas para apresentar possibilidades de websites, automação, CRM e inteligência artificial.",
       },
-      { property: "og:image", content: "/assets/imperius-logo-official.png" },
+      { property: "og:image", content: "https://imperius-digital.lovable.app/assets/imperius-logo-official.png" },
+      { property: "og:url", content: "https://imperius-digital.lovable.app/portfolio" },
+      { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Portfólio Imperius | Projetos e demonstrações" },
+      { name: "twitter:description", content: "Catálogo oficial da Imperius: websites, automação, CRM e IA aplicada." },
+      { name: "twitter:image", content: "https://imperius-digital.lovable.app/assets/imperius-logo-official.png" },
     ],
     links: [
       {
@@ -61,6 +66,7 @@ export const Route = createFileRoute("/portfolio")({
         href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap",
       },
       { rel: "icon", href: "/assets/imperius-logo-official.png" },
+      { rel: "canonical", href: "https://imperius-digital.lovable.app/portfolio" },
     ],
   }),
   component: PortfolioPage,

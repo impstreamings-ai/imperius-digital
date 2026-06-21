@@ -63,8 +63,8 @@ export const Route = createFileRoute("/")({
           "Mapeamos onde sua operação perde cliente e encurtamos o caminho entre o contato e a venda. Diagnóstico antes de qualquer proposta.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://imperiuslab.com.br/" },
-      { property: "og:image", content: "https://imperiuslab.com.br/__l5e/assets-v1/ae6d1095-0da6-4317-bfb4-9afb5cd15f50/barbearia-alemao-foto.png" },
+      { property: "og:url", content: "https://imperius-digital.lovable.app/" },
+      { property: "og:image", content: "https://imperius-digital.lovable.app/__l5e/assets-v1/ae6d1095-0da6-4317-bfb4-9afb5cd15f50/barbearia-alemao-foto.png" },
 
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Imperius — Encontramos o gargalo que está te custando clientes" },
@@ -73,7 +73,7 @@ export const Route = createFileRoute("/")({
         content:
           "Mapeamos onde sua operação perde cliente e encurtamos o caminho entre o contato e a venda. Diagnóstico antes de qualquer proposta.",
       },
-      { name: "twitter:image", content: "https://imperiuslab.com.br/__l5e/assets-v1/ae6d1095-0da6-4317-bfb4-9afb5cd15f50/barbearia-alemao-foto.png" },
+      { name: "twitter:image", content: "https://imperius-digital.lovable.app/__l5e/assets-v1/ae6d1095-0da6-4317-bfb4-9afb5cd15f50/barbearia-alemao-foto.png" },
 
 
     ],
@@ -83,7 +83,7 @@ export const Route = createFileRoute("/")({
         href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap",
       },
       { rel: "icon", href: "/assets/imperius-logo-official.png" },
-      { rel: "canonical", href: "https://imperiuslab.com.br/" },
+      { rel: "canonical", href: "https://imperius-digital.lovable.app/" },
       // Pré-carrega a capa do cliente real (Barbearia do Alemão) apenas em viewports
       // ≥ tablet, onde entra cedo no viewport e impacta LCP. Mobile mantém lazy
       // para não competir com o hero.

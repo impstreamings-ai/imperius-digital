@@ -48,12 +48,12 @@ export const Route = createFileRoute("/studio-bella")({
         content:
           "Centro de estética premium em São Paulo. Tratamentos faciais, harmonização, laser e protocolos personalizados.",
       },
-      { property: "og:image", content: "/assets/studio-bella-cover.jpg" },
+      { property: "og:image", content: "https://imperius-digital.lovable.app/assets/studio-bella-cover.jpg" },
       { property: "og:url", content: "https://imperius-digital.lovable.app/studio-bella" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Studio Bella Estética" },
-      { name: "twitter:image", content: "/assets/studio-bella-cover.jpg" },
+      { name: "twitter:image", content: "https://imperius-digital.lovable.app/assets/studio-bella-cover.jpg" },
       {
         name: "twitter:description",
         content:

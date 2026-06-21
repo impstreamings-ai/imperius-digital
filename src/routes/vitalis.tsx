@@ -49,6 +49,7 @@ export const Route = createFileRoute("/vitalis")({
       },
       { property: "og:url", content: "https://imperius-digital.lovable.app/vitalis" },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://imperius-digital.lovable.app/assets/vitalis-cover.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Clínica Vitalis | Saúde e cuidado" },
       {
@@ -56,6 +57,7 @@ export const Route = createFileRoute("/vitalis")({
         content:
           "Clínica médica premium em São Paulo. Agendamento online em 30 segundos.",
       },
+      { name: "twitter:image", content: "https://imperius-digital.lovable.app/assets/vitalis-cover.jpg" },
     ],
     links: [
       { rel: "canonical", href: "https://imperius-digital.lovable.app/vitalis" },
