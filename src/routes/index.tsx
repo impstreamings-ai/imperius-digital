@@ -471,7 +471,7 @@ function Demonstracoes() {
           <div className="mb-4"><SectionEyebrow>Projeto Real</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
             Barbearia do Alemão
-            <span className="block text-muted-foreground text-[1.1rem] sm:text-[1.25rem] lg:text-[1.35rem] font-medium mt-2 tracking-normal">
+            <span className="block text-muted-foreground text-[1rem] sm:text-[1.05rem] font-medium mt-2 tracking-normal">
               Sorocaba/SP
             </span>
           </h2>
