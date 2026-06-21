@@ -225,16 +225,16 @@ function Operator() {
   return (
     <section id="operator" className="relative section-y border-t border-border/30">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="rounded-2xl border border-primary/30 bg-[oklch(0.17_0.018_258)]/80 p-6 sm:p-8 lg:p-10">
+        <div className="rounded-2xl border border-border/50 bg-[oklch(0.17_0.018_258)]/80 p-6 sm:p-8 lg:p-10">
           <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-10 lg:items-end">
             <div className="min-w-0">
               <div className="mb-3"><SectionEyebrow>Imperius Operator</SectionEyebrow></div>
               <h2 className="font-display font-semibold text-[1.6rem] sm:text-[2rem] lg:text-[2.3rem] leading-[1.08] tracking-[-0.025em] text-foreground">
-                Ninguém mais{" "}
-                <span className="text-neon">esquece de responder um cliente.</span>
+                Acompanha o caminho do cliente{" "}
+                <span className="text-foreground/55">e avisa quando uma oportunidade está prestes a ser perdida.</span>
               </h2>
-              <p className="mt-3 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans max-w-2xl">
-                Avisa sua equipe quando um cliente está esperando há tempo demais — antes dele desistir e ir pro concorrente.
+              <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans max-w-2xl">
+                Monitora cada conversa, identifica onde o cliente travou, avisa a equipe responsável e ajuda a recuperar a oportunidade antes que ela vá embora.
               </p>
             </div>
             <a
@@ -242,15 +242,13 @@ function Operator() {
               target="_blank"
               rel="noreferrer"
               onClick={() => track("operator_cta_click", { destination: "whatsapp" })}
-              className="w-full lg:w-auto shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold hover:-translate-y-0.5 transition-transform"
+              className="btn-premium w-full lg:w-auto shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold transition-transform"
             >
-              Quero parar de perder cliente assim <ArrowRight className="h-4 w-4" />
+              Quero meu diagnóstico gratuito <ArrowRight className="h-4 w-4" />
             </a>
-
           </div>
         </div>
       </div>
-
     </section>
   );
 }
