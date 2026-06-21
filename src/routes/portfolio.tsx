@@ -434,9 +434,9 @@ function SolutionCard({ solution }: { solution: Solution }) {
       onClick={() =>
         track("portfolio_card_click", { kind: "solution", to: solution.to })
       }
-      className="group relative rounded-2xl border border-border/60 bg-card/40 backdrop-blur-sm overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_20px_60px_-30px_oklch(0.55_0.22_250/0.6)]"
+      className="group relative rounded-2xl border border-border/60 bg-card/40 backdrop-blur-sm overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_20px_60px_-30px_oklch(0_0_0/0.7)]"
     >
-      <div className="relative h-44 sm:h-48 overflow-hidden bg-[oklch(0.11_0.006_245)]">
+      <div className="relative h-44 sm:h-48 overflow-hidden bg-[oklch(0.15_0_0)]">
         <div className="absolute inset-0 bg-grid opacity-20" />
         <div
           className="absolute inset-0"
@@ -496,7 +496,7 @@ function DemoCard({ demo }: { demo: Demo }) {
   const featured = !!demo.featured;
   const inner = (
     <>
-      <div className="relative aspect-[16/10] overflow-hidden bg-[oklch(0.11_0.006_245)]">
+      <div className="relative aspect-[16/10] overflow-hidden bg-[oklch(0.15_0_0)]">
         <img
           src={demo.cover}
           alt={`Pré-visualização do projeto ${demo.title}`}
@@ -547,8 +547,8 @@ function DemoCard({ demo }: { demo: Demo }) {
   const baseCls =
     "group relative rounded-2xl border bg-card/40 backdrop-blur-sm overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-0.5";
   const featuredCls = featured
-    ? "border-primary/35 ring-1 ring-primary/20 shadow-[0_24px_70px_-30px_oklch(0.55_0.22_250/0.55)] hover:border-primary/55 hover:shadow-[0_28px_80px_-26px_oklch(0.55_0.22_250/0.75)]"
-    : "border-border/60 hover:border-primary/40 hover:shadow-[0_20px_60px_-30px_oklch(0.55_0.22_250/0.6)]";
+    ? "border-primary/35 ring-1 ring-primary/20 shadow-[0_24px_70px_-30px_oklch(0_0_0/0.7)] hover:border-primary/55 hover:shadow-[0_28px_80px_-26px_oklch(0_0_0/0.78)]"
+    : "border-border/60 hover:border-primary/40 hover:shadow-[0_20px_60px_-30px_oklch(0_0_0/0.7)]";
   const className = `${baseCls} ${featuredCls}`;
 
   if (demo.external && demo.href) {
@@ -661,7 +661,7 @@ function FinalCTA() {
           >
             <Button
               size="lg"
-              className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]"
+              className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.7_0.032_232/0.45)]"
             >
               <MessageCircle className="mr-2 h-4 w-4" />
               Solicitar Demonstração
