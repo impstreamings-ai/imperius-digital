@@ -199,7 +199,7 @@ function Metodo() {
           {pilares.map((p) => (
             <li
               key={p.n}
-              className="group relative rounded-xl border border-border/50 bg-[oklch(0.14_0_0)]/70 p-5 flex flex-col min-w-0 transition-colors hover:border-primary/40"
+              className="group relative rounded-xl border border-border/50 bg-[oklch(0.17_0.018_258)]/70 p-5 flex flex-col min-w-0 transition-colors hover:border-primary/40"
             >
               <span className="absolute left-0 top-5 h-6 w-[2px] bg-primary/70 rounded-r" aria-hidden />
               <span className="font-heading text-[18px] leading-none tracking-[-0.02em] text-primary font-semibold mb-3">
@@ -222,9 +222,9 @@ function Metodo() {
 
 function Operator() {
   return (
-    <section id="operator" className="relative py-12 sm:py-16 border-t border-border/30 bg-[oklch(0.08_0_0)]">
+    <section id="operator" className="relative py-12 sm:py-16 border-t border-border/30 bg-[oklch(0.105_0.012_258)]">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="rounded-2xl border border-primary/30 bg-[oklch(0.14_0_0)]/80 p-6 sm:p-8 lg:p-10">
+        <div className="rounded-2xl border border-primary/30 bg-[oklch(0.17_0.018_258)]/80 p-6 sm:p-8 lg:p-10">
           <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-10 lg:items-end">
             <div className="min-w-0">
               <div className="mb-3"><SectionEyebrow>Imperius Operator</SectionEyebrow></div>
@@ -406,7 +406,7 @@ function Ecossistema() {
   ];
 
   return (
-    <section id="solucoes" className="relative py-12 sm:py-16 border-b border-border/30 bg-[oklch(0.08_0_0)]">
+    <section id="solucoes" className="relative py-12 sm:py-16 border-b border-border/30 bg-[oklch(0.105_0.012_258)]">
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-7 sm:mb-10">
           <div className="mb-4"><SectionEyebrow>Soluções</SectionEyebrow></div>
@@ -422,7 +422,7 @@ function Ecossistema() {
           {cards.map((c) => (
             <li
               key={c.title}
-              className="card-rise group rounded-xl border border-border/50 bg-[oklch(0.14_0_0)]/80 backdrop-blur-md p-6 flex flex-col"
+              className="card-rise group rounded-xl border border-border/50 bg-[oklch(0.17_0.018_258)]/80 backdrop-blur-md p-6 flex flex-col"
             >
               <div className="flex items-center justify-between mb-5">
                 <div className="h-9 w-9 rounded-md border border-primary/30 bg-primary/10 grid place-items-center">
@@ -459,10 +459,10 @@ function Demonstracoes() {
           target="_blank"
           rel="noreferrer"
           onClick={() => track("client_proof_click", { project: "barbearia_do_alemao" })}
-          className="card-rise group block rounded-2xl border border-primary/30 bg-[oklch(0.13_0_0)] overflow-hidden shadow-[0_30px_80px_-30px_oklch(0_0_0/0.7)]"
+          className="card-rise group block rounded-2xl border border-primary/30 bg-[oklch(0.16_0.016_258)] overflow-hidden shadow-[0_30px_80px_-30px_oklch(0_0_0/0.7)]"
         >
           <div className="grid lg:grid-cols-[1fr_1fr] items-stretch">
-            <div className="relative overflow-hidden bg-[oklch(0.10_0_0)] flex items-center justify-center p-4 sm:p-5 lg:p-6 min-h-[460px] sm:min-h-[580px] lg:min-h-[680px]">
+            <div className="relative overflow-hidden bg-[oklch(0.13_0.014_258)] flex items-center justify-center p-4 sm:p-5 lg:p-6 min-h-[460px] sm:min-h-[580px] lg:min-h-[680px]">
               <img
                 src={CLIENTE_REAL_COVER}
                 alt="Barbearia do Alemão — site real desenvolvido pela Imperius"
@@ -505,7 +505,7 @@ function Demonstracoes() {
           </div>
         </a>
 
-        <div className="mt-6 sm:mt-8 rounded-xl border border-border/50 bg-[oklch(0.14_0_0)]/70 backdrop-blur-md p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="mt-6 sm:mt-8 rounded-xl border border-border/50 bg-[oklch(0.17_0.018_258)]/70 backdrop-blur-md p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="max-w-2xl">
             <h3 className="font-display font-semibold text-[1.1rem] sm:text-[1.3rem] tracking-[-0.015em] text-foreground leading-snug">
               Outros segmentos
@@ -559,7 +559,7 @@ function Process() {
           {steps.map((s) => (
             <li
               key={s.t}
-              className="card-rise rounded-xl border border-border/50 bg-[oklch(0.14_0_0)]/70 backdrop-blur-md p-5 sm:p-6 flex flex-col"
+              className="card-rise rounded-xl border border-border/50 bg-[oklch(0.17_0.018_258)]/70 backdrop-blur-md p-5 sm:p-6 flex flex-col"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="h-9 w-9 rounded-md border border-primary/30 bg-primary/10 grid place-items-center">

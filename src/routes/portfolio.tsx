@@ -442,7 +442,7 @@ function SolutionCard({ solution }: { solution: Solution }) {
       }
       className="group relative rounded-2xl border border-border/60 bg-card/40 backdrop-blur-sm overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_20px_60px_-30px_oklch(0_0_0/0.7)]"
     >
-      <div className="relative h-44 sm:h-48 overflow-hidden bg-[oklch(0.15_0_0)]">
+      <div className="relative h-44 sm:h-48 overflow-hidden bg-[oklch(0.185_0.018_258)]">
         <div className="absolute inset-0 bg-grid opacity-20" />
         <div
           className="absolute inset-0"
@@ -502,7 +502,7 @@ function DemoCard({ demo }: { demo: Demo }) {
   const featured = !!demo.featured;
   const inner = (
     <>
-      <div className="relative aspect-[16/10] overflow-hidden bg-[oklch(0.15_0_0)]">
+      <div className="relative aspect-[16/10] overflow-hidden bg-[oklch(0.185_0.018_258)]">
         <img
           src={demo.cover}
           alt={`Pré-visualização do projeto ${demo.title}`}
