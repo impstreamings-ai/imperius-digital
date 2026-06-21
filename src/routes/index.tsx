@@ -462,7 +462,7 @@ function Demonstracoes() {
           className="card-rise group block rounded-2xl border border-primary/30 bg-[oklch(0.13_0_0)] overflow-hidden shadow-[0_30px_80px_-30px_oklch(0_0_0/0.7)]"
         >
           <div className="grid lg:grid-cols-[1.4fr_1fr] items-stretch">
-            <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden bg-[oklch(0.16_0_0)]">
+            <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto lg:min-h-[440px] overflow-hidden bg-[oklch(0.1_0_0)] flex items-center justify-center p-4 sm:p-6">
               <img
                 src={CLIENTE_REAL_COVER}
                 alt="Barbearia do Alemão — site real desenvolvido pela Imperius"
@@ -471,16 +471,15 @@ function Demonstracoes() {
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                className="max-h-full max-w-full w-auto h-auto object-contain transition-transform duration-500 group-hover:scale-[1.02]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" aria-hidden />
-              <div className="badge-pulse absolute top-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-primary/50 bg-background/75 backdrop-blur-md text-[10px] uppercase tracking-[0.22em] font-semibold font-sans text-primary">
+            </div>
+            <div className="p-5 sm:p-8 lg:p-10 flex flex-col min-w-0">
+              <div className="badge-pulse self-start inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-primary/50 bg-background/75 backdrop-blur-md text-[10px] uppercase tracking-[0.22em] font-semibold font-sans text-primary">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
                 Cliente real
               </div>
-            </div>
-            <div className="p-5 sm:p-8 lg:p-10 flex flex-col min-w-0">
-              <h2 className="font-display font-semibold text-[1.35rem] sm:text-[1.6rem] lg:text-[1.95rem] leading-[1.1] tracking-[-0.02em] text-foreground">
+              <h2 className="mt-4 font-display font-semibold text-[1.35rem] sm:text-[1.6rem] lg:text-[1.95rem] leading-[1.1] tracking-[-0.02em] text-foreground">
                 Barbearia do Alemão
                 <span className="block text-muted-foreground text-[0.95rem] sm:text-[1rem] lg:text-[1.05rem] font-medium mt-1 tracking-normal">
                   Sorocaba/SP
