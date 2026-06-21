@@ -792,7 +792,7 @@ function Footer() {
         </div>
 
         <div className="mt-10 pt-6 border-t border-border/40 flex flex-col items-center gap-2 text-center text-xs text-muted-foreground font-sans">
-          <p>© {new Date().getFullYear()} Imperius Soluções Digitais. Todos os direitos reservados.</p>
+          <p>© {new Date().getFullYear()} Imperius Operações Comerciais. Todos os direitos reservados.</p>
           <p className="text-[11px] text-muted-foreground/70 max-w-xl leading-relaxed">
             Usamos cookies analíticos (Google Analytics) para medir o uso do site. Para solicitações relacionadas aos seus dados (LGPD),
             escreva para <a href={PROPOSAL_MAILTO} className="underline hover:text-foreground">{PROPOSAL_EMAIL}</a>.
