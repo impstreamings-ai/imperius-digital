@@ -324,22 +324,17 @@ function Hero() {
         paddingRight: "max(0px, env(safe-area-inset-right))",
       }}
     >
-      <div className="absolute inset-0 bg-grid pointer-events-none opacity-[0.18]" aria-hidden />
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[420px] rounded-full blur-3xl opacity-30 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, oklch(0.5 0.16 258 / 0.20), transparent 70%)" }}
-        aria-hidden
-      />
+      <div className="absolute inset-0 bg-grid pointer-events-none opacity-[0.12]" aria-hidden />
 
       <div className="relative mx-auto max-w-3xl px-5 sm:px-6 w-full text-center">
-        <div className="mb-5 sm:mb-6"><SectionEyebrow align="center">Mais venda. Menos cliente perdido no caminho.</SectionEyebrow></div>
+        <div className="mb-5 sm:mb-6"><SectionEyebrow align="center">Diagnóstico comercial</SectionEyebrow></div>
         <h1 className="font-display text-[2rem] sm:text-[2.8rem] lg:text-[3.3rem] xl:text-[3.6rem] font-semibold leading-[1.04] tracking-[-0.03em] text-foreground">
-          Cada etapa a mais,{" "}
-          <span className="text-shimmer">é um cliente a menos</span>.
+          Seu cliente quer comprar.{" "}
+          <span className="text-foreground/55">Mas não chega até a venda.</span>
         </h1>
 
         <p className="mt-5 sm:mt-6 mx-auto max-w-[34rem] text-muted-foreground text-[15px] sm:text-[16.5px] leading-relaxed font-sans">
-          Tiramos os passos que fazem seu cliente desistir — e encurtamos o caminho até a venda.
+          Identificamos o ponto exato onde sua operação perde cliente — antes de qualquer proposta.
         </p>
 
         <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3">
@@ -354,7 +349,7 @@ function Hero() {
               size="lg"
               className="btn-premium w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[14px] transition-all duration-300 hover:-translate-y-0.5"
             >
-              Quero vender mais sem mudar tudo <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              Quero meu diagnóstico gratuito <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Button>
           </a>
           <a
@@ -362,15 +357,12 @@ function Hero() {
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-5 text-[13px] font-sans text-muted-foreground hover:text-foreground transition-colors"
             onClick={() => track("hero_cta_click", { destination: "metodo" })}
           >
-            <span>Como funciona em 5 passos</span>
+            <span>Como funciona</span>
           </a>
         </div>
         <p className="mt-6 sm:mt-7 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
-          Conversa de 20 minutos · Sem proposta antes de entender sua operação
+          Conversa de 20 minutos · Sem proposta antes do diagnóstico
         </p>
-
-
-
       </div>
     </section>
   );
