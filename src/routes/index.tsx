@@ -113,7 +113,7 @@ const PROPOSAL_MAILTO = `mailto:${PROPOSAL_EMAIL}?subject=${encodeURIComponent("
 
 function Landing() {
   return (
-    <div className="min-h-dvh bg-background text-foreground font-sans overflow-x-hidden">
+    <div className="min-h-dvh text-foreground font-sans overflow-x-hidden">
       <Nav />
       <Hero />
       <Problema />
@@ -222,7 +222,7 @@ function Metodo() {
 
 function Operator() {
   return (
-    <section id="operator" className="relative py-12 sm:py-16 border-t border-border/30 bg-[oklch(0.105_0.012_258)]">
+    <section id="operator" className="relative py-12 sm:py-16 border-t border-border/30">
       <div className="mx-auto max-w-5xl px-6">
         <div className="rounded-2xl border border-primary/30 bg-[oklch(0.17_0.018_258)]/80 p-6 sm:p-8 lg:p-10">
           <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-10 lg:items-end">
@@ -406,7 +406,7 @@ function Ecossistema() {
   ];
 
   return (
-    <section id="solucoes" className="relative py-12 sm:py-16 border-b border-border/30 bg-[oklch(0.105_0.012_258)]">
+    <section id="solucoes" className="relative py-12 sm:py-16 border-b border-border/30">
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-7 sm:mb-10">
           <div className="mb-4"><SectionEyebrow>Soluções</SectionEyebrow></div>
