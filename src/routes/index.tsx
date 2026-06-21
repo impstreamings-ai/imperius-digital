@@ -328,13 +328,13 @@ function Hero() {
       />
 
       <div className="relative mx-auto max-w-3xl px-5 sm:px-6 w-full text-center">
-        <div className="mb-5 sm:mb-6"><SectionEyebrow align="center">Imperius · Diagnóstico comercial</SectionEyebrow></div>
+        <div className="mb-5 sm:mb-6"><SectionEyebrow align="center">Mais venda. Menos cliente perdido no caminho.</SectionEyebrow></div>
         <h1 className="font-display text-[2rem] sm:text-[2.8rem] lg:text-[3.3rem] xl:text-[3.6rem] font-semibold leading-[1.04] tracking-[-0.03em] text-foreground">
-          Onde sua empresa está perdendo cliente —{" "}
-          <span className="text-shimmer">e como encurtar esse caminho</span>.
+          Cada etapa a mais{" "}
+          <span className="text-shimmer">é um cliente a menos</span>.
         </h1>
         <p className="mt-5 sm:mt-6 mx-auto max-w-[34rem] text-muted-foreground text-[15px] sm:text-[16.5px] leading-relaxed font-sans">
-          A gente acha o gargalo, te mostra, e só depois propõe.
+          Tiramos os passos que fazem seu cliente desistir — e encurtamos o caminho até a venda.
         </p>
 
         <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3">
@@ -349,21 +349,21 @@ function Hero() {
               size="lg"
               className="btn-premium w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[14px] transition-all duration-300 hover:-translate-y-0.5"
             >
-              Quero ver meu gargalo no WhatsApp <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              Quero vender mais sem mudar tudo <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Button>
           </a>
           <a
-            href={PROPOSAL_MAILTO}
+            href="#metodo"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-5 text-[13px] font-sans text-muted-foreground hover:text-foreground transition-colors"
-            onClick={() => track("hero_cta_click", { destination: "email" })}
+            onClick={() => track("hero_cta_click", { destination: "metodo" })}
           >
-            <Mail className="h-4 w-4" />
-            <span>Prefiro receber por e-mail</span>
+            <span>Como funciona em 5 passos</span>
           </a>
         </div>
         <p className="mt-6 sm:mt-7 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
-          Conversa curta · Sem proposta antes do diagnóstico
+          Conversa de 20 minutos · Sem proposta antes de entender sua operação
         </p>
+
 
 
       </div>
