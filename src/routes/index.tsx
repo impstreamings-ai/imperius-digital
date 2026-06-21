@@ -12,7 +12,7 @@ import {
   Rocket,
   LayoutTemplate,
   TrendingUp,
-  Scissors,
+  
   Users,
   Calendar,
   Mail,
