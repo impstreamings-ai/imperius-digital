@@ -58,12 +58,12 @@ export const Route = createFileRoute("/prime-imoveis")({
         content:
           "Imóveis premium com curadoria, segurança jurídica e assessoria personalizada — para quem busca patrimônio de verdade.",
       },
-      { property: "og:image", content: "/assets/prime-cover.jpg" },
+      { property: "og:image", content: "https://imperius-digital.lovable.app/assets/prime-cover.jpg" },
       { property: "og:url", content: "https://imperius-digital.lovable.app/prime-imoveis" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Prime Imóveis" },
-      { name: "twitter:image", content: "/assets/prime-cover.jpg" },
+      { name: "twitter:image", content: "https://imperius-digital.lovable.app/assets/prime-cover.jpg" },
       {
         name: "twitter:description",
         content:

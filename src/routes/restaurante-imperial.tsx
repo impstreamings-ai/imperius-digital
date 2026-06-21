@@ -56,12 +56,12 @@ export const Route = createFileRoute("/restaurante-imperial")({
         content:
           "Cozinha contemporânea, ingredientes selecionados e ambiente intimista. Uma experiência para celebrar.",
       },
-      { property: "og:image", content: "/assets/imperial-cover.jpg" },
+      { property: "og:image", content: "https://imperius-digital.lovable.app/assets/imperial-cover.jpg" },
       { property: "og:url", content: "https://imperius-digital.lovable.app/restaurante-imperial" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Restaurante Imperial" },
-      { name: "twitter:image", content: "/assets/imperial-cover.jpg" },
+      { name: "twitter:image", content: "https://imperius-digital.lovable.app/assets/imperial-cover.jpg" },
       {
         name: "twitter:description",
         content:
