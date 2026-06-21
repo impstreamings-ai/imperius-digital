@@ -129,23 +129,24 @@ function Landing() {
 
 function Problema() {
   const dores = [
-    { icon: Calendar, t: "Cliente desiste antes do agendamento", d: "Some entre o interesse e a marcação." },
-    { icon: ClipboardList, t: "Cliques demais pra concluir", d: "Cada passo extra é abandono." },
-    { icon: MessageCircle, t: "WhatsApp desorganizado", d: "Sem dono, sem prazo, sem rastro." },
-    { icon: Activity, t: "Atendimento lento", d: "Cliente esfria e fala com quem responder primeiro." },
-    { icon: TrendingUp, t: "Oportunidades perdidas", d: "Lead entra, ninguém retoma. Vira histórico." },
+    { icon: Calendar, t: "Cliente desiste antes de agendar", d: "Pede horário, some, e ninguém retoma." },
+    { icon: ClipboardList, t: "Cliente trava no meio do caminho", d: "Começa a comprar e abandona antes do fim." },
+    { icon: MessageCircle, t: "Mensagem chega e ninguém responde", d: "Quando alguém vê, o cliente já fechou com outro." },
+    { icon: Activity, t: "Você responde rápido e ele some", d: "Mandou orçamento, mandou foto, e o cliente sumiu." },
+    { icon: TrendingUp, t: "Cliente entra e nunca mais volta", d: "Pediu informação uma vez. Ninguém chamou de novo." },
   ];
 
   return (
     <section className="relative py-12 sm:py-16 border-y border-border/30">
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-3xl mb-7 sm:mb-10">
-          <div className="mb-4"><SectionEyebrow>Problemas que encontramos diariamente</SectionEyebrow></div>
+          <div className="mb-4"><SectionEyebrow>Acontece toda semana na sua operação</SectionEyebrow></div>
           <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-            Tem cliente entrando.{" "}
-            <span className="text-foreground/55">Não está chegando até a venda.</span>
+            Reconhece alguma dessas{" "}
+            <span className="text-foreground/55">no seu dia a dia?</span>
           </h2>
         </div>
+
 
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 border-y border-border/40 divide-y sm:divide-y-0 sm:divide-x divide-border/40">
