@@ -349,7 +349,7 @@ function Hero() {
         className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] rounded-full blur-3xl opacity-20 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at center, oklch(0.5 0.03 232 / 0.14), transparent 70%)",
+            "radial-gradient(ellipse at center, oklch(0.5 0.16 258 / 0.20), transparent 70%)",
         }}
       />
       <div className="relative mx-auto max-w-5xl px-6 text-center">
@@ -442,13 +442,13 @@ function SolutionCard({ solution }: { solution: Solution }) {
       }
       className="group relative rounded-2xl border border-border/60 bg-card/40 backdrop-blur-sm overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_20px_60px_-30px_oklch(0_0_0/0.7)]"
     >
-      <div className="relative h-44 sm:h-48 overflow-hidden bg-[oklch(0.15_0_0)]">
+      <div className="relative h-44 sm:h-48 overflow-hidden bg-[oklch(0.185_0.018_258)]">
         <div className="absolute inset-0 bg-grid opacity-20" />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse at 30% 20%, oklch(0.5 0.03 232 / 0.18), transparent 60%)",
+              "radial-gradient(ellipse at 30% 20%, oklch(0.5 0.16 258 / 0.24), transparent 60%)",
           }}
         />
         <div className="absolute inset-0 grid place-items-center">
@@ -502,7 +502,7 @@ function DemoCard({ demo }: { demo: Demo }) {
   const featured = !!demo.featured;
   const inner = (
     <>
-      <div className="relative aspect-[16/10] overflow-hidden bg-[oklch(0.15_0_0)]">
+      <div className="relative aspect-[16/10] overflow-hidden bg-[oklch(0.185_0.018_258)]">
         <img
           src={demo.cover}
           alt={`Pré-visualização do projeto ${demo.title}`}
@@ -643,7 +643,7 @@ function FinalCTA() {
         className="absolute inset-0 opacity-30 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at center, oklch(0.5 0.03 232 / 0.12), transparent 70%)",
+            "radial-gradient(ellipse at center, oklch(0.5 0.16 258 / 0.18), transparent 70%)",
         }}
       />
       <div className="relative mx-auto max-w-3xl px-6 text-center">
