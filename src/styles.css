@@ -50,14 +50,14 @@
   --popover-foreground: oklch(0.965 0 0);
 
   /* Azul Gelo é assinatura — usar como primary mas com chroma baixíssimo */
-  --primary: oklch(0.7 0.032 232);              /* Azul Gelo #8AA4B8 */
+  --primary: oklch(0.7 0.032 258);              /* Azul Gelo #8AA4B8 */
   --primary-foreground: oklch(0.12 0 0);
 
   --secondary: oklch(0.27 0 0);                 /* Grafite */
   --secondary-foreground: oklch(0.965 0 0);
   --muted: oklch(0.21 0 0);
   --muted-foreground: oklch(0.78 0 0);          /* Prata Premium */
-  --accent: oklch(0.7 0.032 232);               /* Ice como accent */
+  --accent: oklch(0.7 0.032 258);               /* Ice como accent */
   --accent-foreground: oklch(0.12 0 0);
 
   --destructive: oklch(0.55 0.18 25);
@@ -65,23 +65,23 @@
 
   --border: oklch(0.32 0.002 240 / 55%);        /* graphite border */
   --input: oklch(0.27 0 0);
-  --ring: oklch(0.7 0.032 232);
+  --ring: oklch(0.7 0.032 258);
 
-  --neon: oklch(0.7 0.032 232);                 /* assinatura ice */
-  --ice: oklch(0.78 0.028 232);
+  --neon: oklch(0.7 0.032 258);                 /* assinatura ice */
+  --ice: oklch(0.78 0.028 258);
   --titanium: oklch(0.72 0 0);                  /* prata escovada */
 
   /* Fundo do hero: titânio profundo com leve respiração ice — sem azul brilhante */
-  --gradient-hero: radial-gradient(ellipse at 50% 0%, oklch(0.22 0.018 232 / 0.32), transparent 62%),
-                   radial-gradient(ellipse at 80% 90%, oklch(0.2 0.012 232 / 0.18), transparent 58%),
+  --gradient-hero: radial-gradient(ellipse at 50% 0%, oklch(0.22 0.018 258 / 0.32), transparent 62%),
+                   radial-gradient(ellipse at 80% 90%, oklch(0.2 0.012 258 / 0.18), transparent 58%),
                    linear-gradient(180deg, oklch(0.09 0 0), oklch(0.07 0 0));
   /* Texto gradient: branco premium → prata */
   --gradient-text: linear-gradient(180deg, oklch(0.98 0 0) 0%, oklch(0.78 0 0) 100%);
   /* "Neon" agora é prata escovada → ice gelo, sem chroma alto */
-  --gradient-neon: linear-gradient(135deg, oklch(0.85 0 0), oklch(0.78 0.03 232));
+  --gradient-neon: linear-gradient(135deg, oklch(0.85 0 0), oklch(0.78 0.03 258));
 
   /* Sombras: graphite com toque mínimo de ice na linha de contorno */
-  --shadow-neon: 0 0 0 1px oklch(0.7 0.03 232 / 0.18),
+  --shadow-neon: 0 0 0 1px oklch(0.7 0.03 258 / 0.18),
                  0 14px 40px -18px oklch(0 0 0 / 0.7);
   --shadow-card: 0 1px 0 0 oklch(1 0 0 / 0.04) inset,
                  0 30px 60px -30px oklch(0 0 0 / 0.85);
@@ -98,7 +98,7 @@
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: -0.015em; }
-  ::selection { background-color: oklch(0.7 0.032 232 / 0.35); color: oklch(0.98 0 0); }
+  ::selection { background-color: oklch(0.7 0.032 258 / 0.35); color: oklch(0.98 0 0); }
 }
 
 @utility font-heading {
@@ -109,8 +109,8 @@
   transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
   &:hover {
     transform: translateY(-3px);
-    border-color: oklch(0.7 0.032 232 / 0.45);
-    box-shadow: 0 0 0 1px oklch(0.7 0.032 232 / 0.18), 0 18px 40px -18px oklch(0 0 0 / 0.6);
+    border-color: oklch(0.7 0.032 258 / 0.45);
+    box-shadow: 0 0 0 1px oklch(0.7 0.032 258 / 0.18), 0 18px 40px -18px oklch(0 0 0 / 0.6);
   }
 }
 
@@ -155,7 +155,7 @@
 }
 @utility card-editorial-hover {
   &:hover {
-    border-color: oklch(0.7 0.032 232 / 0.4);
+    border-color: oklch(0.7 0.032 258 / 0.4);
     transform: translateY(-2px);
     box-shadow: 0 18px 50px -28px oklch(0 0 0 / 0.7);
   }
@@ -175,8 +175,8 @@
 }
 
 @keyframes imperius-breathe {
-  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 18px oklch(0.7 0.032 232 / 0.32)); }
-  50% { transform: scale(1.02); filter: drop-shadow(0 0 26px oklch(0.78 0.032 232 / 0.5)); }
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 18px oklch(0.7 0.032 258 / 0.32)); }
+  50% { transform: scale(1.02); filter: drop-shadow(0 0 26px oklch(0.78 0.032 258 / 0.5)); }
 }
 
 @keyframes imperius-float {
@@ -196,7 +196,7 @@
   &:hover {
     transform: translateY(-1px);
     box-shadow:
-      0 0 0 1px oklch(0.7 0.032 232 / 0.28),
+      0 0 0 1px oklch(0.7 0.032 258 / 0.28),
       0 14px 36px -18px oklch(0 0 0 / 0.7);
   }
   &:active { transform: translateY(0); transition-duration: 0.12s; }
@@ -204,7 +204,7 @@
     outline: none;
     box-shadow:
       0 0 0 2px var(--background),
-      0 0 0 4px oklch(0.7 0.032 232 / 0.55);
+      0 0 0 4px oklch(0.7 0.032 258 / 0.55);
   }
 }
 
@@ -216,7 +216,7 @@
     border-color 0.45s ease;
   &:hover {
     transform: translateY(-2px);
-    border-color: oklch(0.7 0.032 232 / 0.28);
+    border-color: oklch(0.7 0.032 258 / 0.28);
     box-shadow:
       0 1px 0 0 oklch(1 0 0 / 0.04) inset,
       0 24px 48px -28px oklch(0 0 0 / 0.7);
@@ -227,14 +227,14 @@
 @keyframes badge-halo {
   0%, 100% {
     box-shadow:
-      0 0 0 0 oklch(0.7 0.032 232 / 0.0),
-      0 0 0 1px oklch(0.7 0.032 232 / 0.3);
+      0 0 0 0 oklch(0.7 0.032 258 / 0.0),
+      0 0 0 1px oklch(0.7 0.032 258 / 0.3);
   }
   50% {
     box-shadow:
-      0 0 0 5px oklch(0.7 0.032 232 / 0.0),
-      0 0 14px 1px oklch(0.7 0.032 232 / 0.28),
-      0 0 0 1px oklch(0.7 0.032 232 / 0.45);
+      0 0 0 5px oklch(0.7 0.032 258 / 0.0),
+      0 0 14px 1px oklch(0.7 0.032 258 / 0.28),
+      0 0 0 1px oklch(0.7 0.032 258 / 0.45);
   }
 }
 @utility badge-pulse {
@@ -252,8 +252,8 @@
     oklch(0.82 0 0) 0%,
     oklch(0.82 0 0) 35%,
     oklch(0.98 0 0) 50%,
-    oklch(0.78 0.03 232) 65%,
-    oklch(0.78 0.03 232) 100%
+    oklch(0.78 0.03 258) 65%,
+    oklch(0.78 0.03 258) 100%
   );
   background-size: 250% 100%;
   -webkit-background-clip: text;
@@ -281,8 +281,8 @@
   width: 2px;
   height: 2px;
   border-radius: 9999px;
-  background: oklch(0.82 0.025 232 / 0.55);
-  box-shadow: 0 0 6px oklch(0.78 0.03 232 / 0.35);
+  background: oklch(0.82 0.025 258 / 0.55);
+  box-shadow: 0 0 6px oklch(0.78 0.03 258 / 0.35);
   animation: hero-particle var(--p-dur, 14s) linear infinite;
   animation-delay: var(--p-delay, 0s);
 }
@@ -300,8 +300,8 @@
   inset: -10%;
   pointer-events: none;
   background:
-    radial-gradient(55% 45% at 50% 45%, oklch(0.4 0.025 232 / 0.18), transparent 70%),
-    radial-gradient(40% 35% at 50% 55%, oklch(0.5 0.03 232 / 0.12), transparent 75%);
+    radial-gradient(55% 45% at 50% 45%, oklch(0.4 0.025 258 / 0.18), transparent 70%),
+    radial-gradient(40% 35% at 50% 55%, oklch(0.5 0.03 258 / 0.12), transparent 75%);
   filter: blur(40px);
   animation: hero-breathe 13s ease-in-out infinite;
   mix-blend-mode: screen;
@@ -347,8 +347,8 @@
 .hero-energy-line:nth-child(5) { animation-duration: 11s;  }
 
 @keyframes hero-node-breath {
-  0%, 100% { opacity: 0.8; filter: drop-shadow(0 0 2px oklch(0.78 0.03 232 / 0.35)); }
-  50%      { opacity: 1;   filter: drop-shadow(0 0 6px oklch(0.82 0.03 232 / 0.6));  }
+  0%, 100% { opacity: 0.8; filter: drop-shadow(0 0 2px oklch(0.78 0.03 258 / 0.35)); }
+  50%      { opacity: 1;   filter: drop-shadow(0 0 6px oklch(0.82 0.03 258 / 0.6));  }
 }
 .hero-node {
   transform-box: fill-box;
@@ -363,7 +363,7 @@
 .hero-node:nth-of-type(5) { animation-delay: -5.6s; }
 .hero-node:hover {
   transform: scale(1.14);
-  filter: drop-shadow(0 0 7px oklch(0.82 0.032 232 / 0.75));
+  filter: drop-shadow(0 0 7px oklch(0.82 0.032 258 / 0.75));
 }
 
 .hero-visual-fade {
@@ -378,8 +378,8 @@
 .hero-particle {
   position: absolute;
   width: 2px; height: 2px; border-radius: 9999px;
-  background: oklch(0.85 0.028 232 / 0.7);
-  box-shadow: 0 0 5px oklch(0.8 0.03 232 / 0.5);
+  background: oklch(0.85 0.028 258 / 0.7);
+  box-shadow: 0 0 5px oklch(0.8 0.03 258 / 0.5);
   animation: hero-particle-float 8s ease-in-out infinite;
 }
 
