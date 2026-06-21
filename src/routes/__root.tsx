@@ -151,6 +151,34 @@ function RootComponent() {
     return () => unsub();
   }, [router]);
 
+  // Cursor-aware spotlight para .card-rise — define --mx/--my no elemento sob o mouse.
+  // Pointer fine apenas, reduced-motion respeitado, listener único delegado.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!fine || reduced) return;
+    let raf = 0;
+    const onMove = (e: PointerEvent) => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const target = (e.target as Element | null)?.closest?.(".card-rise") as HTMLElement | null;
+        if (!target) return;
+        const rect = target.getBoundingClientRect();
+        const mx = ((e.clientX - rect.left) / rect.width) * 100;
+        const my = ((e.clientY - rect.top) / rect.height) * 100;
+        target.style.setProperty("--mx", `${mx}%`);
+        target.style.setProperty("--my", `${my}%`);
+      });
+    };
+    window.addEventListener("pointermove", onMove, { passive: true });
+    return () => {
+      window.removeEventListener("pointermove", onMove);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}

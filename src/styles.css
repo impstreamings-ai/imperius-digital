@@ -196,18 +196,37 @@
 
 /* Buttons: subtle lift, graphite contour, ice apenas na borda do focus */
 @utility btn-premium {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   transition:
     transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
     box-shadow 0.5s ease,
     background-color 0.3s ease,
     border-color 0.3s ease;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      105deg,
+      transparent 30%,
+      oklch(1 0 0 / 0.18) 50%,
+      transparent 70%
+    );
+    transform: translateX(-120%);
+    transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+    z-index: 1;
+  }
   &:hover {
     transform: translateY(-1px);
     box-shadow:
       0 0 0 1px oklch(0.62 0.18 258 / 0.35),
       0 14px 36px -18px oklch(0 0 0 / 0.7);
   }
-  &:active { transform: translateY(0); transition-duration: 0.12s; }
+  &:hover::before { transform: translateX(120%); }
+  &:active { transform: translateY(0) scale(0.985); transition-duration: 0.12s; }
   &:focus-visible {
     outline: none;
     box-shadow:
@@ -216,12 +235,29 @@
   }
 }
 
-/* Cards: elevação discreta com sombra preta — sem glow azul */
+/* Cards: elevação discreta com sombra preta — agora com halo plasma topo + cursor-aware spotlight */
 @utility card-rise {
+  position: relative;
+  isolation: isolate;
   transition:
     transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
     box-shadow 0.45s ease,
     border-color 0.45s ease;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background: radial-gradient(
+      400px circle at var(--mx, 50%) var(--my, 0%),
+      oklch(0.62 0.20 258 / 0.18),
+      transparent 55%
+    );
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    z-index: -1;
+  }
   &:hover {
     transform: translateY(-2px);
     border-color: oklch(0.62 0.18 258 / 0.35);
@@ -229,7 +265,47 @@
       0 1px 0 0 oklch(1 0 0 / 0.04) inset,
       0 24px 48px -28px oklch(0 0 0 / 0.7);
   }
+  &:hover::after { opacity: 1; }
+  &:active { transform: translateY(-1px) scale(0.997); transition-duration: 0.14s; }
 }
+
+/* Link com sublinhado animado plasma — opt-in via .link-sweep */
+@utility link-sweep {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, oklch(0.62 0.205 258), transparent);
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  &:hover::after,
+  &:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+}
+
+/* Focus ring global discreto em qualquer elemento interativo sem ring próprio */
+@layer base {
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  [role="link"]:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--background),
+      0 0 0 4px oklch(0.62 0.22 258 / 0.55);
+    border-radius: inherit;
+  }
+}
+
+
 
 /* Status badge halo: pulso quase imperceptível em ice */
 @keyframes badge-halo {
