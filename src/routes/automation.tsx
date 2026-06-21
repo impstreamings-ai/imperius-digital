@@ -359,7 +359,7 @@ function HowItWorks() {
             className="hidden lg:block absolute top-10 left-[10%] right-[10%] h-px"
             style={{
               background:
-                "linear-gradient(90deg, transparent, oklch(0.72 0.22 250 / 0.5), transparent)",
+                "linear-gradient(90deg, transparent, oklch(0.7 0.032 232 / 0.45), transparent)",
             }}
           />
           {steps.map((s, idx) => (
