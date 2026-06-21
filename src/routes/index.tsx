@@ -451,10 +451,36 @@ function Ecossistema() {
 
 
 function Demonstracoes() {
+  const problemas = [
+    "Informações espalhadas",
+    "Muitas etapas até o contato",
+    "Ausência de página própria",
+  ];
+  const solucoes = [
+    "Página centralizada",
+    "Contato simplificado",
+    "Acesso rápido ao negócio",
+  ];
+
   return (
-    <section id="vitrine" className="relative py-12 sm:py-16 border-t border-border/30">
+    <section id="vitrine" className="relative py-14 sm:py-20 border-t border-border/30">
       <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-6xl px-6">
+        {/* Header da seção — sinaliza prova social, não portfólio */}
+        <div className="max-w-2xl mb-8 sm:mb-10">
+          <div className="mb-4"><SectionEyebrow>Projeto Real</SectionEyebrow></div>
+          <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+            Barbearia do Alemão
+            <span className="block text-muted-foreground text-[1.1rem] sm:text-[1.25rem] lg:text-[1.35rem] font-medium mt-2 tracking-normal">
+              Sorocaba/SP
+            </span>
+          </h2>
+          <p className="mt-5 text-[14.5px] sm:text-[15.5px] text-muted-foreground leading-relaxed font-sans max-w-2xl">
+            Solução desenvolvida pela Imperius Operações Comerciais para reduzir atritos no contato com clientes e encurtar o caminho até o agendamento.
+          </p>
+        </div>
+
+        {/* Card principal — imagem ganha mais espaço (1.35fr vs 1fr) */}
         <a
           href={CLIENTE_REAL_URL}
           target="_blank"
@@ -462,70 +488,75 @@ function Demonstracoes() {
           onClick={() => track("client_proof_click", { project: "barbearia_do_alemao" })}
           className="card-rise group block rounded-2xl border border-primary/30 bg-[oklch(0.16_0.016_258)] overflow-hidden shadow-[0_30px_80px_-30px_oklch(0_0_0/0.7)]"
         >
-          <div className="grid lg:grid-cols-[1fr_1fr] items-stretch">
-            <div className="relative overflow-hidden bg-[oklch(0.13_0.014_258)] flex items-center justify-center p-4 sm:p-5 lg:p-6 min-h-[340px] sm:min-h-[420px] lg:min-h-[480px]">
+          <div className="grid lg:grid-cols-[1.35fr_1fr] items-stretch">
+            <div className="relative overflow-hidden bg-[oklch(0.13_0.014_258)] flex items-center justify-center p-5 sm:p-7 lg:p-8 min-h-[420px] sm:min-h-[540px] lg:min-h-[640px]">
               <img
                 src={CLIENTE_REAL_COVER}
-                alt="Barbearia do Alemão — site real desenvolvido pela Imperius"
+                alt="Barbearia do Alemão — projeto real desenvolvido pela Imperius"
                 width={1035}
                 height={1536}
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
                 style={{ objectPosition: "center center" }}
-                className="relative max-h-[320px] sm:max-h-[400px] lg:max-h-[460px] w-auto max-w-full object-contain transition-transform duration-500 group-hover:scale-[1.02] rounded-lg shadow-[0_20px_50px_-15px_oklch(0_0_0/0.8)]"
+                className="relative max-h-[400px] sm:max-h-[520px] lg:max-h-[620px] w-auto max-w-full object-contain transition-transform duration-500 group-hover:scale-[1.02] rounded-lg shadow-[0_20px_50px_-15px_oklch(0_0_0/0.8)]"
               />
 
               <div className="badge-pulse absolute top-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-primary/50 bg-background/75 backdrop-blur-md text-[10px] uppercase tracking-[0.22em] font-semibold font-sans text-primary">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-                Cliente real
+                Em produção
               </div>
             </div>
-            <div className="p-5 sm:p-8 lg:p-10 flex flex-col min-w-0">
-              <h2 className="font-display font-semibold text-[1.35rem] sm:text-[1.6rem] lg:text-[1.95rem] leading-[1.1] tracking-[-0.02em] text-foreground">
-                Barbearia do Alemão
-                <span className="block text-muted-foreground text-[0.95rem] sm:text-[1rem] lg:text-[1.05rem] font-medium mt-1 tracking-normal">
-                  Sorocaba/SP
-                </span>
-              </h2>
-              <p className="mt-4 text-[14px] sm:text-[14.5px] text-muted-foreground leading-relaxed font-sans max-w-md">
-                Desenvolvido para reduzir atritos no contato com clientes e criar um caminho mais simples até o agendamento.
-              </p>
 
-              <div className="mt-5 text-[11px] uppercase tracking-[0.22em] font-sans text-muted-foreground/70 truncate">
+            <div className="p-6 sm:p-8 lg:p-10 flex flex-col min-w-0 border-t lg:border-t-0 lg:border-l border-border/40">
+              {/* Bloco Problema → Solução, prova de método */}
+              <div className="space-y-5">
+                <div>
+                  <div className="flex items-center gap-2 text-[10.5px] uppercase tracking-[0.28em] font-sans font-semibold text-muted-foreground/80">
+                    <AlertTriangle className="h-3.5 w-3.5 text-destructive/80" />
+                    Problema identificado
+                  </div>
+                  <ul className="mt-3 space-y-2">
+                    {problemas.map((p) => (
+                      <li key={p} className="flex items-start gap-2.5 text-[13.5px] sm:text-[14px] text-muted-foreground leading-relaxed font-sans">
+                        <span className="mt-[7px] h-1 w-1 rounded-full bg-destructive/70 shrink-0" aria-hidden />
+                        <span>{p}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="h-px bg-border/50" aria-hidden />
+
+                <div>
+                  <div className="flex items-center gap-2 text-[10.5px] uppercase tracking-[0.28em] font-sans font-semibold text-primary">
+                    <CheckCircle2 className="h-3.5 w-3.5" />
+                    Solução aplicada
+                  </div>
+                  <ul className="mt-3 space-y-2">
+                    {solucoes.map((s) => (
+                      <li key={s} className="flex items-start gap-2.5 text-[13.5px] sm:text-[14px] text-foreground leading-relaxed font-sans">
+                        <CheckCircle2 className="h-[15px] w-[15px] text-primary mt-[2px] shrink-0" aria-hidden />
+                        <span>{s}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-7 text-[11px] uppercase tracking-[0.22em] font-sans text-muted-foreground/70 truncate">
                 barbeariadoalemao.lovable.app
               </div>
+
               <div className="mt-auto pt-6">
                 <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold transition-transform group-hover:-translate-y-0.5">
-                  Ver Site
+                  Ver Projeto Completo
                   <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </span>
               </div>
-
             </div>
           </div>
         </a>
-
-        <div className="mt-6 sm:mt-8 rounded-xl border border-border/50 bg-[oklch(0.17_0.018_258)]/70 backdrop-blur-md p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div className="max-w-2xl">
-            <h3 className="font-display font-semibold text-[1.1rem] sm:text-[1.3rem] tracking-[-0.015em] text-foreground leading-snug">
-              Outros segmentos
-            </h3>
-            <p className="mt-2 text-[13.5px] sm:text-[14px] text-muted-foreground leading-relaxed font-sans">
-              Clínica, estética, restaurante, imóveis.
-            </p>
-          </div>
-
-          <Link
-            to="/portfolio"
-            onClick={() => track("portfolio_bridge_click", { from: "home_demo" })}
-            className="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-full border border-primary/50 bg-primary/15 hover:bg-primary/25 text-[13px] font-sans font-semibold text-primary transition-colors"
-          >
-            Ver outras operações
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-
-        </div>
       </div>
     </section>
   );
