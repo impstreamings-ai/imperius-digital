@@ -113,7 +113,7 @@ const PROPOSAL_MAILTO = `mailto:${PROPOSAL_EMAIL}?subject=${encodeURIComponent("
 
 function Landing() {
   return (
-    <div className="min-h-dvh bg-background text-foreground font-sans overflow-x-hidden">
+    <div className="min-h-dvh text-foreground font-sans overflow-x-hidden">
       <Nav />
       <Hero />
       <Problema />
