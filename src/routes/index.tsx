@@ -461,19 +461,18 @@ function Demonstracoes() {
           onClick={() => track("client_proof_click", { project: "barbearia_do_alemao" })}
           className="card-rise group block rounded-2xl border border-primary/30 bg-[oklch(0.13_0_0)] overflow-hidden shadow-[0_30px_80px_-30px_oklch(0_0_0/0.7)]"
         >
-          <div className="grid lg:grid-cols-[1.4fr_1fr] items-stretch">
-            <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden bg-[oklch(0.16_0_0)]">
+          <div className="grid lg:grid-cols-[1fr_1fr] items-stretch">
+            <div className="relative overflow-hidden bg-[oklch(0.10_0_0)] flex items-center justify-center p-4 sm:p-6 lg:p-8 min-h-[420px] sm:min-h-[520px] lg:min-h-[600px]">
               <img
                 src={CLIENTE_REAL_COVER}
                 alt="Barbearia do Alemão — site real desenvolvido pela Imperius"
-                width={1600}
-                height={1000}
+                width={1040}
+                height={1560}
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                className="relative max-h-[560px] lg:max-h-[640px] w-auto max-w-full object-contain transition-transform duration-500 group-hover:scale-[1.02] rounded-lg shadow-[0_20px_50px_-15px_oklch(0_0_0/0.8)]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" aria-hidden />
               <div className="badge-pulse absolute top-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-primary/50 bg-background/75 backdrop-blur-md text-[10px] uppercase tracking-[0.22em] font-semibold font-sans text-primary">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
                 Cliente real
