@@ -378,7 +378,7 @@ function HowItWorks() {
             className="hidden lg:block absolute top-10 left-[10%] right-[10%] h-px"
             style={{
               background:
-                "linear-gradient(90deg, transparent, oklch(0.7 0.032 258 / 0.45), transparent)",
+                "linear-gradient(90deg, transparent, oklch(0.62 0.20 258 / 0.55), transparent)",
             }}
           />
           {steps.map((s, idx) => (
@@ -663,7 +663,7 @@ function DashboardModule() {
               style={{
                 height: `${h}%`,
                 background:
-                  "linear-gradient(180deg, oklch(0.78 0.03 258), oklch(0.4 0.025 258 / 0.55))",
+                  "linear-gradient(180deg, oklch(0.78 0.14 258), oklch(0.45 0.16 258 / 0.55))",
               }}
             />
           ))}

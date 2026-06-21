@@ -326,7 +326,7 @@ function Hero() {
       <div className="absolute inset-0 bg-grid pointer-events-none opacity-[0.18]" aria-hidden />
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[420px] rounded-full blur-3xl opacity-30 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, oklch(0.5 0.03 258 / 0.14), transparent 70%)" }}
+        style={{ background: "radial-gradient(ellipse, oklch(0.5 0.16 258 / 0.20), transparent 70%)" }}
         aria-hidden
       />
 
@@ -711,7 +711,7 @@ function FinalCTA() {
 function Footer() {
   return (
     <footer className="relative border-t border-border/40 overflow-hidden">
-      <div className="absolute inset-x-0 -top-px h-px" style={{ background: "linear-gradient(90deg, transparent, oklch(0.7 0.032 258 / 0.5), transparent)" }} />
+      <div className="absolute inset-x-0 -top-px h-px" style={{ background: "linear-gradient(90deg, transparent, oklch(0.62 0.20 258 / 0.55), transparent)" }} />
       <div className="relative mx-auto max-w-7xl px-6 pt-10 sm:pt-12 pb-10 sm:pb-12">
         <div className="grid md:grid-cols-3 gap-8 sm:gap-10">
           <div>

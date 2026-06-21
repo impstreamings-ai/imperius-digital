@@ -349,7 +349,7 @@ function Hero() {
         className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] rounded-full blur-3xl opacity-20 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at center, oklch(0.5 0.03 258 / 0.14), transparent 70%)",
+            "radial-gradient(ellipse at center, oklch(0.5 0.16 258 / 0.20), transparent 70%)",
         }}
       />
       <div className="relative mx-auto max-w-5xl px-6 text-center">
@@ -448,7 +448,7 @@ function SolutionCard({ solution }: { solution: Solution }) {
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse at 30% 20%, oklch(0.5 0.03 258 / 0.18), transparent 60%)",
+              "radial-gradient(ellipse at 30% 20%, oklch(0.5 0.16 258 / 0.24), transparent 60%)",
           }}
         />
         <div className="absolute inset-0 grid place-items-center">
@@ -643,7 +643,7 @@ function FinalCTA() {
         className="absolute inset-0 opacity-30 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at center, oklch(0.5 0.03 258 / 0.12), transparent 70%)",
+            "radial-gradient(ellipse at center, oklch(0.5 0.16 258 / 0.18), transparent 70%)",
         }}
       />
       <div className="relative mx-auto max-w-3xl px-6 text-center">
