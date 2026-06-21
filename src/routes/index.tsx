@@ -332,9 +332,10 @@ function Hero() {
       <div className="relative mx-auto max-w-3xl px-5 sm:px-6 w-full text-center">
         <div className="mb-5 sm:mb-6"><SectionEyebrow align="center">Mais venda. Menos cliente perdido no caminho.</SectionEyebrow></div>
         <h1 className="font-display text-[2rem] sm:text-[2.8rem] lg:text-[3.3rem] xl:text-[3.6rem] font-semibold leading-[1.04] tracking-[-0.03em] text-foreground">
-          Cada etapa a mais{" "}
+          Cada etapa a mais,{" "}
           <span className="text-shimmer">é um cliente a menos</span>.
         </h1>
+
         <p className="mt-5 sm:mt-6 mx-auto max-w-[34rem] text-muted-foreground text-[15px] sm:text-[16.5px] leading-relaxed font-sans">
           Tiramos os passos que fazem seu cliente desistir — e encurtamos o caminho até a venda.
         </p>
