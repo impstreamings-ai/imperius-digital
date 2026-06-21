@@ -743,7 +743,7 @@ function Footer() {
             <ul className="space-y-2.5 text-sm text-muted-foreground font-sans">
               <li><a href="#metodo" className="hover:text-foreground transition-colors duration-200">Método</a></li>
               <li><a href="#vitrine" className="hover:text-foreground transition-colors duration-200">Demonstração</a></li>
-              <li><a href="#vitrine" className="hover:text-foreground transition-colors duration-200">Demonstração</a></li>
+
               <li><a href="#operator" className="hover:text-foreground transition-colors duration-200">Operator</a></li>
               <li><Link to="/portfolio" className="hover:text-foreground transition-colors duration-200">Portfólio</Link></li>
 
