@@ -465,31 +465,31 @@ function Demonstracoes() {
   return (
     <section id="vitrine" className="relative section-y-lg border-t border-border/30">
       <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" aria-hidden />
-      <div className="relative mx-auto max-w-6xl px-6">
+      <div className="relative mx-auto max-w-5xl px-6">
         {/* Header da seção — sinaliza prova social, não portfólio */}
-        <div className="max-w-2xl mb-8 sm:mb-10">
+        <div className="max-w-2xl mb-6 sm:mb-7">
           <div className="mb-4"><SectionEyebrow>Projeto Real</SectionEyebrow></div>
-          <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+          <h2 className="font-display font-semibold text-[1.4rem] sm:text-[1.7rem] lg:text-[1.9rem] leading-[1.1] tracking-[-0.025em] text-foreground">
             Barbearia do Alemão
-            <span className="block text-muted-foreground text-[1rem] sm:text-[1.05rem] font-medium mt-2 tracking-normal">
+            <span className="block text-muted-foreground text-[0.85rem] sm:text-[0.9rem] font-medium mt-1.5 tracking-normal">
               Sorocaba/SP
             </span>
           </h2>
-          <p className="mt-5 text-[14.5px] sm:text-[15.5px] text-muted-foreground leading-relaxed font-sans max-w-2xl">
+          <p className="mt-3 text-[13px] sm:text-[13.5px] text-muted-foreground leading-relaxed font-sans max-w-2xl">
             Solução desenvolvida pela Imperius Operações Comerciais para reduzir atritos no contato com clientes e encurtar o caminho até o agendamento.
           </p>
         </div>
 
-        {/* Card principal — imagem ganha mais espaço (1.35fr vs 1fr) */}
+        {/* Card principal — case compacto, não hero */}
         <a
           href={CLIENTE_REAL_URL}
           target="_blank"
           rel="noreferrer"
           onClick={() => track("client_proof_click", { project: "barbearia_do_alemao" })}
-          className="card-rise group block rounded-2xl border border-primary/30 bg-[oklch(0.16_0.016_258)] overflow-hidden shadow-[0_30px_80px_-30px_oklch(0_0_0/0.7)]"
+          className="card-rise group block rounded-2xl border border-primary/30 bg-[oklch(0.16_0.016_258)] overflow-hidden shadow-[0_20px_60px_-30px_oklch(0_0_0/0.7)]"
         >
-          <div className="grid lg:grid-cols-[1.35fr_1fr] items-stretch">
-            <div className="relative overflow-hidden bg-[oklch(0.13_0.014_258)] p-3 sm:p-4 lg:p-5">
+          <div className="grid lg:grid-cols-[1.1fr_1fr] items-stretch">
+            <div className="relative overflow-hidden bg-[oklch(0.13_0.014_258)] p-2.5 sm:p-3 lg:p-3.5">
               <img
                 src={CLIENTE_REAL_COVER}
                 alt="Barbearia do Alemão — projeto real desenvolvido pela Imperius"
@@ -499,11 +499,11 @@ function Demonstracoes() {
                 decoding="async"
                 fetchPriority="high"
                 style={{ objectPosition: "center center" }}
-                className="block w-full h-[380px] lg:h-[460px] object-cover object-center rounded-lg shadow-[0_20px_50px_-15px_oklch(0_0_0/0.8)] transition-transform duration-500 group-hover:scale-[1.02]"
+                className="block w-full h-[240px] sm:h-[280px] lg:h-[340px] object-cover object-center rounded-lg shadow-[0_14px_36px_-14px_oklch(0_0_0/0.8)] transition-transform duration-500 group-hover:scale-[1.02]"
               />
 
               <div
-                className="badge-pulse absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/50 bg-background/75 backdrop-blur-md text-[10.5px] uppercase tracking-[0.2em] font-semibold font-sans text-primary"
+                className="badge-pulse absolute top-3 left-3 inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-primary/50 bg-background/75 backdrop-blur-md text-[10.5px] uppercase tracking-[0.2em] font-semibold font-sans text-primary"
                 aria-label="Cliente real ativo — projeto em produção"
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
@@ -511,17 +511,17 @@ function Demonstracoes() {
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 lg:p-10 flex flex-col min-w-0 border-t lg:border-t-0 lg:border-l border-border/40">
+            <div className="p-5 sm:p-6 lg:p-7 flex flex-col min-w-0 border-t lg:border-t-0 lg:border-l border-border/40">
               {/* Bloco Problema → Solução, prova de método */}
-              <div className="space-y-5">
+              <div className="space-y-4">
                 <div>
-                  <div className="flex items-center gap-2 text-[10.5px] uppercase tracking-[0.28em] font-sans font-semibold text-muted-foreground/80">
+                  <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.24em] font-sans font-semibold text-muted-foreground/80">
                     <AlertTriangle className="h-3.5 w-3.5 text-destructive/80" />
                     Problema identificado
                   </div>
-                  <ul className="mt-3 space-y-2">
+                  <ul className="mt-2.5 space-y-1.5">
                     {problemas.map((p) => (
-                      <li key={p} className="flex items-start gap-2.5 text-[13.5px] sm:text-[14px] text-muted-foreground leading-relaxed font-sans">
+                      <li key={p} className="flex items-start gap-2.5 text-[12.5px] sm:text-[13px] text-muted-foreground leading-relaxed font-sans">
                         <span className="mt-[7px] h-1 w-1 rounded-full bg-destructive/70 shrink-0" aria-hidden />
                         <span>{p}</span>
                       </li>
@@ -532,13 +532,13 @@ function Demonstracoes() {
                 <div className="h-px bg-border/50" aria-hidden />
 
                 <div>
-                  <div className="flex items-center gap-2 text-[10.5px] uppercase tracking-[0.28em] font-sans font-semibold text-primary">
+                  <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.24em] font-sans font-semibold text-primary">
                     <CheckCircle2 className="h-3.5 w-3.5" />
                     Solução aplicada
                   </div>
-                  <ul className="mt-3 space-y-2">
+                  <ul className="mt-2.5 space-y-1.5">
                     {solucoes.map((s) => (
-                      <li key={s} className="flex items-start gap-2.5 text-[13.5px] sm:text-[14px] text-foreground leading-relaxed font-sans">
+                      <li key={s} className="flex items-start gap-2.5 text-[12.5px] sm:text-[13px] text-foreground leading-relaxed font-sans">
                         <CheckCircle2 className="h-[15px] w-[15px] text-primary mt-[2px] shrink-0" aria-hidden />
                         <span>{s}</span>
                       </li>
@@ -547,14 +547,14 @@ function Demonstracoes() {
                 </div>
               </div>
 
-              <div className="mt-7 text-[11px] uppercase tracking-[0.22em] font-sans text-muted-foreground/70 truncate">
+              <div className="mt-5 text-[10px] uppercase tracking-[0.22em] font-sans text-muted-foreground/70 truncate">
                 barbeariadoalemao.lovable.app
               </div>
 
-              <div className="mt-auto pt-6">
-                <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold transition-transform group-hover:-translate-y-0.5">
+              <div className="mt-auto pt-5">
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-primary-foreground text-[12.5px] font-sans font-semibold transition-transform group-hover:-translate-y-0.5">
                   Ver Projeto Completo
-                  <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                  <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                 </span>
               </div>
             </div>
