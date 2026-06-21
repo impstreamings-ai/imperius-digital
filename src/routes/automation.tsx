@@ -130,7 +130,7 @@ function Nav() {
         >
           <Button
             size="sm"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.72_0.22_250/0.7)]"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.7_0.032_232/0.45)]"
           >
             <span className="sm:hidden">Demonstração</span>
             <span className="hidden sm:inline">Ver demonstração</span>
@@ -160,7 +160,7 @@ function Hero() {
       <div className="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-[1.05fr_1fr] gap-14 lg:gap-20 items-center w-full">
         <div>
           <div className="inline-flex items-center gap-2.5 pl-1.5 pr-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/10 backdrop-blur mb-7 font-sans">
-            <span className="grid h-6 w-6 place-items-center rounded-full bg-primary/20 ring-1 ring-primary/40 shadow-[0_0_18px_-2px_oklch(0.72_0.22_250/0.6)]">
+            <span className="grid h-6 w-6 place-items-center rounded-full bg-primary/20 ring-1 ring-primary/40 shadow-[0_0_18px_-2px_oklch(0.7_0.032_232/0.4)]">
               <MessageCircle className="h-3.5 w-3.5 text-primary" />
             </span>
             <span className="text-[11px] uppercase tracking-[0.22em] text-foreground font-semibold">
@@ -190,7 +190,7 @@ function Hero() {
             >
               <Button
                 size="lg"
-                className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-13 px-8 text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]"
+                className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-13 px-8 text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.7_0.032_232/0.45)]"
               >
                 VER DEMONSTRAÇÃO <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -359,7 +359,7 @@ function HowItWorks() {
             className="hidden lg:block absolute top-10 left-[10%] right-[10%] h-px"
             style={{
               background:
-                "linear-gradient(90deg, transparent, oklch(0.72 0.22 250 / 0.5), transparent)",
+                "linear-gradient(90deg, transparent, oklch(0.7 0.032 232 / 0.45), transparent)",
             }}
           />
           {steps.map((s, idx) => (
@@ -473,7 +473,7 @@ function ProductDemo() {
                   style={{
                     height: `${h}%`,
                     background:
-                      "linear-gradient(180deg, oklch(0.72 0.24 250), oklch(0.45 0.18 250 / 0.5))",
+                      "linear-gradient(180deg, oklch(0.78 0.03 232), oklch(0.4 0.025 232 / 0.55))",
                   }}
                 />
               ))}
@@ -729,7 +729,7 @@ function FinalCTA() {
           >
             <Button
               size="lg"
-              className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-13 px-8 text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]"
+              className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-13 px-8 text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.7_0.032_232/0.45)]"
             >
               SOLICITAR DEMONSTRAÇÃO PERSONALIZADA{" "}
               <Send className="ml-2 h-4 w-4" />

@@ -124,7 +124,7 @@ function Nav() {
         >
           <Button
             size="sm"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.72_0.22_250/0.7)]"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_oklch(0.7_0.032_232/0.45)]"
           >
             <span className="sm:hidden">Demonstração</span>
             <span className="hidden sm:inline">Falar com especialista</span>
@@ -187,7 +187,7 @@ function Hero() {
             >
               <Button
                 size="lg"
-                className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-13 px-8 text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]"
+                className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-13 px-8 text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.7_0.032_232/0.45)]"
               >
                 VER DEMONSTRAÇÃO <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -378,7 +378,7 @@ function HowItWorks() {
             className="hidden lg:block absolute top-10 left-[10%] right-[10%] h-px"
             style={{
               background:
-                "linear-gradient(90deg, transparent, oklch(0.72 0.22 250 / 0.5), transparent)",
+                "linear-gradient(90deg, transparent, oklch(0.7 0.032 232 / 0.45), transparent)",
             }}
           />
           {steps.map((s, idx) => (
@@ -663,7 +663,7 @@ function DashboardModule() {
               style={{
                 height: `${h}%`,
                 background:
-                  "linear-gradient(180deg, oklch(0.72 0.24 250), oklch(0.45 0.18 250 / 0.5))",
+                  "linear-gradient(180deg, oklch(0.78 0.03 232), oklch(0.4 0.025 232 / 0.55))",
               }}
             />
           ))}
@@ -811,7 +811,7 @@ function FinalCTA() {
           >
             <Button
               size="lg"
-              className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-13 px-8 text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]"
+              className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide glow-ring h-13 px-8 text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.7_0.032_232/0.45)]"
             >
               SOLICITAR DEMONSTRAÇÃO <Send className="ml-2 h-4 w-4" />
             </Button>
