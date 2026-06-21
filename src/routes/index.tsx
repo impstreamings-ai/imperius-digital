@@ -117,11 +117,11 @@ function Landing() {
       <Hero />
       <Problema />
       <Metodo />
-      <Ecossistema />
       <Demonstracoes />
       <Operator />
       <FinalCTA />
       <Footer />
+
     </div>
 
   );
