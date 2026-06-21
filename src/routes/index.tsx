@@ -493,17 +493,23 @@ function Demonstracoes() {
               />
 
               <div
-                className="badge-pulse absolute top-3 left-3 inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-primary/50 bg-background/75 backdrop-blur-md text-[10.5px] uppercase tracking-[0.2em] font-semibold font-sans text-primary"
-                aria-label="Cliente real ativo — projeto em produção"
+                className="badge-pulse absolute top-3 left-3 inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-primary/50 bg-background/80 backdrop-blur-md text-[10.5px] uppercase tracking-[0.2em] font-semibold font-sans text-primary"
+                aria-label="Projeto real em uso — cliente ativo da Imperius"
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-                Cliente real ativo
+                Projeto real em uso
               </div>
             </div>
 
             <div className="p-5 sm:p-6 lg:p-7 flex flex-col min-w-0 border-t lg:border-t-0 lg:border-l border-border/40">
-              {/* Bloco Problema → Solução, prova de método */}
-              <div className="space-y-4">
+              <p className="text-[12.5px] sm:text-[13px] text-muted-foreground/90 leading-relaxed font-sans italic">
+                <span className="not-italic text-[10px] uppercase tracking-[0.24em] font-semibold text-muted-foreground/70 block mb-1.5">Antes</span>
+                O cliente precisava passar por múltiplas etapas e informações espalhadas para chegar ao contato.
+              </p>
+
+              <div className="mt-4 h-px bg-border/50" aria-hidden />
+
+              <div className="mt-4 space-y-4">
                 <div>
                   <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.24em] font-sans font-semibold text-muted-foreground/80">
                     <AlertTriangle className="h-3.5 w-3.5 text-destructive/80" />
@@ -518,8 +524,6 @@ function Demonstracoes() {
                     ))}
                   </ul>
                 </div>
-
-                <div className="h-px bg-border/50" aria-hidden />
 
                 <div>
                   <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.24em] font-sans font-semibold text-primary">
@@ -537,13 +541,20 @@ function Demonstracoes() {
                 </div>
               </div>
 
+              <div className="mt-4 h-px bg-border/50" aria-hidden />
+
+              <p className="mt-4 text-[12.5px] sm:text-[13px] text-foreground/90 leading-relaxed font-sans">
+                <span className="text-[10px] uppercase tracking-[0.24em] font-semibold text-primary block mb-1.5">Resultado</span>
+                O cliente encontra tudo em um único lugar e chega ao contato com menos atrito.
+              </p>
+
               <div className="mt-5 text-[10px] uppercase tracking-[0.22em] font-sans text-muted-foreground/70 truncate">
                 barbeariadoalemao.lovable.app
               </div>
 
               <div className="mt-auto pt-5">
                 <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-primary-foreground text-[12.5px] font-sans font-semibold transition-transform group-hover:-translate-y-0.5">
-                  Ver Projeto Completo
+                  Ver projeto completo
                   <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                 </span>
               </div>
