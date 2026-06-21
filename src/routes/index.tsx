@@ -703,11 +703,11 @@ function FinalCTA() {
       <div className="relative mx-auto max-w-3xl px-6 text-center">
         <div className="mb-5"><SectionEyebrow align="center">Próximo passo</SectionEyebrow></div>
         <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.05] tracking-[-0.03em] text-foreground">
-          Cada semana parada{" "}
-          <span className="text-neon">é cliente fechando com outro.</span>
+          Descubra onde sua operação{" "}
+          <span className="text-foreground/55">está perdendo clientes.</span>
         </h2>
         <p className="mt-5 text-muted-foreground text-[15px] sm:text-[16.5px] max-w-xl mx-auto leading-relaxed font-sans">
-          20 minutos no WhatsApp. Você sai sabendo onde está perdendo venda.
+          20 minutos. Você sai sabendo o ponto exato onde está perdendo venda.
         </p>
 
         <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row justify-center items-center gap-3">
@@ -723,9 +723,9 @@ function FinalCTA() {
           >
             <Button
               size="lg"
-              className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_30px_-8px_oklch(0.7_0.032_232/0.45)]"
+              className="btn-premium w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] transition-all duration-300 hover:-translate-y-0.5"
             >
-              Falar com a Imperius no WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
+              Quero descobrir meu gargalo <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
 
