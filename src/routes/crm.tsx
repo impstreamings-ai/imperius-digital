@@ -645,7 +645,7 @@ function IaCommercial() {
             style={{
               width: "87%",
               background:
-                "linear-gradient(90deg, oklch(0.45 0.18 250), oklch(0.72 0.24 250))",
+                "linear-gradient(90deg, oklch(0.55 0.025 232), oklch(0.78 0.03 232))",
             }}
           />
         </div>
@@ -709,7 +709,7 @@ function Dashboard() {
               style={{
                 height: `${h}%`,
                 background:
-                  "linear-gradient(180deg, oklch(0.72 0.24 250), oklch(0.45 0.18 250 / 0.5))",
+                  "linear-gradient(180deg, oklch(0.78 0.03 232), oklch(0.4 0.025 232 / 0.55))",
               }}
             />
           ))}

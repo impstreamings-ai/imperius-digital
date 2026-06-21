@@ -663,7 +663,7 @@ function DashboardModule() {
               style={{
                 height: `${h}%`,
                 background:
-                  "linear-gradient(180deg, oklch(0.72 0.24 250), oklch(0.45 0.18 250 / 0.5))",
+                  "linear-gradient(180deg, oklch(0.78 0.03 232), oklch(0.4 0.025 232 / 0.55))",
               }}
             />
           ))}
