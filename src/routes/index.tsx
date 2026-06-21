@@ -489,7 +489,7 @@ function Demonstracoes() {
           className="card-rise group block rounded-2xl border border-primary/30 bg-[oklch(0.16_0.016_258)] overflow-hidden shadow-[0_30px_80px_-30px_oklch(0_0_0/0.7)]"
         >
           <div className="grid lg:grid-cols-[1.35fr_1fr] items-stretch">
-            <div className="relative overflow-hidden bg-[oklch(0.13_0.014_258)] flex items-center justify-center p-5 sm:p-7 lg:p-8 min-h-[420px] sm:min-h-[540px] lg:min-h-[640px]">
+            <div className="relative overflow-hidden bg-[oklch(0.13_0.014_258)] p-3 sm:p-4 lg:p-5">
               <img
                 src={CLIENTE_REAL_COVER}
                 alt="Barbearia do Alemão — projeto real desenvolvido pela Imperius"
@@ -499,7 +499,7 @@ function Demonstracoes() {
                 decoding="async"
                 fetchPriority="high"
                 style={{ objectPosition: "center center" }}
-                className="relative max-h-[400px] sm:max-h-[520px] lg:max-h-[620px] w-auto max-w-full object-contain transition-transform duration-500 group-hover:scale-[1.02] rounded-lg shadow-[0_20px_50px_-15px_oklch(0_0_0/0.8)]"
+                className="block w-full h-[380px] lg:h-[460px] object-cover object-center rounded-lg shadow-[0_20px_50px_-15px_oklch(0_0_0/0.8)] transition-transform duration-500 group-hover:scale-[1.02]"
               />
 
               <div
