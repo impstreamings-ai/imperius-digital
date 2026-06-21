@@ -228,11 +228,11 @@ function Operator() {
             <div className="min-w-0">
               <div className="mb-3"><SectionEyebrow>Imperius Operator</SectionEyebrow></div>
               <h2 className="font-display font-semibold text-[1.6rem] sm:text-[2rem] lg:text-[2.3rem] leading-[1.08] tracking-[-0.025em] text-foreground">
-                Vigia seu funil{" "}
-                <span className="text-neon">enquanto você toca o negócio.</span>
+                Ninguém mais{" "}
+                <span className="text-neon">esquece de responder um cliente.</span>
               </h2>
               <p className="mt-3 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans max-w-2xl">
-                Cobra resposta no prazo e avisa quando um cliente vai esfriar.
+                Avisa sua equipe quando um cliente está esperando há tempo demais — antes dele desistir e ir pro concorrente.
               </p>
             </div>
             <a
@@ -242,8 +242,9 @@ function Operator() {
               onClick={() => track("operator_cta_click", { destination: "whatsapp" })}
               className="w-full lg:w-auto shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold hover:-translate-y-0.5 transition-transform"
             >
-              Ver o Operator em ação <ArrowRight className="h-4 w-4" />
+              Quero parar de perder cliente assim <ArrowRight className="h-4 w-4" />
             </a>
+
           </div>
         </div>
       </div>
