@@ -270,7 +270,7 @@ function Nav() {
         <nav className="hidden md:flex items-center gap-9 text-[13px] text-muted-foreground font-medium">
           <a href="#metodo" className="hover:text-foreground transition-colors">Método</a>
           <a href="#vitrine" className="hover:text-foreground transition-colors">Demonstração</a>
-          <a href="#vitrine" className="hover:text-foreground transition-colors">Demonstração</a>
+
           <a href="#operator" className="hover:text-foreground transition-colors">Operator</a>
           <Link to="/portfolio" className="hover:text-foreground transition-colors">Portfólio</Link>
         </nav>
