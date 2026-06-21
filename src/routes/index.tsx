@@ -502,9 +502,12 @@ function Demonstracoes() {
                 className="relative max-h-[400px] sm:max-h-[520px] lg:max-h-[620px] w-auto max-w-full object-contain transition-transform duration-500 group-hover:scale-[1.02] rounded-lg shadow-[0_20px_50px_-15px_oklch(0_0_0/0.8)]"
               />
 
-              <div className="badge-pulse absolute top-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-primary/50 bg-background/75 backdrop-blur-md text-[10px] uppercase tracking-[0.22em] font-semibold font-sans text-primary">
+              <div
+                className="badge-pulse absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/50 bg-background/75 backdrop-blur-md text-[10.5px] uppercase tracking-[0.2em] font-semibold font-sans text-primary"
+                aria-label="Cliente real ativo — projeto em produção"
+              >
                 <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-                Em produção
+                Cliente real ativo
               </div>
             </div>
 
