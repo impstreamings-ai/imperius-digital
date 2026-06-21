@@ -406,7 +406,7 @@ function Ecossistema() {
   ];
 
   return (
-    <section id="solucoes" className="relative py-12 sm:py-16 border-b border-border/30 bg-[oklch(0.105_0.012_258)]">
+    <section id="solucoes" className="relative py-12 sm:py-16 border-b border-border/30">
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-7 sm:mb-10">
           <div className="mb-4"><SectionEyebrow>Soluções</SectionEyebrow></div>
