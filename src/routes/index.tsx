@@ -199,7 +199,7 @@ function Metodo() {
           {pilares.map((p) => (
             <li
               key={p.n}
-              className="group relative rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 p-5 flex flex-col min-w-0 transition-colors hover:border-primary/40"
+              className="group relative rounded-xl border border-border/50 bg-[oklch(0.14_0_0)]/70 p-5 flex flex-col min-w-0 transition-colors hover:border-primary/40"
             >
               <span className="absolute left-0 top-5 h-6 w-[2px] bg-primary/70 rounded-r" aria-hidden />
               <span className="font-heading text-[18px] leading-none tracking-[-0.02em] text-primary font-semibold mb-3">
@@ -222,9 +222,9 @@ function Metodo() {
 
 function Operator() {
   return (
-    <section id="operator" className="relative py-12 sm:py-16 border-t border-border/30 bg-[oklch(0.075_0.004_240)]">
+    <section id="operator" className="relative py-12 sm:py-16 border-t border-border/30 bg-[oklch(0.08_0_0)]">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="rounded-2xl border border-primary/30 bg-[oklch(0.1_0.005_245)]/80 p-6 sm:p-8 lg:p-10">
+        <div className="rounded-2xl border border-primary/30 bg-[oklch(0.14_0_0)]/80 p-6 sm:p-8 lg:p-10">
           <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-10 lg:items-end">
             <div className="min-w-0">
               <div className="mb-3"><SectionEyebrow>Imperius Operator</SectionEyebrow></div>
@@ -326,7 +326,7 @@ function Hero() {
       <div className="absolute inset-0 bg-grid pointer-events-none opacity-[0.18]" aria-hidden />
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[420px] rounded-full blur-3xl opacity-30 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, oklch(0.55 0.22 250 / 0.22), transparent 70%)" }}
+        style={{ background: "radial-gradient(ellipse, oklch(0.5 0.03 232 / 0.14), transparent 70%)" }}
         aria-hidden
       />
 
@@ -406,7 +406,7 @@ function Ecossistema() {
   ];
 
   return (
-    <section id="solucoes" className="relative py-12 sm:py-16 border-b border-border/30 bg-[oklch(0.075_0.004_240)]">
+    <section id="solucoes" className="relative py-12 sm:py-16 border-b border-border/30 bg-[oklch(0.08_0_0)]">
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-7 sm:mb-10">
           <div className="mb-4"><SectionEyebrow>Soluções</SectionEyebrow></div>
@@ -422,7 +422,7 @@ function Ecossistema() {
           {cards.map((c) => (
             <li
               key={c.title}
-              className="card-rise group rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/80 backdrop-blur-md p-6 flex flex-col"
+              className="card-rise group rounded-xl border border-border/50 bg-[oklch(0.14_0_0)]/80 backdrop-blur-md p-6 flex flex-col"
             >
               <div className="flex items-center justify-between mb-5">
                 <div className="h-9 w-9 rounded-md border border-primary/30 bg-primary/10 grid place-items-center">
@@ -459,10 +459,10 @@ function Demonstracoes() {
           target="_blank"
           rel="noreferrer"
           onClick={() => track("client_proof_click", { project: "barbearia_do_alemao" })}
-          className="card-rise group block rounded-2xl border border-primary/30 bg-[oklch(0.09_0.005_245)] overflow-hidden shadow-[0_30px_80px_-30px_oklch(0.55_0.22_250/0.45)]"
+          className="card-rise group block rounded-2xl border border-primary/30 bg-[oklch(0.13_0_0)] overflow-hidden shadow-[0_30px_80px_-30px_oklch(0_0_0/0.7)]"
         >
           <div className="grid lg:grid-cols-[1.4fr_1fr] items-stretch">
-            <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden bg-[oklch(0.14_0.01_245)]">
+            <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden bg-[oklch(0.16_0_0)]">
               <img
                 src={CLIENTE_REAL_COVER}
                 alt="Barbearia do Alemão — site real desenvolvido pela Imperius"
@@ -504,7 +504,7 @@ function Demonstracoes() {
           </div>
         </a>
 
-        <div className="mt-6 sm:mt-8 rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 backdrop-blur-md p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="mt-6 sm:mt-8 rounded-xl border border-border/50 bg-[oklch(0.14_0_0)]/70 backdrop-blur-md p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="max-w-2xl">
             <h3 className="font-display font-semibold text-[1.1rem] sm:text-[1.3rem] tracking-[-0.015em] text-foreground leading-snug">
               Outros segmentos
@@ -558,7 +558,7 @@ function Process() {
           {steps.map((s) => (
             <li
               key={s.t}
-              className="card-rise rounded-xl border border-border/50 bg-[oklch(0.1_0.005_245)]/70 backdrop-blur-md p-5 sm:p-6 flex flex-col"
+              className="card-rise rounded-xl border border-border/50 bg-[oklch(0.14_0_0)]/70 backdrop-blur-md p-5 sm:p-6 flex flex-col"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="h-9 w-9 rounded-md border border-primary/30 bg-primary/10 grid place-items-center">
@@ -686,7 +686,7 @@ function FinalCTA() {
           >
             <Button
               size="lg"
-              className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_-6px_oklch(0.72_0.22_250/0.8)]"
+              className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_30px_-8px_oklch(0.7_0.032_232/0.45)]"
             >
               Falar com a Imperius no WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
@@ -710,7 +710,7 @@ function FinalCTA() {
 function Footer() {
   return (
     <footer className="relative border-t border-border/40 overflow-hidden">
-      <div className="absolute inset-x-0 -top-px h-px" style={{ background: "linear-gradient(90deg, transparent, oklch(0.72 0.22 250 / 0.6), transparent)" }} />
+      <div className="absolute inset-x-0 -top-px h-px" style={{ background: "linear-gradient(90deg, transparent, oklch(0.7 0.032 232 / 0.5), transparent)" }} />
       <div className="relative mx-auto max-w-7xl px-6 pt-10 sm:pt-12 pb-10 sm:pb-12">
         <div className="grid md:grid-cols-3 gap-8 sm:gap-10">
           <div>
