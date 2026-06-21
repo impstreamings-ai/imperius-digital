@@ -64,7 +64,7 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://imperiuslab.com.br/" },
-      { property: "og:image", content: "https://imperiuslab.com.br/__l5e/assets-v1/4c14b0ae-e845-4b78-a21f-0060fc6560f2/barbearia-do-alemao-cover.png" },
+      { property: "og:image", content: "https://imperiuslab.com.br/__l5e/assets-v1/ae6d1095-0da6-4317-bfb4-9afb5cd15f50/barbearia-alemao-foto.png" },
 
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Imperius — Encontramos o gargalo que está te custando clientes" },
@@ -73,7 +73,7 @@ export const Route = createFileRoute("/")({
         content:
           "Mapeamos onde sua operação perde cliente e encurtamos o caminho entre o contato e a venda. Diagnóstico antes de qualquer proposta.",
       },
-      { name: "twitter:image", content: "https://imperiuslab.com.br/__l5e/assets-v1/4c14b0ae-e845-4b78-a21f-0060fc6560f2/barbearia-do-alemao-cover.png" },
+      { name: "twitter:image", content: "https://imperiuslab.com.br/__l5e/assets-v1/ae6d1095-0da6-4317-bfb4-9afb5cd15f50/barbearia-alemao-foto.png" },
 
 
     ],
@@ -90,7 +90,7 @@ export const Route = createFileRoute("/")({
       {
         rel: "preload",
         as: "image",
-        href: "/__l5e/assets-v1/4c14b0ae-e845-4b78-a21f-0060fc6560f2/barbearia-do-alemao-cover.png",
+        href: "/__l5e/assets-v1/ae6d1095-0da6-4317-bfb4-9afb5cd15f50/barbearia-alemao-foto.png",
         media: "(min-width: 768px)",
         fetchpriority: "high",
       } as unknown as Record<string, string>,
@@ -105,7 +105,7 @@ const WA = `https://wa.me/5515981023792?text=${encodeURIComponent(WA_MESSAGE)}`;
 
 const IG = "https://instagram.com/imperiusdigital.br";
 const CLIENTE_REAL_URL = "https://barbeariadoalemao.lovable.app/";
-const CLIENTE_REAL_COVER = "/__l5e/assets-v1/4c14b0ae-e845-4b78-a21f-0060fc6560f2/barbearia-do-alemao-cover.png";
+const CLIENTE_REAL_COVER = "/__l5e/assets-v1/ae6d1095-0da6-4317-bfb4-9afb5cd15f50/barbearia-alemao-foto.png";
 // Endereço de contato comercial. Centralizado para permitir migração futura
 // para domínio próprio (ex.: contato@imperiusdigital.com.br) sem alterar JSX.
 const PROPOSAL_EMAIL = "imperiusuniverse@gmail.com";
