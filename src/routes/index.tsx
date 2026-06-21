@@ -64,7 +64,7 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://imperiuslab.com.br/" },
-      { property: "og:image", content: "https://imperiuslab.com.br/assets/black-crown-cover.png" },
+      { property: "og:image", content: "https://imperiuslab.com.br/__l5e/assets-v1/4c14b0ae-e845-4b78-a21f-0060fc6560f2/barbearia-do-alemao-cover.png" },
 
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Imperius — Encontramos o gargalo que está te custando clientes" },
@@ -73,7 +73,7 @@ export const Route = createFileRoute("/")({
         content:
           "Mapeamos onde sua operação perde cliente e encurtamos o caminho entre o contato e a venda. Diagnóstico antes de qualquer proposta.",
       },
-      { name: "twitter:image", content: "https://imperiuslab.com.br/assets/black-crown-cover.png" },
+      { name: "twitter:image", content: "https://imperiuslab.com.br/__l5e/assets-v1/4c14b0ae-e845-4b78-a21f-0060fc6560f2/barbearia-do-alemao-cover.png" },
 
 
     ],
@@ -84,13 +84,13 @@ export const Route = createFileRoute("/")({
       },
       { rel: "icon", href: "/assets/imperius-logo-official.png" },
       { rel: "canonical", href: "https://imperiuslab.com.br/" },
-      // Pré-carrega a capa Black Crown apenas em viewports ≥ tablet (onde a imagem
-      // entra cedo no viewport e impacta LCP). Mobile mantém lazy para não competir
-      // com o hero.
+      // Pré-carrega a capa do cliente real (Barbearia do Alemão) apenas em viewports
+      // ≥ tablet, onde entra cedo no viewport e impacta LCP. Mobile mantém lazy
+      // para não competir com o hero.
       {
         rel: "preload",
         as: "image",
-        href: "/assets/black-crown-cover.png",
+        href: "/__l5e/assets-v1/4c14b0ae-e845-4b78-a21f-0060fc6560f2/barbearia-do-alemao-cover.png",
         media: "(min-width: 768px)",
         fetchpriority: "high",
       } as unknown as Record<string, string>,
@@ -104,7 +104,8 @@ const WA_MESSAGE = "Olá! Quero um diagnóstico do gargalo comercial da minha em
 const WA = `https://wa.me/5515981023792?text=${encodeURIComponent(WA_MESSAGE)}`;
 
 const IG = "https://instagram.com/imperiusdigital.br";
-const BLACK_CROWN_URL = "https://blackcrown-by-imperius.lovable.app/";
+const CLIENTE_REAL_URL = "https://barbeariadoalemao.lovable.app/";
+const CLIENTE_REAL_COVER = "/__l5e/assets-v1/4c14b0ae-e845-4b78-a21f-0060fc6560f2/barbearia-do-alemao-cover.png";
 // Endereço de contato comercial. Centralizado para permitir migração futura
 // para domínio próprio (ex.: contato@imperiusdigital.com.br) sem alterar JSX.
 const PROPOSAL_EMAIL = "imperiusuniverse@gmail.com";
@@ -453,31 +454,18 @@ function Demonstracoes() {
     <section id="vitrine" className="relative py-12 sm:py-16 border-t border-border/30">
       <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-6xl px-6">
-        <div className="max-w-2xl mb-7 sm:mb-10">
-          <div className="mb-4"><SectionEyebrow>Mostrar visualmente</SectionEyebrow></div>
-          <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
-            Veja o gargalo resolvido{" "}
-            <span className="text-neon">numa operação real.</span>
-          </h2>
-          <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans">
-            Ambiente nosso, rodando agora. Clica e usa.
-          </p>
-
-        </div>
-
-
         <a
-          href={BLACK_CROWN_URL}
+          href={CLIENTE_REAL_URL}
           target="_blank"
           rel="noreferrer"
-          onClick={() => track("demo_click", { project: "black_crown" })}
+          onClick={() => track("client_proof_click", { project: "barbearia_do_alemao" })}
           className="card-rise group block rounded-2xl border border-primary/30 bg-[oklch(0.09_0.005_245)] overflow-hidden shadow-[0_30px_80px_-30px_oklch(0.55_0.22_250/0.45)]"
         >
           <div className="grid lg:grid-cols-[1.4fr_1fr] items-stretch">
             <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden bg-[oklch(0.14_0.01_245)]">
               <img
-                src={"/assets/black-crown-cover.png"}
-                alt="Black Crown Barbershop — ambiente operacional Imperius"
+                src={CLIENTE_REAL_COVER}
+                alt="Barbearia do Alemão — site real desenvolvido pela Imperius"
                 width={1600}
                 height={1000}
                 loading="eager"
@@ -486,29 +474,28 @@ function Demonstracoes() {
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" aria-hidden />
-              <div className="badge-pulse absolute top-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-primary/40 bg-background/70 backdrop-blur-md text-[10px] uppercase tracking-[0.18em] font-semibold font-sans text-primary">
+              <div className="badge-pulse absolute top-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-primary/50 bg-background/75 backdrop-blur-md text-[10px] uppercase tracking-[0.22em] font-semibold font-sans text-primary">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-                Ao vivo
+                Cliente real
               </div>
             </div>
             <div className="p-5 sm:p-8 lg:p-10 flex flex-col min-w-0">
-              <span className="text-[10px] uppercase tracking-[0.22em] font-sans font-semibold text-primary/90 inline-flex items-center gap-1.5">
-                <Scissors className="h-3.5 w-3.5" />
-                Projeto de referência
-              </span>
-              <h3 className="mt-3 font-display font-semibold text-[1.25rem] sm:text-[1.5rem] lg:text-[1.9rem] leading-[1.1] tracking-[-0.02em] text-foreground">
-                Black Crown Barbershop
-              </h3>
-              <p className="mt-3 text-[14px] sm:text-[14.5px] text-muted-foreground leading-relaxed font-sans">
-                Atendimento, agenda e site operando juntos.
+              <h2 className="font-display font-semibold text-[1.35rem] sm:text-[1.6rem] lg:text-[1.95rem] leading-[1.1] tracking-[-0.02em] text-foreground">
+                Barbearia do Alemão
+                <span className="block text-muted-foreground text-[0.95rem] sm:text-[1rem] lg:text-[1.05rem] font-medium mt-1 tracking-normal">
+                  Sorocaba/SP
+                </span>
+              </h2>
+              <p className="mt-4 text-[14px] sm:text-[14.5px] text-muted-foreground leading-relaxed font-sans max-w-md">
+                Desenvolvido para reduzir atritos no contato com clientes e criar um caminho mais simples até o agendamento.
               </p>
 
               <div className="mt-5 text-[11px] uppercase tracking-[0.22em] font-sans text-muted-foreground/70 truncate">
-                blackcrown-by-imperius.lovable.app
+                barbeariadoalemao.lovable.app
               </div>
               <div className="mt-auto pt-6">
                 <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold transition-transform group-hover:-translate-y-0.5">
-                  Abrir a operação Black Crown
+                  Ver Site
                   <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </span>
               </div>
