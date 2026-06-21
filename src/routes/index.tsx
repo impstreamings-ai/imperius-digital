@@ -12,13 +12,14 @@ import {
   Rocket,
   LayoutTemplate,
   TrendingUp,
-  
   Users,
   Calendar,
   Mail,
   Activity,
   Menu,
   X,
+  CheckCircle2,
+  AlertTriangle,
 } from "lucide-react";
 
 import { trackEvent } from "@/lib/analytics";
