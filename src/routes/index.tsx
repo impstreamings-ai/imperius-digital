@@ -225,16 +225,16 @@ function Operator() {
   return (
     <section id="operator" className="relative section-y border-t border-border/30">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="rounded-2xl border border-primary/30 bg-[oklch(0.17_0.018_258)]/80 p-6 sm:p-8 lg:p-10">
+        <div className="rounded-2xl border border-border/50 bg-[oklch(0.17_0.018_258)]/80 p-6 sm:p-8 lg:p-10">
           <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-10 lg:items-end">
             <div className="min-w-0">
               <div className="mb-3"><SectionEyebrow>Imperius Operator</SectionEyebrow></div>
               <h2 className="font-display font-semibold text-[1.6rem] sm:text-[2rem] lg:text-[2.3rem] leading-[1.08] tracking-[-0.025em] text-foreground">
-                Ninguém mais{" "}
-                <span className="text-neon">esquece de responder um cliente.</span>
+                Acompanha o caminho do cliente{" "}
+                <span className="text-foreground/55">e avisa quando uma oportunidade está prestes a ser perdida.</span>
               </h2>
-              <p className="mt-3 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans max-w-2xl">
-                Avisa sua equipe quando um cliente está esperando há tempo demais — antes dele desistir e ir pro concorrente.
+              <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans max-w-2xl">
+                Monitora cada conversa, identifica onde o cliente travou, avisa a equipe responsável e ajuda a recuperar a oportunidade antes que ela vá embora.
               </p>
             </div>
             <a
@@ -242,15 +242,13 @@ function Operator() {
               target="_blank"
               rel="noreferrer"
               onClick={() => track("operator_cta_click", { destination: "whatsapp" })}
-              className="w-full lg:w-auto shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold hover:-translate-y-0.5 transition-transform"
+              className="btn-premium w-full lg:w-auto shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold transition-transform"
             >
-              Quero parar de perder cliente assim <ArrowRight className="h-4 w-4" />
+              Quero meu diagnóstico gratuito <ArrowRight className="h-4 w-4" />
             </a>
-
           </div>
         </div>
       </div>
-
     </section>
   );
 }
@@ -264,7 +262,7 @@ function Nav() {
     <header className="fixed top-0 inset-x-0 z-50 border-b border-border/40 backdrop-blur-xl bg-background/70">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
         <a href="#top" className="flex items-center gap-3 min-w-0" onClick={close}>
-          <img src={"/assets/imperius-logo-official.png"} alt="Imperius Soluções Digitais" className="h-[36px] w-auto object-contain shrink-0" loading="eager" decoding="async" />
+          <img src={"/assets/imperius-logo-official.png"} alt="Imperius Operações Comerciais" className="h-[36px] w-auto object-contain shrink-0" loading="eager" decoding="async" />
           <span className="hidden sm:flex flex-col leading-tight min-w-0">
             <span className="font-heading font-semibold tracking-[0.2em] text-[12px] truncate">IMPERIUS</span>
             <span className="text-[9.5px] uppercase tracking-[0.28em] text-muted-foreground/80 font-medium truncate">Diagnóstico comercial</span>
@@ -324,22 +322,17 @@ function Hero() {
         paddingRight: "max(0px, env(safe-area-inset-right))",
       }}
     >
-      <div className="absolute inset-0 bg-grid pointer-events-none opacity-[0.18]" aria-hidden />
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[420px] rounded-full blur-3xl opacity-30 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, oklch(0.5 0.16 258 / 0.20), transparent 70%)" }}
-        aria-hidden
-      />
+      <div className="absolute inset-0 bg-grid pointer-events-none opacity-[0.12]" aria-hidden />
 
       <div className="relative mx-auto max-w-3xl px-5 sm:px-6 w-full text-center">
-        <div className="mb-5 sm:mb-6"><SectionEyebrow align="center">Mais venda. Menos cliente perdido no caminho.</SectionEyebrow></div>
+        <div className="mb-5 sm:mb-6"><SectionEyebrow align="center">Diagnóstico comercial</SectionEyebrow></div>
         <h1 className="font-display text-[2rem] sm:text-[2.8rem] lg:text-[3.3rem] xl:text-[3.6rem] font-semibold leading-[1.04] tracking-[-0.03em] text-foreground">
-          Cada etapa a mais,{" "}
-          <span className="text-shimmer">é um cliente a menos</span>.
+          Seu cliente quer comprar.{" "}
+          <span className="text-foreground/55">Mas não chega até a venda.</span>
         </h1>
 
         <p className="mt-5 sm:mt-6 mx-auto max-w-[34rem] text-muted-foreground text-[15px] sm:text-[16.5px] leading-relaxed font-sans">
-          Tiramos os passos que fazem seu cliente desistir — e encurtamos o caminho até a venda.
+          Identificamos o ponto exato onde sua operação perde cliente — antes de qualquer proposta.
         </p>
 
         <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3">
@@ -354,7 +347,7 @@ function Hero() {
               size="lg"
               className="btn-premium w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[14px] transition-all duration-300 hover:-translate-y-0.5"
             >
-              Quero vender mais sem mudar tudo <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              Quero meu diagnóstico gratuito <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Button>
           </a>
           <a
@@ -362,15 +355,12 @@ function Hero() {
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-5 text-[13px] font-sans text-muted-foreground hover:text-foreground transition-colors"
             onClick={() => track("hero_cta_click", { destination: "metodo" })}
           >
-            <span>Como funciona em 5 passos</span>
+            <span>Como funciona</span>
           </a>
         </div>
         <p className="mt-6 sm:mt-7 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
-          Conversa de 20 minutos · Sem proposta antes de entender sua operação
+          Conversa de 20 minutos · Sem proposta antes do diagnóstico
         </p>
-
-
-
       </div>
     </section>
   );
@@ -503,17 +493,23 @@ function Demonstracoes() {
               />
 
               <div
-                className="badge-pulse absolute top-3 left-3 inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-primary/50 bg-background/75 backdrop-blur-md text-[10.5px] uppercase tracking-[0.2em] font-semibold font-sans text-primary"
-                aria-label="Cliente real ativo — projeto em produção"
+                className="badge-pulse absolute top-3 left-3 inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-primary/50 bg-background/80 backdrop-blur-md text-[10.5px] uppercase tracking-[0.2em] font-semibold font-sans text-primary"
+                aria-label="Projeto real em uso — cliente ativo da Imperius"
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-                Cliente real ativo
+                Projeto real em uso
               </div>
             </div>
 
             <div className="p-5 sm:p-6 lg:p-7 flex flex-col min-w-0 border-t lg:border-t-0 lg:border-l border-border/40">
-              {/* Bloco Problema → Solução, prova de método */}
-              <div className="space-y-4">
+              <p className="text-[12.5px] sm:text-[13px] text-muted-foreground/90 leading-relaxed font-sans italic">
+                <span className="not-italic text-[10px] uppercase tracking-[0.24em] font-semibold text-muted-foreground/70 block mb-1.5">Antes</span>
+                O cliente precisava passar por múltiplas etapas e informações espalhadas para chegar ao contato.
+              </p>
+
+              <div className="mt-4 h-px bg-border/50" aria-hidden />
+
+              <div className="mt-4 space-y-4">
                 <div>
                   <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.24em] font-sans font-semibold text-muted-foreground/80">
                     <AlertTriangle className="h-3.5 w-3.5 text-destructive/80" />
@@ -528,8 +524,6 @@ function Demonstracoes() {
                     ))}
                   </ul>
                 </div>
-
-                <div className="h-px bg-border/50" aria-hidden />
 
                 <div>
                   <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.24em] font-sans font-semibold text-primary">
@@ -547,13 +541,20 @@ function Demonstracoes() {
                 </div>
               </div>
 
+              <div className="mt-4 h-px bg-border/50" aria-hidden />
+
+              <p className="mt-4 text-[12.5px] sm:text-[13px] text-foreground/90 leading-relaxed font-sans">
+                <span className="text-[10px] uppercase tracking-[0.24em] font-semibold text-primary block mb-1.5">Resultado</span>
+                O cliente encontra tudo em um único lugar e chega ao contato com menos atrito.
+              </p>
+
               <div className="mt-5 text-[10px] uppercase tracking-[0.22em] font-sans text-muted-foreground/70 truncate">
                 barbeariadoalemao.lovable.app
               </div>
 
               <div className="mt-auto pt-5">
                 <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-primary-foreground text-[12.5px] font-sans font-semibold transition-transform group-hover:-translate-y-0.5">
-                  Ver Projeto Completo
+                  Ver projeto completo
                   <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                 </span>
               </div>
@@ -702,11 +703,11 @@ function FinalCTA() {
       <div className="relative mx-auto max-w-3xl px-6 text-center">
         <div className="mb-5"><SectionEyebrow align="center">Próximo passo</SectionEyebrow></div>
         <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.05] tracking-[-0.03em] text-foreground">
-          Cada semana parada{" "}
-          <span className="text-neon">é cliente fechando com outro.</span>
+          Descubra onde sua operação{" "}
+          <span className="text-foreground/55">está perdendo clientes.</span>
         </h2>
         <p className="mt-5 text-muted-foreground text-[15px] sm:text-[16.5px] max-w-xl mx-auto leading-relaxed font-sans">
-          20 minutos no WhatsApp. Você sai sabendo onde está perdendo venda.
+          20 minutos. Você sai sabendo o ponto exato onde está perdendo venda.
         </p>
 
         <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row justify-center items-center gap-3">
@@ -722,9 +723,9 @@ function FinalCTA() {
           >
             <Button
               size="lg"
-              className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_30px_-8px_oklch(0.7_0.032_232/0.45)]"
+              className="btn-premium w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] transition-all duration-300 hover:-translate-y-0.5"
             >
-              Falar com a Imperius no WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
+              Quero descobrir meu gargalo <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
 
@@ -751,7 +752,7 @@ function Footer() {
         <div className="grid md:grid-cols-3 gap-8 sm:gap-10">
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <img src={"/assets/imperius-logo-official.png"} alt="Imperius Soluções Digitais" className="h-[44px] w-auto object-contain" loading="lazy" decoding="async" />
+              <img src={"/assets/imperius-logo-official.png"} alt="Imperius Operações Comerciais" className="h-[44px] w-auto object-contain" loading="lazy" decoding="async" />
               <div>
                 <div className="font-heading font-bold tracking-[0.2em] text-sm">IMPERIUS</div>
                 <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-sans font-medium">Diagnóstico comercial</div>
@@ -791,7 +792,7 @@ function Footer() {
         </div>
 
         <div className="mt-10 pt-6 border-t border-border/40 flex flex-col items-center gap-2 text-center text-xs text-muted-foreground font-sans">
-          <p>© {new Date().getFullYear()} Imperius Soluções Digitais. Todos os direitos reservados.</p>
+          <p>© {new Date().getFullYear()} Imperius Operações Comerciais. Todos os direitos reservados.</p>
           <p className="text-[11px] text-muted-foreground/70 max-w-xl leading-relaxed">
             Usamos cookies analíticos (Google Analytics) para medir o uso do site. Para solicitações relacionadas aos seus dados (LGPD),
             escreva para <a href={PROPOSAL_MAILTO} className="underline hover:text-foreground">{PROPOSAL_EMAIL}</a>.

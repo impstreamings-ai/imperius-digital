@@ -71,9 +71,9 @@
   --ice: oklch(0.83 0.10 248);                    /* Soft plasma */
   --titanium: oklch(0.74 0.012 258);
 
-  /* Fundo do hero: carbono com respiração plasma — vivo, mas sofisticado */
-  --gradient-hero: radial-gradient(ellipse at 50% 0%, oklch(0.42 0.14 258 / 0.28), transparent 62%),
-                   radial-gradient(ellipse at 80% 90%, oklch(0.55 0.18 258 / 0.16), transparent 58%),
+  /* Fundo do hero: carbono com respiração plasma sutil — azul como assinatura, não dominante */
+  --gradient-hero: radial-gradient(ellipse at 50% 0%, oklch(0.42 0.14 258 / 0.16), transparent 62%),
+                   radial-gradient(ellipse at 80% 90%, oklch(0.55 0.18 258 / 0.09), transparent 58%),
                    linear-gradient(180deg, oklch(0.11 0.013 258), oklch(0.085 0.01 258));
   /* Texto gradient: branco → silver plasma */
   --gradient-text: linear-gradient(180deg, oklch(0.99 0 0) 0%, oklch(0.78 0.02 258) 100%);
@@ -95,10 +95,10 @@
   body {
     background-color: var(--color-background);
     background-image:
-      radial-gradient(ellipse 90% 60% at 50% 0%, oklch(0.32 0.12 258 / 0.22), transparent 60%),
-      radial-gradient(ellipse 70% 50% at 85% 35%, oklch(0.42 0.14 258 / 0.10), transparent 65%),
-      radial-gradient(ellipse 80% 60% at 10% 75%, oklch(0.38 0.13 258 / 0.09), transparent 65%),
-      radial-gradient(ellipse 100% 50% at 50% 100%, oklch(0.36 0.13 258 / 0.12), transparent 60%);
+      radial-gradient(ellipse 90% 60% at 50% 0%, oklch(0.32 0.12 258 / 0.13), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 85% 35%, oklch(0.42 0.14 258 / 0.06), transparent 65%),
+      radial-gradient(ellipse 80% 60% at 10% 75%, oklch(0.38 0.13 258 / 0.05), transparent 65%),
+      radial-gradient(ellipse 100% 50% at 50% 100%, oklch(0.36 0.13 258 / 0.07), transparent 60%);
     background-attachment: fixed;
     background-repeat: no-repeat;
     color: var(--color-foreground);
