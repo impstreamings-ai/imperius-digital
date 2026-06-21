@@ -742,7 +742,7 @@ function Footer() {
             <div className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4 font-sans">Navegação</div>
             <ul className="space-y-2.5 text-sm text-muted-foreground font-sans">
               <li><a href="#metodo" className="hover:text-foreground transition-colors duration-200">Método</a></li>
-              <li><a href="#solucoes" className="hover:text-foreground transition-colors duration-200">Soluções</a></li>
+              <li><a href="#vitrine" className="hover:text-foreground transition-colors duration-200">Demonstração</a></li>
               <li><a href="#vitrine" className="hover:text-foreground transition-colors duration-200">Demonstração</a></li>
               <li><a href="#operator" className="hover:text-foreground transition-colors duration-200">Operator</a></li>
               <li><Link to="/portfolio" className="hover:text-foreground transition-colors duration-200">Portfólio</Link></li>
