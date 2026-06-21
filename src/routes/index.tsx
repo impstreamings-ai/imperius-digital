@@ -752,7 +752,7 @@ function Footer() {
         <div className="grid md:grid-cols-3 gap-8 sm:gap-10">
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <img src={"/assets/imperius-logo-official.png"} alt="Imperius Soluções Digitais" className="h-[44px] w-auto object-contain" loading="lazy" decoding="async" />
+              <img src={"/assets/imperius-logo-official.png"} alt="Imperius Operações Comerciais" className="h-[44px] w-auto object-contain" loading="lazy" decoding="async" />
               <div>
                 <div className="font-heading font-bold tracking-[0.2em] text-sm">IMPERIUS</div>
                 <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-sans font-medium">Diagnóstico comercial</div>
