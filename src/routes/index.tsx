@@ -81,13 +81,10 @@ export const Route = createFileRoute("/")({
     links: [
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap",
       },
       { rel: "icon", href: "/assets/imperius-logo-official.png" },
       { rel: "canonical", href: "https://imperius-digital.lovable.app/" },
-      // Pré-carrega a capa do cliente real (Barbearia do Alemão) apenas em viewports
-      // ≥ tablet, onde entra cedo no viewport e impacta LCP. Mobile mantém lazy
-      // para não competir com o hero.
       {
         rel: "preload",
         as: "image",
@@ -96,6 +93,7 @@ export const Route = createFileRoute("/")({
         fetchpriority: "high",
       } as unknown as Record<string, string>,
     ],
+
 
   }),
   component: Landing,
