@@ -194,15 +194,20 @@ function Metodo() {
           </h2>
         </div>
         <ol className="grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {pilares.map((p) => (
+          {pilares.map((p, i) => (
             <li
               key={p.n}
-              className="group relative rounded-xl border border-border/50 bg-[oklch(0.17_0.018_258)]/70 p-5 flex flex-col min-w-0 transition-colors hover:border-primary/40"
+              className="card-rise group relative rounded-xl border border-border/50 bg-[oklch(0.17_0.018_258)]/70 p-5 pt-6 flex flex-col min-w-0 transition-colors hover:border-primary/45"
             >
-              <span className="absolute left-0 top-5 h-6 w-[2px] bg-primary/70 rounded-r" aria-hidden />
-              <span className="font-heading text-[18px] leading-none tracking-[-0.02em] text-primary font-semibold mb-3">
-                {p.n}
-              </span>
+              <span className="absolute left-0 top-0 h-[2px] w-10 bg-primary/70 rounded-r" aria-hidden />
+              <div className="flex items-baseline justify-between mb-3">
+                <span className="font-heading text-[22px] leading-none tracking-[-0.03em] text-primary font-semibold">
+                  {p.n}
+                </span>
+                <span className="text-[9.5px] uppercase tracking-[0.24em] font-sans font-semibold text-muted-foreground/55">
+                  {i === pilares.length - 1 ? "Final" : "Passo"}
+                </span>
+              </div>
               <h3 className="font-heading font-semibold text-[14.5px] tracking-[-0.005em] text-foreground leading-snug">
                 {p.t}
               </h3>
@@ -246,9 +251,9 @@ function Operator() {
               target="_blank"
               rel="noreferrer"
               onClick={() => track("operator_cta_click", { destination: "whatsapp" })}
-              className="btn-premium w-full lg:w-auto shrink-0 inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold shadow-[0_10px_30px_-12px_oklch(0.62_0.22_258/0.6)]"
+              className="btn-premium group w-full lg:w-auto shrink-0 inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold shadow-[0_14px_36px_-12px_oklch(0.62_0.22_258/0.7),0_0_0_1px_oklch(0.62_0.22_258/0.35)_inset]"
             >
-              Quero meu diagnóstico gratuito <ArrowRight className="h-4 w-4" />
+              Quero meu diagnóstico gratuito <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
           </div>
         </div>
@@ -283,7 +288,7 @@ function Nav() {
 
         <div className="flex items-center gap-2 shrink-0">
           <a href={WA} target="_blank" rel="noreferrer" onClick={() => track("whatsapp_click", { location: "nav" })}>
-            <Button size="sm" className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4">
+            <Button size="sm" className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4 shadow-[0_8px_22px_-10px_oklch(0.62_0.22_258/0.65)]">
               <span className="sm:hidden">Diagnóstico grátis</span>
               <span className="hidden sm:inline">Receber diagnóstico gratuito</span>
             </Button>
@@ -350,7 +355,7 @@ function Hero() {
           >
             <Button
               size="lg"
-              className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] shadow-[0_10px_30px_-12px_oklch(0.62_0.22_258/0.55)]"
+              className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] shadow-[0_14px_36px_-12px_oklch(0.62_0.22_258/0.7),0_0_0_1px_oklch(0.62_0.22_258/0.35)_inset]"
             >
               Quero meu diagnóstico gratuito <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Button>
@@ -493,11 +498,11 @@ function Demonstracoes() {
               />
 
               <div
-                className="badge-pulse absolute top-3 left-3 inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-primary/50 bg-background/80 backdrop-blur-md text-[10.5px] uppercase tracking-[0.2em] font-semibold font-sans text-primary"
-                aria-label="Projeto real em uso — cliente ativo da Imperius"
+                className="badge-pulse absolute top-3 left-3 inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-primary/50 bg-background/85 backdrop-blur-md text-[10px] uppercase tracking-[0.22em] font-semibold font-sans text-primary"
+                aria-label="Caso validado em Sorocaba — cliente ativo da Imperius"
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-                Projeto real em uso
+                Caso validado · Sorocaba
               </div>
             </div>
 
@@ -723,9 +728,9 @@ function FinalCTA() {
           >
             <Button
               size="lg"
-              className="btn-premium w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] transition-all duration-300 hover:-translate-y-0.5"
+              className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] shadow-[0_14px_36px_-12px_oklch(0.62_0.22_258/0.7),0_0_0_1px_oklch(0.62_0.22_258/0.35)_inset]"
             >
-              Quero descobrir meu gargalo <ArrowRight className="ml-2 h-4 w-4" />
+              Quero descobrir meu gargalo <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Button>
           </a>
 
