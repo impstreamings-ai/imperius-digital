@@ -194,15 +194,20 @@ function Metodo() {
           </h2>
         </div>
         <ol className="grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {pilares.map((p) => (
+          {pilares.map((p, i) => (
             <li
               key={p.n}
-              className="group relative rounded-xl border border-border/50 bg-[oklch(0.17_0.018_258)]/70 p-5 flex flex-col min-w-0 transition-colors hover:border-primary/40"
+              className="card-rise group relative rounded-xl border border-border/50 bg-[oklch(0.17_0.018_258)]/70 p-5 pt-6 flex flex-col min-w-0 transition-colors hover:border-primary/45"
             >
-              <span className="absolute left-0 top-5 h-6 w-[2px] bg-primary/70 rounded-r" aria-hidden />
-              <span className="font-heading text-[18px] leading-none tracking-[-0.02em] text-primary font-semibold mb-3">
-                {p.n}
-              </span>
+              <span className="absolute left-0 top-0 h-[2px] w-10 bg-primary/70 rounded-r" aria-hidden />
+              <div className="flex items-baseline justify-between mb-3">
+                <span className="font-heading text-[22px] leading-none tracking-[-0.03em] text-primary font-semibold">
+                  {p.n}
+                </span>
+                <span className="text-[9.5px] uppercase tracking-[0.24em] font-sans font-semibold text-muted-foreground/55">
+                  {i === pilares.length - 1 ? "Final" : "Passo"}
+                </span>
+              </div>
               <h3 className="font-heading font-semibold text-[14.5px] tracking-[-0.005em] text-foreground leading-snug">
                 {p.t}
               </h3>
