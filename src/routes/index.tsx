@@ -355,7 +355,7 @@ function Hero() {
           >
             <Button
               size="lg"
-              className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] shadow-[0_10px_30px_-12px_oklch(0.62_0.22_258/0.55)]"
+              className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] shadow-[0_14px_36px_-12px_oklch(0.62_0.22_258/0.7),0_0_0_1px_oklch(0.62_0.22_258/0.35)_inset]"
             >
               Quero meu diagnóstico gratuito <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Button>
