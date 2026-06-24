@@ -332,7 +332,7 @@ function Hero() {
           Identificamos o ponto exato onde sua operação perde cliente — antes de qualquer proposta.
         </p>
 
-        <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3">
+        <div className="mt-8 sm:mt-9 flex justify-center">
           <a
             href={WA}
             target="_blank"
@@ -342,22 +342,16 @@ function Hero() {
           >
             <Button
               size="lg"
-              className="btn-premium w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[14px] transition-all duration-300 hover:-translate-y-0.5"
+              className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] shadow-[0_10px_30px_-12px_oklch(0.62_0.22_258/0.55)]"
             >
               Quero meu diagnóstico gratuito <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Button>
-          </a>
-          <a
-            href="#metodo"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-5 text-[13px] font-sans text-muted-foreground hover:text-foreground transition-colors"
-            onClick={() => track("hero_cta_click", { destination: "metodo" })}
-          >
-            <span>Como funciona</span>
           </a>
         </div>
         <p className="mt-6 sm:mt-7 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
           Conversa de 20 minutos · Sem proposta antes do diagnóstico
         </p>
+
       </div>
     </section>
   );
