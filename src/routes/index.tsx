@@ -222,10 +222,17 @@ function Operator() {
   return (
     <section id="operator" className="relative section-y border-t border-border/30">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="rounded-2xl border border-border/50 bg-[oklch(0.17_0.018_258)]/80 p-6 sm:p-8 lg:p-10">
+        <div className="relative rounded-2xl border border-primary/25 bg-gradient-to-b from-[oklch(0.18_0.022_258)]/90 to-[oklch(0.14_0.016_258)]/90 p-6 sm:p-8 lg:p-10 shadow-[0_30px_80px_-40px_oklch(0.62_0.22_258/0.35),0_1px_0_0_oklch(1_0_0/0.04)_inset] overflow-hidden">
+          <div className="absolute -top-32 -right-32 h-64 w-64 rounded-full bg-primary/15 blur-3xl pointer-events-none" aria-hidden />
           <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-10 lg:items-end">
             <div className="min-w-0">
-              <div className="mb-3"><SectionEyebrow>Imperius Operator</SectionEyebrow></div>
+              <div className="mb-3 flex items-center gap-3">
+                <SectionEyebrow>Imperius Operator</SectionEyebrow>
+                <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full border border-primary/40 bg-primary/10 text-[9.5px] uppercase tracking-[0.22em] font-semibold text-primary">
+                  <span className="h-1 w-1 rounded-full bg-primary animate-pulse-glow" />
+                  Software proprietário
+                </span>
+              </div>
               <h2 className="font-display font-semibold text-[1.6rem] sm:text-[2rem] lg:text-[2.3rem] leading-[1.08] tracking-[-0.025em] text-foreground">
                 Acompanha o caminho do cliente{" "}
                 <span className="text-foreground/55">e avisa quando uma oportunidade está prestes a ser perdida.</span>
@@ -239,7 +246,7 @@ function Operator() {
               target="_blank"
               rel="noreferrer"
               onClick={() => track("operator_cta_click", { destination: "whatsapp" })}
-              className="btn-premium w-full lg:w-auto shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold transition-transform"
+              className="btn-premium w-full lg:w-auto shrink-0 inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold shadow-[0_10px_30px_-12px_oklch(0.62_0.22_258/0.6)]"
             >
               Quero meu diagnóstico gratuito <ArrowRight className="h-4 w-4" />
             </a>
@@ -248,6 +255,7 @@ function Operator() {
       </div>
     </section>
   );
+
 }
 
 
