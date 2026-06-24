@@ -449,7 +449,8 @@ function Demonstracoes() {
       <div className="relative mx-auto max-w-5xl px-6">
         {/* Header da seção — sinaliza prova social, não portfólio */}
         <div className="max-w-2xl mb-6 sm:mb-7">
-          <div className="mb-4"><SectionEyebrow>Projeto Real</SectionEyebrow></div>
+          <div className="mb-4"><SectionEyebrow>Caso Validado em Sorocaba</SectionEyebrow></div>
+
           <h2 className="font-display font-semibold text-[1.4rem] sm:text-[1.7rem] lg:text-[1.9rem] leading-[1.1] tracking-[-0.025em] text-foreground">
             Barbearia do Alemão
             <span className="block text-muted-foreground text-[0.85rem] sm:text-[0.9rem] font-medium mt-1.5 tracking-normal">
