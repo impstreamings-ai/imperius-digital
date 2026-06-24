@@ -31,9 +31,11 @@
   --color-neon: var(--neon);
   --color-ice: var(--ice);
   --color-titanium: var(--titanium);
-  --font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
-  --font-heading: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
-  --font-sans: "Inter", "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-display: "Geist", "Inter", system-ui, sans-serif;
+  --font-heading: "Geist", "Inter", system-ui, sans-serif;
+  --font-sans: "Geist", "Inter", system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+
 }
 
 :root {
