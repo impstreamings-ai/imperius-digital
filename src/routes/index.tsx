@@ -493,11 +493,11 @@ function Demonstracoes() {
               />
 
               <div
-                className="badge-pulse absolute top-3 left-3 inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-primary/50 bg-background/80 backdrop-blur-md text-[10.5px] uppercase tracking-[0.2em] font-semibold font-sans text-primary"
-                aria-label="Projeto real em uso — cliente ativo da Imperius"
+                className="badge-pulse absolute top-3 left-3 inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-primary/50 bg-background/85 backdrop-blur-md text-[10px] uppercase tracking-[0.22em] font-semibold font-sans text-primary"
+                aria-label="Caso validado em Sorocaba — cliente ativo da Imperius"
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-                Projeto real em uso
+                Caso validado · Sorocaba
               </div>
             </div>
 
