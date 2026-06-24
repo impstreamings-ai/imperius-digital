@@ -288,7 +288,7 @@ function Nav() {
 
         <div className="flex items-center gap-2 shrink-0">
           <a href={WA} target="_blank" rel="noreferrer" onClick={() => track("whatsapp_click", { location: "nav" })}>
-            <Button size="sm" className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4">
+            <Button size="sm" className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4 shadow-[0_8px_22px_-10px_oklch(0.62_0.22_258/0.65)]">
               <span className="sm:hidden">Diagnóstico grátis</span>
               <span className="hidden sm:inline">Receber diagnóstico gratuito</span>
             </Button>
