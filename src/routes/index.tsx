@@ -116,16 +116,15 @@ function Landing() {
       <Nav />
       <Hero />
       <Problema />
-      <Metodo />
       <Demonstracoes />
+      <Metodo />
       <Operator />
       <FinalCTA />
       <Footer />
-
     </div>
-
   );
 }
+
 
 function Problema() {
   const dores = [
