@@ -1141,8 +1141,24 @@ function FinalCTA() {
 // --- Footer — três colunas técnicas ---------------------------------------
 function Footer() {
   return (
-    <footer className="relative border-t border-border/60">
+    <footer className="relative">
+      <div aria-hidden className="imp-hairline" />
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 pt-12 pb-10">
+        {/* Cartouche de marca — registration marks emoldurando o monograma */}
+        <div className="flex items-center justify-between gap-4 mb-10">
+          <div className="inline-flex items-center gap-3">
+            <ImpReg />
+            <span className="font-heading font-semibold tracking-[0.18em] text-[12.5px]">IMPERIUS</span>
+            <span className="text-mono text-[9.5px] tracking-[0.22em] uppercase text-muted-foreground/70">
+              / Operações comerciais
+            </span>
+            <ImpReg />
+          </div>
+          <span className="hidden sm:inline-flex imp-chip">
+            <span>S/footer</span>
+          </span>
+        </div>
+
         <div className="grid md:grid-cols-12 gap-8 sm:gap-10">
           <div className="md:col-span-5">
             <div className="flex items-center gap-3 mb-4">
@@ -1160,8 +1176,8 @@ function Footer() {
           </div>
 
           <div className="md:col-span-3">
-            <div className="text-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/75 mb-4">
-              S/nav
+            <div className="section-label imp-spine mb-4">
+              <span className="section-label-mark">S/nav</span>
             </div>
             <ul className="space-y-2.5 text-[13.5px] text-muted-foreground">
               <li><a href="#metodo" className="hover:text-foreground transition-colors">Método</a></li>
@@ -1172,8 +1188,8 @@ function Footer() {
           </div>
 
           <div className="md:col-span-4">
-            <div className="text-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/75 mb-4">
-              S/contato
+            <div className="section-label imp-spine mb-4">
+              <span className="section-label-mark">S/contato</span>
             </div>
             <a href="tel:+5515981023792" className="flex items-center gap-3 text-[13.5px] text-muted-foreground hover:text-foreground transition-colors mb-2.5" onClick={() => track("phone_click", { location: "footer" })}>
               <Phone className="h-4 w-4 shrink-0" /> +55 15 98102-3792
@@ -1187,7 +1203,8 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-border/60 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-mono text-[10.5px] uppercase tracking-[0.18em] text-muted-foreground/65">
+        <div aria-hidden className="imp-hairline mt-12" />
+        <div className="pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-mono text-[10.5px] uppercase tracking-[0.18em] text-muted-foreground/65">
           <p>© {new Date().getFullYear()} Imperius Operações Comerciais</p>
           <p className="normal-case tracking-normal text-[11px] text-muted-foreground/70 max-w-xl leading-relaxed font-sans">
             Cookies analíticos (GA). Para LGPD, escreva para{" "}
@@ -1199,4 +1216,5 @@ function Footer() {
       </div>
     </footer>
   );
+
 }
