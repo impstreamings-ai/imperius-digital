@@ -508,7 +508,7 @@ function Problema() {
   ];
 
   return (
-    <section className="relative pt-20 pb-16 sm:pt-24 sm:pb-20 border-t border-border/60">
+    <section className="relative pt-6 pb-14 sm:pt-8 sm:pb-20">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-10 sm:mb-12">
           <div className="lg:col-span-5">
@@ -524,6 +524,7 @@ function Problema() {
             </p>
           </div>
         </div>
+
 
         <ul className="border-t border-border">
           {dores.map((d, i) => (
