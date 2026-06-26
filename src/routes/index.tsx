@@ -101,13 +101,71 @@ function Landing() {
     <div className="min-h-dvh text-foreground font-sans overflow-x-hidden">
       <Nav />
       <Hero />
+      <SectionTransition from="01" to="02" label="Sintomas" />
       <Problema />
+      <SectionTransition from="02" to="03" label="Caso validado" tint />
       <Demonstracoes />
+      <SectionTransition from="03" to="04" label="Método" />
       <Metodo />
+      <SectionTransition from="04" to="05" label="Operator" tint />
       <Operator />
+      <Interlude />
       <FinalCTA />
       <Footer />
     </div>
+  );
+}
+
+// --- Section transitions — bridge cinematográfico entre capítulos --------
+function SectionTransition({
+  from,
+  to,
+  label,
+  tint = false,
+}: {
+  from: string;
+  to: string;
+  label: string;
+  tint?: boolean;
+}) {
+  return (
+    <div
+      aria-hidden
+      className={
+        "relative " + (tint ? "surface-tint" : "")
+      }
+    >
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="relative flex items-center gap-4 py-10 sm:py-14">
+          <span className="chapter-mark shrink-0 tabular-nums">S/{from}</span>
+          <span className="chapter-rail flex-1" />
+          <span className="chapter-mark tabular-nums hidden sm:inline">
+            <span className="text-foreground/70">S/{to}</span>
+            <span className="ml-3 opacity-70">— {label}</span>
+          </span>
+          <span className="chapter-mark tabular-nums sm:hidden text-foreground/70">
+            S/{to}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// --- Interlude — pausa narrativa antes do CTA final, pull-quote editorial -
+function Interlude() {
+  return (
+    <section className="relative pt-6 pb-2 sm:pt-10 sm:pb-6">
+      <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-12 gap-6 items-start">
+          <span className="hidden lg:block lg:col-span-1 chapter-numeral select-none">→</span>
+          <p className="lg:col-span-11 pull-quote text-balance">
+            Cada etapa a mais{" "}
+            <span className="text-foreground/45">é um cliente a menos.</span>
+          </p>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -450,7 +508,7 @@ function Problema() {
   ];
 
   return (
-    <section className="relative pt-20 pb-16 sm:pt-24 sm:pb-20 border-t border-border/60">
+    <section className="relative pt-6 pb-14 sm:pt-8 sm:pb-20">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-10 sm:mb-12">
           <div className="lg:col-span-5">
@@ -466,6 +524,7 @@ function Problema() {
             </p>
           </div>
         </div>
+
 
         <ul className="border-t border-border">
           {dores.map((d, i) => (
@@ -506,7 +565,8 @@ function Demonstracoes() {
   ];
 
   return (
-    <section id="vitrine" className="relative pt-20 pb-20 sm:pt-24 sm:pb-28 border-t border-border/60">
+    <section id="vitrine" className="relative pt-4 pb-20 sm:pt-6 sm:pb-28 surface-tint">
+      <span aria-hidden className="chapter-numeral absolute top-2 right-4 sm:right-8 hidden md:block">03</span>
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4 mb-10">
           <SectionLabel index="03">Caso validado</SectionLabel>
@@ -622,51 +682,85 @@ function Metodo() {
   ];
 
   return (
-    <section id="metodo" className="relative pt-20 pb-20 sm:pt-24 sm:pb-24 border-t border-border/60">
-      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-12 sm:mb-14">
-          <div className="lg:col-span-5">
+    <section id="metodo" className="relative pt-6 pb-20 sm:pt-10 sm:pb-24">
+      <span aria-hidden className="chapter-numeral absolute top-4 left-4 sm:left-8 hidden md:block">04</span>
+      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+        {/* Header invertido: descrição à esquerda, título à direita — quebra a previsibilidade */}
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-14 sm:mb-20">
+          <div className="lg:col-span-5 order-2 lg:order-1 self-end">
             <SectionLabel index="04">Método Imperius</SectionLabel>
-            <h2 className="text-h2 text-foreground mt-5">
+            <p className="text-card-body max-w-md mt-5">
+              Processo aplicado em toda operação que entra na Imperius. Sem pular etapa, sem proposta antecipada.
+            </p>
+          </div>
+          <div className="lg:col-span-6 lg:col-start-7 order-1 lg:order-2 lg:text-right">
+            <h2 className="text-h2 text-foreground">
               Cinco passos.{" "}
               <span className="text-foreground/50">Sempre nessa ordem.</span>
             </h2>
           </div>
-          <div className="lg:col-span-6 lg:col-start-7 self-end">
-            <p className="text-card-body max-w-md">
-              Processo aplicado em toda operação que entra na Imperius. Sem pular etapa, sem proposta antecipada.
-            </p>
-          </div>
         </div>
 
-        {/* Timeline — desktop horizontal com rail, mobile vertical com guia */}
-        <ol className="relative grid gap-px sm:gap-px sm:grid-cols-2 lg:grid-cols-5 border border-border bg-border">
-          {pilares.map((p, i) => (
-            <li
-              key={p.n}
-              className="relative bg-background p-6 sm:p-7 flex flex-col min-h-[180px] transition-colors duration-300 hover:bg-card/40"
-            >
-              <div className="flex items-start justify-between mb-6">
-                <span className="text-mono text-[40px] sm:text-[44px] leading-none tracking-[-0.04em] text-foreground/85 font-semibold">
-                  {p.n}
-                </span>
-                {i < pilares.length - 1 ? (
-                  <ArrowRight className="h-3.5 w-3.5 text-muted-foreground/40 mt-3 hidden lg:block" />
-                ) : (
-                  <span className="text-mono text-[9.5px] tracking-[0.22em] uppercase text-primary/80 mt-3">
-                    fim
-                  </span>
-                )}
-              </div>
-              <h3 className="text-card-title">{p.t}</h3>
-              <p className="mt-2 text-card-body">{p.d}</p>
-            </li>
-          ))}
+        {/* Timeline editorial vertical com rail central — distintivo das demais seções */}
+        <ol className="relative">
+          {/* Rail central (desktop) / esquerdo (mobile) */}
+          <span
+            aria-hidden
+            className="absolute top-2 bottom-2 left-4 lg:left-1/2 w-px bg-border-strong"
+            style={{ background: "var(--color-border-strong)" }}
+          />
+          {pilares.map((p, i) => {
+            const isOdd = i % 2 === 1;
+            return (
+              <li key={p.n} className="relative pl-12 lg:pl-0 pb-10 sm:pb-14 last:pb-0">
+                {/* Nó central */}
+                <span
+                  aria-hidden
+                  className="absolute top-3 left-[11px] lg:left-1/2 lg:-translate-x-1/2 h-2.5 w-2.5 rounded-full bg-background"
+                  style={{ boxShadow: "0 0 0 1px var(--color-border-strong), 0 0 0 4px var(--background)" }}
+                />
+                <div
+                  className={
+                    "lg:grid lg:grid-cols-2 lg:gap-16 " +
+                    (isOdd ? "" : "")
+                  }
+                >
+                  <div
+                    className={
+                      "lg:flex " +
+                      (isOdd ? "lg:col-start-2 lg:justify-start" : "lg:col-start-1 lg:justify-end lg:text-right")
+                    }
+                  >
+                    <div className="max-w-sm">
+                      <div className={"flex items-baseline gap-3 mb-2.5 " + (isOdd ? "lg:justify-start" : "lg:justify-end")}>
+                        <span className="text-mono text-[44px] sm:text-[56px] leading-none tracking-[-0.05em] text-foreground/90 font-semibold tabular-nums">
+                          {p.n}
+                        </span>
+                        {i === pilares.length - 1 ? (
+                          <span className="text-mono text-[9.5px] tracking-[0.22em] uppercase text-primary/85">
+                            fim
+                          </span>
+                        ) : (
+                          <span className="text-mono text-[9.5px] tracking-[0.22em] uppercase text-muted-foreground/55">
+                            etapa
+                          </span>
+                        )}
+                      </div>
+                      <h3 className="text-card-title text-[17px]">{p.t}</h3>
+                      <p className="mt-2 text-card-body">{p.d}</p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
         </ol>
       </div>
     </section>
   );
 }
+
+
 
 // --- Operator — painel de produto: fila de oportunidades + detalhe -------
 type Risk = "high" | "med" | "low";
@@ -775,7 +869,8 @@ function Operator() {
   };
 
   return (
-    <section id="operator" className="relative pt-20 pb-20 sm:pt-24 sm:pb-24 border-t border-border/60">
+    <section id="operator" className="relative pt-4 pb-20 sm:pt-6 sm:pb-24 surface-tint">
+      <span aria-hidden className="chapter-numeral absolute top-2 right-4 sm:right-8 hidden md:block">05</span>
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4 mb-8">
           <SectionLabel index="05">Imperius Operator</SectionLabel>
@@ -981,7 +1076,8 @@ function Operator() {
 // --- Final CTA — tipografia de presença -----------------------------------
 function FinalCTA() {
   return (
-    <section className="relative pt-24 pb-24 sm:pt-32 sm:pb-32 border-t border-border/60 overflow-hidden">
+    <section className="relative pt-12 pb-24 sm:pt-16 sm:pb-32 overflow-hidden">
+      <span aria-hidden className="chapter-numeral absolute top-6 left-4 sm:left-8 hidden md:block">06</span>
       <div className="absolute inset-0 bg-grid opacity-[0.06] pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="mb-8">
