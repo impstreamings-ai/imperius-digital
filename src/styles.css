@@ -782,6 +782,25 @@
   }
 }
 
+/* Display Mega — abertura institucional, contraste máximo com microcopy */
+@utility text-display-mega {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.5rem, 7.5vw + 0.25rem, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+/* Microcopy técnica ultra-condensada */
+@utility text-micro-tight {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: oklch(from var(--muted-foreground) l c h / 0.62);
+  font-feature-settings: "tnum";
+}
+
 /* Display XL para CTA final — tipografia presença */
 @utility text-display-xl {
   font-family: var(--font-display);
@@ -790,6 +809,7 @@
   line-height: 1.0;
   letter-spacing: -0.038em;
 }
+
 
 /* Timeline conector hairline (mobile vertical, desktop horizontal) */
 @utility timeline-rail-h {
