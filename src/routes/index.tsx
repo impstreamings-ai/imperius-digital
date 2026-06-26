@@ -60,9 +60,11 @@ const track = (name: string, params: Record<string, unknown> = {}) =>
 // Rótulo de seção formato `S/01 — DIAGNÓSTICO`. Mono, hairline, sem ornamento.
 function SectionLabel({
   index,
+  question,
   children,
 }: {
   index: string;
+  question?: string;
   children: ReactNode;
 }) {
   return (
@@ -70,9 +72,18 @@ function SectionLabel({
       <span className="section-label-mark">S/{index}</span>
       <span aria-hidden className="h-px w-6 bg-border" />
       <span>{children}</span>
+      {question ? (
+        <>
+          <span aria-hidden className="h-px w-4 bg-border/70 hidden sm:inline-block" />
+          <span className="hidden sm:inline text-muted-foreground/55 normal-case tracking-[0.14em]">
+            {question}
+          </span>
+        </>
+      ) : null}
     </div>
   );
 }
+
 
 // Registration mark — assinatura recorrente em chrome de painéis/footer/nav.
 function ImpReg({ className = "" }: { className?: string }) {
