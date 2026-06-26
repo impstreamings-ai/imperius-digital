@@ -1029,24 +1029,16 @@ function Operator() {
           </div>
         </div>
 
-        {/* CTA — fora do quadro do produto, peso editorial */}
+        {/* Leitura editorial — não repete CTA do Hero; convida a continuar para o capítulo final */}
         <div className="mt-10 grid lg:grid-cols-12 gap-6 lg:gap-12 items-end">
-          <p className="lg:col-span-7 text-lede max-w-2xl">
+          <p className="lg:col-span-8 text-lede max-w-2xl">
             Cada oportunidade tem um cronômetro. Quando passa do limite, alguém é avisado antes do cliente desistir.
           </p>
-          <div className="lg:col-span-5 lg:justify-self-end w-full lg:w-auto">
-            <a
-              href={WA}
-              target="_blank"
-              rel="noreferrer"
-              onClick={() => track("operator_cta_click", { destination: "whatsapp" })}
-              className="btn-premium group w-full lg:w-auto inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold cta-shadow"
-            >
-              Quero meu diagnóstico gratuito{" "}
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </a>
+          <div className="lg:col-span-4 lg:justify-self-end text-mono text-[10.5px] tracking-[0.2em] uppercase text-muted-foreground/65">
+            ↓ S/06 — próximo passo
           </div>
         </div>
+
       </div>
     </section>
   );
