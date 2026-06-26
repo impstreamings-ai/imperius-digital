@@ -19,6 +19,38 @@ import {
   AlertTriangle,
 } from "lucide-react";
 
+// Marca conceitual recorrente — pequeno losango com halo, usado em nós de fluxo.
+function FlowNode({
+  cx,
+  cy,
+  r = 4,
+  variant = "default",
+}: {
+  cx: number;
+  cy: number;
+  r?: number;
+  variant?: "default" | "stuck" | "exit";
+}) {
+  const fill =
+    variant === "stuck"
+      ? "oklch(0.62 0.21 22 / 1)"
+      : variant === "exit"
+      ? "oklch(0.635 0.135 252 / 1)"
+      : "oklch(0.95 0 0 / 0.65)";
+  const halo =
+    variant === "stuck"
+      ? "oklch(0.62 0.21 22 / 0.18)"
+      : variant === "exit"
+      ? "oklch(0.635 0.135 252 / 0.18)"
+      : "oklch(0.95 0 0 / 0.08)";
+  return (
+    <g>
+      <circle cx={cx} cy={cy} r={r + 5} fill={halo} />
+      <circle cx={cx} cy={cy} r={r} fill={fill} />
+    </g>
+  );
+}
+
 import { trackEvent } from "@/lib/analytics";
 
 const track = (name: string, params: Record<string, unknown> = {}) =>
