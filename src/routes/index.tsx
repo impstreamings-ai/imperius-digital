@@ -374,17 +374,14 @@ function OperatorPanel() {
 
       {/* Chrome */}
       <div className="console-chrome">
-        <span className="flex items-center gap-1.5">
-          <span className="h-2 w-2 rounded-full bg-foreground/15" />
-          <span className="h-2 w-2 rounded-full bg-foreground/15" />
-          <span className="h-2 w-2 rounded-full bg-foreground/15" />
-        </span>
-        <span className="ml-2 text-foreground/65">operator · pipeline</span>
+        <ImpReg />
+        <span className="ml-1 text-foreground/65">operator · pipeline</span>
         <span className="ml-auto inline-flex items-center gap-1.5 text-foreground/85">
-          <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+          <span className="imp-mark imp-mark-primary animate-pulse-glow" />
           <span className="text-mono">live</span>
         </span>
       </div>
+
 
       <div className="p-5 sm:p-6 space-y-6">
         {/* Oportunidade */}
