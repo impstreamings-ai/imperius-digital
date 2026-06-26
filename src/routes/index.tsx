@@ -732,7 +732,7 @@ function Metodo() {
                     }
                   >
                     <div className="max-w-sm">
-                      <div className="flex items-baseline gap-3 mb-2.5 lg:justify-start" style={isOdd ? undefined : { justifyContent: "inherit" }}>
+                      <div className={"flex items-baseline gap-3 mb-2.5 " + (isOdd ? "lg:justify-start" : "lg:justify-end")}>
                         <span className="text-mono text-[44px] sm:text-[56px] leading-none tracking-[-0.05em] text-foreground/90 font-semibold tabular-nums">
                           {p.n}
                         </span>
