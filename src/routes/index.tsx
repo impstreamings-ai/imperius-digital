@@ -507,17 +507,16 @@ function Problema() {
   return (
     <section className="relative pt-6 pb-14 sm:pt-8 sm:pb-20">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-10 sm:mb-12">
-          <div className="lg:col-span-7">
-            <SectionLabel index="02" question="por que acontece">Sintomas</SectionLabel>
-            <h2 className="text-h2 text-foreground mt-5">
-              Reconhece alguma{" "}
-              <span className="text-foreground/50">no seu dia?</span>
-            </h2>
+        {/* Abertura invertida: a lista chega antes da retórica. A pergunta vira coda. */}
+        <div className="grid lg:grid-cols-12 gap-x-12 gap-y-8 items-end mb-8 sm:mb-10">
+          <div className="lg:col-span-2 order-2 lg:order-1">
+            <SectionLabel index="02">Sintomas</SectionLabel>
           </div>
+          <h2 className="lg:col-span-10 order-1 lg:order-2 text-h2 text-foreground">
+            Cinco cenas{" "}
+            <span className="text-foreground/45">que se repetem toda semana.</span>
+          </h2>
         </div>
-
-
 
         <div aria-hidden className="imp-hairline mb-0" />
         <ul>
