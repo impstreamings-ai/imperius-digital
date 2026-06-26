@@ -255,8 +255,8 @@
   transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
   &:hover {
     transform: translateY(-3px);
-    border-color: oklch(0.62 0.20 258 / 0.55);
-    box-shadow: 0 0 0 1px oklch(0.62 0.18 258 / 0.28), 0 18px 40px -18px oklch(0 0 0 / 0.6);
+    border-color: oklch(0.635 0.135 252 / 0.55);
+    box-shadow: 0 0 0 1px oklch(0.635 0.125 252 / 0.28), 0 18px 40px -18px oklch(0 0 0 / 0.6);
   }
 }
 
@@ -301,7 +301,7 @@
 }
 @utility card-editorial-hover {
   &:hover {
-    border-color: oklch(0.625 0.14 256 / 0.4);
+    border-color: oklch(0.635 0.115 252 / 0.4);
     transform: translateY(-1px);
     box-shadow: 0 14px 38px -28px oklch(0 0 0 / 0.6);
   }
@@ -322,8 +322,8 @@
 }
 
 @keyframes imperius-breathe {
-  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 18px oklch(0.62 0.20 258 / 0.42)); }
-  50% { transform: scale(1.02); filter: drop-shadow(0 0 26px oklch(0.7 0.16 258 / 0.55)); }
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 18px oklch(0.635 0.135 252 / 0.42)); }
+  50% { transform: scale(1.02); filter: drop-shadow(0 0 26px oklch(0.70 0.11 252 / 0.55)); }
 }
 
 @keyframes imperius-float {
@@ -408,7 +408,7 @@
     border-radius: inherit;
     background: radial-gradient(
       360px circle at var(--mx, 50%) var(--my, 0%),
-      oklch(0.625 0.16 256 / 0.10),
+      oklch(0.635 0.135 252 / 0.10),
       transparent 55%
     );
     opacity: 0;
@@ -418,7 +418,7 @@
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       transform: translate3d(0, -1px, 0);
-      border-color: oklch(0.625 0.14 256 / 0.3);
+      border-color: oklch(0.635 0.115 252 / 0.3);
       box-shadow:
         0 1px 0 0 oklch(1 0 0 / 0.04) inset,
         0 18px 40px -28px oklch(0 0 0 / 0.65);
@@ -478,13 +478,13 @@
   0%, 100% {
     box-shadow:
       0 0 0 0 oklch(0.7 0.032 258 / 0.0),
-      0 0 0 1px oklch(0.62 0.18 258 / 0.4);
+      0 0 0 1px oklch(0.635 0.125 252 / 0.4);
   }
   50% {
     box-shadow:
       0 0 0 5px oklch(0.7 0.032 258 / 0.0),
-      0 0 14px 1px oklch(0.62 0.18 258 / 0.35),
-      0 0 0 1px oklch(0.62 0.20 258 / 0.55);
+      0 0 14px 1px oklch(0.635 0.125 252 / 0.35),
+      0 0 0 1px oklch(0.635 0.135 252 / 0.55);
   }
 }
 @utility badge-pulse {
@@ -502,8 +502,8 @@
     oklch(0.82 0 0) 0%,
     oklch(0.82 0 0) 35%,
     oklch(0.98 0 0) 50%,
-    oklch(0.78 0.14 258) 65%,
-    oklch(0.78 0.14 258) 100%
+    oklch(0.78 0.10 250) 65%,
+    oklch(0.78 0.10 250) 100%
   );
   background-size: 250% 100%;
   -webkit-background-clip: text;
@@ -531,8 +531,8 @@
   width: 2px;
   height: 2px;
   border-radius: 9999px;
-  background: oklch(0.78 0.12 258 / 0.7);
-  box-shadow: 0 0 6px oklch(0.7 0.14 258 / 0.45);
+  background: oklch(0.78 0.08 250 / 0.7);
+  box-shadow: 0 0 6px oklch(0.70 0.10 252 / 0.45);
   animation: hero-particle var(--p-dur, 14s) linear infinite;
   animation-delay: var(--p-delay, 0s);
 }
@@ -550,8 +550,8 @@
   inset: -10%;
   pointer-events: none;
   background:
-    radial-gradient(55% 45% at 50% 45%, oklch(0.45 0.14 258 / 0.22), transparent 70%),
-    radial-gradient(40% 35% at 50% 55%, oklch(0.5 0.16 258 / 0.18), transparent 75%);
+    radial-gradient(55% 45% at 50% 45%, oklch(0.42 0.09 252 / 0.22), transparent 70%),
+    radial-gradient(40% 35% at 50% 55%, oklch(0.48 0.10 252 / 0.18), transparent 75%);
   filter: blur(40px);
   animation: hero-breathe 13s ease-in-out infinite;
   mix-blend-mode: screen;
@@ -597,8 +597,8 @@
 .hero-energy-line:nth-child(5) { animation-duration: 11s;  }
 
 @keyframes hero-node-breath {
-  0%, 100% { opacity: 0.8; filter: drop-shadow(0 0 2px oklch(0.7 0.14 258 / 0.45)); }
-  50%      { opacity: 1;   filter: drop-shadow(0 0 6px oklch(0.78 0.16 258 / 0.75));  }
+  0%, 100% { opacity: 0.8; filter: drop-shadow(0 0 2px oklch(0.70 0.10 252 / 0.45)); }
+  50%      { opacity: 1;   filter: drop-shadow(0 0 6px oklch(0.78 0.11 250 / 0.75));  }
 }
 .hero-node {
   transform-box: fill-box;
@@ -628,8 +628,8 @@
 .hero-particle {
   position: absolute;
   width: 2px; height: 2px; border-radius: 9999px;
-  background: oklch(0.82 0.12 258 / 0.8);
-  box-shadow: 0 0 5px oklch(0.7 0.14 258 / 0.6);
+  background: oklch(0.82 0.08 250 / 0.8);
+  box-shadow: 0 0 5px oklch(0.70 0.10 252 / 0.6);
   animation: hero-particle-float 8s ease-in-out infinite;
 }
 
