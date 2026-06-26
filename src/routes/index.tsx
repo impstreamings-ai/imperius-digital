@@ -595,8 +595,9 @@ function Demonstracoes() {
             </div>
 
             <p className="mt-5 text-card-body">
-              Solução desenvolvida pela Imperius Operações Comerciais para reduzir atritos no contato com clientes e encurtar o caminho até o agendamento.
+              Menos passos entre o cliente e o agendamento.
             </p>
+
 
             <div className="mt-8 border-t border-border">
               <div className="py-5 border-b border-border">
