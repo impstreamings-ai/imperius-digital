@@ -293,7 +293,7 @@ function Hero() {
             </h1>
 
             <p className="mt-7 sm:mt-8 max-w-lg text-lede">
-              O Imperius monitora cada conversa, identifica o ponto exato onde o cliente trava e avisa antes que ele desista.
+              A gente mostra onde ele trava — antes que desista.
             </p>
 
             <div className="mt-9 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-5">
@@ -308,14 +308,15 @@ function Hero() {
                   size="lg"
                   className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[13.5px] cta-shadow"
                 >
-                  Quero meu diagnóstico gratuito{" "}
+                  Diagnóstico gratuito{" "}
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </Button>
               </a>
               <span className="text-mono text-[11px] tracking-[0.16em] uppercase text-muted-foreground/75">
-                20 min · sem proposta antes
+                20 min · sem proposta
               </span>
             </div>
+
 
             {/* Metas hairline — densidade de produto, sem virar dashboard */}
             <div className="mt-12 sm:mt-14 pt-6 border-t border-border/70 grid grid-cols-3 gap-6 max-w-lg">
