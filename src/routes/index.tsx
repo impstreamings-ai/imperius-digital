@@ -294,19 +294,18 @@ function Nav() {
   );
 }
 
-// --- Hero — abertura de produto, composição editorial assimétrica --------
+// --- Hero — abertura de produto, painel único: texto + fluxo na mesma composição
 function Hero() {
   return (
     <section
       id="top"
-      className="relative pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-28 overflow-hidden"
+      className="relative pt-20 pb-14 sm:pt-24 sm:pb-20 lg:pt-28 lg:pb-24 overflow-hidden"
       style={{
         background: "var(--gradient-hero)",
         paddingLeft: "max(0px, env(safe-area-inset-left))",
         paddingRight: "max(0px, env(safe-area-inset-right))",
       }}
     >
-      {/* Fundo: hairline grid silencioso + halo central, sem partículas decorativas */}
       <div className="absolute inset-0 bg-grid pointer-events-none opacity-[0.05]" aria-hidden />
       <div
         aria-hidden
@@ -318,63 +317,87 @@ function Hero() {
       />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        {/* Metadata editorial */}
-        <div className="flex items-center justify-between gap-4 mb-12 sm:mb-14 lg:mb-16">
-          <SectionLabel index="01">Imperius Operator</SectionLabel>
+        {/* Eyebrow institucional — pergunta narrativa */}
+        <div className="flex items-center justify-between gap-4 mb-8 sm:mb-10">
+          <SectionLabel index="01" question="o que acontece">Homepage · Imperius</SectionLabel>
           <span className="hidden sm:inline-flex items-center gap-2 imp-chip">
             <ImpReg />
             <span>v2.4 · Sorocaba/SP</span>
           </span>
         </div>
 
-
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-20 items-center">
-          {/* Coluna esquerda — peso editorial */}
-          <div className="lg:col-span-6">
-            <h1 className="text-display text-foreground">
-              Seu cliente
-              <br />
-              quer comprar.
-              <br />
-              <span className="text-foreground/45">Mas não chega até a venda.</span>
-            </h1>
-
-            <p className="mt-7 sm:mt-8 max-w-lg text-lede">
-              A gente mostra onde ele trava — antes que desista.
-            </p>
-
-            <div className="mt-9 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-5">
-              <a
-                href={WA}
-                target="_blank"
-                rel="noreferrer"
-                className="w-full sm:w-auto"
-                onClick={() => track("hero_cta_click", { destination: "whatsapp" })}
-              >
-                <Button
-                  size="lg"
-                  className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[13.5px] cta-shadow"
-                >
-                  Diagnóstico gratuito{" "}
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </Button>
-              </a>
-              <span className="text-mono text-[11px] tracking-[0.16em] uppercase text-muted-foreground/75">
-                20 min · sem proposta
-              </span>
-            </div>
-
+        {/* Painel-produto único — texto e fluxo coabitam a mesma superfície */}
+        <div className="surface-raised rounded-[var(--radius-card)] overflow-hidden">
+          {/* Product chrome — barra técnica superior */}
+          <div className="product-chrome">
+            <span className="product-chrome-dot" aria-hidden />
+            <span>LIVE</span>
+            <span aria-hidden className="h-3 w-px bg-border" />
+            <span className="hidden sm:inline">Homepage · S/01</span>
+            <span aria-hidden className="h-3 w-px bg-border hidden sm:inline-block" />
+            <span className="hidden md:inline">Operações comerciais</span>
+            <span className="ml-auto tabular-nums">build · 2026.11</span>
           </div>
 
-          {/* Coluna direita — fluxo conceitual: caminho atual vs caminho Imperius */}
-          <div className="lg:col-span-6">
-            <HeroFlow />
+          <div className="grid lg:grid-cols-12 items-stretch">
+            {/* Texto editorial — ocupa 7 col, com padding generoso */}
+            <div className="lg:col-span-7 px-6 sm:px-9 lg:px-12 pt-10 sm:pt-14 lg:pt-16 pb-10 lg:pb-14 relative">
+              <h1 className="text-display-mega text-foreground">
+                Seu cliente
+                <br />
+                quer comprar.
+                <br />
+                <span className="text-foreground/45">Mas não chega até a venda.</span>
+              </h1>
+
+              <p className="mt-7 sm:mt-8 max-w-lg text-lede">
+                A gente mostra onde ele trava — antes que desista.
+              </p>
+
+              <div className="mt-9 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-5">
+                <a
+                  href={WA}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full sm:w-auto"
+                  onClick={() => track("hero_cta_click", { destination: "whatsapp" })}
+                >
+                  <Button
+                    size="lg"
+                    className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[13.5px] cta-shadow"
+                  >
+                    Diagnóstico gratuito{" "}
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                  </Button>
+                </a>
+                <span className="text-micro-tight">
+                  20 min · sem proposta
+                </span>
+              </div>
+            </div>
+
+            {/* Fluxo conceitual — superfície recessada, mesma moldura do texto */}
+            <div className="lg:col-span-5 surface-recessed border-t lg:border-t-0 lg:border-l border-border px-6 sm:px-9 lg:px-8 py-10 lg:py-12 flex flex-col justify-center">
+              <div className="text-micro-tight mb-5 flex items-center gap-2">
+                <span aria-hidden className="h-px w-6 bg-border-strong" />
+                <span>sinal · jornada do cliente</span>
+              </div>
+              <HeroFlow />
+            </div>
+          </div>
+
+          {/* Status strip inferior */}
+          <div className="product-chrome border-t border-b-0 justify-between">
+            <span>monitorando · em tempo real</span>
+            <span className="hidden sm:inline">parado → intervenção → fechado</span>
+            <span className="tabular-nums">↓ S/02</span>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 // Hero — não é interface, é a ideia. Dois caminhos:
 // 1) antes  — sinuoso, com bloqueio. Cliente desiste.
