@@ -477,11 +477,12 @@ function OperatorPanel() {
 // --- Problema — lista editorial densa, hairline rows ----------------------
 function Problema() {
   const dores = [
-    { icon: Calendar, t: "Cliente desiste antes de agendar", d: "Pede horário, some, e ninguém retoma." },
-    { icon: ClipboardList, t: "Cliente trava no meio do caminho", d: "Começa a comprar e abandona antes do fim." },
-    { icon: MessageCircle, t: "Mensagem chega e ninguém responde", d: "Quando alguém vê, o cliente já fechou com outro." },
-    { icon: Activity, t: "Você responde rápido e ele some", d: "Mandou orçamento, mandou foto, e o cliente sumiu." },
-    { icon: TrendingUp, t: "Cliente entra e nunca mais volta", d: "Pediu informação uma vez. Ninguém chamou de novo." },
+    { icon: Calendar, t: "Pediu horário e sumiu", d: "Ninguém retomou." },
+    { icon: ClipboardList, t: "Travou no meio", d: "Começou e abandonou." },
+    { icon: MessageCircle, t: "Mensagem sem resposta", d: "Quando viram, já era." },
+    { icon: Activity, t: "Respondeu rápido e sumiu", d: "Mandou orçamento. Silêncio." },
+    { icon: TrendingUp, t: "Não voltou mais", d: "Pediu uma vez. Ninguém chamou." },
+
   ];
 
   return (
