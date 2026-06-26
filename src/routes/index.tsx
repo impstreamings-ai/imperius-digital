@@ -34,11 +34,20 @@ function SectionLabel({
   children: ReactNode;
 }) {
   return (
-    <div className="section-label">
+    <div className="section-label imp-spine">
       <span className="section-label-mark">S/{index}</span>
       <span aria-hidden className="h-px w-6 bg-border" />
       <span>{children}</span>
     </div>
+  );
+}
+
+// Registration mark — assinatura recorrente em chrome de painéis/footer/nav.
+function ImpReg({ className = "" }: { className?: string }) {
+  return (
+    <span aria-hidden className={"imp-reg " + className}>
+      <i />
+    </span>
   );
 }
 
