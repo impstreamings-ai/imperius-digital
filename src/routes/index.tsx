@@ -1058,14 +1058,14 @@ function FinalCTA() {
         </div>
 
         <h2 className="text-display-xl text-foreground max-w-5xl">
-          Descubra onde sua operação{" "}
-          <span className="text-foreground/45">está perdendo clientes.</span>
+          Veja onde você{" "}
+          <span className="text-foreground/45">perde cliente.</span>
         </h2>
 
         <div className="mt-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-end">
           <div className="lg:col-span-6">
             <p className="text-lede max-w-lg">
-              20 minutos. Você sai sabendo o ponto exato onde está perdendo venda.
+              20 min. Sem proposta.
             </p>
           </div>
           <div className="lg:col-span-6 flex flex-col sm:flex-row lg:justify-end items-stretch sm:items-center gap-4 sm:gap-6">
@@ -1083,7 +1083,7 @@ function FinalCTA() {
                 size="lg"
                 className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] cta-shadow"
               >
-                Quero descobrir meu gargalo{" "}
+                Agendar diagnóstico{" "}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Button>
             </a>
@@ -1092,10 +1092,11 @@ function FinalCTA() {
               className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2 justify-center"
               onClick={() => track("final_cta_click", { destination: "email" })}
             >
-              <Mail className="h-4 w-4" /> Prefiro receber por e-mail
+              <Mail className="h-4 w-4" /> Por e-mail
             </a>
           </div>
         </div>
+
       </div>
     </section>
   );
