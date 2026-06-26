@@ -328,10 +328,10 @@ function Hero() {
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         {/* Eyebrow institucional — pergunta narrativa */}
         <div className="flex items-center justify-between gap-4 mb-8 sm:mb-10">
-          <SectionLabel index="01" question="o que acontece">Homepage · Imperius</SectionLabel>
+          <SectionLabel index="01" question="o que acontece">Operações comerciais</SectionLabel>
           <span className="hidden sm:inline-flex items-center gap-2 imp-chip">
             <ImpReg />
-            <span>v2.4 · Sorocaba/SP</span>
+            <span>Sorocaba · BR</span>
           </span>
         </div>
 
@@ -342,10 +342,8 @@ function Hero() {
             <span className="product-chrome-dot" aria-hidden />
             <span>LIVE</span>
             <span aria-hidden className="h-3 w-px bg-border" />
-            <span className="hidden sm:inline">Homepage · S/01</span>
-            <span aria-hidden className="h-3 w-px bg-border hidden sm:inline-block" />
-            <span className="hidden md:inline">Operações comerciais</span>
-            <span className="ml-auto tabular-nums">build · 2026.11</span>
+            <span className="hidden sm:inline">S/01 · sinal</span>
+            <span className="ml-auto tabular-nums">2026.11</span>
           </div>
 
           <div className="grid lg:grid-cols-12 items-stretch">
@@ -360,7 +358,7 @@ function Hero() {
               </h1>
 
               <p className="mt-7 sm:mt-8 max-w-lg text-lede">
-                A gente mostra onde ele trava — antes que desista.
+                Mostramos onde ele trava — antes que desista.
               </p>
 
               <div className="mt-9 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-5">
@@ -397,8 +395,7 @@ function Hero() {
 
           {/* Status strip inferior */}
           <div className="product-chrome border-t border-b-0 justify-between">
-            <span>monitorando · em tempo real</span>
-            <span className="hidden sm:inline">parado → intervenção → fechado</span>
+            <span>parado → intervenção → fechado</span>
             <span className="tabular-nums">↓ S/02</span>
           </div>
         </div>
@@ -814,12 +811,12 @@ function Operator() {
             <SectionLabel index="05" question="como aplicamos">Imperius Operator</SectionLabel>
             <h2 className="text-h2 text-foreground mt-5">
               O cliente travou.{" "}
-              <span className="text-foreground/50">A gente reabre o caminho.</span>
+              <span className="text-foreground/50">Reabrimos o caminho.</span>
             </h2>
           </div>
           <div className="lg:col-span-5 lg:col-start-8 self-end">
             <p className="text-lede max-w-md">
-              Onde o processo para, alguém é avisado. A oportunidade volta a se mover.
+              Onde o processo para, alguém é avisado.
             </p>
           </div>
         </div>
@@ -830,9 +827,7 @@ function Operator() {
             <span className="product-chrome-dot" aria-hidden />
             <span>MONITORANDO</span>
             <span aria-hidden className="h-3 w-px bg-border" />
-            <span className="hidden sm:inline">fluxo comercial</span>
-            <span aria-hidden className="h-3 w-px bg-border hidden sm:inline-block" />
-            <span className="hidden md:inline operator-sync">sync · agora</span>
+            <span className="hidden sm:inline operator-sync">sync · agora</span>
             <span className="ml-auto tabular-nums">S/05</span>
           </div>
 
@@ -842,7 +837,6 @@ function Operator() {
 
           <div className="product-chrome justify-between" style={{ borderBottom: 0, borderTop: "1px solid var(--color-border)" }}>
             <span>parado → intervenção → fechado</span>
-            <span className="hidden sm:inline">demonstração contínua · sem dados pessoais</span>
             <span className="tabular-nums">↓ S/06</span>
           </div>
         </div>
@@ -979,9 +973,9 @@ function RecoveryFlow() {
 // --- Final CTA — tipografia de presença -----------------------------------
 function FinalCTA() {
   const passos = [
-    { n: "01", t: "Conversa de 20 min", d: "Você descreve a operação. A gente escuta." },
-    { n: "02", t: "Diagnóstico em tela", d: "Mostramos onde o cliente trava — com você junto." },
-    { n: "03", t: "Próximo passo", d: "Decidir juntos. Sem proposta antes do problema claro." },
+    { n: "01", t: "Conversa de 20 min", d: "Você descreve a operação." },
+    { n: "02", t: "Diagnóstico em tela", d: "Mostramos o gargalo — com você junto." },
+    { n: "03", t: "Próximo passo", d: "Decidir juntos o que vem a seguir." },
   ];
   return (
     <section className="relative pt-14 pb-24 sm:pt-20 sm:pb-32 overflow-hidden">
@@ -989,7 +983,7 @@ function FinalCTA() {
       <div className="absolute inset-0 bg-grid opacity-[0.06] pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <SectionLabel index="06" question="começamos por uma conversa">Próximo passo</SectionLabel>
+          <SectionLabel index="06" question="começa por uma conversa">Próximo passo</SectionLabel>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
@@ -999,8 +993,10 @@ function FinalCTA() {
               <span className="text-foreground/45">diagnóstico.</span>
             </h2>
             <p className="mt-7 text-lede max-w-lg">
-              Uma conversa curta. Sem proposta. O começo de uma relação de longo prazo.
+              Conversa curta. Sem compromisso.
             </p>
+
+
 
             <div className="mt-9 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
               <a
@@ -1017,7 +1013,7 @@ function FinalCTA() {
                   size="lg"
                   className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] cta-shadow"
                 >
-                  Começar uma conversa{" "}
+                  Iniciar diagnóstico{" "}
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </Button>
               </a>
