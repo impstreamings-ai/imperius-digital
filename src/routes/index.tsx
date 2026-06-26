@@ -606,10 +606,11 @@ function Demonstracoes() {
                 fetchPriority="high"
                 className="block w-full h-[320px] sm:h-[420px] lg:h-[540px] object-cover object-center transition-transform duration-700 group-hover:scale-[1.015]"
               />
-              <div className="absolute top-3 left-3 inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-border bg-background/85 backdrop-blur-md text-mono text-[9.5px] uppercase tracking-[0.2em] text-foreground/85">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-                cliente ativo
+              <div className="absolute top-3 left-3 imp-chip bg-background/85 backdrop-blur-md text-foreground/85">
+                <span className="imp-mark imp-mark-primary animate-pulse-glow" />
+                <span>cliente ativo</span>
               </div>
+
               <div className="absolute bottom-3 right-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/95 text-primary-foreground text-[12px] font-semibold transition-transform group-hover:-translate-y-0.5">
                 Abrir projeto <ExternalLink className="h-3.5 w-3.5" />
               </div>
