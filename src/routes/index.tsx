@@ -635,12 +635,13 @@ function Demonstracoes() {
                   Resultado
                 </div>
                 <p className="text-card-body text-foreground/90">
-                  O cliente encontra tudo em um único lugar e chega ao contato com menos atrito.
+                  Tudo num lugar. Contato em um toque.
                 </p>
                 <div className="mt-4 text-mono text-[10.5px] uppercase tracking-[0.2em] text-muted-foreground/70 truncate">
                   ↗ barbeariadoalemao.lovable.app
                 </div>
               </div>
+
             </div>
           </div>
         </div>
