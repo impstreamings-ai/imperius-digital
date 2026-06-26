@@ -68,7 +68,7 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://imperius-digital.lovable.app/" },
-      { property: "og:image", content: "https://imperius-digital.lovable.app/__l5e/assets-v1/ae6d1095-0da6-4317-bfb4-9afb5cd15f50/barbearia-alemao-foto.png" },
+      { property: "og:image", content: "https://imperius-digital.lovable.app/assets/barbearia-alemao-foto.png" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Imperius — Encontramos o gargalo que está te custando clientes" },
       {
@@ -76,7 +76,7 @@ export const Route = createFileRoute("/")({
         content:
           "Mapeamos onde sua operação perde cliente e encurtamos o caminho entre o contato e a venda. Diagnóstico antes de qualquer proposta.",
       },
-      { name: "twitter:image", content: "https://imperius-digital.lovable.app/__l5e/assets-v1/ae6d1095-0da6-4317-bfb4-9afb5cd15f50/barbearia-alemao-foto.png" },
+      { name: "twitter:image", content: "https://imperius-digital.lovable.app/assets/barbearia-alemao-foto.png" },
     ],
     links: [
       {
@@ -88,8 +88,7 @@ export const Route = createFileRoute("/")({
       {
         rel: "preload",
         as: "image",
-        href: "/__l5e/assets-v1/ae6d1095-0da6-4317-bfb4-9afb5cd15f50/barbearia-alemao-foto.png",
-        media: "(min-width: 768px)",
+        href: "/assets/barbearia-alemao-foto.png",
         fetchpriority: "high",
       } as unknown as Record<string, string>,
     ],
