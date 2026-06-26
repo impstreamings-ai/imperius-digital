@@ -342,10 +342,8 @@ function Hero() {
             <span className="product-chrome-dot" aria-hidden />
             <span>LIVE</span>
             <span aria-hidden className="h-3 w-px bg-border" />
-            <span className="hidden sm:inline">Homepage · S/01</span>
-            <span aria-hidden className="h-3 w-px bg-border hidden sm:inline-block" />
-            <span className="hidden md:inline">Operações comerciais</span>
-            <span className="ml-auto tabular-nums">build · 2026.11</span>
+            <span className="hidden sm:inline">S/01 · sinal</span>
+            <span className="ml-auto tabular-nums">2026.11</span>
           </div>
 
           <div className="grid lg:grid-cols-12 items-stretch">
