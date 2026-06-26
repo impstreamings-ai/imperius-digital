@@ -353,18 +353,11 @@ function Hero() {
               </span>
             </div>
 
-
-            {/* Metas hairline — densidade de produto, sem virar dashboard */}
-            <div className="mt-12 sm:mt-14 pt-6 border-t border-border/70 grid grid-cols-3 gap-6 max-w-lg">
-              <MetaStat k="Monitoramento" v="24/7" />
-              <MetaStat k="Latência média" v="< 90s" />
-              <MetaStat k="Piloto" v="Sorocaba" />
-            </div>
           </div>
 
-          {/* Coluna direita — prévia funcional do Operator */}
+          {/* Coluna direita — fluxo conceitual: caminho atual vs caminho Imperius */}
           <div className="lg:col-span-6">
-            <OperatorPanel />
+            <HeroFlow />
           </div>
         </div>
       </div>
@@ -372,33 +365,115 @@ function Hero() {
   );
 }
 
-function MetaStat({ k, v }: { k: string; v: string }) {
+// Hero — não é interface, é a ideia. Dois caminhos:
+// 1) antes  — sinuoso, com bloqueio. Cliente desiste.
+// 2) depois — reto, curto, direto à venda.
+function HeroFlow() {
+  const W = 560;
+  const H = 360;
   return (
-    <div>
-      <div className="text-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/55">
-        {k}
+    <figure
+      aria-label="Caminho do cliente: antes e depois da Imperius"
+      className="relative"
+    >
+      {/* moldura mínima — apenas tipografia técnica nas bordas */}
+      <div className="flex items-center justify-between text-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground/55 mb-4">
+        <span>interesse</span>
+        <span>venda</span>
       </div>
-      <div className="mt-1.5 text-mono text-[14px] text-foreground/90 tabular-nums">{v}</div>
-    </div>
+
+      <svg
+        viewBox={`0 0 ${W} ${H}`}
+        className="w-full h-auto"
+        role="img"
+      >
+        <defs>
+          <linearGradient id="rail-before" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stopColor="oklch(0.95 0 0 / 0.35)" />
+            <stop offset="55%" stopColor="oklch(0.95 0 0 / 0.35)" />
+            <stop offset="56%" stopColor="oklch(0.62 0.21 22 / 0.85)" />
+            <stop offset="100%" stopColor="oklch(0.62 0.21 22 / 0)" />
+          </linearGradient>
+          <linearGradient id="rail-after" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stopColor="oklch(0.635 0.135 252 / 0.45)" />
+            <stop offset="100%" stopColor="oklch(0.635 0.135 252 / 1)" />
+          </linearGradient>
+        </defs>
+
+        {/* ────── ANTES: caminho longo, sinuoso, interrompido ────── */}
+        <g>
+          <text x="0" y="34" className="text-mono" fill="oklch(0.95 0 0 / 0.35)" fontSize="9" letterSpacing="2">
+            AGORA
+          </text>
+          {/* curva winding */}
+          <path
+            d="M 10 80 C 80 40, 130 130, 200 90 S 320 50, 360 120"
+            fill="none"
+            stroke="url(#rail-before)"
+            strokeWidth="1.25"
+            strokeDasharray="0"
+          />
+          {/* nós ao longo da curva */}
+          <FlowNode cx={10} cy={80} />
+          <FlowNode cx={95} cy={70} />
+          <FlowNode cx={170} cy={105} />
+          <FlowNode cx={240} cy={78} />
+          <FlowNode cx={310} cy={92} />
+          {/* gargalo */}
+          <g>
+            <FlowNode cx={360} cy={120} variant="stuck" r={5} />
+            <line x1={350} y1={110} x2={370} y2={130} stroke="oklch(0.62 0.21 22 / 0.9)" strokeWidth="1.25" />
+            <line x1={370} y1={110} x2={350} y2={130} stroke="oklch(0.62 0.21 22 / 0.9)" strokeWidth="1.25" />
+            <text x={385} y={124} className="text-mono" fill="oklch(0.62 0.21 22 / 0.95)" fontSize="9" letterSpacing="1.5">
+              GARGALO
+            </text>
+          </g>
+          {/* trecho desaparecendo após o gargalo */}
+          <path
+            d="M 380 138 C 430 170, 480 180, 540 175"
+            fill="none"
+            stroke="oklch(0.95 0 0 / 0.16)"
+            strokeWidth="1"
+            strokeDasharray="2 4"
+          />
+          <text x={448} y={196} className="text-mono" fill="oklch(0.95 0 0 / 0.35)" fontSize="9" letterSpacing="1.5">
+            cliente desiste
+          </text>
+        </g>
+
+        {/* ────── intervenção Imperius ────── */}
+        <g>
+          <line x1={40} y1={228} x2={520} y2={228} stroke="oklch(0.95 0 0 / 0.08)" strokeWidth="1" />
+          <text x={40} y={222} className="text-mono" fill="oklch(0.635 0.135 252 / 0.85)" fontSize="9" letterSpacing="2">
+            ↓  IMPERIUS  REDUZ  O  CAMINHO
+          </text>
+        </g>
+
+        {/* ────── DEPOIS: linha reta, curta, direta à venda ────── */}
+        <g transform="translate(0, 56)">
+          <text x="0" y="234" className="text-mono" fill="oklch(0.635 0.135 252 / 0.9)" fontSize="9" letterSpacing="2">
+            COM IMPERIUS
+          </text>
+          <line
+            x1={10}
+            y1={278}
+            x2={540}
+            y2={278}
+            stroke="url(#rail-after)"
+            strokeWidth="1.5"
+          />
+          <FlowNode cx={10} cy={278} />
+          <FlowNode cx={185} cy={278} />
+          <FlowNode cx={360} cy={278} />
+          <FlowNode cx={540} cy={278} variant="exit" r={5.5} />
+          <text x={520} y={300} className="text-mono" fill="oklch(0.635 0.135 252 / 0.95)" fontSize="9" letterSpacing="1.5" textAnchor="end">
+            VENDA
+          </text>
+        </g>
+      </svg>
+    </figure>
   );
 }
-
-// Hero teaser — NÃO repetir o Operator. Sem stages, sem "próxima ação",
-// sem "sincronizado", sem fila. Apenas um sinal vivo que provoca curiosidade.
-function OperatorPanel() {
-  // Onda do "sinal" — picos crescentes terminam num spike (gargalo detectado)
-  const points = [
-    8, 10, 9, 12, 11, 14, 13, 16, 15, 19, 17, 22, 20, 26, 24, 30, 28, 34, 31, 40,
-    36, 46, 42, 52, 48, 58, 54, 64, 60, 70,
-  ];
-  const W = 520;
-  const H = 120;
-  const stepX = W / (points.length - 1);
-  const maxY = 72;
-  const path = points
-    .map((p, i) => `${i === 0 ? "M" : "L"} ${(i * stepX).toFixed(1)} ${(H - (p / maxY) * (H - 12) - 6).toFixed(1)}`)
-    .join(" ");
-  const area = `${path} L ${W} ${H} L 0 ${H} Z`;
 
   return (
     <figure
