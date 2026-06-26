@@ -180,46 +180,55 @@ function Nav() {
   );
 }
 
-// --- Hero — composição assimétrica editorial ------------------------------
+// --- Hero — abertura de produto, composição editorial assimétrica --------
 function Hero() {
   return (
     <section
       id="top"
-      className="relative pt-28 pb-14 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden"
+      className="relative pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-28 overflow-hidden"
       style={{
         background: "var(--gradient-hero)",
         paddingLeft: "max(0px, env(safe-area-inset-left))",
         paddingRight: "max(0px, env(safe-area-inset-right))",
       }}
     >
-      <div className="absolute inset-0 bg-grid pointer-events-none opacity-[0.10]" aria-hidden />
+      {/* Fundo: hairline grid silencioso + halo central, sem partículas decorativas */}
+      <div className="absolute inset-0 bg-grid pointer-events-none opacity-[0.05]" aria-hidden />
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-[55%] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(58% 65% at 50% 0%, oklch(0.42 0.09 252 / 0.10), transparent 68%)",
+        }}
+      />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        {/* topo: metadata editorial */}
-        <div className="flex items-center justify-between gap-4 mb-10 sm:mb-14">
-          <SectionLabel index="01">Diagnóstico comercial</SectionLabel>
-          <span className="hidden sm:inline-flex text-mono text-[10.5px] tracking-[0.18em] text-muted-foreground/70 uppercase">
-            Imperius — Sorocaba/SP
+        {/* Metadata editorial */}
+        <div className="flex items-center justify-between gap-4 mb-12 sm:mb-14 lg:mb-16">
+          <SectionLabel index="01">Imperius Operator</SectionLabel>
+          <span className="hidden sm:inline-flex items-center gap-2 text-mono text-[10.5px] tracking-[0.18em] text-muted-foreground/70 uppercase">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+            v2.4 · Sorocaba/SP
           </span>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-end">
-          {/* Coluna esquerda — headline editorial */}
-          <div className="lg:col-span-7">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-20 items-center">
+          {/* Coluna esquerda — peso editorial */}
+          <div className="lg:col-span-6">
             <h1 className="text-display text-foreground">
               Seu cliente
               <br />
-              quer comprar.{" "}
-              <span className="text-foreground/50">Mas não chega até a venda.</span>
+              quer comprar.
+              <br />
+              <span className="text-foreground/45">Mas não chega até a venda.</span>
             </h1>
 
-            <div className="mt-7 sm:mt-8 max-w-xl">
-              <p className="text-lede">
-                Identificamos o ponto exato onde sua operação perde cliente — antes de qualquer proposta.
-              </p>
-            </div>
+            <p className="mt-7 sm:mt-8 max-w-lg text-lede">
+              O Imperius monitora cada conversa, identifica o ponto exato onde o cliente trava e avisa antes que ele desista.
+            </p>
 
-            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+            <div className="mt-9 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-5">
               <a
                 href={WA}
                 target="_blank"
@@ -239,11 +248,18 @@ function Hero() {
                 20 min · sem proposta antes
               </span>
             </div>
+
+            {/* Metas hairline — densidade de produto, sem virar dashboard */}
+            <div className="mt-12 sm:mt-14 pt-6 border-t border-border/70 grid grid-cols-3 gap-6 max-w-lg">
+              <MetaStat k="Monitoramento" v="24/7" />
+              <MetaStat k="Latência média" v="< 90s" />
+              <MetaStat k="Piloto" v="Sorocaba" />
+            </div>
           </div>
 
-          {/* Coluna direita — micro console técnico */}
-          <div className="lg:col-span-5">
-            <HeroConsole />
+          {/* Coluna direita — prévia funcional do Operator */}
+          <div className="lg:col-span-6">
+            <OperatorPanel />
           </div>
         </div>
       </div>
@@ -251,102 +267,172 @@ function Hero() {
   );
 }
 
-function HeroConsole() {
-  // Visual técnico proprietário — substitui qualquer gradient genérico.
-  // Nodes representam etapas; linha tracejada indica fluxo do cliente.
+function MetaStat({ k, v }: { k: string; v: string }) {
+  return (
+    <div>
+      <div className="text-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/55">
+        {k}
+      </div>
+      <div className="mt-1.5 text-mono text-[14px] text-foreground/90 tabular-nums">{v}</div>
+    </div>
+  );
+}
+
+function OperatorPanel() {
+  const stages = [
+    { label: "Contato", state: "done" as const },
+    { label: "Resposta", state: "done" as const },
+    { label: "Diagnóstico", state: "stuck" as const },
+    { label: "Proposta", state: "pending" as const },
+    { label: "Fechamento", state: "pending" as const },
+  ];
+
   return (
     <figure
-      aria-hidden
-      className="relative tech-frame border border-border bg-card/40 backdrop-blur-md rounded-card overflow-hidden"
+      aria-label="Prévia funcional do Imperius Operator"
+      className="relative tech-frame rounded-card overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(180deg, oklch(0.168 0.011 256 / 0.92), oklch(0.128 0.009 256 / 0.94))",
+        borderColor: "var(--border-strong)",
+        borderWidth: 1,
+        borderStyle: "solid",
+        boxShadow: "var(--shadow-3)",
+        backdropFilter: "blur(12px)",
+      }}
     >
       <span className="tech-frame__bl" />
       <span className="tech-frame__br" />
 
+      {/* Chrome */}
       <div className="console-chrome">
         <span className="flex items-center gap-1.5">
           <span className="h-2 w-2 rounded-full bg-foreground/15" />
           <span className="h-2 w-2 rounded-full bg-foreground/15" />
           <span className="h-2 w-2 rounded-full bg-foreground/15" />
         </span>
-        <span className="ml-2">operator · live</span>
-        <span className="ml-auto inline-flex items-center gap-1.5">
+        <span className="ml-2 text-foreground/65">operator · pipeline</span>
+        <span className="ml-auto inline-flex items-center gap-1.5 text-foreground/85">
           <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-          <span className="text-mono">monitoring</span>
+          <span className="text-mono">live</span>
         </span>
       </div>
 
-      <div className="relative p-5 sm:p-6">
-        <svg viewBox="0 0 400 220" className="block w-full h-auto">
-          <defs>
-            <linearGradient id="ic-line" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="oklch(0.635 0.135 252)" stopOpacity="0.1" />
-              <stop offset="50%" stopColor="oklch(0.635 0.135 252)" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="oklch(0.635 0.135 252)" stopOpacity="0.1" />
-            </linearGradient>
-          </defs>
+      <div className="p-5 sm:p-6 space-y-6">
+        {/* Oportunidade */}
+        <div className="flex items-start justify-between gap-4">
+          <div className="min-w-0">
+            <div className="text-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/55">
+              Oportunidade · #OP-1284
+            </div>
+            <div className="mt-1.5 text-[15px] font-semibold text-foreground truncate">
+              Marcos R. — Barbearia
+            </div>
+            <div className="mt-0.5 text-[12px] text-muted-foreground">
+              Origem: WhatsApp · Atendente: Júlia
+            </div>
+          </div>
+          <span className="shrink-0 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-mono text-[10px] tracking-[0.16em] uppercase border border-destructive/35 text-destructive/90 bg-destructive/[0.06]">
+            <AlertTriangle className="h-3 w-3" /> Gargalo
+          </span>
+        </div>
 
-          {/* Grid técnico de fundo */}
-          <g stroke="oklch(1 0 0 / 0.04)" strokeWidth="1">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <line key={`h-${i}`} x1="0" x2="400" y1={(i + 1) * 30} y2={(i + 1) * 30} />
-            ))}
-            {Array.from({ length: 10 }).map((_, i) => (
-              <line key={`v-${i}`} y1="0" y2="220" x1={(i + 1) * 36} x2={(i + 1) * 36} />
-            ))}
-          </g>
+        {/* Pipeline stepper */}
+        <div>
+          <div className="relative">
+            <div className="absolute left-[7px] right-[7px] top-[6.5px] h-px bg-border" aria-hidden />
+            <div
+              className="absolute left-[7px] top-[6.5px] h-px bg-primary/55 operator-rail-draw"
+              style={{ width: "calc(50% - 7px)" }}
+              aria-hidden
+            />
+            <ol className="relative grid grid-cols-5 gap-1">
+              {stages.map((s) => {
+                const isStuck = s.state === "stuck";
+                const isDone = s.state === "done";
+                return (
+                  <li key={s.label} className="flex flex-col items-start gap-2.5">
+                    <span
+                      className={
+                        "relative h-3.5 w-3.5 rounded-full border " +
+                        (isStuck
+                          ? "bg-destructive border-destructive/40 operator-stuck"
+                          : isDone
+                            ? "bg-primary border-primary/40"
+                            : "bg-card border-border")
+                      }
+                    />
+                    <span
+                      className={
+                        "text-mono text-[9.5px] tracking-[0.14em] uppercase " +
+                        (isStuck
+                          ? "text-destructive/90"
+                          : isDone
+                            ? "text-foreground/75"
+                            : "text-muted-foreground/50")
+                      }
+                    >
+                      {s.label}
+                    </span>
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
+        </div>
 
-          {/* Caminho do cliente */}
-          <path
-            d="M40 110 C 110 40, 180 180, 250 90 S 360 130, 380 110"
-            fill="none"
-            stroke="url(#ic-line)"
-            strokeWidth="1.25"
-            className="hero-energy-line"
-          />
+        {/* Métrica crítica + conversa */}
+        <div className="grid grid-cols-2 gap-3">
+          <div className="rounded-lg border border-border bg-foreground/[0.02] p-4">
+            <div className="text-mono text-[9.5px] tracking-[0.2em] uppercase text-muted-foreground/60">
+              Tempo parado
+            </div>
+            <div className="mt-2 text-mono text-[24px] leading-none text-foreground tabular-nums">
+              02:14
+              <span className="text-muted-foreground/55 text-[13px] ml-1">h</span>
+            </div>
+            <div className="mt-2 text-[11px] text-muted-foreground">
+              Acima do limite (45 min)
+            </div>
+          </div>
+          <div className="rounded-lg border border-border bg-foreground/[0.02] p-4">
+            <div className="text-mono text-[9.5px] tracking-[0.2em] uppercase text-muted-foreground/60">
+              Conversa
+            </div>
+            <div className="mt-2 text-[12.5px] text-foreground/90 leading-snug">
+              Cliente leu o orçamento. Sem retorno.
+            </div>
+            <div className="mt-2 inline-flex items-center gap-1.5 text-mono text-[10px] text-muted-foreground/70">
+              <MessageCircle className="h-3 w-3" /> WhatsApp · 14:32
+            </div>
+          </div>
+        </div>
 
-          {/* Nodes — etapas */}
-          {[
-            { x: 40, y: 110, label: "Contato" },
-            { x: 130, y: 70, label: "Resposta" },
-            { x: 210, y: 140, label: "Travou" },
-            { x: 300, y: 95, label: "Retomada" },
-            { x: 380, y: 110, label: "Venda" },
-          ].map((n, i) => (
-            <g key={n.label} className="hero-node">
-              <circle
-                cx={n.x}
-                cy={n.y}
-                r={i === 2 ? 6 : 4}
-                fill={i === 2 ? "oklch(0.68 0.18 22)" : "oklch(0.78 0.10 250)"}
-                stroke="oklch(0.118 0.008 256)"
-                strokeWidth="1.5"
-              />
-              <text
-                x={n.x}
-                y={n.y + 18}
-                fontSize="8"
-                fontFamily="Geist Mono, monospace"
-                fill="oklch(0.78 0.008 256 / 0.6)"
-                textAnchor="middle"
-                letterSpacing="0.5"
-              >
-                {n.label.toUpperCase()}
-              </text>
-            </g>
-          ))}
+        {/* Próxima ação sugerida */}
+        <div className="flex items-center justify-between gap-4 rounded-lg border border-primary/25 bg-primary/[0.05] px-4 py-3">
+          <div className="min-w-0">
+            <div className="text-mono text-[9.5px] tracking-[0.2em] uppercase text-primary/85">
+              Próxima ação sugerida
+            </div>
+            <div className="mt-1 text-[13px] text-foreground truncate">
+              Retomar conversa com prova social local
+            </div>
+          </div>
+          <span
+            aria-hidden
+            className="shrink-0 inline-flex items-center gap-1.5 rounded-md border border-primary/30 px-2.5 py-1.5 text-mono text-[10px] tracking-[0.16em] uppercase text-foreground/90"
+          >
+            Executar <ArrowRight className="h-3 w-3" />
+          </span>
+        </div>
 
-          {/* Marcador do gargalo */}
-          <g>
-            <line x1="210" y1="56" x2="210" y2="128" stroke="oklch(0.68 0.18 22 / 0.55)" strokeDasharray="2 3" strokeWidth="1" />
-            <text x="218" y="62" fontSize="8.5" fontFamily="Geist Mono, monospace" fill="oklch(0.68 0.18 22 / 0.85)" letterSpacing="0.5">
-              GARGALO
-            </text>
-          </g>
-        </svg>
-
-        <div className="mt-4 flex items-center justify-between text-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground/65">
-          <span>fluxo do cliente</span>
-          <span>5 etapas · 1 ponto crítico</span>
+        {/* Footer técnico */}
+        <div className="flex items-center justify-between pt-1 text-mono text-[9.5px] tracking-[0.18em] uppercase text-muted-foreground/55">
+          <span className="inline-flex items-center gap-1.5 operator-sync">
+            <CheckCircle2 className="h-3 w-3 text-primary/70" />
+            Sincronizado · há 12s
+          </span>
+          <span>OP-1284 · t+02h14</span>
         </div>
       </div>
     </figure>

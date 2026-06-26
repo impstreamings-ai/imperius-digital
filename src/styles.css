@@ -751,6 +751,32 @@
   pointer-events: none;
 }
 
+/* === Hero Operator panel — micro-interações silenciosas === */
+@keyframes operator-rail-draw {
+  0%   { transform: scaleX(0); opacity: 0.85; }
+  55%  { transform: scaleX(1); opacity: 0.85; }
+  85%  { transform: scaleX(1); opacity: 0.85; }
+  100% { transform: scaleX(1); opacity: 0; }
+}
+.operator-rail-draw {
+  transform-origin: left center;
+  animation: operator-rail-draw 5.4s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+}
 
+@keyframes operator-stuck-breath {
+  0%, 100% { box-shadow: 0 0 0 4px oklch(0.58 0.16 22 / 0.10); }
+  50%      { box-shadow: 0 0 0 6px oklch(0.58 0.16 22 / 0.22); }
+}
+.operator-stuck { animation: operator-stuck-breath 2.4s ease-in-out infinite; }
+
+@keyframes operator-sync-blink {
+  0%, 70%, 100% { opacity: 0.55; }
+  80%, 90%      { opacity: 1; }
+}
+.operator-sync { animation: operator-sync-blink 4s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .operator-rail-draw, .operator-stuck, .operator-sync { animation: none !important; }
+}
 
 #lovable-badge { display: none !important; }
