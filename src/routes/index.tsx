@@ -100,7 +100,7 @@ const WA_MESSAGE = "Olá! Quero um diagnóstico do gargalo comercial da minha em
 const WA = `https://wa.me/5515981023792?text=${encodeURIComponent(WA_MESSAGE)}`;
 const IG = "https://instagram.com/imperiusdigital.br";
 const CLIENTE_REAL_URL = "https://barbeariadoalemao.lovable.app/";
-const CLIENTE_REAL_COVER = "/__l5e/assets-v1/ae6d1095-0da6-4317-bfb4-9afb5cd15f50/barbearia-alemao-foto.png";
+const CLIENTE_REAL_COVER = "/assets/barbearia-alemao-foto.png";
 const PROPOSAL_EMAIL = "imperiusuniverse@gmail.com";
 const PROPOSAL_MAILTO = `mailto:${PROPOSAL_EMAIL}?subject=${encodeURIComponent("Proposta Imperius — apresentação personalizada")}&body=${encodeURIComponent("Olá, equipe Imperius.\n\nGostaria de receber uma proposta personalizada.\n\nEmpresa:\nSegmento:\nObjetivo principal:\n\nObrigado.")}`;
 
