@@ -827,9 +827,7 @@ function Operator() {
             <span className="product-chrome-dot" aria-hidden />
             <span>MONITORANDO</span>
             <span aria-hidden className="h-3 w-px bg-border" />
-            <span className="hidden sm:inline">fluxo comercial</span>
-            <span aria-hidden className="h-3 w-px bg-border hidden sm:inline-block" />
-            <span className="hidden md:inline operator-sync">sync · agora</span>
+            <span className="hidden sm:inline operator-sync">sync · agora</span>
             <span className="ml-auto tabular-nums">S/05</span>
           </div>
 
@@ -839,7 +837,6 @@ function Operator() {
 
           <div className="product-chrome justify-between" style={{ borderBottom: 0, borderTop: "1px solid var(--color-border)" }}>
             <span>parado → intervenção → fechado</span>
-            <span className="hidden sm:inline">demonstração contínua · sem dados pessoais</span>
             <span className="tabular-nums">↓ S/06</span>
           </div>
         </div>
