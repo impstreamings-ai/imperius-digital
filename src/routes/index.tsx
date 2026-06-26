@@ -809,9 +809,9 @@ function Operator() {
     <section id="operator" className="relative pt-4 pb-20 sm:pt-6 sm:pb-24 surface-tint">
       <span aria-hidden className="chapter-numeral absolute top-2 right-4 sm:right-8 hidden md:block">05</span>
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-12 sm:mb-16">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-10 sm:mb-14">
           <div className="lg:col-span-6">
-            <SectionLabel index="05">Imperius Operator</SectionLabel>
+            <SectionLabel index="05" question="como aplicamos">Imperius Operator</SectionLabel>
             <h2 className="text-h2 text-foreground mt-5">
               O cliente travou.{" "}
               <span className="text-foreground/50">A gente reabre o caminho.</span>
@@ -824,16 +824,33 @@ function Operator() {
           </div>
         </div>
 
-        <RecoveryFlow />
+        {/* Painel-produto: o Operator deixa de ser ilustração e vira demonstração viva */}
+        <div className="surface-raised rounded-[var(--radius-card)] overflow-hidden">
+          <div className="product-chrome">
+            <span className="product-chrome-dot" aria-hidden />
+            <span>MONITORANDO</span>
+            <span aria-hidden className="h-3 w-px bg-border" />
+            <span className="hidden sm:inline">fluxo comercial</span>
+            <span aria-hidden className="h-3 w-px bg-border hidden sm:inline-block" />
+            <span className="hidden md:inline operator-sync">sync · agora</span>
+            <span className="ml-auto tabular-nums">S/05</span>
+          </div>
 
-        <div className="mt-10 flex items-center justify-between text-mono text-[10.5px] tracking-[0.2em] uppercase text-muted-foreground/65">
-          <span>parado → intervenção → fechado</span>
-          <span>↓ S/06 — próximo passo</span>
+          <div className="px-3 sm:px-6 lg:px-8 py-8 sm:py-10">
+            <RecoveryFlow />
+          </div>
+
+          <div className="product-chrome justify-between" style={{ borderBottom: 0, borderTop: "1px solid var(--color-border)" }}>
+            <span>parado → intervenção → fechado</span>
+            <span className="hidden sm:inline">demonstração contínua · sem dados pessoais</span>
+            <span className="tabular-nums">↓ S/06</span>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 // Diagrama: três estágios sequenciais. A meio caminho a oportunidade trava.
 // Uma rota auxiliar (Imperius) desvia o nó parado de volta ao fluxo principal.
