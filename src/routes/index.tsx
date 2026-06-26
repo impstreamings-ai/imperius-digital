@@ -978,59 +978,88 @@ function RecoveryFlow() {
 
 // --- Final CTA — tipografia de presença -----------------------------------
 function FinalCTA() {
+  const passos = [
+    { n: "01", t: "Conversa de 20 min", d: "Você descreve a operação. A gente escuta." },
+    { n: "02", t: "Diagnóstico em tela", d: "Mostramos onde o cliente trava — com você junto." },
+    { n: "03", t: "Próximo passo", d: "Decidir juntos. Sem proposta antes do problema claro." },
+  ];
   return (
-    <section className="relative pt-12 pb-24 sm:pt-16 sm:pb-32 overflow-hidden">
+    <section className="relative pt-14 pb-24 sm:pt-20 sm:pb-32 overflow-hidden">
       <span aria-hidden className="chapter-numeral absolute top-6 left-4 sm:left-8 hidden md:block">06</span>
       <div className="absolute inset-0 bg-grid opacity-[0.06] pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <SectionLabel index="06">Próximo passo</SectionLabel>
+          <SectionLabel index="06" question="começamos por uma conversa">Próximo passo</SectionLabel>
         </div>
 
-        <h2 className="text-display-xl text-foreground max-w-5xl">
-          Veja onde você{" "}
-          <span className="text-foreground/45">perde cliente.</span>
-        </h2>
-
-        <div className="mt-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-end">
-          <div className="lg:col-span-6">
-            <p className="text-lede max-w-lg">
-              20 min. Sem proposta.
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          <div className="lg:col-span-7">
+            <h2 className="text-display-xl text-foreground">
+              Comece pelo{" "}
+              <span className="text-foreground/45">diagnóstico.</span>
+            </h2>
+            <p className="mt-7 text-lede max-w-lg">
+              Uma conversa curta. Sem proposta. O começo de uma relação de longo prazo.
             </p>
-          </div>
-          <div className="lg:col-span-6 flex flex-col sm:flex-row lg:justify-end items-stretch sm:items-center gap-4 sm:gap-6">
-            <a
-              href={WA}
-              target="_blank"
-              rel="noreferrer"
-              className="w-full sm:w-auto"
-              onClick={() => {
-                track("final_cta_click", { destination: "whatsapp" });
-                track("whatsapp_click", { location: "final_cta" });
-              }}
-            >
-              <Button
-                size="lg"
-                className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] cta-shadow"
+
+            <div className="mt-9 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
+              <a
+                href={WA}
+                target="_blank"
+                rel="noreferrer"
+                className="w-full sm:w-auto"
+                onClick={() => {
+                  track("final_cta_click", { destination: "whatsapp" });
+                  track("whatsapp_click", { location: "final_cta" });
+                }}
               >
-                Agendar diagnóstico{" "}
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </Button>
-            </a>
-            <a
-              href={PROPOSAL_MAILTO}
-              className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2 justify-center"
-              onClick={() => track("final_cta_click", { destination: "email" })}
-            >
-              <Mail className="h-4 w-4" /> Por e-mail
-            </a>
+                <Button
+                  size="lg"
+                  className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] cta-shadow"
+                >
+                  Começar uma conversa{" "}
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </Button>
+              </a>
+              <a
+                href={PROPOSAL_MAILTO}
+                className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2 justify-center sm:justify-start"
+                onClick={() => track("final_cta_click", { destination: "email" })}
+              >
+                <Mail className="h-4 w-4" /> Por e-mail
+              </a>
+            </div>
+          </div>
+
+          {/* O que acontece depois — painel-produto, três passos */}
+          <div className="lg:col-span-5">
+            <div className="surface-raised rounded-[var(--radius-card)] overflow-hidden">
+              <div className="product-chrome">
+                <span className="product-chrome-dot" aria-hidden />
+                <span>O QUE ACONTECE DEPOIS</span>
+                <span className="ml-auto tabular-nums">3 etapas</span>
+              </div>
+              <ol className="divide-y divide-border">
+                {passos.map((p) => (
+                  <li key={p.n} className="grid grid-cols-[auto_1fr] gap-5 px-5 sm:px-6 py-5">
+                    <span className="text-mono text-[22px] leading-none tabular-nums text-foreground/85 font-semibold pt-[2px]">
+                      {p.n}
+                    </span>
+                    <div className="min-w-0">
+                      <h3 className="text-card-title">{p.t}</h3>
+                      <p className="mt-1 text-card-body">{p.d}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </div>
         </div>
-
       </div>
     </section>
   );
 }
+
 
 // --- Footer — três colunas técnicas ---------------------------------------
 function Footer() {
