@@ -39,57 +39,54 @@
 }
 
 :root {
-  --radius: 0.5rem;
+  --radius: 0.625rem;
 
   /* === Imperius Carbon Plasma™ palette ===
-     Carbon #0A0B10 · Surface #15171F · Graphite #2B2D38
-     Silver #B8BCC9 · White #F5F6FA · Plasma #3B82F6 · Soft #93C5FD */
-  --background: oklch(0.105 0.012 258);          /* Carbon */
-  --foreground: oklch(0.97 0.005 258);            /* Pure white, tiny cool tint */
-  --card: oklch(0.18 0.018 258);                  /* Surface */
-  --card-foreground: oklch(0.97 0.005 258);
-  --popover: oklch(0.16 0.016 258);
-  --popover-foreground: oklch(0.97 0.005 258);
+     Carbon · Surface · Graphite · Silver · Plasma (cool, technical) */
+  --background: oklch(0.108 0.011 258);
+  --foreground: oklch(0.965 0.004 258);
+  --card: oklch(0.175 0.014 258);
+  --card-foreground: oklch(0.965 0.004 258);
+  --popover: oklch(0.155 0.013 258);
+  --popover-foreground: oklch(0.965 0.004 258);
 
-  /* Plasma é a assinatura — vibrante, conversional, energia controlada */
-  --primary: oklch(0.62 0.205 258);               /* Plasma #3B82F6 */
+  /* Plasma: azul frio, técnico — menos saturado, mais elegante */
+  --primary: oklch(0.625 0.17 256);
   --primary-foreground: oklch(0.99 0 0);
 
-  --secondary: oklch(0.27 0.015 258);             /* Graphite cool */
-  --secondary-foreground: oklch(0.97 0.005 258);
-  --muted: oklch(0.22 0.014 258);
-  --muted-foreground: oklch(0.76 0.02 258);       /* Silver com toque plasma */
-  --accent: oklch(0.83 0.10 248);                 /* Soft plasma #93C5FD */
+  --secondary: oklch(0.265 0.012 258);
+  --secondary-foreground: oklch(0.965 0.004 258);
+  --muted: oklch(0.215 0.011 258);
+  --muted-foreground: oklch(0.715 0.014 258);
+  --accent: oklch(0.80 0.08 250);
   --accent-foreground: oklch(0.12 0.01 258);
 
-  --destructive: oklch(0.6 0.22 22);              /* Plasma red — coerente com nova energia */
+  --destructive: oklch(0.58 0.19 22);
   --destructive-foreground: oklch(0.99 0 0);
 
-  --border: oklch(0.34 0.025 258 / 60%);
-  --input: oklch(0.27 0.018 258);
-  --ring: oklch(0.62 0.205 258);
+  --border: oklch(0.36 0.018 258 / 42%);
+  --input: oklch(0.27 0.014 258);
+  --ring: oklch(0.625 0.17 256);
 
-  --neon: oklch(0.65 0.21 258);                   /* Plasma vibrante */
-  --ice: oklch(0.83 0.10 248);                    /* Soft plasma */
-  --titanium: oklch(0.74 0.012 258);
+  --neon: oklch(0.66 0.17 256);
+  --ice: oklch(0.80 0.08 250);
+  --titanium: oklch(0.74 0.01 258);
 
-  /* Fundo do hero: carbono com respiração plasma sutil — azul como assinatura, não dominante */
-  --gradient-hero: radial-gradient(ellipse at 50% 0%, oklch(0.42 0.14 258 / 0.16), transparent 62%),
-                   radial-gradient(ellipse at 80% 90%, oklch(0.55 0.18 258 / 0.09), transparent 58%),
-                   linear-gradient(180deg, oklch(0.11 0.013 258), oklch(0.085 0.01 258));
-  /* Texto gradient: branco → silver plasma */
-  --gradient-text: linear-gradient(180deg, oklch(0.99 0 0) 0%, oklch(0.78 0.02 258) 100%);
-  /* "Neon" agora é gradient plasma real — energia visível */
-  --gradient-neon: linear-gradient(135deg, oklch(0.78 0.14 258), oklch(0.62 0.215 258));
+  /* Hero: respiração plasma muito sutil — luxo na composição, não no brilho */
+  --gradient-hero: radial-gradient(ellipse at 50% 0%, oklch(0.40 0.11 256 / 0.12), transparent 62%),
+                   radial-gradient(ellipse at 80% 90%, oklch(0.52 0.14 256 / 0.06), transparent 58%),
+                   linear-gradient(180deg, oklch(0.112 0.012 258), oklch(0.088 0.009 258));
+  --gradient-text: linear-gradient(180deg, oklch(0.99 0 0) 0%, oklch(0.76 0.014 258) 100%);
+  --gradient-neon: linear-gradient(135deg, oklch(0.78 0.11 256), oklch(0.625 0.17 256));
 
-  /* Sombras: graphite com halo plasma sutil na borda */
-  --shadow-neon: 0 0 0 1px oklch(0.62 0.20 258 / 0.32),
-                 0 0 28px -4px oklch(0.62 0.22 258 / 0.35),
-                 0 14px 40px -18px oklch(0 0 0 / 0.7);
-  --shadow-card: 0 1px 0 0 oklch(1 0 0 / 0.04) inset,
-                 0 30px 60px -30px oklch(0 0 0 / 0.85);
-  --grid-color: oklch(0.78 0.04 258 / 0.05);
+  /* Sombras: profundidade quase imperceptível — preto puro, sem halo plasma */
+  --shadow-neon: 0 0 0 1px oklch(0.625 0.16 256 / 0.22),
+                 0 18px 44px -22px oklch(0 0 0 / 0.65);
+  --shadow-card: 0 1px 0 0 oklch(1 0 0 / 0.03) inset,
+                 0 24px 48px -28px oklch(0 0 0 / 0.7);
+  --grid-color: oklch(0.78 0.03 258 / 0.04);
 }
+
 
 @layer base {
   * { border-color: var(--color-border); }
