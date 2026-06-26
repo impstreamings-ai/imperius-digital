@@ -533,7 +533,9 @@ function Problema() {
         </div>
 
 
-        <ul className="border-t border-border">
+        <div aria-hidden className="imp-hairline mb-0" />
+        <ul>
+
           {dores.map((d, i) => (
             <li key={d.t} className="row-editorial group">
               <span className="text-mono text-[11px] tracking-[0.18em] text-muted-foreground/55 pt-1">
