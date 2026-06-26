@@ -565,7 +565,8 @@ function Demonstracoes() {
   ];
 
   return (
-    <section id="vitrine" className="relative pt-20 pb-20 sm:pt-24 sm:pb-28 border-t border-border/60">
+    <section id="vitrine" className="relative pt-4 pb-20 sm:pt-6 sm:pb-28 surface-tint">
+      <span aria-hidden className="chapter-numeral absolute top-2 right-4 sm:right-8 hidden md:block">03</span>
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4 mb-10">
           <SectionLabel index="03">Caso validado</SectionLabel>
