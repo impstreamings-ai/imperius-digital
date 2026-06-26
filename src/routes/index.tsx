@@ -358,7 +358,7 @@ function Hero() {
               </h1>
 
               <p className="mt-7 sm:mt-8 max-w-lg text-lede">
-                A gente mostra onde ele trava — antes que desista.
+                Mostramos onde ele trava — antes que desista.
               </p>
 
               <div className="mt-9 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-5">
