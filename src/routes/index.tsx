@@ -34,11 +34,20 @@ function SectionLabel({
   children: ReactNode;
 }) {
   return (
-    <div className="section-label">
+    <div className="section-label imp-spine">
       <span className="section-label-mark">S/{index}</span>
       <span aria-hidden className="h-px w-6 bg-border" />
       <span>{children}</span>
     </div>
+  );
+}
+
+// Registration mark — assinatura recorrente em chrome de painéis/footer/nav.
+function ImpReg({ className = "" }: { className?: string }) {
+  return (
+    <span aria-hidden className={"imp-reg " + className}>
+      <i />
+    </span>
   );
 }
 
@@ -265,11 +274,12 @@ function Hero() {
         {/* Metadata editorial */}
         <div className="flex items-center justify-between gap-4 mb-12 sm:mb-14 lg:mb-16">
           <SectionLabel index="01">Imperius Operator</SectionLabel>
-          <span className="hidden sm:inline-flex items-center gap-2 text-mono text-[10.5px] tracking-[0.18em] text-muted-foreground/70 uppercase">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-            v2.4 · Sorocaba/SP
+          <span className="hidden sm:inline-flex items-center gap-2 imp-chip">
+            <ImpReg />
+            <span>v2.4 · Sorocaba/SP</span>
           </span>
         </div>
+
 
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-20 items-center">
           {/* Coluna esquerda — peso editorial */}
@@ -364,17 +374,14 @@ function OperatorPanel() {
 
       {/* Chrome */}
       <div className="console-chrome">
-        <span className="flex items-center gap-1.5">
-          <span className="h-2 w-2 rounded-full bg-foreground/15" />
-          <span className="h-2 w-2 rounded-full bg-foreground/15" />
-          <span className="h-2 w-2 rounded-full bg-foreground/15" />
-        </span>
-        <span className="ml-2 text-foreground/65">operator · pipeline</span>
+        <ImpReg />
+        <span className="ml-1 text-foreground/65">operator · pipeline</span>
         <span className="ml-auto inline-flex items-center gap-1.5 text-foreground/85">
-          <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+          <span className="imp-mark imp-mark-primary animate-pulse-glow" />
           <span className="text-mono">live</span>
         </span>
       </div>
+
 
       <div className="p-5 sm:p-6 space-y-6">
         {/* Oportunidade */}
@@ -526,7 +533,9 @@ function Problema() {
         </div>
 
 
-        <ul className="border-t border-border">
+        <div aria-hidden className="imp-hairline mb-0" />
+        <ul>
+
           {dores.map((d, i) => (
             <li key={d.t} className="row-editorial group">
               <span className="text-mono text-[11px] tracking-[0.18em] text-muted-foreground/55 pt-1">
@@ -570,10 +579,11 @@ function Demonstracoes() {
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4 mb-10">
           <SectionLabel index="03">Caso validado</SectionLabel>
-          <span className="hidden sm:inline-flex items-center gap-2 text-mono text-[10.5px] tracking-[0.18em] uppercase text-muted-foreground/70">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-            ativo · sorocaba
+          <span className="hidden sm:inline-flex imp-chip">
+            <span className="imp-mark imp-mark-primary animate-pulse-glow" />
+            <span>ativo · sorocaba</span>
           </span>
+
         </div>
 
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
@@ -598,10 +608,11 @@ function Demonstracoes() {
                 fetchPriority="high"
                 className="block w-full h-[320px] sm:h-[420px] lg:h-[540px] object-cover object-center transition-transform duration-700 group-hover:scale-[1.015]"
               />
-              <div className="absolute top-3 left-3 inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-border bg-background/85 backdrop-blur-md text-mono text-[9.5px] uppercase tracking-[0.2em] text-foreground/85">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-                cliente ativo
+              <div className="absolute top-3 left-3 imp-chip bg-background/85 backdrop-blur-md text-foreground/85">
+                <span className="imp-mark imp-mark-primary animate-pulse-glow" />
+                <span>cliente ativo</span>
               </div>
+
               <div className="absolute bottom-3 right-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/95 text-primary-foreground text-[12px] font-semibold transition-transform group-hover:-translate-y-0.5">
                 Abrir projeto <ExternalLink className="h-3.5 w-3.5" />
               </div>
@@ -832,12 +843,13 @@ function fmtStuck(min: number) {
 
 function RiskDot({ r }: { r: Risk }) {
   const map: Record<Risk, string> = {
-    high: "bg-destructive operator-stuck",
-    med: "bg-accent",
-    low: "bg-primary",
+    high: "imp-mark imp-mark-danger operator-stuck",
+    med: "imp-mark",
+    low: "imp-mark imp-mark-primary",
   };
-  return <span className={"h-1.5 w-1.5 rounded-full " + map[r]} aria-hidden />;
+  return <span className={map[r]} aria-hidden />;
 }
+
 
 function RiskLabel({ r }: { r: Risk }) {
   const map: Record<Risk, { t: string; cls: string }> = {
@@ -874,10 +886,11 @@ function Operator() {
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4 mb-8">
           <SectionLabel index="05">Imperius Operator</SectionLabel>
-          <span className="hidden sm:inline-flex items-center gap-2 text-mono text-[10.5px] tracking-[0.18em] uppercase text-muted-foreground/70">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-            instância · sorocaba/sp
+          <span className="hidden sm:inline-flex imp-chip">
+            <ImpReg />
+            <span>instância · sorocaba/sp</span>
           </span>
+
         </div>
 
         <div
@@ -897,12 +910,8 @@ function Operator() {
 
           {/* Chrome */}
           <div className="console-chrome">
-            <span className="flex items-center gap-1.5">
-              <span className="h-2 w-2 rounded-full bg-foreground/15" />
-              <span className="h-2 w-2 rounded-full bg-foreground/15" />
-              <span className="h-2 w-2 rounded-full bg-foreground/15" />
-            </span>
-            <span className="ml-2 text-foreground/65">operator · fila ativa</span>
+            <ImpReg />
+            <span className="ml-1 text-foreground/65">operator · fila ativa</span>
             <span className="ml-auto inline-flex items-center gap-4 text-foreground/85">
               <span className="hidden sm:inline-flex items-center gap-1.5">
                 <span className="text-muted-foreground/55">abertas</span>
@@ -913,11 +922,12 @@ function Operator() {
                 <span className="text-mono tabular-nums text-destructive/90">{stats.high}</span>
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+                <span className="imp-mark imp-mark-primary animate-pulse-glow" />
                 <span className="text-mono">live</span>
               </span>
             </span>
           </div>
+
 
           <div className="grid lg:grid-cols-[1.15fr_1fr]">
             {/* Coluna esquerda: fila */}
@@ -1131,8 +1141,24 @@ function FinalCTA() {
 // --- Footer — três colunas técnicas ---------------------------------------
 function Footer() {
   return (
-    <footer className="relative border-t border-border/60">
+    <footer className="relative">
+      <div aria-hidden className="imp-hairline" />
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 pt-12 pb-10">
+        {/* Cartouche de marca — registration marks emoldurando o monograma */}
+        <div className="flex items-center justify-between gap-4 mb-10">
+          <div className="inline-flex items-center gap-3">
+            <ImpReg />
+            <span className="font-heading font-semibold tracking-[0.18em] text-[12.5px]">IMPERIUS</span>
+            <span className="text-mono text-[9.5px] tracking-[0.22em] uppercase text-muted-foreground/70">
+              / Operações comerciais
+            </span>
+            <ImpReg />
+          </div>
+          <span className="hidden sm:inline-flex imp-chip">
+            <span>S/footer</span>
+          </span>
+        </div>
+
         <div className="grid md:grid-cols-12 gap-8 sm:gap-10">
           <div className="md:col-span-5">
             <div className="flex items-center gap-3 mb-4">
@@ -1150,8 +1176,8 @@ function Footer() {
           </div>
 
           <div className="md:col-span-3">
-            <div className="text-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/75 mb-4">
-              S/nav
+            <div className="section-label imp-spine mb-4">
+              <span className="section-label-mark">S/nav</span>
             </div>
             <ul className="space-y-2.5 text-[13.5px] text-muted-foreground">
               <li><a href="#metodo" className="hover:text-foreground transition-colors">Método</a></li>
@@ -1162,8 +1188,8 @@ function Footer() {
           </div>
 
           <div className="md:col-span-4">
-            <div className="text-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/75 mb-4">
-              S/contato
+            <div className="section-label imp-spine mb-4">
+              <span className="section-label-mark">S/contato</span>
             </div>
             <a href="tel:+5515981023792" className="flex items-center gap-3 text-[13.5px] text-muted-foreground hover:text-foreground transition-colors mb-2.5" onClick={() => track("phone_click", { location: "footer" })}>
               <Phone className="h-4 w-4 shrink-0" /> +55 15 98102-3792
@@ -1177,7 +1203,8 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-border/60 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-mono text-[10.5px] uppercase tracking-[0.18em] text-muted-foreground/65">
+        <div aria-hidden className="imp-hairline mt-12" />
+        <div className="pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-mono text-[10.5px] uppercase tracking-[0.18em] text-muted-foreground/65">
           <p>© {new Date().getFullYear()} Imperius Operações Comerciais</p>
           <p className="normal-case tracking-normal text-[11px] text-muted-foreground/70 max-w-xl leading-relaxed font-sans">
             Cookies analíticos (GA). Para LGPD, escreva para{" "}
@@ -1189,4 +1216,5 @@ function Footer() {
       </div>
     </footer>
   );
+
 }
