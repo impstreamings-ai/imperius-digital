@@ -1172,12 +1172,13 @@ function Footer() {
         <div aria-hidden className="imp-hairline mt-12" />
         <div className="pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-mono text-[10.5px] uppercase tracking-[0.18em] text-muted-foreground/65">
           <p>© {new Date().getFullYear()} Imperius Operações Comerciais</p>
-          <p className="normal-case tracking-normal text-[11px] text-muted-foreground/70 max-w-xl leading-relaxed font-sans">
-            Cookies analíticos (GA). Para LGPD, escreva para{" "}
+          <p className="normal-case tracking-normal text-[11px] text-muted-foreground/70 font-sans">
+            GA · LGPD:{" "}
             <a href={PROPOSAL_MAILTO} className="underline hover:text-foreground">
               {PROPOSAL_EMAIL}
-            </a>.
+            </a>
           </p>
+
         </div>
       </div>
     </footer>
