@@ -110,7 +110,9 @@
   --shadow-card: var(--shadow-2);
 
   --grid-color: oklch(0.78 0.02 256 / 0.03);
+  --rhythm: 8px;
 }
+
 
 
 
@@ -648,5 +650,107 @@
   .animate-pulse-glow { animation: none !important; }
   .btn-premium, .card-rise, .hero-node { transition: none !important; }
 }
+
+/* === Editorial / Engineering Console primitives === */
+
+@utility text-mono {
+  font-family: var(--font-mono);
+  font-feature-settings: "ss01", "ss02", "tnum";
+  font-variant-numeric: tabular-nums;
+}
+
+@utility section-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-muted-foreground);
+  font-feature-settings: "tnum";
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+@utility section-label-mark {
+  color: oklch(from var(--primary) l c h / 0.85);
+  font-weight: 600;
+}
+
+/* Crosshair frame — 4 corner ticks, design-tool feel */
+@utility tech-frame {
+  position: relative;
+}
+.tech-frame::before,
+.tech-frame::after,
+.tech-frame > .tech-frame__tl,
+.tech-frame > .tech-frame__tr,
+.tech-frame > .tech-frame__bl,
+.tech-frame > .tech-frame__br {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: var(--color-border-strong);
+  pointer-events: none;
+}
+.tech-frame::before { top: -1px; left: -1px; border-top: 1px solid; border-left: 1px solid; }
+.tech-frame::after  { top: -1px; right: -1px; border-top: 1px solid; border-right: 1px solid; }
+.tech-frame__bl { bottom: -1px; left: -1px; border-bottom: 1px solid; border-left: 1px solid; }
+.tech-frame__br { bottom: -1px; right: -1px; border-bottom: 1px solid; border-right: 1px solid; }
+
+/* Console chrome bar */
+@utility console-chrome {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.875rem;
+  border-bottom: 1px solid var(--color-border);
+  background: oklch(0.118 0.008 256 / 0.7);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+}
+
+/* Editorial row — densidade lista, sem cards */
+@utility row-editorial {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.25rem;
+  align-items: baseline;
+  padding-block: 1.125rem;
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color var(--dur) var(--ease-out),
+              padding-left var(--dur) var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .row-editorial:hover {
+    background: oklch(1 0 0 / 0.015);
+    padding-left: 0.375rem;
+  }
+}
+
+/* Display XL para CTA final — tipografia presença */
+@utility text-display-xl {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.5rem, 7vw, 4.75rem);
+  line-height: 1.0;
+  letter-spacing: -0.038em;
+}
+
+/* Timeline conector hairline (mobile vertical, desktop horizontal) */
+@utility timeline-rail-h {
+  position: absolute;
+  left: 1.5rem;
+  right: 1.5rem;
+  top: 1.875rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border-strong) 12%, var(--color-border-strong) 88%, transparent);
+  pointer-events: none;
+}
+
+
 
 #lovable-badge { display: none !important; }

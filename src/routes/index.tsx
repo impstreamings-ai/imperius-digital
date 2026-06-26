@@ -9,10 +9,7 @@ import {
   Phone,
   ExternalLink,
   ClipboardList,
-  Rocket,
-  LayoutTemplate,
   TrendingUp,
-  Users,
   Calendar,
   Mail,
   Activity,
@@ -24,26 +21,23 @@ import {
 
 import { trackEvent } from "@/lib/analytics";
 
-const track = (name: string, params: Record<string, unknown> = {}) => trackEvent(name, params);
+const track = (name: string, params: Record<string, unknown> = {}) =>
+  trackEvent(name, params);
 
-// --- Primitivo de sistema ---------------------------------------------------
-// Padroniza o "eyebrow" usado em todas as seções (mesma altura/tracking/cor),
-// eliminando 6 cópias do mesmo bloco e travando a hierarquia visual.
-function SectionEyebrow({
+// --- Sistema --------------------------------------------------------------
+// Rótulo de seção formato `S/01 — DIAGNÓSTICO`. Mono, hairline, sem ornamento.
+function SectionLabel({
+  index,
   children,
-  align = "left",
 }: {
+  index: string;
   children: ReactNode;
-  align?: "left" | "center";
 }) {
-  const justify = align === "center" ? "justify-center" : "";
   return (
-    <div
-      className={`text-[10.5px] uppercase tracking-[0.32em] text-muted-foreground/90 font-medium font-sans inline-flex items-center gap-2.5 ${justify}`}
-    >
-      <span className="h-px w-8 bg-primary/70" />
-      {children}
-      {align === "center" ? <span className="h-px w-8 bg-primary/70" /> : null}
+    <div className="section-label">
+      <span className="section-label-mark">S/{index}</span>
+      <span aria-hidden className="h-px w-6 bg-border" />
+      <span>{children}</span>
     </div>
   );
 }
@@ -66,7 +60,6 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://imperius-digital.lovable.app/" },
       { property: "og:image", content: "https://imperius-digital.lovable.app/__l5e/assets-v1/ae6d1095-0da6-4317-bfb4-9afb5cd15f50/barbearia-alemao-foto.png" },
-
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Imperius — Encontramos o gargalo que está te custando clientes" },
       {
@@ -75,8 +68,6 @@ export const Route = createFileRoute("/")({
           "Mapeamos onde sua operação perde cliente e encurtamos o caminho entre o contato e a venda. Diagnóstico antes de qualquer proposta.",
       },
       { name: "twitter:image", content: "https://imperius-digital.lovable.app/__l5e/assets-v1/ae6d1095-0da6-4317-bfb4-9afb5cd15f50/barbearia-alemao-foto.png" },
-
-
     ],
     links: [
       {
@@ -93,20 +84,15 @@ export const Route = createFileRoute("/")({
         fetchpriority: "high",
       } as unknown as Record<string, string>,
     ],
-
-
   }),
   component: Landing,
 });
 
 const WA_MESSAGE = "Olá! Quero um diagnóstico do gargalo comercial da minha empresa.";
 const WA = `https://wa.me/5515981023792?text=${encodeURIComponent(WA_MESSAGE)}`;
-
 const IG = "https://instagram.com/imperiusdigital.br";
 const CLIENTE_REAL_URL = "https://barbeariadoalemao.lovable.app/";
 const CLIENTE_REAL_COVER = "/__l5e/assets-v1/ae6d1095-0da6-4317-bfb4-9afb5cd15f50/barbearia-alemao-foto.png";
-// Endereço de contato comercial. Centralizado para permitir migração futura
-// para domínio próprio (ex.: contato@imperiusdigital.com.br) sem alterar JSX.
 const PROPOSAL_EMAIL = "imperiusuniverse@gmail.com";
 const PROPOSAL_MAILTO = `mailto:${PROPOSAL_EMAIL}?subject=${encodeURIComponent("Proposta Imperius — apresentação personalizada")}&body=${encodeURIComponent("Olá, equipe Imperius.\n\nGostaria de receber uma proposta personalizada.\n\nEmpresa:\nSegmento:\nObjetivo principal:\n\nObrigado.")}`;
 
@@ -125,172 +111,47 @@ function Landing() {
   );
 }
 
-
-function Problema() {
-  const dores = [
-    { icon: Calendar, t: "Cliente desiste antes de agendar", d: "Pede horário, some, e ninguém retoma." },
-    { icon: ClipboardList, t: "Cliente trava no meio do caminho", d: "Começa a comprar e abandona antes do fim." },
-    { icon: MessageCircle, t: "Mensagem chega e ninguém responde", d: "Quando alguém vê, o cliente já fechou com outro." },
-    { icon: Activity, t: "Você responde rápido e ele some", d: "Mandou orçamento, mandou foto, e o cliente sumiu." },
-    { icon: TrendingUp, t: "Cliente entra e nunca mais volta", d: "Pediu informação uma vez. Ninguém chamou de novo." },
-  ];
-
-  return (
-    <section className="relative section-y border-y border-border/30">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="max-w-3xl section-head-gap">
-          <div className="mb-4"><SectionEyebrow>Acontece toda semana na sua operação</SectionEyebrow></div>
-          <h2 className="text-h2 text-foreground">
-            Reconhece alguma dessas{" "}
-            <span className="text-foreground/55">no seu dia a dia?</span>
-          </h2>
-        </div>
-
-
-
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 border-y border-border/40 divide-y sm:divide-y-0 sm:divide-x divide-border/40">
-          {dores.map((d) => (
-            <li
-              key={d.t}
-              className="p-5 sm:p-6 flex flex-col gap-3 min-w-0 transition-colors hover:bg-primary/[0.025]"
-            >
-              <div className="h-9 w-9 rounded-lg border border-primary/25 bg-primary/10 grid place-items-center">
-                <d.icon className="h-[18px] w-[18px] text-primary" />
-              </div>
-              <div className="min-w-0">
-                <h3 className="text-card-title">
-                  {d.t}
-                </h3>
-                <p className="mt-1.5 text-card-body">
-                  {d.d}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
-
-      </div>
-    </section>
-  );
-}
-
-function Metodo() {
-  const pilares = [
-    { n: "01", t: "Encontrar um gargalo real", d: "Onde o cliente trava de verdade." },
-    { n: "02", t: "Mostrar visualmente", d: "Você vê o ponto exato na tela." },
-    { n: "03", t: "Fazer uma pergunta curta", d: "Quanto esse gargalo está te custando?" },
-    { n: "04", t: "Conversar", d: "O que faz sentido resolver primeiro." },
-    { n: "05", t: "Só depois, a solução", d: "Proposta com o problema claro." },
-  ];
-
-  return (
-    <section id="metodo" className="relative section-y border-b border-border/30">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="max-w-2xl section-head-gap">
-          <div className="mb-4"><SectionEyebrow>Método Imperius</SectionEyebrow></div>
-          <h2 className="text-h2 text-foreground">
-            Cinco passos.{" "}
-            <span className="text-foreground/55">Sempre nessa ordem.</span>
-          </h2>
-        </div>
-        <ol className="grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {pilares.map((p, i) => (
-            <li
-              key={p.n}
-              className="card-rise group relative rounded-xl border border-border/50 bg-card/70 p-5 pt-6 flex flex-col min-w-0 transition-colors hover:border-primary/45"
-            >
-              <span className="absolute left-0 top-0 h-[2px] w-10 bg-primary/70 rounded-r" aria-hidden />
-              <div className="flex items-baseline justify-between mb-3">
-                <span className="font-heading text-[22px] leading-none tracking-[-0.03em] text-primary font-semibold">
-                  {p.n}
-                </span>
-                <span className="text-[9.5px] uppercase tracking-[0.24em] font-sans font-semibold text-muted-foreground/55">
-                  {i === pilares.length - 1 ? "Final" : "Passo"}
-                </span>
-              </div>
-              <h3 className="text-card-title">
-                {p.t}
-              </h3>
-              <p className="mt-2 text-card-body">
-                {p.d}
-              </p>
-            </li>
-          ))}
-        </ol>
-
-      </div>
-    </section>
-  );
-}
-
-function Operator() {
-  return (
-    <section id="operator" className="relative section-y border-t border-border/30">
-      <div className="mx-auto max-w-5xl px-6">
-        <div className="relative rounded-2xl border border-primary/25 bg-gradient-to-b from-[oklch(0.18_0.022_258)]/90 to-[oklch(0.14_0.016_258)]/90 p-6 sm:p-8 lg:p-10 shadow-[var(--shadow-3)] overflow-hidden">
-          <div className="absolute -top-32 -right-32 h-64 w-64 rounded-full bg-primary/15 blur-3xl pointer-events-none" aria-hidden />
-          <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-10 lg:items-end">
-            <div className="min-w-0">
-              <div className="mb-3 flex items-center gap-3">
-                <SectionEyebrow>Imperius Operator</SectionEyebrow>
-                <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full border border-primary/40 bg-primary/10 text-[9.5px] uppercase tracking-[0.22em] font-semibold text-primary">
-                  <span className="h-1 w-1 rounded-full bg-primary animate-pulse-glow" />
-                  Software proprietário
-                </span>
-              </div>
-              <h2 className="text-h2 text-foreground">
-                Acompanha o caminho do cliente{" "}
-                <span className="text-foreground/55">e avisa quando uma oportunidade está prestes a ser perdida.</span>
-              </h2>
-              <p className="mt-4 text-lede max-w-2xl">
-                Monitora cada conversa, identifica onde o cliente travou, avisa a equipe responsável e ajuda a recuperar a oportunidade antes que ela vá embora.
-              </p>
-            </div>
-            <a
-              href={WA}
-              target="_blank"
-              rel="noreferrer"
-              onClick={() => track("operator_cta_click", { destination: "whatsapp" })}
-              className="btn-premium group w-full lg:w-auto shrink-0 inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold cta-shadow"
-            >
-              Quero meu diagnóstico gratuito <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-
-}
-
-
-
+// --- Nav ------------------------------------------------------------------
 function Nav() {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
   return (
-    <header className="fixed top-0 inset-x-0 z-50 border-b border-border/40 backdrop-blur-xl bg-background/70">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-        <a href="#top" className="flex items-center gap-3 min-w-0" onClick={close}>
-          <img src={"/assets/imperius-logo-official.png"} alt="Imperius Operações Comerciais" className="h-[36px] w-auto object-contain shrink-0" loading="eager" decoding="async" />
-          <span className="hidden sm:flex flex-col leading-tight min-w-0">
-            <span className="font-heading font-semibold tracking-[0.2em] text-[12px] truncate">IMPERIUS</span>
-            <span className="text-[9.5px] uppercase tracking-[0.28em] text-muted-foreground/80 font-medium truncate">Diagnóstico comercial</span>
+    <header className="fixed top-0 inset-x-0 z-50 border-b border-border/60 backdrop-blur-xl bg-background/75">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
+        <a href="#top" className="flex items-center gap-2.5 min-w-0" onClick={close}>
+          <img
+            src={"/assets/imperius-logo-official.png"}
+            alt="Imperius Operações Comerciais"
+            className="h-7 w-auto object-contain shrink-0"
+            loading="eager"
+            decoding="async"
+          />
+          <span className="hidden sm:flex items-baseline gap-2 leading-none min-w-0">
+            <span className="font-heading font-semibold tracking-[0.16em] text-[12.5px]">IMPERIUS</span>
+            <span className="text-mono text-[9.5px] text-muted-foreground/70 tracking-[0.18em]">/ 01</span>
           </span>
         </a>
-        <nav className="hidden md:flex items-center gap-9 text-[13px] text-muted-foreground font-medium">
-          <a href="#metodo" className="hover:text-foreground transition-colors">Método</a>
-          <a href="#vitrine" className="hover:text-foreground transition-colors">Demonstração</a>
 
+        <nav className="hidden md:flex items-center gap-8 text-[12.5px] text-muted-foreground font-medium">
+          <a href="#metodo" className="hover:text-foreground transition-colors">Método</a>
+          <a href="#vitrine" className="hover:text-foreground transition-colors">Caso</a>
           <a href="#operator" className="hover:text-foreground transition-colors">Operator</a>
           <Link to="/portfolio" className="hover:text-foreground transition-colors">Portfólio</Link>
         </nav>
 
         <div className="flex items-center gap-2 shrink-0">
-          <a href={WA} target="_blank" rel="noreferrer" onClick={() => track("whatsapp_click", { location: "nav" })}>
-            <Button size="sm" className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4 cta-shadow">
-              <span className="sm:hidden">Diagnóstico grátis</span>
-              <span className="hidden sm:inline">Receber diagnóstico gratuito</span>
+          <a
+            href={WA}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => track("whatsapp_click", { location: "nav" })}
+          >
+            <Button
+              size="sm"
+              className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4 h-9 cta-shadow"
+            >
+              <span className="sm:hidden">Diagnóstico</span>
+              <span className="hidden sm:inline">Diagnóstico gratuito</span>
             </Button>
           </a>
 
@@ -306,133 +167,237 @@ function Nav() {
         </div>
       </div>
       {open ? (
-        <div className="md:hidden border-t border-border/40 bg-background/95 backdrop-blur-xl">
-          <nav className="mx-auto max-w-7xl px-4 sm:px-6 py-4 flex flex-col text-[14px] text-muted-foreground font-medium">
+        <div className="md:hidden border-t border-border/60 bg-background/95 backdrop-blur-xl">
+          <nav className="mx-auto max-w-7xl px-4 sm:px-6 py-3 flex flex-col text-[14px] text-muted-foreground font-medium">
             <a href="#metodo" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Método</a>
-
-            <a href="#vitrine" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Demonstração</a>
+            <a href="#vitrine" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Caso</a>
             <a href="#operator" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Operator</a>
             <Link to="/portfolio" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Portfólio</Link>
           </nav>
-
         </div>
       ) : null}
     </header>
   );
 }
 
+// --- Hero — composição assimétrica editorial ------------------------------
 function Hero() {
   return (
     <section
       id="top"
-      className="relative lg:min-h-[64vh] flex items-center pt-24 pb-12 sm:pb-16 overflow-hidden"
+      className="relative pt-28 pb-14 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden"
       style={{
         background: "var(--gradient-hero)",
         paddingLeft: "max(0px, env(safe-area-inset-left))",
         paddingRight: "max(0px, env(safe-area-inset-right))",
       }}
     >
-      <div className="absolute inset-0 bg-grid pointer-events-none opacity-[0.12]" aria-hidden />
+      <div className="absolute inset-0 bg-grid pointer-events-none opacity-[0.10]" aria-hidden />
 
-      <div className="relative mx-auto max-w-3xl px-5 sm:px-6 w-full text-center">
-        <div className="mb-5 sm:mb-6"><SectionEyebrow align="center">Diagnóstico comercial</SectionEyebrow></div>
-        <h1 className="text-display text-foreground">
-          Seu cliente quer comprar.{" "}
-          <span className="text-foreground/55">Mas não chega até a venda.</span>
-        </h1>
-
-        <p className="mt-5 sm:mt-6 mx-auto max-w-[34rem] text-muted-foreground text-[15px] sm:text-[16.5px] leading-relaxed font-sans">
-          Identificamos o ponto exato onde sua operação perde cliente — antes de qualquer proposta.
-        </p>
-
-        <div className="mt-8 sm:mt-9 flex justify-center">
-          <a
-            href={WA}
-            target="_blank"
-            rel="noreferrer"
-            className="w-full sm:w-auto"
-            onClick={() => track("hero_cta_click", { destination: "whatsapp" })}
-          >
-            <Button
-              size="lg"
-              className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] cta-shadow"
-            >
-              Quero meu diagnóstico gratuito <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </Button>
-          </a>
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        {/* topo: metadata editorial */}
+        <div className="flex items-center justify-between gap-4 mb-10 sm:mb-14">
+          <SectionLabel index="01">Diagnóstico comercial</SectionLabel>
+          <span className="hidden sm:inline-flex text-mono text-[10.5px] tracking-[0.18em] text-muted-foreground/70 uppercase">
+            Imperius — Sorocaba/SP
+          </span>
         </div>
-        <p className="mt-6 sm:mt-7 text-[12px] text-muted-foreground/70 font-sans tracking-wide">
-          Conversa de 20 minutos · Sem proposta antes do diagnóstico
-        </p>
 
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-end">
+          {/* Coluna esquerda — headline editorial */}
+          <div className="lg:col-span-7">
+            <h1 className="text-display text-foreground">
+              Seu cliente
+              <br />
+              quer comprar.{" "}
+              <span className="text-foreground/50">Mas não chega até a venda.</span>
+            </h1>
+
+            <div className="mt-7 sm:mt-8 max-w-xl">
+              <p className="text-lede">
+                Identificamos o ponto exato onde sua operação perde cliente — antes de qualquer proposta.
+              </p>
+            </div>
+
+            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+              <a
+                href={WA}
+                target="_blank"
+                rel="noreferrer"
+                className="w-full sm:w-auto"
+                onClick={() => track("hero_cta_click", { destination: "whatsapp" })}
+              >
+                <Button
+                  size="lg"
+                  className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[13.5px] cta-shadow"
+                >
+                  Quero meu diagnóstico gratuito{" "}
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </Button>
+              </a>
+              <span className="text-mono text-[11px] tracking-[0.16em] uppercase text-muted-foreground/75">
+                20 min · sem proposta antes
+              </span>
+            </div>
+          </div>
+
+          {/* Coluna direita — micro console técnico */}
+          <div className="lg:col-span-5">
+            <HeroConsole />
+          </div>
+        </div>
       </div>
     </section>
   );
 }
 
+function HeroConsole() {
+  // Visual técnico proprietário — substitui qualquer gradient genérico.
+  // Nodes representam etapas; linha tracejada indica fluxo do cliente.
+  return (
+    <figure
+      aria-hidden
+      className="relative tech-frame border border-border bg-card/40 backdrop-blur-md rounded-card overflow-hidden"
+    >
+      <span className="tech-frame__bl" />
+      <span className="tech-frame__br" />
 
+      <div className="console-chrome">
+        <span className="flex items-center gap-1.5">
+          <span className="h-2 w-2 rounded-full bg-foreground/15" />
+          <span className="h-2 w-2 rounded-full bg-foreground/15" />
+          <span className="h-2 w-2 rounded-full bg-foreground/15" />
+        </span>
+        <span className="ml-2">operator · live</span>
+        <span className="ml-auto inline-flex items-center gap-1.5">
+          <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+          <span className="text-mono">monitoring</span>
+        </span>
+      </div>
 
+      <div className="relative p-5 sm:p-6">
+        <svg viewBox="0 0 400 220" className="block w-full h-auto">
+          <defs>
+            <linearGradient id="ic-line" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="oklch(0.635 0.135 252)" stopOpacity="0.1" />
+              <stop offset="50%" stopColor="oklch(0.635 0.135 252)" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="oklch(0.635 0.135 252)" stopOpacity="0.1" />
+            </linearGradient>
+          </defs>
 
+          {/* Grid técnico de fundo */}
+          <g stroke="oklch(1 0 0 / 0.04)" strokeWidth="1">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <line key={`h-${i}`} x1="0" x2="400" y1={(i + 1) * 30} y2={(i + 1) * 30} />
+            ))}
+            {Array.from({ length: 10 }).map((_, i) => (
+              <line key={`v-${i}`} y1="0" y2="220" x1={(i + 1) * 36} x2={(i + 1) * 36} />
+            ))}
+          </g>
 
+          {/* Caminho do cliente */}
+          <path
+            d="M40 110 C 110 40, 180 180, 250 90 S 360 130, 380 110"
+            fill="none"
+            stroke="url(#ic-line)"
+            strokeWidth="1.25"
+            className="hero-energy-line"
+          />
 
+          {/* Nodes — etapas */}
+          {[
+            { x: 40, y: 110, label: "Contato" },
+            { x: 130, y: 70, label: "Resposta" },
+            { x: 210, y: 140, label: "Travou" },
+            { x: 300, y: 95, label: "Retomada" },
+            { x: 380, y: 110, label: "Venda" },
+          ].map((n, i) => (
+            <g key={n.label} className="hero-node">
+              <circle
+                cx={n.x}
+                cy={n.y}
+                r={i === 2 ? 6 : 4}
+                fill={i === 2 ? "oklch(0.68 0.18 22)" : "oklch(0.78 0.10 250)"}
+                stroke="oklch(0.118 0.008 256)"
+                strokeWidth="1.5"
+              />
+              <text
+                x={n.x}
+                y={n.y + 18}
+                fontSize="8"
+                fontFamily="Geist Mono, monospace"
+                fill="oklch(0.78 0.008 256 / 0.6)"
+                textAnchor="middle"
+                letterSpacing="0.5"
+              >
+                {n.label.toUpperCase()}
+              </text>
+            </g>
+          ))}
 
+          {/* Marcador do gargalo */}
+          <g>
+            <line x1="210" y1="56" x2="210" y2="128" stroke="oklch(0.68 0.18 22 / 0.55)" strokeDasharray="2 3" strokeWidth="1" />
+            <text x="218" y="62" fontSize="8.5" fontFamily="Geist Mono, monospace" fill="oklch(0.68 0.18 22 / 0.85)" letterSpacing="0.5">
+              GARGALO
+            </text>
+          </g>
+        </svg>
 
+        <div className="mt-4 flex items-center justify-between text-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground/65">
+          <span>fluxo do cliente</span>
+          <span>5 etapas · 1 ponto crítico</span>
+        </div>
+      </div>
+    </figure>
+  );
+}
 
-function Ecossistema() {
-  const cards = [
-    {
-      icon: MessageCircle,
-      tag: "Resposta",
-      title: "Resposta no tempo certo",
-      desc: "Cada mensagem com dono, prazo e próximo passo.",
-    },
-    {
-      icon: Users,
-      tag: "Funil",
-      title: "Lead que avança",
-      desc: "Você vê onde travou e o que falta pra fechar.",
-    },
-    {
-      icon: Calendar,
-      tag: "Agenda",
-      title: "Agenda sem cliente sumindo",
-      desc: "Marcação confirmada antes do cliente desistir.",
-    },
+// --- Problema — lista editorial densa, hairline rows ----------------------
+function Problema() {
+  const dores = [
+    { icon: Calendar, t: "Cliente desiste antes de agendar", d: "Pede horário, some, e ninguém retoma." },
+    { icon: ClipboardList, t: "Cliente trava no meio do caminho", d: "Começa a comprar e abandona antes do fim." },
+    { icon: MessageCircle, t: "Mensagem chega e ninguém responde", d: "Quando alguém vê, o cliente já fechou com outro." },
+    { icon: Activity, t: "Você responde rápido e ele some", d: "Mandou orçamento, mandou foto, e o cliente sumiu." },
+    { icon: TrendingUp, t: "Cliente entra e nunca mais volta", d: "Pediu informação uma vez. Ninguém chamou de novo." },
   ];
 
   return (
-    <section id="solucoes" className="relative section-y border-b border-border/30">
-      <div className="relative mx-auto max-w-6xl px-6">
-        <div className="max-w-2xl section-head-gap">
-          <div className="mb-4"><SectionEyebrow>Soluções</SectionEyebrow></div>
-
-          <h2 className="text-h2 text-foreground">
-            Não vendemos ferramenta.{" "}
-            <span className="text-neon">Encurtamos o caminho até a venda.</span>
-          </h2>
-
+    <section className="relative pt-20 pb-16 sm:pt-24 sm:pb-20 border-t border-border/60">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-10 sm:mb-12">
+          <div className="lg:col-span-5">
+            <SectionLabel index="02">Sintomas</SectionLabel>
+            <h2 className="text-h2 text-foreground mt-5">
+              Reconhece alguma dessas{" "}
+              <span className="text-foreground/50">no seu dia a dia?</span>
+            </h2>
+          </div>
+          <div className="lg:col-span-6 lg:col-start-7 self-end">
+            <p className="text-card-body max-w-md">
+              Cinco sintomas que aparecem toda semana em operações reais. Quando começam a se repetir, há um gargalo estrutural por trás.
+            </p>
+          </div>
         </div>
 
-        <ul className="grid gap-4 sm:gap-5 sm:grid-cols-3">
-          {cards.map((c) => (
-            <li
-              key={c.title}
-              className="card-rise group rounded-xl border border-border/50 bg-card/80 backdrop-blur-md p-6 flex flex-col"
-            >
-              <div className="flex items-center justify-between mb-5">
-                <div className="h-9 w-9 rounded-md border border-primary/30 bg-primary/10 grid place-items-center">
-                  <c.icon className="h-[18px] w-[18px] text-primary" />
-                </div>
-                <span className="text-[9.5px] uppercase tracking-[0.22em] font-sans font-semibold text-muted-foreground/70">
-                  {c.tag}
-                </span>
+        <ul className="border-t border-border">
+          {dores.map((d, i) => (
+            <li key={d.t} className="row-editorial group">
+              <span className="text-mono text-[11px] tracking-[0.18em] text-muted-foreground/55 pt-1">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div className="min-w-0 grid sm:grid-cols-[1fr_minmax(0,1.1fr)] gap-2 sm:gap-8 items-baseline">
+                <h3 className="text-card-title flex items-center gap-3">
+                  <d.icon className="h-[15px] w-[15px] text-muted-foreground/60 shrink-0" aria-hidden />
+                  <span className="truncate">{d.t}</span>
+                </h3>
+                <p className="text-card-body">{d.d}</p>
               </div>
-              <h3 className="text-card-title">
-                {c.title}
-              </h3>
-              <p className="mt-2 text-card-body">
-                {c.desc}
-              </p>
+              <ArrowRight
+                className="h-3.5 w-3.5 text-muted-foreground/35 transition-all duration-300 group-hover:text-primary group-hover:translate-x-1 mt-2"
+                aria-hidden
+              />
             </li>
           ))}
         </ul>
@@ -441,9 +406,7 @@ function Ecossistema() {
   );
 }
 
-
-
-
+// --- Demonstracoes — showcase cinematográfico (imagem dominante) ---------
 function Demonstracoes() {
   const problemas = [
     "Informações espalhadas",
@@ -457,34 +420,28 @@ function Demonstracoes() {
   ];
 
   return (
-    <section id="vitrine" className="relative section-y-lg border-t border-border/30">
-      <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" aria-hidden />
-      <div className="relative mx-auto max-w-5xl px-6">
-        {/* Header da seção — sinaliza prova social, não portfólio */}
-        <div className="max-w-2xl mb-6 sm:mb-7">
-          <div className="mb-4"><SectionEyebrow>Caso Validado em Sorocaba</SectionEyebrow></div>
-
-          <h2 className="text-h2 text-foreground">
-            Barbearia do Alemão
-            <span className="block text-muted-foreground text-[0.85rem] sm:text-[0.9rem] font-medium mt-1.5 tracking-normal">
-              Sorocaba/SP
-            </span>
-          </h2>
-          <p className="mt-3 text-card-body max-w-2xl">
-            Solução desenvolvida pela Imperius Operações Comerciais para reduzir atritos no contato com clientes e encurtar o caminho até o agendamento.
-          </p>
+    <section id="vitrine" className="relative pt-20 pb-20 sm:pt-24 sm:pb-28 border-t border-border/60">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between gap-4 mb-10">
+          <SectionLabel index="03">Caso validado</SectionLabel>
+          <span className="hidden sm:inline-flex items-center gap-2 text-mono text-[10.5px] tracking-[0.18em] uppercase text-muted-foreground/70">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+            ativo · sorocaba
+          </span>
         </div>
 
-        {/* Card principal — case compacto, não hero */}
-        <a
-          href={CLIENTE_REAL_URL}
-          target="_blank"
-          rel="noreferrer"
-          onClick={() => track("client_proof_click", { project: "barbearia_do_alemao" })}
-          className="card-rise group block rounded-2xl border border-primary/30 bg-card overflow-hidden shadow-[var(--shadow-2)]"
-        >
-          <div className="grid lg:grid-cols-[1.1fr_1fr] items-stretch">
-            <div className="relative overflow-hidden bg-popover p-2.5 sm:p-3 lg:p-3.5">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          {/* Imagem dominante, sem moldura de card */}
+          <a
+            href={CLIENTE_REAL_URL}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => track("client_proof_click", { project: "barbearia_do_alemao" })}
+            className="lg:col-span-7 group block relative tech-frame"
+          >
+            <span className="tech-frame__bl" />
+            <span className="tech-frame__br" />
+            <div className="relative overflow-hidden bg-popover/60 border border-border">
               <img
                 src={CLIENTE_REAL_COVER}
                 alt="Barbearia do Alemão — projeto real desenvolvido pela Imperius"
@@ -493,129 +450,130 @@ function Demonstracoes() {
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
-                style={{ objectPosition: "center center" }}
-                className="block w-full h-[240px] sm:h-[280px] lg:h-[340px] object-cover object-center rounded-lg shadow-[var(--shadow-2)] transition-transform duration-500 group-hover:scale-[1.02]"
+                className="block w-full h-[320px] sm:h-[420px] lg:h-[540px] object-cover object-center transition-transform duration-700 group-hover:scale-[1.015]"
               />
-
-              <div
-                className="badge-pulse absolute top-3 left-3 inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-primary/50 bg-background/85 backdrop-blur-md text-[10px] uppercase tracking-[0.22em] font-semibold font-sans text-primary"
-                aria-label="Caso validado em Sorocaba — cliente ativo da Imperius"
-              >
+              <div className="absolute top-3 left-3 inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-border bg-background/85 backdrop-blur-md text-mono text-[9.5px] uppercase tracking-[0.2em] text-foreground/85">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-                Caso validado · Sorocaba
+                cliente ativo
+              </div>
+              <div className="absolute bottom-3 right-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/95 text-primary-foreground text-[12px] font-semibold transition-transform group-hover:-translate-y-0.5">
+                Abrir projeto <ExternalLink className="h-3.5 w-3.5" />
               </div>
             </div>
+          </a>
 
-            <div className="p-5 sm:p-6 lg:p-7 flex flex-col min-w-0 border-t lg:border-t-0 lg:border-l border-border/40">
-              <p className="text-card-body italic">
-                <span className="not-italic text-[10px] uppercase tracking-[0.24em] font-semibold text-muted-foreground/70 block mb-1.5">Antes</span>
-                O cliente precisava passar por múltiplas etapas e informações espalhadas para chegar ao contato.
-              </p>
+          {/* Narrativa lateral — sem card aninhado, hairlines */}
+          <div className="lg:col-span-5 lg:pt-2">
+            <h2 className="text-h2 text-foreground">
+              Barbearia do Alemão
+            </h2>
+            <div className="text-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground/75 mt-2">
+              Sorocaba/SP · projeto entregue
+            </div>
 
-              <div className="mt-4 h-px bg-border/50" aria-hidden />
+            <p className="mt-5 text-card-body">
+              Solução desenvolvida pela Imperius Operações Comerciais para reduzir atritos no contato com clientes e encurtar o caminho até o agendamento.
+            </p>
 
-              <div className="mt-4 space-y-4">
-                <div>
-                  <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.24em] font-sans font-semibold text-muted-foreground/80">
-                    <AlertTriangle className="h-3.5 w-3.5 text-destructive/80" />
-                    Problema identificado
-                  </div>
-                  <ul className="mt-2.5 space-y-1.5">
-                    {problemas.map((p) => (
-                      <li key={p} className="flex items-start gap-2.5 text-card-body">
-                        <span className="mt-[7px] h-1 w-1 rounded-full bg-destructive/70 shrink-0" aria-hidden />
-                        <span>{p}</span>
-                      </li>
-                    ))}
-                  </ul>
+            <div className="mt-8 border-t border-border">
+              <div className="py-5 border-b border-border">
+                <div className="flex items-center gap-2 text-mono text-[10px] uppercase tracking-[0.22em] font-semibold text-muted-foreground/85">
+                  <AlertTriangle className="h-3.5 w-3.5 text-destructive/80" />
+                  Antes
                 </div>
-
-                <div>
-                  <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.24em] font-sans font-semibold text-primary">
-                    <CheckCircle2 className="h-3.5 w-3.5" />
-                    Solução aplicada
-                  </div>
-                  <ul className="mt-2.5 space-y-1.5">
-                    {solucoes.map((s) => (
-                      <li key={s} className="flex items-start gap-2.5 text-card-body text-foreground">
-                        <CheckCircle2 className="h-[15px] w-[15px] text-primary mt-[2px] shrink-0" aria-hidden />
-                        <span>{s}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul className="mt-3 space-y-1.5">
+                  {problemas.map((p) => (
+                    <li key={p} className="flex items-start gap-2.5 text-card-body">
+                      <span className="mt-[7px] h-1 w-1 rounded-full bg-destructive/70 shrink-0" aria-hidden />
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <div className="mt-4 h-px bg-border/50" aria-hidden />
-
-              <p className="mt-4 text-card-body text-foreground/90">
-                <span className="text-[10px] uppercase tracking-[0.24em] font-semibold text-primary block mb-1.5">Resultado</span>
-                O cliente encontra tudo em um único lugar e chega ao contato com menos atrito.
-              </p>
-
-              <div className="mt-5 text-[10px] uppercase tracking-[0.22em] font-sans text-muted-foreground/70 truncate">
-                barbeariadoalemao.lovable.app
+              <div className="py-5 border-b border-border">
+                <div className="flex items-center gap-2 text-mono text-[10px] uppercase tracking-[0.22em] font-semibold text-primary">
+                  <CheckCircle2 className="h-3.5 w-3.5" />
+                  Depois
+                </div>
+                <ul className="mt-3 space-y-1.5">
+                  {solucoes.map((s) => (
+                    <li key={s} className="flex items-start gap-2.5 text-card-body text-foreground">
+                      <CheckCircle2 className="h-[15px] w-[15px] text-primary mt-[2px] shrink-0" aria-hidden />
+                      <span>{s}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <div className="mt-auto pt-5">
-                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-primary-foreground text-[12.5px] font-sans font-semibold transition-transform group-hover:-translate-y-0.5">
-                  Ver projeto completo
-                  <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-                </span>
+              <div className="py-5">
+                <div className="text-mono text-[10px] uppercase tracking-[0.22em] font-semibold text-foreground/85 mb-2">
+                  Resultado
+                </div>
+                <p className="text-card-body text-foreground/90">
+                  O cliente encontra tudo em um único lugar e chega ao contato com menos atrito.
+                </p>
+                <div className="mt-4 text-mono text-[10.5px] uppercase tracking-[0.2em] text-muted-foreground/70 truncate">
+                  ↗ barbeariadoalemao.lovable.app
+                </div>
               </div>
             </div>
           </div>
-        </a>
+        </div>
       </div>
     </section>
   );
 }
 
-
-
-
-
-
-
-
-function Process() {
-  const steps = [
-    { n: "01", i: MessageCircle, t: "Escutar", d: "Conversa curta. A gente entende onde está doendo e olha sua operação real." },
-    { n: "02", i: LayoutTemplate, t: "Mostrar", d: "Você vê o gargalo desenhado e uma versão funcional de como ele some." },
-    { n: "03", i: Rocket, t: "Decidir", d: "Se fizer sentido, a gente segue. Proposta só depois de você enxergar o valor." },
+// --- Método — timeline ----------------------------------------------------
+function Metodo() {
+  const pilares = [
+    { n: "01", t: "Encontrar um gargalo real", d: "Onde o cliente trava de verdade." },
+    { n: "02", t: "Mostrar visualmente", d: "Você vê o ponto exato na tela." },
+    { n: "03", t: "Fazer uma pergunta curta", d: "Quanto esse gargalo está te custando?" },
+    { n: "04", t: "Conversar", d: "O que faz sentido resolver primeiro." },
+    { n: "05", t: "Só depois, a solução", d: "Proposta com o problema claro." },
   ];
+
   return (
-    <section id="processo" className="section-y border-t border-border/30">
-      <div className="mx-auto max-w-5xl px-6">
-        <div className="max-w-2xl section-head-gap">
-          <div className="mb-4"><SectionEyebrow>Como conversamos</SectionEyebrow></div>
-          <h2 className="text-h2 text-foreground">
-            Primeiro a gente entende.{" "}
-            <span className="text-foreground/55">Só então propõe.</span>
-          </h2>
+    <section id="metodo" className="relative pt-20 pb-20 sm:pt-24 sm:pb-24 border-t border-border/60">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-12 sm:mb-14">
+          <div className="lg:col-span-5">
+            <SectionLabel index="04">Método Imperius</SectionLabel>
+            <h2 className="text-h2 text-foreground mt-5">
+              Cinco passos.{" "}
+              <span className="text-foreground/50">Sempre nessa ordem.</span>
+            </h2>
+          </div>
+          <div className="lg:col-span-6 lg:col-start-7 self-end">
+            <p className="text-card-body max-w-md">
+              Processo aplicado em toda operação que entra na Imperius. Sem pular etapa, sem proposta antecipada.
+            </p>
+          </div>
         </div>
 
-
-        <ol className="grid gap-4 sm:gap-5 sm:grid-cols-3">
-          {steps.map((s) => (
+        {/* Timeline — desktop horizontal com rail, mobile vertical com guia */}
+        <ol className="relative grid gap-px sm:gap-px sm:grid-cols-2 lg:grid-cols-5 border border-border bg-border">
+          {pilares.map((p, i) => (
             <li
-              key={s.t}
-              className="card-rise rounded-xl border border-border/50 bg-card/70 backdrop-blur-md p-5 sm:p-6 flex flex-col"
+              key={p.n}
+              className="relative bg-background p-6 sm:p-7 flex flex-col min-h-[180px] transition-colors duration-300 hover:bg-card/40"
             >
-              <div className="flex items-center justify-between mb-4">
-                <div className="h-9 w-9 rounded-md border border-primary/30 bg-primary/10 grid place-items-center">
-                  <s.i className="h-[18px] w-[18px] text-primary" />
-                </div>
-                <span className="font-heading text-[11px] tracking-[0.24em] text-muted-foreground/60 font-semibold">
-                  {s.n}
+              <div className="flex items-start justify-between mb-6">
+                <span className="text-mono text-[40px] sm:text-[44px] leading-none tracking-[-0.04em] text-foreground/85 font-semibold">
+                  {p.n}
                 </span>
+                {i < pilares.length - 1 ? (
+                  <ArrowRight className="h-3.5 w-3.5 text-muted-foreground/40 mt-3 hidden lg:block" />
+                ) : (
+                  <span className="text-mono text-[9.5px] tracking-[0.22em] uppercase text-primary/80 mt-3">
+                    fim
+                  </span>
+                )}
               </div>
-              <h3 className="text-card-title">
-                {s.t}
-              </h3>
-              <p className="mt-2 text-card-body">
-                {s.d}
-              </p>
+              <h3 className="text-card-title">{p.t}</h3>
+              <p className="mt-2 text-card-body">{p.d}</p>
             </li>
           ))}
         </ol>
@@ -624,183 +582,184 @@ function Process() {
   );
 }
 
-
-function FAQ() {
-  const items = [
-    {
-      q: "Como funciona a conversa inicial?",
-      a: "Uma chamada curta — em torno de 20 minutos. A gente entende seus canais, onde a venda trava e o que precisa destravar primeiro. Sem briefing longo, sem apresentação de slides.",
-    },
-    {
-      q: "Quando vocês falam de preço?",
-      a: "Só depois de entender sua operação e te mostrar o gargalo. Proposta empurrada antes disso é tiro no escuro — não fazemos.",
-    },
-    {
-      q: "Vocês trocam meu WhatsApp atual?",
-      a: "Não. A gente usa a API oficial do WhatsApp Business (Meta) sobre o número que você já tem. Atendimento humano segue normal — o automatizado entra só onde você decidir.",
-    },
-    {
-      q: "Quem é dono do que vocês entregam?",
-      a: "Você. Código, painel, domínio, banco e histórico ficam no seu nome. Se um dia quiser sair, leva tudo — incluindo contatos e pipeline.",
-    },
-    {
-      q: "Tem acompanhamento depois?",
-      a: "Tem. Período inicial de ajuste fino sai junto. Depois, você escolhe entre plano contínuo ou demanda avulsa. SLA combinado por escrito.",
-    },
-    {
-      q: "Com quem eu falo?",
-      a: "Com a mesma pessoa do começo ao fim. Sem call center, sem intermediário, sem chatbot empurrando ticket.",
-    },
-  ];
-
+// --- Operator — painel técnico, chrome de console -------------------------
+function Operator() {
   return (
-    <section id="faq" className="section-y border-t border-border/30">
-      <script
-        type="application/ld+json"
-        // FAQPage schema para SEO e featured snippets
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: items.map((it) => ({
-              "@type": "Question",
-              name: it.q,
-              acceptedAnswer: { "@type": "Answer", text: it.a },
-            })),
-          }),
-        }}
-      />
-      <div className="mx-auto max-w-3xl px-6">
-        <div className="max-w-2xl section-head-gap">
-          <div className="mb-4"><SectionEyebrow>FAQ</SectionEyebrow></div>
-          <h2 className="text-h2 text-foreground">
-            Dúvidas frequentes —{" "}
-            <span className="text-foreground/55">respondidas direto.</span>
-          </h2>
-
+    <section id="operator" className="relative pt-20 pb-20 sm:pt-24 sm:pb-24 border-t border-border/60">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+        <div className="mb-8">
+          <SectionLabel index="05">Imperius Operator</SectionLabel>
         </div>
-        <div className="divide-y divide-border/40 border-y border-border/40">
-          {items.map((it, idx) => (
-            <details key={it.q} className="group py-5 sm:py-6" open={idx === 0}>
-              <summary className="flex items-start justify-between gap-6 cursor-pointer list-none">
-                <h3 className="text-card-title">
-                  {it.q}
-                </h3>
-                <span className="mt-1 shrink-0 h-7 w-7 rounded-full border border-border/60 grid place-items-center text-muted-foreground group-open:bg-primary/10 group-open:text-primary group-open:border-primary/50 transition-colors">
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-open:rotate-90" />
-                </span>
-              </summary>
-              <p className="mt-4 text-lede max-w-2xl whitespace-pre-line">
-                {it.a}
-              </p>
-            </details>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
+        <div className="relative tech-frame border border-border bg-card/60 backdrop-blur-md overflow-hidden">
+          <span className="tech-frame__bl" />
+          <span className="tech-frame__br" />
 
-function FinalCTA() {
-  return (
-    <section className="relative section-y-lg border-t border-border/30 overflow-hidden">
-      <div className="relative mx-auto max-w-3xl px-6 text-center">
-        <div className="mb-5"><SectionEyebrow align="center">Próximo passo</SectionEyebrow></div>
-        <h2 className="text-h2 text-foreground">
-          Descubra onde sua operação{" "}
-          <span className="text-foreground/55">está perdendo clientes.</span>
-        </h2>
-        <p className="mt-5 text-muted-foreground text-[15px] sm:text-[16.5px] max-w-xl mx-auto leading-relaxed font-sans">
-          20 minutos. Você sai sabendo o ponto exato onde está perdendo venda.
-        </p>
-
-        <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row justify-center items-center gap-3">
-          <a
-            href={WA}
-            target="_blank"
-            rel="noreferrer"
-            className="w-full sm:w-auto"
-            onClick={() => {
-              track("final_cta_click", { destination: "whatsapp" });
-              track("whatsapp_click", { location: "final_cta" });
-            }}
-          >
-            <Button
-              size="lg"
-              className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] cta-shadow"
-            >
-              Quero descobrir meu gargalo <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </Button>
-          </a>
-
-
-          <a
-            href={PROPOSAL_MAILTO}
-            className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2"
-            onClick={() => track("final_cta_click", { destination: "email" })}
-          >
-            <Mail className="h-4 w-4" /> Prefiro receber por e-mail
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-
-function Footer() {
-  return (
-    <footer className="relative border-t border-border/40 overflow-hidden">
-      <div className="absolute inset-x-0 -top-px h-px" style={{ background: "linear-gradient(90deg, transparent, oklch(0.62 0.20 258 / 0.55), transparent)" }} />
-      <div className="relative mx-auto max-w-7xl px-6 pt-10 sm:pt-12 pb-10 sm:pb-12">
-        <div className="grid md:grid-cols-3 gap-8 sm:gap-10">
-          <div>
-            <div className="flex items-center gap-3 mb-5">
-              <img src={"/assets/imperius-logo-official.png"} alt="Imperius Operações Comerciais" className="h-[44px] w-auto object-contain" loading="lazy" decoding="async" />
-              <div>
-                <div className="font-heading font-bold tracking-[0.2em] text-sm">IMPERIUS</div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-sans font-medium">Diagnóstico comercial</div>
-              </div>
-            </div>
-            <p className="text-sm text-muted-foreground leading-relaxed font-sans">
-              Achamos o gargalo. Encurtamos o caminho até a venda.
-            </p>
-
-
+          <div className="console-chrome">
+            <span className="flex items-center gap-1.5">
+              <span className="h-2 w-2 rounded-full bg-foreground/15" />
+              <span className="h-2 w-2 rounded-full bg-foreground/15" />
+              <span className="h-2 w-2 rounded-full bg-foreground/15" />
+            </span>
+            <span className="ml-2">operator.proprietário</span>
+            <span className="ml-auto inline-flex items-center gap-1.5 text-primary/90">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+              <span className="text-mono">live</span>
+            </span>
           </div>
 
-          <div>
-            <div className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4 font-sans">Navegação</div>
-            <ul className="space-y-2.5 text-sm text-muted-foreground font-sans">
-              <li><a href="#metodo" className="hover:text-foreground transition-colors duration-200">Método</a></li>
-              <li><a href="#vitrine" className="hover:text-foreground transition-colors duration-200">Demonstração</a></li>
+          <div className="grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 lg:items-end p-6 sm:p-8 lg:p-10">
+            <div className="min-w-0">
+              <h2 className="text-h2 text-foreground">
+                Acompanha o caminho do cliente{" "}
+                <span className="text-foreground/50">
+                  e avisa quando uma oportunidade está prestes a ser perdida.
+                </span>
+              </h2>
+              <p className="mt-5 text-lede max-w-2xl">
+                Monitora cada conversa, identifica onde o cliente travou, avisa a equipe responsável e ajuda a recuperar a oportunidade antes que ela vá embora.
+              </p>
 
-              <li><a href="#operator" className="hover:text-foreground transition-colors duration-200">Operator</a></li>
-              <li><Link to="/portfolio" className="hover:text-foreground transition-colors duration-200">Portfólio</Link></li>
+              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-mono text-[10.5px] uppercase tracking-[0.2em] text-muted-foreground/75">
+                <span className="inline-flex items-center gap-2">
+                  <span className="h-1 w-1 rounded-full bg-primary" /> Conversa monitorada
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <span className="h-1 w-1 rounded-full bg-primary" /> Gargalo detectado
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <span className="h-1 w-1 rounded-full bg-primary" /> Equipe alertada
+                </span>
+              </div>
+            </div>
 
+            <a
+              href={WA}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => track("operator_cta_click", { destination: "whatsapp" })}
+              className="btn-premium group w-full lg:w-auto shrink-0 inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold cta-shadow"
+            >
+              Quero meu diagnóstico gratuito{" "}
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// --- Final CTA — tipografia de presença -----------------------------------
+function FinalCTA() {
+  return (
+    <section className="relative pt-24 pb-24 sm:pt-32 sm:pb-32 border-t border-border/60 overflow-hidden">
+      <div className="absolute inset-0 bg-grid opacity-[0.06] pointer-events-none" aria-hidden />
+      <div className="relative mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+        <div className="mb-8">
+          <SectionLabel index="06">Próximo passo</SectionLabel>
+        </div>
+
+        <h2 className="text-display-xl text-foreground max-w-5xl">
+          Descubra onde sua operação{" "}
+          <span className="text-foreground/45">está perdendo clientes.</span>
+        </h2>
+
+        <div className="mt-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+          <div className="lg:col-span-6">
+            <p className="text-lede max-w-lg">
+              20 minutos. Você sai sabendo o ponto exato onde está perdendo venda.
+            </p>
+          </div>
+          <div className="lg:col-span-6 flex flex-col sm:flex-row lg:justify-end items-stretch sm:items-center gap-4 sm:gap-6">
+            <a
+              href={WA}
+              target="_blank"
+              rel="noreferrer"
+              className="w-full sm:w-auto"
+              onClick={() => {
+                track("final_cta_click", { destination: "whatsapp" });
+                track("whatsapp_click", { location: "final_cta" });
+              }}
+            >
+              <Button
+                size="lg"
+                className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] cta-shadow"
+              >
+                Quero descobrir meu gargalo{" "}
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </Button>
+            </a>
+            <a
+              href={PROPOSAL_MAILTO}
+              className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2 justify-center"
+              onClick={() => track("final_cta_click", { destination: "email" })}
+            >
+              <Mail className="h-4 w-4" /> Prefiro receber por e-mail
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// --- Footer — três colunas técnicas ---------------------------------------
+function Footer() {
+  return (
+    <footer className="relative border-t border-border/60">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 pt-12 pb-10">
+        <div className="grid md:grid-cols-12 gap-8 sm:gap-10">
+          <div className="md:col-span-5">
+            <div className="flex items-center gap-3 mb-4">
+              <img src={"/assets/imperius-logo-official.png"} alt="Imperius Operações Comerciais" className="h-9 w-auto object-contain" loading="lazy" decoding="async" />
+              <div className="leading-none">
+                <div className="font-heading font-semibold tracking-[0.18em] text-[13px]">IMPERIUS</div>
+                <div className="text-mono text-[9.5px] uppercase tracking-[0.22em] text-muted-foreground/75 mt-1.5">
+                  Operações comerciais
+                </div>
+              </div>
+            </div>
+            <p className="text-card-body max-w-sm">
+              Achamos o gargalo. Encurtamos o caminho até a venda.
+            </p>
+          </div>
+
+          <div className="md:col-span-3">
+            <div className="text-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/75 mb-4">
+              S/nav
+            </div>
+            <ul className="space-y-2.5 text-[13.5px] text-muted-foreground">
+              <li><a href="#metodo" className="hover:text-foreground transition-colors">Método</a></li>
+              <li><a href="#vitrine" className="hover:text-foreground transition-colors">Caso</a></li>
+              <li><a href="#operator" className="hover:text-foreground transition-colors">Operator</a></li>
+              <li><Link to="/portfolio" className="hover:text-foreground transition-colors">Portfólio</Link></li>
             </ul>
           </div>
 
-          <div>
-            <div className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4 font-sans">Contato direto</div>
-            <a href="tel:+5515981023792" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 mb-3 font-sans" onClick={() => track("phone_click", { location: "footer" })}>
+          <div className="md:col-span-4">
+            <div className="text-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/75 mb-4">
+              S/contato
+            </div>
+            <a href="tel:+5515981023792" className="flex items-center gap-3 text-[13.5px] text-muted-foreground hover:text-foreground transition-colors mb-2.5" onClick={() => track("phone_click", { location: "footer" })}>
               <Phone className="h-4 w-4 shrink-0" /> +55 15 98102-3792
             </a>
-            <a href={PROPOSAL_MAILTO} className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 mb-3 font-sans" onClick={() => track("footer_email_click")}>
+            <a href={PROPOSAL_MAILTO} className="flex items-center gap-3 text-[13.5px] text-muted-foreground hover:text-foreground transition-colors mb-2.5" onClick={() => track("footer_email_click")}>
               <Mail className="h-4 w-4 shrink-0" /> {PROPOSAL_EMAIL}
             </a>
-            <a href={IG} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 font-sans">
+            <a href={IG} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-[13.5px] text-muted-foreground hover:text-foreground transition-colors">
               <Instagram className="h-4 w-4 shrink-0" /> @imperiusdigital.br
             </a>
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-border/40 flex flex-col items-center gap-2 text-center text-xs text-muted-foreground font-sans">
-          <p>© {new Date().getFullYear()} Imperius Operações Comerciais. Todos os direitos reservados.</p>
-          <p className="text-[11px] text-muted-foreground/70 max-w-xl leading-relaxed">
-            Usamos cookies analíticos (Google Analytics) para medir o uso do site. Para solicitações relacionadas aos seus dados (LGPD),
-            escreva para <a href={PROPOSAL_MAILTO} className="underline hover:text-foreground">{PROPOSAL_EMAIL}</a>.
+        <div className="mt-12 pt-6 border-t border-border/60 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-mono text-[10.5px] uppercase tracking-[0.18em] text-muted-foreground/65">
+          <p>© {new Date().getFullYear()} Imperius Operações Comerciais</p>
+          <p className="normal-case tracking-normal text-[11px] text-muted-foreground/70 max-w-xl leading-relaxed font-sans">
+            Cookies analíticos (GA). Para LGPD, escreva para{" "}
+            <a href={PROPOSAL_MAILTO} className="underline hover:text-foreground">
+              {PROPOSAL_EMAIL}
+            </a>.
           </p>
         </div>
       </div>
