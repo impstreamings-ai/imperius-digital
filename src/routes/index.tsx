@@ -1033,8 +1033,9 @@ function Operator() {
         {/* Leitura editorial — não repete CTA do Hero; convida a continuar para o capítulo final */}
         <div className="mt-10 grid lg:grid-cols-12 gap-6 lg:gap-12 items-end">
           <p className="lg:col-span-8 text-lede max-w-2xl">
-            Cada oportunidade tem um cronômetro. Quando passa do limite, alguém é avisado antes do cliente desistir.
+            Passou do limite, alguém é avisado.
           </p>
+
           <div className="lg:col-span-4 lg:justify-self-end text-mono text-[10.5px] tracking-[0.2em] uppercase text-muted-foreground/65">
             ↓ S/06 — próximo passo
           </div>
