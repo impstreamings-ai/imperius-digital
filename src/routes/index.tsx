@@ -940,12 +940,9 @@ function FinalCTA() {
       <span aria-hidden className="chapter-numeral absolute top-6 left-4 sm:left-8 hidden md:block">06</span>
       <div className="absolute inset-0 bg-grid opacity-[0.06] pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <SectionLabel index="06" question="começa por uma conversa">Próximo passo</SectionLabel>
-        </div>
-
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           <div className="lg:col-span-7">
+            {/* Encerramento sem rótulo — a tipografia abre, não um chip. */}
             <h2 className="text-display-xl text-foreground">
               Comece pelo{" "}
               <span className="text-foreground/45">diagnóstico.</span>
@@ -953,6 +950,7 @@ function FinalCTA() {
             <p className="mt-7 text-lede max-w-lg">
               Conversa curta. Sem compromisso.
             </p>
+
 
 
 
