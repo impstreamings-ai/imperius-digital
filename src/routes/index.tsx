@@ -346,18 +346,26 @@ function MetaStat({ k, v }: { k: string; v: string }) {
   );
 }
 
+// Hero teaser — NÃO repetir o Operator. Sem stages, sem "próxima ação",
+// sem "sincronizado", sem fila. Apenas um sinal vivo que provoca curiosidade.
 function OperatorPanel() {
-  const stages = [
-    { label: "Contato", state: "done" as const },
-    { label: "Resposta", state: "done" as const },
-    { label: "Diagnóstico", state: "stuck" as const },
-    { label: "Proposta", state: "pending" as const },
-    { label: "Fechamento", state: "pending" as const },
+  // Onda do "sinal" — picos crescentes terminam num spike (gargalo detectado)
+  const points = [
+    8, 10, 9, 12, 11, 14, 13, 16, 15, 19, 17, 22, 20, 26, 24, 30, 28, 34, 31, 40,
+    36, 46, 42, 52, 48, 58, 54, 64, 60, 70,
   ];
+  const W = 520;
+  const H = 120;
+  const stepX = W / (points.length - 1);
+  const maxY = 72;
+  const path = points
+    .map((p, i) => `${i === 0 ? "M" : "L"} ${(i * stepX).toFixed(1)} ${(H - (p / maxY) * (H - 12) - 6).toFixed(1)}`)
+    .join(" ");
+  const area = `${path} L ${W} ${H} L 0 ${H} Z`;
 
   return (
     <figure
-      aria-label="Prévia funcional do Imperius Operator"
+      aria-label="Sinal do Imperius Operator — prévia"
       className="relative tech-frame rounded-card overflow-hidden"
       style={{
         background:
@@ -372,137 +380,98 @@ function OperatorPanel() {
       <span className="tech-frame__bl" />
       <span className="tech-frame__br" />
 
-      {/* Chrome */}
+      {/* Chrome distinto do Operator: aqui é "sinal", lá é "fila ativa" */}
       <div className="console-chrome">
         <ImpReg />
-        <span className="ml-1 text-foreground/65">operator · pipeline</span>
+        <span className="ml-1 text-foreground/65">sinal · tempo real</span>
         <span className="ml-auto inline-flex items-center gap-1.5 text-foreground/85">
-          <span className="imp-mark imp-mark-primary animate-pulse-glow" />
-          <span className="text-mono">live</span>
+          <span className="imp-mark imp-mark-danger operator-stuck" />
+          <span className="text-mono">anomalia</span>
         </span>
       </div>
 
-
-      <div className="p-5 sm:p-6 space-y-6">
-        {/* Oportunidade */}
-        <div className="flex items-start justify-between gap-4">
-          <div className="min-w-0">
-            <div className="text-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/55">
-              Oportunidade · #OP-1284
-            </div>
-            <div className="mt-1.5 text-[15px] font-semibold text-foreground truncate">
-              Marcos R. — Barbearia
-            </div>
-            <div className="mt-0.5 text-[12px] text-muted-foreground">
-              Origem: WhatsApp · Atendente: Júlia
-            </div>
-          </div>
-          <span className="shrink-0 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-mono text-[10px] tracking-[0.16em] uppercase border border-destructive/35 text-destructive/90 bg-destructive/[0.06]">
-            <AlertTriangle className="h-3 w-3" /> Gargalo
-          </span>
-        </div>
-
-        {/* Pipeline stepper */}
+      <div className="p-5 sm:p-6 space-y-5">
+        {/* Métrica única — sem dashboard, sem múltiplos cards */}
         <div>
-          <div className="relative">
-            <div className="absolute left-[7px] right-[7px] top-[6.5px] h-px bg-border" aria-hidden />
-            <div
-              className="absolute left-[7px] top-[6.5px] h-px bg-primary/55 operator-rail-draw"
-              style={{ width: "calc(50% - 7px)" }}
-              aria-hidden
-            />
-            <ol className="relative grid grid-cols-5 gap-1">
-              {stages.map((s) => {
-                const isStuck = s.state === "stuck";
-                const isDone = s.state === "done";
-                return (
-                  <li key={s.label} className="flex flex-col items-start gap-2.5">
-                    <span
-                      className={
-                        "relative h-3.5 w-3.5 rounded-full border " +
-                        (isStuck
-                          ? "bg-destructive border-destructive/40 operator-stuck"
-                          : isDone
-                            ? "bg-primary border-primary/40"
-                            : "bg-card border-border")
-                      }
-                    />
-                    <span
-                      className={
-                        "text-mono text-[9.5px] tracking-[0.14em] uppercase " +
-                        (isStuck
-                          ? "text-destructive/90"
-                          : isDone
-                            ? "text-foreground/75"
-                            : "text-muted-foreground/50")
-                      }
-                    >
-                      {s.label}
-                    </span>
-                  </li>
-                );
-              })}
-            </ol>
+          <div className="text-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/55">
+            Atenção comercial · agora
+          </div>
+          <div className="mt-2 flex items-baseline gap-3">
+            <span className="text-mono text-[44px] sm:text-[52px] leading-none tracking-[-0.04em] text-foreground tabular-nums">
+              03
+            </span>
+            <span className="text-[13px] text-muted-foreground">
+              oportunidades acima do limite
+            </span>
           </div>
         </div>
 
-        {/* Métrica crítica + conversa */}
-        <div className="grid grid-cols-2 gap-3">
-          <div className="rounded-lg border border-border bg-foreground/[0.02] p-4">
-            <div className="text-mono text-[9.5px] tracking-[0.2em] uppercase text-muted-foreground/60">
-              Tempo parado
-            </div>
-            <div className="mt-2 text-mono text-[24px] leading-none text-foreground tabular-nums">
-              02:14
-              <span className="text-muted-foreground/55 text-[13px] ml-1">h</span>
-            </div>
-            <div className="mt-2 text-[11px] text-muted-foreground">
-              Acima do limite (45 min)
-            </div>
-          </div>
-          <div className="rounded-lg border border-border bg-foreground/[0.02] p-4">
-            <div className="text-mono text-[9.5px] tracking-[0.2em] uppercase text-muted-foreground/60">
-              Conversa
-            </div>
-            <div className="mt-2 text-[12.5px] text-foreground/90 leading-snug">
-              Cliente leu o orçamento. Sem retorno.
-            </div>
-            <div className="mt-2 inline-flex items-center gap-1.5 text-mono text-[10px] text-muted-foreground/70">
-              <MessageCircle className="h-3 w-3" /> WhatsApp · 14:32
-            </div>
-          </div>
-        </div>
-
-        {/* Próxima ação sugerida */}
-        <div className="flex items-center justify-between gap-4 rounded-lg border border-primary/25 bg-primary/[0.05] px-4 py-3">
-          <div className="min-w-0">
-            <div className="text-mono text-[9.5px] tracking-[0.2em] uppercase text-primary/85">
-              Próxima ação sugerida
-            </div>
-            <div className="mt-1 text-[13px] text-foreground truncate">
-              Retomar conversa com prova social local
-            </div>
-          </div>
-          <span
+        {/* Sinal — oscilograma silencioso, totalmente novo no layout */}
+        <div className="relative">
+          <svg
+            viewBox={`0 0 ${W} ${H}`}
+            preserveAspectRatio="none"
+            className="w-full h-[110px] sm:h-[128px]"
             aria-hidden
-            className="shrink-0 inline-flex items-center gap-1.5 rounded-md border border-primary/30 px-2.5 py-1.5 text-mono text-[10px] tracking-[0.16em] uppercase text-foreground/90"
           >
-            Executar <ArrowRight className="h-3 w-3" />
-          </span>
+            <defs>
+              <linearGradient id="sigFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="oklch(0.635 0.135 252 / 0.32)" />
+                <stop offset="100%" stopColor="oklch(0.635 0.135 252 / 0)" />
+              </linearGradient>
+              <linearGradient id="sigLine" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="oklch(0.635 0.135 252 / 0.55)" />
+                <stop offset="78%" stopColor="oklch(0.635 0.135 252 / 0.95)" />
+                <stop offset="100%" stopColor="oklch(0.62 0.21 22 / 1)" />
+              </linearGradient>
+            </defs>
+            {/* gridlines hairline */}
+            {[0.25, 0.5, 0.75].map((g) => (
+              <line
+                key={g}
+                x1={0}
+                x2={W}
+                y1={H * g}
+                y2={H * g}
+                stroke="oklch(0.95 0 0 / 0.05)"
+                strokeWidth={1}
+              />
+            ))}
+            <path d={area} fill="url(#sigFill)" />
+            <path d={path} fill="none" stroke="url(#sigLine)" strokeWidth={1.5} />
+            {/* pico final — marcador */}
+            <circle
+              cx={W}
+              cy={H - (points[points.length - 1] / maxY) * (H - 12) - 6}
+              r={3.5}
+              fill="oklch(0.62 0.21 22 / 1)"
+            />
+            <circle
+              cx={W}
+              cy={H - (points[points.length - 1] / maxY) * (H - 12) - 6}
+              r={7}
+              fill="none"
+              stroke="oklch(0.62 0.21 22 / 0.45)"
+              strokeWidth={1}
+              className="operator-stuck"
+            />
+          </svg>
+          <div className="mt-1 flex items-center justify-between text-mono text-[9.5px] tracking-[0.18em] uppercase text-muted-foreground/55">
+            <span>−30 min</span>
+            <span className="text-destructive/85">↑ pico · agora</span>
+          </div>
         </div>
 
-        {/* Footer técnico */}
-        <div className="flex items-center justify-between pt-1 text-mono text-[9.5px] tracking-[0.18em] uppercase text-muted-foreground/55">
-          <span className="inline-flex items-center gap-1.5 operator-sync">
-            <CheckCircle2 className="h-3 w-3 text-primary/70" />
-            Sincronizado · há 12s
-          </span>
-          <span>OP-1284 · t+02h14</span>
+        {/* Footer hairline — pista do que vem depois, sem entregar */}
+        <div className="flex items-center justify-between pt-1 text-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground/55">
+          <span>OP-1284 · em risco</span>
+          <span className="text-foreground/65">↘ detalhe no Operator</span>
         </div>
       </div>
     </figure>
   );
 }
+
 
 // --- Problema — lista editorial densa, hairline rows ----------------------
 function Problema() {
