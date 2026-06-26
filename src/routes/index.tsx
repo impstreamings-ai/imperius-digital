@@ -1076,7 +1076,8 @@ function Operator() {
 // --- Final CTA — tipografia de presença -----------------------------------
 function FinalCTA() {
   return (
-    <section className="relative pt-24 pb-24 sm:pt-32 sm:pb-32 border-t border-border/60 overflow-hidden">
+    <section className="relative pt-12 pb-24 sm:pt-16 sm:pb-32 overflow-hidden">
+      <span aria-hidden className="chapter-numeral absolute top-6 left-4 sm:left-8 hidden md:block">06</span>
       <div className="absolute inset-0 bg-grid opacity-[0.06] pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="mb-8">
