@@ -907,12 +907,8 @@ function Operator() {
 
           {/* Chrome */}
           <div className="console-chrome">
-            <span className="flex items-center gap-1.5">
-              <span className="h-2 w-2 rounded-full bg-foreground/15" />
-              <span className="h-2 w-2 rounded-full bg-foreground/15" />
-              <span className="h-2 w-2 rounded-full bg-foreground/15" />
-            </span>
-            <span className="ml-2 text-foreground/65">operator · fila ativa</span>
+            <ImpReg />
+            <span className="ml-1 text-foreground/65">operator · fila ativa</span>
             <span className="ml-auto inline-flex items-center gap-4 text-foreground/85">
               <span className="hidden sm:inline-flex items-center gap-1.5">
                 <span className="text-muted-foreground/55">abertas</span>
@@ -923,11 +919,12 @@ function Operator() {
                 <span className="text-mono tabular-nums text-destructive/90">{stats.high}</span>
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+                <span className="imp-mark imp-mark-primary animate-pulse-glow" />
                 <span className="text-mono">live</span>
               </span>
             </span>
           </div>
+
 
           <div className="grid lg:grid-cols-[1.15fr_1fr]">
             {/* Coluna esquerda: fila */}
