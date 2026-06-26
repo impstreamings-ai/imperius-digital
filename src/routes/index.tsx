@@ -668,63 +668,305 @@ function Metodo() {
   );
 }
 
-// --- Operator — painel técnico, chrome de console -------------------------
+// --- Operator — painel de produto: fila de oportunidades + detalhe -------
+type Risk = "high" | "med" | "low";
+type OpRow = {
+  id: string;
+  client: string;
+  channel: string;
+  owner: string;
+  lastMsg: string;
+  stuckMin: number;
+  risk: Risk;
+  stage: string;
+  action: string;
+};
+
+const QUEUE: OpRow[] = [
+  {
+    id: "OP-1284",
+    client: "Marcos R.",
+    channel: "WhatsApp",
+    owner: "Júlia",
+    lastMsg: "Leu o orçamento. Sem retorno.",
+    stuckMin: 134,
+    risk: "high",
+    stage: "Diagnóstico",
+    action: "Retomar com prova social local",
+  },
+  {
+    id: "OP-1283",
+    client: "Aline F.",
+    channel: "Instagram",
+    owner: "Bruno",
+    lastMsg: "Pediu horário sábado. Aguardando confirmação.",
+    stuckMin: 42,
+    risk: "med",
+    stage: "Agenda",
+    action: "Confirmar slot 10:30",
+  },
+  {
+    id: "OP-1281",
+    client: "Henrique L.",
+    channel: "WhatsApp",
+    owner: "Júlia",
+    lastMsg: "Cliente respondeu. Aguardando proposta.",
+    stuckMin: 18,
+    risk: "low",
+    stage: "Proposta",
+    action: "Enviar orçamento padrão",
+  },
+  {
+    id: "OP-1279",
+    client: "Camila T.",
+    channel: "Site",
+    owner: "—",
+    lastMsg: "Preencheu formulário. Ninguém respondeu.",
+    stuckMin: 312,
+    risk: "high",
+    stage: "Contato",
+    action: "Atribuir atendente · responder agora",
+  },
+];
+
+function fmtStuck(min: number) {
+  if (min < 60) return `${min}m`;
+  const h = Math.floor(min / 60);
+  const m = min % 60;
+  return `${h}h${m.toString().padStart(2, "0")}`;
+}
+
+function RiskDot({ r }: { r: Risk }) {
+  const map: Record<Risk, string> = {
+    high: "bg-destructive operator-stuck",
+    med: "bg-accent",
+    low: "bg-primary",
+  };
+  return <span className={"h-1.5 w-1.5 rounded-full " + map[r]} aria-hidden />;
+}
+
+function RiskLabel({ r }: { r: Risk }) {
+  const map: Record<Risk, { t: string; cls: string }> = {
+    high: { t: "Alto", cls: "text-destructive/90 border-destructive/35 bg-destructive/[0.06]" },
+    med: { t: "Médio", cls: "text-accent border-accent/35 bg-accent/[0.06]" },
+    low: { t: "Baixo", cls: "text-primary/90 border-primary/30 bg-primary/[0.05]" },
+  };
+  const v = map[r];
+  return (
+    <span
+      className={
+        "inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-mono text-[9.5px] tracking-[0.16em] uppercase border " +
+        v.cls
+      }
+    >
+      <RiskDot r={r} /> {v.t}
+    </span>
+  );
+}
+
 function Operator() {
+  const [selected, setSelected] = useState<string>(QUEUE[0].id);
+  const op = QUEUE.find((q) => q.id === selected) ?? QUEUE[0];
+
+  const stats = {
+    total: QUEUE.length,
+    high: QUEUE.filter((q) => q.risk === "high").length,
+    unassigned: QUEUE.filter((q) => q.owner === "—").length,
+  };
+
   return (
     <section id="operator" className="relative pt-20 pb-20 sm:pt-24 sm:pb-24 border-t border-border/60">
-      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        <div className="mb-8">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between gap-4 mb-8">
           <SectionLabel index="05">Imperius Operator</SectionLabel>
+          <span className="hidden sm:inline-flex items-center gap-2 text-mono text-[10.5px] tracking-[0.18em] uppercase text-muted-foreground/70">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+            instância · sorocaba/sp
+          </span>
         </div>
 
-        <div className="relative tech-frame border border-border bg-card/60 backdrop-blur-md overflow-hidden">
+        <div
+          className="relative tech-frame overflow-hidden rounded-card"
+          style={{
+            background:
+              "linear-gradient(180deg, oklch(0.168 0.011 256 / 0.92), oklch(0.128 0.009 256 / 0.94))",
+            borderColor: "var(--border-strong)",
+            borderWidth: 1,
+            borderStyle: "solid",
+            boxShadow: "var(--shadow-3)",
+            backdropFilter: "blur(12px)",
+          }}
+        >
           <span className="tech-frame__bl" />
           <span className="tech-frame__br" />
 
+          {/* Chrome */}
           <div className="console-chrome">
             <span className="flex items-center gap-1.5">
               <span className="h-2 w-2 rounded-full bg-foreground/15" />
               <span className="h-2 w-2 rounded-full bg-foreground/15" />
               <span className="h-2 w-2 rounded-full bg-foreground/15" />
             </span>
-            <span className="ml-2">operator.proprietário</span>
-            <span className="ml-auto inline-flex items-center gap-1.5 text-primary/90">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-              <span className="text-mono">live</span>
+            <span className="ml-2 text-foreground/65">operator · fila ativa</span>
+            <span className="ml-auto inline-flex items-center gap-4 text-foreground/85">
+              <span className="hidden sm:inline-flex items-center gap-1.5">
+                <span className="text-muted-foreground/55">abertas</span>
+                <span className="text-mono tabular-nums text-foreground/90">{stats.total}</span>
+              </span>
+              <span className="hidden sm:inline-flex items-center gap-1.5">
+                <span className="text-muted-foreground/55">risco alto</span>
+                <span className="text-mono tabular-nums text-destructive/90">{stats.high}</span>
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+                <span className="text-mono">live</span>
+              </span>
             </span>
           </div>
 
-          <div className="grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 lg:items-end p-6 sm:p-8 lg:p-10">
-            <div className="min-w-0">
-              <h2 className="text-h2 text-foreground">
-                Acompanha o caminho do cliente{" "}
-                <span className="text-foreground/50">
-                  e avisa quando uma oportunidade está prestes a ser perdida.
-                </span>
-              </h2>
-              <p className="mt-5 text-lede max-w-2xl">
-                Monitora cada conversa, identifica onde o cliente travou, avisa a equipe responsável e ajuda a recuperar a oportunidade antes que ela vá embora.
-              </p>
-
-              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-mono text-[10.5px] uppercase tracking-[0.2em] text-muted-foreground/75">
-                <span className="inline-flex items-center gap-2">
-                  <span className="h-1 w-1 rounded-full bg-primary" /> Conversa monitorada
-                </span>
-                <span className="inline-flex items-center gap-2">
-                  <span className="h-1 w-1 rounded-full bg-primary" /> Gargalo detectado
-                </span>
-                <span className="inline-flex items-center gap-2">
-                  <span className="h-1 w-1 rounded-full bg-primary" /> Equipe alertada
-                </span>
+          <div className="grid lg:grid-cols-[1.15fr_1fr]">
+            {/* Coluna esquerda: fila */}
+            <div className="lg:border-r border-border">
+              {/* table header */}
+              <div className="hidden sm:grid grid-cols-[auto_1fr_auto_auto] gap-4 px-5 sm:px-6 py-2.5 border-b border-border text-mono text-[9.5px] tracking-[0.2em] uppercase text-muted-foreground/55">
+                <span>#</span>
+                <span>Cliente · última interação</span>
+                <span className="text-right">Parado</span>
+                <span className="text-right">Risco</span>
               </div>
+
+              <ul className="divide-y divide-border">
+                {QUEUE.map((q) => {
+                  const active = q.id === selected;
+                  return (
+                    <li key={q.id}>
+                      <button
+                        type="button"
+                        onClick={() => setSelected(q.id)}
+                        aria-pressed={active}
+                        className={
+                          "w-full text-left grid grid-cols-[auto_1fr_auto] sm:grid-cols-[auto_1fr_auto_auto] gap-3 sm:gap-4 px-5 sm:px-6 py-4 transition-colors duration-200 " +
+                          (active
+                            ? "bg-primary/[0.05] border-l-2 border-l-primary/70 pl-[18px] sm:pl-[22px]"
+                            : "border-l-2 border-l-transparent hover:bg-foreground/[0.02]")
+                        }
+                      >
+                        <span className="text-mono text-[10.5px] tracking-[0.14em] uppercase text-muted-foreground/65 self-center tabular-nums">
+                          {q.id}
+                        </span>
+                        <span className="min-w-0">
+                          <span className="flex items-center gap-2">
+                            <span className="text-[13.5px] font-semibold text-foreground truncate">
+                              {q.client}
+                            </span>
+                            <span className="text-mono text-[9.5px] tracking-[0.16em] uppercase text-muted-foreground/55">
+                              {q.channel}
+                            </span>
+                          </span>
+                          <span className="block mt-0.5 text-[12px] text-muted-foreground truncate">
+                            {q.lastMsg}
+                          </span>
+                        </span>
+                        <span className="text-mono text-[12px] text-foreground/85 tabular-nums self-center text-right">
+                          {fmtStuck(q.stuckMin)}
+                        </span>
+                        <span className="hidden sm:flex justify-end self-center">
+                          <RiskLabel r={q.risk} />
+                        </span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
 
+            {/* Coluna direita: detalhe da oportunidade selecionada */}
+            <div className="p-5 sm:p-6 lg:p-7 space-y-5 border-t lg:border-t-0 border-border">
+              <div className="flex items-start justify-between gap-4">
+                <div className="min-w-0">
+                  <div className="text-mono text-[9.5px] tracking-[0.2em] uppercase text-muted-foreground/55">
+                    Oportunidade · {op.id}
+                  </div>
+                  <div className="mt-1 text-[15px] font-semibold text-foreground truncate">
+                    {op.client}
+                  </div>
+                  <div className="mt-0.5 text-[11.5px] text-muted-foreground">
+                    {op.channel} · etapa {op.stage} · resp. {op.owner}
+                  </div>
+                </div>
+                <RiskLabel r={op.risk} />
+              </div>
+
+              {/* Tempo + risco visual */}
+              <div className="grid grid-cols-2 gap-3">
+                <div className="rounded-lg border border-border bg-foreground/[0.02] p-3.5">
+                  <div className="text-mono text-[9.5px] tracking-[0.2em] uppercase text-muted-foreground/60">
+                    Parado há
+                  </div>
+                  <div className="mt-1.5 text-mono text-[22px] leading-none text-foreground tabular-nums">
+                    {fmtStuck(op.stuckMin)}
+                  </div>
+                  <div className="mt-2 text-[10.5px] text-muted-foreground">
+                    Limite: 45m
+                  </div>
+                </div>
+                <div className="rounded-lg border border-border bg-foreground/[0.02] p-3.5">
+                  <div className="text-mono text-[9.5px] tracking-[0.2em] uppercase text-muted-foreground/60">
+                    Conversa
+                  </div>
+                  <div className="mt-1.5 text-[12px] text-foreground/90 leading-snug line-clamp-2">
+                    {op.lastMsg}
+                  </div>
+                  <div className="mt-2 inline-flex items-center gap-1.5 text-mono text-[9.5px] tracking-[0.14em] uppercase text-muted-foreground/65">
+                    <MessageCircle className="h-3 w-3" /> {op.channel}
+                  </div>
+                </div>
+              </div>
+
+              {/* Próxima ação */}
+              <div className="rounded-lg border border-primary/25 bg-primary/[0.05] px-4 py-3">
+                <div className="flex items-center justify-between gap-4">
+                  <div className="min-w-0">
+                    <div className="text-mono text-[9.5px] tracking-[0.2em] uppercase text-primary/85">
+                      Próxima ação sugerida
+                    </div>
+                    <div className="mt-1 text-[13px] text-foreground truncate">
+                      {op.action}
+                    </div>
+                  </div>
+                  <span
+                    aria-hidden
+                    className="shrink-0 inline-flex items-center gap-1.5 rounded-md border border-primary/30 px-2.5 py-1.5 text-mono text-[10px] tracking-[0.16em] uppercase text-foreground/90"
+                  >
+                    Executar <ArrowRight className="h-3 w-3" />
+                  </span>
+                </div>
+              </div>
+
+              {/* Footer técnico do painel */}
+              <div className="flex items-center justify-between pt-1 text-mono text-[9.5px] tracking-[0.18em] uppercase text-muted-foreground/55">
+                <span className="inline-flex items-center gap-1.5 operator-sync">
+                  <CheckCircle2 className="h-3 w-3 text-primary/70" />
+                  Sincronizado · há 12s
+                </span>
+                <span>turno · júlia + bruno</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA — fora do quadro do produto, peso editorial */}
+        <div className="mt-10 grid lg:grid-cols-12 gap-6 lg:gap-12 items-end">
+          <p className="lg:col-span-7 text-lede max-w-2xl">
+            Cada oportunidade tem um cronômetro. Quando passa do limite, alguém é avisado antes do cliente desistir.
+          </p>
+          <div className="lg:col-span-5 lg:justify-self-end w-full lg:w-auto">
             <a
               href={WA}
               target="_blank"
               rel="noreferrer"
               onClick={() => track("operator_cta_click", { destination: "whatsapp" })}
-              className="btn-premium group w-full lg:w-auto shrink-0 inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold cta-shadow"
+              className="btn-premium group w-full lg:w-auto inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold cta-shadow"
             >
               Quero meu diagnóstico gratuito{" "}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
