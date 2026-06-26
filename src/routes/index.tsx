@@ -811,12 +811,12 @@ function Operator() {
             <SectionLabel index="05" question="como aplicamos">Imperius Operator</SectionLabel>
             <h2 className="text-h2 text-foreground mt-5">
               O cliente travou.{" "}
-              <span className="text-foreground/50">A gente reabre o caminho.</span>
+              <span className="text-foreground/50">Reabrimos o caminho.</span>
             </h2>
           </div>
           <div className="lg:col-span-5 lg:col-start-8 self-end">
             <p className="text-lede max-w-md">
-              Onde o processo para, alguém é avisado. A oportunidade volta a se mover.
+              Onde o processo para, alguém é avisado.
             </p>
           </div>
         </div>
