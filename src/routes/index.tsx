@@ -973,9 +973,9 @@ function RecoveryFlow() {
 // --- Final CTA — tipografia de presença -----------------------------------
 function FinalCTA() {
   const passos = [
-    { n: "01", t: "Conversa de 20 min", d: "Você descreve a operação. A gente escuta." },
-    { n: "02", t: "Diagnóstico em tela", d: "Mostramos onde o cliente trava — com você junto." },
-    { n: "03", t: "Próximo passo", d: "Decidir juntos. Sem proposta antes do problema claro." },
+    { n: "01", t: "Conversa de 20 min", d: "Você descreve a operação." },
+    { n: "02", t: "Diagnóstico em tela", d: "Mostramos o gargalo — com você junto." },
+    { n: "03", t: "Próximo passo", d: "Decidir juntos o que vem a seguir." },
   ];
   return (
     <section className="relative pt-14 pb-24 sm:pt-20 sm:pb-32 overflow-hidden">
