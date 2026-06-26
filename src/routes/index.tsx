@@ -218,7 +218,8 @@ function Nav() {
               className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4 h-9 cta-shadow"
             >
               <span className="sm:hidden">Diagnóstico</span>
-              <span className="hidden sm:inline">Diagnóstico gratuito</span>
+              <span className="hidden sm:inline">Diagnóstico</span>
+
             </Button>
           </a>
 
@@ -293,7 +294,7 @@ function Hero() {
             </h1>
 
             <p className="mt-7 sm:mt-8 max-w-lg text-lede">
-              O Imperius monitora cada conversa, identifica o ponto exato onde o cliente trava e avisa antes que ele desista.
+              A gente mostra onde ele trava — antes que desista.
             </p>
 
             <div className="mt-9 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-5">
@@ -308,14 +309,15 @@ function Hero() {
                   size="lg"
                   className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[13.5px] cta-shadow"
                 >
-                  Quero meu diagnóstico gratuito{" "}
+                  Diagnóstico gratuito{" "}
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </Button>
               </a>
               <span className="text-mono text-[11px] tracking-[0.16em] uppercase text-muted-foreground/75">
-                20 min · sem proposta antes
+                20 min · sem proposta
               </span>
             </div>
+
 
             {/* Metas hairline — densidade de produto, sem virar dashboard */}
             <div className="mt-12 sm:mt-14 pt-6 border-t border-border/70 grid grid-cols-3 gap-6 max-w-lg">
@@ -476,30 +478,27 @@ function OperatorPanel() {
 // --- Problema — lista editorial densa, hairline rows ----------------------
 function Problema() {
   const dores = [
-    { icon: Calendar, t: "Cliente desiste antes de agendar", d: "Pede horário, some, e ninguém retoma." },
-    { icon: ClipboardList, t: "Cliente trava no meio do caminho", d: "Começa a comprar e abandona antes do fim." },
-    { icon: MessageCircle, t: "Mensagem chega e ninguém responde", d: "Quando alguém vê, o cliente já fechou com outro." },
-    { icon: Activity, t: "Você responde rápido e ele some", d: "Mandou orçamento, mandou foto, e o cliente sumiu." },
-    { icon: TrendingUp, t: "Cliente entra e nunca mais volta", d: "Pediu informação uma vez. Ninguém chamou de novo." },
+    { icon: Calendar, t: "Pediu horário e sumiu", d: "Ninguém retomou." },
+    { icon: ClipboardList, t: "Travou no meio", d: "Começou e abandonou." },
+    { icon: MessageCircle, t: "Mensagem sem resposta", d: "Quando viram, já era." },
+    { icon: Activity, t: "Respondeu rápido e sumiu", d: "Mandou orçamento. Silêncio." },
+    { icon: TrendingUp, t: "Não voltou mais", d: "Pediu uma vez. Ninguém chamou." },
+
   ];
 
   return (
     <section className="relative pt-6 pb-14 sm:pt-8 sm:pb-20">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-10 sm:mb-12">
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-7">
             <SectionLabel index="02">Sintomas</SectionLabel>
             <h2 className="text-h2 text-foreground mt-5">
-              Reconhece alguma dessas{" "}
-              <span className="text-foreground/50">no seu dia a dia?</span>
+              Reconhece alguma{" "}
+              <span className="text-foreground/50">no seu dia?</span>
             </h2>
           </div>
-          <div className="lg:col-span-6 lg:col-start-7 self-end">
-            <p className="text-card-body max-w-md">
-              Cinco sintomas que aparecem toda semana em operações reais. Quando começam a se repetir, há um gargalo estrutural por trás.
-            </p>
-          </div>
         </div>
+
 
 
         <div aria-hidden className="imp-hairline mb-0" />
@@ -598,8 +597,9 @@ function Demonstracoes() {
             </div>
 
             <p className="mt-5 text-card-body">
-              Solução desenvolvida pela Imperius Operações Comerciais para reduzir atritos no contato com clientes e encurtar o caminho até o agendamento.
+              Menos passos entre o cliente e o agendamento.
             </p>
+
 
             <div className="mt-8 border-t border-border">
               <div className="py-5 border-b border-border">
@@ -637,12 +637,13 @@ function Demonstracoes() {
                   Resultado
                 </div>
                 <p className="text-card-body text-foreground/90">
-                  O cliente encontra tudo em um único lugar e chega ao contato com menos atrito.
+                  Tudo num lugar. Contato em um toque.
                 </p>
                 <div className="mt-4 text-mono text-[10.5px] uppercase tracking-[0.2em] text-muted-foreground/70 truncate">
                   ↗ barbeariadoalemao.lovable.app
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -654,11 +655,11 @@ function Demonstracoes() {
 // --- Método — timeline ----------------------------------------------------
 function Metodo() {
   const pilares = [
-    { n: "01", t: "Encontrar um gargalo real", d: "Onde o cliente trava de verdade." },
-    { n: "02", t: "Mostrar visualmente", d: "Você vê o ponto exato na tela." },
-    { n: "03", t: "Fazer uma pergunta curta", d: "Quanto esse gargalo está te custando?" },
-    { n: "04", t: "Conversar", d: "O que faz sentido resolver primeiro." },
-    { n: "05", t: "Só depois, a solução", d: "Proposta com o problema claro." },
+    { n: "01", t: "Achar o gargalo", d: "Onde o cliente trava." },
+    { n: "02", t: "Mostrar na tela", d: "Você vê o ponto exato." },
+    { n: "03", t: "Calcular o custo", d: "Quanto isso pesa por mês." },
+    { n: "04", t: "Conversar", d: "O que resolver primeiro." },
+    { n: "05", t: "Propor", d: "Só depois do problema claro." },
   ];
 
   return (
@@ -668,18 +669,19 @@ function Metodo() {
         {/* Header invertido: descrição à esquerda, título à direita — quebra a previsibilidade */}
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-14 sm:mb-20">
           <div className="lg:col-span-5 order-2 lg:order-1 self-end">
-            <SectionLabel index="04">Método Imperius</SectionLabel>
+            <SectionLabel index="04">Método</SectionLabel>
             <p className="text-card-body max-w-md mt-5">
-              Processo aplicado em toda operação que entra na Imperius. Sem pular etapa, sem proposta antecipada.
+              Sem pular etapa. Sem proposta antes da hora.
             </p>
           </div>
           <div className="lg:col-span-6 lg:col-start-7 order-1 lg:order-2 lg:text-right">
             <h2 className="text-h2 text-foreground">
               Cinco passos.{" "}
-              <span className="text-foreground/50">Sempre nessa ordem.</span>
+              <span className="text-foreground/50">Nessa ordem.</span>
             </h2>
           </div>
         </div>
+
 
         {/* Timeline editorial vertical com rail central — distintivo das demais seções */}
         <ol className="relative">
@@ -1032,8 +1034,9 @@ function Operator() {
         {/* Leitura editorial — não repete CTA do Hero; convida a continuar para o capítulo final */}
         <div className="mt-10 grid lg:grid-cols-12 gap-6 lg:gap-12 items-end">
           <p className="lg:col-span-8 text-lede max-w-2xl">
-            Cada oportunidade tem um cronômetro. Quando passa do limite, alguém é avisado antes do cliente desistir.
+            Passou do limite, alguém é avisado.
           </p>
+
           <div className="lg:col-span-4 lg:justify-self-end text-mono text-[10.5px] tracking-[0.2em] uppercase text-muted-foreground/65">
             ↓ S/06 — próximo passo
           </div>
@@ -1056,14 +1059,14 @@ function FinalCTA() {
         </div>
 
         <h2 className="text-display-xl text-foreground max-w-5xl">
-          Descubra onde sua operação{" "}
-          <span className="text-foreground/45">está perdendo clientes.</span>
+          Veja onde você{" "}
+          <span className="text-foreground/45">perde cliente.</span>
         </h2>
 
         <div className="mt-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-end">
           <div className="lg:col-span-6">
             <p className="text-lede max-w-lg">
-              20 minutos. Você sai sabendo o ponto exato onde está perdendo venda.
+              20 min. Sem proposta.
             </p>
           </div>
           <div className="lg:col-span-6 flex flex-col sm:flex-row lg:justify-end items-stretch sm:items-center gap-4 sm:gap-6">
@@ -1081,7 +1084,7 @@ function FinalCTA() {
                 size="lg"
                 className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] cta-shadow"
               >
-                Quero descobrir meu gargalo{" "}
+                Agendar diagnóstico{" "}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Button>
             </a>
@@ -1090,10 +1093,11 @@ function FinalCTA() {
               className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2 justify-center"
               onClick={() => track("final_cta_click", { destination: "email" })}
             >
-              <Mail className="h-4 w-4" /> Prefiro receber por e-mail
+              <Mail className="h-4 w-4" /> Por e-mail
             </a>
           </div>
         </div>
+
       </div>
     </section>
   );
@@ -1132,8 +1136,9 @@ function Footer() {
               </div>
             </div>
             <p className="text-card-body max-w-sm">
-              Achamos o gargalo. Encurtamos o caminho até a venda.
+              Achamos o gargalo. Encurtamos o caminho.
             </p>
+
           </div>
 
           <div className="md:col-span-3">
@@ -1167,12 +1172,13 @@ function Footer() {
         <div aria-hidden className="imp-hairline mt-12" />
         <div className="pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-mono text-[10.5px] uppercase tracking-[0.18em] text-muted-foreground/65">
           <p>© {new Date().getFullYear()} Imperius Operações Comerciais</p>
-          <p className="normal-case tracking-normal text-[11px] text-muted-foreground/70 max-w-xl leading-relaxed font-sans">
-            Cookies analíticos (GA). Para LGPD, escreva para{" "}
+          <p className="normal-case tracking-normal text-[11px] text-muted-foreground/70 font-sans">
+            GA · LGPD:{" "}
             <a href={PROPOSAL_MAILTO} className="underline hover:text-foreground">
               {PROPOSAL_EMAIL}
-            </a>.
+            </a>
           </p>
+
         </div>
       </div>
     </footer>
