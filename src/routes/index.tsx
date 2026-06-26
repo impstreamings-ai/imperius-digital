@@ -1136,8 +1136,9 @@ function Footer() {
               </div>
             </div>
             <p className="text-card-body max-w-sm">
-              Achamos o gargalo. Encurtamos o caminho até a venda.
+              Achamos o gargalo. Encurtamos o caminho.
             </p>
+
           </div>
 
           <div className="md:col-span-3">
