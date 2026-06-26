@@ -242,7 +242,7 @@ function Operator() {
                 Acompanha o caminho do cliente{" "}
                 <span className="text-foreground/55">e avisa quando uma oportunidade está prestes a ser perdida.</span>
               </h2>
-              <p className="mt-4 text-muted-foreground text-[14.5px] sm:text-[15.5px] leading-relaxed font-sans max-w-2xl">
+              <p className="mt-4 text-lede max-w-2xl">
                 Monitora cada conversa, identifica onde o cliente travou, avisa a equipe responsável e ajuda a recuperar a oportunidade antes que ela vá embora.
               </p>
             </div>
@@ -470,7 +470,7 @@ function Demonstracoes() {
               Sorocaba/SP
             </span>
           </h2>
-          <p className="mt-3 text-[13px] sm:text-[13.5px] text-muted-foreground leading-relaxed font-sans max-w-2xl">
+          <p className="mt-3 text-card-body max-w-2xl">
             Solução desenvolvida pela Imperius Operações Comerciais para reduzir atritos no contato com clientes e encurtar o caminho até o agendamento.
           </p>
         </div>
@@ -507,7 +507,7 @@ function Demonstracoes() {
             </div>
 
             <div className="p-5 sm:p-6 lg:p-7 flex flex-col min-w-0 border-t lg:border-t-0 lg:border-l border-border/40">
-              <p className="text-[12.5px] sm:text-[13px] text-muted-foreground/90 leading-relaxed font-sans italic">
+              <p className="text-card-body italic">
                 <span className="not-italic text-[10px] uppercase tracking-[0.24em] font-semibold text-muted-foreground/70 block mb-1.5">Antes</span>
                 O cliente precisava passar por múltiplas etapas e informações espalhadas para chegar ao contato.
               </p>
@@ -522,7 +522,7 @@ function Demonstracoes() {
                   </div>
                   <ul className="mt-2.5 space-y-1.5">
                     {problemas.map((p) => (
-                      <li key={p} className="flex items-start gap-2.5 text-[12.5px] sm:text-[13px] text-muted-foreground leading-relaxed font-sans">
+                      <li key={p} className="flex items-start gap-2.5 text-card-body">
                         <span className="mt-[7px] h-1 w-1 rounded-full bg-destructive/70 shrink-0" aria-hidden />
                         <span>{p}</span>
                       </li>
@@ -537,7 +537,7 @@ function Demonstracoes() {
                   </div>
                   <ul className="mt-2.5 space-y-1.5">
                     {solucoes.map((s) => (
-                      <li key={s} className="flex items-start gap-2.5 text-[12.5px] sm:text-[13px] text-foreground leading-relaxed font-sans">
+                      <li key={s} className="flex items-start gap-2.5 text-card-body text-foreground">
                         <CheckCircle2 className="h-[15px] w-[15px] text-primary mt-[2px] shrink-0" aria-hidden />
                         <span>{s}</span>
                       </li>
@@ -548,7 +548,7 @@ function Demonstracoes() {
 
               <div className="mt-4 h-px bg-border/50" aria-hidden />
 
-              <p className="mt-4 text-[12.5px] sm:text-[13px] text-foreground/90 leading-relaxed font-sans">
+              <p className="mt-4 text-card-body text-foreground/90">
                 <span className="text-[10px] uppercase tracking-[0.24em] font-semibold text-primary block mb-1.5">Resultado</span>
                 O cliente encontra tudo em um único lugar e chega ao contato com menos atrito.
               </p>
@@ -690,7 +690,7 @@ function FAQ() {
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-open:rotate-90" />
                 </span>
               </summary>
-              <p className="mt-4 text-[14px] sm:text-[15px] text-muted-foreground leading-relaxed font-sans max-w-2xl whitespace-pre-line">
+              <p className="mt-4 text-lede max-w-2xl whitespace-pre-line">
                 {it.a}
               </p>
             </details>
