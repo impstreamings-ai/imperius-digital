@@ -39,53 +39,77 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  /* === Geometry === */
+  --radius: 0.625rem;          /* 10px — base */
+  --radius-card: 0.875rem;     /* 14px — todos os cards */
+  --radius-pill: 9999px;
 
-  /* === Imperius Carbon Plasma™ palette ===
-     Carbon · Surface · Graphite · Silver · Plasma (cool, technical) */
-  --background: oklch(0.108 0.011 258);
-  --foreground: oklch(0.965 0.004 258);
-  --card: oklch(0.175 0.014 258);
-  --card-foreground: oklch(0.965 0.004 258);
-  --popover: oklch(0.155 0.013 258);
-  --popover-foreground: oklch(0.965 0.004 258);
+  /* === Motion === */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur-fast: 160ms;
+  --dur: 220ms;
+  --dur-slow: 280ms;
 
-  /* Plasma: azul frio, técnico — menos saturado, mais elegante */
-  --primary: oklch(0.625 0.17 256);
+  /* === Imperius Carbon Plasma™ palette — frio, técnico, premium === */
+  --background: oklch(0.106 0.010 256);
+  --foreground: oklch(0.965 0.004 256);
+  --card: oklch(0.165 0.013 256);
+  --card-foreground: oklch(0.965 0.004 256);
+  --popover: oklch(0.148 0.012 256);
+  --popover-foreground: oklch(0.965 0.004 256);
+
+  --primary: oklch(0.625 0.16 254);
   --primary-foreground: oklch(0.99 0 0);
 
-  --secondary: oklch(0.265 0.012 258);
-  --secondary-foreground: oklch(0.965 0.004 258);
-  --muted: oklch(0.215 0.011 258);
-  --muted-foreground: oklch(0.715 0.014 258);
-  --accent: oklch(0.80 0.08 250);
-  --accent-foreground: oklch(0.12 0.01 258);
+  --secondary: oklch(0.255 0.011 256);
+  --secondary-foreground: oklch(0.965 0.004 256);
+  --muted: oklch(0.205 0.010 256);
+  --muted-foreground: oklch(0.735 0.013 256);
+  --accent: oklch(0.80 0.07 250);
+  --accent-foreground: oklch(0.12 0.01 256);
 
-  --destructive: oklch(0.58 0.19 22);
+  --destructive: oklch(0.58 0.18 22);
   --destructive-foreground: oklch(0.99 0 0);
 
-  --border: oklch(0.36 0.018 258 / 42%);
-  --input: oklch(0.27 0.014 258);
-  --ring: oklch(0.625 0.17 256);
+  --border: oklch(0.34 0.014 256 / 38%);
+  --border-strong: oklch(0.42 0.015 256 / 55%);
+  --input: oklch(0.27 0.013 256);
+  --ring: oklch(0.625 0.16 254);
 
-  --neon: oklch(0.66 0.17 256);
-  --ice: oklch(0.80 0.08 250);
-  --titanium: oklch(0.74 0.01 258);
+  --neon: oklch(0.66 0.15 254);
+  --ice: oklch(0.80 0.07 250);
+  --titanium: oklch(0.74 0.01 256);
 
-  /* Hero: respiração plasma muito sutil — luxo na composição, não no brilho */
-  --gradient-hero: radial-gradient(ellipse at 50% 0%, oklch(0.40 0.11 256 / 0.12), transparent 62%),
-                   radial-gradient(ellipse at 80% 90%, oklch(0.52 0.14 256 / 0.06), transparent 58%),
-                   linear-gradient(180deg, oklch(0.112 0.012 258), oklch(0.088 0.009 258));
-  --gradient-text: linear-gradient(180deg, oklch(0.99 0 0) 0%, oklch(0.76 0.014 258) 100%);
-  --gradient-neon: linear-gradient(135deg, oklch(0.78 0.11 256), oklch(0.625 0.17 256));
+  /* Superfícies — família coerente */
+  --surface-1: oklch(0.155 0.012 256 / 0.70);
+  --surface-2: oklch(0.175 0.014 256 / 0.78);
+  --surface-3: oklch(0.20 0.016 256 / 0.85);
+  --hairline: oklch(1 0 0 / 0.04);
 
-  /* Sombras: profundidade quase imperceptível — preto puro, sem halo plasma */
-  --shadow-neon: 0 0 0 1px oklch(0.625 0.16 256 / 0.22),
-                 0 18px 44px -22px oklch(0 0 0 / 0.65);
-  --shadow-card: 0 1px 0 0 oklch(1 0 0 / 0.03) inset,
-                 0 24px 48px -28px oklch(0 0 0 / 0.7);
-  --grid-color: oklch(0.78 0.03 258 / 0.04);
+  --gradient-hero: radial-gradient(ellipse at 50% 0%, oklch(0.36 0.10 254 / 0.10), transparent 60%),
+                   linear-gradient(180deg, oklch(0.112 0.012 256), oklch(0.086 0.009 256));
+  --gradient-text: linear-gradient(180deg, oklch(0.99 0 0) 0%, oklch(0.78 0.012 256) 100%);
+  --gradient-neon: linear-gradient(135deg, oklch(0.78 0.10 254), oklch(0.625 0.16 254));
+
+  /* === Sombras — 3 níveis, quase imperceptíveis === */
+  --shadow-1: 0 1px 0 0 var(--hairline) inset,
+              0 1px 2px -1px oklch(0 0 0 / 0.4);
+  --shadow-2: 0 1px 0 0 var(--hairline) inset,
+              0 8px 24px -16px oklch(0 0 0 / 0.6);
+  --shadow-3: 0 1px 0 0 var(--hairline) inset,
+              0 20px 48px -28px oklch(0 0 0 / 0.7);
+  --shadow-cta: 0 1px 0 0 oklch(1 0 0 / 0.10) inset,
+                0 6px 18px -10px oklch(0 0 0 / 0.7),
+                0 0 0 1px oklch(0.625 0.16 254 / 0.18);
+  --shadow-cta-hover: 0 1px 0 0 oklch(1 0 0 / 0.14) inset,
+                      0 10px 26px -14px oklch(0 0 0 / 0.75),
+                      0 0 0 1px oklch(0.625 0.16 254 / 0.28);
+  --shadow-neon: var(--shadow-3);
+  --shadow-card: var(--shadow-2);
+
+  --grid-color: oklch(0.78 0.03 256 / 0.035);
 }
+
 
 
 @layer base {
@@ -94,11 +118,8 @@
   body {
     background-color: var(--color-background);
     background-image:
-      radial-gradient(ellipse 90% 60% at 50% 0%, oklch(0.34 0.10 258 / 0.11), transparent 60%),
-      radial-gradient(ellipse 70% 50% at 85% 35%, oklch(0.42 0.11 258 / 0.045), transparent 65%),
-      radial-gradient(ellipse 80% 60% at 10% 75%, oklch(0.38 0.10 258 / 0.04), transparent 65%),
-      radial-gradient(ellipse 100% 50% at 50% 100%, oklch(0.36 0.10 258 / 0.05), transparent 60%);
-
+      radial-gradient(ellipse 80% 50% at 50% 0%, oklch(0.30 0.08 254 / 0.08), transparent 65%),
+      radial-gradient(ellipse 90% 55% at 50% 100%, oklch(0.28 0.07 254 / 0.04), transparent 70%);
     background-attachment: fixed;
     background-repeat: no-repeat;
     color: var(--color-foreground);
@@ -108,40 +129,124 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
-  h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: -0.018em; font-feature-settings: "ss01", "cv11"; }
-  ::selection { background-color: oklch(0.62 0.20 258 / 0.45); color: oklch(0.98 0 0); }
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.022em;
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection { background-color: oklch(0.625 0.16 254 / 0.42); color: oklch(0.98 0 0); }
 }
-
 
 @utility font-heading {
   font-family: var(--font-heading);
 }
 
-/* === Sistema de ritmo vertical — todas as seções derivam destes tokens.
-   Alterar um valor aqui recalibra a respiração do site inteiro. === */
+/* === Tipografia: escala única, mobile-first === */
+@utility text-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 5.5vw + 0.5rem, 3.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.032em;
+}
+@utility text-h2 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 2.8vw + 0.75rem, 2.375rem);
+  line-height: 1.08;
+  letter-spacing: -0.026em;
+}
+@utility text-h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: clamp(1.0625rem, 0.9vw + 0.85rem, 1.3125rem);
+  line-height: 1.2;
+  letter-spacing: -0.018em;
+}
+@utility text-card-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9375rem; /* 15px */
+  line-height: 1.32;
+  letter-spacing: -0.006em;
+  color: var(--color-foreground);
+}
+@utility text-card-body {
+  font-size: 0.8125rem; /* 13px */
+  line-height: 1.55;
+  color: var(--color-muted-foreground);
+}
+@utility text-lede {
+  font-size: clamp(0.9375rem, 0.35vw + 0.85rem, 1.0625rem);
+  line-height: 1.6;
+  color: var(--color-muted-foreground);
+}
+@utility text-micro {
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: oklch(from var(--muted-foreground) l c h / 0.78);
+  letter-spacing: 0.005em;
+}
+@utility text-eyebrow {
+  font-size: 0.65625rem; /* 10.5px */
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-muted-foreground);
+}
+
+/* === Superfícies coerentes === */
+@utility surface-1 {
+  background-color: var(--surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  backdrop-filter: blur(8px);
+}
+@utility surface-2 {
+  background-color: var(--surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-2);
+}
+@utility hairline-t { border-top: 1px solid var(--color-border); }
+@utility hairline-b { border-bottom: 1px solid var(--color-border); }
+@utility hairline-y { border-block: 1px solid var(--color-border); }
+
+/* === Ritmo vertical mais apertado, mobile-first === */
 @utility section-y {
+  padding-block: 2.5rem;
+}
+@media (min-width: 640px) {
+  .section-y { padding-block: 4rem; }
+}
+@media (min-width: 1024px) {
+  .section-y { padding-block: 4.75rem; }
+}
+@utility section-y-lg {
   padding-block: 3rem;
 }
 @media (min-width: 640px) {
-  .section-y { padding-block: 4.5rem; }
+  .section-y-lg { padding-block: 5rem; }
 }
-@utility section-y-lg {
-  padding-block: 3.5rem;
-}
-@media (min-width: 640px) {
-  .section-y-lg { padding-block: 5.5rem; }
+@media (min-width: 1024px) {
+  .section-y-lg { padding-block: 6rem; }
 }
 @utility section-shell {
   margin-inline: auto;
   max-width: 72rem;
-  padding-inline: 1.5rem;
-}
-@utility section-head-gap {
-  margin-bottom: 1.75rem;
+  padding-inline: 1.25rem;
 }
 @media (min-width: 640px) {
-  .section-head-gap { margin-bottom: 2.5rem; }
+  .section-shell { padding-inline: 1.5rem; }
 }
+@utility section-head-gap {
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 640px) {
+  .section-head-gap { margin-bottom: 2rem; }
+}
+
 
 @utility hover-lift {
   transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
@@ -253,26 +358,33 @@
     transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
     z-index: 1;
   }
+  box-shadow: var(--shadow-cta);
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       transform: translate3d(0, -1px, 0);
-      box-shadow:
-        0 0 0 1px oklch(0.625 0.14 256 / 0.28),
-        0 10px 28px -18px oklch(0 0 0 / 0.6);
+      box-shadow: var(--shadow-cta-hover);
     }
     &:hover::before { transform: translate3d(120%, 0, 0); }
   }
   &:active {
-    transform: translate3d(0, 0, 0) scale(0.98);
+    transform: translate3d(0, 0, 0) scale(0.985);
     transition-duration: 0.1s;
+    box-shadow: var(--shadow-1);
   }
   &:focus-visible {
     outline: none;
     box-shadow:
+      var(--shadow-cta),
       0 0 0 2px var(--background),
       0 0 0 3px oklch(0.625 0.17 256 / 0.55);
   }
 }
+
+/* CTA shadow utility — usar em <Button> que não tem .btn-premium */
+@utility cta-shadow {
+  box-shadow: var(--shadow-cta);
+}
+
 
 
 /* Cards: elevação discreta com sombra preta — halo plasma topo + cursor-aware spotlight */
