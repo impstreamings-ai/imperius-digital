@@ -356,9 +356,10 @@ function Hero() {
 
           {/* Status strip inferior */}
           <div className="product-chrome border-t border-b-0 justify-between">
-            <span>parado → intervenção → fechado</span>
+            <span>interesse → atrito → desistência</span>
             <span className="tabular-nums">↓ S/02</span>
           </div>
+
         </div>
       </div>
     </section>
