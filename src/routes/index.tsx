@@ -218,7 +218,8 @@ function Nav() {
               className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4 h-9 cta-shadow"
             >
               <span className="sm:hidden">Diagnóstico</span>
-              <span className="hidden sm:inline">Diagnóstico gratuito</span>
+              <span className="hidden sm:inline">Diagnóstico</span>
+
             </Button>
           </a>
 
