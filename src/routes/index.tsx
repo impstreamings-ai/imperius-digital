@@ -328,10 +328,10 @@ function Hero() {
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         {/* Eyebrow institucional — pergunta narrativa */}
         <div className="flex items-center justify-between gap-4 mb-8 sm:mb-10">
-          <SectionLabel index="01" question="o que acontece">Homepage · Imperius</SectionLabel>
+          <SectionLabel index="01" question="o que acontece">Operações comerciais</SectionLabel>
           <span className="hidden sm:inline-flex items-center gap-2 imp-chip">
             <ImpReg />
-            <span>v2.4 · Sorocaba/SP</span>
+            <span>Sorocaba · BR</span>
           </span>
         </div>
 
