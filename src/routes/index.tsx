@@ -883,10 +883,11 @@ function Operator() {
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4 mb-8">
           <SectionLabel index="05">Imperius Operator</SectionLabel>
-          <span className="hidden sm:inline-flex items-center gap-2 text-mono text-[10.5px] tracking-[0.18em] uppercase text-muted-foreground/70">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-            instância · sorocaba/sp
+          <span className="hidden sm:inline-flex imp-chip">
+            <ImpReg />
+            <span>instância · sorocaba/sp</span>
           </span>
+
         </div>
 
         <div
