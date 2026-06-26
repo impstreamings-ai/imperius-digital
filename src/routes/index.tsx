@@ -85,14 +85,7 @@ function SectionLabel({
 }
 
 
-// Registration mark — assinatura recorrente em chrome de painéis/footer/nav.
-function ImpReg({ className = "" }: { className?: string }) {
-  return (
-    <span aria-hidden className={"imp-reg " + className}>
-      <i />
-    </span>
-  );
-}
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
