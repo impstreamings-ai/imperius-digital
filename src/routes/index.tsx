@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
-import { useState, type ReactNode } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
@@ -68,7 +68,7 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://imperius-digital.lovable.app/" },
-      { property: "og:image", content: "https://imperius-digital.lovable.app/__l5e/assets-v1/ae6d1095-0da6-4317-bfb4-9afb5cd15f50/barbearia-alemao-foto.png" },
+      { property: "og:image", content: "https://imperius-digital.lovable.app/assets/barbearia-alemao-foto.png" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Imperius — Encontramos o gargalo que está te custando clientes" },
       {
@@ -76,7 +76,7 @@ export const Route = createFileRoute("/")({
         content:
           "Mapeamos onde sua operação perde cliente e encurtamos o caminho entre o contato e a venda. Diagnóstico antes de qualquer proposta.",
       },
-      { name: "twitter:image", content: "https://imperius-digital.lovable.app/__l5e/assets-v1/ae6d1095-0da6-4317-bfb4-9afb5cd15f50/barbearia-alemao-foto.png" },
+      { name: "twitter:image", content: "https://imperius-digital.lovable.app/assets/barbearia-alemao-foto.png" },
     ],
     links: [
       {
@@ -88,8 +88,7 @@ export const Route = createFileRoute("/")({
       {
         rel: "preload",
         as: "image",
-        href: "/__l5e/assets-v1/ae6d1095-0da6-4317-bfb4-9afb5cd15f50/barbearia-alemao-foto.png",
-        media: "(min-width: 768px)",
+        href: "/assets/barbearia-alemao-foto.png",
         fetchpriority: "high",
       } as unknown as Record<string, string>,
     ],
@@ -101,7 +100,7 @@ const WA_MESSAGE = "Olá! Quero um diagnóstico do gargalo comercial da minha em
 const WA = `https://wa.me/5515981023792?text=${encodeURIComponent(WA_MESSAGE)}`;
 const IG = "https://instagram.com/imperiusdigital.br";
 const CLIENTE_REAL_URL = "https://barbeariadoalemao.lovable.app/";
-const CLIENTE_REAL_COVER = "/__l5e/assets-v1/ae6d1095-0da6-4317-bfb4-9afb5cd15f50/barbearia-alemao-foto.png";
+const CLIENTE_REAL_COVER = "/assets/barbearia-alemao-foto.png";
 const PROPOSAL_EMAIL = "imperiusuniverse@gmail.com";
 const PROPOSAL_MAILTO = `mailto:${PROPOSAL_EMAIL}?subject=${encodeURIComponent("Proposta Imperius — apresentação personalizada")}&body=${encodeURIComponent("Olá, equipe Imperius.\n\nGostaria de receber uma proposta personalizada.\n\nEmpresa:\nSegmento:\nObjetivo principal:\n\nObrigado.")}`;
 
@@ -182,6 +181,12 @@ function Interlude() {
 function Nav() {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
   return (
     <header className="fixed top-0 inset-x-0 z-50 border-b border-border/60 backdrop-blur-xl bg-background/75">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
@@ -217,9 +222,7 @@ function Nav() {
               size="sm"
               className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4 h-9 cta-shadow"
             >
-              <span className="sm:hidden">Diagnóstico</span>
-              <span className="hidden sm:inline">Diagnóstico</span>
-
+              Diagnóstico
             </Button>
           </a>
 
