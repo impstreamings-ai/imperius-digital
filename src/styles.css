@@ -110,7 +110,9 @@
   --shadow-card: var(--shadow-2);
 
   --grid-color: oklch(0.78 0.02 256 / 0.03);
+  --rhythm: 8px;
 }
+
 
 
 
