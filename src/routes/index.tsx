@@ -152,18 +152,16 @@ function Landing() {
     <div className="min-h-dvh text-foreground font-sans overflow-x-hidden">
       <Nav />
       <Hero />
-      <SectionTransition from="01" to="02" label="Sintomas" question="por que acontece" />
+      <SectionTransition to="02" />
       <Problema />
-      <SectionTransition from="02" to="03" label="Caso validado" question="como sabemos" tint />
+      <SectionTransition to="03" tint />
       <Demonstracoes />
-      <SectionTransition from="03" to="04" label="Método" question="como resolvemos" />
+      <SectionTransition to="04" />
       <Metodo />
-      <SectionTransition from="04" to="05" label="Operator" question="como aplicamos" tint />
+      <SectionTransition to="05" tint />
       <Operator />
-      <Interlude />
       <FinalCTA />
       <Footer />
-
     </div>
   );
 }
