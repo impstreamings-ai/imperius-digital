@@ -1019,20 +1019,7 @@ function Footer() {
     <footer className="relative">
       <div aria-hidden className="imp-hairline" />
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 pt-12 pb-10">
-        {/* Cartouche de marca — registration marks emoldurando o monograma */}
-        <div className="flex items-center justify-between gap-4 mb-10">
-          <div className="inline-flex items-center gap-3">
-            <ImpReg />
-            <span className="font-heading font-semibold tracking-[0.18em] text-[12.5px]">IMPERIUS</span>
-            <span className="text-mono text-[9.5px] tracking-[0.22em] uppercase text-muted-foreground/70">
-              / Operações comerciais
-            </span>
-            <ImpReg />
-          </div>
-          <span className="hidden sm:inline-flex imp-chip">
-            <span>S/footer</span>
-          </span>
-        </div>
+
 
         <div className="grid md:grid-cols-12 gap-8 sm:gap-10">
           <div className="md:col-span-5">
