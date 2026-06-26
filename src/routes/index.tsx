@@ -166,41 +166,24 @@ function Landing() {
   );
 }
 
-// --- Section transitions — bridge cinematográfico entre capítulos --------
+// --- Section transition — hairline + numeral discreto. Sem rótulo, sem pergunta.
+// Cada passagem é apenas um silêncio editorial entre capítulos.
 function SectionTransition({
-  from,
   to,
-  label,
-  question,
   tint = false,
 }: {
-  from: string;
   to: string;
-  label: string;
-  question?: string;
   tint?: boolean;
 }) {
   return (
     <div
       aria-hidden
-      className={
-        "relative " + (tint ? "surface-tint" : "")
-      }
+      className={"relative " + (tint ? "surface-tint" : "")}
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <div className="relative flex items-center gap-4 py-10 sm:py-14">
-          <span className="chapter-mark shrink-0 tabular-nums">S/{from}</span>
-          {question ? (
-            <span className="chapter-mark hidden md:inline text-muted-foreground/55 normal-case tracking-[0.16em]">
-              · {question}
-            </span>
-          ) : null}
+        <div className="flex items-center gap-6 py-8 sm:py-10">
           <span className="chapter-rail flex-1" />
-          <span className="chapter-mark tabular-nums hidden sm:inline">
-            <span className="text-foreground/70">S/{to}</span>
-            <span className="ml-3 opacity-70">— {label}</span>
-          </span>
-          <span className="chapter-mark tabular-nums sm:hidden text-foreground/70">
+          <span className="chapter-mark tabular-nums text-muted-foreground/55">
             S/{to}
           </span>
         </div>
@@ -209,23 +192,6 @@ function SectionTransition({
   );
 }
 
-
-// --- Interlude — pausa narrativa antes do CTA final, pull-quote editorial -
-function Interlude() {
-  return (
-    <section className="relative pt-6 pb-2 sm:pt-10 sm:pb-6">
-      <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-6 items-start">
-          <span className="hidden lg:block lg:col-span-1 chapter-numeral select-none">→</span>
-          <p className="lg:col-span-11 pull-quote text-balance">
-            Cada etapa a mais{" "}
-            <span className="text-foreground/45">é um cliente a menos.</span>
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 // --- Nav ------------------------------------------------------------------
 function Nav() {
