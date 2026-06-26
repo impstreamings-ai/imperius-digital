@@ -274,11 +274,12 @@ function Hero() {
         {/* Metadata editorial */}
         <div className="flex items-center justify-between gap-4 mb-12 sm:mb-14 lg:mb-16">
           <SectionLabel index="01">Imperius Operator</SectionLabel>
-          <span className="hidden sm:inline-flex items-center gap-2 text-mono text-[10.5px] tracking-[0.18em] text-muted-foreground/70 uppercase">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-            v2.4 · Sorocaba/SP
+          <span className="hidden sm:inline-flex items-center gap-2 imp-chip">
+            <ImpReg />
+            <span>v2.4 · Sorocaba/SP</span>
           </span>
         </div>
+
 
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-20 items-center">
           {/* Coluna esquerda — peso editorial */}
