@@ -841,12 +841,13 @@ function fmtStuck(min: number) {
 
 function RiskDot({ r }: { r: Risk }) {
   const map: Record<Risk, string> = {
-    high: "bg-destructive operator-stuck",
-    med: "bg-accent",
-    low: "bg-primary",
+    high: "imp-mark imp-mark-danger operator-stuck",
+    med: "imp-mark",
+    low: "imp-mark imp-mark-primary",
   };
-  return <span className={"h-1.5 w-1.5 rounded-full " + map[r]} aria-hidden />;
+  return <span className={map[r]} aria-hidden />;
 }
+
 
 function RiskLabel({ r }: { r: Risk }) {
   const map: Record<Risk, { t: string; cls: string }> = {
