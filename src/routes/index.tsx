@@ -19,6 +19,38 @@ import {
   AlertTriangle,
 } from "lucide-react";
 
+// Marca conceitual recorrente — pequeno losango com halo, usado em nós de fluxo.
+function FlowNode({
+  cx,
+  cy,
+  r = 4,
+  variant = "default",
+}: {
+  cx: number;
+  cy: number;
+  r?: number;
+  variant?: "default" | "stuck" | "exit";
+}) {
+  const fill =
+    variant === "stuck"
+      ? "oklch(0.62 0.21 22 / 1)"
+      : variant === "exit"
+      ? "oklch(0.635 0.135 252 / 1)"
+      : "oklch(0.95 0 0 / 0.65)";
+  const halo =
+    variant === "stuck"
+      ? "oklch(0.62 0.21 22 / 0.18)"
+      : variant === "exit"
+      ? "oklch(0.635 0.135 252 / 0.18)"
+      : "oklch(0.95 0 0 / 0.08)";
+  return (
+    <g>
+      <circle cx={cx} cy={cy} r={r + 5} fill={halo} />
+      <circle cx={cx} cy={cy} r={r} fill={fill} />
+    </g>
+  );
+}
+
 import { trackEvent } from "@/lib/analytics";
 
 const track = (name: string, params: Record<string, unknown> = {}) =>
@@ -321,18 +353,11 @@ function Hero() {
               </span>
             </div>
 
-
-            {/* Metas hairline — densidade de produto, sem virar dashboard */}
-            <div className="mt-12 sm:mt-14 pt-6 border-t border-border/70 grid grid-cols-3 gap-6 max-w-lg">
-              <MetaStat k="Monitoramento" v="24/7" />
-              <MetaStat k="Latência média" v="< 90s" />
-              <MetaStat k="Piloto" v="Sorocaba" />
-            </div>
           </div>
 
-          {/* Coluna direita — prévia funcional do Operator */}
+          {/* Coluna direita — fluxo conceitual: caminho atual vs caminho Imperius */}
           <div className="lg:col-span-6">
-            <OperatorPanel />
+            <HeroFlow />
           </div>
         </div>
       </div>
@@ -340,142 +365,117 @@ function Hero() {
   );
 }
 
-function MetaStat({ k, v }: { k: string; v: string }) {
-  return (
-    <div>
-      <div className="text-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/55">
-        {k}
-      </div>
-      <div className="mt-1.5 text-mono text-[14px] text-foreground/90 tabular-nums">{v}</div>
-    </div>
-  );
-}
-
-// Hero teaser — NÃO repetir o Operator. Sem stages, sem "próxima ação",
-// sem "sincronizado", sem fila. Apenas um sinal vivo que provoca curiosidade.
-function OperatorPanel() {
-  // Onda do "sinal" — picos crescentes terminam num spike (gargalo detectado)
-  const points = [
-    8, 10, 9, 12, 11, 14, 13, 16, 15, 19, 17, 22, 20, 26, 24, 30, 28, 34, 31, 40,
-    36, 46, 42, 52, 48, 58, 54, 64, 60, 70,
-  ];
-  const W = 520;
-  const H = 120;
-  const stepX = W / (points.length - 1);
-  const maxY = 72;
-  const path = points
-    .map((p, i) => `${i === 0 ? "M" : "L"} ${(i * stepX).toFixed(1)} ${(H - (p / maxY) * (H - 12) - 6).toFixed(1)}`)
-    .join(" ");
-  const area = `${path} L ${W} ${H} L 0 ${H} Z`;
-
+// Hero — não é interface, é a ideia. Dois caminhos:
+// 1) antes  — sinuoso, com bloqueio. Cliente desiste.
+// 2) depois — reto, curto, direto à venda.
+function HeroFlow() {
+  const W = 560;
+  const H = 360;
   return (
     <figure
-      aria-label="Sinal do Imperius Operator — prévia"
-      className="relative tech-frame rounded-card overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(180deg, oklch(0.168 0.011 256 / 0.92), oklch(0.128 0.009 256 / 0.94))",
-        borderColor: "var(--border-strong)",
-        borderWidth: 1,
-        borderStyle: "solid",
-        boxShadow: "var(--shadow-3)",
-        backdropFilter: "blur(12px)",
-      }}
+      aria-label="Caminho do cliente: antes e depois da Imperius"
+      className="relative"
     >
-      <span className="tech-frame__bl" />
-      <span className="tech-frame__br" />
-
-      {/* Chrome distinto do Operator: aqui é "sinal", lá é "fila ativa" */}
-      <div className="console-chrome">
-        <ImpReg />
-        <span className="ml-1 text-foreground/65">sinal · tempo real</span>
-        <span className="ml-auto inline-flex items-center gap-1.5 text-foreground/85">
-          <span className="imp-mark imp-mark-danger operator-stuck" />
-          <span className="text-mono">anomalia</span>
-        </span>
+      {/* moldura mínima — apenas tipografia técnica nas bordas */}
+      <div className="flex items-center justify-between text-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground/55 mb-4">
+        <span>interesse</span>
+        <span>venda</span>
       </div>
 
-      <div className="p-5 sm:p-6 space-y-5">
-        {/* Métrica única — sem dashboard, sem múltiplos cards */}
-        <div>
-          <div className="text-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/55">
-            Atenção comercial · agora
-          </div>
-          <div className="mt-2 flex items-baseline gap-3">
-            <span className="text-mono text-[44px] sm:text-[52px] leading-none tracking-[-0.04em] text-foreground tabular-nums">
-              03
-            </span>
-            <span className="text-[13px] text-muted-foreground">
-              oportunidades acima do limite
-            </span>
-          </div>
-        </div>
+      <svg
+        viewBox={`0 0 ${W} ${H}`}
+        className="w-full h-auto"
+        role="img"
+      >
+        <defs>
+          <linearGradient id="rail-before" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stopColor="oklch(0.95 0 0 / 0.35)" />
+            <stop offset="55%" stopColor="oklch(0.95 0 0 / 0.35)" />
+            <stop offset="56%" stopColor="oklch(0.62 0.21 22 / 0.85)" />
+            <stop offset="100%" stopColor="oklch(0.62 0.21 22 / 0)" />
+          </linearGradient>
+          <linearGradient id="rail-after" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stopColor="oklch(0.635 0.135 252 / 0.45)" />
+            <stop offset="100%" stopColor="oklch(0.635 0.135 252 / 1)" />
+          </linearGradient>
+        </defs>
 
-        {/* Sinal — oscilograma silencioso, totalmente novo no layout */}
-        <div className="relative">
-          <svg
-            viewBox={`0 0 ${W} ${H}`}
-            preserveAspectRatio="none"
-            className="w-full h-[110px] sm:h-[128px]"
-            aria-hidden
-          >
-            <defs>
-              <linearGradient id="sigFill" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="oklch(0.635 0.135 252 / 0.32)" />
-                <stop offset="100%" stopColor="oklch(0.635 0.135 252 / 0)" />
-              </linearGradient>
-              <linearGradient id="sigLine" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="oklch(0.635 0.135 252 / 0.55)" />
-                <stop offset="78%" stopColor="oklch(0.635 0.135 252 / 0.95)" />
-                <stop offset="100%" stopColor="oklch(0.62 0.21 22 / 1)" />
-              </linearGradient>
-            </defs>
-            {/* gridlines hairline */}
-            {[0.25, 0.5, 0.75].map((g) => (
-              <line
-                key={g}
-                x1={0}
-                x2={W}
-                y1={H * g}
-                y2={H * g}
-                stroke="oklch(0.95 0 0 / 0.05)"
-                strokeWidth={1}
-              />
-            ))}
-            <path d={area} fill="url(#sigFill)" />
-            <path d={path} fill="none" stroke="url(#sigLine)" strokeWidth={1.5} />
-            {/* pico final — marcador */}
-            <circle
-              cx={W}
-              cy={H - (points[points.length - 1] / maxY) * (H - 12) - 6}
-              r={3.5}
-              fill="oklch(0.62 0.21 22 / 1)"
-            />
-            <circle
-              cx={W}
-              cy={H - (points[points.length - 1] / maxY) * (H - 12) - 6}
-              r={7}
-              fill="none"
-              stroke="oklch(0.62 0.21 22 / 0.45)"
-              strokeWidth={1}
-              className="operator-stuck"
-            />
-          </svg>
-          <div className="mt-1 flex items-center justify-between text-mono text-[9.5px] tracking-[0.18em] uppercase text-muted-foreground/55">
-            <span>−30 min</span>
-            <span className="text-destructive/85">↑ pico · agora</span>
-          </div>
-        </div>
+        {/* ────── ANTES: caminho longo, sinuoso, interrompido ────── */}
+        <g>
+          <text x="0" y="34" className="text-mono" fill="oklch(0.95 0 0 / 0.35)" fontSize="9" letterSpacing="2">
+            AGORA
+          </text>
+          {/* curva winding */}
+          <path
+            d="M 10 80 C 80 40, 130 130, 200 90 S 320 50, 360 120"
+            fill="none"
+            stroke="url(#rail-before)"
+            strokeWidth="1.25"
+            strokeDasharray="0"
+          />
+          {/* nós ao longo da curva */}
+          <FlowNode cx={10} cy={80} />
+          <FlowNode cx={95} cy={70} />
+          <FlowNode cx={170} cy={105} />
+          <FlowNode cx={240} cy={78} />
+          <FlowNode cx={310} cy={92} />
+          {/* gargalo */}
+          <g>
+            <FlowNode cx={360} cy={120} variant="stuck" r={5} />
+            <line x1={350} y1={110} x2={370} y2={130} stroke="oklch(0.62 0.21 22 / 0.9)" strokeWidth="1.25" />
+            <line x1={370} y1={110} x2={350} y2={130} stroke="oklch(0.62 0.21 22 / 0.9)" strokeWidth="1.25" />
+            <text x={385} y={124} className="text-mono" fill="oklch(0.62 0.21 22 / 0.95)" fontSize="9" letterSpacing="1.5">
+              GARGALO
+            </text>
+          </g>
+          {/* trecho desaparecendo após o gargalo */}
+          <path
+            d="M 380 138 C 430 170, 480 180, 540 175"
+            fill="none"
+            stroke="oklch(0.95 0 0 / 0.16)"
+            strokeWidth="1"
+            strokeDasharray="2 4"
+          />
+          <text x={448} y={196} className="text-mono" fill="oklch(0.95 0 0 / 0.35)" fontSize="9" letterSpacing="1.5">
+            cliente desiste
+          </text>
+        </g>
 
-        {/* Footer hairline — pista do que vem depois, sem entregar */}
-        <div className="flex items-center justify-between pt-1 text-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground/55">
-          <span>OP-1284 · em risco</span>
-          <span className="text-foreground/65">↘ detalhe no Operator</span>
-        </div>
-      </div>
+        {/* ────── intervenção Imperius ────── */}
+        <g>
+          <line x1={40} y1={228} x2={520} y2={228} stroke="oklch(0.95 0 0 / 0.08)" strokeWidth="1" />
+          <text x={40} y={222} className="text-mono" fill="oklch(0.635 0.135 252 / 0.85)" fontSize="9" letterSpacing="2">
+            ↓  IMPERIUS  REDUZ  O  CAMINHO
+          </text>
+        </g>
+
+        {/* ────── DEPOIS: linha reta, curta, direta à venda ────── */}
+        <g transform="translate(0, 56)">
+          <text x="0" y="234" className="text-mono" fill="oklch(0.635 0.135 252 / 0.9)" fontSize="9" letterSpacing="2">
+            COM IMPERIUS
+          </text>
+          <line
+            x1={10}
+            y1={278}
+            x2={540}
+            y2={278}
+            stroke="url(#rail-after)"
+            strokeWidth="1.5"
+          />
+          <FlowNode cx={10} cy={278} />
+          <FlowNode cx={185} cy={278} />
+          <FlowNode cx={360} cy={278} />
+          <FlowNode cx={540} cy={278} variant="exit" r={5.5} />
+          <text x={520} y={300} className="text-mono" fill="oklch(0.635 0.135 252 / 0.95)" fontSize="9" letterSpacing="1.5" textAnchor="end">
+            VENDA
+          </text>
+        </g>
+      </svg>
     </figure>
   );
 }
+
+
 
 
 // --- Problema — lista editorial densa, hairline rows ----------------------
@@ -747,308 +747,158 @@ function Metodo() {
 
 
 
-// --- Operator — painel de produto: fila de oportunidades + detalhe -------
-type Risk = "high" | "med" | "low";
-type OpRow = {
-  id: string;
-  client: string;
-  channel: string;
-  owner: string;
-  lastMsg: string;
-  stuckMin: number;
-  risk: Risk;
-  stage: string;
-  action: string;
-};
-
-const QUEUE: OpRow[] = [
-  {
-    id: "OP-1284",
-    client: "Marcos R.",
-    channel: "WhatsApp",
-    owner: "Júlia",
-    lastMsg: "Leu o orçamento. Sem retorno.",
-    stuckMin: 134,
-    risk: "high",
-    stage: "Diagnóstico",
-    action: "Retomar com prova social local",
-  },
-  {
-    id: "OP-1283",
-    client: "Aline F.",
-    channel: "Instagram",
-    owner: "Bruno",
-    lastMsg: "Pediu horário sábado. Aguardando confirmação.",
-    stuckMin: 42,
-    risk: "med",
-    stage: "Agenda",
-    action: "Confirmar slot 10:30",
-  },
-  {
-    id: "OP-1281",
-    client: "Henrique L.",
-    channel: "WhatsApp",
-    owner: "Júlia",
-    lastMsg: "Cliente respondeu. Aguardando proposta.",
-    stuckMin: 18,
-    risk: "low",
-    stage: "Proposta",
-    action: "Enviar orçamento padrão",
-  },
-  {
-    id: "OP-1279",
-    client: "Camila T.",
-    channel: "Site",
-    owner: "—",
-    lastMsg: "Preencheu formulário. Ninguém respondeu.",
-    stuckMin: 312,
-    risk: "high",
-    stage: "Contato",
-    action: "Atribuir atendente · responder agora",
-  },
-];
-
-function fmtStuck(min: number) {
-  if (min < 60) return `${min}m`;
-  const h = Math.floor(min / 60);
-  const m = min % 60;
-  return `${h}h${m.toString().padStart(2, "0")}`;
-}
-
-function RiskDot({ r }: { r: Risk }) {
-  const map: Record<Risk, string> = {
-    high: "imp-mark imp-mark-danger operator-stuck",
-    med: "imp-mark",
-    low: "imp-mark imp-mark-primary",
-  };
-  return <span className={map[r]} aria-hidden />;
-}
-
-
-function RiskLabel({ r }: { r: Risk }) {
-  const map: Record<Risk, { t: string; cls: string }> = {
-    high: { t: "Alto", cls: "text-destructive/90 border-destructive/35 bg-destructive/[0.06]" },
-    med: { t: "Médio", cls: "text-accent border-accent/35 bg-accent/[0.06]" },
-    low: { t: "Baixo", cls: "text-primary/90 border-primary/30 bg-primary/[0.05]" },
-  };
-  const v = map[r];
-  return (
-    <span
-      className={
-        "inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-mono text-[9.5px] tracking-[0.16em] uppercase border " +
-        v.cls
-      }
-    >
-      <RiskDot r={r} /> {v.t}
-    </span>
-  );
-}
-
+// --- Operator — representação conceitual de recuperação de oportunidade ---
+// Não é um painel. Não é uma fila. É a ideia: um cliente trava no caminho,
+// a Imperius reabre a rota e a oportunidade volta a se mover até a venda.
 function Operator() {
-  const [selected, setSelected] = useState<string>(QUEUE[0].id);
-  const op = QUEUE.find((q) => q.id === selected) ?? QUEUE[0];
-
-  const stats = {
-    total: QUEUE.length,
-    high: QUEUE.filter((q) => q.risk === "high").length,
-    unassigned: QUEUE.filter((q) => q.owner === "—").length,
-  };
-
   return (
     <section id="operator" className="relative pt-4 pb-20 sm:pt-6 sm:pb-24 surface-tint">
       <span aria-hidden className="chapter-numeral absolute top-2 right-4 sm:right-8 hidden md:block">05</span>
-      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4 mb-8">
-          <SectionLabel index="05">Imperius Operator</SectionLabel>
-          <span className="hidden sm:inline-flex imp-chip">
-            <ImpReg />
-            <span>instância · sorocaba/sp</span>
-          </span>
-
-        </div>
-
-        <div
-          className="relative tech-frame overflow-hidden rounded-card"
-          style={{
-            background:
-              "linear-gradient(180deg, oklch(0.168 0.011 256 / 0.92), oklch(0.128 0.009 256 / 0.94))",
-            borderColor: "var(--border-strong)",
-            borderWidth: 1,
-            borderStyle: "solid",
-            boxShadow: "var(--shadow-3)",
-            backdropFilter: "blur(12px)",
-          }}
-        >
-          <span className="tech-frame__bl" />
-          <span className="tech-frame__br" />
-
-          {/* Chrome */}
-          <div className="console-chrome">
-            <ImpReg />
-            <span className="ml-1 text-foreground/65">operator · fila ativa</span>
-            <span className="ml-auto inline-flex items-center gap-4 text-foreground/85">
-              <span className="hidden sm:inline-flex items-center gap-1.5">
-                <span className="text-muted-foreground/55">abertas</span>
-                <span className="text-mono tabular-nums text-foreground/90">{stats.total}</span>
-              </span>
-              <span className="hidden sm:inline-flex items-center gap-1.5">
-                <span className="text-muted-foreground/55">risco alto</span>
-                <span className="text-mono tabular-nums text-destructive/90">{stats.high}</span>
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <span className="imp-mark imp-mark-primary animate-pulse-glow" />
-                <span className="text-mono">live</span>
-              </span>
-            </span>
+      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-12 sm:mb-16">
+          <div className="lg:col-span-6">
+            <SectionLabel index="05">Imperius Operator</SectionLabel>
+            <h2 className="text-h2 text-foreground mt-5">
+              O cliente travou.{" "}
+              <span className="text-foreground/50">A gente reabre o caminho.</span>
+            </h2>
           </div>
-
-
-          <div className="grid lg:grid-cols-[1.15fr_1fr]">
-            {/* Coluna esquerda: fila */}
-            <div className="lg:border-r border-border">
-              {/* table header */}
-              <div className="hidden sm:grid grid-cols-[auto_1fr_auto_auto] gap-4 px-5 sm:px-6 py-2.5 border-b border-border text-mono text-[9.5px] tracking-[0.2em] uppercase text-muted-foreground/55">
-                <span>#</span>
-                <span>Cliente · última interação</span>
-                <span className="text-right">Parado</span>
-                <span className="text-right">Risco</span>
-              </div>
-
-              <ul className="divide-y divide-border">
-                {QUEUE.map((q) => {
-                  const active = q.id === selected;
-                  return (
-                    <li key={q.id}>
-                      <button
-                        type="button"
-                        onClick={() => setSelected(q.id)}
-                        aria-pressed={active}
-                        className={
-                          "w-full text-left grid grid-cols-[auto_1fr_auto] sm:grid-cols-[auto_1fr_auto_auto] gap-3 sm:gap-4 px-5 sm:px-6 py-4 transition-colors duration-200 " +
-                          (active
-                            ? "bg-primary/[0.05] border-l-2 border-l-primary/70 pl-[18px] sm:pl-[22px]"
-                            : "border-l-2 border-l-transparent hover:bg-foreground/[0.02]")
-                        }
-                      >
-                        <span className="text-mono text-[10.5px] tracking-[0.14em] uppercase text-muted-foreground/65 self-center tabular-nums">
-                          {q.id}
-                        </span>
-                        <span className="min-w-0">
-                          <span className="flex items-center gap-2">
-                            <span className="text-[13.5px] font-semibold text-foreground truncate">
-                              {q.client}
-                            </span>
-                            <span className="text-mono text-[9.5px] tracking-[0.16em] uppercase text-muted-foreground/55">
-                              {q.channel}
-                            </span>
-                          </span>
-                          <span className="block mt-0.5 text-[12px] text-muted-foreground truncate">
-                            {q.lastMsg}
-                          </span>
-                        </span>
-                        <span className="text-mono text-[12px] text-foreground/85 tabular-nums self-center text-right">
-                          {fmtStuck(q.stuckMin)}
-                        </span>
-                        <span className="hidden sm:flex justify-end self-center">
-                          <RiskLabel r={q.risk} />
-                        </span>
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-
-            {/* Coluna direita: detalhe da oportunidade selecionada */}
-            <div className="p-5 sm:p-6 lg:p-7 space-y-5 border-t lg:border-t-0 border-border">
-              <div className="flex items-start justify-between gap-4">
-                <div className="min-w-0">
-                  <div className="text-mono text-[9.5px] tracking-[0.2em] uppercase text-muted-foreground/55">
-                    Oportunidade · {op.id}
-                  </div>
-                  <div className="mt-1 text-[15px] font-semibold text-foreground truncate">
-                    {op.client}
-                  </div>
-                  <div className="mt-0.5 text-[11.5px] text-muted-foreground">
-                    {op.channel} · etapa {op.stage} · resp. {op.owner}
-                  </div>
-                </div>
-                <RiskLabel r={op.risk} />
-              </div>
-
-              {/* Tempo + risco visual */}
-              <div className="grid grid-cols-2 gap-3">
-                <div className="rounded-lg border border-border bg-foreground/[0.02] p-3.5">
-                  <div className="text-mono text-[9.5px] tracking-[0.2em] uppercase text-muted-foreground/60">
-                    Parado há
-                  </div>
-                  <div className="mt-1.5 text-mono text-[22px] leading-none text-foreground tabular-nums">
-                    {fmtStuck(op.stuckMin)}
-                  </div>
-                  <div className="mt-2 text-[10.5px] text-muted-foreground">
-                    Limite: 45m
-                  </div>
-                </div>
-                <div className="rounded-lg border border-border bg-foreground/[0.02] p-3.5">
-                  <div className="text-mono text-[9.5px] tracking-[0.2em] uppercase text-muted-foreground/60">
-                    Conversa
-                  </div>
-                  <div className="mt-1.5 text-[12px] text-foreground/90 leading-snug line-clamp-2">
-                    {op.lastMsg}
-                  </div>
-                  <div className="mt-2 inline-flex items-center gap-1.5 text-mono text-[9.5px] tracking-[0.14em] uppercase text-muted-foreground/65">
-                    <MessageCircle className="h-3 w-3" /> {op.channel}
-                  </div>
-                </div>
-              </div>
-
-              {/* Próxima ação */}
-              <div className="rounded-lg border border-primary/25 bg-primary/[0.05] px-4 py-3">
-                <div className="flex items-center justify-between gap-4">
-                  <div className="min-w-0">
-                    <div className="text-mono text-[9.5px] tracking-[0.2em] uppercase text-primary/85">
-                      Próxima ação sugerida
-                    </div>
-                    <div className="mt-1 text-[13px] text-foreground truncate">
-                      {op.action}
-                    </div>
-                  </div>
-                  <span
-                    aria-hidden
-                    className="shrink-0 inline-flex items-center gap-1.5 rounded-md border border-primary/30 px-2.5 py-1.5 text-mono text-[10px] tracking-[0.16em] uppercase text-foreground/90"
-                  >
-                    Executar <ArrowRight className="h-3 w-3" />
-                  </span>
-                </div>
-              </div>
-
-              {/* Footer técnico do painel */}
-              <div className="flex items-center justify-between pt-1 text-mono text-[9.5px] tracking-[0.18em] uppercase text-muted-foreground/55">
-                <span className="inline-flex items-center gap-1.5 operator-sync">
-                  <CheckCircle2 className="h-3 w-3 text-primary/70" />
-                  Sincronizado · há 12s
-                </span>
-                <span>turno · júlia + bruno</span>
-              </div>
-            </div>
+          <div className="lg:col-span-5 lg:col-start-8 self-end">
+            <p className="text-lede max-w-md">
+              Onde o processo para, alguém é avisado. A oportunidade volta a se mover.
+            </p>
           </div>
         </div>
 
-        {/* Leitura editorial — não repete CTA do Hero; convida a continuar para o capítulo final */}
-        <div className="mt-10 grid lg:grid-cols-12 gap-6 lg:gap-12 items-end">
-          <p className="lg:col-span-8 text-lede max-w-2xl">
-            Passou do limite, alguém é avisado.
-          </p>
+        <RecoveryFlow />
 
-          <div className="lg:col-span-4 lg:justify-self-end text-mono text-[10.5px] tracking-[0.2em] uppercase text-muted-foreground/65">
-            ↓ S/06 — próximo passo
-          </div>
+        <div className="mt-10 flex items-center justify-between text-mono text-[10.5px] tracking-[0.2em] uppercase text-muted-foreground/65">
+          <span>parado → intervenção → fechado</span>
+          <span>↓ S/06 — próximo passo</span>
         </div>
-
       </div>
     </section>
   );
 }
+
+// Diagrama: três estágios sequenciais. A meio caminho a oportunidade trava.
+// Uma rota auxiliar (Imperius) desvia o nó parado de volta ao fluxo principal.
+function RecoveryFlow() {
+  const W = 980;
+  const H = 360;
+  // pontos chave do trilho principal
+  const Y = 170;
+  const stops = [
+    { x: 70, label: "contato" },
+    { x: 290, label: "interesse" },
+    { x: 510, label: "parado", stuck: true },
+    { x: 730, label: "retomada" },
+    { x: 910, label: "fechado", exit: true },
+  ];
+
+  return (
+    <figure aria-label="Recuperação de oportunidade: caminho que volta a fluir" className="relative">
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img">
+        <defs>
+          <linearGradient id="op-main" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stopColor="oklch(0.95 0 0 / 0.35)" />
+            <stop offset="50%" stopColor="oklch(0.95 0 0 / 0.35)" />
+            <stop offset="51%" stopColor="oklch(0.62 0.21 22 / 0.7)" />
+            <stop offset="74%" stopColor="oklch(0.62 0.21 22 / 0.35)" />
+            <stop offset="75%" stopColor="oklch(0.635 0.135 252 / 0.55)" />
+            <stop offset="100%" stopColor="oklch(0.635 0.135 252 / 1)" />
+          </linearGradient>
+          <linearGradient id="op-detour" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stopColor="oklch(0.635 0.135 252 / 0)" />
+            <stop offset="30%" stopColor="oklch(0.635 0.135 252 / 0.95)" />
+            <stop offset="100%" stopColor="oklch(0.635 0.135 252 / 0.95)" />
+          </linearGradient>
+        </defs>
+
+        {/* eixos editoriais — somente referência sutil */}
+        <line x1={40} y1={H - 24} x2={W - 40} y2={H - 24} stroke="oklch(0.95 0 0 / 0.05)" strokeWidth="1" />
+        <text x={40} y={H - 8} className="text-mono" fill="oklch(0.95 0 0 / 0.3)" fontSize="9" letterSpacing="2">
+          TEMPO  →
+        </text>
+
+        {/* Trilho principal */}
+        <line x1={stops[0].x} y1={Y} x2={stops[stops.length - 1].x} y2={Y} stroke="url(#op-main)" strokeWidth="1.5" />
+
+        {/* Desvio da Imperius: arco partindo do nó "parado" e devolvendo a oportunidade ao trilho na "retomada" */}
+        <g>
+          <path
+            d={`M ${stops[2].x} ${Y} C ${stops[2].x + 40} ${Y - 110}, ${stops[3].x - 40} ${Y - 110}, ${stops[3].x} ${Y}`}
+            fill="none"
+            stroke="url(#op-detour)"
+            strokeWidth="1.5"
+            strokeDasharray="0"
+          />
+          {/* seta no fim do arco */}
+          <path
+            d={`M ${stops[3].x - 8} ${Y - 8} L ${stops[3].x} ${Y} L ${stops[3].x - 10} ${Y + 2}`}
+            fill="none"
+            stroke="oklch(0.635 0.135 252 / 0.95)"
+            strokeWidth="1.5"
+            strokeLinejoin="round"
+          />
+          {/* etiqueta do desvio */}
+          <g transform={`translate(${(stops[2].x + stops[3].x) / 2}, ${Y - 96})`}>
+            <text textAnchor="middle" className="text-mono" fill="oklch(0.635 0.135 252 / 0.95)" fontSize="10" letterSpacing="2.5">
+              IMPERIUS · intervenção
+            </text>
+            <text y={16} textAnchor="middle" className="text-mono" fill="oklch(0.95 0 0 / 0.45)" fontSize="9" letterSpacing="1.5">
+              alguém é avisado. a oportunidade volta a andar.
+            </text>
+          </g>
+        </g>
+
+        {/* nós + rótulos do trilho */}
+        {stops.map((s, i) => {
+          const variant: "default" | "stuck" | "exit" = s.stuck ? "stuck" : s.exit ? "exit" : "default";
+          return (
+            <g key={s.label}>
+              <FlowNode cx={s.x} cy={Y} variant={variant} r={s.exit ? 6 : s.stuck ? 5.5 : 4} />
+              <text
+                x={s.x}
+                y={Y + 34}
+                textAnchor="middle"
+                className="text-mono"
+                fill={
+                  s.stuck
+                    ? "oklch(0.62 0.21 22 / 0.95)"
+                    : s.exit
+                    ? "oklch(0.635 0.135 252 / 0.95)"
+                    : "oklch(0.95 0 0 / 0.55)"
+                }
+                fontSize="10"
+                letterSpacing="2"
+              >
+                {String(i + 1).padStart(2, "0")} · {s.label.toUpperCase()}
+              </text>
+            </g>
+          );
+        })}
+
+        {/* indicador "parado há tempo demais" — apenas conceitual, sem KPI */}
+        <g transform={`translate(${stops[2].x}, ${Y + 70})`}>
+          <line x1={0} y1={-6} x2={0} y2={6} stroke="oklch(0.62 0.21 22 / 0.6)" strokeWidth="1" />
+          <text textAnchor="middle" y={22} className="text-mono" fill="oklch(0.62 0.21 22 / 0.85)" fontSize="9" letterSpacing="1.5">
+            limite ultrapassado
+          </text>
+        </g>
+
+        {/* assinatura técnica nas margens */}
+        <text x={40} y={36} className="text-mono" fill="oklch(0.95 0 0 / 0.35)" fontSize="9" letterSpacing="2.5">
+          OPERAÇÃO · FLUXO COMERCIAL
+        </text>
+        <text x={W - 40} y={36} textAnchor="end" className="text-mono" fill="oklch(0.95 0 0 / 0.35)" fontSize="9" letterSpacing="2">
+          S/05
+        </text>
+      </svg>
+    </figure>
+  );
+}
+
 
 // --- Final CTA — tipografia de presença -----------------------------------
 function FinalCTA() {
