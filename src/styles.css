@@ -282,9 +282,9 @@
   -webkit-tap-highlight-color: transparent;
   transform: translateZ(0);
   transition:
-    transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
-    box-shadow 0.4s ease,
-    border-color 0.4s ease;
+    transform 0.26s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.26s ease,
+    border-color 0.26s ease;
   &::after {
     content: "";
     position: absolute;
@@ -292,29 +292,30 @@
     pointer-events: none;
     border-radius: inherit;
     background: radial-gradient(
-      400px circle at var(--mx, 50%) var(--my, 0%),
-      oklch(0.62 0.20 258 / 0.18),
+      360px circle at var(--mx, 50%) var(--my, 0%),
+      oklch(0.625 0.16 256 / 0.10),
       transparent 55%
     );
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.28s ease;
     z-index: -1;
   }
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      transform: translate3d(0, -2px, 0);
-      border-color: oklch(0.62 0.18 258 / 0.35);
+      transform: translate3d(0, -1px, 0);
+      border-color: oklch(0.625 0.14 256 / 0.3);
       box-shadow:
         0 1px 0 0 oklch(1 0 0 / 0.04) inset,
-        0 24px 48px -28px oklch(0 0 0 / 0.7);
+        0 18px 40px -28px oklch(0 0 0 / 0.65);
     }
     &:hover::after { opacity: 1; }
   }
   &:active {
-    transform: translate3d(0, 0, 0) scale(0.992);
+    transform: translate3d(0, 0, 0) scale(0.994);
     transition-duration: 0.12s;
   }
 }
+
 
 /* Link com sublinhado animado plasma — opt-in via .link-sweep */
 @utility link-sweep {
