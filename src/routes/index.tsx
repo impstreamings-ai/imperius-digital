@@ -548,7 +548,7 @@ function Problema() {
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-10 sm:mb-12">
           <div className="lg:col-span-7">
-            <SectionLabel index="02">Sintomas</SectionLabel>
+            <SectionLabel index="02" question="por que acontece">Sintomas</SectionLabel>
             <h2 className="text-h2 text-foreground mt-5">
               Reconhece alguma{" "}
               <span className="text-foreground/50">no seu dia?</span>
@@ -603,7 +603,7 @@ function Demonstracoes() {
       <span aria-hidden className="chapter-numeral absolute top-2 right-4 sm:right-8 hidden md:block">03</span>
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4 mb-10">
-          <SectionLabel index="03">Caso validado</SectionLabel>
+          <SectionLabel index="03" question="como sabemos">Caso validado</SectionLabel>
           <span className="hidden sm:inline-flex imp-chip">
             <span className="imp-mark imp-mark-primary animate-pulse-glow" />
             <span>ativo · sorocaba</span>
@@ -726,7 +726,7 @@ function Metodo() {
         {/* Header invertido: descrição à esquerda, título à direita — quebra a previsibilidade */}
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-14 sm:mb-20">
           <div className="lg:col-span-5 order-2 lg:order-1 self-end">
-            <SectionLabel index="04">Método</SectionLabel>
+            <SectionLabel index="04" question="como resolvemos">Método</SectionLabel>
             <p className="text-card-body max-w-md mt-5">
               Sem pular etapa. Sem proposta antes da hora.
             </p>
