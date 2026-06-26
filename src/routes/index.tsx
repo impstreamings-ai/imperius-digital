@@ -251,7 +251,7 @@ function Operator() {
               target="_blank"
               rel="noreferrer"
               onClick={() => track("operator_cta_click", { destination: "whatsapp" })}
-              className="btn-premium group w-full lg:w-auto shrink-0 inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold shadow-[0_14px_36px_-12px_oklch(0.62_0.22_258/0.7),0_0_0_1px_oklch(0.62_0.22_258/0.35)_inset]"
+              className="btn-premium group w-full lg:w-auto shrink-0 inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold shadow-[0_10px_28px_-18px_oklch(0_0_0/0.7),0_0_0_1px_oklch(0.625_0.17_256/0.22)_inset]"
             >
               Quero meu diagnóstico gratuito <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
@@ -355,7 +355,7 @@ function Hero() {
           >
             <Button
               size="lg"
-              className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] shadow-[0_14px_36px_-12px_oklch(0.62_0.22_258/0.7),0_0_0_1px_oklch(0.62_0.22_258/0.35)_inset]"
+              className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] shadow-[0_10px_28px_-18px_oklch(0_0_0/0.7),0_0_0_1px_oklch(0.625_0.17_256/0.22)_inset]"
             >
               Quero meu diagnóstico gratuito <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Button>
@@ -728,7 +728,7 @@ function FinalCTA() {
           >
             <Button
               size="lg"
-              className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] shadow-[0_14px_36px_-12px_oklch(0.62_0.22_258/0.7),0_0_0_1px_oklch(0.62_0.22_258/0.35)_inset]"
+              className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] shadow-[0_10px_28px_-18px_oklch(0_0_0/0.7),0_0_0_1px_oklch(0.625_0.17_256/0.22)_inset]"
             >
               Quero descobrir meu gargalo <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Button>
