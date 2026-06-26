@@ -653,11 +653,11 @@ function Demonstracoes() {
 // --- Método — timeline ----------------------------------------------------
 function Metodo() {
   const pilares = [
-    { n: "01", t: "Encontrar um gargalo real", d: "Onde o cliente trava de verdade." },
-    { n: "02", t: "Mostrar visualmente", d: "Você vê o ponto exato na tela." },
-    { n: "03", t: "Fazer uma pergunta curta", d: "Quanto esse gargalo está te custando?" },
-    { n: "04", t: "Conversar", d: "O que faz sentido resolver primeiro." },
-    { n: "05", t: "Só depois, a solução", d: "Proposta com o problema claro." },
+    { n: "01", t: "Achar o gargalo", d: "Onde o cliente trava." },
+    { n: "02", t: "Mostrar na tela", d: "Você vê o ponto exato." },
+    { n: "03", t: "Calcular o custo", d: "Quanto isso pesa por mês." },
+    { n: "04", t: "Conversar", d: "O que resolver primeiro." },
+    { n: "05", t: "Propor", d: "Só depois do problema claro." },
   ];
 
   return (
@@ -667,18 +667,19 @@ function Metodo() {
         {/* Header invertido: descrição à esquerda, título à direita — quebra a previsibilidade */}
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-14 sm:mb-20">
           <div className="lg:col-span-5 order-2 lg:order-1 self-end">
-            <SectionLabel index="04">Método Imperius</SectionLabel>
+            <SectionLabel index="04">Método</SectionLabel>
             <p className="text-card-body max-w-md mt-5">
-              Processo aplicado em toda operação que entra na Imperius. Sem pular etapa, sem proposta antecipada.
+              Sem pular etapa. Sem proposta antes da hora.
             </p>
           </div>
           <div className="lg:col-span-6 lg:col-start-7 order-1 lg:order-2 lg:text-right">
             <h2 className="text-h2 text-foreground">
               Cinco passos.{" "}
-              <span className="text-foreground/50">Sempre nessa ordem.</span>
+              <span className="text-foreground/50">Nessa ordem.</span>
             </h2>
           </div>
         </div>
+
 
         {/* Timeline editorial vertical com rail central — distintivo das demais seções */}
         <ol className="relative">
