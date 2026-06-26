@@ -140,7 +140,7 @@ function Problema() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-3xl section-head-gap">
           <div className="mb-4"><SectionEyebrow>Acontece toda semana na sua operação</SectionEyebrow></div>
-          <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+          <h2 className="text-h2 text-foreground">
             Reconhece alguma dessas{" "}
             <span className="text-foreground/55">no seu dia a dia?</span>
           </h2>
@@ -158,10 +158,10 @@ function Problema() {
                 <d.icon className="h-[18px] w-[18px] text-primary" />
               </div>
               <div className="min-w-0">
-                <h3 className="font-heading font-semibold text-[14.5px] tracking-[-0.005em] text-foreground leading-snug">
+                <h3 className="text-card-title">
                   {d.t}
                 </h3>
-                <p className="mt-1.5 text-[13px] text-muted-foreground leading-relaxed font-sans">
+                <p className="mt-1.5 text-card-body">
                   {d.d}
                 </p>
               </div>
@@ -188,7 +188,7 @@ function Metodo() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-2xl section-head-gap">
           <div className="mb-4"><SectionEyebrow>Método Imperius</SectionEyebrow></div>
-          <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+          <h2 className="text-h2 text-foreground">
             Cinco passos.{" "}
             <span className="text-foreground/55">Sempre nessa ordem.</span>
           </h2>
@@ -197,7 +197,7 @@ function Metodo() {
           {pilares.map((p, i) => (
             <li
               key={p.n}
-              className="card-rise group relative rounded-xl border border-border/50 bg-[oklch(0.17_0.018_258)]/70 p-5 pt-6 flex flex-col min-w-0 transition-colors hover:border-primary/45"
+              className="card-rise group relative rounded-xl border border-border/50 bg-card/70 p-5 pt-6 flex flex-col min-w-0 transition-colors hover:border-primary/45"
             >
               <span className="absolute left-0 top-0 h-[2px] w-10 bg-primary/70 rounded-r" aria-hidden />
               <div className="flex items-baseline justify-between mb-3">
@@ -208,10 +208,10 @@ function Metodo() {
                   {i === pilares.length - 1 ? "Final" : "Passo"}
                 </span>
               </div>
-              <h3 className="font-heading font-semibold text-[14.5px] tracking-[-0.005em] text-foreground leading-snug">
+              <h3 className="text-card-title">
                 {p.t}
               </h3>
-              <p className="mt-2 text-[12.5px] text-muted-foreground leading-relaxed font-sans">
+              <p className="mt-2 text-card-body">
                 {p.d}
               </p>
             </li>
@@ -227,7 +227,7 @@ function Operator() {
   return (
     <section id="operator" className="relative section-y border-t border-border/30">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="relative rounded-2xl border border-primary/25 bg-gradient-to-b from-[oklch(0.18_0.022_258)]/90 to-[oklch(0.14_0.016_258)]/90 p-6 sm:p-8 lg:p-10 shadow-[0_30px_80px_-40px_oklch(0.62_0.22_258/0.35),0_1px_0_0_oklch(1_0_0/0.04)_inset] overflow-hidden">
+        <div className="relative rounded-2xl border border-primary/25 bg-gradient-to-b from-[oklch(0.18_0.022_258)]/90 to-[oklch(0.14_0.016_258)]/90 p-6 sm:p-8 lg:p-10 shadow-[var(--shadow-3)] overflow-hidden">
           <div className="absolute -top-32 -right-32 h-64 w-64 rounded-full bg-primary/15 blur-3xl pointer-events-none" aria-hidden />
           <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-10 lg:items-end">
             <div className="min-w-0">
@@ -238,7 +238,7 @@ function Operator() {
                   Software proprietário
                 </span>
               </div>
-              <h2 className="font-display font-semibold text-[1.6rem] sm:text-[2rem] lg:text-[2.3rem] leading-[1.08] tracking-[-0.025em] text-foreground">
+              <h2 className="text-h2 text-foreground">
                 Acompanha o caminho do cliente{" "}
                 <span className="text-foreground/55">e avisa quando uma oportunidade está prestes a ser perdida.</span>
               </h2>
@@ -251,7 +251,7 @@ function Operator() {
               target="_blank"
               rel="noreferrer"
               onClick={() => track("operator_cta_click", { destination: "whatsapp" })}
-              className="btn-premium group w-full lg:w-auto shrink-0 inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold shadow-[0_10px_28px_-18px_oklch(0_0_0/0.7),0_0_0_1px_oklch(0.625_0.17_256/0.22)_inset]"
+              className="btn-premium group w-full lg:w-auto shrink-0 inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full bg-primary text-primary-foreground text-[13px] font-sans font-semibold cta-shadow"
             >
               Quero meu diagnóstico gratuito <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
@@ -288,7 +288,7 @@ function Nav() {
 
         <div className="flex items-center gap-2 shrink-0">
           <a href={WA} target="_blank" rel="noreferrer" onClick={() => track("whatsapp_click", { location: "nav" })}>
-            <Button size="sm" className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4 shadow-[0_8px_22px_-10px_oklch(0.62_0.22_258/0.65)]">
+            <Button size="sm" className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4 cta-shadow">
               <span className="sm:hidden">Diagnóstico grátis</span>
               <span className="hidden sm:inline">Receber diagnóstico gratuito</span>
             </Button>
@@ -336,7 +336,7 @@ function Hero() {
 
       <div className="relative mx-auto max-w-3xl px-5 sm:px-6 w-full text-center">
         <div className="mb-5 sm:mb-6"><SectionEyebrow align="center">Diagnóstico comercial</SectionEyebrow></div>
-        <h1 className="font-display text-[2rem] sm:text-[2.8rem] lg:text-[3.3rem] xl:text-[3.6rem] font-semibold leading-[1.04] tracking-[-0.03em] text-foreground">
+        <h1 className="text-display text-foreground">
           Seu cliente quer comprar.{" "}
           <span className="text-foreground/55">Mas não chega até a venda.</span>
         </h1>
@@ -355,7 +355,7 @@ function Hero() {
           >
             <Button
               size="lg"
-              className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] shadow-[0_10px_28px_-18px_oklch(0_0_0/0.7),0_0_0_1px_oklch(0.625_0.17_256/0.22)_inset]"
+              className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] cta-shadow"
             >
               Quero meu diagnóstico gratuito <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Button>
@@ -406,7 +406,7 @@ function Ecossistema() {
         <div className="max-w-2xl section-head-gap">
           <div className="mb-4"><SectionEyebrow>Soluções</SectionEyebrow></div>
 
-          <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+          <h2 className="text-h2 text-foreground">
             Não vendemos ferramenta.{" "}
             <span className="text-neon">Encurtamos o caminho até a venda.</span>
           </h2>
@@ -417,7 +417,7 @@ function Ecossistema() {
           {cards.map((c) => (
             <li
               key={c.title}
-              className="card-rise group rounded-xl border border-border/50 bg-[oklch(0.17_0.018_258)]/80 backdrop-blur-md p-6 flex flex-col"
+              className="card-rise group rounded-xl border border-border/50 bg-card/80 backdrop-blur-md p-6 flex flex-col"
             >
               <div className="flex items-center justify-between mb-5">
                 <div className="h-9 w-9 rounded-md border border-primary/30 bg-primary/10 grid place-items-center">
@@ -427,10 +427,10 @@ function Ecossistema() {
                   {c.tag}
                 </span>
               </div>
-              <h3 className="font-heading font-semibold text-[16px] tracking-[-0.01em] text-foreground leading-snug">
+              <h3 className="text-card-title">
                 {c.title}
               </h3>
-              <p className="mt-2 text-[13.5px] text-muted-foreground leading-relaxed font-sans">
+              <p className="mt-2 text-card-body">
                 {c.desc}
               </p>
             </li>
@@ -464,7 +464,7 @@ function Demonstracoes() {
         <div className="max-w-2xl mb-6 sm:mb-7">
           <div className="mb-4"><SectionEyebrow>Caso Validado em Sorocaba</SectionEyebrow></div>
 
-          <h2 className="font-display font-semibold text-[1.4rem] sm:text-[1.7rem] lg:text-[1.9rem] leading-[1.1] tracking-[-0.025em] text-foreground">
+          <h2 className="text-h2 text-foreground">
             Barbearia do Alemão
             <span className="block text-muted-foreground text-[0.85rem] sm:text-[0.9rem] font-medium mt-1.5 tracking-normal">
               Sorocaba/SP
@@ -481,10 +481,10 @@ function Demonstracoes() {
           target="_blank"
           rel="noreferrer"
           onClick={() => track("client_proof_click", { project: "barbearia_do_alemao" })}
-          className="card-rise group block rounded-2xl border border-primary/30 bg-[oklch(0.16_0.016_258)] overflow-hidden shadow-[0_20px_60px_-30px_oklch(0_0_0/0.7)]"
+          className="card-rise group block rounded-2xl border border-primary/30 bg-card overflow-hidden shadow-[var(--shadow-2)]"
         >
           <div className="grid lg:grid-cols-[1.1fr_1fr] items-stretch">
-            <div className="relative overflow-hidden bg-[oklch(0.13_0.014_258)] p-2.5 sm:p-3 lg:p-3.5">
+            <div className="relative overflow-hidden bg-popover p-2.5 sm:p-3 lg:p-3.5">
               <img
                 src={CLIENTE_REAL_COVER}
                 alt="Barbearia do Alemão — projeto real desenvolvido pela Imperius"
@@ -494,7 +494,7 @@ function Demonstracoes() {
                 decoding="async"
                 fetchPriority="high"
                 style={{ objectPosition: "center center" }}
-                className="block w-full h-[240px] sm:h-[280px] lg:h-[340px] object-cover object-center rounded-lg shadow-[0_14px_36px_-14px_oklch(0_0_0/0.8)] transition-transform duration-500 group-hover:scale-[1.02]"
+                className="block w-full h-[240px] sm:h-[280px] lg:h-[340px] object-cover object-center rounded-lg shadow-[var(--shadow-2)] transition-transform duration-500 group-hover:scale-[1.02]"
               />
 
               <div
@@ -589,7 +589,7 @@ function Process() {
       <div className="mx-auto max-w-5xl px-6">
         <div className="max-w-2xl section-head-gap">
           <div className="mb-4"><SectionEyebrow>Como conversamos</SectionEyebrow></div>
-          <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+          <h2 className="text-h2 text-foreground">
             Primeiro a gente entende.{" "}
             <span className="text-foreground/55">Só então propõe.</span>
           </h2>
@@ -600,7 +600,7 @@ function Process() {
           {steps.map((s) => (
             <li
               key={s.t}
-              className="card-rise rounded-xl border border-border/50 bg-[oklch(0.17_0.018_258)]/70 backdrop-blur-md p-5 sm:p-6 flex flex-col"
+              className="card-rise rounded-xl border border-border/50 bg-card/70 backdrop-blur-md p-5 sm:p-6 flex flex-col"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="h-9 w-9 rounded-md border border-primary/30 bg-primary/10 grid place-items-center">
@@ -610,10 +610,10 @@ function Process() {
                   {s.n}
                 </span>
               </div>
-              <h3 className="font-heading font-semibold text-[16px] tracking-[-0.01em] text-foreground leading-snug">
+              <h3 className="text-card-title">
                 {s.t}
               </h3>
-              <p className="mt-2 text-[13.5px] text-muted-foreground leading-relaxed font-sans">
+              <p className="mt-2 text-card-body">
                 {s.d}
               </p>
             </li>
@@ -673,7 +673,7 @@ function FAQ() {
       <div className="mx-auto max-w-3xl px-6">
         <div className="max-w-2xl section-head-gap">
           <div className="mb-4"><SectionEyebrow>FAQ</SectionEyebrow></div>
-          <h2 className="font-display font-semibold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.55rem] leading-[1.06] tracking-[-0.028em] text-foreground">
+          <h2 className="text-h2 text-foreground">
             Dúvidas frequentes —{" "}
             <span className="text-foreground/55">respondidas direto.</span>
           </h2>
@@ -683,7 +683,7 @@ function FAQ() {
           {items.map((it, idx) => (
             <details key={it.q} className="group py-5 sm:py-6" open={idx === 0}>
               <summary className="flex items-start justify-between gap-6 cursor-pointer list-none">
-                <h3 className="font-heading font-semibold text-[15.5px] sm:text-[17px] tracking-[-0.01em] text-foreground">
+                <h3 className="text-card-title">
                   {it.q}
                 </h3>
                 <span className="mt-1 shrink-0 h-7 w-7 rounded-full border border-border/60 grid place-items-center text-muted-foreground group-open:bg-primary/10 group-open:text-primary group-open:border-primary/50 transition-colors">
@@ -707,7 +707,7 @@ function FinalCTA() {
     <section className="relative section-y-lg border-t border-border/30 overflow-hidden">
       <div className="relative mx-auto max-w-3xl px-6 text-center">
         <div className="mb-5"><SectionEyebrow align="center">Próximo passo</SectionEyebrow></div>
-        <h2 className="font-display font-semibold text-[1.85rem] sm:text-[2.4rem] lg:text-[2.7rem] leading-[1.05] tracking-[-0.03em] text-foreground">
+        <h2 className="text-h2 text-foreground">
           Descubra onde sua operação{" "}
           <span className="text-foreground/55">está perdendo clientes.</span>
         </h2>
@@ -728,7 +728,7 @@ function FinalCTA() {
           >
             <Button
               size="lg"
-              className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] shadow-[0_10px_28px_-18px_oklch(0_0_0/0.7),0_0_0_1px_oklch(0.625_0.17_256/0.22)_inset]"
+              className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] cta-shadow"
             >
               Quero descobrir meu gargalo <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Button>
