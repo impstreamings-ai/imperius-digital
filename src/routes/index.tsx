@@ -419,11 +419,15 @@ function HeroFlow() {
           <FlowNode cx={170} cy={105} />
           <FlowNode cx={240} cy={78} />
           <FlowNode cx={310} cy={92} />
-          {/* gargalo */}
+          {/* gargalo — pulso radial + cruz com leve tremor */}
           <g>
+            {/* halo pulsante */}
+            <circle cx={360} cy={120} r={9} fill="oklch(0.62 0.21 22 / 0.35)" className="flow-stuck-pulse" />
             <FlowNode cx={360} cy={120} variant="stuck" r={5} />
-            <line x1={350} y1={110} x2={370} y2={130} stroke="oklch(0.62 0.21 22 / 0.9)" strokeWidth="1.25" />
-            <line x1={370} y1={110} x2={350} y2={130} stroke="oklch(0.62 0.21 22 / 0.9)" strokeWidth="1.25" />
+            <g className="flow-stuck-jitter">
+              <line x1={350} y1={110} x2={370} y2={130} stroke="oklch(0.62 0.21 22 / 0.9)" strokeWidth="1.25" />
+              <line x1={370} y1={110} x2={350} y2={130} stroke="oklch(0.62 0.21 22 / 0.9)" strokeWidth="1.25" />
+            </g>
             <text x={385} y={124} className="text-mono" fill="oklch(0.62 0.21 22 / 0.95)" fontSize="9" letterSpacing="1.5">
               GARGALO
             </text>
@@ -466,6 +470,13 @@ function HeroFlow() {
           <FlowNode cx={185} cy={278} />
           <FlowNode cx={360} cy={278} />
           <FlowNode cx={540} cy={278} variant="exit" r={5.5} />
+          {/* partícula deslizando ao longo do trilho — venda fluindo */}
+          <circle
+            r={3.5}
+            fill="oklch(0.635 0.135 252 / 1)"
+            className="flow-particle"
+            style={{ offsetPath: "path('M 10 278 L 540 278')" } as React.CSSProperties}
+          />
           <text x={520} y={300} className="text-mono" fill="oklch(0.635 0.135 252 / 0.95)" fontSize="9" letterSpacing="1.5" textAnchor="end">
             VENDA
           </text>
