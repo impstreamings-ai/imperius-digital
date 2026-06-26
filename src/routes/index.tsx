@@ -60,9 +60,11 @@ const track = (name: string, params: Record<string, unknown> = {}) =>
 // Rótulo de seção formato `S/01 — DIAGNÓSTICO`. Mono, hairline, sem ornamento.
 function SectionLabel({
   index,
+  question,
   children,
 }: {
   index: string;
+  question?: string;
   children: ReactNode;
 }) {
   return (
@@ -70,9 +72,18 @@ function SectionLabel({
       <span className="section-label-mark">S/{index}</span>
       <span aria-hidden className="h-px w-6 bg-border" />
       <span>{children}</span>
+      {question ? (
+        <>
+          <span aria-hidden className="h-px w-4 bg-border/70 hidden sm:inline-block" />
+          <span className="hidden sm:inline text-muted-foreground/55 normal-case tracking-[0.14em]">
+            {question}
+          </span>
+        </>
+      ) : null}
     </div>
   );
 }
+
 
 // Registration mark — assinatura recorrente em chrome de painéis/footer/nav.
 function ImpReg({ className = "" }: { className?: string }) {
@@ -141,17 +152,18 @@ function Landing() {
     <div className="min-h-dvh text-foreground font-sans overflow-x-hidden">
       <Nav />
       <Hero />
-      <SectionTransition from="01" to="02" label="Sintomas" />
+      <SectionTransition from="01" to="02" label="Sintomas" question="por que acontece" />
       <Problema />
-      <SectionTransition from="02" to="03" label="Caso validado" tint />
+      <SectionTransition from="02" to="03" label="Caso validado" question="como sabemos" tint />
       <Demonstracoes />
-      <SectionTransition from="03" to="04" label="Método" />
+      <SectionTransition from="03" to="04" label="Método" question="como resolvemos" />
       <Metodo />
-      <SectionTransition from="04" to="05" label="Operator" tint />
+      <SectionTransition from="04" to="05" label="Operator" question="como aplicamos" tint />
       <Operator />
       <Interlude />
       <FinalCTA />
       <Footer />
+
     </div>
   );
 }
@@ -161,11 +173,13 @@ function SectionTransition({
   from,
   to,
   label,
+  question,
   tint = false,
 }: {
   from: string;
   to: string;
   label: string;
+  question?: string;
   tint?: boolean;
 }) {
   return (
@@ -178,6 +192,11 @@ function SectionTransition({
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="relative flex items-center gap-4 py-10 sm:py-14">
           <span className="chapter-mark shrink-0 tabular-nums">S/{from}</span>
+          {question ? (
+            <span className="chapter-mark hidden md:inline text-muted-foreground/55 normal-case tracking-[0.16em]">
+              · {question}
+            </span>
+          ) : null}
           <span className="chapter-rail flex-1" />
           <span className="chapter-mark tabular-nums hidden sm:inline">
             <span className="text-foreground/70">S/{to}</span>
@@ -191,6 +210,7 @@ function SectionTransition({
     </div>
   );
 }
+
 
 // --- Interlude — pausa narrativa antes do CTA final, pull-quote editorial -
 function Interlude() {
@@ -283,19 +303,18 @@ function Nav() {
   );
 }
 
-// --- Hero — abertura de produto, composição editorial assimétrica --------
+// --- Hero — abertura de produto, painel único: texto + fluxo na mesma composição
 function Hero() {
   return (
     <section
       id="top"
-      className="relative pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-28 overflow-hidden"
+      className="relative pt-20 pb-14 sm:pt-24 sm:pb-20 lg:pt-28 lg:pb-24 overflow-hidden"
       style={{
         background: "var(--gradient-hero)",
         paddingLeft: "max(0px, env(safe-area-inset-left))",
         paddingRight: "max(0px, env(safe-area-inset-right))",
       }}
     >
-      {/* Fundo: hairline grid silencioso + halo central, sem partículas decorativas */}
       <div className="absolute inset-0 bg-grid pointer-events-none opacity-[0.05]" aria-hidden />
       <div
         aria-hidden
@@ -307,63 +326,87 @@ function Hero() {
       />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        {/* Metadata editorial */}
-        <div className="flex items-center justify-between gap-4 mb-12 sm:mb-14 lg:mb-16">
-          <SectionLabel index="01">Imperius Operator</SectionLabel>
+        {/* Eyebrow institucional — pergunta narrativa */}
+        <div className="flex items-center justify-between gap-4 mb-8 sm:mb-10">
+          <SectionLabel index="01" question="o que acontece">Homepage · Imperius</SectionLabel>
           <span className="hidden sm:inline-flex items-center gap-2 imp-chip">
             <ImpReg />
             <span>v2.4 · Sorocaba/SP</span>
           </span>
         </div>
 
-
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-20 items-center">
-          {/* Coluna esquerda — peso editorial */}
-          <div className="lg:col-span-6">
-            <h1 className="text-display text-foreground">
-              Seu cliente
-              <br />
-              quer comprar.
-              <br />
-              <span className="text-foreground/45">Mas não chega até a venda.</span>
-            </h1>
-
-            <p className="mt-7 sm:mt-8 max-w-lg text-lede">
-              A gente mostra onde ele trava — antes que desista.
-            </p>
-
-            <div className="mt-9 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-5">
-              <a
-                href={WA}
-                target="_blank"
-                rel="noreferrer"
-                className="w-full sm:w-auto"
-                onClick={() => track("hero_cta_click", { destination: "whatsapp" })}
-              >
-                <Button
-                  size="lg"
-                  className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[13.5px] cta-shadow"
-                >
-                  Diagnóstico gratuito{" "}
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </Button>
-              </a>
-              <span className="text-mono text-[11px] tracking-[0.16em] uppercase text-muted-foreground/75">
-                20 min · sem proposta
-              </span>
-            </div>
-
+        {/* Painel-produto único — texto e fluxo coabitam a mesma superfície */}
+        <div className="surface-raised rounded-[var(--radius-card)] overflow-hidden">
+          {/* Product chrome — barra técnica superior */}
+          <div className="product-chrome">
+            <span className="product-chrome-dot" aria-hidden />
+            <span>LIVE</span>
+            <span aria-hidden className="h-3 w-px bg-border" />
+            <span className="hidden sm:inline">Homepage · S/01</span>
+            <span aria-hidden className="h-3 w-px bg-border hidden sm:inline-block" />
+            <span className="hidden md:inline">Operações comerciais</span>
+            <span className="ml-auto tabular-nums">build · 2026.11</span>
           </div>
 
-          {/* Coluna direita — fluxo conceitual: caminho atual vs caminho Imperius */}
-          <div className="lg:col-span-6">
-            <HeroFlow />
+          <div className="grid lg:grid-cols-12 items-stretch">
+            {/* Texto editorial — ocupa 7 col, com padding generoso */}
+            <div className="lg:col-span-7 px-6 sm:px-9 lg:px-12 pt-10 sm:pt-14 lg:pt-16 pb-10 lg:pb-14 relative">
+              <h1 className="text-display-mega text-foreground">
+                Seu cliente
+                <br />
+                quer comprar.
+                <br />
+                <span className="text-foreground/45">Mas não chega até a venda.</span>
+              </h1>
+
+              <p className="mt-7 sm:mt-8 max-w-lg text-lede">
+                A gente mostra onde ele trava — antes que desista.
+              </p>
+
+              <div className="mt-9 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-5">
+                <a
+                  href={WA}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full sm:w-auto"
+                  onClick={() => track("hero_cta_click", { destination: "whatsapp" })}
+                >
+                  <Button
+                    size="lg"
+                    className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[13.5px] cta-shadow"
+                  >
+                    Diagnóstico gratuito{" "}
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                  </Button>
+                </a>
+                <span className="text-micro-tight">
+                  20 min · sem proposta
+                </span>
+              </div>
+            </div>
+
+            {/* Fluxo conceitual — superfície recessada, mesma moldura do texto */}
+            <div className="lg:col-span-5 surface-recessed border-t lg:border-t-0 lg:border-l border-border px-6 sm:px-9 lg:px-8 py-10 lg:py-12 flex flex-col justify-center">
+              <div className="text-micro-tight mb-5 flex items-center gap-2">
+                <span aria-hidden className="h-px w-6 bg-border-strong" />
+                <span>sinal · jornada do cliente</span>
+              </div>
+              <HeroFlow />
+            </div>
+          </div>
+
+          {/* Status strip inferior */}
+          <div className="product-chrome border-t border-b-0 justify-between">
+            <span>monitorando · em tempo real</span>
+            <span className="hidden sm:inline">parado → intervenção → fechado</span>
+            <span className="tabular-nums">↓ S/02</span>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 // Hero — não é interface, é a ideia. Dois caminhos:
 // 1) antes  — sinuoso, com bloqueio. Cliente desiste.
@@ -505,7 +548,7 @@ function Problema() {
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-10 sm:mb-12">
           <div className="lg:col-span-7">
-            <SectionLabel index="02">Sintomas</SectionLabel>
+            <SectionLabel index="02" question="por que acontece">Sintomas</SectionLabel>
             <h2 className="text-h2 text-foreground mt-5">
               Reconhece alguma{" "}
               <span className="text-foreground/50">no seu dia?</span>
@@ -560,7 +603,7 @@ function Demonstracoes() {
       <span aria-hidden className="chapter-numeral absolute top-2 right-4 sm:right-8 hidden md:block">03</span>
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4 mb-10">
-          <SectionLabel index="03">Caso validado</SectionLabel>
+          <SectionLabel index="03" question="como sabemos">Caso validado</SectionLabel>
           <span className="hidden sm:inline-flex imp-chip">
             <span className="imp-mark imp-mark-primary animate-pulse-glow" />
             <span>ativo · sorocaba</span>
@@ -683,7 +726,7 @@ function Metodo() {
         {/* Header invertido: descrição à esquerda, título à direita — quebra a previsibilidade */}
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-14 sm:mb-20">
           <div className="lg:col-span-5 order-2 lg:order-1 self-end">
-            <SectionLabel index="04">Método</SectionLabel>
+            <SectionLabel index="04" question="como resolvemos">Método</SectionLabel>
             <p className="text-card-body max-w-md mt-5">
               Sem pular etapa. Sem proposta antes da hora.
             </p>
@@ -766,9 +809,9 @@ function Operator() {
     <section id="operator" className="relative pt-4 pb-20 sm:pt-6 sm:pb-24 surface-tint">
       <span aria-hidden className="chapter-numeral absolute top-2 right-4 sm:right-8 hidden md:block">05</span>
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-12 sm:mb-16">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-10 sm:mb-14">
           <div className="lg:col-span-6">
-            <SectionLabel index="05">Imperius Operator</SectionLabel>
+            <SectionLabel index="05" question="como aplicamos">Imperius Operator</SectionLabel>
             <h2 className="text-h2 text-foreground mt-5">
               O cliente travou.{" "}
               <span className="text-foreground/50">A gente reabre o caminho.</span>
@@ -781,16 +824,33 @@ function Operator() {
           </div>
         </div>
 
-        <RecoveryFlow />
+        {/* Painel-produto: o Operator deixa de ser ilustração e vira demonstração viva */}
+        <div className="surface-raised rounded-[var(--radius-card)] overflow-hidden">
+          <div className="product-chrome">
+            <span className="product-chrome-dot" aria-hidden />
+            <span>MONITORANDO</span>
+            <span aria-hidden className="h-3 w-px bg-border" />
+            <span className="hidden sm:inline">fluxo comercial</span>
+            <span aria-hidden className="h-3 w-px bg-border hidden sm:inline-block" />
+            <span className="hidden md:inline operator-sync">sync · agora</span>
+            <span className="ml-auto tabular-nums">S/05</span>
+          </div>
 
-        <div className="mt-10 flex items-center justify-between text-mono text-[10.5px] tracking-[0.2em] uppercase text-muted-foreground/65">
-          <span>parado → intervenção → fechado</span>
-          <span>↓ S/06 — próximo passo</span>
+          <div className="px-3 sm:px-6 lg:px-8 py-8 sm:py-10">
+            <RecoveryFlow />
+          </div>
+
+          <div className="product-chrome justify-between" style={{ borderBottom: 0, borderTop: "1px solid var(--color-border)" }}>
+            <span>parado → intervenção → fechado</span>
+            <span className="hidden sm:inline">demonstração contínua · sem dados pessoais</span>
+            <span className="tabular-nums">↓ S/06</span>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 // Diagrama: três estágios sequenciais. A meio caminho a oportunidade trava.
 // Uma rota auxiliar (Imperius) desvia o nó parado de volta ao fluxo principal.
@@ -918,59 +978,88 @@ function RecoveryFlow() {
 
 // --- Final CTA — tipografia de presença -----------------------------------
 function FinalCTA() {
+  const passos = [
+    { n: "01", t: "Conversa de 20 min", d: "Você descreve a operação. A gente escuta." },
+    { n: "02", t: "Diagnóstico em tela", d: "Mostramos onde o cliente trava — com você junto." },
+    { n: "03", t: "Próximo passo", d: "Decidir juntos. Sem proposta antes do problema claro." },
+  ];
   return (
-    <section className="relative pt-12 pb-24 sm:pt-16 sm:pb-32 overflow-hidden">
+    <section className="relative pt-14 pb-24 sm:pt-20 sm:pb-32 overflow-hidden">
       <span aria-hidden className="chapter-numeral absolute top-6 left-4 sm:left-8 hidden md:block">06</span>
       <div className="absolute inset-0 bg-grid opacity-[0.06] pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <SectionLabel index="06">Próximo passo</SectionLabel>
+          <SectionLabel index="06" question="começamos por uma conversa">Próximo passo</SectionLabel>
         </div>
 
-        <h2 className="text-display-xl text-foreground max-w-5xl">
-          Veja onde você{" "}
-          <span className="text-foreground/45">perde cliente.</span>
-        </h2>
-
-        <div className="mt-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-end">
-          <div className="lg:col-span-6">
-            <p className="text-lede max-w-lg">
-              20 min. Sem proposta.
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          <div className="lg:col-span-7">
+            <h2 className="text-display-xl text-foreground">
+              Comece pelo{" "}
+              <span className="text-foreground/45">diagnóstico.</span>
+            </h2>
+            <p className="mt-7 text-lede max-w-lg">
+              Uma conversa curta. Sem proposta. O começo de uma relação de longo prazo.
             </p>
-          </div>
-          <div className="lg:col-span-6 flex flex-col sm:flex-row lg:justify-end items-stretch sm:items-center gap-4 sm:gap-6">
-            <a
-              href={WA}
-              target="_blank"
-              rel="noreferrer"
-              className="w-full sm:w-auto"
-              onClick={() => {
-                track("final_cta_click", { destination: "whatsapp" });
-                track("whatsapp_click", { location: "final_cta" });
-              }}
-            >
-              <Button
-                size="lg"
-                className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] cta-shadow"
+
+            <div className="mt-9 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
+              <a
+                href={WA}
+                target="_blank"
+                rel="noreferrer"
+                className="w-full sm:w-auto"
+                onClick={() => {
+                  track("final_cta_click", { destination: "whatsapp" });
+                  track("whatsapp_click", { location: "final_cta" });
+                }}
               >
-                Agendar diagnóstico{" "}
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </Button>
-            </a>
-            <a
-              href={PROPOSAL_MAILTO}
-              className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2 justify-center"
-              onClick={() => track("final_cta_click", { destination: "email" })}
-            >
-              <Mail className="h-4 w-4" /> Por e-mail
-            </a>
+                <Button
+                  size="lg"
+                  className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] cta-shadow"
+                >
+                  Começar uma conversa{" "}
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </Button>
+              </a>
+              <a
+                href={PROPOSAL_MAILTO}
+                className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2 justify-center sm:justify-start"
+                onClick={() => track("final_cta_click", { destination: "email" })}
+              >
+                <Mail className="h-4 w-4" /> Por e-mail
+              </a>
+            </div>
+          </div>
+
+          {/* O que acontece depois — painel-produto, três passos */}
+          <div className="lg:col-span-5">
+            <div className="surface-raised rounded-[var(--radius-card)] overflow-hidden">
+              <div className="product-chrome">
+                <span className="product-chrome-dot" aria-hidden />
+                <span>O QUE ACONTECE DEPOIS</span>
+                <span className="ml-auto tabular-nums">3 etapas</span>
+              </div>
+              <ol className="divide-y divide-border">
+                {passos.map((p) => (
+                  <li key={p.n} className="grid grid-cols-[auto_1fr] gap-5 px-5 sm:px-6 py-5">
+                    <span className="text-mono text-[22px] leading-none tabular-nums text-foreground/85 font-semibold pt-[2px]">
+                      {p.n}
+                    </span>
+                    <div className="min-w-0">
+                      <h3 className="text-card-title">{p.t}</h3>
+                      <p className="mt-1 text-card-body">{p.d}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </div>
         </div>
-
       </div>
     </section>
   );
 }
+
 
 // --- Footer — três colunas técnicas ---------------------------------------
 function Footer() {
