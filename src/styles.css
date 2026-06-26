@@ -88,28 +88,28 @@
   --surface-3: oklch(0.195 0.010 256 / 0.86);
   --hairline: oklch(1 0 0 / 0.05);
 
-  --gradient-hero: radial-gradient(ellipse at 50% 0%, oklch(0.36 0.10 254 / 0.10), transparent 60%),
-                   linear-gradient(180deg, oklch(0.112 0.012 256), oklch(0.086 0.009 256));
-  --gradient-text: linear-gradient(180deg, oklch(0.99 0 0) 0%, oklch(0.78 0.012 256) 100%);
-  --gradient-neon: linear-gradient(135deg, oklch(0.78 0.10 254), oklch(0.625 0.16 254));
+  --gradient-hero: radial-gradient(ellipse at 50% 0%, oklch(0.32 0.07 252 / 0.07), transparent 62%),
+                   linear-gradient(180deg, oklch(0.112 0.010 256), oklch(0.086 0.008 256));
+  --gradient-text: linear-gradient(180deg, oklch(0.99 0 0) 0%, oklch(0.78 0.008 256) 100%);
+  --gradient-neon: linear-gradient(135deg, oklch(0.80 0.06 250), oklch(0.635 0.135 252));
 
-  /* === Sombras — 3 níveis, quase imperceptíveis === */
+  /* === Sombras — 3 níveis, profundidade pura, sem halo === */
   --shadow-1: 0 1px 0 0 var(--hairline) inset,
-              0 1px 2px -1px oklch(0 0 0 / 0.4);
+              0 1px 2px -1px oklch(0 0 0 / 0.45);
   --shadow-2: 0 1px 0 0 var(--hairline) inset,
-              0 8px 24px -16px oklch(0 0 0 / 0.6);
+              0 8px 24px -18px oklch(0 0 0 / 0.65);
   --shadow-3: 0 1px 0 0 var(--hairline) inset,
-              0 20px 48px -28px oklch(0 0 0 / 0.7);
+              0 22px 50px -32px oklch(0 0 0 / 0.75);
   --shadow-cta: 0 1px 0 0 oklch(1 0 0 / 0.10) inset,
-                0 6px 18px -10px oklch(0 0 0 / 0.7),
-                0 0 0 1px oklch(0.625 0.16 254 / 0.18);
+                0 6px 16px -10px oklch(0 0 0 / 0.7),
+                0 0 0 1px oklch(0.635 0.135 252 / 0.16);
   --shadow-cta-hover: 0 1px 0 0 oklch(1 0 0 / 0.14) inset,
-                      0 10px 26px -14px oklch(0 0 0 / 0.75),
-                      0 0 0 1px oklch(0.625 0.16 254 / 0.28);
+                      0 10px 24px -14px oklch(0 0 0 / 0.78),
+                      0 0 0 1px oklch(0.635 0.135 252 / 0.26);
   --shadow-neon: var(--shadow-3);
   --shadow-card: var(--shadow-2);
 
-  --grid-color: oklch(0.78 0.03 256 / 0.035);
+  --grid-color: oklch(0.78 0.02 256 / 0.03);
 }
 
 
@@ -120,13 +120,14 @@
   body {
     background-color: var(--color-background);
     background-image:
-      radial-gradient(ellipse 80% 50% at 50% 0%, oklch(0.30 0.08 254 / 0.08), transparent 65%),
-      radial-gradient(ellipse 90% 55% at 50% 100%, oklch(0.28 0.07 254 / 0.04), transparent 70%);
+      radial-gradient(ellipse 80% 50% at 50% 0%, oklch(0.28 0.06 252 / 0.055), transparent 65%),
+      radial-gradient(ellipse 90% 55% at 50% 100%, oklch(0.26 0.05 252 / 0.03), transparent 70%);
     background-attachment: fixed;
     background-repeat: no-repeat;
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    font-feature-settings: "ss01", "cv11", "cv02";
+    font-feature-settings: "ss01", "cv11", "cv02", "ss02";
+    font-variant-numeric: tabular-nums;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
