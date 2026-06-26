@@ -419,11 +419,15 @@ function HeroFlow() {
           <FlowNode cx={170} cy={105} />
           <FlowNode cx={240} cy={78} />
           <FlowNode cx={310} cy={92} />
-          {/* gargalo */}
+          {/* gargalo — pulso radial + cruz com leve tremor */}
           <g>
+            {/* halo pulsante */}
+            <circle cx={360} cy={120} r={9} fill="oklch(0.62 0.21 22 / 0.35)" className="flow-stuck-pulse" />
             <FlowNode cx={360} cy={120} variant="stuck" r={5} />
-            <line x1={350} y1={110} x2={370} y2={130} stroke="oklch(0.62 0.21 22 / 0.9)" strokeWidth="1.25" />
-            <line x1={370} y1={110} x2={350} y2={130} stroke="oklch(0.62 0.21 22 / 0.9)" strokeWidth="1.25" />
+            <g className="flow-stuck-jitter">
+              <line x1={350} y1={110} x2={370} y2={130} stroke="oklch(0.62 0.21 22 / 0.9)" strokeWidth="1.25" />
+              <line x1={370} y1={110} x2={350} y2={130} stroke="oklch(0.62 0.21 22 / 0.9)" strokeWidth="1.25" />
+            </g>
             <text x={385} y={124} className="text-mono" fill="oklch(0.62 0.21 22 / 0.95)" fontSize="9" letterSpacing="1.5">
               GARGALO
             </text>
@@ -466,6 +470,13 @@ function HeroFlow() {
           <FlowNode cx={185} cy={278} />
           <FlowNode cx={360} cy={278} />
           <FlowNode cx={540} cy={278} variant="exit" r={5.5} />
+          {/* partícula deslizando ao longo do trilho — venda fluindo */}
+          <circle
+            r={3.5}
+            fill="oklch(0.635 0.135 252 / 1)"
+            className="flow-particle"
+            style={{ offsetPath: "path('M 10 278 L 540 278')" } as React.CSSProperties}
+          />
           <text x={520} y={300} className="text-mono" fill="oklch(0.635 0.135 252 / 0.95)" fontSize="9" letterSpacing="1.5" textAnchor="end">
             VENDA
           </text>
@@ -824,31 +835,33 @@ function RecoveryFlow() {
         {/* Trilho principal */}
         <line x1={stops[0].x} y1={Y} x2={stops[stops.length - 1].x} y2={Y} stroke="url(#op-main)" strokeWidth="1.5" />
 
-        {/* Desvio da Imperius: arco partindo do nó "parado" e devolvendo a oportunidade ao trilho na "retomada" */}
+        {/* Desvio da Imperius: o arco se desenha, a etiqueta sobe junto. */}
         <g>
           <path
             d={`M ${stops[2].x} ${Y} C ${stops[2].x + 40} ${Y - 110}, ${stops[3].x - 40} ${Y - 110}, ${stops[3].x} ${Y}`}
             fill="none"
             stroke="url(#op-detour)"
             strokeWidth="1.5"
-            strokeDasharray="0"
+            strokeLinecap="round"
+            className="flow-detour"
           />
-          {/* seta no fim do arco */}
-          <path
-            d={`M ${stops[3].x - 8} ${Y - 8} L ${stops[3].x} ${Y} L ${stops[3].x - 10} ${Y + 2}`}
-            fill="none"
-            stroke="oklch(0.635 0.135 252 / 0.95)"
-            strokeWidth="1.5"
-            strokeLinejoin="round"
-          />
-          {/* etiqueta do desvio */}
-          <g transform={`translate(${(stops[2].x + stops[3].x) / 2}, ${Y - 96})`}>
-            <text textAnchor="middle" className="text-mono" fill="oklch(0.635 0.135 252 / 0.95)" fontSize="10" letterSpacing="2.5">
-              IMPERIUS · intervenção
-            </text>
-            <text y={16} textAnchor="middle" className="text-mono" fill="oklch(0.95 0 0 / 0.45)" fontSize="9" letterSpacing="1.5">
-              alguém é avisado. a oportunidade volta a andar.
-            </text>
+          {/* seta no fim do arco — entra junto com a etiqueta */}
+          <g className="flow-label">
+            <path
+              d={`M ${stops[3].x - 8} ${Y - 8} L ${stops[3].x} ${Y} L ${stops[3].x - 10} ${Y + 2}`}
+              fill="none"
+              stroke="oklch(0.635 0.135 252 / 0.95)"
+              strokeWidth="1.5"
+              strokeLinejoin="round"
+            />
+            <g transform={`translate(${(stops[2].x + stops[3].x) / 2}, ${Y - 96})`}>
+              <text textAnchor="middle" className="text-mono" fill="oklch(0.635 0.135 252 / 0.95)" fontSize="10" letterSpacing="2.5">
+                IMPERIUS · intervenção
+              </text>
+              <text y={16} textAnchor="middle" className="text-mono" fill="oklch(0.95 0 0 / 0.45)" fontSize="9" letterSpacing="1.5">
+                alguém é avisado. a oportunidade volta a andar.
+              </text>
+            </g>
           </g>
         </g>
 
@@ -857,6 +870,9 @@ function RecoveryFlow() {
           const variant: "default" | "stuck" | "exit" = s.stuck ? "stuck" : s.exit ? "exit" : "default";
           return (
             <g key={s.label}>
+              {s.stuck ? (
+                <circle cx={s.x} cy={Y} r={10} fill="oklch(0.62 0.21 22 / 0.35)" className="flow-stuck-pulse" />
+              ) : null}
               <FlowNode cx={s.x} cy={Y} variant={variant} r={s.exit ? 6 : s.stuck ? 5.5 : 4} />
               <text
                 x={s.x}
