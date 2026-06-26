@@ -769,20 +769,15 @@ function Operator() {
     <section id="operator" className="relative pt-4 pb-20 sm:pt-6 sm:pb-24 surface-tint">
       <span aria-hidden className="chapter-numeral absolute top-2 right-4 sm:right-8 hidden md:block">05</span>
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-10 sm:mb-14">
-          <div className="lg:col-span-6">
-            <SectionLabel index="05" question="como aplicamos">Imperius Operator</SectionLabel>
-            <h2 className="text-h2 text-foreground mt-5">
-              O cliente travou.{" "}
-              <span className="text-foreground/50">Reabrimos o caminho.</span>
-            </h2>
-          </div>
-          <div className="lg:col-span-5 lg:col-start-8 self-end">
-            <p className="text-lede max-w-md">
-              Onde o processo para, alguém é avisado.
-            </p>
-          </div>
+        {/* Abertura mínima: uma única linha tipográfica, sem lede. O painel fala. */}
+        <div className="flex items-end justify-between gap-6 mb-8 sm:mb-10">
+          <h2 className="text-h2 text-foreground max-w-2xl">
+            O cliente travou.{" "}
+            <span className="text-foreground/45">Reabrimos o caminho.</span>
+          </h2>
+          <SectionLabel index="05">Operator</SectionLabel>
         </div>
+
 
         {/* Painel-produto: o Operator deixa de ser ilustração e vira demonstração viva */}
         <div className="surface-raised rounded-[var(--radius-card)] overflow-hidden">
