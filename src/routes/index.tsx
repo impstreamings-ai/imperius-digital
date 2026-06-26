@@ -395,8 +395,7 @@ function Hero() {
 
           {/* Status strip inferior */}
           <div className="product-chrome border-t border-b-0 justify-between">
-            <span>monitorando · em tempo real</span>
-            <span className="hidden sm:inline">parado → intervenção → fechado</span>
+            <span>parado → intervenção → fechado</span>
             <span className="tabular-nums">↓ S/02</span>
           </div>
         </div>
