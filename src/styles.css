@@ -777,9 +777,80 @@
 }
 .operator-sync { animation: operator-sync-blink 4s ease-in-out infinite; }
 
-@media (prefers-reduced-motion: reduce) {
-  .operator-rail-draw, .operator-stuck, .operator-sync { animation: none !important; }
+/* === Flow diagrams — micro-interações SVG silenciosas ================== */
+/* Pulso lento no nó "parado" (vermelho). Usado em <circle>. */
+@keyframes flow-stuck-pulse {
+  0%, 100% { transform: scale(1);    opacity: 0.55; }
+  50%      { transform: scale(1.45); opacity: 0; }
 }
+.flow-stuck-pulse {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: flow-stuck-pulse 2.6s ease-in-out infinite;
+}
+
+/* Cruz no gargalo treme de leve — sensação de obstáculo, não de erro técnico. */
+@keyframes flow-stuck-jitter {
+  0%, 88%, 100% { transform: translate(0, 0); }
+  92%           { transform: translate(0.6px, -0.4px); }
+  96%           { transform: translate(-0.5px, 0.5px); }
+}
+.flow-stuck-jitter {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: flow-stuck-jitter 3.2s ease-in-out infinite;
+}
+
+/* Partícula deslizando pelo trilho "depois" — a venda fluindo sem atrito. */
+@keyframes flow-particle-glide {
+  0%   { offset-distance: 0%;   opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+.flow-particle {
+  animation: flow-particle-glide 4.2s cubic-bezier(0.55, 0, 0.25, 1) infinite;
+}
+
+/* Desenho progressivo de path — usado no arco "intervenção" do Operator. */
+@keyframes flow-detour-draw {
+  0%   { stroke-dashoffset: 320; }
+  35%  { stroke-dashoffset: 0;   }
+  78%  { stroke-dashoffset: 0;   }
+  100% { stroke-dashoffset: 320; }
+}
+.flow-detour {
+  stroke-dasharray: 320;
+  stroke-dashoffset: 320;
+  animation: flow-detour-draw 5.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Etiqueta da intervenção entra junto com o arco. */
+@keyframes flow-label-rise {
+  0%, 18%   { opacity: 0; transform: translateY(4px); }
+  32%, 78%  { opacity: 1; transform: translateY(0);   }
+  100%      { opacity: 0; transform: translateY(0);   }
+}
+.flow-label {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: flow-label-rise 5.6s ease-in-out infinite;
+}
+
+/* Nó de saída/venda pulsa ao receber a oportunidade. */
+@keyframes flow-exit-arrive {
+  0%, 60%   { opacity: 0.55; r: 5;   }
+  72%       { opacity: 1;    r: 7;   }
+  100%      { opacity: 0.55; r: 5;   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .operator-rail-draw, .operator-stuck, .operator-sync,
+  .flow-stuck-pulse, .flow-stuck-jitter, .flow-particle,
+  .flow-detour, .flow-label { animation: none !important; }
+  .flow-detour { stroke-dashoffset: 0; }
+}
+
 
 #lovable-badge { display: none !important; }
 
