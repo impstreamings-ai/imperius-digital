@@ -137,7 +137,7 @@
     letter-spacing: -0.022em;
     font-feature-settings: "ss01", "cv11";
   }
-  ::selection { background-color: oklch(0.625 0.16 254 / 0.42); color: oklch(0.98 0 0); }
+  ::selection { background-color: oklch(0.635 0.135 252 / 0.42); color: oklch(0.98 0 0); }
 }
 
 @utility font-heading {
@@ -379,7 +379,7 @@
     box-shadow:
       var(--shadow-cta),
       0 0 0 2px var(--background),
-      0 0 0 3px oklch(0.625 0.17 256 / 0.55);
+      0 0 0 3px oklch(0.635 0.14 252 / 0.55);
   }
 }
 
@@ -465,7 +465,7 @@
     outline: none;
     box-shadow:
       0 0 0 2px var(--background),
-      0 0 0 3px oklch(0.625 0.17 256 / 0.5);
+      0 0 0 3px oklch(0.635 0.14 252 / 0.5);
 
     border-radius: inherit;
   }
