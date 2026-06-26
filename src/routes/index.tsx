@@ -983,7 +983,7 @@ function FinalCTA() {
       <div className="absolute inset-0 bg-grid opacity-[0.06] pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <SectionLabel index="06" question="começamos por uma conversa">Próximo passo</SectionLabel>
+          <SectionLabel index="06" question="começa por uma conversa">Próximo passo</SectionLabel>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
@@ -992,6 +992,9 @@ function FinalCTA() {
               Comece pelo{" "}
               <span className="text-foreground/45">diagnóstico.</span>
             </h2>
+            <p className="mt-7 text-lede max-w-lg">
+              Conversa curta. Sem compromisso.
+            </p>
             <p className="mt-7 text-lede max-w-lg">
               Uma conversa curta. Sem proposta. O começo de uma relação de longo prazo.
             </p>
