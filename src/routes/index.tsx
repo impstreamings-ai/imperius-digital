@@ -85,14 +85,7 @@ function SectionLabel({
 }
 
 
-// Registration mark — assinatura recorrente em chrome de painéis/footer/nav.
-function ImpReg({ className = "" }: { className?: string }) {
-  return (
-    <span aria-hidden className={"imp-reg " + className}>
-      <i />
-    </span>
-  );
-}
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -152,57 +145,38 @@ function Landing() {
     <div className="min-h-dvh text-foreground font-sans overflow-x-hidden">
       <Nav />
       <Hero />
-      <SectionTransition from="01" to="02" label="Sintomas" question="por que acontece" />
+      <SectionTransition to="02" />
       <Problema />
-      <SectionTransition from="02" to="03" label="Caso validado" question="como sabemos" tint />
+      <SectionTransition to="03" tint />
       <Demonstracoes />
-      <SectionTransition from="03" to="04" label="Método" question="como resolvemos" />
+      <SectionTransition to="04" />
       <Metodo />
-      <SectionTransition from="04" to="05" label="Operator" question="como aplicamos" tint />
+      <SectionTransition to="05" tint />
       <Operator />
-      <Interlude />
       <FinalCTA />
       <Footer />
-
     </div>
   );
 }
 
-// --- Section transitions — bridge cinematográfico entre capítulos --------
+// --- Section transition — hairline + numeral discreto. Sem rótulo, sem pergunta.
+// Cada passagem é apenas um silêncio editorial entre capítulos.
 function SectionTransition({
-  from,
   to,
-  label,
-  question,
   tint = false,
 }: {
-  from: string;
   to: string;
-  label: string;
-  question?: string;
   tint?: boolean;
 }) {
   return (
     <div
       aria-hidden
-      className={
-        "relative " + (tint ? "surface-tint" : "")
-      }
+      className={"relative " + (tint ? "surface-tint" : "")}
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <div className="relative flex items-center gap-4 py-10 sm:py-14">
-          <span className="chapter-mark shrink-0 tabular-nums">S/{from}</span>
-          {question ? (
-            <span className="chapter-mark hidden md:inline text-muted-foreground/55 normal-case tracking-[0.16em]">
-              · {question}
-            </span>
-          ) : null}
+        <div className="flex items-center gap-6 py-8 sm:py-10">
           <span className="chapter-rail flex-1" />
-          <span className="chapter-mark tabular-nums hidden sm:inline">
-            <span className="text-foreground/70">S/{to}</span>
-            <span className="ml-3 opacity-70">— {label}</span>
-          </span>
-          <span className="chapter-mark tabular-nums sm:hidden text-foreground/70">
+          <span className="chapter-mark tabular-nums text-muted-foreground/55">
             S/{to}
           </span>
         </div>
@@ -211,23 +185,6 @@ function SectionTransition({
   );
 }
 
-
-// --- Interlude — pausa narrativa antes do CTA final, pull-quote editorial -
-function Interlude() {
-  return (
-    <section className="relative pt-6 pb-2 sm:pt-10 sm:pb-6">
-      <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-6 items-start">
-          <span className="hidden lg:block lg:col-span-1 chapter-numeral select-none">→</span>
-          <p className="lg:col-span-11 pull-quote text-balance">
-            Cada etapa a mais{" "}
-            <span className="text-foreground/45">é um cliente a menos.</span>
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 // --- Nav ------------------------------------------------------------------
 function Nav() {
@@ -326,14 +283,11 @@ function Hero() {
       />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        {/* Eyebrow institucional — pergunta narrativa */}
-        <div className="flex items-center justify-between gap-4 mb-8 sm:mb-10">
-          <SectionLabel index="01" question="o que acontece">Operações comerciais</SectionLabel>
-          <span className="hidden sm:inline-flex items-center gap-2 imp-chip">
-            <ImpReg />
-            <span>Sorocaba · BR</span>
-          </span>
+        {/* Eyebrow institucional — silêncio à direita, foco no rótulo. */}
+        <div className="mb-8 sm:mb-10">
+          <SectionLabel index="01">Operações comerciais</SectionLabel>
         </div>
+
 
         {/* Painel-produto único — texto e fluxo coabitam a mesma superfície */}
         <div className="surface-raised rounded-[var(--radius-card)] overflow-hidden">
@@ -395,9 +349,10 @@ function Hero() {
 
           {/* Status strip inferior */}
           <div className="product-chrome border-t border-b-0 justify-between">
-            <span>parado → intervenção → fechado</span>
+            <span>interesse → atrito → desistência</span>
             <span className="tabular-nums">↓ S/02</span>
           </div>
+
         </div>
       </div>
     </section>
@@ -543,17 +498,16 @@ function Problema() {
   return (
     <section className="relative pt-6 pb-14 sm:pt-8 sm:pb-20">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-10 sm:mb-12">
-          <div className="lg:col-span-7">
-            <SectionLabel index="02" question="por que acontece">Sintomas</SectionLabel>
-            <h2 className="text-h2 text-foreground mt-5">
-              Reconhece alguma{" "}
-              <span className="text-foreground/50">no seu dia?</span>
-            </h2>
+        {/* Abertura invertida: a lista chega antes da retórica. A pergunta vira coda. */}
+        <div className="grid lg:grid-cols-12 gap-x-12 gap-y-8 items-end mb-8 sm:mb-10">
+          <div className="lg:col-span-2 order-2 lg:order-1">
+            <SectionLabel index="02">Sintomas</SectionLabel>
           </div>
+          <h2 className="lg:col-span-10 order-1 lg:order-2 text-h2 text-foreground">
+            Cinco cenas{" "}
+            <span className="text-foreground/45">que se repetem toda semana.</span>
+          </h2>
         </div>
-
-
 
         <div aria-hidden className="imp-hairline mb-0" />
         <ul>
@@ -806,20 +760,15 @@ function Operator() {
     <section id="operator" className="relative pt-4 pb-20 sm:pt-6 sm:pb-24 surface-tint">
       <span aria-hidden className="chapter-numeral absolute top-2 right-4 sm:right-8 hidden md:block">05</span>
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-10 sm:mb-14">
-          <div className="lg:col-span-6">
-            <SectionLabel index="05" question="como aplicamos">Imperius Operator</SectionLabel>
-            <h2 className="text-h2 text-foreground mt-5">
-              O cliente travou.{" "}
-              <span className="text-foreground/50">Reabrimos o caminho.</span>
-            </h2>
-          </div>
-          <div className="lg:col-span-5 lg:col-start-8 self-end">
-            <p className="text-lede max-w-md">
-              Onde o processo para, alguém é avisado.
-            </p>
-          </div>
+        {/* Abertura mínima: uma única linha tipográfica, sem lede. O painel fala. */}
+        <div className="flex items-end justify-between gap-6 mb-8 sm:mb-10">
+          <h2 className="text-h2 text-foreground max-w-2xl">
+            O cliente travou.{" "}
+            <span className="text-foreground/45">Reabrimos o caminho.</span>
+          </h2>
+          <SectionLabel index="05">Operator</SectionLabel>
         </div>
+
 
         {/* Painel-produto: o Operator deixa de ser ilustração e vira demonstração viva */}
         <div className="surface-raised rounded-[var(--radius-card)] overflow-hidden">
@@ -982,12 +931,9 @@ function FinalCTA() {
       <span aria-hidden className="chapter-numeral absolute top-6 left-4 sm:left-8 hidden md:block">06</span>
       <div className="absolute inset-0 bg-grid opacity-[0.06] pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <SectionLabel index="06" question="começa por uma conversa">Próximo passo</SectionLabel>
-        </div>
-
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           <div className="lg:col-span-7">
+            {/* Encerramento sem rótulo — a tipografia abre, não um chip. */}
             <h2 className="text-display-xl text-foreground">
               Comece pelo{" "}
               <span className="text-foreground/45">diagnóstico.</span>
@@ -995,6 +941,7 @@ function FinalCTA() {
             <p className="mt-7 text-lede max-w-lg">
               Conversa curta. Sem compromisso.
             </p>
+
 
 
 
@@ -1063,20 +1010,7 @@ function Footer() {
     <footer className="relative">
       <div aria-hidden className="imp-hairline" />
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 pt-12 pb-10">
-        {/* Cartouche de marca — registration marks emoldurando o monograma */}
-        <div className="flex items-center justify-between gap-4 mb-10">
-          <div className="inline-flex items-center gap-3">
-            <ImpReg />
-            <span className="font-heading font-semibold tracking-[0.18em] text-[12.5px]">IMPERIUS</span>
-            <span className="text-mono text-[9.5px] tracking-[0.22em] uppercase text-muted-foreground/70">
-              / Operações comerciais
-            </span>
-            <ImpReg />
-          </div>
-          <span className="hidden sm:inline-flex imp-chip">
-            <span>S/footer</span>
-          </span>
-        </div>
+
 
         <div className="grid md:grid-cols-12 gap-8 sm:gap-10">
           <div className="md:col-span-5">
