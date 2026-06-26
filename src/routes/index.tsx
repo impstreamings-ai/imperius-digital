@@ -995,9 +995,8 @@ function FinalCTA() {
             <p className="mt-7 text-lede max-w-lg">
               Conversa curta. Sem compromisso.
             </p>
-            <p className="mt-7 text-lede max-w-lg">
-              Uma conversa curta. Sem proposta. O começo de uma relação de longo prazo.
-            </p>
+
+
 
             <div className="mt-9 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
               <a
