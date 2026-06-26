@@ -290,14 +290,11 @@ function Hero() {
       />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        {/* Eyebrow institucional — pergunta narrativa */}
-        <div className="flex items-center justify-between gap-4 mb-8 sm:mb-10">
-          <SectionLabel index="01" question="o que acontece">Operações comerciais</SectionLabel>
-          <span className="hidden sm:inline-flex items-center gap-2 imp-chip">
-            <ImpReg />
-            <span>Sorocaba · BR</span>
-          </span>
+        {/* Eyebrow institucional — silêncio à direita, foco no rótulo. */}
+        <div className="mb-8 sm:mb-10">
+          <SectionLabel index="01">Operações comerciais</SectionLabel>
         </div>
+
 
         {/* Painel-produto único — texto e fluxo coabitam a mesma superfície */}
         <div className="surface-raised rounded-[var(--radius-card)] overflow-hidden">
