@@ -488,19 +488,15 @@ function Problema() {
     <section className="relative pt-6 pb-14 sm:pt-8 sm:pb-20">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-10 sm:mb-12">
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-7">
             <SectionLabel index="02">Sintomas</SectionLabel>
             <h2 className="text-h2 text-foreground mt-5">
-              Reconhece alguma dessas{" "}
-              <span className="text-foreground/50">no seu dia a dia?</span>
+              Reconhece alguma{" "}
+              <span className="text-foreground/50">no seu dia?</span>
             </h2>
           </div>
-          <div className="lg:col-span-6 lg:col-start-7 self-end">
-            <p className="text-card-body max-w-md">
-              Cinco sintomas que aparecem toda semana em operações reais. Quando começam a se repetir, há um gargalo estrutural por trás.
-            </p>
-          </div>
         </div>
+
 
 
         <div aria-hidden className="imp-hairline mb-0" />
