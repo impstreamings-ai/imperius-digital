@@ -133,7 +133,8 @@ function Nav() {
           >
             <Button
               size="sm"
-              className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4 h-9 cta-shadow"
+              variant="ghost"
+              className="btn-ghost-nav font-medium rounded-full px-4 h-9 text-[12.5px] tracking-[0.02em]"
             >
               Diagnóstico
             </Button>
@@ -149,6 +150,7 @@ function Nav() {
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
         </div>
+
       </div>
       {open ? (
         <div className="md:hidden border-t border-border/60 bg-background/95 backdrop-blur-xl">
