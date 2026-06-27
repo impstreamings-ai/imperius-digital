@@ -4,15 +4,10 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
-  MessageCircle,
   Instagram,
   Phone,
   ExternalLink,
-  ClipboardList,
-  TrendingUp,
-  Calendar,
   Mail,
-  Activity,
   Menu,
   X,
 } from "lucide-react";
