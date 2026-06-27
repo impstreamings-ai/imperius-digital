@@ -60,9 +60,10 @@
   --popover: oklch(0.148 0.012 256);
   --popover-foreground: oklch(0.965 0.004 256);
 
-  /* Azul de ação, dessaturado — engenharia, não SaaS */
-  --primary: oklch(0.635 0.135 252);
+  /* Azul Imperius — dessaturado, leve viés ciano: distinto do azul Tailwind padrão. */
+  --primary: oklch(0.665 0.148 244);
   --primary-foreground: oklch(0.99 0 0);
+
 
   --secondary: oklch(0.245 0.009 256);
   --secondary-foreground: oklch(0.965 0.004 256);
@@ -142,19 +143,6 @@
     font-feature-settings: "ss01", "cv11";
   }
   ::selection { background-color: oklch(0.635 0.135 252 / 0.42); color: oklch(0.98 0 0); }
-
-  /* === Imperius focus signature — square hairline + plasma offset === */
-  :focus-visible {
-    outline: none;
-    border-radius: 2px;
-    box-shadow:
-      0 0 0 1px var(--color-background),
-      0 0 0 2px oklch(0.635 0.135 252 / 0.85),
-      0 0 0 5px oklch(0.635 0.135 252 / 0.18);
-    transition: box-shadow 120ms cubic-bezier(0.2, 0.7, 0.2, 1);
-  }
-  /* btn-premium has its own focus signature — preserve. */
-  .btn-premium:focus-visible { border-radius: 9999px; }
 }
 
 @utility font-heading {
@@ -450,6 +438,68 @@
 @utility cta-shadow {
   box-shadow: var(--shadow-cta);
 }
+
+/* Nav CTA — ghost outline; demove o azul cheio da home para não competir com o hero. */
+@utility btn-ghost-nav {
+  background: oklch(1 0 0 / 0.02);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-foreground);
+  transition: border-color var(--dur) var(--ease-out),
+              background-color var(--dur) var(--ease-out),
+              color var(--dur) var(--ease-out);
+  &:hover {
+    border-color: oklch(from var(--primary) l c h / 0.55);
+    background: oklch(from var(--primary) l c h / 0.06);
+    color: var(--color-foreground);
+  }
+  &:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--background),
+      0 0 0 3px oklch(from var(--primary) l c h / 0.55);
+  }
+}
+
+/* Hero proof strip — hairline + ticks. Para metadados âncora abaixo do CTA. */
+@utility proof-strip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.5rem 0.875rem;
+  border: 1px solid var(--color-border);
+  background: oklch(1 0 0 / 0.012);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: oklch(from var(--muted-foreground) l c h / 0.85);
+  font-variant-numeric: tabular-nums;
+}
+.proof-strip > span + span {
+  position: relative;
+  padding-left: 0.875rem;
+}
+.proof-strip > span + span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 8px;
+  transform: translateY(-50%);
+  background: var(--color-border-strong);
+}
+.proof-strip .imp-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: oklch(0.74 0.18 152);
+  box-shadow: 0 0 0 3px oklch(0.74 0.18 152 / 0.18);
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
 
 
 
@@ -1200,51 +1250,5 @@
   background: var(--color-background);
   border: 1px solid var(--color-border-strong);
   transform: translate(-50%, -50%) rotate(45deg);
-}
-
-/* (11) imp-rule — hairline com tick caps verticais em ambas as pontas.
-   Substitui <div h-px bg-border> em divisores editoriais. */
-@utility imp-rule {
-  position: relative;
-  height: 1px;
-  width: 100%;
-  background: var(--color-border-strong);
-}
-.imp-rule::before,
-.imp-rule::after {
-  content: "";
-  position: absolute;
-  top: -3px;
-  width: 1px;
-  height: 7px;
-  background: var(--color-border-strong);
-}
-.imp-rule::before { left: 0; }
-.imp-rule::after  { right: 0; }
-
-/* (12) imp-coord — selo de coordenada técnica para canto de seção.
-   Mono "[ NN·NN ]" com colchetes hairline. Substitui kickers redundantes. */
-@utility imp-coord {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: oklch(from var(--muted-foreground) l c h / 0.62);
-  font-variant-numeric: tabular-nums;
-  font-feature-settings: "tnum";
-  line-height: 1;
-  user-select: none;
-  pointer-events: none;
-}
-.imp-coord::before,
-.imp-coord::after {
-  content: "";
-  width: 6px;
-  height: 1px;
-  background: oklch(1 0 0 / 0.22);
-  display: inline-block;
 }
 
