@@ -194,7 +194,7 @@ function Hero() {
         </h1>
 
         <p className="mt-6 sm:mt-8 text-lede max-w-xl mx-auto">
-          Mostramos onde ele trava — antes que desista.
+          Mostramos onde ele trava.
         </p>
 
         <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-4 sm:gap-5">
@@ -216,6 +216,7 @@ function Hero() {
           <span className="text-micro-tight">20 min · sem proposta</span>
         </div>
       </div>
+
     </section>
   );
 }
