@@ -788,48 +788,55 @@ function FinalCTA() {
     <section className="relative section-pad overflow-hidden hairline-t">
       <div className="absolute inset-0 bg-grid opacity-[0.05] pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
-          <div className="lg:col-span-7">
-            <p className="imp-spine imp-kicker mb-5">
-              <span className="imp-bracket">06</span>
-              <span>Próximo passo</span>
-            </p>
-
-            <h2 className="text-display-mega text-foreground leading-[0.98] text-balance">
-              Você já sabe{" "}
-              <span className="text-foreground/45">onde está perdendo.</span>
-            </h2>
-            <p className="mt-6 text-lede text-foreground/60 max-w-md">
-              Falta descobrir <span className="text-foreground">onde</span>, na sua operação.
-            </p>
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          {/* Ação primeiro — quebra o padrão de "texto à esquerda" */}
+          <div className="lg:col-span-5 order-2 lg:order-1">
+            <div className="flex flex-col gap-5 lg:max-w-sm">
+              <a
+                href={WA}
+                target="_blank"
+                rel="noreferrer"
+                className="w-full"
+                onClick={() => {
+                  track("final_cta_click", { destination: "whatsapp" });
+                  track("whatsapp_click", { location: "final_cta" });
+                }}
+              >
+                <Button
+                  size="lg"
+                  className="btn-premium group w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-14 px-9 text-[14px] cta-shadow justify-between"
+                >
+                  Começar diagnóstico
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </Button>
+              </a>
+              <div className="flex items-center justify-between gap-4 pl-1">
+                <a
+                  href={PROPOSAL_MAILTO}
+                  className="text-[12.5px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2"
+                  onClick={() => track("final_cta_click", { destination: "email" })}
+                >
+                  <Mail className="h-3.5 w-3.5" /> Por e-mail
+                </a>
+                <span className="text-micro-tight">20 min · sem proposta</span>
+              </div>
+            </div>
           </div>
 
-          <div className="lg:col-span-5 flex flex-col gap-4 lg:items-end">
-            <a
-              href={WA}
-              target="_blank"
-              rel="noreferrer"
-              className="w-full sm:w-auto"
-              onClick={() => {
-                track("final_cta_click", { destination: "whatsapp" });
-                track("whatsapp_click", { location: "final_cta" });
-              }}
-            >
-              <Button
-                size="lg"
-                className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-9 text-[14px] cta-shadow"
-              >
-                Começar diagnóstico{" "}
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </Button>
-            </a>
-            <a
-              href={PROPOSAL_MAILTO}
-              className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2"
-              onClick={() => track("final_cta_click", { destination: "email" })}
-            >
-              <Mail className="h-4 w-4" /> Por e-mail
-            </a>
+          {/* Declaração editorial — borda esquerda como marca proprietária, sem kicker, sem opacidade */}
+          <div className="lg:col-span-7 order-1 lg:order-2">
+            <div className="relative pl-6 sm:pl-8 border-l border-primary/50">
+              <span
+                aria-hidden
+                className="imp-mark imp-mark-primary absolute -left-[5px] top-2"
+              />
+              <p className="font-display font-medium text-foreground leading-[0.98] tracking-[-0.038em] text-[clamp(2rem,5.5vw,4rem)] text-balance">
+                Você já sabe onde está perdendo.
+              </p>
+              <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
+                Falta descobrir <span className="text-foreground">onde</span>, na sua operação.
+              </p>
+            </div>
           </div>
         </div>
       </div>
