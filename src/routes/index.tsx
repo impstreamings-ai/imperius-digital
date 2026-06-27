@@ -585,14 +585,14 @@ function Footer() {
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 pt-14 pb-10">
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-5">
-            <div className="flex items-center gap-3 mb-4">
-              <img src={"/assets/imperius-logo-official.png"} alt="" aria-hidden="true" className="h-9 w-auto object-contain" loading="lazy" decoding="async" />
-              <span className="font-heading font-semibold tracking-[0.18em] text-[13px]">IMPERIUS</span>
+            <div className="flex items-center mb-4">
+              <img src={"/assets/imperius-logo-official.png"} alt="Imperius" className="h-9 w-auto object-contain" loading="lazy" decoding="async" />
             </div>
             <p className="text-card-body max-w-sm">
-              Achamos o gargalo. Encurtamos o caminho.
+              Diagnóstico do gargalo comercial.
             </p>
           </div>
+
 
           <div className="md:col-span-3">
             <h3 className="imp-kicker mb-4"><span className="imp-mark imp-mark-muted" aria-hidden /> Navegar</h3>
