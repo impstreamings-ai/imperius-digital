@@ -392,13 +392,7 @@ function Case() {
 
         {/* Narrativa: Problema → Intervenção → Resultado */}
         <div className="mt-12 sm:mt-16 lg:mt-20">
-          <div className="flex items-center gap-3 mb-8 lg:mb-10">
-            <span className="imp-kicker">
-              <span className="imp-mark" aria-hidden />
-              Linha do caso
-            </span>
-            <span className="h-px flex-1 bg-border" aria-hidden />
-          </div>
+
 
           <ol className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-border border border-border-strong rounded-[2px] overflow-hidden">
             {acts.map((a, i) => {
