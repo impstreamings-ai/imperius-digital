@@ -246,8 +246,9 @@ function Identificacao() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
           <aside className="lg:col-span-4">
             <div className="lg:sticky lg:top-24">
-              <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/70 mb-5">
-                02 — Sintomas
+              <p className="imp-spine imp-kicker mb-5">
+                <span className="imp-bracket">02</span>
+                <span>Sintomas</span>
               </p>
               <h2 className="text-h2 text-foreground text-balance">
                 Acontece toda semana.{" "}
@@ -261,9 +262,10 @@ function Identificacao() {
             <ol>
               {cenas.map((c, i) => (
                 <li key={c.t} className="row-editorial">
-                  <div className="flex items-baseline gap-2.5 shrink-0 mt-1 sm:mt-1.5">
-                    <span className="text-mono text-[10px] sm:text-[10.5px] tracking-[0.22em] text-muted-foreground/55 tabular-nums w-5 sm:w-6">
-                      0{i + 1}
+                  <div className="flex items-center gap-2.5 shrink-0 mt-1 sm:mt-1.5">
+                    <span className="imp-mark imp-mark-muted" aria-hidden />
+                    <span className="imp-num text-[10.5px] tracking-[0.06em] text-muted-foreground/65 w-5 sm:w-6">
+                      {String(i + 1).padStart(2, "0")}
                     </span>
                     <c.icon className="h-[15px] w-[15px] text-muted-foreground/55" aria-hidden />
                   </div>
@@ -274,6 +276,7 @@ function Identificacao() {
                 </li>
               ))}
             </ol>
+
           </div>
         </div>
       </div>
@@ -291,21 +294,23 @@ function Diagnostico() {
     <section className="relative surface-tint hairline-y">
       <div className="mx-auto max-w-7xl grid md:grid-cols-2">
         <div className="px-5 sm:px-8 lg:px-12 py-12 sm:py-24 lg:py-28 border-b md:border-b-0 md:border-r border-border/60">
-          <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/55 mb-4 sm:mb-6">
-            O que a maioria faz
+          <p className="imp-spine imp-kicker mb-4 sm:mb-6 text-muted-foreground/55">
+            <span>O que a maioria faz</span>
           </p>
           <p className="text-h2 text-foreground/40 line-through decoration-foreground/20 decoration-1 underline-offset-[6px] text-balance">
             Troca de sistema, contrata agência, anuncia mais.
           </p>
         </div>
         <div className="px-5 sm:px-8 lg:px-12 py-12 sm:py-24 lg:py-28">
-          <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-primary/80 mb-4 sm:mb-6">
-            O que Imperius faz
+          <p className="imp-spine imp-kicker mb-4 sm:mb-6 text-primary/80">
+            <span className="imp-mark imp-mark-primary" aria-hidden />
+            <span>O que Imperius faz</span>
           </p>
           <p className="text-h2 text-foreground text-balance">
             Começa pelo <span className="text-primary">ponto exato</span> onde o cliente desiste.
           </p>
         </div>
+
       </div>
     </section>
   );
@@ -344,8 +349,9 @@ function Case() {
         {/* Cabeçalho editorial */}
         <header className="grid lg:grid-cols-12 gap-6 lg:gap-14 items-end mb-10 lg:mb-14">
           <div className="lg:col-span-7">
-            <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/70 mb-4">
-              04 — Prova · Sorocaba/SP
+            <p className="imp-spine imp-kicker mb-4">
+              <span className="imp-bracket">04</span>
+              <span>Prova · Sorocaba/SP</span>
             </p>
             <h2 className="text-display-xl text-foreground leading-[1.02] sm:leading-[0.98] text-balance">
               Barbearia <span className="lg:inline">do Alemão</span>
@@ -357,6 +363,7 @@ function Case() {
             </p>
           </div>
         </header>
+
 
         {/* Imagem protagonista */}
         <a
@@ -379,29 +386,28 @@ function Case() {
               className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.015]"
             />
             <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background/85 via-background/20 to-transparent pointer-events-none" aria-hidden />
-            <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/85 border border-border backdrop-blur-md text-[10.5px] font-mono uppercase tracking-[0.22em] text-muted-foreground">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-60 animate-ping" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary" />
-              </span>
+            <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-2.5 py-1.5 rounded-[2px] bg-background/85 border border-border backdrop-blur-md text-[10px] font-mono uppercase tracking-[0.22em] text-muted-foreground shadow-[0_0_0_1px_oklch(1_0_0/0.04)_inset]">
+              <span className="imp-mark imp-mark-primary" aria-hidden />
               Cliente real · ativo
             </div>
             <div className="absolute bottom-4 right-4 inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-primary/95 text-primary-foreground text-[12px] font-semibold transition-transform group-hover:-translate-y-0.5">
               Abrir projeto <ExternalLink className="h-3.5 w-3.5" />
             </div>
+
           </div>
         </a>
 
         {/* Narrativa: Problema → Intervenção → Resultado */}
         <div className="mt-12 sm:mt-16 lg:mt-20">
           <div className="flex items-center gap-3 mb-8 lg:mb-10">
-            <span className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/70">
+            <span className="imp-kicker">
+              <span className="imp-mark" aria-hidden />
               Linha do caso
             </span>
-            <span className="h-px flex-1 bg-border/60" aria-hidden />
+            <span className="h-px flex-1 bg-border" aria-hidden />
           </div>
 
-          <ol className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-border/50 border border-border/50 rounded-[var(--radius-card)] overflow-hidden">
+          <ol className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-border border border-border-strong rounded-[2px] overflow-hidden">
             {acts.map((a, i) => {
               const isLast = i === acts.length - 1;
               return (
@@ -409,16 +415,20 @@ function Case() {
                   key={a.kicker}
                   className="relative bg-background px-6 sm:px-8 py-10 sm:py-12 lg:py-14 flex flex-col"
                 >
-                  <div className="flex items-baseline justify-between mb-8">
-                    <span
-                      className={`text-mono text-[10.5px] uppercase tracking-[0.24em] ${
-                        a.tone === "primary" ? "text-primary" : "text-muted-foreground/70"
-                      }`}
-                    >
+                  <div className="flex items-center justify-between mb-8">
+                    <span className={`imp-kicker ${a.tone === "primary" ? "text-primary" : ""}`}>
+                      <span
+                        className={
+                          a.tone === "primary" ? "imp-mark imp-mark-primary" : "imp-mark imp-mark-muted"
+                        }
+                        aria-hidden
+                      />
                       {a.kicker}
                     </span>
-                    <span className="text-mono text-[10px] tracking-[0.2em] text-muted-foreground/40">
-                      0{i + 1} / 03
+                    <span className="imp-bracket text-[10px] tracking-[0.06em] text-muted-foreground/45">
+                      <span className="imp-num">{String(i + 1).padStart(2, "0")}</span>
+                      <span aria-hidden className="opacity-45">/</span>
+                      <span className="imp-num opacity-60">03</span>
                     </span>
                   </div>
 
@@ -437,7 +447,7 @@ function Case() {
                   {!isLast && (
                     <span
                       aria-hidden
-                      className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 z-10 h-6 w-6 items-center justify-center rounded-full bg-background border border-border text-muted-foreground/70"
+                      className="hidden lg:flex imp-node absolute -right-[14px] top-1/2 -translate-y-1/2 z-10 text-muted-foreground/80"
                     >
                       <ArrowRight className="h-3 w-3" />
                     </span>
@@ -446,7 +456,7 @@ function Case() {
                   {!isLast && (
                     <span
                       aria-hidden
-                      className="lg:hidden absolute left-1/2 -bottom-3 -translate-x-1/2 z-10 h-6 w-6 flex items-center justify-center rounded-full bg-background border border-border text-muted-foreground/70 rotate-90"
+                      className="lg:hidden imp-node absolute left-1/2 -bottom-[14px] -translate-x-1/2 z-10 text-muted-foreground/80 rotate-90"
                     >
                       <ArrowRight className="h-3 w-3" />
                     </span>
@@ -456,6 +466,7 @@ function Case() {
             })}
           </ol>
         </div>
+
       </div>
     </section>
   );
@@ -481,8 +492,9 @@ function Metodo() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
           <aside className="lg:col-span-4">
             <div className="lg:sticky lg:top-24">
-              <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/70 mb-5">
-                05 — Método
+              <p className="imp-spine imp-kicker mb-5">
+                <span className="imp-bracket">05</span>
+                <span>Método</span>
               </p>
               <h2 className="text-display-xl text-foreground leading-[0.98] text-balance">
                 Cinco passos.
@@ -500,22 +512,25 @@ function Metodo() {
               >
                 <span
                   aria-hidden
-                  className="absolute left-0 top-8 h-7 w-7 rounded-full border border-border bg-background grid place-items-center text-mono text-[10px] tracking-[0.18em] tabular-nums text-muted-foreground/85"
+                  className="imp-node absolute left-0 top-8 text-muted-foreground/90"
                 >
-                  {p.n}
+                  <span className="imp-num text-[10px] tracking-[0.04em]">{p.n}</span>
                 </span>
                 <div className="grid sm:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-3 sm:gap-12 items-baseline">
                   <h3 className="text-h3 text-foreground">{p.t}</h3>
                   <p className="text-card-body">
                     {p.d}
                     {i === pilares.length - 1 ? (
-                      <span className="ml-2 text-mono text-[9.5px] tracking-[0.22em] uppercase text-primary/85">· fim</span>
+                      <span className="ml-2 imp-kicker text-[9.5px] text-primary/85">
+                        <span className="imp-mark imp-mark-primary" aria-hidden /> fim
+                      </span>
                     ) : null}
                   </p>
                 </div>
               </li>
             ))}
           </ol>
+
         </div>
       </div>
     </section>
@@ -534,9 +549,11 @@ function FinalCTA() {
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
           <div className="lg:col-span-7">
-            <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/70 mb-5">
-              06 — Próximo passo
+            <p className="imp-spine imp-kicker mb-5">
+              <span className="imp-bracket">06</span>
+              <span>Próximo passo</span>
             </p>
+
             <h2 className="text-display-mega text-foreground leading-[0.98] text-balance">
               Você já sabe{" "}
               <span className="text-foreground/45">onde está perdendo.</span>
@@ -597,7 +614,7 @@ function Footer() {
           </div>
 
           <div className="md:col-span-3">
-            <h3 className="text-mono text-[10.5px] uppercase tracking-[0.22em] text-muted-foreground/75 mb-4">Navegar</h3>
+            <h3 className="imp-kicker mb-4"><span className="imp-mark imp-mark-muted" aria-hidden /> Navegar</h3>
             <ul className="space-y-2.5 text-[13.5px] text-muted-foreground">
               <li><a href="#identificacao" className="hover:text-foreground transition-colors">Sintomas</a></li>
               <li><a href="#caso" className="hover:text-foreground transition-colors">Caso</a></li>
@@ -607,7 +624,7 @@ function Footer() {
           </div>
 
           <div className="md:col-span-4">
-            <h3 className="text-mono text-[10.5px] uppercase tracking-[0.22em] text-muted-foreground/75 mb-4">Contato</h3>
+            <h3 className="imp-kicker mb-4"><span className="imp-mark imp-mark-muted" aria-hidden /> Contato</h3>
             <a href="tel:+5515981023792" className="flex items-center gap-3 text-[13.5px] text-muted-foreground hover:text-foreground transition-colors mb-2.5" onClick={() => track("phone_click", { location: "footer" })}>
               <Phone className="h-4 w-4 shrink-0" /> +55 15 98102-3792
             </a>
