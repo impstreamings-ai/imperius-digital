@@ -60,10 +60,9 @@
   --popover: oklch(0.148 0.012 256);
   --popover-foreground: oklch(0.965 0.004 256);
 
-  /* Azul Imperius — dessaturado, leve viés ciano: distinto do azul Tailwind padrão. */
-  --primary: oklch(0.665 0.148 244);
+  /* Azul de ação, dessaturado — engenharia, não SaaS */
+  --primary: oklch(0.635 0.135 252);
   --primary-foreground: oklch(0.99 0 0);
-
 
   --secondary: oklch(0.245 0.009 256);
   --secondary-foreground: oklch(0.965 0.004 256);
@@ -438,68 +437,6 @@
 @utility cta-shadow {
   box-shadow: var(--shadow-cta);
 }
-
-/* Nav CTA — ghost outline; demove o azul cheio da home para não competir com o hero. */
-@utility btn-ghost-nav {
-  background: oklch(1 0 0 / 0.02);
-  border: 1px solid var(--color-border-strong);
-  color: var(--color-foreground);
-  transition: border-color var(--dur) var(--ease-out),
-              background-color var(--dur) var(--ease-out),
-              color var(--dur) var(--ease-out);
-  &:hover {
-    border-color: oklch(from var(--primary) l c h / 0.55);
-    background: oklch(from var(--primary) l c h / 0.06);
-    color: var(--color-foreground);
-  }
-  &:focus-visible {
-    outline: none;
-    box-shadow:
-      0 0 0 2px var(--background),
-      0 0 0 3px oklch(from var(--primary) l c h / 0.55);
-  }
-}
-
-/* Hero proof strip — hairline + ticks. Para metadados âncora abaixo do CTA. */
-@utility proof-strip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.875rem;
-  padding: 0.5rem 0.875rem;
-  border: 1px solid var(--color-border);
-  background: oklch(1 0 0 / 0.012);
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: oklch(from var(--muted-foreground) l c h / 0.85);
-  font-variant-numeric: tabular-nums;
-}
-.proof-strip > span + span {
-  position: relative;
-  padding-left: 0.875rem;
-}
-.proof-strip > span + span::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 1px;
-  height: 8px;
-  transform: translateY(-50%);
-  background: var(--color-border-strong);
-}
-.proof-strip .imp-dot {
-  display: inline-block;
-  width: 5px;
-  height: 5px;
-  border-radius: 9999px;
-  background: oklch(0.74 0.18 152);
-  box-shadow: 0 0 0 3px oklch(0.74 0.18 152 / 0.18);
-  margin-right: 0.5rem;
-  vertical-align: middle;
-}
-
 
 
 
