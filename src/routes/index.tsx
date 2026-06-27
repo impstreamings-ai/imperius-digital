@@ -191,16 +191,21 @@ function Hero() {
       />
 
       <div className="relative mx-auto max-w-5xl w-full text-center">
+        <p className="imp-kicker justify-center mb-6 sm:mb-8">
+          <span className="imp-mark imp-mark-primary" aria-hidden />
+          <span>Diagnóstico operacional · B2B</span>
+        </p>
+
         <h1 className="text-display-mega text-foreground mx-auto max-w-[20ch]">
           Encurtamos o caminho{" "}
-          <span className="text-foreground/45">entre o cliente e a venda.</span>
+          <span className="text-muted-foreground">entre o cliente e a venda.</span>
         </h1>
 
         <p className="mt-6 sm:mt-8 text-lede max-w-xl mx-auto">
           Em toda operação existe um ponto onde o cliente desiste.
         </p>
 
-        <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-4 sm:gap-5">
+        <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-4">
           <a
             href={WA}
             target="_blank"
@@ -216,12 +221,34 @@ function Hero() {
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Button>
           </a>
-          <span className="text-micro-tight">20 min · sem proposta</span>
+          <a
+            href="#caso"
+            onClick={() => track("hero_secondary_click", { destination: "case" })}
+            className="w-full sm:w-auto"
+          >
+            <Button
+              size="lg"
+              variant="ghost"
+              className="btn-ghost-nav group w-full sm:w-auto rounded-full h-12 px-7 text-[13.5px] font-medium"
+            >
+              Ver caso real
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Button>
+          </a>
+        </div>
+
+        <div className="mt-8 sm:mt-10 flex flex-col items-center gap-3">
+          <div className="proof-strip">
+            <span><span className="imp-dot" aria-hidden />Projeto ao vivo</span>
+            <span>Sorocaba/SP · Brasil</span>
+            <span>20 min · sem proposta</span>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 /* ============================================================
    CAPÍTULO 2 — IDENTIFICAÇÃO
