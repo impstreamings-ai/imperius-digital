@@ -549,9 +549,11 @@ function FinalCTA() {
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
           <div className="lg:col-span-7">
-            <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/70 mb-5">
-              06 — Próximo passo
+            <p className="imp-spine imp-kicker mb-5">
+              <span className="imp-bracket">06</span>
+              <span>Próximo passo</span>
             </p>
+
             <h2 className="text-display-mega text-foreground leading-[0.98] text-balance">
               Você já sabe{" "}
               <span className="text-foreground/45">onde está perdendo.</span>
