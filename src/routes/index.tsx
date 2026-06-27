@@ -266,10 +266,11 @@ function Diagnostico() {
           A maioria troca de sistema, contrata agência ou anuncia mais.
         </p>
         <p className="mt-6 sm:mt-8 text-h2 text-foreground/45 text-balance">
-          Nós começamos pelo ponto exato onde o cliente desiste.
+          Imperius começa pelo ponto onde o cliente desiste.
         </p>
       </div>
     </section>
+
   );
 }
 
