@@ -27,30 +27,31 @@ const track = (name: string, params: Record<string, unknown> = {}) =>
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Imperius — Encontramos o gargalo que está te custando clientes" },
+      { title: "Imperius — Achamos o gargalo que está custando clientes" },
       {
         name: "description",
         content:
-          "Mapeamos onde sua operação perde cliente e encurtamos o caminho entre o contato e a venda. Diagnóstico antes de qualquer proposta.",
+          "Diagnóstico do ponto exato onde sua operação perde cliente. Antes de qualquer proposta.",
       },
-      { property: "og:title", content: "Imperius — Encontramos o gargalo que está te custando clientes" },
+      { property: "og:title", content: "Imperius — Achamos o gargalo que está custando clientes" },
       {
         property: "og:description",
         content:
-          "Mapeamos onde sua operação perde cliente e encurtamos o caminho entre o contato e a venda. Diagnóstico antes de qualquer proposta.",
+          "Diagnóstico do ponto exato onde sua operação perde cliente. Antes de qualquer proposta.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://imperius-digital.lovable.app/" },
       { property: "og:image", content: "https://imperius-digital.lovable.app/assets/barbearia-alemao-foto.png" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Imperius — Encontramos o gargalo que está te custando clientes" },
+      { name: "twitter:title", content: "Imperius — Achamos o gargalo que está custando clientes" },
       {
         name: "twitter:description",
         content:
-          "Mapeamos onde sua operação perde cliente e encurtamos o caminho entre o contato e a venda. Diagnóstico antes de qualquer proposta.",
+          "Diagnóstico do ponto exato onde sua operação perde cliente. Antes de qualquer proposta.",
       },
       { name: "twitter:image", content: "https://imperius-digital.lovable.app/assets/barbearia-alemao-foto.png" },
     ],
+
     links: [
       {
         rel: "stylesheet",
