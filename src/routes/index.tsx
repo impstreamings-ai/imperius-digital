@@ -442,11 +442,12 @@ function Case() {
                       />
                       {a.kicker}
                     </span>
-                    <span className="imp-bracket text-[10px] tracking-[0.06em] text-muted-foreground/45">
-                      <span className="imp-num">{String(i + 1).padStart(2, "0")}</span>
-                      <span aria-hidden className="opacity-45">/</span>
-                      <span className="imp-num opacity-60">03</span>
+                    <span className="imp-bracket text-[10.5px] tracking-[0.06em]">
+                      <span>{String(i + 1).padStart(2, "0")}</span>
+                      <span>/</span>
+                      <span>03</span>
                     </span>
+
                   </div>
 
                   <p
