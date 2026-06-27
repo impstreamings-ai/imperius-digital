@@ -196,13 +196,13 @@ function Hero() {
       />
 
       <div className="relative mx-auto max-w-5xl w-full text-center">
-        <h1 className="text-display-mega text-foreground mx-auto max-w-[22ch]">
-          Seu cliente quer comprar.{" "}
-          <span className="text-foreground/45">Mas não chega até a venda.</span>
+        <h1 className="text-display-mega text-foreground mx-auto max-w-[20ch]">
+          Encurtamos o caminho{" "}
+          <span className="text-foreground/45">entre o cliente e a venda.</span>
         </h1>
 
         <p className="mt-6 sm:mt-8 text-lede max-w-xl mx-auto">
-          Mostramos onde ele trava.
+          Em toda operação existe um ponto onde ele desiste.
         </p>
 
         <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-4 sm:gap-5">
