@@ -233,11 +233,11 @@ function Hero() {
    ============================================================ */
 function Identificacao() {
   const cenas = [
-    { icon: ClipboardList, t: "Pediu orçamento. Sumiu.", d: "Leu a mensagem. Nunca respondeu." },
-    { icon: MessageCircle, t: "Mensagem chegou. Ninguém viu.", d: "Quando alguém abriu, já era tarde." },
-    { icon: Activity, t: "Respondeu rápido. Sumiu igual.", d: "Tempo certo. Silêncio do outro lado." },
-    { icon: Calendar, t: "Marcou horário. Não apareceu.", d: "Sem confirmação. Cadeira vazia." },
-    { icon: TrendingUp, t: "Veio uma vez. Não voltou.", d: "Ninguém chamou de novo." },
+    { t: "Pediu orçamento. Sumiu.", d: "Leu a mensagem. Nunca respondeu." },
+    { t: "Mensagem chegou. Ninguém viu.", d: "Quando alguém abriu, já era tarde." },
+    { t: "Respondeu rápido. Sumiu igual.", d: "Tempo certo. Silêncio do outro lado." },
+    { t: "Marcou horário. Não apareceu.", d: "Sem confirmação. Cadeira vazia." },
+    { t: "Veio uma vez. Não voltou.", d: "Ninguém chamou de novo." },
   ];
 
   return (
@@ -263,11 +263,9 @@ function Identificacao() {
               {cenas.map((c, i) => (
                 <li key={c.t} className="row-editorial">
                   <div className="flex items-center gap-2.5 shrink-0 mt-1 sm:mt-1.5">
-                    <span className="imp-mark imp-mark-muted" aria-hidden />
-                    <span className="imp-num text-[10.5px] tracking-[0.06em] text-muted-foreground/65 w-5 sm:w-6">
+                    <span className="imp-num text-[10.5px] tracking-[0.06em] text-muted-foreground/55 tabular-nums">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <c.icon className="h-[15px] w-[15px] text-muted-foreground/55" aria-hidden />
                   </div>
                   <div className="min-w-0 grid sm:grid-cols-[1fr_minmax(0,1.2fr)] gap-0.5 sm:gap-10 items-baseline">
                     <h3 className="text-card-title">{c.t}</h3>
