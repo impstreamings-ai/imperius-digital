@@ -505,15 +505,9 @@ function Metodo() {
                 </span>
                 <div className="grid sm:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-3 sm:gap-12 items-baseline">
                   <h3 className="text-h3 text-foreground">{p.t}</h3>
-                  <p className="text-card-body">
-                    {p.d}
-                    {i === pilares.length - 1 ? (
-                      <span className="ml-2 imp-kicker text-[9.5px] text-primary/85">
-                        <span className="imp-mark imp-mark-primary" aria-hidden /> fim
-                      </span>
-                    ) : null}
-                  </p>
+                  <p className="text-card-body">{p.d}</p>
                 </div>
+
               </li>
             ))}
           </ol>
