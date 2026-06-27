@@ -27,27 +27,27 @@ const track = (name: string, params: Record<string, unknown> = {}) =>
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Imperius — Achamos o gargalo que está custando clientes" },
+      { title: "Imperius — Encurtamos o caminho entre o cliente e a venda" },
       {
         name: "description",
         content:
-          "Diagnóstico do ponto exato onde sua operação perde cliente. Antes de qualquer proposta.",
+          "Em toda operação existe um ponto onde o cliente desiste. Imperius encontra esse ponto.",
       },
-      { property: "og:title", content: "Imperius — Achamos o gargalo que está custando clientes" },
+      { property: "og:title", content: "Imperius — Encurtamos o caminho entre o cliente e a venda" },
       {
         property: "og:description",
         content:
-          "Diagnóstico do ponto exato onde sua operação perde cliente. Antes de qualquer proposta.",
+          "Em toda operação existe um ponto onde o cliente desiste. Imperius encontra esse ponto.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://imperius-digital.lovable.app/" },
       { property: "og:image", content: "https://imperius-digital.lovable.app/assets/barbearia-alemao-foto.png" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Imperius — Achamos o gargalo que está custando clientes" },
+      { name: "twitter:title", content: "Imperius — Encurtamos o caminho entre o cliente e a venda" },
       {
         name: "twitter:description",
         content:
-          "Diagnóstico do ponto exato onde sua operação perde cliente. Antes de qualquer proposta.",
+          "Em toda operação existe um ponto onde o cliente desiste. Imperius encontra esse ponto.",
       },
       { name: "twitter:image", content: "https://imperius-digital.lovable.app/assets/barbearia-alemao-foto.png" },
     ],
@@ -196,13 +196,13 @@ function Hero() {
       />
 
       <div className="relative mx-auto max-w-5xl w-full text-center">
-        <h1 className="text-display-mega text-foreground mx-auto max-w-[22ch]">
-          Seu cliente quer comprar.{" "}
-          <span className="text-foreground/45">Mas não chega até a venda.</span>
+        <h1 className="text-display-mega text-foreground mx-auto max-w-[20ch]">
+          Encurtamos o caminho{" "}
+          <span className="text-foreground/45">entre o cliente e a venda.</span>
         </h1>
 
         <p className="mt-6 sm:mt-8 text-lede max-w-xl mx-auto">
-          Mostramos onde ele trava.
+          Em toda operação existe um ponto onde ele desiste.
         </p>
 
         <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-4 sm:gap-5">
