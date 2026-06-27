@@ -624,7 +624,7 @@ function Footer() {
           </div>
 
           <div className="md:col-span-4">
-            <h3 className="text-mono text-[10.5px] uppercase tracking-[0.22em] text-muted-foreground/75 mb-4">Contato</h3>
+            <h3 className="imp-kicker mb-4"><span className="imp-mark imp-mark-muted" aria-hidden /> Contato</h3>
             <a href="tel:+5515981023792" className="flex items-center gap-3 text-[13.5px] text-muted-foreground hover:text-foreground transition-colors mb-2.5" onClick={() => track("phone_click", { location: "footer" })}>
               <Phone className="h-4 w-4 shrink-0" /> +55 15 98102-3792
             </a>
