@@ -170,33 +170,33 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-[88vh] flex items-center pt-28 pb-20 sm:pt-32 sm:pb-28 overflow-hidden"
+      className="relative section-pad-hero overflow-hidden"
       style={{
         background: "var(--gradient-hero)",
-        paddingLeft: "max(0px, env(safe-area-inset-left))",
-        paddingRight: "max(0px, env(safe-area-inset-right))",
+        paddingLeft: "max(1.25rem, env(safe-area-inset-left))",
+        paddingRight: "max(1.25rem, env(safe-area-inset-right))",
       }}
     >
       <div
         aria-hidden
-        className="absolute inset-x-0 top-0 h-[60%] pointer-events-none"
+        className="absolute inset-x-0 top-0 h-[55%] pointer-events-none"
         style={{
           background:
-            "radial-gradient(55% 60% at 50% 0%, oklch(0.42 0.09 252 / 0.08), transparent 70%)",
+            "radial-gradient(50% 60% at 50% 0%, oklch(0.42 0.09 252 / 0.07), transparent 70%)",
         }}
       />
 
-      <div className="relative mx-auto max-w-5xl w-full px-5 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-display-mega text-foreground mx-auto max-w-[20ch]">
+      <div className="relative mx-auto max-w-5xl w-full text-center">
+        <h1 className="text-display-mega text-foreground mx-auto max-w-[22ch]">
           Seu cliente quer comprar.{" "}
           <span className="text-foreground/45">Mas não chega até a venda.</span>
         </h1>
 
-        <p className="mt-8 sm:mt-10 text-lede max-w-xl mx-auto">
+        <p className="mt-6 sm:mt-8 text-lede max-w-xl mx-auto">
           Mostramos onde ele trava — antes que desista.
         </p>
 
-        <div className="mt-12 sm:mt-14 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-5">
+        <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-4 sm:gap-5">
           <a
             href={WA}
             target="_blank"
