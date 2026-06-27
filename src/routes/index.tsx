@@ -27,30 +27,31 @@ const track = (name: string, params: Record<string, unknown> = {}) =>
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Imperius — Encontramos o gargalo que está te custando clientes" },
+      { title: "Imperius — Achamos o gargalo que está custando clientes" },
       {
         name: "description",
         content:
-          "Mapeamos onde sua operação perde cliente e encurtamos o caminho entre o contato e a venda. Diagnóstico antes de qualquer proposta.",
+          "Diagnóstico do ponto exato onde sua operação perde cliente. Antes de qualquer proposta.",
       },
-      { property: "og:title", content: "Imperius — Encontramos o gargalo que está te custando clientes" },
+      { property: "og:title", content: "Imperius — Achamos o gargalo que está custando clientes" },
       {
         property: "og:description",
         content:
-          "Mapeamos onde sua operação perde cliente e encurtamos o caminho entre o contato e a venda. Diagnóstico antes de qualquer proposta.",
+          "Diagnóstico do ponto exato onde sua operação perde cliente. Antes de qualquer proposta.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://imperius-digital.lovable.app/" },
       { property: "og:image", content: "https://imperius-digital.lovable.app/assets/barbearia-alemao-foto.png" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Imperius — Encontramos o gargalo que está te custando clientes" },
+      { name: "twitter:title", content: "Imperius — Achamos o gargalo que está custando clientes" },
       {
         name: "twitter:description",
         content:
-          "Mapeamos onde sua operação perde cliente e encurtamos o caminho entre o contato e a venda. Diagnóstico antes de qualquer proposta.",
+          "Diagnóstico do ponto exato onde sua operação perde cliente. Antes de qualquer proposta.",
       },
       { name: "twitter:image", content: "https://imperius-digital.lovable.app/assets/barbearia-alemao-foto.png" },
     ],
+
     links: [
       {
         rel: "stylesheet",
@@ -193,7 +194,7 @@ function Hero() {
         </h1>
 
         <p className="mt-6 sm:mt-8 text-lede max-w-xl mx-auto">
-          Mostramos onde ele trava — antes que desista.
+          Mostramos onde ele trava.
         </p>
 
         <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-4 sm:gap-5">
@@ -215,6 +216,7 @@ function Hero() {
           <span className="text-micro-tight">20 min · sem proposta</span>
         </div>
       </div>
+
     </section>
   );
 }
@@ -222,20 +224,21 @@ function Hero() {
 // --- Identificação — cenas reais ------------------------------------------
 function Identificacao() {
   const cenas = [
-    { icon: ClipboardList, t: "Pediu orçamento. Sumiu.", d: "Você mandou. Ele leu. Nunca mais respondeu." },
-    { icon: MessageCircle, t: "Mensagem chegou. Ninguém viu.", d: "Quando alguém abriu, o cliente já tinha desistido." },
-    { icon: Activity, t: "Respondeu rápido. E ele sumiu.", d: "Tudo no tempo. Mesmo assim, silêncio do outro lado." },
-    { icon: Calendar, t: "Marcou horário. Não apareceu.", d: "Sem confirmação. Sem retomada. Cadeira vazia." },
-    { icon: TrendingUp, t: "Veio uma vez. Não voltou.", d: "Ninguém chamou de novo. Ele esqueceu de você." },
+    { icon: ClipboardList, t: "Pediu orçamento. Sumiu.", d: "Leu a mensagem. Nunca respondeu." },
+    { icon: MessageCircle, t: "Mensagem chegou. Ninguém viu.", d: "Quando alguém abriu, já era tarde." },
+    { icon: Activity, t: "Respondeu rápido. Sumiu igual.", d: "Tempo certo. Silêncio do outro lado." },
+    { icon: Calendar, t: "Marcou horário. Não apareceu.", d: "Sem confirmação. Cadeira vazia." },
+    { icon: TrendingUp, t: "Veio uma vez. Não voltou.", d: "Ninguém chamou de novo." },
   ];
 
   return (
     <section id="identificacao" className="relative section-pad">
       <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
         <h2 className="text-h2 text-foreground max-w-2xl text-balance">
-          Provavelmente já aconteceu na sua semana.{" "}
+          Acontece toda semana.{" "}
           <span className="text-foreground/45">Mais de uma vez.</span>
         </h2>
+
 
         <div aria-hidden className="imp-hairline mt-10 sm:mt-14 mb-0" />
         <ul>
@@ -263,25 +266,27 @@ function Diagnostico() {
           A maioria troca de sistema, contrata agência ou anuncia mais.
         </p>
         <p className="mt-6 sm:mt-8 text-h2 text-foreground/45 text-balance">
-          Nós começamos pelo ponto exato onde o cliente desiste.
+          Imperius começa pelo ponto onde o cliente desiste.
         </p>
       </div>
     </section>
+
   );
 }
 
 // --- Case — Barbearia do Alemão. Imagem dominante. ------------------------
 function Case() {
   const antes = [
-    "Informações espalhadas",
+    "Informação espalhada",
     "Muitas etapas até o contato",
     "Sem página própria",
   ];
   const depois = [
-    "Tudo em um único lugar",
+    "Tudo num lugar só",
     "Contato em um toque",
-    "Cliente decide na hora",
+    "Decisão na hora",
   ];
+
 
   return (
     <section id="caso" className="relative section-pad">
@@ -313,12 +318,13 @@ function Case() {
 
           <div className="lg:col-span-5">
             <p className="text-mono text-[10.5px] uppercase tracking-[0.22em] text-muted-foreground/70 mb-3">
-              Cliente real · Sorocaba/SP
+              Caso real · Sorocaba/SP
             </p>
             <h2 className="text-h2 text-foreground">Barbearia do Alemão</h2>
             <p className="mt-4 text-lede">
-              Menos passos entre o cliente e o agendamento.
+              Menos passos entre cliente e agendamento.
             </p>
+
 
             <div className="mt-10 grid grid-cols-2 gap-6 sm:gap-8">
               <div>
@@ -361,8 +367,8 @@ function Case() {
 function Metodo() {
   const pilares = [
     { n: "01", t: "Achar o gargalo", d: "Onde o cliente trava." },
-    { n: "02", t: "Mostrar na tela", d: "Você vê o ponto exato." },
-    { n: "03", t: "Calcular o custo", d: "Quanto isso pesa por mês." },
+    { n: "02", t: "Mostrar na tela", d: "O ponto exato." },
+    { n: "03", t: "Calcular o custo", d: "Quanto pesa por mês." },
     { n: "04", t: "Conversar", d: "O que resolver primeiro." },
     { n: "05", t: "Propor", d: "Só depois do problema claro." },
   ];
@@ -375,10 +381,8 @@ function Metodo() {
             Cinco passos.{" "}
             <span className="text-foreground/45">Nessa ordem.</span>
           </h2>
-          <p className="mt-4 sm:mt-5 text-card-body">
-            Sem pular etapa. Sem proposta antes da hora.
-          </p>
         </div>
+
 
         <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-border rounded-[var(--radius-card)] overflow-hidden border border-border">
           {pilares.map((p, i) => (
@@ -411,11 +415,12 @@ function FinalCTA() {
       <div className="absolute inset-0 bg-grid opacity-[0.05] pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-3xl px-5 sm:px-6 lg:px-8 text-center">
         <h2 className="text-display-xl text-foreground text-balance">
-          Agora você sabe onde provavelmente está perdendo clientes.
+          Você já sabe onde está perdendo.
         </h2>
         <p className="mt-6 sm:mt-8 text-lede text-foreground/55 max-w-xl mx-auto text-balance">
-          O próximo passo é descobrir onde isso acontece na sua operação.
+          Falta descobrir onde, na sua operação.
         </p>
+
 
         <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-stretch sm:items-center sm:justify-center gap-4 sm:gap-6">
           <a
