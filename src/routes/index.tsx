@@ -170,33 +170,33 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-[88vh] flex items-center pt-28 pb-20 sm:pt-32 sm:pb-28 overflow-hidden"
+      className="relative section-pad-hero overflow-hidden"
       style={{
         background: "var(--gradient-hero)",
-        paddingLeft: "max(0px, env(safe-area-inset-left))",
-        paddingRight: "max(0px, env(safe-area-inset-right))",
+        paddingLeft: "max(1.25rem, env(safe-area-inset-left))",
+        paddingRight: "max(1.25rem, env(safe-area-inset-right))",
       }}
     >
       <div
         aria-hidden
-        className="absolute inset-x-0 top-0 h-[60%] pointer-events-none"
+        className="absolute inset-x-0 top-0 h-[55%] pointer-events-none"
         style={{
           background:
-            "radial-gradient(55% 60% at 50% 0%, oklch(0.42 0.09 252 / 0.08), transparent 70%)",
+            "radial-gradient(50% 60% at 50% 0%, oklch(0.42 0.09 252 / 0.07), transparent 70%)",
         }}
       />
 
-      <div className="relative mx-auto max-w-5xl w-full px-5 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-display-mega text-foreground mx-auto max-w-[20ch]">
+      <div className="relative mx-auto max-w-5xl w-full text-center">
+        <h1 className="text-display-mega text-foreground mx-auto max-w-[22ch]">
           Seu cliente quer comprar.{" "}
           <span className="text-foreground/45">Mas não chega até a venda.</span>
         </h1>
 
-        <p className="mt-8 sm:mt-10 text-lede max-w-xl mx-auto">
+        <p className="mt-6 sm:mt-8 text-lede max-w-xl mx-auto">
           Mostramos onde ele trava — antes que desista.
         </p>
 
-        <div className="mt-12 sm:mt-14 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-5">
+        <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-4 sm:gap-5">
           <a
             href={WA}
             target="_blank"
@@ -230,14 +230,14 @@ function Identificacao() {
   ];
 
   return (
-    <section id="identificacao" className="relative py-24 sm:py-32">
+    <section id="identificacao" className="relative section-pad">
       <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
-        <h2 className="text-h2 text-foreground max-w-2xl">
+        <h2 className="text-h2 text-foreground max-w-2xl text-balance">
           Provavelmente já aconteceu na sua semana.{" "}
           <span className="text-foreground/45">Mais de uma vez.</span>
         </h2>
 
-        <div aria-hidden className="imp-hairline mt-12 mb-0" />
+        <div aria-hidden className="imp-hairline mt-10 sm:mt-14 mb-0" />
         <ul>
           {cenas.map((c) => (
             <li key={c.t} className="row-editorial">
@@ -257,12 +257,12 @@ function Identificacao() {
 // --- Diagnóstico — bridge narrativo ---------------------------------------
 function Diagnostico() {
   return (
-    <section className="relative py-24 sm:py-32 surface-tint">
+    <section className="relative section-pad surface-tint">
       <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8 text-center">
-        <p className="text-display-xl text-foreground leading-[1.05]">
+        <p className="text-h2 text-foreground text-balance">
           A maioria troca de sistema, contrata agência ou anuncia mais.
         </p>
-        <p className="mt-8 text-display-xl text-foreground/55 leading-[1.05]">
+        <p className="mt-6 sm:mt-8 text-h2 text-foreground/45 text-balance">
           Nós começamos pelo ponto exato onde o cliente desiste.
         </p>
       </div>
@@ -284,7 +284,7 @@ function Case() {
   ];
 
   return (
-    <section id="caso" className="relative py-24 sm:py-32">
+    <section id="caso" className="relative section-pad">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <a
@@ -294,7 +294,7 @@ function Case() {
             onClick={() => track("client_proof_click", { project: "barbearia_do_alemao" })}
             className="lg:col-span-7 group block relative"
           >
-            <div className="relative overflow-hidden bg-popover/60 border border-border rounded-[var(--radius-card)]">
+            <div className="relative overflow-hidden bg-popover/60 border border-border rounded-[var(--radius-card)] aspect-[4/5] sm:aspect-[16/10] lg:aspect-[4/5]">
               <img
                 src={CLIENTE_REAL_COVER}
                 alt="Barbearia do Alemão — projeto real desenvolvido pela Imperius"
@@ -303,7 +303,7 @@ function Case() {
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
-                className="block w-full h-[360px] sm:h-[480px] lg:h-[620px] object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+                className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
               />
               <div className="absolute bottom-4 right-4 inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-primary/95 text-primary-foreground text-[12px] font-semibold transition-transform group-hover:-translate-y-0.5">
                 Abrir projeto <ExternalLink className="h-3.5 w-3.5" />
@@ -368,28 +368,33 @@ function Metodo() {
   ];
 
   return (
-    <section id="metodo" className="relative py-24 sm:py-32 surface-tint">
+    <section id="metodo" className="relative section-pad surface-tint">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mb-16 sm:mb-20">
-          <h2 className="text-h2 text-foreground">
+        <div className="max-w-2xl mb-12 sm:mb-16">
+          <h2 className="text-h2 text-foreground text-balance">
             Cinco passos.{" "}
             <span className="text-foreground/45">Nessa ordem.</span>
           </h2>
-          <p className="mt-5 text-card-body">
+          <p className="mt-4 sm:mt-5 text-card-body">
             Sem pular etapa. Sem proposta antes da hora.
           </p>
         </div>
 
-        <ol className="grid sm:grid-cols-2 lg:grid-cols-5 gap-px bg-border-strong border border-border-strong rounded-[var(--radius-card)] overflow-hidden">
-          {pilares.map((p) => (
+        <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-border rounded-[var(--radius-card)] overflow-hidden border border-border">
+          {pilares.map((p, i) => (
             <li
               key={p.n}
-              className="bg-background p-7 sm:p-8 flex flex-col gap-4"
+              className="bg-background p-6 sm:p-7 flex flex-col gap-3.5 min-h-[160px] sm:min-h-[180px]"
             >
-              <span className="text-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground/65 tabular-nums">
-                {p.n}
-              </span>
-              <h3 className="text-card-title text-[17px] leading-tight">{p.t}</h3>
+              <div className="flex items-center gap-2.5">
+                <span className="text-mono text-[10.5px] tracking-[0.22em] uppercase text-muted-foreground/60 tabular-nums">
+                  {p.n}
+                </span>
+                {i === pilares.length - 1 ? (
+                  <span className="text-mono text-[9.5px] tracking-[0.22em] uppercase text-primary/85">· fim</span>
+                ) : null}
+              </div>
+              <h3 className="text-card-title text-[15.5px] leading-snug">{p.t}</h3>
               <p className="text-card-body mt-auto">{p.d}</p>
             </li>
           ))}
@@ -402,17 +407,17 @@ function Metodo() {
 // --- Final CTA — finaliza a história, não repete. -------------------------
 function FinalCTA() {
   return (
-    <section className="relative py-28 sm:py-36 overflow-hidden">
+    <section className="relative section-pad overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-[0.05] pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-3xl px-5 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-display-xl text-foreground">
+        <h2 className="text-display-xl text-foreground text-balance">
           Agora você sabe onde provavelmente está perdendo clientes.
         </h2>
-        <p className="mt-8 text-lede text-foreground/55">
+        <p className="mt-6 sm:mt-8 text-lede text-foreground/55 max-w-xl mx-auto text-balance">
           O próximo passo é descobrir onde isso acontece na sua operação.
         </p>
 
-        <div className="mt-12 flex flex-col sm:flex-row items-stretch sm:items-center sm:justify-center gap-4 sm:gap-6">
+        <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-stretch sm:items-center sm:justify-center gap-4 sm:gap-6">
           <a
             href={WA}
             target="_blank"

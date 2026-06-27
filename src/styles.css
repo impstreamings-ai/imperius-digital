@@ -269,25 +269,22 @@
 }
 
 
-/* === Ritmo vertical mais apertado, mobile-first === */
-@utility section-y {
-  padding-block: 2.5rem;
+/* === Ritmo vertical único — cada seção respira igual ===
+   Mobile: 80px · Tablet: 112px · Desktop: 144px. Único token. */
+@utility section-pad {
+  padding-block: 5rem;
 }
-@media (min-width: 640px) {
-  .section-y { padding-block: 4rem; }
+@media (min-width: 640px) { .section-pad { padding-block: 7rem; } }
+@media (min-width: 1024px) { .section-pad { padding-block: 9rem; } }
+
+/* Hero recebe respiro extra no topo (compensa nav fixa) */
+@utility section-pad-hero {
+  padding-top: 7rem;
+  padding-bottom: 5rem;
 }
-@media (min-width: 1024px) {
-  .section-y { padding-block: 4.75rem; }
-}
-@utility section-y-lg {
-  padding-block: 3rem;
-}
-@media (min-width: 640px) {
-  .section-y-lg { padding-block: 5rem; }
-}
-@media (min-width: 1024px) {
-  .section-y-lg { padding-block: 6rem; }
-}
+@media (min-width: 640px) { .section-pad-hero { padding-top: 9rem; padding-bottom: 7rem; } }
+@media (min-width: 1024px) { .section-pad-hero { padding-top: 11rem; padding-bottom: 9rem; } }
+
 @utility section-shell {
   margin-inline: auto;
   max-width: 72rem;
@@ -782,13 +779,14 @@
   }
 }
 
-/* Display Mega — abertura institucional, contraste máximo com microcopy */
+/* Display Mega — abertura institucional. Mobile contido, desktop dramático. */
 @utility text-display-mega {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(2.5rem, 7.5vw + 0.25rem, 5rem);
-  line-height: 0.98;
-  letter-spacing: -0.04em;
+  font-size: clamp(2.25rem, 6.5vw + 0.25rem, 4.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.038em;
+  text-wrap: balance;
 }
 
 /* Microcopy técnica ultra-condensada */
@@ -805,9 +803,10 @@
 @utility text-display-xl {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(2.5rem, 7vw, 4.75rem);
-  line-height: 1.0;
-  letter-spacing: -0.038em;
+  font-size: clamp(2rem, 5.5vw + 0.25rem, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.034em;
+  text-wrap: balance;
 }
 
 
