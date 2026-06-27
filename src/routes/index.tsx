@@ -284,7 +284,7 @@ function Case() {
   ];
 
   return (
-    <section id="caso" className="relative py-24 sm:py-32">
+    <section id="caso" className="relative section-pad">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <a
@@ -294,7 +294,7 @@ function Case() {
             onClick={() => track("client_proof_click", { project: "barbearia_do_alemao" })}
             className="lg:col-span-7 group block relative"
           >
-            <div className="relative overflow-hidden bg-popover/60 border border-border rounded-[var(--radius-card)]">
+            <div className="relative overflow-hidden bg-popover/60 border border-border rounded-[var(--radius-card)] aspect-[4/5] sm:aspect-[16/10] lg:aspect-[4/5]">
               <img
                 src={CLIENTE_REAL_COVER}
                 alt="Barbearia do Alemão — projeto real desenvolvido pela Imperius"
@@ -303,7 +303,7 @@ function Case() {
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
-                className="block w-full h-[360px] sm:h-[480px] lg:h-[620px] object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+                className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
               />
               <div className="absolute bottom-4 right-4 inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-primary/95 text-primary-foreground text-[12px] font-semibold transition-transform group-hover:-translate-y-0.5">
                 Abrir projeto <ExternalLink className="h-3.5 w-3.5" />
