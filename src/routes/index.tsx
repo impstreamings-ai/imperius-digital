@@ -741,43 +741,38 @@ function Metodo() {
   return (
     <section id="metodo" className="relative section-pad">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
-          <aside className="lg:col-span-4">
-            <div className="lg:sticky lg:top-24">
-              <p className="imp-spine imp-kicker mb-5">
-                <span className="imp-bracket">05</span>
-                <span>Método</span>
-              </p>
-              <h2 className="text-display-xl text-foreground leading-[0.98] text-balance">
-                Cinco passos.
-              </h2>
-              <p className="mt-4 text-lede text-foreground/55">Nessa ordem.</p>
-            </div>
-          </aside>
-
-          <ol className="lg:col-span-8 relative">
-            <span aria-hidden className="absolute left-[14px] top-2 bottom-2 w-px bg-border" />
-            {pilares.map((p, i) => (
-              <li
-                key={p.n}
-                className="relative pl-12 sm:pl-16 py-7 sm:py-8 border-b border-border/60 last:border-b-0"
-              >
-                <span
-                  aria-hidden
-                  className="imp-node absolute left-0 top-8 text-muted-foreground/90"
-                >
-                  <span className="imp-num text-[10px] tracking-[0.04em]">{p.n}</span>
-                </span>
-                <div className="grid sm:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-3 sm:gap-12 items-baseline">
-                  <h3 className="text-h3 text-foreground">{p.t}</h3>
-                  <p className="text-card-body">{p.d}</p>
-                </div>
-
-              </li>
-            ))}
-          </ol>
-
+        {/* Etiqueta técnica única — sem kicker+H2 duplicados */}
+        <div
+          aria-hidden
+          className="h-px w-full bg-border"
+        />
+        <div className="flex items-baseline justify-between py-4 font-mono text-[10.5px] uppercase tracking-[0.26em] text-muted-foreground/70">
+          <span>Método · 05 etapas</span>
+          <span className="text-muted-foreground/45 tabular-nums">[ 05·05 ]</span>
         </div>
+        <div aria-hidden className="h-px w-full bg-border" />
+
+        <ol>
+          {pilares.map((p) => (
+            <li
+              key={p.n}
+              className="group grid grid-cols-[auto_minmax(0,1fr)] sm:grid-cols-[7rem_minmax(0,1fr)] lg:grid-cols-[9rem_minmax(0,5fr)_minmax(0,4fr)] items-baseline gap-x-5 sm:gap-x-10 gap-y-2 py-7 sm:py-10 lg:py-12 border-b border-border/60"
+            >
+              <span
+                className="imp-num font-display font-medium text-foreground/85 tabular-nums leading-none text-[clamp(2.5rem,6vw,4.25rem)] tracking-[-0.04em]"
+                aria-hidden
+              >
+                {p.n}
+              </span>
+              <h3 className="font-display font-medium text-foreground leading-[1.05] tracking-[-0.02em] text-[clamp(1.35rem,2.6vw,1.875rem)] text-balance">
+                {p.t}
+              </h3>
+              <p className="col-span-2 sm:col-start-2 lg:col-span-1 lg:col-start-3 text-card-body text-muted-foreground/90 max-w-[34ch] sm:pl-0">
+                {p.d}
+              </p>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );
