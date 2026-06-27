@@ -367,8 +367,8 @@ function Case() {
 function Metodo() {
   const pilares = [
     { n: "01", t: "Achar o gargalo", d: "Onde o cliente trava." },
-    { n: "02", t: "Mostrar na tela", d: "Você vê o ponto exato." },
-    { n: "03", t: "Calcular o custo", d: "Quanto isso pesa por mês." },
+    { n: "02", t: "Mostrar na tela", d: "O ponto exato." },
+    { n: "03", t: "Calcular o custo", d: "Quanto pesa por mês." },
     { n: "04", t: "Conversar", d: "O que resolver primeiro." },
     { n: "05", t: "Propor", d: "Só depois do problema claro." },
   ];
@@ -381,10 +381,8 @@ function Metodo() {
             Cinco passos.{" "}
             <span className="text-foreground/45">Nessa ordem.</span>
           </h2>
-          <p className="mt-4 sm:mt-5 text-card-body">
-            Sem pular etapa. Sem proposta antes da hora.
-          </p>
         </div>
+
 
         <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-border rounded-[var(--radius-card)] overflow-hidden border border-border">
           {pilares.map((p, i) => (
