@@ -191,9 +191,8 @@ function Hero() {
       />
 
       <div className="relative mx-auto max-w-5xl w-full text-center">
-        <p className="imp-kicker justify-center mb-6 sm:mb-8">
-          <span className="imp-mark imp-mark-primary" aria-hidden />
-          <span>Diagnóstico operacional · B2B</span>
+        <p className="mb-8 sm:mb-10 text-[10.5px] font-mono uppercase tracking-[0.34em] text-muted-foreground/65">
+          Imperius · Diagnóstico operacional
         </p>
 
         <h1 className="text-display-mega text-foreground mx-auto max-w-[20ch]">
@@ -201,11 +200,11 @@ function Hero() {
           <span className="text-muted-foreground">entre o cliente e a venda.</span>
         </h1>
 
-        <p className="mt-6 sm:mt-8 text-lede max-w-xl mx-auto">
+        <p className="mt-7 sm:mt-9 text-lede max-w-xl mx-auto">
           Em toda operação existe um ponto onde o cliente desiste.
         </p>
 
-        <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-4">
+        <div className="mt-10 sm:mt-12 flex flex-col items-center gap-5">
           <a
             href={WA}
             target="_blank"
@@ -221,28 +220,9 @@ function Hero() {
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Button>
           </a>
-          <a
-            href="#caso"
-            onClick={() => track("hero_secondary_click", { destination: "case" })}
-            className="w-full sm:w-auto"
-          >
-            <Button
-              size="lg"
-              variant="ghost"
-              className="btn-ghost-nav group w-full sm:w-auto rounded-full h-12 px-7 text-[13.5px] font-medium"
-            >
-              Ver caso real
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </Button>
-          </a>
-        </div>
-
-        <div className="mt-8 sm:mt-10 flex flex-col items-center gap-3">
-          <div className="proof-strip">
-            <span><span className="imp-dot" aria-hidden />Projeto ao vivo</span>
-            <span>Sorocaba/SP · Brasil</span>
-            <span>20 min · sem proposta</span>
-          </div>
+          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground/55">
+            Sorocaba/SP · 20 min · sem proposta
+          </p>
         </div>
       </div>
     </section>
@@ -316,25 +296,25 @@ function Identificacao() {
 function Diagnostico() {
   return (
     <section className="relative surface-tint hairline-y">
-      <div className="mx-auto max-w-7xl grid md:grid-cols-2">
-        <div className="px-5 sm:px-8 lg:px-12 py-12 sm:py-24 lg:py-28 border-b md:border-b-0 md:border-r border-border/60">
-          <p className="imp-spine imp-kicker mb-4 sm:mb-6 text-muted-foreground/55">
-            <span>O que a maioria faz</span>
-          </p>
-          <p className="text-h2 text-muted-foreground line-through decoration-foreground/20 decoration-1 underline-offset-[6px] text-balance">
-            Troca de sistema, contrata agência, anuncia mais.
-          </p>
+      <div className="mx-auto max-w-7xl grid md:grid-cols-12 items-stretch">
+        <div className="md:col-span-4 px-5 sm:px-8 lg:px-12 py-10 sm:py-20 lg:py-28 border-b md:border-b-0 md:border-r border-border/60 flex md:items-center">
+          <div>
+            <p className="mb-3 text-[10.5px] font-mono uppercase tracking-[0.34em] text-muted-foreground/55">
+              O que a maioria faz
+            </p>
+            <p className="text-[15px] leading-[1.55] text-muted-foreground/70 max-w-[28ch]">
+              Troca de sistema, contrata agência, anuncia mais.
+            </p>
+          </div>
         </div>
-        <div className="px-5 sm:px-8 lg:px-12 py-12 sm:py-24 lg:py-28">
-          <p className="imp-spine imp-kicker mb-4 sm:mb-6 text-primary/85">
-            <span>O que Imperius faz</span>
+        <div className="md:col-span-8 px-5 sm:px-8 lg:px-16 py-14 sm:py-24 lg:py-32">
+          <p className="mb-5 sm:mb-7 text-[10.5px] font-mono uppercase tracking-[0.34em] text-primary/80">
+            O que Imperius faz
           </p>
-          <p className="text-h2 text-foreground text-balance">
+          <p className="font-display font-medium leading-[1.02] tracking-[-0.028em] text-[clamp(2rem,5.2vw,3.75rem)] text-foreground text-balance">
             Começa pelo <span className="text-primary">ponto exato</span> onde o cliente desiste.
           </p>
         </div>
-
-
       </div>
     </section>
   );
@@ -370,29 +350,15 @@ function Case() {
   return (
     <section id="caso" className="relative section-pad">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        {/* Cabeçalho editorial — número marginalia oversized */}
+        {/* Cabeçalho editorial — silêncio + marginalia */}
         <header className="grid lg:grid-cols-12 gap-6 lg:gap-14 items-end mb-10 lg:mb-14">
-          <div className="lg:col-span-2 hidden lg:block">
-            <span
-              aria-hidden
-              className="block font-display font-light leading-none tracking-[-0.04em] text-[clamp(5rem,9vw,9rem)] text-foreground/[0.06] select-none"
-            >
-              04
-            </span>
-          </div>
-          <div className="lg:col-span-7">
-            <p className="imp-kicker mb-4 text-muted-foreground/70 flex items-center gap-3 lg:hidden">
-              <span className="font-mono tabular-nums">04</span>
-              <span aria-hidden className="h-px w-6 bg-border" />
-              <span>Prova · Sorocaba/SP</span>
+          <div className="lg:col-span-9">
+            <p className="mb-5 text-[10.5px] font-mono uppercase tracking-[0.34em] text-muted-foreground/65">
+              Caso · Sorocaba/SP
             </p>
             <h2 className="text-display-xl text-foreground leading-[1.02] sm:leading-[0.98] text-balance">
-              Barbearia <span className="lg:inline">do Alemão</span>
+              Barbearia do Alemão
             </h2>
-            <p className="hidden lg:block mt-4 imp-kicker text-muted-foreground/70">
-              <span className="imp-mark imp-mark-muted" aria-hidden />
-              <span>Prova · Sorocaba/SP</span>
-            </p>
           </div>
           <div className="lg:col-span-3">
             <p className="text-lede text-foreground/70 max-w-md lg:ml-auto">
@@ -446,22 +412,14 @@ function Case() {
                   key={a.kicker}
                   className="relative bg-background px-6 sm:px-8 py-10 sm:py-12 lg:py-14 flex flex-col"
                 >
-                  <div className="flex items-center justify-between mb-8">
-                    <span className={`imp-kicker ${a.tone === "primary" ? "text-primary" : ""}`}>
-                      <span
-                        className={
-                          a.tone === "primary" ? "imp-mark imp-mark-primary" : "imp-mark imp-mark-muted"
-                        }
-                        aria-hidden
-                      />
+                  <div className="mb-8">
+                    <span
+                      className={`text-[10.5px] font-mono uppercase tracking-[0.34em] ${
+                        a.tone === "primary" ? "text-primary" : "text-muted-foreground/65"
+                      }`}
+                    >
                       {a.kicker}
                     </span>
-                    <span className="imp-bracket text-[10.5px] tracking-[0.06em]">
-                      <span>{String(i + 1).padStart(2, "0")}</span>
-                      <span>/</span>
-                      <span>03</span>
-                    </span>
-
                   </div>
 
                   <p
@@ -524,15 +482,12 @@ function Metodo() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
           <aside className="lg:col-span-4">
             <div className="lg:sticky lg:top-24">
-              <p className="mb-6 flex items-center gap-3 text-[10.5px] uppercase tracking-[0.34em] text-muted-foreground/70 font-mono">
-                <span>Método</span>
-                <span aria-hidden className="h-px flex-1 max-w-[48px] bg-border" />
-                <span className="tabular-nums">05 / 05</span>
+              <p className="mb-6 text-[10.5px] font-mono uppercase tracking-[0.34em] text-muted-foreground/65">
+                Método
               </p>
               <h2 className="text-display-xl text-foreground leading-[0.98] text-balance">
-                Cinco passos.
+                Cinco passos, nessa ordem.
               </h2>
-              <p className="mt-4 text-lede text-foreground/55">Nessa ordem.</p>
             </div>
           </aside>
 
@@ -571,32 +526,17 @@ function Metodo() {
    ============================================================ */
 function FinalCTA() {
   return (
-    <section className="relative section-pad overflow-hidden hairline-t">
-      <div className="absolute inset-0 bg-grid opacity-[0.05] pointer-events-none" aria-hidden />
+    <section className="relative section-pad hairline-t">
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <span
-          aria-hidden
-          className="pointer-events-none select-none absolute right-3 sm:right-6 lg:right-10 top-2 sm:-top-4 lg:-top-10 font-display font-light leading-none tracking-[-0.05em] text-[clamp(8rem,22vw,20rem)] text-foreground/[0.04]"
-        >
-          06
-        </span>
-        <div className="relative grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
-          <div className="lg:col-span-7">
-            <p className="mb-6 text-[10.5px] uppercase tracking-[0.34em] text-muted-foreground/70 font-mono">
-              Próximo passo
-            </p>
-
-            <h2 className="text-display-mega text-foreground leading-[0.98] text-balance">
-              Você já sabe{" "}
-              <span className="text-muted-foreground">onde está perdendo.</span>
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+          <div className="lg:col-span-8">
+            <h2 className="text-display-xl text-foreground leading-[1.0] text-balance max-w-[18ch]">
+              Você já sabe que está perdendo cliente.{" "}
+              <span className="text-muted-foreground">Falta saber onde.</span>
             </h2>
-            <p className="mt-6 text-lede max-w-md">
-              Falta descobrir <span className="text-foreground">onde</span>, na sua operação.
-            </p>
-
           </div>
 
-          <div className="lg:col-span-5 flex flex-col gap-4 lg:items-end">
+          <div className="lg:col-span-4 flex flex-col gap-4 lg:items-end">
             <a
               href={WA}
               target="_blank"
@@ -617,10 +557,10 @@ function FinalCTA() {
             </a>
             <a
               href={PROPOSAL_MAILTO}
-              className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2"
+              className="text-[12.5px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2"
               onClick={() => track("final_cta_click", { destination: "email" })}
             >
-              <Mail className="h-4 w-4" /> Por e-mail
+              <Mail className="h-3.5 w-3.5" /> Por e-mail
             </a>
           </div>
         </div>
