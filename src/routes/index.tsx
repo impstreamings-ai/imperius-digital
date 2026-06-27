@@ -171,7 +171,10 @@ function Nav() {
   );
 }
 
-// --- Hero — silêncio editorial. Tipografia. Espaço. Próximo passo. --------
+/* ============================================================
+   CAPÍTULO 1 — IMPACTO
+   Composição: centro absoluto. Tipografia gigante. Silêncio.
+   ============================================================ */
 function Hero() {
   return (
     <section
@@ -221,12 +224,15 @@ function Hero() {
           <span className="text-micro-tight">20 min · sem proposta</span>
         </div>
       </div>
-
     </section>
   );
 }
 
-// --- Identificação — cenas reais ------------------------------------------
+/* ============================================================
+   CAPÍTULO 2 — IDENTIFICAÇÃO
+   Composição: assimétrica 4/8. Título fixo à esquerda, cenas numeradas à direita.
+   Densidade alta. Lista cronológica. Sem cards.
+   ============================================================ */
 function Identificacao() {
   const cenas = [
     { icon: ClipboardList, t: "Pediu orçamento. Sumiu.", d: "Leu a mensagem. Nunca respondeu." },
@@ -238,48 +244,78 @@ function Identificacao() {
 
   return (
     <section id="identificacao" className="relative section-pad">
-      <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
-        <h2 className="text-h2 text-foreground max-w-2xl text-balance">
-          Acontece toda semana.{" "}
-          <span className="text-foreground/45">Mais de uma vez.</span>
-        </h2>
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
+          <aside className="lg:col-span-4">
+            <div className="lg:sticky lg:top-24">
+              <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/70 mb-5">
+                02 — Sintomas
+              </p>
+              <h2 className="text-h2 text-foreground text-balance">
+                Acontece toda semana.{" "}
+                <span className="text-foreground/45">Mais de uma vez.</span>
+              </h2>
+            </div>
+          </aside>
 
-
-        <div aria-hidden className="imp-hairline mt-10 sm:mt-14 mb-0" />
-        <ul>
-          {cenas.map((c) => (
-            <li key={c.t} className="row-editorial">
-              <c.icon className="h-[15px] w-[15px] text-muted-foreground/55 shrink-0 mt-1.5" aria-hidden />
-              <div className="min-w-0 grid sm:grid-cols-[1fr_minmax(0,1.2fr)] gap-1 sm:gap-10 items-baseline">
-                <h3 className="text-card-title">{c.t}</h3>
-                <p className="text-card-body">{c.d}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
+          <div className="lg:col-span-8">
+            <div aria-hidden className="imp-hairline mb-0" />
+            <ol>
+              {cenas.map((c, i) => (
+                <li key={c.t} className="row-editorial">
+                  <span className="text-mono text-[10.5px] tracking-[0.22em] text-muted-foreground/55 tabular-nums shrink-0 mt-1.5 w-7">
+                    0{i + 1}
+                  </span>
+                  <c.icon className="h-[15px] w-[15px] text-muted-foreground/55 shrink-0 mt-1.5" aria-hidden />
+                  <div className="min-w-0 grid sm:grid-cols-[1fr_minmax(0,1.2fr)] gap-1 sm:gap-10 items-baseline">
+                    <h3 className="text-card-title">{c.t}</h3>
+                    <p className="text-card-body">{c.d}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
 
-// --- Diagnóstico — bridge narrativo ---------------------------------------
+/* ============================================================
+   CAPÍTULO 3 — MUDANÇA DE PERSPECTIVA
+   Composição: split full-bleed. Esquerda riscada (caminho errado) vs direita afirmativa.
+   Sem container central. Contraste tipográfico extremo.
+   ============================================================ */
 function Diagnostico() {
   return (
-    <section className="relative section-pad surface-tint">
-      <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8 text-center">
-        <p className="text-h2 text-foreground text-balance">
-          A maioria troca de sistema, contrata agência ou anuncia mais.
-        </p>
-        <p className="mt-6 sm:mt-8 text-h2 text-foreground/45 text-balance">
-          Imperius começa pelo ponto onde o cliente desiste.
-        </p>
+    <section className="relative surface-tint hairline-y">
+      <div className="mx-auto max-w-7xl grid md:grid-cols-2">
+        <div className="px-5 sm:px-8 lg:px-12 py-16 sm:py-24 lg:py-28 md:border-r border-border/60">
+          <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/55 mb-6">
+            O que a maioria faz
+          </p>
+          <p className="text-h2 text-foreground/40 line-through decoration-foreground/20 decoration-1 underline-offset-[6px] text-balance">
+            Troca de sistema, contrata agência, anuncia mais.
+          </p>
+        </div>
+        <div className="px-5 sm:px-8 lg:px-12 py-16 sm:py-24 lg:py-28">
+          <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-primary/80 mb-6">
+            O que Imperius faz
+          </p>
+          <p className="text-h2 text-foreground text-balance">
+            Começa pelo <span className="text-primary">ponto exato</span> onde o cliente desiste.
+          </p>
+        </div>
       </div>
     </section>
-
   );
 }
 
-// --- Case — Barbearia do Alemão. Imagem dominante. ------------------------
+/* ============================================================
+   CAPÍTULO 4 — PROVA REAL
+   Composição: editorial magazine. Imagem dominante 7/12 à ESQUERDA com bleed.
+   Texto à direita 5/12 com hierarquia vertical longa.
+   ============================================================ */
 function Case() {
   const antes = [
     "Informação espalhada",
@@ -292,11 +328,10 @@ function Case() {
     "Decisão na hora",
   ];
 
-
   return (
     <section id="caso" className="relative section-pad">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
           <a
             href={CLIENTE_REAL_URL}
             target="_blank"
@@ -304,7 +339,7 @@ function Case() {
             onClick={() => track("client_proof_click", { project: "barbearia_do_alemao" })}
             className="lg:col-span-7 group block relative"
           >
-            <div className="relative overflow-hidden bg-popover/60 border border-border rounded-[var(--radius-card)] aspect-[4/5] sm:aspect-[16/10] lg:aspect-[4/5]">
+            <div className="relative overflow-hidden bg-popover/60 border border-border rounded-[var(--radius-card)] aspect-[4/5] sm:aspect-[16/10] lg:aspect-[3/4]">
               <img
                 src={CLIENTE_REAL_COVER}
                 alt="Barbearia do Alemão — projeto real desenvolvido pela Imperius"
@@ -315,23 +350,27 @@ function Case() {
                 fetchPriority="high"
                 className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
               />
+              <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/85 border border-border backdrop-blur-md text-[10.5px] font-mono uppercase tracking-[0.22em] text-muted-foreground">
+                Cliente real · ativo
+              </div>
               <div className="absolute bottom-4 right-4 inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-primary/95 text-primary-foreground text-[12px] font-semibold transition-transform group-hover:-translate-y-0.5">
                 Abrir projeto <ExternalLink className="h-3.5 w-3.5" />
               </div>
             </div>
           </a>
 
-          <div className="lg:col-span-5">
-            <p className="text-mono text-[10.5px] uppercase tracking-[0.22em] text-muted-foreground/70 mb-3">
-              Caso real · Sorocaba/SP
-            </p>
-            <h2 className="text-h2 text-foreground">Barbearia do Alemão</h2>
-            <p className="mt-4 text-lede">
-              Menos passos entre cliente e agendamento.
-            </p>
+          <div className="lg:col-span-5 flex flex-col justify-between">
+            <div>
+              <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/70 mb-4">
+                04 — Prova · Sorocaba/SP
+              </p>
+              <h2 className="text-display-xl text-foreground leading-[0.98]">Barbearia<br/>do Alemão</h2>
+              <p className="mt-5 text-lede max-w-md">
+                Menos passos entre cliente e agendamento.
+              </p>
+            </div>
 
-
-            <div className="mt-10 grid grid-cols-2 gap-6 sm:gap-8">
+            <div className="mt-12 lg:mt-0 pt-10 border-t border-border/60 grid grid-cols-2 gap-8">
               <div>
                 <div className="flex items-center gap-2 text-mono text-[10px] uppercase tracking-[0.22em] font-semibold text-muted-foreground/85 mb-3">
                   <AlertTriangle className="h-3.5 w-3.5 text-destructive/80" />
@@ -368,7 +407,11 @@ function Case() {
   );
 }
 
-// --- Método — cinco passos, consequência do diagnóstico --------------------
+/* ============================================================
+   CAPÍTULO 5 — MÉTODO
+   Composição: timeline vertical. Rail à esquerda com label fixo,
+   passos empilhados à direita com tipografia grande. Sem grid de cards.
+   ============================================================ */
 function Metodo() {
   const pilares = [
     { n: "01", t: "Achar o gargalo", d: "Onde o cliente trava." },
@@ -379,80 +422,103 @@ function Metodo() {
   ];
 
   return (
-    <section id="metodo" className="relative section-pad surface-tint">
-      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mb-12 sm:mb-16">
-          <h2 className="text-h2 text-foreground text-balance">
-            Cinco passos.{" "}
-            <span className="text-foreground/45">Nessa ordem.</span>
-          </h2>
-        </div>
+    <section id="metodo" className="relative section-pad">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
+          <aside className="lg:col-span-4">
+            <div className="lg:sticky lg:top-24">
+              <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/70 mb-5">
+                05 — Método
+              </p>
+              <h2 className="text-display-xl text-foreground leading-[0.98] text-balance">
+                Cinco passos.
+              </h2>
+              <p className="mt-4 text-lede text-foreground/55">Nessa ordem.</p>
+            </div>
+          </aside>
 
-
-        <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-border rounded-[var(--radius-card)] overflow-hidden border border-border">
-          {pilares.map((p, i) => (
-            <li
-              key={p.n}
-              className="bg-background p-6 sm:p-7 flex flex-col gap-3.5 min-h-[160px] sm:min-h-[180px]"
-            >
-              <div className="flex items-center gap-2.5">
-                <span className="text-mono text-[10.5px] tracking-[0.22em] uppercase text-muted-foreground/60 tabular-nums">
+          <ol className="lg:col-span-8 relative">
+            <span aria-hidden className="absolute left-[14px] top-2 bottom-2 w-px bg-border" />
+            {pilares.map((p, i) => (
+              <li
+                key={p.n}
+                className="relative pl-12 sm:pl-16 py-7 sm:py-8 border-b border-border/60 last:border-b-0"
+              >
+                <span
+                  aria-hidden
+                  className="absolute left-0 top-8 h-7 w-7 rounded-full border border-border bg-background grid place-items-center text-mono text-[10px] tracking-[0.18em] tabular-nums text-muted-foreground/85"
+                >
                   {p.n}
                 </span>
-                {i === pilares.length - 1 ? (
-                  <span className="text-mono text-[9.5px] tracking-[0.22em] uppercase text-primary/85">· fim</span>
-                ) : null}
-              </div>
-              <h3 className="text-card-title text-[15.5px] leading-snug">{p.t}</h3>
-              <p className="text-card-body mt-auto">{p.d}</p>
-            </li>
-          ))}
-        </ol>
+                <div className="grid sm:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-3 sm:gap-12 items-baseline">
+                  <h3 className="text-h3 text-foreground">{p.t}</h3>
+                  <p className="text-card-body">
+                    {p.d}
+                    {i === pilares.length - 1 ? (
+                      <span className="ml-2 text-mono text-[9.5px] tracking-[0.22em] uppercase text-primary/85">· fim</span>
+                    ) : null}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
     </section>
   );
 }
 
-// --- Final CTA — finaliza a história, não repete. -------------------------
+/* ============================================================
+   CAPÍTULO 6 — CONVITE
+   Composição: editorial à esquerda, ação à direita. Sem centro.
+   Última linha da história — densidade mínima.
+   ============================================================ */
 function FinalCTA() {
   return (
-    <section className="relative section-pad overflow-hidden">
+    <section className="relative section-pad overflow-hidden hairline-t">
       <div className="absolute inset-0 bg-grid opacity-[0.05] pointer-events-none" aria-hidden />
-      <div className="relative mx-auto max-w-3xl px-5 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-display-xl text-foreground text-balance">
-          Você já sabe onde está perdendo.
-        </h2>
-        <p className="mt-6 sm:mt-8 text-lede text-foreground/55 max-w-xl mx-auto text-balance">
-          Falta descobrir onde, na sua operação.
-        </p>
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+          <div className="lg:col-span-7">
+            <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/70 mb-5">
+              06 — Próximo passo
+            </p>
+            <h2 className="text-display-mega text-foreground leading-[0.98] text-balance">
+              Você já sabe{" "}
+              <span className="text-foreground/45">onde está perdendo.</span>
+            </h2>
+            <p className="mt-6 text-lede text-foreground/60 max-w-md">
+              Falta descobrir <span className="text-foreground">onde</span>, na sua operação.
+            </p>
+          </div>
 
-
-        <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-stretch sm:items-center sm:justify-center gap-4 sm:gap-6">
-          <a
-            href={WA}
-            target="_blank"
-            rel="noreferrer"
-            className="w-full sm:w-auto"
-            onClick={() => {
-              track("final_cta_click", { destination: "whatsapp" });
-              track("whatsapp_click", { location: "final_cta" });
-            }}
-          >
-            <Button
-              size="lg"
-              className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-9 text-[14px] cta-shadow"
+          <div className="lg:col-span-5 flex flex-col gap-4 lg:items-end">
+            <a
+              href={WA}
+              target="_blank"
+              rel="noreferrer"
+              className="w-full sm:w-auto"
+              onClick={() => {
+                track("final_cta_click", { destination: "whatsapp" });
+                track("whatsapp_click", { location: "final_cta" });
+              }}
             >
-              Começar diagnóstico{" "}
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </Button>
-          </a>
-          <a
-            href={PROPOSAL_MAILTO}
-            className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2 justify-center sm:justify-start"
-            onClick={() => track("final_cta_click", { destination: "email" })}
-          >
-            <Mail className="h-4 w-4" /> Por e-mail
-          </a>
+              <Button
+                size="lg"
+                className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-9 text-[14px] cta-shadow"
+              >
+                Começar diagnóstico{" "}
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </Button>
+            </a>
+            <a
+              href={PROPOSAL_MAILTO}
+              className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2"
+              onClick={() => track("final_cta_click", { destination: "email" })}
+            >
+              <Mail className="h-4 w-4" /> Por e-mail
+            </a>
+          </div>
         </div>
       </div>
     </section>
