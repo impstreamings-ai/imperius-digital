@@ -188,6 +188,10 @@ function Hero() {
         }}
       />
 
+      <span aria-hidden className="imp-coord absolute top-20 right-5 sm:right-8 lg:right-12 hidden sm:inline-flex">
+        01 · Imperius
+      </span>
+
       <div className="relative mx-auto max-w-7xl w-full">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Coluna texto */}
