@@ -263,11 +263,13 @@ function Identificacao() {
             <ol>
               {cenas.map((c, i) => (
                 <li key={c.t} className="row-editorial">
-                  <span className="text-mono text-[10.5px] tracking-[0.22em] text-muted-foreground/55 tabular-nums shrink-0 mt-1.5 w-7">
-                    0{i + 1}
-                  </span>
-                  <c.icon className="h-[15px] w-[15px] text-muted-foreground/55 shrink-0 mt-1.5" aria-hidden />
-                  <div className="min-w-0 grid sm:grid-cols-[1fr_minmax(0,1.2fr)] gap-1 sm:gap-10 items-baseline">
+                  <div className="flex items-baseline gap-2.5 shrink-0 mt-1 sm:mt-1.5">
+                    <span className="text-mono text-[10px] sm:text-[10.5px] tracking-[0.22em] text-muted-foreground/55 tabular-nums w-5 sm:w-6">
+                      0{i + 1}
+                    </span>
+                    <c.icon className="h-[15px] w-[15px] text-muted-foreground/55" aria-hidden />
+                  </div>
+                  <div className="min-w-0 grid sm:grid-cols-[1fr_minmax(0,1.2fr)] gap-0.5 sm:gap-10 items-baseline">
                     <h3 className="text-card-title">{c.t}</h3>
                     <p className="text-card-body">{c.d}</p>
                   </div>
