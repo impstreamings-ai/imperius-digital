@@ -294,21 +294,23 @@ function Diagnostico() {
     <section className="relative surface-tint hairline-y">
       <div className="mx-auto max-w-7xl grid md:grid-cols-2">
         <div className="px-5 sm:px-8 lg:px-12 py-12 sm:py-24 lg:py-28 border-b md:border-b-0 md:border-r border-border/60">
-          <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/55 mb-4 sm:mb-6">
-            O que a maioria faz
+          <p className="imp-spine imp-kicker mb-4 sm:mb-6 text-muted-foreground/55">
+            <span>O que a maioria faz</span>
           </p>
           <p className="text-h2 text-foreground/40 line-through decoration-foreground/20 decoration-1 underline-offset-[6px] text-balance">
             Troca de sistema, contrata agência, anuncia mais.
           </p>
         </div>
         <div className="px-5 sm:px-8 lg:px-12 py-12 sm:py-24 lg:py-28">
-          <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-primary/80 mb-4 sm:mb-6">
-            O que Imperius faz
+          <p className="imp-spine imp-kicker mb-4 sm:mb-6 text-primary/80">
+            <span className="imp-mark imp-mark-primary" aria-hidden />
+            <span>O que Imperius faz</span>
           </p>
           <p className="text-h2 text-foreground text-balance">
             Começa pelo <span className="text-primary">ponto exato</span> onde o cliente desiste.
           </p>
         </div>
+
       </div>
     </section>
   );
