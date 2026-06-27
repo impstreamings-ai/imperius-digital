@@ -276,8 +276,9 @@ function Identificacao() {
               </p>
               <h2 className="text-h2 text-foreground text-balance">
                 Acontece toda semana.{" "}
-                <span className="text-foreground/45">Mais de uma vez.</span>
+                <span className="text-muted-foreground">Mais de uma vez.</span>
               </h2>
+
             </div>
           </aside>
 
