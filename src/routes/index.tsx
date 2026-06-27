@@ -524,9 +524,10 @@ function Metodo() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
           <aside className="lg:col-span-4">
             <div className="lg:sticky lg:top-24">
-              <p className="imp-spine imp-kicker mb-5">
-                <span className="imp-bracket">05</span>
+              <p className="mb-6 flex items-center gap-3 text-[10.5px] uppercase tracking-[0.34em] text-muted-foreground/70 font-mono">
                 <span>Método</span>
+                <span aria-hidden className="h-px flex-1 max-w-[48px] bg-border" />
+                <span className="tabular-nums">05 / 05</span>
               </p>
               <h2 className="text-display-xl text-foreground leading-[0.98] text-balance">
                 Cinco passos.
