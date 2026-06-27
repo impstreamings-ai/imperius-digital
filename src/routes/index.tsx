@@ -614,7 +614,7 @@ function Footer() {
           </div>
 
           <div className="md:col-span-3">
-            <h3 className="text-mono text-[10.5px] uppercase tracking-[0.22em] text-muted-foreground/75 mb-4">Navegar</h3>
+            <h3 className="imp-kicker mb-4"><span className="imp-mark imp-mark-muted" aria-hidden /> Navegar</h3>
             <ul className="space-y-2.5 text-[13.5px] text-muted-foreground">
               <li><a href="#identificacao" className="hover:text-foreground transition-colors">Sintomas</a></li>
               <li><a href="#caso" className="hover:text-foreground transition-colors">Caso</a></li>
