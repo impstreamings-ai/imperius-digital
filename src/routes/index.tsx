@@ -568,11 +568,12 @@ function FinalCTA() {
 
             <h2 className="text-display-mega text-foreground leading-[0.98] text-balance">
               Você já sabe{" "}
-              <span className="text-foreground/45">onde está perdendo.</span>
+              <span className="text-muted-foreground">onde está perdendo.</span>
             </h2>
-            <p className="mt-6 text-lede text-foreground/60 max-w-md">
+            <p className="mt-6 text-lede max-w-md">
               Falta descobrir <span className="text-foreground">onde</span>, na sua operação.
             </p>
+
           </div>
 
           <div className="lg:col-span-5 flex flex-col gap-4 lg:items-end">
