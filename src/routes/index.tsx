@@ -623,7 +623,12 @@ function Footer() {
             <p className="text-card-body max-w-sm">
               Diagnóstico do gargalo comercial.
             </p>
+            <p className="mt-4 imp-kicker text-muted-foreground/70">
+              <span className="imp-mark imp-mark-muted" aria-hidden />
+              <span>Sorocaba/SP · Brasil</span>
+            </p>
           </div>
+
 
 
           <div className="md:col-span-3">
