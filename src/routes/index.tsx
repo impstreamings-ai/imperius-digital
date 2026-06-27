@@ -400,13 +400,14 @@ function Case() {
         {/* Narrativa: Problema → Intervenção → Resultado */}
         <div className="mt-12 sm:mt-16 lg:mt-20">
           <div className="flex items-center gap-3 mb-8 lg:mb-10">
-            <span className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/70">
+            <span className="imp-kicker">
+              <span className="imp-mark" aria-hidden />
               Linha do caso
             </span>
-            <span className="h-px flex-1 bg-border/60" aria-hidden />
+            <span className="h-px flex-1 bg-border" aria-hidden />
           </div>
 
-          <ol className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-border/50 border border-border/50 rounded-[var(--radius-card)] overflow-hidden">
+          <ol className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-border border border-border-strong rounded-[2px] overflow-hidden">
             {acts.map((a, i) => {
               const isLast = i === acts.length - 1;
               return (
@@ -414,16 +415,20 @@ function Case() {
                   key={a.kicker}
                   className="relative bg-background px-6 sm:px-8 py-10 sm:py-12 lg:py-14 flex flex-col"
                 >
-                  <div className="flex items-baseline justify-between mb-8">
-                    <span
-                      className={`text-mono text-[10.5px] uppercase tracking-[0.24em] ${
-                        a.tone === "primary" ? "text-primary" : "text-muted-foreground/70"
-                      }`}
-                    >
+                  <div className="flex items-center justify-between mb-8">
+                    <span className={`imp-kicker ${a.tone === "primary" ? "text-primary" : ""}`}>
+                      <span
+                        className={
+                          a.tone === "primary" ? "imp-mark imp-mark-primary" : "imp-mark imp-mark-muted"
+                        }
+                        aria-hidden
+                      />
                       {a.kicker}
                     </span>
-                    <span className="text-mono text-[10px] tracking-[0.2em] text-muted-foreground/40">
-                      0{i + 1} / 03
+                    <span className="imp-bracket text-[10px] tracking-[0.06em] text-muted-foreground/45">
+                      <span className="imp-num">{String(i + 1).padStart(2, "0")}</span>
+                      <span aria-hidden className="opacity-45">/</span>
+                      <span className="imp-num opacity-60">03</span>
                     </span>
                   </div>
 
@@ -442,7 +447,7 @@ function Case() {
                   {!isLast && (
                     <span
                       aria-hidden
-                      className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 z-10 h-6 w-6 items-center justify-center rounded-full bg-background border border-border text-muted-foreground/70"
+                      className="hidden lg:flex imp-node absolute -right-[14px] top-1/2 -translate-y-1/2 z-10 text-muted-foreground/80"
                     >
                       <ArrowRight className="h-3 w-3" />
                     </span>
@@ -451,7 +456,7 @@ function Case() {
                   {!isLast && (
                     <span
                       aria-hidden
-                      className="lg:hidden absolute left-1/2 -bottom-3 -translate-x-1/2 z-10 h-6 w-6 flex items-center justify-center rounded-full bg-background border border-border text-muted-foreground/70 rotate-90"
+                      className="lg:hidden imp-node absolute left-1/2 -bottom-[14px] -translate-x-1/2 z-10 text-muted-foreground/80 rotate-90"
                     >
                       <ArrowRight className="h-3 w-3" />
                     </span>
@@ -461,6 +466,7 @@ function Case() {
             })}
           </ol>
         </div>
+
       </div>
     </section>
   );
