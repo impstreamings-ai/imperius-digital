@@ -320,19 +320,19 @@ function Diagnostico() {
           <p className="imp-spine imp-kicker mb-4 sm:mb-6 text-muted-foreground/55">
             <span>O que a maioria faz</span>
           </p>
-          <p className="text-h2 text-foreground/40 line-through decoration-foreground/20 decoration-1 underline-offset-[6px] text-balance">
+          <p className="text-h2 text-muted-foreground line-through decoration-foreground/20 decoration-1 underline-offset-[6px] text-balance">
             Troca de sistema, contrata agência, anuncia mais.
           </p>
         </div>
         <div className="px-5 sm:px-8 lg:px-12 py-12 sm:py-24 lg:py-28">
-          <p className="imp-spine imp-kicker mb-4 sm:mb-6 text-primary/80">
-            <span className="imp-mark imp-mark-primary" aria-hidden />
+          <p className="imp-spine imp-kicker mb-4 sm:mb-6 text-primary/85">
             <span>O que Imperius faz</span>
           </p>
           <p className="text-h2 text-foreground text-balance">
             Começa pelo <span className="text-primary">ponto exato</span> onde o cliente desiste.
           </p>
         </div>
+
 
       </div>
     </section>
