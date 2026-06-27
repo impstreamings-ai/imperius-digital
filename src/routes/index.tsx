@@ -574,11 +574,16 @@ function FinalCTA() {
     <section className="relative section-pad overflow-hidden hairline-t">
       <div className="absolute inset-0 bg-grid opacity-[0.05] pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+        <span
+          aria-hidden
+          className="pointer-events-none select-none absolute right-3 sm:right-6 lg:right-10 top-2 sm:-top-4 lg:-top-10 font-display font-light leading-none tracking-[-0.05em] text-[clamp(8rem,22vw,20rem)] text-foreground/[0.04]"
+        >
+          06
+        </span>
+        <div className="relative grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
           <div className="lg:col-span-7">
-            <p className="imp-spine imp-kicker mb-5">
-              <span className="imp-bracket">06</span>
-              <span>Próximo passo</span>
+            <p className="mb-6 text-[10.5px] uppercase tracking-[0.34em] text-muted-foreground/70 font-mono">
+              Próximo passo
             </p>
 
             <h2 className="text-display-mega text-foreground leading-[0.98] text-balance">
