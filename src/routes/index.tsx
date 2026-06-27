@@ -746,15 +746,12 @@ function Metodo() {
     <section id="metodo" className="relative section-pad">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         {/* Etiqueta técnica única — sem kicker+H2 duplicados */}
-        <div
-          aria-hidden
-          className="h-px w-full bg-border"
-        />
+        <div aria-hidden className="imp-rule" />
         <div className="flex items-baseline justify-between py-4 font-mono text-[10.5px] uppercase tracking-[0.26em] text-muted-foreground/70">
           <span>Método · 05 etapas</span>
           <span className="text-muted-foreground/45 tabular-nums">[ 05·05 ]</span>
         </div>
-        <div aria-hidden className="h-px w-full bg-border" />
+        <div aria-hidden className="imp-rule" />
 
         <ol>
           {pilares.map((p) => (
