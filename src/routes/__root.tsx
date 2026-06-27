@@ -78,19 +78,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Imperius — Software, Automação e IA para Operações Comerciais" },
-      { name: "description", content: "Plataforma proprietária Imperius: software, automação e IA aplicados a operações comerciais — atendimento, agenda e pipeline em um só ecossistema." },
-      { name: "author", content: "Imperius Soluções Digitais" },
-      { property: "og:title", content: "Imperius — Software, Automação e IA para Operações Comerciais" },
-      { property: "og:description", content: "Plataforma proprietária Imperius: software, automação e IA aplicados a operações comerciais — atendimento, agenda e pipeline em um só ecossistema." },
+      { title: "Imperius — Diagnóstico do gargalo que está custando clientes" },
+      { name: "description", content: "Imperius encontra o ponto onde sua operação perde cliente e encurta o caminho até a venda." },
+      { name: "author", content: "Imperius" },
+      { property: "og:title", content: "Imperius — Diagnóstico do gargalo que está custando clientes" },
+      { property: "og:description", content: "Imperius encontra o ponto onde sua operação perde cliente e encurta o caminho até a venda." },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Imperius Soluções Digitais" },
+      { property: "og:site_name", content: "Imperius" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Imperius — Software, Automação e IA para Operações Comerciais" },
-      { name: "twitter:description", content: "Plataforma proprietária Imperius: software, automação e IA aplicados a operações comerciais — atendimento, agenda e pipeline em um só ecossistema." },
-
-      // og:image / twitter:image são definidos por rota-folha para evitar
-      // que um valor do root sobrescreva o share image de cada página.
+      { name: "twitter:title", content: "Imperius — Diagnóstico do gargalo que está custando clientes" },
+      { name: "twitter:description", content: "Imperius encontra o ponto onde sua operação perde cliente e encurta o caminho até a venda." },
     ],
 
     links: [
@@ -99,7 +96,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
     ],
+
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Imperius",
+          url: "https://imperius-digital.lovable.app/",
+          logo: "https://imperius-digital.lovable.app/assets/imperius-logo-official.png",
+          sameAs: ["https://instagram.com/imperiusdigital.br"],
+        }),
+      },
+    ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,

@@ -82,16 +82,19 @@ function Landing() {
   return (
     <div className="min-h-dvh text-foreground font-sans overflow-x-hidden">
       <Nav />
-      <Hero />
-      <Identificacao />
-      <Diagnostico />
-      <Case />
-      <Metodo />
-      <FinalCTA />
+      <main id="conteudo">
+        <Hero />
+        <Identificacao />
+        <Diagnostico />
+        <Case />
+        <Metodo />
+        <FinalCTA />
+      </main>
       <Footer />
     </div>
   );
 }
+
 
 // --- Nav ------------------------------------------------------------------
 function Nav() {
@@ -106,10 +109,11 @@ function Nav() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 border-b border-border/60 backdrop-blur-xl bg-background/75">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
-        <a href="#top" className="flex items-center gap-2.5 min-w-0" onClick={close}>
+        <a href="#top" className="flex items-center gap-2.5 min-w-0" onClick={close} aria-label="Imperius — ir para o topo">
           <img
             src={"/assets/imperius-logo-official.png"}
-            alt="Imperius"
+            alt=""
+            aria-hidden="true"
             className="h-7 w-auto object-contain shrink-0"
             loading="eager"
             decoding="async"
@@ -118,6 +122,7 @@ function Nav() {
             IMPERIUS
           </span>
         </a>
+
 
         <nav className="hidden md:flex items-center gap-8 text-[12.5px] text-muted-foreground font-medium">
           <a href="#identificacao" className="hover:text-foreground transition-colors">Sintomas</a>
@@ -463,7 +468,7 @@ function Footer() {
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-5">
             <div className="flex items-center gap-3 mb-4">
-              <img src={"/assets/imperius-logo-official.png"} alt="Imperius" className="h-9 w-auto object-contain" loading="lazy" decoding="async" />
+              <img src={"/assets/imperius-logo-official.png"} alt="" aria-hidden="true" className="h-9 w-auto object-contain" loading="lazy" decoding="async" />
               <span className="font-heading font-semibold tracking-[0.18em] text-[13px]">IMPERIUS</span>
             </div>
             <p className="text-card-body max-w-sm">
