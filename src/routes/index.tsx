@@ -263,11 +263,13 @@ function Identificacao() {
             <ol>
               {cenas.map((c, i) => (
                 <li key={c.t} className="row-editorial">
-                  <span className="text-mono text-[10.5px] tracking-[0.22em] text-muted-foreground/55 tabular-nums shrink-0 mt-1.5 w-7">
-                    0{i + 1}
-                  </span>
-                  <c.icon className="h-[15px] w-[15px] text-muted-foreground/55 shrink-0 mt-1.5" aria-hidden />
-                  <div className="min-w-0 grid sm:grid-cols-[1fr_minmax(0,1.2fr)] gap-1 sm:gap-10 items-baseline">
+                  <div className="flex items-baseline gap-2.5 shrink-0 mt-1 sm:mt-1.5">
+                    <span className="text-mono text-[10px] sm:text-[10.5px] tracking-[0.22em] text-muted-foreground/55 tabular-nums w-5 sm:w-6">
+                      0{i + 1}
+                    </span>
+                    <c.icon className="h-[15px] w-[15px] text-muted-foreground/55" aria-hidden />
+                  </div>
+                  <div className="min-w-0 grid sm:grid-cols-[1fr_minmax(0,1.2fr)] gap-0.5 sm:gap-10 items-baseline">
                     <h3 className="text-card-title">{c.t}</h3>
                     <p className="text-card-body">{c.d}</p>
                   </div>
@@ -290,16 +292,16 @@ function Diagnostico() {
   return (
     <section className="relative surface-tint hairline-y">
       <div className="mx-auto max-w-7xl grid md:grid-cols-2">
-        <div className="px-5 sm:px-8 lg:px-12 py-16 sm:py-24 lg:py-28 md:border-r border-border/60">
-          <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/55 mb-6">
+        <div className="px-5 sm:px-8 lg:px-12 py-12 sm:py-24 lg:py-28 border-b md:border-b-0 md:border-r border-border/60">
+          <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/55 mb-4 sm:mb-6">
             O que a maioria faz
           </p>
           <p className="text-h2 text-foreground/40 line-through decoration-foreground/20 decoration-1 underline-offset-[6px] text-balance">
             Troca de sistema, contrata agência, anuncia mais.
           </p>
         </div>
-        <div className="px-5 sm:px-8 lg:px-12 py-16 sm:py-24 lg:py-28">
-          <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-primary/80 mb-6">
+        <div className="px-5 sm:px-8 lg:px-12 py-12 sm:py-24 lg:py-28">
+          <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-primary/80 mb-4 sm:mb-6">
             O que Imperius faz
           </p>
           <p className="text-h2 text-foreground text-balance">
@@ -364,7 +366,9 @@ function Case() {
               <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/70 mb-4">
                 04 — Prova · Sorocaba/SP
               </p>
-              <h2 className="text-display-xl text-foreground leading-[0.98]">Barbearia<br/>do Alemão</h2>
+              <h2 className="text-display-xl text-foreground leading-[1.02] sm:leading-[0.98]">
+                Barbearia <span className="lg:block">do Alemão</span>
+              </h2>
               <p className="mt-5 text-lede max-w-md">
                 Menos passos entre cliente e agendamento.
               </p>
