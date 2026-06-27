@@ -791,6 +791,9 @@ function FinalCTA() {
   return (
     <section className="relative section-pad overflow-hidden hairline-t">
       <div className="absolute inset-0 bg-grid opacity-[0.05] pointer-events-none" aria-hidden />
+      <span aria-hidden className="imp-coord absolute top-8 right-5 sm:right-8 lg:right-12 hidden sm:inline-flex">
+        06 · Próximo passo
+      </span>
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           {/* Ação primeiro — quebra o padrão de "texto à esquerda" */}
