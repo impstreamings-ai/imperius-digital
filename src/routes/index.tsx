@@ -468,7 +468,7 @@ function Footer() {
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-5">
             <div className="flex items-center gap-3 mb-4">
-              <img src={"/assets/imperius-logo-official.png"} alt="Imperius" className="h-9 w-auto object-contain" loading="lazy" decoding="async" />
+              <img src={"/assets/imperius-logo-official.png"} alt="" aria-hidden="true" className="h-9 w-auto object-contain" loading="lazy" decoding="async" />
               <span className="font-heading font-semibold tracking-[0.18em] text-[13px]">IMPERIUS</span>
             </div>
             <p className="text-card-body max-w-sm">
