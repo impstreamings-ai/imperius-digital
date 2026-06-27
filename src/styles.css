@@ -269,25 +269,22 @@
 }
 
 
-/* === Ritmo vertical mais apertado, mobile-first === */
-@utility section-y {
-  padding-block: 2.5rem;
+/* === Ritmo vertical único — cada seção respira igual ===
+   Mobile: 80px · Tablet: 112px · Desktop: 144px. Único token. */
+@utility section-pad {
+  padding-block: 5rem;
 }
-@media (min-width: 640px) {
-  .section-y { padding-block: 4rem; }
+@media (min-width: 640px) { .section-pad { padding-block: 7rem; } }
+@media (min-width: 1024px) { .section-pad { padding-block: 9rem; } }
+
+/* Hero recebe respiro extra no topo (compensa nav fixa) */
+@utility section-pad-hero {
+  padding-top: 7rem;
+  padding-bottom: 5rem;
 }
-@media (min-width: 1024px) {
-  .section-y { padding-block: 4.75rem; }
-}
-@utility section-y-lg {
-  padding-block: 3rem;
-}
-@media (min-width: 640px) {
-  .section-y-lg { padding-block: 5rem; }
-}
-@media (min-width: 1024px) {
-  .section-y-lg { padding-block: 6rem; }
-}
+@media (min-width: 640px) { .section-pad-hero { padding-top: 9rem; padding-bottom: 7rem; } }
+@media (min-width: 1024px) { .section-pad-hero { padding-top: 11rem; padding-bottom: 9rem; } }
+
 @utility section-shell {
   margin-inline: auto;
   max-width: 72rem;
