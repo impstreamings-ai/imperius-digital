@@ -277,15 +277,16 @@ function Diagnostico() {
 // --- Case — Barbearia do Alemão. Imagem dominante. ------------------------
 function Case() {
   const antes = [
-    "Informações espalhadas",
+    "Informação espalhada",
     "Muitas etapas até o contato",
     "Sem página própria",
   ];
   const depois = [
-    "Tudo em um único lugar",
+    "Tudo num lugar só",
     "Contato em um toque",
-    "Cliente decide na hora",
+    "Decisão na hora",
   ];
+
 
   return (
     <section id="caso" className="relative section-pad">
