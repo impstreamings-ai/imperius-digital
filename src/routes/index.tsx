@@ -386,16 +386,14 @@ function Case() {
               className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.015]"
             />
             <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background/85 via-background/20 to-transparent pointer-events-none" aria-hidden />
-            <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/85 border border-border backdrop-blur-md text-[10.5px] font-mono uppercase tracking-[0.22em] text-muted-foreground">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-60 animate-ping" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary" />
-              </span>
+            <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-2.5 py-1.5 rounded-[2px] bg-background/85 border border-border backdrop-blur-md text-[10px] font-mono uppercase tracking-[0.22em] text-muted-foreground shadow-[0_0_0_1px_oklch(1_0_0/0.04)_inset]">
+              <span className="imp-mark imp-mark-primary" aria-hidden />
               Cliente real · ativo
             </div>
             <div className="absolute bottom-4 right-4 inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-primary/95 text-primary-foreground text-[12px] font-semibold transition-transform group-hover:-translate-y-0.5">
               Abrir projeto <ExternalLink className="h-3.5 w-3.5" />
             </div>
+
           </div>
         </a>
 
