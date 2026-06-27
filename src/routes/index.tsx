@@ -349,8 +349,9 @@ function Case() {
         {/* Cabeçalho editorial */}
         <header className="grid lg:grid-cols-12 gap-6 lg:gap-14 items-end mb-10 lg:mb-14">
           <div className="lg:col-span-7">
-            <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/70 mb-4">
-              04 — Prova · Sorocaba/SP
+            <p className="imp-spine imp-kicker mb-4">
+              <span className="imp-bracket">04</span>
+              <span>Prova · Sorocaba/SP</span>
             </p>
             <h2 className="text-display-xl text-foreground leading-[1.02] sm:leading-[0.98] text-balance">
               Barbearia <span className="lg:inline">do Alemão</span>
@@ -362,6 +363,7 @@ function Case() {
             </p>
           </div>
         </header>
+
 
         {/* Imagem protagonista */}
         <a
