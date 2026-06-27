@@ -27,27 +27,27 @@ const track = (name: string, params: Record<string, unknown> = {}) =>
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Imperius — Achamos o gargalo que está custando clientes" },
+      { title: "Imperius — Encurtamos o caminho entre o cliente e a venda" },
       {
         name: "description",
         content:
-          "Diagnóstico do ponto exato onde sua operação perde cliente. Antes de qualquer proposta.",
+          "Em toda operação existe um ponto onde o cliente desiste. Imperius encontra esse ponto.",
       },
-      { property: "og:title", content: "Imperius — Achamos o gargalo que está custando clientes" },
+      { property: "og:title", content: "Imperius — Encurtamos o caminho entre o cliente e a venda" },
       {
         property: "og:description",
         content:
-          "Diagnóstico do ponto exato onde sua operação perde cliente. Antes de qualquer proposta.",
+          "Em toda operação existe um ponto onde o cliente desiste. Imperius encontra esse ponto.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://imperius-digital.lovable.app/" },
       { property: "og:image", content: "https://imperius-digital.lovable.app/assets/barbearia-alemao-foto.png" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Imperius — Achamos o gargalo que está custando clientes" },
+      { name: "twitter:title", content: "Imperius — Encurtamos o caminho entre o cliente e a venda" },
       {
         name: "twitter:description",
         content:
-          "Diagnóstico do ponto exato onde sua operação perde cliente. Antes de qualquer proposta.",
+          "Em toda operação existe um ponto onde o cliente desiste. Imperius encontra esse ponto.",
       },
       { name: "twitter:image", content: "https://imperius-digital.lovable.app/assets/barbearia-alemao-foto.png" },
     ],
