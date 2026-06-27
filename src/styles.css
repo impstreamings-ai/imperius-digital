@@ -67,22 +67,22 @@
   --secondary: oklch(0.245 0.009 256);
   --secondary-foreground: oklch(0.965 0.004 256);
   --muted: oklch(0.198 0.008 256);
-  --muted-foreground: oklch(0.715 0.010 256);
+  --muted-foreground: oklch(0.748 0.014 248);
   --accent: oklch(0.78 0.045 248);
   --accent-foreground: oklch(0.12 0.01 256);
 
   --destructive: oklch(0.58 0.16 22);
   --destructive-foreground: oklch(0.99 0 0);
 
-  /* Hairlines — quase invisíveis, alta precisão */
-  --border: oklch(1 0 0 / 0.06);
-  --border-strong: oklch(1 0 0 / 0.10);
-  --input: oklch(0.26 0.011 256);
+  /* Hairlines — titânio frio, quase invisíveis, alta precisão */
+  --border: oklch(0.82 0.020 248 / 0.10);
+  --border-strong: oklch(0.86 0.022 248 / 0.16);
+  --input: oklch(0.28 0.012 250);
   --ring: oklch(0.635 0.135 252);
 
   --neon: oklch(0.68 0.12 252);
   --ice: oklch(0.80 0.05 248);
-  --titanium: oklch(0.72 0.008 256);
+  --titanium: oklch(0.755 0.014 248);
 
   /* Superfícies — graphite, baixa saturação */
   --surface-1: oklch(0.148 0.008 256 / 0.72);
