@@ -82,16 +82,19 @@ function Landing() {
   return (
     <div className="min-h-dvh text-foreground font-sans overflow-x-hidden">
       <Nav />
-      <Hero />
-      <Identificacao />
-      <Diagnostico />
-      <Case />
-      <Metodo />
-      <FinalCTA />
+      <main id="conteudo">
+        <Hero />
+        <Identificacao />
+        <Diagnostico />
+        <Case />
+        <Metodo />
+        <FinalCTA />
+      </main>
       <Footer />
     </div>
   );
 }
+
 
 // --- Nav ------------------------------------------------------------------
 function Nav() {
