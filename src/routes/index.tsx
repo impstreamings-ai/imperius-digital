@@ -224,20 +224,21 @@ function Hero() {
 // --- Identificação — cenas reais ------------------------------------------
 function Identificacao() {
   const cenas = [
-    { icon: ClipboardList, t: "Pediu orçamento. Sumiu.", d: "Você mandou. Ele leu. Nunca mais respondeu." },
-    { icon: MessageCircle, t: "Mensagem chegou. Ninguém viu.", d: "Quando alguém abriu, o cliente já tinha desistido." },
-    { icon: Activity, t: "Respondeu rápido. E ele sumiu.", d: "Tudo no tempo. Mesmo assim, silêncio do outro lado." },
-    { icon: Calendar, t: "Marcou horário. Não apareceu.", d: "Sem confirmação. Sem retomada. Cadeira vazia." },
-    { icon: TrendingUp, t: "Veio uma vez. Não voltou.", d: "Ninguém chamou de novo. Ele esqueceu de você." },
+    { icon: ClipboardList, t: "Pediu orçamento. Sumiu.", d: "Leu a mensagem. Nunca respondeu." },
+    { icon: MessageCircle, t: "Mensagem chegou. Ninguém viu.", d: "Quando alguém abriu, já era tarde." },
+    { icon: Activity, t: "Respondeu rápido. Sumiu igual.", d: "Tempo certo. Silêncio do outro lado." },
+    { icon: Calendar, t: "Marcou horário. Não apareceu.", d: "Sem confirmação. Cadeira vazia." },
+    { icon: TrendingUp, t: "Veio uma vez. Não voltou.", d: "Ninguém chamou de novo." },
   ];
 
   return (
     <section id="identificacao" className="relative section-pad">
       <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
         <h2 className="text-h2 text-foreground max-w-2xl text-balance">
-          Provavelmente já aconteceu na sua semana.{" "}
+          Acontece toda semana.{" "}
           <span className="text-foreground/45">Mais de uma vez.</span>
         </h2>
+
 
         <div aria-hidden className="imp-hairline mt-10 sm:mt-14 mb-0" />
         <ul>
