@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
-import { useState, useEffect, type ReactNode } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
@@ -19,73 +19,10 @@ import {
   AlertTriangle,
 } from "lucide-react";
 
-// Marca conceitual recorrente — pequeno losango com halo, usado em nós de fluxo.
-function FlowNode({
-  cx,
-  cy,
-  r = 4,
-  variant = "default",
-}: {
-  cx: number;
-  cy: number;
-  r?: number;
-  variant?: "default" | "stuck" | "exit";
-}) {
-  const fill =
-    variant === "stuck"
-      ? "oklch(0.62 0.21 22 / 1)"
-      : variant === "exit"
-      ? "oklch(0.635 0.135 252 / 1)"
-      : "oklch(0.95 0 0 / 0.65)";
-  const halo =
-    variant === "stuck"
-      ? "oklch(0.62 0.21 22 / 0.18)"
-      : variant === "exit"
-      ? "oklch(0.635 0.135 252 / 0.18)"
-      : "oklch(0.95 0 0 / 0.08)";
-  return (
-    <g>
-      <circle cx={cx} cy={cy} r={r + 5} fill={halo} />
-      <circle cx={cx} cy={cy} r={r} fill={fill} />
-    </g>
-  );
-}
-
 import { trackEvent } from "@/lib/analytics";
 
 const track = (name: string, params: Record<string, unknown> = {}) =>
   trackEvent(name, params);
-
-// --- Sistema --------------------------------------------------------------
-// Rótulo de seção formato `S/01 — DIAGNÓSTICO`. Mono, hairline, sem ornamento.
-function SectionLabel({
-  index,
-  question,
-  children,
-}: {
-  index: string;
-  question?: string;
-  children: ReactNode;
-}) {
-  return (
-    <div className="section-label imp-spine">
-      <span className="section-label-mark">S/{index}</span>
-      <span aria-hidden className="h-px w-6 bg-border" />
-      <span>{children}</span>
-      {question ? (
-        <>
-          <span aria-hidden className="h-px w-4 bg-border/70 hidden sm:inline-block" />
-          <span className="hidden sm:inline text-muted-foreground/55 normal-case tracking-[0.14em]">
-            {question}
-          </span>
-        </>
-      ) : null}
-    </div>
-  );
-}
-
-
-
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -145,46 +82,15 @@ function Landing() {
     <div className="min-h-dvh text-foreground font-sans overflow-x-hidden">
       <Nav />
       <Hero />
-      <SectionTransition to="02" />
-      <Problema />
-      <SectionTransition to="03" tint />
-      <Demonstracoes />
-      <SectionTransition to="04" />
+      <Identificacao />
+      <Diagnostico />
+      <Case />
       <Metodo />
-      <SectionTransition to="05" tint />
-      <Operator />
       <FinalCTA />
       <Footer />
     </div>
   );
 }
-
-// --- Section transition — hairline + numeral discreto. Sem rótulo, sem pergunta.
-// Cada passagem é apenas um silêncio editorial entre capítulos.
-function SectionTransition({
-  to,
-  tint = false,
-}: {
-  to: string;
-  tint?: boolean;
-}) {
-  return (
-    <div
-      aria-hidden
-      className={"relative " + (tint ? "surface-tint" : "")}
-    >
-      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-6 py-8 sm:py-10">
-          <span className="chapter-rail flex-1" />
-          <span className="chapter-mark tabular-nums text-muted-foreground/55">
-            S/{to}
-          </span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 
 // --- Nav ------------------------------------------------------------------
 function Nav() {
@@ -202,21 +108,20 @@ function Nav() {
         <a href="#top" className="flex items-center gap-2.5 min-w-0" onClick={close}>
           <img
             src={"/assets/imperius-logo-official.png"}
-            alt="Imperius Operações Comerciais"
+            alt="Imperius"
             className="h-7 w-auto object-contain shrink-0"
             loading="eager"
             decoding="async"
           />
-          <span className="hidden sm:flex items-baseline gap-2 leading-none min-w-0">
-            <span className="font-heading font-semibold tracking-[0.16em] text-[12.5px]">IMPERIUS</span>
-            <span className="text-mono text-[9.5px] text-muted-foreground/70 tracking-[0.18em]">/ 01</span>
+          <span className="hidden sm:inline font-heading font-semibold tracking-[0.16em] text-[12.5px] leading-none">
+            IMPERIUS
           </span>
         </a>
 
         <nav className="hidden md:flex items-center gap-8 text-[12.5px] text-muted-foreground font-medium">
+          <a href="#identificacao" className="hover:text-foreground transition-colors">Sintomas</a>
+          <a href="#caso" className="hover:text-foreground transition-colors">Caso</a>
           <a href="#metodo" className="hover:text-foreground transition-colors">Método</a>
-          <a href="#vitrine" className="hover:text-foreground transition-colors">Caso</a>
-          <a href="#operator" className="hover:text-foreground transition-colors">Operator</a>
           <Link to="/portfolio" className="hover:text-foreground transition-colors">Portfólio</Link>
         </nav>
 
@@ -249,9 +154,9 @@ function Nav() {
       {open ? (
         <div className="md:hidden border-t border-border/60 bg-background/95 backdrop-blur-xl">
           <nav className="mx-auto max-w-7xl px-4 sm:px-6 py-3 flex flex-col text-[14px] text-muted-foreground font-medium">
+            <a href="#identificacao" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Sintomas</a>
+            <a href="#caso" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Caso</a>
             <a href="#metodo" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Método</a>
-            <a href="#vitrine" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Caso</a>
-            <a href="#operator" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Operator</a>
             <Link to="/portfolio" onClick={close} className="py-2.5 hover:text-foreground transition-colors">Portfólio</Link>
           </nav>
         </div>
@@ -260,274 +165,87 @@ function Nav() {
   );
 }
 
-// --- Hero — abertura de produto, painel único: texto + fluxo na mesma composição
+// --- Hero — silêncio editorial. Tipografia. Espaço. Próximo passo. --------
 function Hero() {
   return (
     <section
       id="top"
-      className="relative pt-20 pb-14 sm:pt-24 sm:pb-20 lg:pt-28 lg:pb-24 overflow-hidden"
+      className="relative min-h-[88vh] flex items-center pt-28 pb-20 sm:pt-32 sm:pb-28 overflow-hidden"
       style={{
         background: "var(--gradient-hero)",
         paddingLeft: "max(0px, env(safe-area-inset-left))",
         paddingRight: "max(0px, env(safe-area-inset-right))",
       }}
     >
-      <div className="absolute inset-0 bg-grid pointer-events-none opacity-[0.05]" aria-hidden />
       <div
         aria-hidden
-        className="absolute inset-x-0 top-0 h-[55%] pointer-events-none"
+        className="absolute inset-x-0 top-0 h-[60%] pointer-events-none"
         style={{
           background:
-            "radial-gradient(58% 65% at 50% 0%, oklch(0.42 0.09 252 / 0.10), transparent 68%)",
+            "radial-gradient(55% 60% at 50% 0%, oklch(0.42 0.09 252 / 0.08), transparent 70%)",
         }}
       />
 
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        {/* Eyebrow institucional — silêncio à direita, foco no rótulo. */}
-        <div className="mb-8 sm:mb-10">
-          <SectionLabel index="01">Operações comerciais</SectionLabel>
-        </div>
+      <div className="relative mx-auto max-w-5xl w-full px-5 sm:px-6 lg:px-8 text-center">
+        <h1 className="text-display-mega text-foreground mx-auto max-w-[20ch]">
+          Seu cliente quer comprar.{" "}
+          <span className="text-foreground/45">Mas não chega até a venda.</span>
+        </h1>
 
+        <p className="mt-8 sm:mt-10 text-lede max-w-xl mx-auto">
+          Mostramos onde ele trava — antes que desista.
+        </p>
 
-        {/* Painel-produto único — texto e fluxo coabitam a mesma superfície */}
-        <div className="surface-raised rounded-[var(--radius-card)] overflow-hidden">
-          {/* Product chrome — barra técnica superior */}
-          <div className="product-chrome">
-            <span className="product-chrome-dot" aria-hidden />
-            <span>LIVE</span>
-            <span aria-hidden className="h-3 w-px bg-border" />
-            <span className="hidden sm:inline">S/01 · sinal</span>
-            <span className="ml-auto tabular-nums">2026.11</span>
-          </div>
-
-          <div className="grid lg:grid-cols-12 items-stretch">
-            {/* Texto editorial — ocupa 7 col, com padding generoso */}
-            <div className="lg:col-span-7 px-6 sm:px-9 lg:px-12 pt-10 sm:pt-14 lg:pt-16 pb-10 lg:pb-14 relative">
-              <h1 className="text-display-mega text-foreground">
-                Seu cliente
-                <br />
-                quer comprar.
-                <br />
-                <span className="text-foreground/45">Mas não chega até a venda.</span>
-              </h1>
-
-              <p className="mt-7 sm:mt-8 max-w-lg text-lede">
-                Mostramos onde ele trava — antes que desista.
-              </p>
-
-              <div className="mt-9 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-5">
-                <a
-                  href={WA}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-full sm:w-auto"
-                  onClick={() => track("hero_cta_click", { destination: "whatsapp" })}
-                >
-                  <Button
-                    size="lg"
-                    className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-7 text-[13.5px] cta-shadow"
-                  >
-                    Diagnóstico gratuito{" "}
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                  </Button>
-                </a>
-                <span className="text-micro-tight">
-                  20 min · sem proposta
-                </span>
-              </div>
-            </div>
-
-            {/* Fluxo conceitual — superfície recessada, mesma moldura do texto */}
-            <div className="lg:col-span-5 surface-recessed border-t lg:border-t-0 lg:border-l border-border px-6 sm:px-9 lg:px-8 py-10 lg:py-12 flex flex-col justify-center">
-              <div className="text-micro-tight mb-5 flex items-center gap-2">
-                <span aria-hidden className="h-px w-6 bg-border-strong" />
-                <span>sinal · jornada do cliente</span>
-              </div>
-              <HeroFlow />
-            </div>
-          </div>
-
-          {/* Status strip inferior */}
-          <div className="product-chrome border-t border-b-0 justify-between">
-            <span>interesse → atrito → desistência</span>
-            <span className="tabular-nums">↓ S/02</span>
-          </div>
-
+        <div className="mt-12 sm:mt-14 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-5">
+          <a
+            href={WA}
+            target="_blank"
+            rel="noreferrer"
+            className="w-full sm:w-auto"
+            onClick={() => track("hero_cta_click", { destination: "whatsapp" })}
+          >
+            <Button
+              size="lg"
+              className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[13.5px] cta-shadow"
+            >
+              Diagnóstico gratuito{" "}
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Button>
+          </a>
+          <span className="text-micro-tight">20 min · sem proposta</span>
         </div>
       </div>
     </section>
   );
 }
 
-
-// Hero — não é interface, é a ideia. Dois caminhos:
-// 1) antes  — sinuoso, com bloqueio. Cliente desiste.
-// 2) depois — reto, curto, direto à venda.
-function HeroFlow() {
-  const W = 560;
-  const H = 360;
-  return (
-    <figure
-      aria-label="Caminho do cliente: antes e depois da Imperius"
-      className="relative"
-    >
-      {/* moldura mínima — apenas tipografia técnica nas bordas */}
-      <div className="flex items-center justify-between text-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground/55 mb-4">
-        <span>interesse</span>
-        <span>venda</span>
-      </div>
-
-      <svg
-        viewBox={`0 0 ${W} ${H}`}
-        className="w-full h-auto"
-        role="img"
-      >
-        <defs>
-          <linearGradient id="rail-before" x1="0" x2="1" y1="0" y2="0">
-            <stop offset="0%" stopColor="oklch(0.95 0 0 / 0.35)" />
-            <stop offset="55%" stopColor="oklch(0.95 0 0 / 0.35)" />
-            <stop offset="56%" stopColor="oklch(0.62 0.21 22 / 0.85)" />
-            <stop offset="100%" stopColor="oklch(0.62 0.21 22 / 0)" />
-          </linearGradient>
-          <linearGradient id="rail-after" x1="0" x2="1" y1="0" y2="0">
-            <stop offset="0%" stopColor="oklch(0.635 0.135 252 / 0.45)" />
-            <stop offset="100%" stopColor="oklch(0.635 0.135 252 / 1)" />
-          </linearGradient>
-        </defs>
-
-        {/* ────── ANTES: caminho longo, sinuoso, interrompido ────── */}
-        <g>
-          <text x="0" y="34" className="text-mono" fill="oklch(0.95 0 0 / 0.35)" fontSize="9" letterSpacing="2">
-            AGORA
-          </text>
-          {/* curva winding */}
-          <path
-            d="M 10 80 C 80 40, 130 130, 200 90 S 320 50, 360 120"
-            fill="none"
-            stroke="url(#rail-before)"
-            strokeWidth="1.25"
-            strokeDasharray="0"
-          />
-          {/* nós ao longo da curva */}
-          <FlowNode cx={10} cy={80} />
-          <FlowNode cx={95} cy={70} />
-          <FlowNode cx={170} cy={105} />
-          <FlowNode cx={240} cy={78} />
-          <FlowNode cx={310} cy={92} />
-          {/* gargalo — pulso radial + cruz com leve tremor */}
-          <g>
-            {/* halo pulsante */}
-            <circle cx={360} cy={120} r={9} fill="oklch(0.62 0.21 22 / 0.35)" className="flow-stuck-pulse" />
-            <FlowNode cx={360} cy={120} variant="stuck" r={5} />
-            <g className="flow-stuck-jitter">
-              <line x1={350} y1={110} x2={370} y2={130} stroke="oklch(0.62 0.21 22 / 0.9)" strokeWidth="1.25" />
-              <line x1={370} y1={110} x2={350} y2={130} stroke="oklch(0.62 0.21 22 / 0.9)" strokeWidth="1.25" />
-            </g>
-            <text x={385} y={124} className="text-mono" fill="oklch(0.62 0.21 22 / 0.95)" fontSize="9" letterSpacing="1.5">
-              GARGALO
-            </text>
-          </g>
-          {/* trecho desaparecendo após o gargalo */}
-          <path
-            d="M 380 138 C 430 170, 480 180, 540 175"
-            fill="none"
-            stroke="oklch(0.95 0 0 / 0.16)"
-            strokeWidth="1"
-            strokeDasharray="2 4"
-          />
-          <text x={448} y={196} className="text-mono" fill="oklch(0.95 0 0 / 0.35)" fontSize="9" letterSpacing="1.5">
-            cliente desiste
-          </text>
-        </g>
-
-        {/* ────── intervenção Imperius ────── */}
-        <g>
-          <line x1={40} y1={228} x2={520} y2={228} stroke="oklch(0.95 0 0 / 0.08)" strokeWidth="1" />
-          <text x={40} y={222} className="text-mono" fill="oklch(0.635 0.135 252 / 0.85)" fontSize="9" letterSpacing="2">
-            ↓  IMPERIUS  REDUZ  O  CAMINHO
-          </text>
-        </g>
-
-        {/* ────── DEPOIS: linha reta, curta, direta à venda ────── */}
-        <g transform="translate(0, 56)">
-          <text x="0" y="234" className="text-mono" fill="oklch(0.635 0.135 252 / 0.9)" fontSize="9" letterSpacing="2">
-            COM IMPERIUS
-          </text>
-          <line
-            x1={10}
-            y1={278}
-            x2={540}
-            y2={278}
-            stroke="url(#rail-after)"
-            strokeWidth="1.5"
-          />
-          <FlowNode cx={10} cy={278} />
-          <FlowNode cx={185} cy={278} />
-          <FlowNode cx={360} cy={278} />
-          <FlowNode cx={540} cy={278} variant="exit" r={5.5} />
-          {/* partícula deslizando ao longo do trilho — venda fluindo */}
-          <circle
-            r={3.5}
-            fill="oklch(0.635 0.135 252 / 1)"
-            className="flow-particle"
-            style={{ offsetPath: "path('M 10 278 L 540 278')" } as React.CSSProperties}
-          />
-          <text x={520} y={300} className="text-mono" fill="oklch(0.635 0.135 252 / 0.95)" fontSize="9" letterSpacing="1.5" textAnchor="end">
-            VENDA
-          </text>
-        </g>
-      </svg>
-    </figure>
-  );
-}
-
-
-
-
-// --- Problema — lista editorial densa, hairline rows ----------------------
-function Problema() {
-  const dores = [
-    { icon: Calendar, t: "Pediu horário e sumiu", d: "Ninguém retomou." },
-    { icon: ClipboardList, t: "Travou no meio", d: "Começou e abandonou." },
-    { icon: MessageCircle, t: "Mensagem sem resposta", d: "Quando viram, já era." },
-    { icon: Activity, t: "Respondeu rápido e sumiu", d: "Mandou orçamento. Silêncio." },
-    { icon: TrendingUp, t: "Não voltou mais", d: "Pediu uma vez. Ninguém chamou." },
-
+// --- Identificação — cenas reais ------------------------------------------
+function Identificacao() {
+  const cenas = [
+    { icon: ClipboardList, t: "Pediu orçamento. Sumiu.", d: "Você mandou. Ele leu. Nunca mais respondeu." },
+    { icon: MessageCircle, t: "Mensagem chegou. Ninguém viu.", d: "Quando alguém abriu, o cliente já tinha desistido." },
+    { icon: Activity, t: "Respondeu rápido. E ele sumiu.", d: "Tudo no tempo. Mesmo assim, silêncio do outro lado." },
+    { icon: Calendar, t: "Marcou horário. Não apareceu.", d: "Sem confirmação. Sem retomada. Cadeira vazia." },
+    { icon: TrendingUp, t: "Veio uma vez. Não voltou.", d: "Ninguém chamou de novo. Ele esqueceu de você." },
   ];
 
   return (
-    <section className="relative pt-6 pb-14 sm:pt-8 sm:pb-20">
-      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        {/* Abertura invertida: a lista chega antes da retórica. A pergunta vira coda. */}
-        <div className="grid lg:grid-cols-12 gap-x-12 gap-y-8 items-end mb-8 sm:mb-10">
-          <div className="lg:col-span-2 order-2 lg:order-1">
-            <SectionLabel index="02">Sintomas</SectionLabel>
-          </div>
-          <h2 className="lg:col-span-10 order-1 lg:order-2 text-h2 text-foreground">
-            Cinco cenas{" "}
-            <span className="text-foreground/45">que se repetem toda semana.</span>
-          </h2>
-        </div>
+    <section id="identificacao" className="relative py-24 sm:py-32">
+      <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
+        <h2 className="text-h2 text-foreground max-w-2xl">
+          Provavelmente já aconteceu na sua semana.{" "}
+          <span className="text-foreground/45">Mais de uma vez.</span>
+        </h2>
 
-        <div aria-hidden className="imp-hairline mb-0" />
+        <div aria-hidden className="imp-hairline mt-12 mb-0" />
         <ul>
-
-          {dores.map((d, i) => (
-            <li key={d.t} className="row-editorial group">
-              <span className="text-mono text-[11px] tracking-[0.18em] text-muted-foreground/55 pt-1">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div className="min-w-0 grid sm:grid-cols-[1fr_minmax(0,1.1fr)] gap-2 sm:gap-8 items-baseline">
-                <h3 className="text-card-title flex items-center gap-3">
-                  <d.icon className="h-[15px] w-[15px] text-muted-foreground/60 shrink-0" aria-hidden />
-                  <span className="truncate">{d.t}</span>
-                </h3>
-                <p className="text-card-body">{d.d}</p>
+          {cenas.map((c) => (
+            <li key={c.t} className="row-editorial">
+              <c.icon className="h-[15px] w-[15px] text-muted-foreground/55 shrink-0 mt-1.5" aria-hidden />
+              <div className="min-w-0 grid sm:grid-cols-[1fr_minmax(0,1.2fr)] gap-1 sm:gap-10 items-baseline">
+                <h3 className="text-card-title">{c.t}</h3>
+                <p className="text-card-body">{c.d}</p>
               </div>
-              <ArrowRight
-                className="h-3.5 w-3.5 text-muted-foreground/35 transition-all duration-300 group-hover:text-primary group-hover:translate-x-1 mt-2"
-                aria-hidden
-              />
             </li>
           ))}
         </ul>
@@ -536,44 +254,47 @@ function Problema() {
   );
 }
 
-// --- Demonstracoes — showcase cinematográfico (imagem dominante) ---------
-function Demonstracoes() {
-  const problemas = [
+// --- Diagnóstico — bridge narrativo ---------------------------------------
+function Diagnostico() {
+  return (
+    <section className="relative py-24 sm:py-32 surface-tint">
+      <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8 text-center">
+        <p className="text-display-xl text-foreground leading-[1.05]">
+          A maioria troca de sistema, contrata agência ou anuncia mais.
+        </p>
+        <p className="mt-8 text-display-xl text-foreground/55 leading-[1.05]">
+          Nós começamos pelo ponto exato onde o cliente desiste.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+// --- Case — Barbearia do Alemão. Imagem dominante. ------------------------
+function Case() {
+  const antes = [
     "Informações espalhadas",
     "Muitas etapas até o contato",
-    "Ausência de página própria",
+    "Sem página própria",
   ];
-  const solucoes = [
-    "Página centralizada",
-    "Contato simplificado",
-    "Acesso rápido ao negócio",
+  const depois = [
+    "Tudo em um único lugar",
+    "Contato em um toque",
+    "Cliente decide na hora",
   ];
 
   return (
-    <section id="vitrine" className="relative pt-4 pb-20 sm:pt-6 sm:pb-28 surface-tint">
-      <span aria-hidden className="chapter-numeral absolute top-2 right-4 sm:right-8 hidden md:block">03</span>
+    <section id="caso" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4 mb-10">
-          <SectionLabel index="03" question="como sabemos">Caso validado</SectionLabel>
-          <span className="hidden sm:inline-flex imp-chip">
-            <span className="imp-mark imp-mark-primary animate-pulse-glow" />
-            <span>ativo · sorocaba</span>
-          </span>
-
-        </div>
-
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Imagem dominante, sem moldura de card */}
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <a
             href={CLIENTE_REAL_URL}
             target="_blank"
             rel="noreferrer"
             onClick={() => track("client_proof_click", { project: "barbearia_do_alemao" })}
-            className="lg:col-span-7 group block relative tech-frame"
+            className="lg:col-span-7 group block relative"
           >
-            <span className="tech-frame__bl" />
-            <span className="tech-frame__br" />
-            <div className="relative overflow-hidden bg-popover/60 border border-border">
+            <div className="relative overflow-hidden bg-popover/60 border border-border rounded-[var(--radius-card)]">
               <img
                 src={CLIENTE_REAL_COVER}
                 alt="Barbearia do Alemão — projeto real desenvolvido pela Imperius"
@@ -582,76 +303,52 @@ function Demonstracoes() {
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
-                className="block w-full h-[320px] sm:h-[420px] lg:h-[540px] object-cover object-center transition-transform duration-700 group-hover:scale-[1.015]"
+                className="block w-full h-[360px] sm:h-[480px] lg:h-[620px] object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
               />
-              <div className="absolute top-3 left-3 imp-chip bg-background/85 backdrop-blur-md text-foreground/85">
-                <span className="imp-mark imp-mark-primary animate-pulse-glow" />
-                <span>cliente ativo</span>
-              </div>
-
-              <div className="absolute bottom-3 right-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/95 text-primary-foreground text-[12px] font-semibold transition-transform group-hover:-translate-y-0.5">
+              <div className="absolute bottom-4 right-4 inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-primary/95 text-primary-foreground text-[12px] font-semibold transition-transform group-hover:-translate-y-0.5">
                 Abrir projeto <ExternalLink className="h-3.5 w-3.5" />
               </div>
             </div>
           </a>
 
-          {/* Narrativa lateral — sem card aninhado, hairlines */}
-          <div className="lg:col-span-5 lg:pt-2">
-            <h2 className="text-h2 text-foreground">
-              Barbearia do Alemão
-            </h2>
-            <div className="text-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground/75 mt-2">
-              Sorocaba/SP · projeto entregue
-            </div>
-
-            <p className="mt-5 text-card-body">
+          <div className="lg:col-span-5">
+            <p className="text-mono text-[10.5px] uppercase tracking-[0.22em] text-muted-foreground/70 mb-3">
+              Cliente real · Sorocaba/SP
+            </p>
+            <h2 className="text-h2 text-foreground">Barbearia do Alemão</h2>
+            <p className="mt-4 text-lede">
               Menos passos entre o cliente e o agendamento.
             </p>
 
-
-            <div className="mt-8 border-t border-border">
-              <div className="py-5 border-b border-border">
-                <div className="flex items-center gap-2 text-mono text-[10px] uppercase tracking-[0.22em] font-semibold text-muted-foreground/85">
+            <div className="mt-10 grid grid-cols-2 gap-6 sm:gap-8">
+              <div>
+                <div className="flex items-center gap-2 text-mono text-[10px] uppercase tracking-[0.22em] font-semibold text-muted-foreground/85 mb-3">
                   <AlertTriangle className="h-3.5 w-3.5 text-destructive/80" />
                   Antes
                 </div>
-                <ul className="mt-3 space-y-1.5">
-                  {problemas.map((p) => (
-                    <li key={p} className="flex items-start gap-2.5 text-card-body">
+                <ul className="space-y-2">
+                  {antes.map((p) => (
+                    <li key={p} className="flex items-start gap-2 text-card-body">
                       <span className="mt-[7px] h-1 w-1 rounded-full bg-destructive/70 shrink-0" aria-hidden />
                       <span>{p}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-
-              <div className="py-5 border-b border-border">
-                <div className="flex items-center gap-2 text-mono text-[10px] uppercase tracking-[0.22em] font-semibold text-primary">
+              <div>
+                <div className="flex items-center gap-2 text-mono text-[10px] uppercase tracking-[0.22em] font-semibold text-primary mb-3">
                   <CheckCircle2 className="h-3.5 w-3.5" />
                   Depois
                 </div>
-                <ul className="mt-3 space-y-1.5">
-                  {solucoes.map((s) => (
-                    <li key={s} className="flex items-start gap-2.5 text-card-body text-foreground">
-                      <CheckCircle2 className="h-[15px] w-[15px] text-primary mt-[2px] shrink-0" aria-hidden />
+                <ul className="space-y-2">
+                  {depois.map((s) => (
+                    <li key={s} className="flex items-start gap-2 text-card-body text-foreground">
+                      <CheckCircle2 className="h-[14px] w-[14px] text-primary mt-[3px] shrink-0" aria-hidden />
                       <span>{s}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-
-              <div className="py-5">
-                <div className="text-mono text-[10px] uppercase tracking-[0.22em] font-semibold text-foreground/85 mb-2">
-                  Resultado
-                </div>
-                <p className="text-card-body text-foreground/90">
-                  Tudo num lugar. Contato em um toque.
-                </p>
-                <div className="mt-4 text-mono text-[10.5px] uppercase tracking-[0.2em] text-muted-foreground/70 truncate">
-                  ↗ barbeariadoalemao.lovable.app
-                </div>
-              </div>
-
             </div>
           </div>
         </div>
@@ -660,7 +357,7 @@ function Demonstracoes() {
   );
 }
 
-// --- Método — timeline ----------------------------------------------------
+// --- Método — cinco passos, consequência do diagnóstico --------------------
 function Metodo() {
   const pilares = [
     { n: "01", t: "Achar o gargalo", d: "Onde o cliente trava." },
@@ -671,380 +368,111 @@ function Metodo() {
   ];
 
   return (
-    <section id="metodo" className="relative pt-6 pb-20 sm:pt-10 sm:pb-24">
-      <span aria-hidden className="chapter-numeral absolute top-4 left-4 sm:left-8 hidden md:block">04</span>
+    <section id="metodo" className="relative py-24 sm:py-32 surface-tint">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        {/* Header invertido: descrição à esquerda, título à direita — quebra a previsibilidade */}
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-14 sm:mb-20">
-          <div className="lg:col-span-5 order-2 lg:order-1 self-end">
-            <SectionLabel index="04" question="como resolvemos">Método</SectionLabel>
-            <p className="text-card-body max-w-md mt-5">
-              Sem pular etapa. Sem proposta antes da hora.
-            </p>
-          </div>
-          <div className="lg:col-span-6 lg:col-start-7 order-1 lg:order-2 lg:text-right">
-            <h2 className="text-h2 text-foreground">
-              Cinco passos.{" "}
-              <span className="text-foreground/50">Nessa ordem.</span>
-            </h2>
-          </div>
+        <div className="max-w-2xl mb-16 sm:mb-20">
+          <h2 className="text-h2 text-foreground">
+            Cinco passos.{" "}
+            <span className="text-foreground/45">Nessa ordem.</span>
+          </h2>
+          <p className="mt-5 text-card-body">
+            Sem pular etapa. Sem proposta antes da hora.
+          </p>
         </div>
 
-
-        {/* Timeline editorial vertical com rail central — distintivo das demais seções */}
-        <ol className="relative">
-          {/* Rail central (desktop) / esquerdo (mobile) */}
-          <span
-            aria-hidden
-            className="absolute top-2 bottom-2 left-4 lg:left-1/2 w-px bg-border-strong"
-            style={{ background: "var(--color-border-strong)" }}
-          />
-          {pilares.map((p, i) => {
-            const isOdd = i % 2 === 1;
-            return (
-              <li key={p.n} className="relative pl-12 lg:pl-0 pb-10 sm:pb-14 last:pb-0">
-                {/* Nó central */}
-                <span
-                  aria-hidden
-                  className="absolute top-3 left-[11px] lg:left-1/2 lg:-translate-x-1/2 h-2.5 w-2.5 rounded-full bg-background"
-                  style={{ boxShadow: "0 0 0 1px var(--color-border-strong), 0 0 0 4px var(--background)" }}
-                />
-                <div
-                  className={
-                    "lg:grid lg:grid-cols-2 lg:gap-16 " +
-                    (isOdd ? "" : "")
-                  }
-                >
-                  <div
-                    className={
-                      "lg:flex " +
-                      (isOdd ? "lg:col-start-2 lg:justify-start" : "lg:col-start-1 lg:justify-end lg:text-right")
-                    }
-                  >
-                    <div className="max-w-sm">
-                      <div className={"flex items-baseline gap-3 mb-2.5 " + (isOdd ? "lg:justify-start" : "lg:justify-end")}>
-                        <span className="text-mono text-[44px] sm:text-[56px] leading-none tracking-[-0.05em] text-foreground/90 font-semibold tabular-nums">
-                          {p.n}
-                        </span>
-                        {i === pilares.length - 1 ? (
-                          <span className="text-mono text-[9.5px] tracking-[0.22em] uppercase text-primary/85">
-                            fim
-                          </span>
-                        ) : (
-                          <span className="text-mono text-[9.5px] tracking-[0.22em] uppercase text-muted-foreground/55">
-                            etapa
-                          </span>
-                        )}
-                      </div>
-                      <h3 className="text-card-title text-[17px]">{p.t}</h3>
-                      <p className="mt-2 text-card-body">{p.d}</p>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            );
-          })}
+        <ol className="grid sm:grid-cols-2 lg:grid-cols-5 gap-px bg-border-strong border border-border-strong rounded-[var(--radius-card)] overflow-hidden">
+          {pilares.map((p) => (
+            <li
+              key={p.n}
+              className="bg-background p-7 sm:p-8 flex flex-col gap-4"
+            >
+              <span className="text-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground/65 tabular-nums">
+                {p.n}
+              </span>
+              <h3 className="text-card-title text-[17px] leading-tight">{p.t}</h3>
+              <p className="text-card-body mt-auto">{p.d}</p>
+            </li>
+          ))}
         </ol>
       </div>
     </section>
   );
 }
 
-
-
-// --- Operator — representação conceitual de recuperação de oportunidade ---
-// Não é um painel. Não é uma fila. É a ideia: um cliente trava no caminho,
-// a Imperius reabre a rota e a oportunidade volta a se mover até a venda.
-function Operator() {
-  return (
-    <section id="operator" className="relative pt-4 pb-20 sm:pt-6 sm:pb-24 surface-tint">
-      <span aria-hidden className="chapter-numeral absolute top-2 right-4 sm:right-8 hidden md:block">05</span>
-      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        {/* Abertura mínima: uma única linha tipográfica, sem lede. O painel fala. */}
-        <div className="flex items-end justify-between gap-6 mb-8 sm:mb-10">
-          <h2 className="text-h2 text-foreground max-w-2xl">
-            O cliente travou.{" "}
-            <span className="text-foreground/45">Reabrimos o caminho.</span>
-          </h2>
-          <SectionLabel index="05">Operator</SectionLabel>
-        </div>
-
-
-        {/* Painel-produto: o Operator deixa de ser ilustração e vira demonstração viva */}
-        <div className="surface-raised rounded-[var(--radius-card)] overflow-hidden">
-          <div className="product-chrome">
-            <span className="product-chrome-dot" aria-hidden />
-            <span>MONITORANDO</span>
-            <span aria-hidden className="h-3 w-px bg-border" />
-            <span className="hidden sm:inline operator-sync">sync · agora</span>
-            <span className="ml-auto tabular-nums">S/05</span>
-          </div>
-
-          <div className="px-3 sm:px-6 lg:px-8 py-8 sm:py-10">
-            <RecoveryFlow />
-          </div>
-
-          <div className="product-chrome justify-between" style={{ borderBottom: 0, borderTop: "1px solid var(--color-border)" }}>
-            <span>parado → intervenção → fechado</span>
-            <span className="tabular-nums">↓ S/06</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-
-// Diagrama: três estágios sequenciais. A meio caminho a oportunidade trava.
-// Uma rota auxiliar (Imperius) desvia o nó parado de volta ao fluxo principal.
-function RecoveryFlow() {
-  const W = 980;
-  const H = 360;
-  // pontos chave do trilho principal
-  const Y = 170;
-  const stops = [
-    { x: 70, label: "contato" },
-    { x: 290, label: "interesse" },
-    { x: 510, label: "parado", stuck: true },
-    { x: 730, label: "retomada" },
-    { x: 910, label: "fechado", exit: true },
-  ];
-
-  return (
-    <figure aria-label="Recuperação de oportunidade: caminho que volta a fluir" className="relative">
-      <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img">
-        <defs>
-          <linearGradient id="op-main" x1="0" x2="1" y1="0" y2="0">
-            <stop offset="0%" stopColor="oklch(0.95 0 0 / 0.35)" />
-            <stop offset="50%" stopColor="oklch(0.95 0 0 / 0.35)" />
-            <stop offset="51%" stopColor="oklch(0.62 0.21 22 / 0.7)" />
-            <stop offset="74%" stopColor="oklch(0.62 0.21 22 / 0.35)" />
-            <stop offset="75%" stopColor="oklch(0.635 0.135 252 / 0.55)" />
-            <stop offset="100%" stopColor="oklch(0.635 0.135 252 / 1)" />
-          </linearGradient>
-          <linearGradient id="op-detour" x1="0" x2="1" y1="0" y2="0">
-            <stop offset="0%" stopColor="oklch(0.635 0.135 252 / 0)" />
-            <stop offset="30%" stopColor="oklch(0.635 0.135 252 / 0.95)" />
-            <stop offset="100%" stopColor="oklch(0.635 0.135 252 / 0.95)" />
-          </linearGradient>
-        </defs>
-
-        {/* eixos editoriais — somente referência sutil */}
-        <line x1={40} y1={H - 24} x2={W - 40} y2={H - 24} stroke="oklch(0.95 0 0 / 0.05)" strokeWidth="1" />
-        <text x={40} y={H - 8} className="text-mono" fill="oklch(0.95 0 0 / 0.3)" fontSize="9" letterSpacing="2">
-          TEMPO  →
-        </text>
-
-        {/* Trilho principal */}
-        <line x1={stops[0].x} y1={Y} x2={stops[stops.length - 1].x} y2={Y} stroke="url(#op-main)" strokeWidth="1.5" />
-
-        {/* Desvio da Imperius: o arco se desenha, a etiqueta sobe junto. */}
-        <g>
-          <path
-            d={`M ${stops[2].x} ${Y} C ${stops[2].x + 40} ${Y - 110}, ${stops[3].x - 40} ${Y - 110}, ${stops[3].x} ${Y}`}
-            fill="none"
-            stroke="url(#op-detour)"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            className="flow-detour"
-          />
-          {/* seta no fim do arco — entra junto com a etiqueta */}
-          <g className="flow-label">
-            <path
-              d={`M ${stops[3].x - 8} ${Y - 8} L ${stops[3].x} ${Y} L ${stops[3].x - 10} ${Y + 2}`}
-              fill="none"
-              stroke="oklch(0.635 0.135 252 / 0.95)"
-              strokeWidth="1.5"
-              strokeLinejoin="round"
-            />
-            <g transform={`translate(${(stops[2].x + stops[3].x) / 2}, ${Y - 96})`}>
-              <text textAnchor="middle" className="text-mono" fill="oklch(0.635 0.135 252 / 0.95)" fontSize="10" letterSpacing="2.5">
-                IMPERIUS · intervenção
-              </text>
-              <text y={16} textAnchor="middle" className="text-mono" fill="oklch(0.95 0 0 / 0.45)" fontSize="9" letterSpacing="1.5">
-                alguém é avisado. a oportunidade volta a andar.
-              </text>
-            </g>
-          </g>
-        </g>
-
-        {/* nós + rótulos do trilho */}
-        {stops.map((s, i) => {
-          const variant: "default" | "stuck" | "exit" = s.stuck ? "stuck" : s.exit ? "exit" : "default";
-          return (
-            <g key={s.label}>
-              {s.stuck ? (
-                <circle cx={s.x} cy={Y} r={10} fill="oklch(0.62 0.21 22 / 0.35)" className="flow-stuck-pulse" />
-              ) : null}
-              <FlowNode cx={s.x} cy={Y} variant={variant} r={s.exit ? 6 : s.stuck ? 5.5 : 4} />
-              <text
-                x={s.x}
-                y={Y + 34}
-                textAnchor="middle"
-                className="text-mono"
-                fill={
-                  s.stuck
-                    ? "oklch(0.62 0.21 22 / 0.95)"
-                    : s.exit
-                    ? "oklch(0.635 0.135 252 / 0.95)"
-                    : "oklch(0.95 0 0 / 0.55)"
-                }
-                fontSize="10"
-                letterSpacing="2"
-              >
-                {String(i + 1).padStart(2, "0")} · {s.label.toUpperCase()}
-              </text>
-            </g>
-          );
-        })}
-
-        {/* indicador "parado há tempo demais" — apenas conceitual, sem KPI */}
-        <g transform={`translate(${stops[2].x}, ${Y + 70})`}>
-          <line x1={0} y1={-6} x2={0} y2={6} stroke="oklch(0.62 0.21 22 / 0.6)" strokeWidth="1" />
-          <text textAnchor="middle" y={22} className="text-mono" fill="oklch(0.62 0.21 22 / 0.85)" fontSize="9" letterSpacing="1.5">
-            limite ultrapassado
-          </text>
-        </g>
-
-        {/* assinatura técnica nas margens */}
-        <text x={40} y={36} className="text-mono" fill="oklch(0.95 0 0 / 0.35)" fontSize="9" letterSpacing="2.5">
-          OPERAÇÃO · FLUXO COMERCIAL
-        </text>
-        <text x={W - 40} y={36} textAnchor="end" className="text-mono" fill="oklch(0.95 0 0 / 0.35)" fontSize="9" letterSpacing="2">
-          S/05
-        </text>
-      </svg>
-    </figure>
-  );
-}
-
-
-// --- Final CTA — tipografia de presença -----------------------------------
+// --- Final CTA — finaliza a história, não repete. -------------------------
 function FinalCTA() {
-  const passos = [
-    { n: "01", t: "Conversa de 20 min", d: "Você descreve a operação." },
-    { n: "02", t: "Diagnóstico em tela", d: "Mostramos o gargalo — com você junto." },
-    { n: "03", t: "Próximo passo", d: "Decidir juntos o que vem a seguir." },
-  ];
   return (
-    <section className="relative pt-14 pb-24 sm:pt-20 sm:pb-32 overflow-hidden">
-      <span aria-hidden className="chapter-numeral absolute top-6 left-4 sm:left-8 hidden md:block">06</span>
-      <div className="absolute inset-0 bg-grid opacity-[0.06] pointer-events-none" aria-hidden />
-      <div className="relative mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-          <div className="lg:col-span-7">
-            {/* Encerramento sem rótulo — a tipografia abre, não um chip. */}
-            <h2 className="text-display-xl text-foreground">
-              Comece pelo{" "}
-              <span className="text-foreground/45">diagnóstico.</span>
-            </h2>
-            <p className="mt-7 text-lede max-w-lg">
-              Conversa curta. Sem compromisso.
-            </p>
+    <section className="relative py-28 sm:py-36 overflow-hidden">
+      <div className="absolute inset-0 bg-grid opacity-[0.05] pointer-events-none" aria-hidden />
+      <div className="relative mx-auto max-w-3xl px-5 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-display-xl text-foreground">
+          Agora você sabe onde provavelmente está perdendo clientes.
+        </h2>
+        <p className="mt-8 text-lede text-foreground/55">
+          O próximo passo é descobrir onde isso acontece na sua operação.
+        </p>
 
-
-
-
-            <div className="mt-9 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
-              <a
-                href={WA}
-                target="_blank"
-                rel="noreferrer"
-                className="w-full sm:w-auto"
-                onClick={() => {
-                  track("final_cta_click", { destination: "whatsapp" });
-                  track("whatsapp_click", { location: "final_cta" });
-                }}
-              >
-                <Button
-                  size="lg"
-                  className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[14px] cta-shadow"
-                >
-                  Iniciar diagnóstico{" "}
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </Button>
-              </a>
-              <a
-                href={PROPOSAL_MAILTO}
-                className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2 justify-center sm:justify-start"
-                onClick={() => track("final_cta_click", { destination: "email" })}
-              >
-                <Mail className="h-4 w-4" /> Por e-mail
-              </a>
-            </div>
-          </div>
-
-          {/* O que acontece depois — painel-produto, três passos */}
-          <div className="lg:col-span-5">
-            <div className="surface-raised rounded-[var(--radius-card)] overflow-hidden">
-              <div className="product-chrome">
-                <span className="product-chrome-dot" aria-hidden />
-                <span>O QUE ACONTECE DEPOIS</span>
-                <span className="ml-auto tabular-nums">3 etapas</span>
-              </div>
-              <ol className="divide-y divide-border">
-                {passos.map((p) => (
-                  <li key={p.n} className="grid grid-cols-[auto_1fr] gap-5 px-5 sm:px-6 py-5">
-                    <span className="text-mono text-[22px] leading-none tabular-nums text-foreground/85 font-semibold pt-[2px]">
-                      {p.n}
-                    </span>
-                    <div className="min-w-0">
-                      <h3 className="text-card-title">{p.t}</h3>
-                      <p className="mt-1 text-card-body">{p.d}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </div>
+        <div className="mt-12 flex flex-col sm:flex-row items-stretch sm:items-center sm:justify-center gap-4 sm:gap-6">
+          <a
+            href={WA}
+            target="_blank"
+            rel="noreferrer"
+            className="w-full sm:w-auto"
+            onClick={() => {
+              track("final_cta_click", { destination: "whatsapp" });
+              track("whatsapp_click", { location: "final_cta" });
+            }}
+          >
+            <Button
+              size="lg"
+              className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-9 text-[14px] cta-shadow"
+            >
+              Começar diagnóstico{" "}
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Button>
+          </a>
+          <a
+            href={PROPOSAL_MAILTO}
+            className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-sans inline-flex items-center gap-2 justify-center sm:justify-start"
+            onClick={() => track("final_cta_click", { destination: "email" })}
+          >
+            <Mail className="h-4 w-4" /> Por e-mail
+          </a>
         </div>
       </div>
     </section>
   );
 }
 
-
-// --- Footer — três colunas técnicas ---------------------------------------
+// --- Footer ---------------------------------------------------------------
 function Footer() {
   return (
     <footer className="relative">
       <div aria-hidden className="imp-hairline" />
-      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 pt-12 pb-10">
-
-
-        <div className="grid md:grid-cols-12 gap-8 sm:gap-10">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 pt-14 pb-10">
+        <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-5">
             <div className="flex items-center gap-3 mb-4">
-              <img src={"/assets/imperius-logo-official.png"} alt="Imperius Operações Comerciais" className="h-9 w-auto object-contain" loading="lazy" decoding="async" />
-              <div className="leading-none">
-                <div className="font-heading font-semibold tracking-[0.18em] text-[13px]">IMPERIUS</div>
-                <div className="text-mono text-[9.5px] uppercase tracking-[0.22em] text-muted-foreground/75 mt-1.5">
-                  Operações comerciais
-                </div>
-              </div>
+              <img src={"/assets/imperius-logo-official.png"} alt="Imperius" className="h-9 w-auto object-contain" loading="lazy" decoding="async" />
+              <span className="font-heading font-semibold tracking-[0.18em] text-[13px]">IMPERIUS</span>
             </div>
             <p className="text-card-body max-w-sm">
               Achamos o gargalo. Encurtamos o caminho.
             </p>
-
           </div>
 
           <div className="md:col-span-3">
-            <div className="section-label imp-spine mb-4">
-              <span className="section-label-mark">S/nav</span>
-            </div>
+            <h3 className="text-mono text-[10.5px] uppercase tracking-[0.22em] text-muted-foreground/75 mb-4">Navegar</h3>
             <ul className="space-y-2.5 text-[13.5px] text-muted-foreground">
+              <li><a href="#identificacao" className="hover:text-foreground transition-colors">Sintomas</a></li>
+              <li><a href="#caso" className="hover:text-foreground transition-colors">Caso</a></li>
               <li><a href="#metodo" className="hover:text-foreground transition-colors">Método</a></li>
-              <li><a href="#vitrine" className="hover:text-foreground transition-colors">Caso</a></li>
-              <li><a href="#operator" className="hover:text-foreground transition-colors">Operator</a></li>
               <li><Link to="/portfolio" className="hover:text-foreground transition-colors">Portfólio</Link></li>
             </ul>
           </div>
 
           <div className="md:col-span-4">
-            <div className="section-label imp-spine mb-4">
-              <span className="section-label-mark">S/contato</span>
-            </div>
+            <h3 className="text-mono text-[10.5px] uppercase tracking-[0.22em] text-muted-foreground/75 mb-4">Contato</h3>
             <a href="tel:+5515981023792" className="flex items-center gap-3 text-[13.5px] text-muted-foreground hover:text-foreground transition-colors mb-2.5" onClick={() => track("phone_click", { location: "footer" })}>
               <Phone className="h-4 w-4 shrink-0" /> +55 15 98102-3792
             </a>
@@ -1057,19 +485,17 @@ function Footer() {
           </div>
         </div>
 
-        <div aria-hidden className="imp-hairline mt-12" />
-        <div className="pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-mono text-[10.5px] uppercase tracking-[0.18em] text-muted-foreground/65">
-          <p>© {new Date().getFullYear()} Imperius Operações Comerciais</p>
-          <p className="normal-case tracking-normal text-[11px] text-muted-foreground/70 font-sans">
-            GA · LGPD:{" "}
+        <div aria-hidden className="imp-hairline mt-14" />
+        <div className="pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-[11px] text-muted-foreground/70">
+          <p>© {new Date().getFullYear()} Imperius</p>
+          <p>
+            LGPD:{" "}
             <a href={PROPOSAL_MAILTO} className="underline hover:text-foreground">
               {PROPOSAL_EMAIL}
             </a>
           </p>
-
         </div>
       </div>
     </footer>
   );
-
 }
