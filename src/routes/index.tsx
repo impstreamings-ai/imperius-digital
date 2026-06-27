@@ -15,8 +15,6 @@ import {
   Activity,
   Menu,
   X,
-  CheckCircle2,
-  AlertTriangle,
 } from "lucide-react";
 
 import { trackEvent } from "@/lib/analytics";
