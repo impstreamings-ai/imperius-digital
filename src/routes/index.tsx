@@ -457,7 +457,7 @@ function HeroDiagram() {
           style={{
             offsetPath: "path('M 60 290 L 540 290')",
             WebkitOffsetPath: "path('M 60 290 L 540 290')",
-          } as React.CSSProperties}
+          } as unknown as React.CSSProperties}
         />
 
         {/* Etiqueta da redução */}
