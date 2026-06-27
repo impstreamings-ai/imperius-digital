@@ -366,7 +366,9 @@ function Case() {
               <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/70 mb-4">
                 04 — Prova · Sorocaba/SP
               </p>
-              <h2 className="text-display-xl text-foreground leading-[0.98]">Barbearia<br/>do Alemão</h2>
+              <h2 className="text-display-xl text-foreground leading-[1.02] sm:leading-[0.98]">
+                Barbearia <span className="lg:block">do Alemão</span>
+              </h2>
               <p className="mt-5 text-lede max-w-md">
                 Menos passos entre cliente e agendamento.
               </p>
