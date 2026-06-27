@@ -456,7 +456,6 @@ function HeroDiagram() {
           className="flow-particle"
           style={{
             offsetPath: "path('M 60 290 L 540 290')",
-            // @ts-expect-error vendor
             WebkitOffsetPath: "path('M 60 290 L 540 290')",
           } as React.CSSProperties}
         />
