@@ -270,11 +270,12 @@ function Identificacao() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
           <aside className="lg:col-span-4">
             <div className="lg:sticky lg:top-24">
-              <p className="imp-spine imp-kicker mb-5">
-                <span className="imp-bracket">02</span>
+              <p className="imp-kicker mb-6 text-muted-foreground/70 flex items-center gap-3">
+                <span className="font-mono tabular-nums">02</span>
+                <span aria-hidden className="h-px w-6 bg-border" />
                 <span>Sintomas</span>
               </p>
-              <h2 className="text-h2 text-foreground text-balance">
+              <h2 className="font-display font-medium leading-[1.02] tracking-[-0.02em] text-[clamp(2rem,4.6vw,3.4rem)] text-foreground text-balance">
                 Acontece toda semana.{" "}
                 <span className="text-muted-foreground">Mais de uma vez.</span>
               </h2>
