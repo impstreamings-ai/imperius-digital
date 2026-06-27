@@ -200,7 +200,7 @@ function Hero() {
         </h1>
 
         <p className="mt-6 sm:mt-8 text-lede max-w-xl mx-auto">
-          Em toda operação existe um ponto onde ele desiste.
+          Em toda operação existe um ponto onde o cliente desiste.
         </p>
 
         <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-4 sm:gap-5">
