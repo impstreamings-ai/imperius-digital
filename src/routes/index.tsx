@@ -4,15 +4,10 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
-  MessageCircle,
   Instagram,
   Phone,
   ExternalLink,
-  ClipboardList,
-  TrendingUp,
-  Calendar,
   Mail,
-  Activity,
   Menu,
   X,
 } from "lucide-react";
@@ -200,7 +195,7 @@ function Hero() {
         </h1>
 
         <p className="mt-6 sm:mt-8 text-lede max-w-xl mx-auto">
-          Em toda operação existe um ponto onde ele desiste.
+          Em toda operação existe um ponto onde o cliente desiste.
         </p>
 
         <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-4 sm:gap-5">
@@ -233,11 +228,11 @@ function Hero() {
    ============================================================ */
 function Identificacao() {
   const cenas = [
-    { icon: ClipboardList, t: "Pediu orçamento. Sumiu.", d: "Leu a mensagem. Nunca respondeu." },
-    { icon: MessageCircle, t: "Mensagem chegou. Ninguém viu.", d: "Quando alguém abriu, já era tarde." },
-    { icon: Activity, t: "Respondeu rápido. Sumiu igual.", d: "Tempo certo. Silêncio do outro lado." },
-    { icon: Calendar, t: "Marcou horário. Não apareceu.", d: "Sem confirmação. Cadeira vazia." },
-    { icon: TrendingUp, t: "Veio uma vez. Não voltou.", d: "Ninguém chamou de novo." },
+    { t: "Pediu orçamento. Sumiu.", d: "Leu a mensagem. Nunca respondeu." },
+    { t: "Mensagem chegou. Ninguém viu.", d: "Quando alguém abriu, já era tarde." },
+    { t: "Respondeu rápido. Sumiu igual.", d: "Tempo certo. Silêncio do outro lado." },
+    { t: "Marcou horário. Não apareceu.", d: "Sem confirmação. Cadeira vazia." },
+    { t: "Veio uma vez. Não voltou.", d: "Ninguém chamou de novo." },
   ];
 
   return (
@@ -263,11 +258,9 @@ function Identificacao() {
               {cenas.map((c, i) => (
                 <li key={c.t} className="row-editorial">
                   <div className="flex items-center gap-2.5 shrink-0 mt-1 sm:mt-1.5">
-                    <span className="imp-mark imp-mark-muted" aria-hidden />
-                    <span className="imp-num text-[10.5px] tracking-[0.06em] text-muted-foreground/65 w-5 sm:w-6">
+                    <span className="imp-num text-[10.5px] tracking-[0.06em] text-muted-foreground/55 tabular-nums">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <c.icon className="h-[15px] w-[15px] text-muted-foreground/55" aria-hidden />
                   </div>
                   <div className="min-w-0 grid sm:grid-cols-[1fr_minmax(0,1.2fr)] gap-0.5 sm:gap-10 items-baseline">
                     <h3 className="text-card-title">{c.t}</h3>
@@ -399,13 +392,7 @@ function Case() {
 
         {/* Narrativa: Problema → Intervenção → Resultado */}
         <div className="mt-12 sm:mt-16 lg:mt-20">
-          <div className="flex items-center gap-3 mb-8 lg:mb-10">
-            <span className="imp-kicker">
-              <span className="imp-mark" aria-hidden />
-              Linha do caso
-            </span>
-            <span className="h-px flex-1 bg-border" aria-hidden />
-          </div>
+
 
           <ol className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-border border border-border-strong rounded-[2px] overflow-hidden">
             {acts.map((a, i) => {
@@ -518,15 +505,9 @@ function Metodo() {
                 </span>
                 <div className="grid sm:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-3 sm:gap-12 items-baseline">
                   <h3 className="text-h3 text-foreground">{p.t}</h3>
-                  <p className="text-card-body">
-                    {p.d}
-                    {i === pilares.length - 1 ? (
-                      <span className="ml-2 imp-kicker text-[9.5px] text-primary/85">
-                        <span className="imp-mark imp-mark-primary" aria-hidden /> fim
-                      </span>
-                    ) : null}
-                  </p>
+                  <p className="text-card-body">{p.d}</p>
                 </div>
+
               </li>
             ))}
           </ol>
@@ -604,14 +585,14 @@ function Footer() {
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 pt-14 pb-10">
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-5">
-            <div className="flex items-center gap-3 mb-4">
-              <img src={"/assets/imperius-logo-official.png"} alt="" aria-hidden="true" className="h-9 w-auto object-contain" loading="lazy" decoding="async" />
-              <span className="font-heading font-semibold tracking-[0.18em] text-[13px]">IMPERIUS</span>
+            <div className="flex items-center mb-4">
+              <img src={"/assets/imperius-logo-official.png"} alt="Imperius" className="h-9 w-auto object-contain" loading="lazy" decoding="async" />
             </div>
             <p className="text-card-body max-w-sm">
-              Achamos o gargalo. Encurtamos o caminho.
+              Diagnóstico do gargalo comercial.
             </p>
           </div>
+
 
           <div className="md:col-span-3">
             <h3 className="imp-kicker mb-4"><span className="imp-mark imp-mark-muted" aria-hidden /> Navegar</h3>
