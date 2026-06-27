@@ -368,28 +368,33 @@ function Metodo() {
   ];
 
   return (
-    <section id="metodo" className="relative py-24 sm:py-32 surface-tint">
+    <section id="metodo" className="relative section-pad surface-tint">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mb-16 sm:mb-20">
-          <h2 className="text-h2 text-foreground">
+        <div className="max-w-2xl mb-12 sm:mb-16">
+          <h2 className="text-h2 text-foreground text-balance">
             Cinco passos.{" "}
             <span className="text-foreground/45">Nessa ordem.</span>
           </h2>
-          <p className="mt-5 text-card-body">
+          <p className="mt-4 sm:mt-5 text-card-body">
             Sem pular etapa. Sem proposta antes da hora.
           </p>
         </div>
 
-        <ol className="grid sm:grid-cols-2 lg:grid-cols-5 gap-px bg-border-strong border border-border-strong rounded-[var(--radius-card)] overflow-hidden">
-          {pilares.map((p) => (
+        <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-border rounded-[var(--radius-card)] overflow-hidden border border-border">
+          {pilares.map((p, i) => (
             <li
               key={p.n}
-              className="bg-background p-7 sm:p-8 flex flex-col gap-4"
+              className="bg-background p-6 sm:p-7 flex flex-col gap-3.5 min-h-[160px] sm:min-h-[180px]"
             >
-              <span className="text-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground/65 tabular-nums">
-                {p.n}
-              </span>
-              <h3 className="text-card-title text-[17px] leading-tight">{p.t}</h3>
+              <div className="flex items-center gap-2.5">
+                <span className="text-mono text-[10.5px] tracking-[0.22em] uppercase text-muted-foreground/60 tabular-nums">
+                  {p.n}
+                </span>
+                {i === pilares.length - 1 ? (
+                  <span className="text-mono text-[9.5px] tracking-[0.22em] uppercase text-primary/85">· fim</span>
+                ) : null}
+              </div>
+              <h3 className="text-card-title text-[15.5px] leading-snug">{p.t}</h3>
               <p className="text-card-body mt-auto">{p.d}</p>
             </li>
           ))}
@@ -402,17 +407,17 @@ function Metodo() {
 // --- Final CTA — finaliza a história, não repete. -------------------------
 function FinalCTA() {
   return (
-    <section className="relative py-28 sm:py-36 overflow-hidden">
+    <section className="relative section-pad overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-[0.05] pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-3xl px-5 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-display-xl text-foreground">
+        <h2 className="text-display-xl text-foreground text-balance">
           Agora você sabe onde provavelmente está perdendo clientes.
         </h2>
-        <p className="mt-8 text-lede text-foreground/55">
+        <p className="mt-6 sm:mt-8 text-lede text-foreground/55 max-w-xl mx-auto text-balance">
           O próximo passo é descobrir onde isso acontece na sua operação.
         </p>
 
-        <div className="mt-12 flex flex-col sm:flex-row items-stretch sm:items-center sm:justify-center gap-4 sm:gap-6">
+        <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-stretch sm:items-center sm:justify-center gap-4 sm:gap-6">
           <a
             href={WA}
             target="_blank"
