@@ -492,8 +492,9 @@ function Metodo() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
           <aside className="lg:col-span-4">
             <div className="lg:sticky lg:top-24">
-              <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/70 mb-5">
-                05 — Método
+              <p className="imp-spine imp-kicker mb-5">
+                <span className="imp-bracket">05</span>
+                <span>Método</span>
               </p>
               <h2 className="text-display-xl text-foreground leading-[0.98] text-balance">
                 Cinco passos.
@@ -511,22 +512,25 @@ function Metodo() {
               >
                 <span
                   aria-hidden
-                  className="absolute left-0 top-8 h-7 w-7 rounded-full border border-border bg-background grid place-items-center text-mono text-[10px] tracking-[0.18em] tabular-nums text-muted-foreground/85"
+                  className="imp-node absolute left-0 top-8 text-muted-foreground/90"
                 >
-                  {p.n}
+                  <span className="imp-num text-[10px] tracking-[0.04em]">{p.n}</span>
                 </span>
                 <div className="grid sm:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-3 sm:gap-12 items-baseline">
                   <h3 className="text-h3 text-foreground">{p.t}</h3>
                   <p className="text-card-body">
                     {p.d}
                     {i === pilares.length - 1 ? (
-                      <span className="ml-2 text-mono text-[9.5px] tracking-[0.22em] uppercase text-primary/85">· fim</span>
+                      <span className="ml-2 imp-kicker text-[9.5px] text-primary/85">
+                        <span className="imp-mark imp-mark-primary" aria-hidden /> fim
+                      </span>
                     ) : null}
                   </p>
                 </div>
               </li>
             ))}
           </ol>
+
         </div>
       </div>
     </section>
