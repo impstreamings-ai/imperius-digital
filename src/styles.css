@@ -779,13 +779,14 @@
   }
 }
 
-/* Display Mega — abertura institucional, contraste máximo com microcopy */
+/* Display Mega — abertura institucional. Mobile contido, desktop dramático. */
 @utility text-display-mega {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(2.5rem, 7.5vw + 0.25rem, 5rem);
-  line-height: 0.98;
-  letter-spacing: -0.04em;
+  font-size: clamp(2.25rem, 6.5vw + 0.25rem, 4.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.038em;
+  text-wrap: balance;
 }
 
 /* Microcopy técnica ultra-condensada */
@@ -802,9 +803,10 @@
 @utility text-display-xl {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(2.5rem, 7vw, 4.75rem);
-  line-height: 1.0;
-  letter-spacing: -0.038em;
+  font-size: clamp(2rem, 5.5vw + 0.25rem, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.034em;
+  text-wrap: balance;
 }
 
 
