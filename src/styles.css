@@ -1124,3 +1124,68 @@
   letter-spacing: -0.05em;
   font-feature-settings: "ss01", "tnum";
 }
+
+/* (8) imp-kicker — etiqueta canônica de capítulo. Substitui mono kickers
+   ad-hoc com tipografia, tracking e cor unificados em toda a página. */
+@utility imp-kicker {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  line-height: 1;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: oklch(from var(--muted-foreground) l c h / 0.78);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+/* (9) imp-node — célula quadrada hairline para timelines/conectores.
+   Substitui rounded-full genérico em numerais editoriais. */
+@utility imp-node {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--color-border);
+  background: var(--color-background);
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+  color: oklch(from var(--muted-foreground) l c h / 0.95);
+}
+.imp-node::before,
+.imp-node::after {
+  content: "";
+  position: absolute;
+  width: 3px; height: 3px;
+  border-color: var(--color-border-strong);
+  pointer-events: none;
+}
+.imp-node::before { top: -1px; left: -1px; border-top: 1px solid; border-left: 1px solid; }
+.imp-node::after  { bottom: -1px; right: -1px; border-bottom: 1px solid; border-right: 1px solid; }
+
+/* (10) imp-divider — divisor proprietário com losango central (imp-mark) sobre hairline.
+   Para fim-de-bloco editorial. Substitui linhas neutras. */
+@utility imp-divider {
+  position: relative;
+  height: 1px;
+  width: 100%;
+  background: var(--color-border-strong);
+}
+.imp-divider::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  background: var(--color-background);
+  border: 1px solid var(--color-border-strong);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
