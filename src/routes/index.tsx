@@ -133,7 +133,8 @@ function Nav() {
           >
             <Button
               size="sm"
-              className="btn-premium bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-4 h-9 cta-shadow"
+              variant="ghost"
+              className="btn-ghost-nav font-medium rounded-full px-4 h-9 text-[12.5px] tracking-[0.02em]"
             >
               Diagnóstico
             </Button>
@@ -149,6 +150,7 @@ function Nav() {
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
         </div>
+
       </div>
       {open ? (
         <div className="md:hidden border-t border-border/60 bg-background/95 backdrop-blur-xl">
@@ -189,16 +191,21 @@ function Hero() {
       />
 
       <div className="relative mx-auto max-w-5xl w-full text-center">
+        <p className="imp-kicker justify-center mb-6 sm:mb-8">
+          <span className="imp-mark imp-mark-primary" aria-hidden />
+          <span>Diagnóstico operacional · B2B</span>
+        </p>
+
         <h1 className="text-display-mega text-foreground mx-auto max-w-[20ch]">
           Encurtamos o caminho{" "}
-          <span className="text-foreground/45">entre o cliente e a venda.</span>
+          <span className="text-muted-foreground">entre o cliente e a venda.</span>
         </h1>
 
         <p className="mt-6 sm:mt-8 text-lede max-w-xl mx-auto">
           Em toda operação existe um ponto onde o cliente desiste.
         </p>
 
-        <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-4 sm:gap-5">
+        <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-4">
           <a
             href={WA}
             target="_blank"
@@ -214,12 +221,34 @@ function Hero() {
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Button>
           </a>
-          <span className="text-micro-tight">20 min · sem proposta</span>
+          <a
+            href="#caso"
+            onClick={() => track("hero_secondary_click", { destination: "case" })}
+            className="w-full sm:w-auto"
+          >
+            <Button
+              size="lg"
+              variant="ghost"
+              className="btn-ghost-nav group w-full sm:w-auto rounded-full h-12 px-7 text-[13.5px] font-medium"
+            >
+              Ver caso real
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Button>
+          </a>
+        </div>
+
+        <div className="mt-8 sm:mt-10 flex flex-col items-center gap-3">
+          <div className="proof-strip">
+            <span><span className="imp-dot" aria-hidden />Projeto ao vivo</span>
+            <span>Sorocaba/SP · Brasil</span>
+            <span>20 min · sem proposta</span>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 /* ============================================================
    CAPÍTULO 2 — IDENTIFICAÇÃO
@@ -247,8 +276,9 @@ function Identificacao() {
               </p>
               <h2 className="text-h2 text-foreground text-balance">
                 Acontece toda semana.{" "}
-                <span className="text-foreground/45">Mais de uma vez.</span>
+                <span className="text-muted-foreground">Mais de uma vez.</span>
               </h2>
+
             </div>
           </aside>
 
@@ -290,19 +320,19 @@ function Diagnostico() {
           <p className="imp-spine imp-kicker mb-4 sm:mb-6 text-muted-foreground/55">
             <span>O que a maioria faz</span>
           </p>
-          <p className="text-h2 text-foreground/40 line-through decoration-foreground/20 decoration-1 underline-offset-[6px] text-balance">
+          <p className="text-h2 text-muted-foreground line-through decoration-foreground/20 decoration-1 underline-offset-[6px] text-balance">
             Troca de sistema, contrata agência, anuncia mais.
           </p>
         </div>
         <div className="px-5 sm:px-8 lg:px-12 py-12 sm:py-24 lg:py-28">
-          <p className="imp-spine imp-kicker mb-4 sm:mb-6 text-primary/80">
-            <span className="imp-mark imp-mark-primary" aria-hidden />
+          <p className="imp-spine imp-kicker mb-4 sm:mb-6 text-primary/85">
             <span>O que Imperius faz</span>
           </p>
           <p className="text-h2 text-foreground text-balance">
             Começa pelo <span className="text-primary">ponto exato</span> onde o cliente desiste.
           </p>
         </div>
+
 
       </div>
     </section>
@@ -412,11 +442,12 @@ function Case() {
                       />
                       {a.kicker}
                     </span>
-                    <span className="imp-bracket text-[10px] tracking-[0.06em] text-muted-foreground/45">
-                      <span className="imp-num">{String(i + 1).padStart(2, "0")}</span>
-                      <span aria-hidden className="opacity-45">/</span>
-                      <span className="imp-num opacity-60">03</span>
+                    <span className="imp-bracket text-[10.5px] tracking-[0.06em]">
+                      <span>{String(i + 1).padStart(2, "0")}</span>
+                      <span>/</span>
+                      <span>03</span>
                     </span>
+
                   </div>
 
                   <p
@@ -537,11 +568,12 @@ function FinalCTA() {
 
             <h2 className="text-display-mega text-foreground leading-[0.98] text-balance">
               Você já sabe{" "}
-              <span className="text-foreground/45">onde está perdendo.</span>
+              <span className="text-muted-foreground">onde está perdendo.</span>
             </h2>
-            <p className="mt-6 text-lede text-foreground/60 max-w-md">
+            <p className="mt-6 text-lede max-w-md">
               Falta descobrir <span className="text-foreground">onde</span>, na sua operação.
             </p>
+
           </div>
 
           <div className="lg:col-span-5 flex flex-col gap-4 lg:items-end">
@@ -591,7 +623,12 @@ function Footer() {
             <p className="text-card-body max-w-sm">
               Diagnóstico do gargalo comercial.
             </p>
+            <p className="mt-4 imp-kicker text-muted-foreground/70">
+              <span className="imp-mark imp-mark-muted" aria-hidden />
+              <span>Sorocaba/SP · Brasil</span>
+            </p>
           </div>
+
 
 
           <div className="md:col-span-3">
