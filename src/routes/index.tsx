@@ -370,18 +370,31 @@ function Case() {
   return (
     <section id="caso" className="relative section-pad">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        {/* Cabeçalho editorial */}
+        {/* Cabeçalho editorial — número marginalia oversized */}
         <header className="grid lg:grid-cols-12 gap-6 lg:gap-14 items-end mb-10 lg:mb-14">
+          <div className="lg:col-span-2 hidden lg:block">
+            <span
+              aria-hidden
+              className="block font-display font-light leading-none tracking-[-0.04em] text-[clamp(5rem,9vw,9rem)] text-foreground/[0.06] select-none"
+            >
+              04
+            </span>
+          </div>
           <div className="lg:col-span-7">
-            <p className="imp-spine imp-kicker mb-4">
-              <span className="imp-bracket">04</span>
+            <p className="imp-kicker mb-4 text-muted-foreground/70 flex items-center gap-3 lg:hidden">
+              <span className="font-mono tabular-nums">04</span>
+              <span aria-hidden className="h-px w-6 bg-border" />
               <span>Prova · Sorocaba/SP</span>
             </p>
             <h2 className="text-display-xl text-foreground leading-[1.02] sm:leading-[0.98] text-balance">
               Barbearia <span className="lg:inline">do Alemão</span>
             </h2>
+            <p className="hidden lg:block mt-4 imp-kicker text-muted-foreground/70">
+              <span className="imp-mark imp-mark-muted" aria-hidden />
+              <span>Prova · Sorocaba/SP</span>
+            </p>
           </div>
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-3">
             <p className="text-lede text-foreground/70 max-w-md lg:ml-auto">
               Um estudo curto sobre encurtar o caminho entre interesse e agendamento.
             </p>
