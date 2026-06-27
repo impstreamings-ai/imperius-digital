@@ -607,6 +607,9 @@ function Case() {
 
   return (
     <section id="caso" className="relative section-pad">
+      <span aria-hidden className="imp-coord absolute top-8 right-5 sm:right-8 lg:right-12 hidden sm:inline-flex">
+        04 · Prova
+      </span>
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         {/* Cabeçalho editorial */}
         <header className="grid lg:grid-cols-12 gap-6 lg:gap-14 items-end mb-10 lg:mb-14">
