@@ -270,11 +270,12 @@ function Identificacao() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
           <aside className="lg:col-span-4">
             <div className="lg:sticky lg:top-24">
-              <p className="imp-spine imp-kicker mb-5">
-                <span className="imp-bracket">02</span>
+              <p className="imp-kicker mb-6 text-muted-foreground/70 flex items-center gap-3">
+                <span className="font-mono tabular-nums">02</span>
+                <span aria-hidden className="h-px w-6 bg-border" />
                 <span>Sintomas</span>
               </p>
-              <h2 className="text-h2 text-foreground text-balance">
+              <h2 className="font-display font-medium leading-[1.02] tracking-[-0.02em] text-[clamp(2rem,4.6vw,3.4rem)] text-foreground text-balance">
                 Acontece toda semana.{" "}
                 <span className="text-muted-foreground">Mais de uma vez.</span>
               </h2>
@@ -369,18 +370,31 @@ function Case() {
   return (
     <section id="caso" className="relative section-pad">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        {/* Cabeçalho editorial */}
+        {/* Cabeçalho editorial — número marginalia oversized */}
         <header className="grid lg:grid-cols-12 gap-6 lg:gap-14 items-end mb-10 lg:mb-14">
+          <div className="lg:col-span-2 hidden lg:block">
+            <span
+              aria-hidden
+              className="block font-display font-light leading-none tracking-[-0.04em] text-[clamp(5rem,9vw,9rem)] text-foreground/[0.06] select-none"
+            >
+              04
+            </span>
+          </div>
           <div className="lg:col-span-7">
-            <p className="imp-spine imp-kicker mb-4">
-              <span className="imp-bracket">04</span>
+            <p className="imp-kicker mb-4 text-muted-foreground/70 flex items-center gap-3 lg:hidden">
+              <span className="font-mono tabular-nums">04</span>
+              <span aria-hidden className="h-px w-6 bg-border" />
               <span>Prova · Sorocaba/SP</span>
             </p>
             <h2 className="text-display-xl text-foreground leading-[1.02] sm:leading-[0.98] text-balance">
               Barbearia <span className="lg:inline">do Alemão</span>
             </h2>
+            <p className="hidden lg:block mt-4 imp-kicker text-muted-foreground/70">
+              <span className="imp-mark imp-mark-muted" aria-hidden />
+              <span>Prova · Sorocaba/SP</span>
+            </p>
           </div>
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-3">
             <p className="text-lede text-foreground/70 max-w-md lg:ml-auto">
               Um estudo curto sobre encurtar o caminho entre interesse e agendamento.
             </p>
@@ -510,9 +524,10 @@ function Metodo() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
           <aside className="lg:col-span-4">
             <div className="lg:sticky lg:top-24">
-              <p className="imp-spine imp-kicker mb-5">
-                <span className="imp-bracket">05</span>
+              <p className="mb-6 flex items-center gap-3 text-[10.5px] uppercase tracking-[0.34em] text-muted-foreground/70 font-mono">
                 <span>Método</span>
+                <span aria-hidden className="h-px flex-1 max-w-[48px] bg-border" />
+                <span className="tabular-nums">05 / 05</span>
               </p>
               <h2 className="text-display-xl text-foreground leading-[0.98] text-balance">
                 Cinco passos.
@@ -559,11 +574,16 @@ function FinalCTA() {
     <section className="relative section-pad overflow-hidden hairline-t">
       <div className="absolute inset-0 bg-grid opacity-[0.05] pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+        <span
+          aria-hidden
+          className="pointer-events-none select-none absolute right-3 sm:right-6 lg:right-10 top-2 sm:-top-4 lg:-top-10 font-display font-light leading-none tracking-[-0.05em] text-[clamp(8rem,22vw,20rem)] text-foreground/[0.04]"
+        >
+          06
+        </span>
+        <div className="relative grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
           <div className="lg:col-span-7">
-            <p className="imp-spine imp-kicker mb-5">
-              <span className="imp-bracket">06</span>
-              <span>Próximo passo</span>
+            <p className="mb-6 text-[10.5px] uppercase tracking-[0.34em] text-muted-foreground/70 font-mono">
+              Próximo passo
             </p>
 
             <h2 className="text-display-mega text-foreground leading-[0.98] text-balance">
