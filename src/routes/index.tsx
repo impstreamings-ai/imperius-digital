@@ -188,36 +188,303 @@ function Hero() {
         }}
       />
 
-      <div className="relative mx-auto max-w-5xl w-full text-center">
-        <h1 className="text-display-mega text-foreground mx-auto max-w-[20ch]">
-          Encurtamos o caminho{" "}
-          <span className="text-foreground/45">entre o cliente e a venda.</span>
-        </h1>
+      <div className="relative mx-auto max-w-7xl w-full">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Coluna texto */}
+          <div className="lg:col-span-6 lg:pr-4">
+            <p className="imp-spine imp-kicker mb-6">
+              <span className="imp-bracket">01</span>
+              <span>Imperius · Diagnóstico</span>
+            </p>
 
-        <p className="mt-6 sm:mt-8 text-lede max-w-xl mx-auto">
-          Em toda operação existe um ponto onde o cliente desiste.
-        </p>
+            <h1 className="text-display-mega text-foreground max-w-[18ch]">
+              Encurtamos o caminho{" "}
+              <span className="text-foreground/45">entre o cliente e a venda.</span>
+            </h1>
 
-        <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-4 sm:gap-5">
-          <a
-            href={WA}
-            target="_blank"
-            rel="noreferrer"
-            className="w-full sm:w-auto"
-            onClick={() => track("hero_cta_click", { destination: "whatsapp" })}
-          >
-            <Button
-              size="lg"
-              className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[13.5px] cta-shadow"
-            >
-              Diagnóstico gratuito{" "}
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </Button>
-          </a>
-          <span className="text-micro-tight">20 min · sem proposta</span>
+            <p className="mt-6 sm:mt-7 text-lede max-w-md">
+              Em toda operação existe um ponto onde o cliente desiste.{" "}
+              <span className="text-foreground/80">Imperius encontra esse ponto.</span>
+            </p>
+
+            <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-4">
+              <a
+                href={WA}
+                target="_blank"
+                rel="noreferrer"
+                className="w-full sm:w-auto"
+                onClick={() => track("hero_cta_click", { destination: "whatsapp" })}
+              >
+                <Button
+                  size="lg"
+                  className="btn-premium group w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full h-12 px-8 text-[13.5px] cta-shadow"
+                >
+                  Diagnóstico gratuito{" "}
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </Button>
+              </a>
+
+              <a
+                href="#caso"
+                onClick={() => track("hero_cta_click", { destination: "case" })}
+                className="group inline-flex items-center justify-center gap-2.5 w-full sm:w-auto h-12 px-6 rounded-full border border-border-strong bg-background/40 hover:bg-background/70 hover:border-primary/40 text-foreground/85 hover:text-foreground transition-colors text-[13px] font-medium backdrop-blur-sm"
+              >
+                <span className="imp-mark imp-mark-muted group-hover:imp-mark-primary" aria-hidden />
+                Ver caso real
+                <ArrowRight className="h-3.5 w-3.5 opacity-60 transition-transform group-hover:translate-x-0.5 group-hover:opacity-100" />
+              </a>
+            </div>
+
+            <p className="mt-6 text-micro-tight">20 min · sem proposta</p>
+          </div>
+
+          {/* Coluna visual conceitual */}
+          <div className="lg:col-span-6">
+            <HeroDiagram />
+          </div>
         </div>
       </div>
     </section>
+  );
+}
+
+/* ============================================================
+   HERO DIAGRAM — peça conceitual única.
+   Linha "ANTES": caminho longo, sinuoso, travado num nó.
+   Linha "DEPOIS": linha direta, partícula deslizando até o destino.
+   Sem dashboards, sem mockups. Apenas fluxo, gargalo e decisão.
+   ============================================================ */
+function HeroDiagram() {
+  return (
+    <figure
+      className="relative w-full"
+      aria-label="Antes: caminho longo até o cliente travar. Depois: caminho direto até a venda."
+    >
+      <svg
+        viewBox="0 0 600 420"
+        className="w-full h-auto"
+        role="img"
+        preserveAspectRatio="xMidYMid meet"
+      >
+        <defs>
+          <linearGradient id="hero-line-before" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="oklch(0.86 0.022 248)" stopOpacity="0.32" />
+            <stop offset="100%" stopColor="oklch(0.86 0.022 248)" stopOpacity="0.10" />
+          </linearGradient>
+          <linearGradient id="hero-line-after" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="oklch(0.62 0.18 252)" stopOpacity="0.30" />
+            <stop offset="50%" stopColor="oklch(0.62 0.18 252)" stopOpacity="1" />
+            <stop offset="100%" stopColor="oklch(0.62 0.18 252)" stopOpacity="0.45" />
+          </linearGradient>
+          <radialGradient id="hero-stuck-halo" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="oklch(0.62 0.18 22)" stopOpacity="0.45" />
+            <stop offset="100%" stopColor="oklch(0.62 0.18 22)" stopOpacity="0" />
+          </radialGradient>
+          <path id="hero-after-path" d="M 60 290 L 540 290" />
+        </defs>
+
+        {/* Moldura técnica */}
+        <g stroke="oklch(0.86 0.022 248)" strokeOpacity="0.10" strokeWidth="1">
+          <line x1="0" y1="60" x2="600" y2="60" />
+          <line x1="0" y1="360" x2="600" y2="360" />
+        </g>
+
+        {/* Coordenadas de canto */}
+        <g
+          fontFamily="var(--font-mono)"
+          fontSize="9"
+          fill="oklch(0.748 0.014 248)"
+          fillOpacity="0.55"
+          letterSpacing="1.4"
+        >
+          <text x="12" y="50">[ 00·00 ]</text>
+          <text x="540" y="50">DIAGRAMA / 01</text>
+        </g>
+
+        {/* ===== ANTES ===== */}
+        <g
+          fontFamily="var(--font-mono)"
+          fontSize="10"
+          letterSpacing="2.2"
+          fill="oklch(0.748 0.014 248)"
+          fillOpacity="0.70"
+        >
+          <text x="60" y="100">ANTES</text>
+        </g>
+
+        {/* Origem antes */}
+        <g transform="translate(60 140)">
+          <circle r="6" fill="oklch(0.86 0.022 248)" fillOpacity="0.55" />
+          <text
+            x="0"
+            y="26"
+            textAnchor="middle"
+            fontFamily="var(--font-mono)"
+            fontSize="9"
+            letterSpacing="1.4"
+            fill="oklch(0.748 0.014 248)"
+            fillOpacity="0.65"
+          >
+            cliente
+          </text>
+        </g>
+
+        {/* Caminho sinuoso até o gargalo */}
+        <path
+          d="M 70 140 C 130 140, 150 110, 210 130 S 280 180, 330 160"
+          fill="none"
+          stroke="url(#hero-line-before)"
+          strokeWidth="1.25"
+          strokeDasharray="3 4"
+        />
+
+        {/* Gargalo — nó travado */}
+        <g transform="translate(340 160)">
+          <circle r="22" fill="url(#hero-stuck-halo)" className="flow-stuck-pulse" />
+          <circle r="10" fill="oklch(0.10 0.01 252)" stroke="oklch(0.62 0.18 22)" strokeWidth="1.25" />
+          <g className="flow-stuck-jitter" stroke="oklch(0.62 0.18 22)" strokeWidth="1.4" strokeLinecap="round">
+            <line x1="-3.5" y1="-3.5" x2="3.5" y2="3.5" />
+            <line x1="-3.5" y1="3.5" x2="3.5" y2="-3.5" />
+          </g>
+          <text
+            x="0"
+            y="34"
+            textAnchor="middle"
+            fontFamily="var(--font-mono)"
+            fontSize="9"
+            letterSpacing="1.6"
+            fill="oklch(0.62 0.18 22)"
+            fillOpacity="0.85"
+          >
+            gargalo
+          </text>
+        </g>
+
+        {/* Caminho que continua e se dissolve */}
+        <path
+          d="M 350 160 C 410 160, 440 195, 470 175 S 520 150, 540 165"
+          fill="none"
+          stroke="url(#hero-line-before)"
+          strokeWidth="1.25"
+          strokeDasharray="3 4"
+          opacity="0.45"
+        />
+        <g transform="translate(545 165)" opacity="0.35">
+          <circle r="4" fill="none" stroke="oklch(0.86 0.022 248)" strokeOpacity="0.45" strokeWidth="1" />
+          <text
+            x="0"
+            y="-12"
+            textAnchor="middle"
+            fontFamily="var(--font-mono)"
+            fontSize="9"
+            letterSpacing="1.4"
+            fill="oklch(0.748 0.014 248)"
+            fillOpacity="0.55"
+          >
+            venda
+          </text>
+        </g>
+
+        {/* Divisor entre estados */}
+        <g>
+          <line
+            x1="40"
+            y1="230"
+            x2="560"
+            y2="230"
+            stroke="oklch(0.86 0.022 248)"
+            strokeOpacity="0.12"
+            strokeWidth="1"
+          />
+          <g transform="translate(300 230)">
+            <rect x="-4" y="-4" width="8" height="8" transform="rotate(45)" fill="oklch(0.62 0.18 252)" />
+          </g>
+        </g>
+
+        {/* ===== DEPOIS ===== */}
+        <g
+          fontFamily="var(--font-mono)"
+          fontSize="10"
+          letterSpacing="2.2"
+          fill="oklch(0.62 0.18 252)"
+        >
+          <text x="60" y="265">DEPOIS</text>
+        </g>
+
+        {/* Trilho direto */}
+        <use href="#hero-after-path" stroke="oklch(0.62 0.18 252)" strokeOpacity="0.18" strokeWidth="1.25" />
+        <use href="#hero-after-path" stroke="url(#hero-line-after)" strokeWidth="1.6" strokeLinecap="round" />
+
+        {/* Origem depois */}
+        <g transform="translate(60 290)">
+          <circle r="6" fill="oklch(0.62 0.18 252)" />
+          <text
+            x="0"
+            y="26"
+            textAnchor="middle"
+            fontFamily="var(--font-mono)"
+            fontSize="9"
+            letterSpacing="1.4"
+            fill="oklch(0.748 0.014 248)"
+            fillOpacity="0.75"
+          >
+            cliente
+          </text>
+        </g>
+
+        {/* Destino depois — venda */}
+        <g transform="translate(540 290)">
+          <circle r="14" fill="none" stroke="oklch(0.62 0.18 252)" strokeOpacity="0.35" strokeWidth="1" />
+          <circle r="8" fill="oklch(0.62 0.18 252)" />
+          <text
+            x="0"
+            y="-22"
+            textAnchor="middle"
+            fontFamily="var(--font-mono)"
+            fontSize="9"
+            letterSpacing="1.6"
+            fill="oklch(0.62 0.18 252)"
+          >
+            venda
+          </text>
+        </g>
+
+        {/* Partícula deslizando — a venda fluindo */}
+        <circle
+          r="3"
+          fill="oklch(1 0 0)"
+          className="flow-particle"
+          style={{
+            offsetPath: "path('M 60 290 L 540 290')",
+            // @ts-expect-error vendor
+            WebkitOffsetPath: "path('M 60 290 L 540 290')",
+          } as React.CSSProperties}
+        />
+
+        {/* Etiqueta da redução */}
+        <g transform="translate(300 330)">
+          <line x1="-90" y1="-22" x2="-90" y2="-30" stroke="oklch(0.62 0.18 252)" strokeOpacity="0.45" />
+          <line x1="90" y1="-22" x2="90" y2="-30" stroke="oklch(0.62 0.18 252)" strokeOpacity="0.45" />
+          <line x1="-90" y1="-30" x2="90" y2="-30" stroke="oklch(0.62 0.18 252)" strokeOpacity="0.45" />
+          <text
+            x="0"
+            y="-12"
+            textAnchor="middle"
+            fontFamily="var(--font-mono)"
+            fontSize="10"
+            letterSpacing="2"
+            fill="oklch(0.62 0.18 252)"
+          >
+            CAMINHO DIRETO
+          </text>
+        </g>
+      </svg>
+
+      <figcaption className="sr-only">
+        Representação conceitual: o caminho convencional trava num gargalo antes da venda. A intervenção Imperius
+        reduz o trajeto para uma linha direta entre cliente e venda.
+      </figcaption>
+    </figure>
   );
 }
 
