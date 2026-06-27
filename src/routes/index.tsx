@@ -230,14 +230,14 @@ function Identificacao() {
   ];
 
   return (
-    <section id="identificacao" className="relative py-24 sm:py-32">
+    <section id="identificacao" className="relative section-pad">
       <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
-        <h2 className="text-h2 text-foreground max-w-2xl">
+        <h2 className="text-h2 text-foreground max-w-2xl text-balance">
           Provavelmente já aconteceu na sua semana.{" "}
           <span className="text-foreground/45">Mais de uma vez.</span>
         </h2>
 
-        <div aria-hidden className="imp-hairline mt-12 mb-0" />
+        <div aria-hidden className="imp-hairline mt-10 sm:mt-14 mb-0" />
         <ul>
           {cenas.map((c) => (
             <li key={c.t} className="row-editorial">
@@ -257,12 +257,12 @@ function Identificacao() {
 // --- Diagnóstico — bridge narrativo ---------------------------------------
 function Diagnostico() {
   return (
-    <section className="relative py-24 sm:py-32 surface-tint">
+    <section className="relative section-pad surface-tint">
       <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8 text-center">
-        <p className="text-display-xl text-foreground leading-[1.05]">
+        <p className="text-h2 text-foreground text-balance">
           A maioria troca de sistema, contrata agência ou anuncia mais.
         </p>
-        <p className="mt-8 text-display-xl text-foreground/55 leading-[1.05]">
+        <p className="mt-6 sm:mt-8 text-h2 text-foreground/45 text-balance">
           Nós começamos pelo ponto exato onde o cliente desiste.
         </p>
       </div>
