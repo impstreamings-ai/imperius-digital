@@ -415,11 +415,12 @@ function FinalCTA() {
       <div className="absolute inset-0 bg-grid opacity-[0.05] pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-3xl px-5 sm:px-6 lg:px-8 text-center">
         <h2 className="text-display-xl text-foreground text-balance">
-          Agora você sabe onde provavelmente está perdendo clientes.
+          Você já sabe onde está perdendo.
         </h2>
         <p className="mt-6 sm:mt-8 text-lede text-foreground/55 max-w-xl mx-auto text-balance">
-          O próximo passo é descobrir onde isso acontece na sua operação.
+          Falta descobrir onde, na sua operação.
         </p>
+
 
         <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-stretch sm:items-center sm:justify-center gap-4 sm:gap-6">
           <a
