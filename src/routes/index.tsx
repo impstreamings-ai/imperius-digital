@@ -188,6 +188,10 @@ function Hero() {
         }}
       />
 
+      <span aria-hidden className="imp-coord absolute top-20 right-5 sm:right-8 lg:right-12 hidden sm:inline-flex">
+        01 · Imperius
+      </span>
+
       <div className="relative mx-auto max-w-7xl w-full">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Coluna texto */}
@@ -603,6 +607,9 @@ function Case() {
 
   return (
     <section id="caso" className="relative section-pad">
+      <span aria-hidden className="imp-coord absolute top-8 right-5 sm:right-8 lg:right-12 hidden sm:inline-flex">
+        04 · Prova
+      </span>
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         {/* Cabeçalho editorial */}
         <header className="grid lg:grid-cols-12 gap-6 lg:gap-14 items-end mb-10 lg:mb-14">
@@ -742,15 +749,12 @@ function Metodo() {
     <section id="metodo" className="relative section-pad">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         {/* Etiqueta técnica única — sem kicker+H2 duplicados */}
-        <div
-          aria-hidden
-          className="h-px w-full bg-border"
-        />
+        <div aria-hidden className="imp-rule" />
         <div className="flex items-baseline justify-between py-4 font-mono text-[10.5px] uppercase tracking-[0.26em] text-muted-foreground/70">
           <span>Método · 05 etapas</span>
           <span className="text-muted-foreground/45 tabular-nums">[ 05·05 ]</span>
         </div>
-        <div aria-hidden className="h-px w-full bg-border" />
+        <div aria-hidden className="imp-rule" />
 
         <ol>
           {pilares.map((p) => (
@@ -787,6 +791,9 @@ function FinalCTA() {
   return (
     <section className="relative section-pad overflow-hidden hairline-t">
       <div className="absolute inset-0 bg-grid opacity-[0.05] pointer-events-none" aria-hidden />
+      <span aria-hidden className="imp-coord absolute top-8 right-5 sm:right-8 lg:right-12 hidden sm:inline-flex">
+        06 · Próximo passo
+      </span>
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           {/* Ação primeiro — quebra o padrão de "texto à esquerda" */}
