@@ -246,8 +246,9 @@ function Identificacao() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
           <aside className="lg:col-span-4">
             <div className="lg:sticky lg:top-24">
-              <p className="text-mono text-[10.5px] uppercase tracking-[0.24em] text-muted-foreground/70 mb-5">
-                02 — Sintomas
+              <p className="imp-spine imp-kicker mb-5">
+                <span className="imp-bracket">02</span>
+                <span>Sintomas</span>
               </p>
               <h2 className="text-h2 text-foreground text-balance">
                 Acontece toda semana.{" "}
@@ -261,9 +262,10 @@ function Identificacao() {
             <ol>
               {cenas.map((c, i) => (
                 <li key={c.t} className="row-editorial">
-                  <div className="flex items-baseline gap-2.5 shrink-0 mt-1 sm:mt-1.5">
-                    <span className="text-mono text-[10px] sm:text-[10.5px] tracking-[0.22em] text-muted-foreground/55 tabular-nums w-5 sm:w-6">
-                      0{i + 1}
+                  <div className="flex items-center gap-2.5 shrink-0 mt-1 sm:mt-1.5">
+                    <span className="imp-mark imp-mark-muted" aria-hidden />
+                    <span className="imp-num text-[10.5px] tracking-[0.06em] text-muted-foreground/65 w-5 sm:w-6">
+                      {String(i + 1).padStart(2, "0")}
                     </span>
                     <c.icon className="h-[15px] w-[15px] text-muted-foreground/55" aria-hidden />
                   </div>
@@ -274,6 +276,7 @@ function Identificacao() {
                 </li>
               ))}
             </ol>
+
           </div>
         </div>
       </div>
