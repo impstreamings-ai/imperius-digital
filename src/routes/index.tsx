@@ -318,12 +318,13 @@ function Case() {
 
           <div className="lg:col-span-5">
             <p className="text-mono text-[10.5px] uppercase tracking-[0.22em] text-muted-foreground/70 mb-3">
-              Cliente real · Sorocaba/SP
+              Caso real · Sorocaba/SP
             </p>
             <h2 className="text-h2 text-foreground">Barbearia do Alemão</h2>
             <p className="mt-4 text-lede">
-              Menos passos entre o cliente e o agendamento.
+              Menos passos entre cliente e agendamento.
             </p>
+
 
             <div className="mt-10 grid grid-cols-2 gap-6 sm:gap-8">
               <div>
