@@ -60,9 +60,10 @@
   --popover: oklch(0.148 0.012 256);
   --popover-foreground: oklch(0.965 0.004 256);
 
-  /* Azul de ação, dessaturado — engenharia, não SaaS */
-  --primary: oklch(0.635 0.135 252);
+  /* Azul Imperius — dessaturado, leve viés ciano: distinto do azul Tailwind padrão. */
+  --primary: oklch(0.665 0.148 244);
   --primary-foreground: oklch(0.99 0 0);
+
 
   --secondary: oklch(0.245 0.009 256);
   --secondary-foreground: oklch(0.965 0.004 256);
